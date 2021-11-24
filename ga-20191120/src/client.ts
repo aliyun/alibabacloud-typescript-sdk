@@ -4,32 +4,33 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddEntriesToAclRequest extends $tea.Model {
-  regionId?: string;
-  aclId?: string;
   aclEntries?: AddEntriesToAclRequestAclEntries[];
+  aclId?: string;
   clientToken?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      aclId: 'AclId',
       aclEntries: 'AclEntries',
+      aclId: 'AclId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      aclId: 'string',
       aclEntries: { 'type': 'array', 'itemType': AddEntriesToAclRequestAclEntries },
+      aclId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -39,19 +40,19 @@ export class AddEntriesToAclRequest extends $tea.Model {
 }
 
 export class AddEntriesToAclResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -83,31 +84,31 @@ export class AddEntriesToAclResponse extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerRequest extends $tea.Model {
-  regionId?: string;
   aclIds?: string[];
-  listenerId?: string;
   aclType?: string;
   clientToken?: string;
   dryRun?: boolean;
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aclIds: 'AclIds',
-      listenerId: 'ListenerId',
       aclType: 'AclType',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aclIds: { 'type': 'array', 'itemType': 'string' },
-      listenerId: 'string',
       aclType: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -117,22 +118,22 @@ export class AssociateAclsWithListenerRequest extends $tea.Model {
 }
 
 export class AssociateAclsWithListenerResponseBody extends $tea.Model {
-  requestId?: string;
   aclIds?: string[];
   listenerId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclIds: 'AclIds',
       listenerId: 'ListenerId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclIds: { 'type': 'array', 'itemType': 'string' },
       listenerId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -164,28 +165,28 @@ export class AssociateAclsWithListenerResponse extends $tea.Model {
 }
 
 export class AssociateAdditionalCertificatesWithListenerRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
-  listenerId?: string;
   certificates?: AssociateAdditionalCertificatesWithListenerRequestCertificates[];
+  clientToken?: string;
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
       certificates: 'Certificates',
+      clientToken: 'ClientToken',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
       certificates: { 'type': 'array', 'itemType': AssociateAdditionalCertificatesWithListenerRequestCertificates },
+      clientToken: 'string',
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -195,19 +196,19 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $tea.Mod
 }
 
 export class AssociateAdditionalCertificatesWithListenerResponseBody extends $tea.Model {
-  requestId?: string;
   listenerId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       listenerId: 'ListenerId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       listenerId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -268,21 +269,21 @@ export class AttachDdosToAcceleratorRequest extends $tea.Model {
 
 export class AttachDdosToAcceleratorResponseBody extends $tea.Model {
   ddosId?: string;
-  requestId?: string;
   gaId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       ddosId: 'DdosId',
-      requestId: 'RequestId',
       gaId: 'GaId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ddosId: 'string',
-      requestId: 'string',
       gaId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -314,37 +315,37 @@ export class AttachDdosToAcceleratorResponse extends $tea.Model {
 }
 
 export class AttachLogStoreToEndpointGroupRequest extends $tea.Model {
-  regionId?: string;
-  slsProjectName?: string;
-  slsLogStoreName?: string;
   acceleratorId?: string;
-  listenerId?: string;
-  slsRegionId?: string;
-  endpointGroupIds?: string[];
   clientToken?: string;
+  endpointGroupIds?: string[];
+  listenerId?: string;
+  regionId?: string;
+  slsLogStoreName?: string;
+  slsProjectName?: string;
+  slsRegionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      slsProjectName: 'SlsProjectName',
-      slsLogStoreName: 'SlsLogStoreName',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
-      slsRegionId: 'SlsRegionId',
-      endpointGroupIds: 'EndpointGroupIds',
       clientToken: 'ClientToken',
+      endpointGroupIds: 'EndpointGroupIds',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
+      slsLogStoreName: 'SlsLogStoreName',
+      slsProjectName: 'SlsProjectName',
+      slsRegionId: 'SlsRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      slsProjectName: 'string',
-      slsLogStoreName: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
-      slsRegionId: 'string',
-      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      listenerId: 'string',
+      regionId: 'string',
+      slsLogStoreName: 'string',
+      slsProjectName: 'string',
+      slsRegionId: 'string',
     };
   }
 
@@ -395,22 +396,22 @@ export class AttachLogStoreToEndpointGroupResponse extends $tea.Model {
 }
 
 export class BandwidthPackageAddAcceleratorRequest extends $tea.Model {
-  regionId?: string;
-  bandwidthPackageId?: string;
   acceleratorId?: string;
+  bandwidthPackageId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      bandwidthPackageId: 'BandwidthPackageId',
       acceleratorId: 'AcceleratorId',
+      bandwidthPackageId: 'BandwidthPackageId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      bandwidthPackageId: 'string',
       acceleratorId: 'string',
+      bandwidthPackageId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -420,22 +421,22 @@ export class BandwidthPackageAddAcceleratorRequest extends $tea.Model {
 }
 
 export class BandwidthPackageAddAcceleratorResponseBody extends $tea.Model {
-  requestId?: string;
   accelerators?: string[];
   bandwidthPackageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accelerators: 'Accelerators',
       bandwidthPackageId: 'BandwidthPackageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accelerators: { 'type': 'array', 'itemType': 'string' },
       bandwidthPackageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -467,22 +468,22 @@ export class BandwidthPackageAddAcceleratorResponse extends $tea.Model {
 }
 
 export class BandwidthPackageRemoveAcceleratorRequest extends $tea.Model {
-  regionId?: string;
-  bandwidthPackageId?: string;
   acceleratorId?: string;
+  bandwidthPackageId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      bandwidthPackageId: 'BandwidthPackageId',
       acceleratorId: 'AcceleratorId',
+      bandwidthPackageId: 'BandwidthPackageId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      bandwidthPackageId: 'string',
       acceleratorId: 'string',
+      bandwidthPackageId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -492,22 +493,22 @@ export class BandwidthPackageRemoveAcceleratorRequest extends $tea.Model {
 }
 
 export class BandwidthPackageRemoveAcceleratorResponseBody extends $tea.Model {
-  requestId?: string;
   accelerators?: string[];
   bandwidthPackageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       accelerators: 'Accelerators',
       bandwidthPackageId: 'BandwidthPackageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       accelerators: { 'type': 'array', 'itemType': 'string' },
       bandwidthPackageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -539,37 +540,37 @@ export class BandwidthPackageRemoveAcceleratorResponse extends $tea.Model {
 }
 
 export class ConfigEndpointProbeRequest extends $tea.Model {
-  regionId?: string;
   clientToken?: string;
+  enable?: string;
+  endpoint?: string;
   endpointGroupId?: string;
   endpointType?: string;
-  endpoint?: string;
-  probeProtocol?: string;
   probePort?: string;
-  enable?: string;
+  probeProtocol?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
+      enable: 'Enable',
+      endpoint: 'Endpoint',
       endpointGroupId: 'EndpointGroupId',
       endpointType: 'EndpointType',
-      endpoint: 'Endpoint',
-      probeProtocol: 'ProbeProtocol',
       probePort: 'ProbePort',
-      enable: 'Enable',
+      probeProtocol: 'ProbeProtocol',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientToken: 'string',
+      enable: 'string',
+      endpoint: 'string',
       endpointGroupId: 'string',
       endpointType: 'string',
-      endpoint: 'string',
-      probeProtocol: 'string',
       probePort: 'string',
-      enable: 'string',
+      probeProtocol: 'string',
+      regionId: 'string',
     };
   }
 
@@ -620,37 +621,43 @@ export class ConfigEndpointProbeResponse extends $tea.Model {
 }
 
 export class CreateAcceleratorRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  name?: string;
-  duration?: number;
-  pricingCycle?: string;
-  spec?: string;
   autoPay?: boolean;
+  autoRenew?: boolean;
+  autoRenewDuration?: number;
   autoUseCoupon?: string;
+  clientToken?: string;
+  duration?: number;
+  name?: string;
+  pricingCycle?: string;
+  regionId?: string;
+  spec?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      name: 'Name',
-      duration: 'Duration',
-      pricingCycle: 'PricingCycle',
-      spec: 'Spec',
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      autoRenewDuration: 'AutoRenewDuration',
       autoUseCoupon: 'AutoUseCoupon',
+      clientToken: 'ClientToken',
+      duration: 'Duration',
+      name: 'Name',
+      pricingCycle: 'PricingCycle',
+      regionId: 'RegionId',
+      spec: 'Spec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
-      name: 'string',
-      duration: 'number',
-      pricingCycle: 'string',
-      spec: 'string',
       autoPay: 'boolean',
+      autoRenew: 'boolean',
+      autoRenewDuration: 'number',
       autoUseCoupon: 'string',
+      clientToken: 'string',
+      duration: 'number',
+      name: 'string',
+      pricingCycle: 'string',
+      regionId: 'string',
+      spec: 'string',
     };
   }
 
@@ -660,22 +667,22 @@ export class CreateAcceleratorRequest extends $tea.Model {
 }
 
 export class CreateAcceleratorResponseBody extends $tea.Model {
-  requestId?: string;
-  orderId?: string;
   acceleratorId?: string;
+  orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      orderId: 'OrderId',
       acceleratorId: 'AcceleratorId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      orderId: 'string',
       acceleratorId: 'string',
+      orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -707,31 +714,31 @@ export class CreateAcceleratorResponse extends $tea.Model {
 }
 
 export class CreateAclRequest extends $tea.Model {
-  regionId?: string;
+  aclEntries?: CreateAclRequestAclEntries[];
   aclName?: string;
   addressIPVersion?: string;
-  aclEntries?: CreateAclRequestAclEntries[];
   clientToken?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      aclEntries: 'AclEntries',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
-      aclEntries: 'AclEntries',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      aclEntries: { 'type': 'array', 'itemType': CreateAclRequestAclEntries },
       aclName: 'string',
       addressIPVersion: 'string',
-      aclEntries: { 'type': 'array', 'itemType': CreateAclRequestAclEntries },
       clientToken: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -741,19 +748,19 @@ export class CreateAclRequest extends $tea.Model {
 }
 
 export class CreateAclResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -785,55 +792,55 @@ export class CreateAclResponse extends $tea.Model {
 }
 
 export class CreateBandwidthPackageRequest extends $tea.Model {
-  regionId?: string;
-  bandwidth?: number;
-  duration?: string;
-  pricingCycle?: string;
   autoPay?: boolean;
-  clientToken?: string;
-  type?: string;
-  bandwidthType?: string;
   autoUseCoupon?: string;
-  ratio?: number;
+  bandwidth?: number;
+  bandwidthType?: string;
   billingType?: string;
-  chargeType?: string;
   cbnGeographicRegionIdA?: string;
   cbnGeographicRegionIdB?: string;
+  chargeType?: string;
+  clientToken?: string;
+  duration?: string;
+  pricingCycle?: string;
+  ratio?: number;
+  regionId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      bandwidth: 'Bandwidth',
-      duration: 'Duration',
-      pricingCycle: 'PricingCycle',
       autoPay: 'AutoPay',
-      clientToken: 'ClientToken',
-      type: 'Type',
-      bandwidthType: 'BandwidthType',
       autoUseCoupon: 'AutoUseCoupon',
-      ratio: 'Ratio',
+      bandwidth: 'Bandwidth',
+      bandwidthType: 'BandwidthType',
       billingType: 'BillingType',
-      chargeType: 'ChargeType',
       cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
       cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
+      chargeType: 'ChargeType',
+      clientToken: 'ClientToken',
+      duration: 'Duration',
+      pricingCycle: 'PricingCycle',
+      ratio: 'Ratio',
+      regionId: 'RegionId',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      bandwidth: 'number',
-      duration: 'string',
-      pricingCycle: 'string',
       autoPay: 'boolean',
-      clientToken: 'string',
-      type: 'string',
-      bandwidthType: 'string',
       autoUseCoupon: 'string',
-      ratio: 'number',
+      bandwidth: 'number',
+      bandwidthType: 'string',
       billingType: 'string',
-      chargeType: 'string',
       cbnGeographicRegionIdA: 'string',
       cbnGeographicRegionIdB: 'string',
+      chargeType: 'string',
+      clientToken: 'string',
+      duration: 'string',
+      pricingCycle: 'string',
+      ratio: 'number',
+      regionId: 'string',
+      type: 'string',
     };
   }
 
@@ -843,22 +850,22 @@ export class CreateBandwidthPackageRequest extends $tea.Model {
 }
 
 export class CreateBandwidthPackageResponseBody extends $tea.Model {
-  requestId?: string;
   bandwidthPackageId?: string;
   orderId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       bandwidthPackageId: 'BandwidthPackageId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       bandwidthPackageId: 'string',
       orderId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -889,68 +896,305 @@ export class CreateBandwidthPackageResponse extends $tea.Model {
   }
 }
 
-export class CreateEndpointGroupRequest extends $tea.Model {
-  regionId?: string;
+export class CreateBasicAcceleratorRequest extends $tea.Model {
+  autoPay?: boolean;
+  autoUseCoupon?: string;
   clientToken?: string;
-  acceleratorId?: string;
-  name?: string;
-  description?: string;
-  endpointGroupRegion?: string;
-  listenerId?: string;
-  trafficPercentage?: number;
-  healthCheckIntervalSeconds?: number;
-  healthCheckPath?: string;
-  healthCheckPort?: number;
-  healthCheckProtocol?: string;
-  thresholdCount?: number;
-  endpointConfigurations?: CreateEndpointGroupRequestEndpointConfigurations[];
-  endpointRequestProtocol?: string;
-  endpointGroupType?: string;
-  portOverrides?: CreateEndpointGroupRequestPortOverrides[];
-  healthCheckEnabled?: boolean;
+  duration?: number;
+  pricingCycle?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      autoPay: 'AutoPay',
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
-      acceleratorId: 'AcceleratorId',
-      name: 'Name',
-      description: 'Description',
-      endpointGroupRegion: 'EndpointGroupRegion',
-      listenerId: 'ListenerId',
-      trafficPercentage: 'TrafficPercentage',
-      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
-      healthCheckPath: 'HealthCheckPath',
-      healthCheckPort: 'HealthCheckPort',
-      healthCheckProtocol: 'HealthCheckProtocol',
-      thresholdCount: 'ThresholdCount',
-      endpointConfigurations: 'EndpointConfigurations',
-      endpointRequestProtocol: 'EndpointRequestProtocol',
-      endpointGroupType: 'EndpointGroupType',
-      portOverrides: 'PortOverrides',
-      healthCheckEnabled: 'HealthCheckEnabled',
+      duration: 'Duration',
+      pricingCycle: 'PricingCycle',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      autoPay: 'boolean',
+      autoUseCoupon: 'string',
       clientToken: 'string',
+      duration: 'number',
+      pricingCycle: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAcceleratorResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       acceleratorId: 'string',
-      name: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicAcceleratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBasicAcceleratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBasicAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicEndpointGroupRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  description?: string;
+  endpointAddress?: string;
+  endpointGroupRegion?: string;
+  endpointType?: string;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      endpointAddress: 'EndpointAddress',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointType: 'EndpointType',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
       description: 'string',
+      endpointAddress: 'string',
       endpointGroupRegion: 'string',
-      listenerId: 'string',
-      trafficPercentage: 'number',
+      endpointType: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicEndpointGroupResponseBody extends $tea.Model {
+  endpointGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointGroupId: 'EndpointGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpointGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBasicEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBasicEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicIpSetRequest extends $tea.Model {
+  accelerateRegionId?: string;
+  acceleratorId?: string;
+  clientToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateRegionId: 'AccelerateRegionId',
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateRegionId: 'string',
+      acceleratorId: 'string',
+      clientToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicIpSetResponseBody extends $tea.Model {
+  ipSetId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipSetId: 'IpSetId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipSetId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBasicIpSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBasicIpSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBasicIpSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateEndpointGroupRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  description?: string;
+  endpointConfigurations?: CreateEndpointGroupRequestEndpointConfigurations[];
+  endpointGroupRegion?: string;
+  endpointGroupType?: string;
+  endpointRequestProtocol?: string;
+  healthCheckEnabled?: boolean;
+  healthCheckIntervalSeconds?: number;
+  healthCheckPath?: string;
+  healthCheckPort?: number;
+  healthCheckProtocol?: string;
+  listenerId?: string;
+  name?: string;
+  portOverrides?: CreateEndpointGroupRequestPortOverrides[];
+  regionId?: string;
+  thresholdCount?: number;
+  trafficPercentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointGroupType: 'EndpointGroupType',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
+      healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      portOverrides: 'PortOverrides',
+      regionId: 'RegionId',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      clientToken: 'string',
+      description: 'string',
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupRequestEndpointConfigurations },
+      endpointGroupRegion: 'string',
+      endpointGroupType: 'string',
+      endpointRequestProtocol: 'string',
+      healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
       healthCheckPath: 'string',
       healthCheckPort: 'number',
       healthCheckProtocol: 'string',
-      thresholdCount: 'number',
-      endpointConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupRequestEndpointConfigurations },
-      endpointRequestProtocol: 'string',
-      endpointGroupType: 'string',
+      listenerId: 'string',
+      name: 'string',
       portOverrides: { 'type': 'array', 'itemType': CreateEndpointGroupRequestPortOverrides },
-      healthCheckEnabled: 'boolean',
+      regionId: 'string',
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -1004,31 +1248,31 @@ export class CreateEndpointGroupResponse extends $tea.Model {
 }
 
 export class CreateEndpointGroupsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   dryRun?: boolean;
-  acceleratorId?: string;
-  listenerId?: string;
   endpointGroupConfigurations?: CreateEndpointGroupsRequestEndpointGroupConfigurations[];
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
-      acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
       endpointGroupConfigurations: 'EndpointGroupConfigurations',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
-      listenerId: 'string',
       endpointGroupConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurations },
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1038,19 +1282,19 @@ export class CreateEndpointGroupsRequest extends $tea.Model {
 }
 
 export class CreateEndpointGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   endpointGroupIds?: string[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       endpointGroupIds: 'EndpointGroupIds',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
@@ -1082,28 +1326,28 @@ export class CreateEndpointGroupsResponse extends $tea.Model {
 }
 
 export class CreateForwardingRulesRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
-  listenerId?: string;
+  clientToken?: string;
   forwardingRules?: CreateForwardingRulesRequestForwardingRules[];
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
+      clientToken: 'ClientToken',
       forwardingRules: 'ForwardingRules',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
+      clientToken: 'string',
       forwardingRules: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRules },
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1113,19 +1357,19 @@ export class CreateForwardingRulesRequest extends $tea.Model {
 }
 
 export class CreateForwardingRulesResponseBody extends $tea.Model {
-  requestId?: string;
   forwardingRules?: CreateForwardingRulesResponseBodyForwardingRules[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       forwardingRules: 'ForwardingRules',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       forwardingRules: { 'type': 'array', 'itemType': CreateForwardingRulesResponseBodyForwardingRules },
+      requestId: 'string',
     };
   }
 
@@ -1157,25 +1401,25 @@ export class CreateForwardingRulesResponse extends $tea.Model {
 }
 
 export class CreateIpSetsRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  acceleratorId?: string;
   accelerateRegion?: CreateIpSetsRequestAccelerateRegion[];
+  acceleratorId?: string;
+  clientToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      acceleratorId: 'AcceleratorId',
       accelerateRegion: 'AccelerateRegion',
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
-      acceleratorId: 'string',
       accelerateRegion: { 'type': 'array', 'itemType': CreateIpSetsRequestAccelerateRegion },
+      acceleratorId: 'string',
+      clientToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1185,22 +1429,22 @@ export class CreateIpSetsRequest extends $tea.Model {
 }
 
 export class CreateIpSetsResponseBody extends $tea.Model {
-  requestId?: string;
-  ipSets?: CreateIpSetsResponseBodyIpSets[];
   acceleratorId?: string;
+  ipSets?: CreateIpSetsResponseBodyIpSets[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      ipSets: 'IpSets',
       acceleratorId: 'AcceleratorId',
+      ipSets: 'IpSets',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      ipSets: { 'type': 'array', 'itemType': CreateIpSetsResponseBodyIpSets },
       acceleratorId: 'string',
+      ipSets: { 'type': 'array', 'itemType': CreateIpSetsResponseBodyIpSets },
+      requestId: 'string',
     };
   }
 
@@ -1232,49 +1476,49 @@ export class CreateIpSetsResponse extends $tea.Model {
 }
 
 export class CreateListenerRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
-  name?: string;
-  description?: string;
+  certificates?: CreateListenerRequestCertificates[];
   clientAffinity?: string;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  portRanges?: CreateListenerRequestPortRanges[];
   protocol?: string;
   proxyProtocol?: boolean;
-  portRanges?: CreateListenerRequestPortRanges[];
-  certificates?: CreateListenerRequestCertificates[];
-  XForwardedForConfig?: CreateListenerRequestXForwardedForConfig;
+  regionId?: string;
   securityPolicyId?: string;
+  XForwardedForConfig?: CreateListenerRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
-      name: 'Name',
-      description: 'Description',
+      certificates: 'Certificates',
       clientAffinity: 'ClientAffinity',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      portRanges: 'PortRanges',
       protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
-      portRanges: 'PortRanges',
-      certificates: 'Certificates',
-      XForwardedForConfig: 'XForwardedForConfig',
+      regionId: 'RegionId',
       securityPolicyId: 'SecurityPolicyId',
+      XForwardedForConfig: 'XForwardedForConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
-      name: 'string',
-      description: 'string',
+      certificates: { 'type': 'array', 'itemType': CreateListenerRequestCertificates },
       clientAffinity: 'string',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': CreateListenerRequestPortRanges },
       protocol: 'string',
       proxyProtocol: 'boolean',
-      portRanges: { 'type': 'array', 'itemType': CreateListenerRequestPortRanges },
-      certificates: { 'type': 'array', 'itemType': CreateListenerRequestCertificates },
-      XForwardedForConfig: CreateListenerRequestXForwardedForConfig,
+      regionId: 'string',
       securityPolicyId: 'string',
+      XForwardedForConfig: CreateListenerRequestXForwardedForConfig,
     };
   }
 
@@ -1284,19 +1528,19 @@ export class CreateListenerRequest extends $tea.Model {
 }
 
 export class CreateListenerResponseBody extends $tea.Model {
-  requestId?: string;
   listenerId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       listenerId: 'ListenerId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       listenerId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1328,27 +1572,27 @@ export class CreateListenerResponse extends $tea.Model {
 }
 
 export class CreateSpareIpsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   dryRun?: boolean;
-  acceleratorId?: string;
+  regionId?: string;
   spareIps?: string[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
       spareIps: 'SpareIps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
+      regionId: 'string',
       spareIps: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1400,19 +1644,19 @@ export class CreateSpareIpsResponse extends $tea.Model {
 }
 
 export class DeleteAcceleratorRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1422,19 +1666,19 @@ export class DeleteAcceleratorRequest extends $tea.Model {
 }
 
 export class DeleteAcceleratorResponseBody extends $tea.Model {
-  requestId?: string;
   acceleratorId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       acceleratorId: 'AcceleratorId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       acceleratorId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1466,25 +1710,25 @@ export class DeleteAcceleratorResponse extends $tea.Model {
 }
 
 export class DeleteAclRequest extends $tea.Model {
-  regionId?: string;
   aclId?: string;
   clientToken?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aclId: 'AclId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aclId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -1494,19 +1738,19 @@ export class DeleteAclRequest extends $tea.Model {
 }
 
 export class DeleteAclResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1538,22 +1782,22 @@ export class DeleteAclResponse extends $tea.Model {
 }
 
 export class DeleteBandwidthPackageRequest extends $tea.Model {
-  regionId?: string;
   bandwidthPackageId?: string;
   clientToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       bandwidthPackageId: 'BandwidthPackageId',
       clientToken: 'ClientToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       bandwidthPackageId: 'string',
       clientToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1563,19 +1807,19 @@ export class DeleteBandwidthPackageRequest extends $tea.Model {
 }
 
 export class DeleteBandwidthPackageResponseBody extends $tea.Model {
-  requestId?: string;
   bandwidthPackageId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       bandwidthPackageId: 'BandwidthPackageId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       bandwidthPackageId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1606,14 +1850,78 @@ export class DeleteBandwidthPackageResponse extends $tea.Model {
   }
 }
 
-export class DeleteEndpointGroupRequest extends $tea.Model {
-  clientToken?: string;
+export class DeleteBasicAcceleratorRequest extends $tea.Model {
   acceleratorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAcceleratorResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicAcceleratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBasicAcceleratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBasicAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointGroupRequest extends $tea.Model {
+  clientToken?: string;
   endpointGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      acceleratorId: 'AcceleratorId',
       endpointGroupId: 'EndpointGroupId',
     };
   }
@@ -1621,7 +1929,138 @@ export class DeleteEndpointGroupRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      endpointGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBasicEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBasicEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicIpSetRequest extends $tea.Model {
+  clientToken?: string;
+  ipSetId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ipSetId: 'IpSetId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ipSetId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicIpSetResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBasicIpSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBasicIpSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBasicIpSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEndpointGroupRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  endpointGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      endpointGroupId: 'EndpointGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       acceleratorId: 'string',
+      clientToken: 'string',
       endpointGroupId: 'string',
     };
   }
@@ -1673,25 +2112,25 @@ export class DeleteEndpointGroupResponse extends $tea.Model {
 }
 
 export class DeleteEndpointGroupsRequest extends $tea.Model {
-  regionId?: string;
   clientToken?: string;
   dryRun?: boolean;
   endpointGroupIds?: string[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       endpointGroupIds: 'EndpointGroupIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
       endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
     };
   }
 
@@ -1742,28 +2181,28 @@ export class DeleteEndpointGroupsResponse extends $tea.Model {
 }
 
 export class DeleteForwardingRulesRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   forwardingRuleIds?: string[];
-  acceleratorId?: string;
   listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       forwardingRuleIds: 'ForwardingRuleIds',
-      acceleratorId: 'AcceleratorId',
       listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
-      acceleratorId: 'string',
       listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1817,25 +2256,25 @@ export class DeleteForwardingRulesResponse extends $tea.Model {
 }
 
 export class DeleteIpSetRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
+  clientToken?: string;
   ipSetId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
       ipSetId: 'IpSetId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
+      clientToken: 'string',
       ipSetId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1886,19 +2325,19 @@ export class DeleteIpSetResponse extends $tea.Model {
 }
 
 export class DeleteIpSetsRequest extends $tea.Model {
-  regionId?: string;
   ipSetIds?: string[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       ipSetIds: 'IpSetIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       ipSetIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
     };
   }
 
@@ -1949,21 +2388,21 @@ export class DeleteIpSetsResponse extends $tea.Model {
 }
 
 export class DeleteListenerRequest extends $tea.Model {
-  clientToken?: string;
   acceleratorId?: string;
+  clientToken?: string;
   listenerId?: string;
   static names(): { [key: string]: string } {
     return {
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
       listenerId: 'ListenerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientToken: 'string',
       acceleratorId: 'string',
+      clientToken: 'string',
       listenerId: 'string',
     };
   }
@@ -2015,27 +2454,27 @@ export class DeleteListenerResponse extends $tea.Model {
 }
 
 export class DeleteSpareIpsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   dryRun?: boolean;
-  acceleratorId?: string;
+  regionId?: string;
   spareIps?: string[];
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
       spareIps: 'SpareIps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
+      regionId: 'string',
       spareIps: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2087,19 +2526,19 @@ export class DeleteSpareIpsResponse extends $tea.Model {
 }
 
 export class DescribeAcceleratorRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2109,61 +2548,61 @@ export class DescribeAcceleratorRequest extends $tea.Model {
 }
 
 export class DescribeAcceleratorResponseBody extends $tea.Model {
-  ddosId?: string;
-  dnsName?: string;
-  description?: string;
-  requestId?: string;
-  instanceChargeType?: string;
+  acceleratorId?: string;
+  basicBandwidthPackage?: DescribeAcceleratorResponseBodyBasicBandwidthPackage;
+  cenId?: string;
   createTime?: number;
   crossDomainBandwidthPackage?: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage;
-  secondDnsName?: string;
-  name?: string;
-  basicBandwidthPackage?: DescribeAcceleratorResponseBodyBasicBandwidthPackage;
-  state?: string;
+  ddosId?: string;
+  description?: string;
+  dnsName?: string;
   expiredTime?: number;
-  cenId?: string;
+  instanceChargeType?: string;
+  name?: string;
   regionId?: string;
+  requestId?: string;
+  secondDnsName?: string;
   spec?: string;
-  acceleratorId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      ddosId: 'DdosId',
-      dnsName: 'DnsName',
-      description: 'Description',
-      requestId: 'RequestId',
-      instanceChargeType: 'InstanceChargeType',
+      acceleratorId: 'AcceleratorId',
+      basicBandwidthPackage: 'BasicBandwidthPackage',
+      cenId: 'CenId',
       createTime: 'CreateTime',
       crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
-      secondDnsName: 'SecondDnsName',
-      name: 'Name',
-      basicBandwidthPackage: 'BasicBandwidthPackage',
-      state: 'State',
+      ddosId: 'DdosId',
+      description: 'Description',
+      dnsName: 'DnsName',
       expiredTime: 'ExpiredTime',
-      cenId: 'CenId',
+      instanceChargeType: 'InstanceChargeType',
+      name: 'Name',
       regionId: 'RegionId',
+      requestId: 'RequestId',
+      secondDnsName: 'SecondDnsName',
       spec: 'Spec',
-      acceleratorId: 'AcceleratorId',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ddosId: 'string',
-      dnsName: 'string',
-      description: 'string',
-      requestId: 'string',
-      instanceChargeType: 'string',
+      acceleratorId: 'string',
+      basicBandwidthPackage: DescribeAcceleratorResponseBodyBasicBandwidthPackage,
+      cenId: 'string',
       createTime: 'number',
       crossDomainBandwidthPackage: DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage,
-      secondDnsName: 'string',
-      name: 'string',
-      basicBandwidthPackage: DescribeAcceleratorResponseBodyBasicBandwidthPackage,
-      state: 'string',
+      ddosId: 'string',
+      description: 'string',
+      dnsName: 'string',
       expiredTime: 'number',
-      cenId: 'string',
+      instanceChargeType: 'string',
+      name: 'string',
       regionId: 'string',
+      requestId: 'string',
+      secondDnsName: 'string',
       spec: 'string',
-      acceleratorId: 'string',
+      state: 'string',
     };
   }
 
@@ -2195,19 +2634,19 @@ export class DescribeAcceleratorResponse extends $tea.Model {
 }
 
 export class DescribeBandwidthPackageRequest extends $tea.Model {
-  regionId?: string;
   bandwidthPackageId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       bandwidthPackageId: 'BandwidthPackageId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       bandwidthPackageId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2217,64 +2656,64 @@ export class DescribeBandwidthPackageRequest extends $tea.Model {
 }
 
 export class DescribeBandwidthPackageResponseBody extends $tea.Model {
-  cbnGeographicRegionIdB?: string;
-  cbnGeographicRegionIdA?: string;
-  description?: string;
-  requestId?: string;
-  createTime?: string;
-  name?: string;
-  bandwidthType?: string;
-  type?: string;
   accelerators?: string[];
-  state?: string;
-  chargeType?: string;
   bandwidth?: number;
-  expiredTime?: string;
   bandwidthPackageId?: string;
-  regionId?: string;
+  bandwidthType?: string;
   billingType?: string;
+  cbnGeographicRegionIdA?: string;
+  cbnGeographicRegionIdB?: string;
+  chargeType?: string;
+  createTime?: string;
+  description?: string;
+  expiredTime?: string;
+  name?: string;
   ratio?: number;
+  regionId?: string;
+  requestId?: string;
+  state?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
-      cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
-      description: 'Description',
-      requestId: 'RequestId',
-      createTime: 'CreateTime',
-      name: 'Name',
-      bandwidthType: 'BandwidthType',
-      type: 'Type',
       accelerators: 'Accelerators',
-      state: 'State',
-      chargeType: 'ChargeType',
       bandwidth: 'Bandwidth',
-      expiredTime: 'ExpiredTime',
       bandwidthPackageId: 'BandwidthPackageId',
-      regionId: 'RegionId',
+      bandwidthType: 'BandwidthType',
       billingType: 'BillingType',
+      cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
+      cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      name: 'Name',
       ratio: 'Ratio',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      state: 'State',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cbnGeographicRegionIdB: 'string',
-      cbnGeographicRegionIdA: 'string',
-      description: 'string',
-      requestId: 'string',
-      createTime: 'string',
-      name: 'string',
-      bandwidthType: 'string',
-      type: 'string',
       accelerators: { 'type': 'array', 'itemType': 'string' },
-      state: 'string',
-      chargeType: 'string',
       bandwidth: 'number',
-      expiredTime: 'string',
       bandwidthPackageId: 'string',
-      regionId: 'string',
+      bandwidthType: 'string',
       billingType: 'string',
+      cbnGeographicRegionIdA: 'string',
+      cbnGeographicRegionIdB: 'string',
+      chargeType: 'string',
+      createTime: 'string',
+      description: 'string',
+      expiredTime: 'string',
+      name: 'string',
       ratio: 'number',
+      regionId: 'string',
+      requestId: 'string',
+      state: 'string',
+      type: 'string',
     };
   }
 
@@ -2306,19 +2745,19 @@ export class DescribeBandwidthPackageResponse extends $tea.Model {
 }
 
 export class DescribeEndpointGroupRequest extends $tea.Model {
-  regionId?: string;
   endpointGroupId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       endpointGroupId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2328,97 +2767,97 @@ export class DescribeEndpointGroupRequest extends $tea.Model {
 }
 
 export class DescribeEndpointGroupResponseBody extends $tea.Model {
-  healthCheckIntervalSeconds?: number;
-  trafficPercentage?: number;
-  endpointGroupId?: string;
-  description?: string;
-  endpointGroupIpList?: string[];
-  endpointGroupUnconfirmedIpList?: string[];
-  requestId?: string;
-  healthCheckPath?: string;
-  thresholdCount?: number;
-  name?: string;
-  endpointGroupRegion?: string;
-  totalCount?: number;
-  state?: string;
-  healthCheckProtocol?: string;
-  healthCheckPort?: number;
-  endpointConfigurations?: DescribeEndpointGroupResponseBodyEndpointConfigurations[];
-  portOverrides?: DescribeEndpointGroupResponseBodyPortOverrides[];
-  endpointRequestProtocol?: string;
-  endpointGroupType?: string;
-  forwardingRuleIds?: string[];
   acceleratorId?: string;
-  listenerId?: string;
-  slsRegion?: string;
-  slsProjectName?: string;
-  slsLogStoreName?: string;
   accessLogSwitch?: string;
+  description?: string;
   enableAccessLog?: boolean;
+  endpointConfigurations?: DescribeEndpointGroupResponseBodyEndpointConfigurations[];
+  endpointGroupId?: string;
+  endpointGroupIpList?: string[];
+  endpointGroupRegion?: string;
+  endpointGroupType?: string;
+  endpointGroupUnconfirmedIpList?: string[];
+  endpointRequestProtocol?: string;
+  forwardingRuleIds?: string[];
   healthCheckEnabled?: boolean;
+  healthCheckIntervalSeconds?: number;
+  healthCheckPath?: string;
+  healthCheckPort?: number;
+  healthCheckProtocol?: string;
+  listenerId?: string;
+  name?: string;
+  portOverrides?: DescribeEndpointGroupResponseBodyPortOverrides[];
+  requestId?: string;
+  slsLogStoreName?: string;
+  slsProjectName?: string;
+  slsRegion?: string;
+  state?: string;
+  thresholdCount?: number;
+  totalCount?: number;
+  trafficPercentage?: number;
   static names(): { [key: string]: string } {
     return {
-      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
-      trafficPercentage: 'TrafficPercentage',
-      endpointGroupId: 'EndpointGroupId',
-      description: 'Description',
-      endpointGroupIpList: 'EndpointGroupIpList',
-      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
-      requestId: 'RequestId',
-      healthCheckPath: 'HealthCheckPath',
-      thresholdCount: 'ThresholdCount',
-      name: 'Name',
-      endpointGroupRegion: 'EndpointGroupRegion',
-      totalCount: 'TotalCount',
-      state: 'State',
-      healthCheckProtocol: 'HealthCheckProtocol',
-      healthCheckPort: 'HealthCheckPort',
-      endpointConfigurations: 'EndpointConfigurations',
-      portOverrides: 'PortOverrides',
-      endpointRequestProtocol: 'EndpointRequestProtocol',
-      endpointGroupType: 'EndpointGroupType',
-      forwardingRuleIds: 'ForwardingRuleIds',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
-      slsRegion: 'SlsRegion',
-      slsProjectName: 'SlsProjectName',
-      slsLogStoreName: 'SlsLogStoreName',
       accessLogSwitch: 'AccessLogSwitch',
+      description: 'Description',
       enableAccessLog: 'EnableAccessLog',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupIpList: 'EndpointGroupIpList',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointGroupType: 'EndpointGroupType',
+      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
+      forwardingRuleIds: 'ForwardingRuleIds',
       healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      portOverrides: 'PortOverrides',
+      requestId: 'RequestId',
+      slsLogStoreName: 'SlsLogStoreName',
+      slsProjectName: 'SlsProjectName',
+      slsRegion: 'SlsRegion',
+      state: 'State',
+      thresholdCount: 'ThresholdCount',
+      totalCount: 'TotalCount',
+      trafficPercentage: 'TrafficPercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      healthCheckIntervalSeconds: 'number',
-      trafficPercentage: 'number',
-      endpointGroupId: 'string',
-      description: 'string',
-      endpointGroupIpList: { 'type': 'array', 'itemType': 'string' },
-      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-      healthCheckPath: 'string',
-      thresholdCount: 'number',
-      name: 'string',
-      endpointGroupRegion: 'string',
-      totalCount: 'number',
-      state: 'string',
-      healthCheckProtocol: 'string',
-      healthCheckPort: 'number',
-      endpointConfigurations: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyEndpointConfigurations },
-      portOverrides: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyPortOverrides },
-      endpointRequestProtocol: 'string',
-      endpointGroupType: 'string',
-      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       acceleratorId: 'string',
-      listenerId: 'string',
-      slsRegion: 'string',
-      slsProjectName: 'string',
-      slsLogStoreName: 'string',
       accessLogSwitch: 'string',
+      description: 'string',
       enableAccessLog: 'boolean',
+      endpointConfigurations: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyEndpointConfigurations },
+      endpointGroupId: 'string',
+      endpointGroupIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointGroupRegion: 'string',
+      endpointGroupType: 'string',
+      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
+      endpointRequestProtocol: 'string',
+      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       healthCheckEnabled: 'boolean',
+      healthCheckIntervalSeconds: 'number',
+      healthCheckPath: 'string',
+      healthCheckPort: 'number',
+      healthCheckProtocol: 'string',
+      listenerId: 'string',
+      name: 'string',
+      portOverrides: { 'type': 'array', 'itemType': DescribeEndpointGroupResponseBodyPortOverrides },
+      requestId: 'string',
+      slsLogStoreName: 'string',
+      slsProjectName: 'string',
+      slsRegion: 'string',
+      state: 'string',
+      thresholdCount: 'number',
+      totalCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -2450,19 +2889,19 @@ export class DescribeEndpointGroupResponse extends $tea.Model {
 }
 
 export class DescribeIpSetRequest extends $tea.Model {
-  regionId?: string;
   ipSetId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       ipSetId: 'IpSetId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       ipSetId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2472,37 +2911,37 @@ export class DescribeIpSetRequest extends $tea.Model {
 }
 
 export class DescribeIpSetResponseBody extends $tea.Model {
-  ipSetId?: string;
-  requestId?: string;
-  ipVersion?: string;
-  state?: string;
-  bandwidth?: number;
-  ipAddressList?: string[];
   accelerateRegionId?: string;
   acceleratorId?: string;
+  bandwidth?: number;
+  ipAddressList?: string[];
+  ipSetId?: string;
+  ipVersion?: string;
+  requestId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      ipSetId: 'IpSetId',
-      requestId: 'RequestId',
-      ipVersion: 'IpVersion',
-      state: 'State',
-      bandwidth: 'Bandwidth',
-      ipAddressList: 'IpAddressList',
       accelerateRegionId: 'AccelerateRegionId',
       acceleratorId: 'AcceleratorId',
+      bandwidth: 'Bandwidth',
+      ipAddressList: 'IpAddressList',
+      ipSetId: 'IpSetId',
+      ipVersion: 'IpVersion',
+      requestId: 'RequestId',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ipSetId: 'string',
-      requestId: 'string',
-      ipVersion: 'string',
-      state: 'string',
-      bandwidth: 'number',
-      ipAddressList: { 'type': 'array', 'itemType': 'string' },
       accelerateRegionId: 'string',
       acceleratorId: 'string',
+      bandwidth: 'number',
+      ipAddressList: { 'type': 'array', 'itemType': 'string' },
+      ipSetId: 'string',
+      ipVersion: 'string',
+      requestId: 'string',
+      state: 'string',
     };
   }
 
@@ -2534,19 +2973,19 @@ export class DescribeIpSetResponse extends $tea.Model {
 }
 
 export class DescribeListenerRequest extends $tea.Model {
-  regionId?: string;
   listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2556,64 +2995,64 @@ export class DescribeListenerRequest extends $tea.Model {
 }
 
 export class DescribeListenerResponseBody extends $tea.Model {
-  description?: string;
-  requestId?: string;
-  state?: string;
-  createTime?: string;
-  portRanges?: DescribeListenerResponseBodyPortRanges[];
+  acceleratorId?: string;
+  aclType?: string;
   backendPorts?: DescribeListenerResponseBodyBackendPorts[];
   certificates?: DescribeListenerResponseBodyCertificates[];
-  protocol?: string;
-  listenerId?: string;
   clientAffinity?: string;
+  createTime?: string;
+  description?: string;
+  listenerId?: string;
   name?: string;
-  relatedAcls?: DescribeListenerResponseBodyRelatedAcls[];
-  aclType?: string;
-  acceleratorId?: string;
+  portRanges?: DescribeListenerResponseBodyPortRanges[];
+  protocol?: string;
   proxyProtocol?: boolean;
-  XForwardedForConfig?: DescribeListenerResponseBodyXForwardedForConfig;
+  relatedAcls?: DescribeListenerResponseBodyRelatedAcls[];
+  requestId?: string;
   securityPolicyId?: string;
+  state?: string;
+  XForwardedForConfig?: DescribeListenerResponseBodyXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
-      description: 'Description',
-      requestId: 'RequestId',
-      state: 'State',
-      createTime: 'CreateTime',
-      portRanges: 'PortRanges',
+      acceleratorId: 'AcceleratorId',
+      aclType: 'AclType',
       backendPorts: 'BackendPorts',
       certificates: 'Certificates',
-      protocol: 'Protocol',
-      listenerId: 'ListenerId',
       clientAffinity: 'ClientAffinity',
+      createTime: 'CreateTime',
+      description: 'Description',
+      listenerId: 'ListenerId',
       name: 'Name',
-      relatedAcls: 'RelatedAcls',
-      aclType: 'AclType',
-      acceleratorId: 'AcceleratorId',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
       proxyProtocol: 'ProxyProtocol',
-      XForwardedForConfig: 'XForwardedForConfig',
+      relatedAcls: 'RelatedAcls',
+      requestId: 'RequestId',
       securityPolicyId: 'SecurityPolicyId',
+      state: 'State',
+      XForwardedForConfig: 'XForwardedForConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      requestId: 'string',
-      state: 'string',
-      createTime: 'string',
-      portRanges: { 'type': 'array', 'itemType': DescribeListenerResponseBodyPortRanges },
+      acceleratorId: 'string',
+      aclType: 'string',
       backendPorts: { 'type': 'array', 'itemType': DescribeListenerResponseBodyBackendPorts },
       certificates: { 'type': 'array', 'itemType': DescribeListenerResponseBodyCertificates },
-      protocol: 'string',
-      listenerId: 'string',
       clientAffinity: 'string',
+      createTime: 'string',
+      description: 'string',
+      listenerId: 'string',
       name: 'string',
-      relatedAcls: { 'type': 'array', 'itemType': DescribeListenerResponseBodyRelatedAcls },
-      aclType: 'string',
-      acceleratorId: 'string',
+      portRanges: { 'type': 'array', 'itemType': DescribeListenerResponseBodyPortRanges },
+      protocol: 'string',
       proxyProtocol: 'boolean',
-      XForwardedForConfig: DescribeListenerResponseBodyXForwardedForConfig,
+      relatedAcls: { 'type': 'array', 'itemType': DescribeListenerResponseBodyRelatedAcls },
+      requestId: 'string',
       securityPolicyId: 'string',
+      state: 'string',
+      XForwardedForConfig: DescribeListenerResponseBodyXForwardedForConfig,
     };
   }
 
@@ -2664,19 +3103,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -2774,28 +3213,28 @@ export class DetachDdosFromAcceleratorResponse extends $tea.Model {
 }
 
 export class DetachLogStoreFromEndpointGroupRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
-  listenerId?: string;
-  endpointGroupIds?: string[];
   clientToken?: string;
+  endpointGroupIds?: string[];
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
-      endpointGroupIds: 'EndpointGroupIds',
       clientToken: 'ClientToken',
+      endpointGroupIds: 'EndpointGroupIds',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
-      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2846,28 +3285,28 @@ export class DetachLogStoreFromEndpointGroupResponse extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerRequest extends $tea.Model {
-  regionId?: string;
   aclIds?: string[];
-  listenerId?: string;
   clientToken?: string;
   dryRun?: boolean;
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aclIds: 'AclIds',
-      listenerId: 'ListenerId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aclIds: { 'type': 'array', 'itemType': 'string' },
-      listenerId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2877,22 +3316,22 @@ export class DissociateAclsFromListenerRequest extends $tea.Model {
 }
 
 export class DissociateAclsFromListenerResponseBody extends $tea.Model {
-  requestId?: string;
   aclIds?: string[];
   listenerId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclIds: 'AclIds',
       listenerId: 'ListenerId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclIds: { 'type': 'array', 'itemType': 'string' },
       listenerId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2924,28 +3363,28 @@ export class DissociateAclsFromListenerResponse extends $tea.Model {
 }
 
 export class DissociateAdditionalCertificatesFromListenerRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
-  listenerId?: string;
+  clientToken?: string;
   domains?: string[];
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
+      clientToken: 'ClientToken',
       domains: 'Domains',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
+      clientToken: 'string',
       domains: { 'type': 'array', 'itemType': 'string' },
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2996,19 +3435,19 @@ export class DissociateAdditionalCertificatesFromListenerResponse extends $tea.M
 }
 
 export class GetAclRequest extends $tea.Model {
-  regionId?: string;
   aclId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aclId: 'AclId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aclId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3018,34 +3457,34 @@ export class GetAclRequest extends $tea.Model {
 }
 
 export class GetAclResponseBody extends $tea.Model {
-  requestId?: string;
-  aclId?: string;
-  addressIPVersion?: string;
-  aclStatus?: string;
   aclEntries?: GetAclResponseBodyAclEntries[];
-  relatedListeners?: GetAclResponseBodyRelatedListeners[];
+  aclId?: string;
   aclName?: string;
+  aclStatus?: string;
+  addressIPVersion?: string;
+  relatedListeners?: GetAclResponseBodyRelatedListeners[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      aclId: 'AclId',
-      addressIPVersion: 'AddressIPVersion',
-      aclStatus: 'AclStatus',
       aclEntries: 'AclEntries',
-      relatedListeners: 'RelatedListeners',
+      aclId: 'AclId',
       aclName: 'AclName',
+      aclStatus: 'AclStatus',
+      addressIPVersion: 'AddressIPVersion',
+      relatedListeners: 'RelatedListeners',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      aclId: 'string',
-      addressIPVersion: 'string',
-      aclStatus: 'string',
       aclEntries: { 'type': 'array', 'itemType': GetAclResponseBodyAclEntries },
-      relatedListeners: { 'type': 'array', 'itemType': GetAclResponseBodyRelatedListeners },
+      aclId: 'string',
       aclName: 'string',
+      aclStatus: 'string',
+      addressIPVersion: 'string',
+      relatedListeners: { 'type': 'array', 'itemType': GetAclResponseBodyRelatedListeners },
+      requestId: 'string',
     };
   }
 
@@ -3076,29 +3515,308 @@ export class GetAclResponse extends $tea.Model {
   }
 }
 
-export class GetHealthStatusRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  dryRun?: boolean;
+export class GetBasicAcceleratorRequest extends $tea.Model {
   acceleratorId?: string;
-  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      dryRun: 'DryRun',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAcceleratorResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  basicBandwidthPackage?: GetBasicAcceleratorResponseBodyBasicBandwidthPackage;
+  basicEndpointGroupId?: string;
+  basicIpSetId?: string;
+  cenId?: string;
+  createTime?: number;
+  crossDomainBandwidthPackage?: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage;
+  description?: string;
+  expiredTime?: number;
+  instanceChargeType?: string;
+  name?: string;
+  regionId?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      basicBandwidthPackage: 'BasicBandwidthPackage',
+      basicEndpointGroupId: 'BasicEndpointGroupId',
+      basicIpSetId: 'BasicIpSetId',
+      cenId: 'CenId',
+      createTime: 'CreateTime',
+      crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      instanceChargeType: 'InstanceChargeType',
+      name: 'Name',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      basicBandwidthPackage: GetBasicAcceleratorResponseBodyBasicBandwidthPackage,
+      basicEndpointGroupId: 'string',
+      basicIpSetId: 'string',
+      cenId: 'string',
+      createTime: 'number',
+      crossDomainBandwidthPackage: GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage,
+      description: 'string',
+      expiredTime: 'number',
+      instanceChargeType: 'string',
+      name: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAcceleratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBasicAcceleratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBasicAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicEndpointGroupRequest extends $tea.Model {
+  clientToken?: string;
+  endpointGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      endpointGroupId: 'EndpointGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      endpointGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicEndpointGroupResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  description?: string;
+  endpointAddress?: string;
+  endpointGroupId?: string;
+  endpointGroupRegion?: string;
+  endpointType?: string;
+  name?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      description: 'Description',
+      endpointAddress: 'EndpointAddress',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointType: 'EndpointType',
+      name: 'Name',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      description: 'string',
+      endpointAddress: 'string',
+      endpointGroupId: 'string',
+      endpointGroupRegion: 'string',
+      endpointType: 'string',
+      name: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBasicEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBasicEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicIpSetRequest extends $tea.Model {
+  clientToken?: string;
+  ipSetId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      ipSetId: 'IpSetId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      ipSetId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicIpSetResponseBody extends $tea.Model {
+  accelerateRegionId?: string;
+  acceleratorId?: string;
+  bandwidth?: number;
+  ipAddress?: string;
+  ipSetId?: string;
+  ipVersion?: string;
+  requestId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateRegionId: 'AccelerateRegionId',
+      acceleratorId: 'AcceleratorId',
+      bandwidth: 'Bandwidth',
+      ipAddress: 'IpAddress',
+      ipSetId: 'IpSetId',
+      ipVersion: 'IpVersion',
+      requestId: 'RequestId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateRegionId: 'string',
+      acceleratorId: 'string',
+      bandwidth: 'number',
+      ipAddress: 'string',
+      ipSetId: 'string',
+      ipVersion: 'string',
+      requestId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicIpSetResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetBasicIpSetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetBasicIpSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHealthStatusRequest extends $tea.Model {
+  acceleratorId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  listenerId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
       listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3108,25 +3826,25 @@ export class GetHealthStatusRequest extends $tea.Model {
 }
 
 export class GetHealthStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  listenerId?: string;
-  healthStatus?: string;
   endpointGroups?: GetHealthStatusResponseBodyEndpointGroups[];
+  healthStatus?: string;
+  listenerId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      listenerId: 'ListenerId',
-      healthStatus: 'HealthStatus',
       endpointGroups: 'EndpointGroups',
+      healthStatus: 'HealthStatus',
+      listenerId: 'ListenerId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      listenerId: 'string',
-      healthStatus: 'string',
       endpointGroups: { 'type': 'array', 'itemType': GetHealthStatusResponseBodyEndpointGroups },
+      healthStatus: 'string',
+      listenerId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -3158,27 +3876,27 @@ export class GetHealthStatusResponse extends $tea.Model {
 }
 
 export class GetSpareIpRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   dryRun?: boolean;
-  acceleratorId?: string;
+  regionId?: string;
   spareIp?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
       spareIp: 'SpareIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
+      regionId: 'string',
       spareIp: 'string',
     };
   }
@@ -3252,19 +3970,19 @@ export class ListAccelerateAreasRequest extends $tea.Model {
 }
 
 export class ListAccelerateAreasResponseBody extends $tea.Model {
-  requestId?: string;
   areas?: ListAccelerateAreasResponseBodyAreas[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       areas: 'Areas',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       areas: { 'type': 'array', 'itemType': ListAccelerateAreasResponseBodyAreas },
+      requestId: 'string',
     };
   }
 
@@ -3296,27 +4014,27 @@ export class ListAccelerateAreasResponse extends $tea.Model {
 }
 
 export class ListAcceleratorsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   pageNumber?: number;
   pageSize?: number;
-  acceleratorId?: string;
+  regionId?: string;
   state?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
       state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      acceleratorId: 'string',
+      regionId: 'string',
       state: 'string',
     };
   }
@@ -3327,28 +4045,28 @@ export class ListAcceleratorsRequest extends $tea.Model {
 }
 
 export class ListAcceleratorsResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
   accelerators?: ListAcceleratorsResponseBodyAccelerators[];
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
       accelerators: 'Accelerators',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
       accelerators: { 'type': 'array', 'itemType': ListAcceleratorsResponseBodyAccelerators },
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -3380,31 +4098,31 @@ export class ListAcceleratorsResponse extends $tea.Model {
 }
 
 export class ListAclsRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   aclIds?: string[];
   aclName?: string;
-  nextToken?: string;
+  clientToken?: string;
   maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       aclIds: 'AclIds',
       aclName: 'AclName',
-      nextToken: 'NextToken',
+      clientToken: 'ClientToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       aclIds: { 'type': 'array', 'itemType': 'string' },
       aclName: 'string',
-      nextToken: 'string',
+      clientToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3414,28 +4132,28 @@ export class ListAclsRequest extends $tea.Model {
 }
 
 export class ListAclsResponseBody extends $tea.Model {
+  acls?: ListAclsResponseBodyAcls[];
+  maxResults?: number;
+  nextToken?: string;
   requestId?: string;
   totalCount?: number;
-  nextToken?: string;
-  maxResults?: number;
-  acls?: ListAclsResponseBodyAcls[];
   static names(): { [key: string]: string } {
     return {
+      acls: 'Acls',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      acls: 'Acls',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acls: { 'type': 'array', 'itemType': ListAclsResponseBodyAcls },
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       totalCount: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      acls: { 'type': 'array', 'itemType': ListAclsResponseBodyAcls },
     };
   }
 
@@ -3467,19 +4185,19 @@ export class ListAclsResponse extends $tea.Model {
 }
 
 export class ListAvailableAccelerateAreasRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3489,19 +4207,19 @@ export class ListAvailableAccelerateAreasRequest extends $tea.Model {
 }
 
 export class ListAvailableAccelerateAreasResponseBody extends $tea.Model {
-  requestId?: string;
   areas?: ListAvailableAccelerateAreasResponseBodyAreas[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       areas: 'Areas',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       areas: { 'type': 'array', 'itemType': ListAvailableAccelerateAreasResponseBodyAreas },
+      requestId: 'string',
     };
   }
 
@@ -3533,19 +4251,19 @@ export class ListAvailableAccelerateAreasResponse extends $tea.Model {
 }
 
 export class ListAvailableBusiRegionsRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3555,19 +4273,19 @@ export class ListAvailableBusiRegionsRequest extends $tea.Model {
 }
 
 export class ListAvailableBusiRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: ListAvailableBusiRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': ListAvailableBusiRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -3598,110 +4316,32 @@ export class ListAvailableBusiRegionsResponse extends $tea.Model {
   }
 }
 
-export class ListBandwidthackagesRequest extends $tea.Model {
-  regionId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBandwidthackagesResponseBody extends $tea.Model {
-  totalCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  pageNumber?: number;
-  bandwidthPackages?: ListBandwidthackagesResponseBodyBandwidthPackages[];
-  static names(): { [key: string]: string } {
-    return {
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      bandwidthPackages: 'BandwidthPackages',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      pageNumber: 'number',
-      bandwidthPackages: { 'type': 'array', 'itemType': ListBandwidthackagesResponseBodyBandwidthPackages },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListBandwidthackagesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListBandwidthackagesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListBandwidthackagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListBandwidthPackagesRequest extends $tea.Model {
-  regionId?: string;
+  bandwidthPackageId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   state?: string;
   type?: string;
-  bandwidthPackageId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      bandwidthPackageId: 'BandwidthPackageId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       state: 'State',
       type: 'Type',
-      bandwidthPackageId: 'BandwidthPackageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      bandwidthPackageId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       state: 'string',
       type: 'string',
-      bandwidthPackageId: 'string',
     };
   }
 
@@ -3711,28 +4351,28 @@ export class ListBandwidthPackagesRequest extends $tea.Model {
 }
 
 export class ListBandwidthPackagesResponseBody extends $tea.Model {
-  totalCount?: number;
+  bandwidthPackages?: ListBandwidthPackagesResponseBodyBandwidthPackages[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  bandwidthPackages?: ListBandwidthPackagesResponseBodyBandwidthPackages[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      bandwidthPackages: 'BandwidthPackages',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      bandwidthPackages: 'BandwidthPackages',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      bandwidthPackages: { 'type': 'array', 'itemType': ListBandwidthPackagesResponseBodyBandwidthPackages },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      bandwidthPackages: { 'type': 'array', 'itemType': ListBandwidthPackagesResponseBodyBandwidthPackages },
+      totalCount: 'number',
     };
   }
 
@@ -3763,6 +4403,168 @@ export class ListBandwidthPackagesResponse extends $tea.Model {
   }
 }
 
+export class ListBandwidthackagesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBandwidthackagesResponseBody extends $tea.Model {
+  bandwidthPackages?: ListBandwidthackagesResponseBodyBandwidthPackages[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackages: 'BandwidthPackages',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackages: { 'type': 'array', 'itemType': ListBandwidthackagesResponseBodyBandwidthPackages },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBandwidthackagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBandwidthackagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBandwidthackagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsRequest extends $tea.Model {
+  acceleratorId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsResponseBody extends $tea.Model {
+  accelerators?: ListBasicAcceleratorsResponseBodyAccelerators[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accelerators: 'Accelerators',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerators: { 'type': 'array', 'itemType': ListBasicAcceleratorsResponseBodyAccelerators },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListBasicAcceleratorsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListBasicAcceleratorsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListBusiRegionsRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3783,19 +4585,19 @@ export class ListBusiRegionsRequest extends $tea.Model {
 }
 
 export class ListBusiRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: ListBusiRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': ListBusiRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -3827,37 +4629,37 @@ export class ListBusiRegionsResponse extends $tea.Model {
 }
 
 export class ListEndpointGroupsRequest extends $tea.Model {
-  regionId?: string;
-  pageNumber?: number;
-  pageSize?: number;
   acceleratorId?: string;
-  listenerId?: string;
-  endpointGroupType?: string;
   accessLogSwitch?: string;
   endpointGroupId?: string;
+  endpointGroupType?: string;
+  listenerId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
-      endpointGroupType: 'EndpointGroupType',
       accessLogSwitch: 'AccessLogSwitch',
       endpointGroupId: 'EndpointGroupId',
+      endpointGroupType: 'EndpointGroupType',
+      listenerId: 'ListenerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
       acceleratorId: 'string',
-      listenerId: 'string',
-      endpointGroupType: 'string',
       accessLogSwitch: 'string',
       endpointGroupId: 'string',
+      endpointGroupType: 'string',
+      listenerId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -3867,28 +4669,28 @@ export class ListEndpointGroupsRequest extends $tea.Model {
 }
 
 export class ListEndpointGroupsResponseBody extends $tea.Model {
-  totalCount?: number;
+  endpointGroups?: ListEndpointGroupsResponseBodyEndpointGroups[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  endpointGroups?: ListEndpointGroupsResponseBodyEndpointGroups[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      endpointGroups: 'EndpointGroups',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      endpointGroups: 'EndpointGroups',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      endpointGroups: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroups },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      endpointGroups: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroups },
+      totalCount: 'number',
     };
   }
 
@@ -3920,34 +4722,34 @@ export class ListEndpointGroupsResponse extends $tea.Model {
 }
 
 export class ListForwardingRulesRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  listenerId?: string;
   acceleratorId?: string;
+  clientToken?: string;
   forwardingRuleId?: string;
-  nextToken?: string;
+  listenerId?: string;
   maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      listenerId: 'ListenerId',
       acceleratorId: 'AcceleratorId',
+      clientToken: 'ClientToken',
       forwardingRuleId: 'ForwardingRuleId',
-      nextToken: 'NextToken',
+      listenerId: 'ListenerId',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
-      listenerId: 'string',
       acceleratorId: 'string',
+      clientToken: 'string',
       forwardingRuleId: 'string',
-      nextToken: 'string',
+      listenerId: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3957,28 +4759,28 @@ export class ListForwardingRulesRequest extends $tea.Model {
 }
 
 export class ListForwardingRulesResponseBody extends $tea.Model {
+  forwardingRules?: ListForwardingRulesResponseBodyForwardingRules[];
+  maxResults?: number;
+  nextToken?: string;
   requestId?: string;
   totalCount?: number;
-  nextToken?: string;
-  maxResults?: number;
-  forwardingRules?: ListForwardingRulesResponseBodyForwardingRules[];
   static names(): { [key: string]: string } {
     return {
+      forwardingRules: 'ForwardingRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      forwardingRules: 'ForwardingRules',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      forwardingRules: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRules },
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       totalCount: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      forwardingRules: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRules },
     };
   }
 
@@ -4010,25 +4812,25 @@ export class ListForwardingRulesResponse extends $tea.Model {
 }
 
 export class ListIpSetsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   pageNumber?: number;
   pageSize?: number;
-  acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4038,28 +4840,28 @@ export class ListIpSetsRequest extends $tea.Model {
 }
 
 export class ListIpSetsResponseBody extends $tea.Model {
-  totalCount?: number;
+  ipSets?: ListIpSetsResponseBodyIpSets[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
-  ipSets?: ListIpSetsResponseBodyIpSets[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
+      ipSets: 'IpSets',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      ipSets: 'IpSets',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
+      ipSets: { 'type': 'array', 'itemType': ListIpSetsResponseBodyIpSets },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
-      ipSets: { 'type': 'array', 'itemType': ListIpSetsResponseBodyIpSets },
+      totalCount: 'number',
     };
   }
 
@@ -4091,31 +4893,31 @@ export class ListIpSetsResponse extends $tea.Model {
 }
 
 export class ListListenerCertificatesRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
-  role?: string;
   listenerId?: string;
-  nextToken?: string;
   maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
-      role: 'Role',
       listenerId: 'ListenerId',
-      nextToken: 'NextToken',
       maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
-      role: 'string',
       listenerId: 'string',
-      nextToken: 'string',
       maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      role: 'string',
     };
   }
 
@@ -4125,28 +4927,28 @@ export class ListListenerCertificatesRequest extends $tea.Model {
 }
 
 export class ListListenerCertificatesResponseBody extends $tea.Model {
+  certificates?: ListListenerCertificatesResponseBodyCertificates[];
+  maxResults?: number;
+  nextToken?: string;
   requestId?: string;
   totalCount?: number;
-  nextToken?: string;
-  maxResults?: number;
-  certificates?: ListListenerCertificatesResponseBodyCertificates[];
   static names(): { [key: string]: string } {
     return {
+      certificates: 'Certificates',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
-      certificates: 'Certificates',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificates: { 'type': 'array', 'itemType': ListListenerCertificatesResponseBodyCertificates },
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       totalCount: 'number',
-      nextToken: 'string',
-      maxResults: 'number',
-      certificates: { 'type': 'array', 'itemType': ListListenerCertificatesResponseBodyCertificates },
     };
   }
 
@@ -4178,25 +4980,25 @@ export class ListListenerCertificatesResponse extends $tea.Model {
 }
 
 export class ListListenersRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   pageNumber?: number;
   pageSize?: number;
-  acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4206,28 +5008,28 @@ export class ListListenersRequest extends $tea.Model {
 }
 
 export class ListListenersResponseBody extends $tea.Model {
-  totalCount?: number;
   listeners?: ListListenersResponseBodyListeners[];
+  pageNumber?: number;
   pageSize?: number;
   requestId?: string;
-  pageNumber?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       listeners: 'Listeners',
+      pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       listeners: { 'type': 'array', 'itemType': ListListenersResponseBodyListeners },
+      pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
-      pageNumber: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -4259,25 +5061,25 @@ export class ListListenersResponse extends $tea.Model {
 }
 
 export class ListSpareIpsRequest extends $tea.Model {
-  regionId?: string;
+  acceleratorId?: string;
   clientToken?: string;
   dryRun?: boolean;
-  acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
-      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
-      acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4331,22 +5133,22 @@ export class ListSpareIpsResponse extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesRequest extends $tea.Model {
-  regionId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -4356,28 +5158,28 @@ export class ListSystemSecurityPoliciesRequest extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponseBody extends $tea.Model {
-  requestId?: string;
-  totalCount?: number;
-  pageSize?: number;
   pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
   securityPolicies?: ListSystemSecurityPoliciesResponseBodySecurityPolicies[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       securityPolicies: 'SecurityPolicies',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      totalCount: 'number',
-      pageSize: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       securityPolicies: { 'type': 'array', 'itemType': ListSystemSecurityPoliciesResponseBodySecurityPolicies },
+      totalCount: 'number',
     };
   }
 
@@ -4409,28 +5211,28 @@ export class ListSystemSecurityPoliciesResponse extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclRequest extends $tea.Model {
-  regionId?: string;
-  aclId?: string;
   aclEntries?: RemoveEntriesFromAclRequestAclEntries[];
+  aclId?: string;
   clientToken?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      aclId: 'AclId',
       aclEntries: 'AclEntries',
+      aclId: 'AclId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      aclId: 'string',
       aclEntries: { 'type': 'array', 'itemType': RemoveEntriesFromAclRequestAclEntries },
+      aclId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -4440,19 +5242,19 @@ export class RemoveEntriesFromAclRequest extends $tea.Model {
 }
 
 export class RemoveEntriesFromAclResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4484,21 +5286,21 @@ export class RemoveEntriesFromAclResponse extends $tea.Model {
 }
 
 export class ReplaceBandwidthPackageRequest extends $tea.Model {
-  regionId?: string;
   bandwidthPackageId?: string;
+  regionId?: string;
   targetBandwidthPackageId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       bandwidthPackageId: 'BandwidthPackageId',
+      regionId: 'RegionId',
       targetBandwidthPackageId: 'TargetBandwidthPackageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       bandwidthPackageId: 'string',
+      regionId: 'string',
       targetBandwidthPackageId: 'string',
     };
   }
@@ -4550,37 +5352,37 @@ export class ReplaceBandwidthPackageResponse extends $tea.Model {
 }
 
 export class UpdateAcceleratorRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  name?: string;
-  description?: string;
   acceleratorId?: string;
-  spec?: string;
   autoPay?: boolean;
   autoUseCoupon?: boolean;
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
+  spec?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      name: 'Name',
-      description: 'Description',
       acceleratorId: 'AcceleratorId',
-      spec: 'Spec',
       autoPay: 'AutoPay',
       autoUseCoupon: 'AutoUseCoupon',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
+      spec: 'Spec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
-      name: 'string',
-      description: 'string',
       acceleratorId: 'string',
-      spec: 'string',
       autoPay: 'boolean',
       autoUseCoupon: 'boolean',
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
+      spec: 'string',
     };
   }
 
@@ -4631,19 +5433,19 @@ export class UpdateAcceleratorResponse extends $tea.Model {
 }
 
 export class UpdateAcceleratorConfirmRequest extends $tea.Model {
-  regionId?: string;
   acceleratorId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       acceleratorId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4694,28 +5496,28 @@ export class UpdateAcceleratorConfirmResponse extends $tea.Model {
 }
 
 export class UpdateAclAttributeRequest extends $tea.Model {
-  regionId?: string;
   aclId?: string;
   aclName?: string;
   clientToken?: string;
   dryRun?: boolean;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       aclId: 'AclId',
       aclName: 'AclName',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       aclId: 'string',
       aclName: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      regionId: 'string',
     };
   }
 
@@ -4725,19 +5527,19 @@ export class UpdateAclAttributeRequest extends $tea.Model {
 }
 
 export class UpdateAclAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   aclId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       aclId: 'AclId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       aclId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4769,37 +5571,37 @@ export class UpdateAclAttributeResponse extends $tea.Model {
 }
 
 export class UpdateBandwidthPackageRequest extends $tea.Model {
-  regionId?: string;
-  bandwidthPackageId?: string;
-  name?: string;
-  description?: string;
-  bandwidth?: number;
-  bandwidthType?: string;
   autoPay?: boolean;
   autoUseCoupon?: boolean;
+  bandwidth?: number;
+  bandwidthPackageId?: string;
+  bandwidthType?: string;
+  description?: string;
+  name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      bandwidthPackageId: 'BandwidthPackageId',
-      name: 'Name',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      bandwidthType: 'BandwidthType',
       autoPay: 'AutoPay',
       autoUseCoupon: 'AutoUseCoupon',
+      bandwidth: 'Bandwidth',
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthType: 'BandwidthType',
+      description: 'Description',
+      name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      bandwidthPackageId: 'string',
-      name: 'string',
-      description: 'string',
-      bandwidth: 'number',
-      bandwidthType: 'string',
       autoPay: 'boolean',
       autoUseCoupon: 'boolean',
+      bandwidth: 'number',
+      bandwidthPackageId: 'string',
+      bandwidthType: 'string',
+      description: 'string',
+      name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4811,14 +5613,14 @@ export class UpdateBandwidthPackageRequest extends $tea.Model {
 export class UpdateBandwidthPackageResponseBody extends $tea.Model {
   bandwidthPackage?: string;
   description?: string;
-  requestId?: string;
   name?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       bandwidthPackage: 'BandwidthPackage',
       description: 'Description',
-      requestId: 'RequestId',
       name: 'Name',
+      requestId: 'RequestId',
     };
   }
 
@@ -4826,8 +5628,8 @@ export class UpdateBandwidthPackageResponseBody extends $tea.Model {
     return {
       bandwidthPackage: 'string',
       description: 'string',
-      requestId: 'string',
       name: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4858,62 +5660,212 @@ export class UpdateBandwidthPackageResponse extends $tea.Model {
   }
 }
 
-export class UpdateEndpointGroupRequest extends $tea.Model {
-  regionId?: string;
+export class UpdateBasicAcceleratorRequest extends $tea.Model {
+  acceleratorId?: string;
   clientToken?: string;
-  endpointGroupId?: string;
-  name?: string;
   description?: string;
-  endpointGroupRegion?: string;
-  trafficPercentage?: number;
-  healthCheckIntervalSeconds?: number;
-  healthCheckPath?: string;
-  healthCheckPort?: number;
-  healthCheckProtocol?: string;
-  thresholdCount?: number;
-  endpointConfigurations?: UpdateEndpointGroupRequestEndpointConfigurations[];
-  endpointRequestProtocol?: string;
-  portOverrides?: UpdateEndpointGroupRequestPortOverrides[];
-  healthCheckEnabled?: boolean;
+  name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      acceleratorId: 'AcceleratorId',
       clientToken: 'ClientToken',
-      endpointGroupId: 'EndpointGroupId',
-      name: 'Name',
       description: 'Description',
-      endpointGroupRegion: 'EndpointGroupRegion',
-      trafficPercentage: 'TrafficPercentage',
-      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
-      healthCheckPath: 'HealthCheckPath',
-      healthCheckPort: 'HealthCheckPort',
-      healthCheckProtocol: 'HealthCheckProtocol',
-      thresholdCount: 'ThresholdCount',
-      endpointConfigurations: 'EndpointConfigurations',
-      endpointRequestProtocol: 'EndpointRequestProtocol',
-      portOverrides: 'PortOverrides',
-      healthCheckEnabled: 'HealthCheckEnabled',
+      name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      acceleratorId: 'string',
       clientToken: 'string',
-      endpointGroupId: 'string',
-      name: 'string',
       description: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicAcceleratorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicAcceleratorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateBasicAcceleratorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateBasicAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicEndpointGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  endpointAddress?: string;
+  endpointGroupId?: string;
+  endpointType?: string;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      endpointAddress: 'EndpointAddress',
+      endpointGroupId: 'EndpointGroupId',
+      endpointType: 'EndpointType',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      endpointAddress: 'string',
+      endpointGroupId: 'string',
+      endpointType: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicEndpointGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateBasicEndpointGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateBasicEndpointGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateBasicEndpointGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEndpointGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  endpointConfigurations?: UpdateEndpointGroupRequestEndpointConfigurations[];
+  endpointGroupId?: string;
+  endpointGroupRegion?: string;
+  endpointRequestProtocol?: string;
+  healthCheckEnabled?: boolean;
+  healthCheckIntervalSeconds?: number;
+  healthCheckPath?: string;
+  healthCheckPort?: number;
+  healthCheckProtocol?: string;
+  name?: string;
+  portOverrides?: UpdateEndpointGroupRequestPortOverrides[];
+  regionId?: string;
+  thresholdCount?: number;
+  trafficPercentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      endpointConfigurations: 'EndpointConfigurations',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupRegion: 'EndpointGroupRegion',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
+      healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      name: 'Name',
+      portOverrides: 'PortOverrides',
+      regionId: 'RegionId',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      endpointConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupRequestEndpointConfigurations },
+      endpointGroupId: 'string',
       endpointGroupRegion: 'string',
-      trafficPercentage: 'number',
+      endpointRequestProtocol: 'string',
+      healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
       healthCheckPath: 'string',
       healthCheckPort: 'number',
       healthCheckProtocol: 'string',
-      thresholdCount: 'number',
-      endpointConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupRequestEndpointConfigurations },
-      endpointRequestProtocol: 'string',
+      name: 'string',
       portOverrides: { 'type': 'array', 'itemType': UpdateEndpointGroupRequestPortOverrides },
-      healthCheckEnabled: 'boolean',
+      regionId: 'string',
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -4964,28 +5916,28 @@ export class UpdateEndpointGroupResponse extends $tea.Model {
 }
 
 export class UpdateEndpointGroupAttributeRequest extends $tea.Model {
-  regionId?: string;
   clientToken?: string;
+  description?: string;
   endpointGroupId?: string;
   name?: string;
-  description?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
+      description: 'Description',
       endpointGroupId: 'EndpointGroupId',
       name: 'Name',
-      description: 'Description',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientToken: 'string',
+      description: 'string',
       endpointGroupId: 'string',
       name: 'string',
-      description: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5036,28 +5988,28 @@ export class UpdateEndpointGroupAttributeResponse extends $tea.Model {
 }
 
 export class UpdateEndpointGroupsRequest extends $tea.Model {
-  regionId?: string;
   clientToken?: string;
   dryRun?: boolean;
   endpointGroupConfigurations?: UpdateEndpointGroupsRequestEndpointGroupConfigurations[];
   listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       endpointGroupConfigurations: 'EndpointGroupConfigurations',
       listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
       endpointGroupConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupsRequestEndpointGroupConfigurations },
       listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5067,19 +6019,19 @@ export class UpdateEndpointGroupsRequest extends $tea.Model {
 }
 
 export class UpdateEndpointGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   endpointGroupIds?: string[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       endpointGroupIds: 'EndpointGroupIds',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       endpointGroupIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
@@ -5111,28 +6063,28 @@ export class UpdateEndpointGroupsResponse extends $tea.Model {
 }
 
 export class UpdateForwardingRulesRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
   acceleratorId?: string;
-  listenerId?: string;
+  clientToken?: string;
   forwardingRules?: UpdateForwardingRulesRequestForwardingRules[];
+  listenerId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
       acceleratorId: 'AcceleratorId',
-      listenerId: 'ListenerId',
+      clientToken: 'ClientToken',
       forwardingRules: 'ForwardingRules',
+      listenerId: 'ListenerId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
       acceleratorId: 'string',
-      listenerId: 'string',
+      clientToken: 'string',
       forwardingRules: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRules },
+      listenerId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5186,25 +6138,25 @@ export class UpdateForwardingRulesResponse extends $tea.Model {
 }
 
 export class UpdateIpSetRequest extends $tea.Model {
-  regionId?: string;
+  bandwidth?: number;
   clientToken?: string;
   ipSetId?: string;
-  bandwidth?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
       ipSetId: 'IpSetId',
-      bandwidth: 'Bandwidth',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      bandwidth: 'number',
       clientToken: 'string',
       ipSetId: 'string',
-      bandwidth: 'number',
+      regionId: 'string',
     };
   }
 
@@ -5255,19 +6207,19 @@ export class UpdateIpSetResponse extends $tea.Model {
 }
 
 export class UpdateIpSetsRequest extends $tea.Model {
-  regionId?: string;
   ipSets?: UpdateIpSetsRequestIpSets[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       ipSets: 'IpSets',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       ipSets: { 'type': 'array', 'itemType': UpdateIpSetsRequestIpSets },
+      regionId: 'string',
     };
   }
 
@@ -5318,52 +6270,52 @@ export class UpdateIpSetsResponse extends $tea.Model {
 }
 
 export class UpdateListenerRequest extends $tea.Model {
-  regionId?: string;
-  clientToken?: string;
-  name?: string;
-  description?: string;
-  clientAffinity?: string;
-  protocol?: string;
-  listenerId?: string;
-  proxyProtocol?: string;
-  portRanges?: UpdateListenerRequestPortRanges[];
-  certificates?: UpdateListenerRequestCertificates[];
   backendPorts?: UpdateListenerRequestBackendPorts[];
-  XForwardedForConfig?: UpdateListenerRequestXForwardedForConfig;
+  certificates?: UpdateListenerRequestCertificates[];
+  clientAffinity?: string;
+  clientToken?: string;
+  description?: string;
+  listenerId?: string;
+  name?: string;
+  portRanges?: UpdateListenerRequestPortRanges[];
+  protocol?: string;
+  proxyProtocol?: string;
+  regionId?: string;
   securityPolicyId?: string;
+  XForwardedForConfig?: UpdateListenerRequestXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      clientToken: 'ClientToken',
-      name: 'Name',
-      description: 'Description',
-      clientAffinity: 'ClientAffinity',
-      protocol: 'Protocol',
-      listenerId: 'ListenerId',
-      proxyProtocol: 'ProxyProtocol',
-      portRanges: 'PortRanges',
-      certificates: 'Certificates',
       backendPorts: 'BackendPorts',
-      XForwardedForConfig: 'XForwardedForConfig',
+      certificates: 'Certificates',
+      clientAffinity: 'ClientAffinity',
+      clientToken: 'ClientToken',
+      description: 'Description',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+      proxyProtocol: 'ProxyProtocol',
+      regionId: 'RegionId',
       securityPolicyId: 'SecurityPolicyId',
+      XForwardedForConfig: 'XForwardedForConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      clientToken: 'string',
-      name: 'string',
-      description: 'string',
-      clientAffinity: 'string',
-      protocol: 'string',
-      listenerId: 'string',
-      proxyProtocol: 'string',
-      portRanges: { 'type': 'array', 'itemType': UpdateListenerRequestPortRanges },
-      certificates: { 'type': 'array', 'itemType': UpdateListenerRequestCertificates },
       backendPorts: { 'type': 'array', 'itemType': UpdateListenerRequestBackendPorts },
-      XForwardedForConfig: UpdateListenerRequestXForwardedForConfig,
+      certificates: { 'type': 'array', 'itemType': UpdateListenerRequestCertificates },
+      clientAffinity: 'string',
+      clientToken: 'string',
+      description: 'string',
+      listenerId: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': UpdateListenerRequestPortRanges },
+      protocol: 'string',
+      proxyProtocol: 'string',
+      regionId: 'string',
       securityPolicyId: 'string',
+      XForwardedForConfig: UpdateListenerRequestXForwardedForConfig,
     };
   }
 
@@ -5436,19 +6388,19 @@ export class AddEntriesToAclRequestAclEntries extends $tea.Model {
 }
 
 export class AssociateAdditionalCertificatesWithListenerRequestCertificates extends $tea.Model {
-  id?: string;
   domain?: string;
+  id?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
       domain: 'Domain',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
       domain: 'string',
+      id: 'string',
     };
   }
 
@@ -5480,25 +6432,25 @@ export class CreateAclRequestAclEntries extends $tea.Model {
 }
 
 export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model {
-  type?: string;
   enableClientIPPreservation?: boolean;
-  weight?: number;
   endpoint?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       enableClientIPPreservation: 'EnableClientIPPreservation',
-      weight: 'Weight',
       endpoint: 'Endpoint',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       enableClientIPPreservation: 'boolean',
-      weight: 'number',
       endpoint: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -5508,19 +6460,19 @@ export class CreateEndpointGroupRequestEndpointConfigurations extends $tea.Model
 }
 
 export class CreateEndpointGroupRequestPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -5530,22 +6482,22 @@ export class CreateEndpointGroupRequestPortOverrides extends $tea.Model {
 }
 
 export class CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
   type?: string;
   weight?: number;
-  endpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      endpoint: 'Endpoint',
       type: 'Type',
       weight: 'Weight',
-      endpoint: 'Endpoint',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endpoint: 'string',
       type: 'string',
       weight: 'number',
-      endpoint: 'string',
     };
   }
 
@@ -5555,19 +6507,19 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
 }
 
 export class CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -5577,124 +6529,61 @@ export class CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides
 }
 
 export class CreateEndpointGroupsRequestEndpointGroupConfigurations extends $tea.Model {
-  endpointGroupName?: string;
+  enableClientIPPreservationProxyProtocol?: boolean;
+  enableClientIPPreservationToa?: boolean;
+  endpointConfigurations?: CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
   endpointGroupDescription?: string;
+  endpointGroupName?: string;
   endpointGroupRegion?: string;
-  trafficPercentage?: number;
+  endpointGroupType?: string;
+  endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
   healthCheckPath?: string;
   healthCheckPort?: number;
   healthCheckProtocol?: string;
-  thresholdCount?: number;
-  endpointConfigurations?: CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
-  endpointRequestProtocol?: string;
-  endpointGroupType?: string;
   portOverrides?: CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides[];
-  enableClientIPPreservationToa?: boolean;
-  enableClientIPPreservationProxyProtocol?: boolean;
+  thresholdCount?: number;
+  trafficPercentage?: number;
   static names(): { [key: string]: string } {
     return {
-      endpointGroupName: 'EndpointGroupName',
+      enableClientIPPreservationProxyProtocol: 'EnableClientIPPreservationProxyProtocol',
+      enableClientIPPreservationToa: 'EnableClientIPPreservationToa',
+      endpointConfigurations: 'EndpointConfigurations',
       endpointGroupDescription: 'EndpointGroupDescription',
+      endpointGroupName: 'EndpointGroupName',
       endpointGroupRegion: 'EndpointGroupRegion',
-      trafficPercentage: 'TrafficPercentage',
+      endpointGroupType: 'EndpointGroupType',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
       healthCheckPath: 'HealthCheckPath',
       healthCheckPort: 'HealthCheckPort',
       healthCheckProtocol: 'HealthCheckProtocol',
-      thresholdCount: 'ThresholdCount',
-      endpointConfigurations: 'EndpointConfigurations',
-      endpointRequestProtocol: 'EndpointRequestProtocol',
-      endpointGroupType: 'EndpointGroupType',
       portOverrides: 'PortOverrides',
-      enableClientIPPreservationToa: 'EnableClientIPPreservationToa',
-      enableClientIPPreservationProxyProtocol: 'EnableClientIPPreservationProxyProtocol',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpointGroupName: 'string',
+      enableClientIPPreservationProxyProtocol: 'boolean',
+      enableClientIPPreservationToa: 'boolean',
+      endpointConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations },
       endpointGroupDescription: 'string',
+      endpointGroupName: 'string',
       endpointGroupRegion: 'string',
-      trafficPercentage: 'number',
+      endpointGroupType: 'string',
+      endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
       healthCheckPath: 'string',
       healthCheckPort: 'number',
       healthCheckProtocol: 'string',
-      thresholdCount: 'number',
-      endpointConfigurations: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations },
-      endpointRequestProtocol: 'string',
-      endpointGroupType: 'string',
       portOverrides: { 'type': 'array', 'itemType': CreateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides },
-      enableClientIPPreservationToa: 'boolean',
-      enableClientIPPreservationProxyProtocol: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateForwardingRulesRequestForwardingRulesRuleConditions extends $tea.Model {
-  ruleConditionType?: string;
-  pathConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
-  hostConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
-  static names(): { [key: string]: string } {
-    return {
-      ruleConditionType: 'RuleConditionType',
-      pathConfig: 'PathConfig',
-      hostConfig: 'HostConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleConditionType: 'string',
-      pathConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
-      hostConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -5742,22 +6631,85 @@ export class CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupC
 }
 
 export class CreateForwardingRulesRequestForwardingRulesRuleActions extends $tea.Model {
+  forwardGroupConfig?: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
-  forwardGroupConfig?: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   static names(): { [key: string]: string } {
     return {
+      forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
-      forwardGroupConfig: 'ForwardGroupConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      forwardGroupConfig: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
-      forwardGroupConfig: CreateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateForwardingRulesRequestForwardingRulesRuleConditions extends $tea.Model {
+  hostConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
+  pathConfig?: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
+  ruleConditionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostConfig: 'HostConfig',
+      pathConfig: 'PathConfig',
+      ruleConditionType: 'RuleConditionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
+      pathConfig: CreateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
+      ruleConditionType: 'string',
     };
   }
 
@@ -5767,25 +6719,25 @@ export class CreateForwardingRulesRequestForwardingRulesRuleActions extends $tea
 }
 
 export class CreateForwardingRulesRequestForwardingRules extends $tea.Model {
-  priority?: number;
-  ruleConditions?: CreateForwardingRulesRequestForwardingRulesRuleConditions[];
-  ruleActions?: CreateForwardingRulesRequestForwardingRulesRuleActions[];
   forwardingRuleName?: string;
+  priority?: number;
+  ruleActions?: CreateForwardingRulesRequestForwardingRulesRuleActions[];
+  ruleConditions?: CreateForwardingRulesRequestForwardingRulesRuleConditions[];
   static names(): { [key: string]: string } {
     return {
-      priority: 'Priority',
-      ruleConditions: 'RuleConditions',
-      ruleActions: 'RuleActions',
       forwardingRuleName: 'ForwardingRuleName',
+      priority: 'Priority',
+      ruleActions: 'RuleActions',
+      ruleConditions: 'RuleConditions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      priority: 'number',
-      ruleConditions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleConditions },
-      ruleActions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleActions },
       forwardingRuleName: 'string',
+      priority: 'number',
+      ruleActions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleActions },
+      ruleConditions: { 'type': 'array', 'itemType': CreateForwardingRulesRequestForwardingRulesRuleConditions },
     };
   }
 
@@ -5815,21 +6767,21 @@ export class CreateForwardingRulesResponseBodyForwardingRules extends $tea.Model
 
 export class CreateIpSetsRequestAccelerateRegion extends $tea.Model {
   accelerateRegionId?: string;
-  ipVersion?: string;
   bandwidth?: number;
+  ipVersion?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
-      ipVersion: 'IpVersion',
       bandwidth: 'Bandwidth',
+      ipVersion: 'IpVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accelerateRegionId: 'string',
-      ipVersion: 'string',
       bandwidth: 'number',
+      ipVersion: 'string',
     };
   }
 
@@ -5863,6 +6815,25 @@ export class CreateIpSetsResponseBodyIpSets extends $tea.Model {
   }
 }
 
+export class CreateListenerRequestCertificates extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateListenerRequestPortRanges extends $tea.Model {
   fromPort?: number;
   toPort?: number;
@@ -5885,47 +6856,28 @@ export class CreateListenerRequestPortRanges extends $tea.Model {
   }
 }
 
-export class CreateListenerRequestCertificates extends $tea.Model {
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
-  XForwardedForGaIdEnabled?: boolean;
   XForwardedForGaApEnabled?: boolean;
-  XForwardedForProtoEnabled?: boolean;
+  XForwardedForGaIdEnabled?: boolean;
   XForwardedForPortEnabled?: boolean;
+  XForwardedForProtoEnabled?: boolean;
   XRealIpEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
       XForwardedForGaApEnabled: 'XForwardedForGaApEnabled',
-      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
+      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
       XForwardedForPortEnabled: 'XForwardedForPortEnabled',
+      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XRealIpEnabled: 'XRealIpEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      XForwardedForGaIdEnabled: 'boolean',
       XForwardedForGaApEnabled: 'boolean',
-      XForwardedForProtoEnabled: 'boolean',
+      XForwardedForGaIdEnabled: 'boolean',
       XForwardedForPortEnabled: 'boolean',
+      XForwardedForProtoEnabled: 'boolean',
       XRealIpEnabled: 'boolean',
     };
   }
@@ -5946,28 +6898,6 @@ export class DeleteForwardingRulesResponseBodyForwardingRules extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       forwardingRuleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage extends $tea.Model {
-  bandwidth?: number;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bandwidth: 'Bandwidth',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bandwidth: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -6001,32 +6931,54 @@ export class DescribeAcceleratorResponseBodyBasicBandwidthPackage extends $tea.M
   }
 }
 
-export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $tea.Model {
-  type?: string;
-  enableClientIPPreservation?: boolean;
-  weight?: number;
-  probeProtocol?: string;
-  endpoint?: string;
-  probePort?: number;
+export class DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage extends $tea.Model {
+  bandwidth?: number;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      enableClientIPPreservation: 'EnableClientIPPreservation',
-      weight: 'Weight',
-      probeProtocol: 'ProbeProtocol',
-      endpoint: 'Endpoint',
-      probePort: 'ProbePort',
+      bandwidth: 'Bandwidth',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
+      bandwidth: 'number',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $tea.Model {
+  enableClientIPPreservation?: boolean;
+  endpoint?: string;
+  probePort?: number;
+  probeProtocol?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableClientIPPreservation: 'EnableClientIPPreservation',
+      endpoint: 'Endpoint',
+      probePort: 'ProbePort',
+      probeProtocol: 'ProbeProtocol',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       enableClientIPPreservation: 'boolean',
-      weight: 'number',
-      probeProtocol: 'string',
       endpoint: 'string',
       probePort: 'number',
+      probeProtocol: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -6036,41 +6988,19 @@ export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $te
 }
 
 export class DescribeEndpointGroupResponseBodyPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeListenerResponseBodyPortRanges extends $tea.Model {
-  fromPort?: number;
-  toPort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      fromPort: 'FromPort',
-      toPort: 'ToPort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fromPort: 'number',
-      toPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -6102,19 +7032,41 @@ export class DescribeListenerResponseBodyBackendPorts extends $tea.Model {
 }
 
 export class DescribeListenerResponseBodyCertificates extends $tea.Model {
-  type?: string;
   id?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       id: 'Id',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeListenerResponseBodyPortRanges extends $tea.Model {
+  fromPort?: number;
+  toPort?: number;
+  static names(): { [key: string]: string } {
+    return {
+      fromPort: 'FromPort',
+      toPort: 'ToPort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromPort: 'number',
+      toPort: 'number',
     };
   }
 
@@ -6146,27 +7098,27 @@ export class DescribeListenerResponseBodyRelatedAcls extends $tea.Model {
 }
 
 export class DescribeListenerResponseBodyXForwardedForConfig extends $tea.Model {
-  XForwardedForGaIdEnabled?: boolean;
   XForwardedForGaApEnabled?: boolean;
-  XForwardedForProtoEnabled?: boolean;
+  XForwardedForGaIdEnabled?: boolean;
   XForwardedForPortEnabled?: boolean;
+  XForwardedForProtoEnabled?: boolean;
   XRealIpEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
       XForwardedForGaApEnabled: 'XForwardedForGaApEnabled',
-      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
+      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
       XForwardedForPortEnabled: 'XForwardedForPortEnabled',
+      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XRealIpEnabled: 'XRealIpEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      XForwardedForGaIdEnabled: 'boolean',
       XForwardedForGaApEnabled: 'boolean',
-      XForwardedForProtoEnabled: 'boolean',
+      XForwardedForGaIdEnabled: 'boolean',
       XForwardedForPortEnabled: 'boolean',
+      XForwardedForProtoEnabled: 'boolean',
       XRealIpEnabled: 'boolean',
     };
   }
@@ -6221,22 +7173,69 @@ export class GetAclResponseBodyAclEntries extends $tea.Model {
 }
 
 export class GetAclResponseBodyRelatedListeners extends $tea.Model {
-  listenerId?: string;
-  aclType?: string;
   acceleratorId?: string;
+  aclType?: string;
+  listenerId?: string;
   static names(): { [key: string]: string } {
     return {
-      listenerId: 'ListenerId',
-      aclType: 'AclType',
       acceleratorId: 'AcceleratorId',
+      aclType: 'AclType',
+      listenerId: 'ListenerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerId: 'string',
-      aclType: 'string',
       acceleratorId: 'string',
+      aclType: 'string',
+      listenerId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAcceleratorResponseBodyBasicBandwidthPackage extends $tea.Model {
+  bandwidth?: number;
+  bandwidthType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      bandwidthType: 'BandwidthType',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      bandwidthType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetBasicAcceleratorResponseBodyCrossDomainBandwidthPackage extends $tea.Model {
+  bandwidth?: number;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      instanceId: 'string',
     };
   }
 
@@ -6246,18 +7245,18 @@ export class GetAclResponseBodyRelatedListeners extends $tea.Model {
 }
 
 export class GetHealthStatusResponseBodyEndpointGroupsEndpoints extends $tea.Model {
-  endpointId?: string;
   address?: string;
-  healthStatus?: string;
+  endpointId?: string;
   healthDetail?: string;
+  healthStatus?: string;
   port?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
-      endpointId: 'EndpointId',
       address: 'Address',
-      healthStatus: 'HealthStatus',
+      endpointId: 'EndpointId',
       healthDetail: 'HealthDetail',
+      healthStatus: 'HealthStatus',
       port: 'Port',
       type: 'Type',
     };
@@ -6265,10 +7264,10 @@ export class GetHealthStatusResponseBodyEndpointGroupsEndpoints extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
-      endpointId: 'string',
       address: 'string',
-      healthStatus: 'string',
+      endpointId: 'string',
       healthDetail: 'string',
+      healthStatus: 'string',
       port: 'number',
       type: 'string',
     };
@@ -6282,16 +7281,16 @@ export class GetHealthStatusResponseBodyEndpointGroupsEndpoints extends $tea.Mod
 export class GetHealthStatusResponseBodyEndpointGroups extends $tea.Model {
   endpointGroupId?: string;
   endpointGroupType?: string;
-  healthStatus?: string;
-  forwardingRuleIds?: string[];
   endpoints?: GetHealthStatusResponseBodyEndpointGroupsEndpoints[];
+  forwardingRuleIds?: string[];
+  healthStatus?: string;
   static names(): { [key: string]: string } {
     return {
       endpointGroupId: 'EndpointGroupId',
       endpointGroupType: 'EndpointGroupType',
-      healthStatus: 'HealthStatus',
-      forwardingRuleIds: 'ForwardingRuleIds',
       endpoints: 'Endpoints',
+      forwardingRuleIds: 'ForwardingRuleIds',
+      healthStatus: 'HealthStatus',
     };
   }
 
@@ -6299,9 +7298,9 @@ export class GetHealthStatusResponseBodyEndpointGroups extends $tea.Model {
     return {
       endpointGroupId: 'string',
       endpointGroupType: 'string',
-      healthStatus: 'string',
-      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       endpoints: { 'type': 'array', 'itemType': GetHealthStatusResponseBodyEndpointGroupsEndpoints },
+      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
+      healthStatus: 'string',
     };
   }
 
@@ -6333,21 +7332,21 @@ export class ListAccelerateAreasResponseBodyAreasRegionList extends $tea.Model {
 }
 
 export class ListAccelerateAreasResponseBodyAreas extends $tea.Model {
-  localName?: string;
   areaId?: string;
+  localName?: string;
   regionList?: ListAccelerateAreasResponseBodyAreasRegionList[];
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       areaId: 'AreaId',
+      localName: 'LocalName',
       regionList: 'RegionList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       areaId: 'string',
+      localName: 'string',
       regionList: { 'type': 'array', 'itemType': ListAccelerateAreasResponseBodyAreasRegionList },
     };
   }
@@ -6405,64 +7404,64 @@ export class ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage
 }
 
 export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
+  acceleratorId?: string;
+  bandwidth?: number;
+  basicBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
+  cenId?: string;
+  createTime?: number;
+  crossDomainBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
+  ddosId?: string;
+  description?: string;
   dnsName?: string;
-  type?: string;
+  expiredTime?: number;
+  instanceChargeType?: string;
+  name?: string;
+  regionId?: string;
   secondDnsName?: string;
   spec?: string;
   state?: string;
-  createTime?: number;
-  cenId?: string;
-  ddosId?: string;
-  basicBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
-  regionId?: string;
-  instanceChargeType?: string;
-  acceleratorId?: string;
-  description?: string;
-  bandwidth?: number;
-  expiredTime?: number;
-  name?: string;
-  crossDomainBandwidthPackage?: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
+      acceleratorId: 'AcceleratorId',
+      bandwidth: 'Bandwidth',
+      basicBandwidthPackage: 'BasicBandwidthPackage',
+      cenId: 'CenId',
+      createTime: 'CreateTime',
+      crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      ddosId: 'DdosId',
+      description: 'Description',
       dnsName: 'DnsName',
-      type: 'Type',
+      expiredTime: 'ExpiredTime',
+      instanceChargeType: 'InstanceChargeType',
+      name: 'Name',
+      regionId: 'RegionId',
       secondDnsName: 'SecondDnsName',
       spec: 'Spec',
       state: 'State',
-      createTime: 'CreateTime',
-      cenId: 'CenId',
-      ddosId: 'DdosId',
-      basicBandwidthPackage: 'BasicBandwidthPackage',
-      regionId: 'RegionId',
-      instanceChargeType: 'InstanceChargeType',
-      acceleratorId: 'AcceleratorId',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      expiredTime: 'ExpiredTime',
-      name: 'Name',
-      crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
+      bandwidth: 'number',
+      basicBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
+      cenId: 'string',
+      createTime: 'number',
+      crossDomainBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
+      ddosId: 'string',
+      description: 'string',
       dnsName: 'string',
-      type: 'string',
+      expiredTime: 'number',
+      instanceChargeType: 'string',
+      name: 'string',
+      regionId: 'string',
       secondDnsName: 'string',
       spec: 'string',
       state: 'string',
-      createTime: 'number',
-      cenId: 'string',
-      ddosId: 'string',
-      basicBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
-      regionId: 'string',
-      instanceChargeType: 'string',
-      acceleratorId: 'string',
-      description: 'string',
-      bandwidth: 'number',
-      expiredTime: 'number',
-      name: 'string',
-      crossDomainBandwidthPackage: ListAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
+      type: 'string',
     };
   }
 
@@ -6474,14 +7473,14 @@ export class ListAcceleratorsResponseBodyAccelerators extends $tea.Model {
 export class ListAclsResponseBodyAcls extends $tea.Model {
   aclId?: string;
   aclName?: string;
-  addressIPVersion?: string;
   aclStatus?: string;
+  addressIPVersion?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
       aclName: 'AclName',
-      addressIPVersion: 'AddressIPVersion',
       aclStatus: 'AclStatus',
+      addressIPVersion: 'AddressIPVersion',
     };
   }
 
@@ -6489,8 +7488,8 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
     return {
       aclId: 'string',
       aclName: 'string',
-      addressIPVersion: 'string',
       aclStatus: 'string',
+      addressIPVersion: 'string',
     };
   }
 
@@ -6522,21 +7521,21 @@ export class ListAvailableAccelerateAreasResponseBodyAreasRegionList extends $te
 }
 
 export class ListAvailableAccelerateAreasResponseBodyAreas extends $tea.Model {
-  localName?: string;
   areaId?: string;
+  localName?: string;
   regionList?: ListAvailableAccelerateAreasResponseBodyAreasRegionList[];
   static names(): { [key: string]: string } {
     return {
-      localName: 'LocalName',
       areaId: 'AreaId',
+      localName: 'LocalName',
       regionList: 'RegionList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      localName: 'string',
       areaId: 'string',
+      localName: 'string',
       regionList: { 'type': 'array', 'itemType': ListAvailableAccelerateAreasResponseBodyAreasRegionList },
     };
   }
@@ -6568,44 +7567,62 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Model {
-  bandwidthPackageId?: string;
+export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Model {
+  accelerators?: string[];
   bandwidth?: number;
+  bandwidthPackageId?: string;
+  bandwidthType?: string;
+  billingType?: string;
+  cbnGeographicRegionIdA?: string;
+  cbnGeographicRegionIdB?: string;
+  chargeType?: string;
+  createTime?: string;
   description?: string;
   expiredTime?: string;
-  state?: string;
-  createTime?: string;
-  chargeType?: string;
-  accelerators?: string[];
   name?: string;
+  ratio?: number;
   regionId?: string;
+  state?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      bandwidthPackageId: 'BandwidthPackageId',
+      accelerators: 'Accelerators',
       bandwidth: 'Bandwidth',
+      bandwidthPackageId: 'BandwidthPackageId',
+      bandwidthType: 'BandwidthType',
+      billingType: 'BillingType',
+      cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
+      cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
       description: 'Description',
       expiredTime: 'ExpiredTime',
-      state: 'State',
-      createTime: 'CreateTime',
-      chargeType: 'ChargeType',
-      accelerators: 'Accelerators',
       name: 'Name',
+      ratio: 'Ratio',
       regionId: 'RegionId',
+      state: 'State',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bandwidthPackageId: 'string',
+      accelerators: { 'type': 'array', 'itemType': 'string' },
       bandwidth: 'number',
+      bandwidthPackageId: 'string',
+      bandwidthType: 'string',
+      billingType: 'string',
+      cbnGeographicRegionIdA: 'string',
+      cbnGeographicRegionIdB: 'string',
+      chargeType: 'string',
+      createTime: 'string',
       description: 'string',
       expiredTime: 'string',
-      state: 'string',
-      createTime: 'string',
-      chargeType: 'string',
-      accelerators: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      ratio: 'number',
       regionId: 'string',
+      state: 'string',
+      type: 'string',
     };
   }
 
@@ -6614,62 +7631,146 @@ export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Mode
   }
 }
 
-export class ListBandwidthPackagesResponseBodyBandwidthPackages extends $tea.Model {
-  type?: string;
-  bandwidthType?: string;
-  state?: string;
-  createTime?: string;
-  chargeType?: string;
-  regionId?: string;
-  cbnGeographicRegionIdA?: string;
-  bandwidthPackageId?: string;
+export class ListBandwidthackagesResponseBodyBandwidthPackages extends $tea.Model {
+  accelerators?: string[];
   bandwidth?: number;
+  bandwidthPackageId?: string;
+  chargeType?: string;
+  createTime?: string;
   description?: string;
   expiredTime?: string;
-  accelerators?: string[];
-  cbnGeographicRegionIdB?: string;
   name?: string;
-  billingType?: string;
-  ratio?: number;
+  regionId?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      bandwidthType: 'BandwidthType',
-      state: 'State',
-      createTime: 'CreateTime',
-      chargeType: 'ChargeType',
-      regionId: 'RegionId',
-      cbnGeographicRegionIdA: 'CbnGeographicRegionIdA',
-      bandwidthPackageId: 'BandwidthPackageId',
+      accelerators: 'Accelerators',
       bandwidth: 'Bandwidth',
+      bandwidthPackageId: 'BandwidthPackageId',
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
       description: 'Description',
       expiredTime: 'ExpiredTime',
-      accelerators: 'Accelerators',
-      cbnGeographicRegionIdB: 'CbnGeographicRegionIdB',
       name: 'Name',
-      billingType: 'BillingType',
-      ratio: 'Ratio',
+      regionId: 'RegionId',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      bandwidthType: 'string',
-      state: 'string',
-      createTime: 'string',
-      chargeType: 'string',
-      regionId: 'string',
-      cbnGeographicRegionIdA: 'string',
-      bandwidthPackageId: 'string',
+      accelerators: { 'type': 'array', 'itemType': 'string' },
       bandwidth: 'number',
+      bandwidthPackageId: 'string',
+      chargeType: 'string',
+      createTime: 'string',
       description: 'string',
       expiredTime: 'string',
-      accelerators: { 'type': 'array', 'itemType': 'string' },
-      cbnGeographicRegionIdB: 'string',
       name: 'string',
-      billingType: 'string',
-      ratio: 'number',
+      regionId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage extends $tea.Model {
+  bandwidth?: number;
+  bandwidthType?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      bandwidthType: 'BandwidthType',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      bandwidthType: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage extends $tea.Model {
+  bandwidth?: number;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListBasicAcceleratorsResponseBodyAccelerators extends $tea.Model {
+  acceleratorId?: string;
+  basicBandwidthPackage?: ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage;
+  basicEndpointGroupId?: string;
+  basicIpSetId?: string;
+  createTime?: number;
+  crossDomainBandwidthPackage?: ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage;
+  description?: string;
+  expiredTime?: number;
+  instanceChargeType?: string;
+  name?: string;
+  regionId?: string;
+  state?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      basicBandwidthPackage: 'BasicBandwidthPackage',
+      basicEndpointGroupId: 'BasicEndpointGroupId',
+      basicIpSetId: 'BasicIpSetId',
+      createTime: 'CreateTime',
+      crossDomainBandwidthPackage: 'CrossDomainBandwidthPackage',
+      description: 'Description',
+      expiredTime: 'ExpiredTime',
+      instanceChargeType: 'InstanceChargeType',
+      name: 'Name',
+      regionId: 'RegionId',
+      state: 'State',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      basicBandwidthPackage: ListBasicAcceleratorsResponseBodyAcceleratorsBasicBandwidthPackage,
+      basicEndpointGroupId: 'string',
+      basicIpSetId: 'string',
+      createTime: 'number',
+      crossDomainBandwidthPackage: ListBasicAcceleratorsResponseBodyAcceleratorsCrossDomainBandwidthPackage,
+      description: 'string',
+      expiredTime: 'number',
+      instanceChargeType: 'string',
+      name: 'string',
+      regionId: 'string',
+      state: 'string',
+      type: 'string',
     };
   }
 
@@ -6701,34 +7802,34 @@ export class ListBusiRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations extends $tea.Model {
-  type?: string;
   enableClientIPPreservation?: boolean;
-  weight?: number;
-  probeProtocol?: string;
   endpoint?: string;
-  probePort?: number;
   endpointId?: string;
+  probePort?: number;
+  probeProtocol?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       enableClientIPPreservation: 'EnableClientIPPreservation',
-      weight: 'Weight',
-      probeProtocol: 'ProbeProtocol',
       endpoint: 'Endpoint',
-      probePort: 'ProbePort',
       endpointId: 'EndpointId',
+      probePort: 'ProbePort',
+      probeProtocol: 'ProbeProtocol',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       enableClientIPPreservation: 'boolean',
-      weight: 'number',
-      probeProtocol: 'string',
       endpoint: 'string',
-      probePort: 'number',
       endpointId: 'string',
+      probePort: 'number',
+      probeProtocol: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -6738,19 +7839,19 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations 
 }
 
 export class ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -6760,139 +7861,76 @@ export class ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides extends $
 }
 
 export class ListEndpointGroupsResponseBodyEndpointGroups extends $tea.Model {
+  acceleratorId?: string;
+  description?: string;
+  endpointConfigurations?: ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations[];
   endpointGroupId?: string;
   endpointGroupIpList?: string[];
-  endpointGroupUnconfirmedIpList?: string[];
-  state?: string;
-  healthCheckPath?: string;
   endpointGroupRegion?: string;
-  healthCheckIntervalSeconds?: number;
-  trafficPercentage?: number;
-  healthCheckProtocol?: string;
-  thresholdCount?: number;
-  listenerId?: string;
-  acceleratorId?: string;
-  endpointConfigurations?: ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations[];
-  portOverrides?: ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides[];
-  forwardingRuleIds?: string[];
   endpointGroupType?: string;
+  endpointGroupUnconfirmedIpList?: string[];
   endpointRequestProtocol?: string;
-  description?: string;
-  name?: string;
-  healthCheckPort?: number;
+  forwardingRuleIds?: string[];
   healthCheckEnabled?: boolean;
+  healthCheckIntervalSeconds?: number;
+  healthCheckPath?: string;
+  healthCheckPort?: number;
+  healthCheckProtocol?: string;
+  listenerId?: string;
+  name?: string;
+  portOverrides?: ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides[];
+  state?: string;
+  thresholdCount?: number;
+  trafficPercentage?: number;
   static names(): { [key: string]: string } {
     return {
+      acceleratorId: 'AcceleratorId',
+      description: 'Description',
+      endpointConfigurations: 'EndpointConfigurations',
       endpointGroupId: 'EndpointGroupId',
       endpointGroupIpList: 'EndpointGroupIpList',
-      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
-      state: 'State',
-      healthCheckPath: 'HealthCheckPath',
       endpointGroupRegion: 'EndpointGroupRegion',
-      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
-      trafficPercentage: 'TrafficPercentage',
-      healthCheckProtocol: 'HealthCheckProtocol',
-      thresholdCount: 'ThresholdCount',
-      listenerId: 'ListenerId',
-      acceleratorId: 'AcceleratorId',
-      endpointConfigurations: 'EndpointConfigurations',
-      portOverrides: 'PortOverrides',
-      forwardingRuleIds: 'ForwardingRuleIds',
       endpointGroupType: 'EndpointGroupType',
+      endpointGroupUnconfirmedIpList: 'EndpointGroupUnconfirmedIpList',
       endpointRequestProtocol: 'EndpointRequestProtocol',
-      description: 'Description',
-      name: 'Name',
-      healthCheckPort: 'HealthCheckPort',
+      forwardingRuleIds: 'ForwardingRuleIds',
       healthCheckEnabled: 'HealthCheckEnabled',
+      healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
+      healthCheckPath: 'HealthCheckPath',
+      healthCheckPort: 'HealthCheckPort',
+      healthCheckProtocol: 'HealthCheckProtocol',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      portOverrides: 'PortOverrides',
+      state: 'State',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acceleratorId: 'string',
+      description: 'string',
+      endpointConfigurations: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations },
       endpointGroupId: 'string',
       endpointGroupIpList: { 'type': 'array', 'itemType': 'string' },
-      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
-      state: 'string',
-      healthCheckPath: 'string',
       endpointGroupRegion: 'string',
-      healthCheckIntervalSeconds: 'number',
-      trafficPercentage: 'number',
-      healthCheckProtocol: 'string',
-      thresholdCount: 'number',
-      listenerId: 'string',
-      acceleratorId: 'string',
-      endpointConfigurations: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsEndpointConfigurations },
-      portOverrides: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides },
-      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       endpointGroupType: 'string',
+      endpointGroupUnconfirmedIpList: { 'type': 'array', 'itemType': 'string' },
       endpointRequestProtocol: 'string',
-      description: 'string',
-      name: 'string',
-      healthCheckPort: 'number',
+      forwardingRuleIds: { 'type': 'array', 'itemType': 'string' },
       healthCheckEnabled: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extends $tea.Model {
-  ruleConditionType?: string;
-  pathConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig;
-  hostConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig;
-  static names(): { [key: string]: string } {
-    return {
-      ruleConditionType: 'RuleConditionType',
-      pathConfig: 'PathConfig',
-      hostConfig: 'HostConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleConditionType: 'string',
-      pathConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig,
-      hostConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig,
+      healthCheckIntervalSeconds: 'number',
+      healthCheckPath: 'string',
+      healthCheckPort: 'number',
+      healthCheckProtocol: 'string',
+      listenerId: 'string',
+      name: 'string',
+      portOverrides: { 'type': 'array', 'itemType': ListEndpointGroupsResponseBodyEndpointGroupsPortOverrides },
+      state: 'string',
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -6940,22 +7978,85 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGro
 }
 
 export class ListForwardingRulesResponseBodyForwardingRulesRuleActions extends $tea.Model {
+  forwardGroupConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
-  forwardGroupConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig;
   static names(): { [key: string]: string } {
     return {
+      forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
-      forwardGroupConfig: 'ForwardGroupConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      forwardGroupConfig: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
-      forwardGroupConfig: ListForwardingRulesResponseBodyForwardingRulesRuleActionsForwardGroupConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListForwardingRulesResponseBodyForwardingRulesRuleConditions extends $tea.Model {
+  hostConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig;
+  pathConfig?: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig;
+  ruleConditionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostConfig: 'HostConfig',
+      pathConfig: 'PathConfig',
+      ruleConditionType: 'RuleConditionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsHostConfig,
+      pathConfig: ListForwardingRulesResponseBodyForwardingRulesRuleConditionsPathConfig,
+      ruleConditionType: 'string',
     };
   }
 
@@ -6965,34 +8066,34 @@ export class ListForwardingRulesResponseBodyForwardingRulesRuleActions extends $
 }
 
 export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
-  priority?: number;
   forwardingRuleId?: string;
   forwardingRuleName?: string;
   forwardingRuleStatus?: string;
-  ruleConditions?: ListForwardingRulesResponseBodyForwardingRulesRuleConditions[];
-  ruleActions?: ListForwardingRulesResponseBodyForwardingRulesRuleActions[];
   listenerId?: string;
+  priority?: number;
+  ruleActions?: ListForwardingRulesResponseBodyForwardingRulesRuleActions[];
+  ruleConditions?: ListForwardingRulesResponseBodyForwardingRulesRuleConditions[];
   static names(): { [key: string]: string } {
     return {
-      priority: 'Priority',
       forwardingRuleId: 'ForwardingRuleId',
       forwardingRuleName: 'ForwardingRuleName',
       forwardingRuleStatus: 'ForwardingRuleStatus',
-      ruleConditions: 'RuleConditions',
-      ruleActions: 'RuleActions',
       listenerId: 'ListenerId',
+      priority: 'Priority',
+      ruleActions: 'RuleActions',
+      ruleConditions: 'RuleConditions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      priority: 'number',
       forwardingRuleId: 'string',
       forwardingRuleName: 'string',
       forwardingRuleStatus: 'string',
-      ruleConditions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleConditions },
-      ruleActions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleActions },
       listenerId: 'string',
+      priority: 'number',
+      ruleActions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleActions },
+      ruleConditions: { 'type': 'array', 'itemType': ListForwardingRulesResponseBodyForwardingRulesRuleConditions },
     };
   }
 
@@ -7003,30 +8104,30 @@ export class ListForwardingRulesResponseBodyForwardingRules extends $tea.Model {
 
 export class ListIpSetsResponseBodyIpSets extends $tea.Model {
   accelerateRegionId?: string;
-  ipVersion?: string;
   bandwidth?: number;
-  state?: string;
-  ipSetId?: string;
   ipAddressList?: string[];
+  ipSetId?: string;
+  ipVersion?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
       accelerateRegionId: 'AccelerateRegionId',
-      ipVersion: 'IpVersion',
       bandwidth: 'Bandwidth',
-      state: 'State',
-      ipSetId: 'IpSetId',
       ipAddressList: 'IpAddressList',
+      ipSetId: 'IpSetId',
+      ipVersion: 'IpVersion',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accelerateRegionId: 'string',
-      ipVersion: 'string',
       bandwidth: 'number',
-      state: 'string',
-      ipSetId: 'string',
       ipAddressList: { 'type': 'array', 'itemType': 'string' },
+      ipSetId: 'string',
+      ipVersion: 'string',
+      state: 'string',
     };
   }
 
@@ -7037,43 +8138,21 @@ export class ListIpSetsResponseBodyIpSets extends $tea.Model {
 
 export class ListListenerCertificatesResponseBodyCertificates extends $tea.Model {
   certificateId?: string;
-  isDefault?: boolean;
   domain?: string;
+  isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
-      isDefault: 'IsDefault',
       domain: 'Domain',
+      isDefault: 'IsDefault',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certificateId: 'string',
-      isDefault: 'boolean',
       domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListListenersResponseBodyListenersCertificates extends $tea.Model {
-  type?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      id: 'string',
+      isDefault: 'boolean',
     };
   }
 
@@ -7096,6 +8175,28 @@ export class ListListenersResponseBodyListenersBackendPorts extends $tea.Model {
     return {
       fromPort: 'string',
       toPort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListListenersResponseBodyListenersCertificates extends $tea.Model {
+  id?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
     };
   }
 
@@ -7127,28 +8228,28 @@ export class ListListenersResponseBodyListenersPortRanges extends $tea.Model {
 }
 
 export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.Model {
-  XForwardedForGaIdEnabled?: boolean;
-  XRealIpEnabled?: boolean;
   XForwardedForGaApEnabled?: boolean;
-  XForwardedForProtoEnabled?: boolean;
+  XForwardedForGaIdEnabled?: boolean;
   XForwardedForPortEnabled?: boolean;
+  XForwardedForProtoEnabled?: boolean;
+  XRealIpEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
-      XRealIpEnabled: 'XRealIpEnabled',
       XForwardedForGaApEnabled: 'XForwardedForGaApEnabled',
-      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
+      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
       XForwardedForPortEnabled: 'XForwardedForPortEnabled',
+      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
+      XRealIpEnabled: 'XRealIpEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      XForwardedForGaIdEnabled: 'boolean',
-      XRealIpEnabled: 'boolean',
       XForwardedForGaApEnabled: 'boolean',
-      XForwardedForProtoEnabled: 'boolean',
+      XForwardedForGaIdEnabled: 'boolean',
       XForwardedForPortEnabled: 'boolean',
+      XForwardedForProtoEnabled: 'boolean',
+      XRealIpEnabled: 'boolean',
     };
   }
 
@@ -7158,55 +8259,55 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.
 }
 
 export class ListListenersResponseBodyListeners extends $tea.Model {
-  certificates?: ListListenersResponseBodyListenersCertificates[];
-  backendPorts?: ListListenersResponseBodyListenersBackendPorts[];
-  listenerId?: string;
-  description?: string;
-  state?: string;
-  clientAffinity?: string;
-  protocol?: string;
-  createTime?: number;
-  portRanges?: ListListenersResponseBodyListenersPortRanges[];
-  name?: string;
-  proxyProtocol?: boolean;
   acceleratorId?: string;
-  XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
+  backendPorts?: ListListenersResponseBodyListenersBackendPorts[];
+  certificates?: ListListenersResponseBodyListenersCertificates[];
+  clientAffinity?: string;
+  createTime?: number;
+  description?: string;
+  listenerId?: string;
+  name?: string;
+  portRanges?: ListListenersResponseBodyListenersPortRanges[];
+  protocol?: string;
+  proxyProtocol?: boolean;
   securityPolicyId?: string;
+  state?: string;
+  XForwardedForConfig?: ListListenersResponseBodyListenersXForwardedForConfig;
   static names(): { [key: string]: string } {
     return {
-      certificates: 'Certificates',
-      backendPorts: 'BackendPorts',
-      listenerId: 'ListenerId',
-      description: 'Description',
-      state: 'State',
-      clientAffinity: 'ClientAffinity',
-      protocol: 'Protocol',
-      createTime: 'CreateTime',
-      portRanges: 'PortRanges',
-      name: 'Name',
-      proxyProtocol: 'ProxyProtocol',
       acceleratorId: 'AcceleratorId',
-      XForwardedForConfig: 'XForwardedForConfig',
+      backendPorts: 'BackendPorts',
+      certificates: 'Certificates',
+      clientAffinity: 'ClientAffinity',
+      createTime: 'CreateTime',
+      description: 'Description',
+      listenerId: 'ListenerId',
+      name: 'Name',
+      portRanges: 'PortRanges',
+      protocol: 'Protocol',
+      proxyProtocol: 'ProxyProtocol',
       securityPolicyId: 'SecurityPolicyId',
+      state: 'State',
+      XForwardedForConfig: 'XForwardedForConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      certificates: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersCertificates },
-      backendPorts: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersBackendPorts },
-      listenerId: 'string',
-      description: 'string',
-      state: 'string',
-      clientAffinity: 'string',
-      protocol: 'string',
-      createTime: 'number',
-      portRanges: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersPortRanges },
-      name: 'string',
-      proxyProtocol: 'boolean',
       acceleratorId: 'string',
-      XForwardedForConfig: ListListenersResponseBodyListenersXForwardedForConfig,
+      backendPorts: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersBackendPorts },
+      certificates: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersCertificates },
+      clientAffinity: 'string',
+      createTime: 'number',
+      description: 'string',
+      listenerId: 'string',
+      name: 'string',
+      portRanges: { 'type': 'array', 'itemType': ListListenersResponseBodyListenersPortRanges },
+      protocol: 'string',
+      proxyProtocol: 'boolean',
       securityPolicyId: 'string',
+      state: 'string',
+      XForwardedForConfig: ListListenersResponseBodyListenersXForwardedForConfig,
     };
   }
 
@@ -7238,22 +8339,22 @@ export class ListSpareIpsResponseBodySpareIps extends $tea.Model {
 }
 
 export class ListSystemSecurityPoliciesResponseBodySecurityPolicies extends $tea.Model {
+  ciphers?: string[];
   securityPolicyId?: string;
   tlsVersions?: string[];
-  ciphers?: string[];
   static names(): { [key: string]: string } {
     return {
+      ciphers: 'Ciphers',
       securityPolicyId: 'SecurityPolicyId',
       tlsVersions: 'TlsVersions',
-      ciphers: 'Ciphers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ciphers: { 'type': 'array', 'itemType': 'string' },
       securityPolicyId: 'string',
       tlsVersions: { 'type': 'array', 'itemType': 'string' },
-      ciphers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7282,25 +8383,25 @@ export class RemoveEntriesFromAclRequestAclEntries extends $tea.Model {
 }
 
 export class UpdateEndpointGroupRequestEndpointConfigurations extends $tea.Model {
-  type?: string;
   enableClientIPPreservation?: boolean;
-  weight?: number;
   endpoint?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
       enableClientIPPreservation: 'EnableClientIPPreservation',
-      weight: 'Weight',
       endpoint: 'Endpoint',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
       enableClientIPPreservation: 'boolean',
-      weight: 'number',
       endpoint: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -7310,19 +8411,19 @@ export class UpdateEndpointGroupRequestEndpointConfigurations extends $tea.Model
 }
 
 export class UpdateEndpointGroupRequestPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -7332,22 +8433,22 @@ export class UpdateEndpointGroupRequestPortOverrides extends $tea.Model {
 }
 
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations extends $tea.Model {
+  endpoint?: string;
   type?: string;
   weight?: number;
-  endpoint?: string;
   static names(): { [key: string]: string } {
     return {
+      endpoint: 'Endpoint',
       type: 'Type',
       weight: 'Weight',
-      endpoint: 'Endpoint',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endpoint: 'string',
       type: 'string',
       weight: 'number',
-      endpoint: 'string',
     };
   }
 
@@ -7357,19 +8458,19 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfi
 }
 
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides extends $tea.Model {
-  listenerPort?: number;
   endpointPort?: number;
+  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       endpointPort: 'EndpointPort',
+      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       endpointPort: 'number',
+      listenerPort: 'number',
     };
   }
 
@@ -7379,121 +8480,58 @@ export class UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides
 }
 
 export class UpdateEndpointGroupsRequestEndpointGroupConfigurations extends $tea.Model {
-  endpointGroupName?: string;
+  enableClientIPPreservationProxyProtocol?: boolean;
+  enableClientIPPreservationToa?: boolean;
+  endpointConfigurations?: UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
   endpointGroupDescription?: string;
-  trafficPercentage?: number;
+  endpointGroupId?: string;
+  endpointGroupName?: string;
+  endpointRequestProtocol?: string;
   healthCheckEnabled?: boolean;
   healthCheckIntervalSeconds?: number;
   healthCheckPath?: string;
   healthCheckPort?: number;
   healthCheckProtocol?: string;
-  thresholdCount?: number;
-  endpointConfigurations?: UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations[];
-  endpointRequestProtocol?: string;
   portOverrides?: UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides[];
-  enableClientIPPreservationToa?: boolean;
-  enableClientIPPreservationProxyProtocol?: boolean;
-  endpointGroupId?: string;
+  thresholdCount?: number;
+  trafficPercentage?: number;
   static names(): { [key: string]: string } {
     return {
-      endpointGroupName: 'EndpointGroupName',
+      enableClientIPPreservationProxyProtocol: 'EnableClientIPPreservationProxyProtocol',
+      enableClientIPPreservationToa: 'EnableClientIPPreservationToa',
+      endpointConfigurations: 'EndpointConfigurations',
       endpointGroupDescription: 'EndpointGroupDescription',
-      trafficPercentage: 'TrafficPercentage',
+      endpointGroupId: 'EndpointGroupId',
+      endpointGroupName: 'EndpointGroupName',
+      endpointRequestProtocol: 'EndpointRequestProtocol',
       healthCheckEnabled: 'HealthCheckEnabled',
       healthCheckIntervalSeconds: 'HealthCheckIntervalSeconds',
       healthCheckPath: 'HealthCheckPath',
       healthCheckPort: 'HealthCheckPort',
       healthCheckProtocol: 'HealthCheckProtocol',
-      thresholdCount: 'ThresholdCount',
-      endpointConfigurations: 'EndpointConfigurations',
-      endpointRequestProtocol: 'EndpointRequestProtocol',
       portOverrides: 'PortOverrides',
-      enableClientIPPreservationToa: 'EnableClientIPPreservationToa',
-      enableClientIPPreservationProxyProtocol: 'EnableClientIPPreservationProxyProtocol',
-      endpointGroupId: 'EndpointGroupId',
+      thresholdCount: 'ThresholdCount',
+      trafficPercentage: 'TrafficPercentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpointGroupName: 'string',
+      enableClientIPPreservationProxyProtocol: 'boolean',
+      enableClientIPPreservationToa: 'boolean',
+      endpointConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations },
       endpointGroupDescription: 'string',
-      trafficPercentage: 'number',
+      endpointGroupId: 'string',
+      endpointGroupName: 'string',
+      endpointRequestProtocol: 'string',
       healthCheckEnabled: 'boolean',
       healthCheckIntervalSeconds: 'number',
       healthCheckPath: 'string',
       healthCheckPort: 'number',
       healthCheckProtocol: 'string',
-      thresholdCount: 'number',
-      endpointConfigurations: { 'type': 'array', 'itemType': UpdateEndpointGroupsRequestEndpointGroupConfigurationsEndpointConfigurations },
-      endpointRequestProtocol: 'string',
       portOverrides: { 'type': 'array', 'itemType': UpdateEndpointGroupsRequestEndpointGroupConfigurationsPortOverrides },
-      enableClientIPPreservationToa: 'boolean',
-      enableClientIPPreservationProxyProtocol: 'boolean',
-      endpointGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig extends $tea.Model {
-  values?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      values: 'Values',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      values: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateForwardingRulesRequestForwardingRulesRuleConditions extends $tea.Model {
-  ruleConditionType?: string;
-  pathConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
-  hostConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
-  static names(): { [key: string]: string } {
-    return {
-      ruleConditionType: 'RuleConditionType',
-      pathConfig: 'PathConfig',
-      hostConfig: 'HostConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ruleConditionType: 'string',
-      pathConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
-      hostConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
+      thresholdCount: 'number',
+      trafficPercentage: 'number',
     };
   }
 
@@ -7541,22 +8579,85 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupC
 }
 
 export class UpdateForwardingRulesRequestForwardingRulesRuleActions extends $tea.Model {
+  forwardGroupConfig?: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   order?: number;
   ruleActionType?: string;
-  forwardGroupConfig?: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig;
   static names(): { [key: string]: string } {
     return {
+      forwardGroupConfig: 'ForwardGroupConfig',
       order: 'Order',
       ruleActionType: 'RuleActionType',
-      forwardGroupConfig: 'ForwardGroupConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      forwardGroupConfig: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
       order: 'number',
       ruleActionType: 'string',
-      forwardGroupConfig: UpdateForwardingRulesRequestForwardingRulesRuleActionsForwardGroupConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig extends $tea.Model {
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateForwardingRulesRequestForwardingRulesRuleConditions extends $tea.Model {
+  hostConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig;
+  pathConfig?: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig;
+  ruleConditionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostConfig: 'HostConfig',
+      pathConfig: 'PathConfig',
+      ruleConditionType: 'RuleConditionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsHostConfig,
+      pathConfig: UpdateForwardingRulesRequestForwardingRulesRuleConditionsPathConfig,
+      ruleConditionType: 'string',
     };
   }
 
@@ -7566,28 +8667,28 @@ export class UpdateForwardingRulesRequestForwardingRulesRuleActions extends $tea
 }
 
 export class UpdateForwardingRulesRequestForwardingRules extends $tea.Model {
-  priority?: number;
-  ruleConditions?: UpdateForwardingRulesRequestForwardingRulesRuleConditions[];
-  ruleActions?: UpdateForwardingRulesRequestForwardingRulesRuleActions[];
   forwardingRuleId?: string;
   forwardingRuleName?: string;
+  priority?: number;
+  ruleActions?: UpdateForwardingRulesRequestForwardingRulesRuleActions[];
+  ruleConditions?: UpdateForwardingRulesRequestForwardingRulesRuleConditions[];
   static names(): { [key: string]: string } {
     return {
-      priority: 'Priority',
-      ruleConditions: 'RuleConditions',
-      ruleActions: 'RuleActions',
       forwardingRuleId: 'ForwardingRuleId',
       forwardingRuleName: 'ForwardingRuleName',
+      priority: 'Priority',
+      ruleActions: 'RuleActions',
+      ruleConditions: 'RuleConditions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      priority: 'number',
-      ruleConditions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleConditions },
-      ruleActions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleActions },
       forwardingRuleId: 'string',
       forwardingRuleName: 'string',
+      priority: 'number',
+      ruleActions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleActions },
+      ruleConditions: { 'type': 'array', 'itemType': UpdateForwardingRulesRequestForwardingRulesRuleConditions },
     };
   }
 
@@ -7637,7 +8738,7 @@ export class UpdateIpSetsRequestIpSets extends $tea.Model {
   }
 }
 
-export class UpdateListenerRequestPortRanges extends $tea.Model {
+export class UpdateListenerRequestBackendPorts extends $tea.Model {
   fromPort?: number;
   toPort?: number;
   static names(): { [key: string]: string } {
@@ -7678,7 +8779,7 @@ export class UpdateListenerRequestCertificates extends $tea.Model {
   }
 }
 
-export class UpdateListenerRequestBackendPorts extends $tea.Model {
+export class UpdateListenerRequestPortRanges extends $tea.Model {
   fromPort?: number;
   toPort?: number;
   static names(): { [key: string]: string } {
@@ -7701,28 +8802,28 @@ export class UpdateListenerRequestBackendPorts extends $tea.Model {
 }
 
 export class UpdateListenerRequestXForwardedForConfig extends $tea.Model {
-  XForwardedForGaIdEnabled?: boolean;
-  XForwardedForProtoEnabled?: boolean;
-  XForwardedForPortEnabled?: boolean;
-  XRealIpEnabled?: boolean;
   XForwardedForGaApEnabled?: boolean;
+  XForwardedForGaIdEnabled?: boolean;
+  XForwardedForPortEnabled?: boolean;
+  XForwardedForProtoEnabled?: boolean;
+  XRealIpEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
-      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
-      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
-      XForwardedForPortEnabled: 'XForwardedForPortEnabled',
-      XRealIpEnabled: 'XRealIpEnabled',
       XForwardedForGaApEnabled: 'XForwardedForGaApEnabled',
+      XForwardedForGaIdEnabled: 'XForwardedForGaIdEnabled',
+      XForwardedForPortEnabled: 'XForwardedForPortEnabled',
+      XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
+      XRealIpEnabled: 'XRealIpEnabled',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      XForwardedForGaIdEnabled: 'boolean',
-      XForwardedForProtoEnabled: 'boolean',
-      XForwardedForPortEnabled: 'boolean',
-      XRealIpEnabled: 'boolean',
       XForwardedForGaApEnabled: 'boolean',
+      XForwardedForGaIdEnabled: 'boolean',
+      XForwardedForPortEnabled: 'boolean',
+      XForwardedForProtoEnabled: 'boolean',
+      XRealIpEnabled: 'boolean',
     };
   }
 
@@ -7756,10 +8857,28 @@ export default class Client extends OpenApi {
 
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclEntries"] = request.aclEntries;
+    query["AclId"] = request.aclId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddEntriesToAclResponse>(await this.doRPCRequest("AddEntriesToAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AddEntriesToAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddEntriesToAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEntriesToAclResponse>(await this.callApi(params, req, runtime), new AddEntriesToAclResponse({}));
   }
 
   async addEntriesToAcl(request: AddEntriesToAclRequest): Promise<AddEntriesToAclResponse> {
@@ -7769,10 +8888,29 @@ export default class Client extends OpenApi {
 
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclIds"] = request.aclIds;
+    query["AclType"] = request.aclType;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AssociateAclsWithListenerResponse>(await this.doRPCRequest("AssociateAclsWithListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateAclsWithListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateAclsWithListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateAclsWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAclsWithListenerResponse({}));
   }
 
   async associateAclsWithListener(request: AssociateAclsWithListenerRequest): Promise<AssociateAclsWithListenerResponse> {
@@ -7782,10 +8920,28 @@ export default class Client extends OpenApi {
 
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Certificates"] = request.certificates;
+    query["ClientToken"] = request.clientToken;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.doRPCRequest("AssociateAdditionalCertificatesWithListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateAdditionalCertificatesWithListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateAdditionalCertificatesWithListenerResponse>(await this.callApi(params, req, runtime), new AssociateAdditionalCertificatesWithListenerResponse({}));
   }
 
   async associateAdditionalCertificatesWithListener(request: AssociateAdditionalCertificatesWithListenerRequest): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
@@ -7795,10 +8951,27 @@ export default class Client extends OpenApi {
 
   async attachDdosToAcceleratorWithOptions(request: AttachDdosToAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<AttachDdosToAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["DdosId"] = request.ddosId;
+    query["DdosRegionId"] = request.ddosRegionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachDdosToAcceleratorResponse>(await this.doRPCRequest("AttachDdosToAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AttachDdosToAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachDdosToAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachDdosToAcceleratorResponse>(await this.callApi(params, req, runtime), new AttachDdosToAcceleratorResponse({}));
   }
 
   async attachDdosToAccelerator(request: AttachDdosToAcceleratorRequest): Promise<AttachDdosToAcceleratorResponse> {
@@ -7808,10 +8981,31 @@ export default class Client extends OpenApi {
 
   async attachLogStoreToEndpointGroupWithOptions(request: AttachLogStoreToEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachLogStoreToEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
+    query["SlsLogStoreName"] = request.slsLogStoreName;
+    query["SlsProjectName"] = request.slsProjectName;
+    query["SlsRegionId"] = request.slsRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachLogStoreToEndpointGroupResponse>(await this.doRPCRequest("AttachLogStoreToEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new AttachLogStoreToEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachLogStoreToEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachLogStoreToEndpointGroupResponse>(await this.callApi(params, req, runtime), new AttachLogStoreToEndpointGroupResponse({}));
   }
 
   async attachLogStoreToEndpointGroup(request: AttachLogStoreToEndpointGroupRequest): Promise<AttachLogStoreToEndpointGroupResponse> {
@@ -7821,10 +9015,26 @@ export default class Client extends OpenApi {
 
   async bandwidthPackageAddAcceleratorWithOptions(request: BandwidthPackageAddAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageAddAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BandwidthPackageAddAcceleratorResponse>(await this.doRPCRequest("BandwidthPackageAddAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new BandwidthPackageAddAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BandwidthPackageAddAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BandwidthPackageAddAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageAddAcceleratorResponse({}));
   }
 
   async bandwidthPackageAddAccelerator(request: BandwidthPackageAddAcceleratorRequest): Promise<BandwidthPackageAddAcceleratorResponse> {
@@ -7834,10 +9044,26 @@ export default class Client extends OpenApi {
 
   async bandwidthPackageRemoveAcceleratorWithOptions(request: BandwidthPackageRemoveAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BandwidthPackageRemoveAcceleratorResponse>(await this.doRPCRequest("BandwidthPackageRemoveAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new BandwidthPackageRemoveAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BandwidthPackageRemoveAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BandwidthPackageRemoveAcceleratorResponse>(await this.callApi(params, req, runtime), new BandwidthPackageRemoveAcceleratorResponse({}));
   }
 
   async bandwidthPackageRemoveAccelerator(request: BandwidthPackageRemoveAcceleratorRequest): Promise<BandwidthPackageRemoveAcceleratorResponse> {
@@ -7847,10 +9073,31 @@ export default class Client extends OpenApi {
 
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Enable"] = request.enable;
+    query["Endpoint"] = request.endpoint;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["EndpointType"] = request.endpointType;
+    query["ProbePort"] = request.probePort;
+    query["ProbeProtocol"] = request.probeProtocol;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ConfigEndpointProbeResponse>(await this.doRPCRequest("ConfigEndpointProbe", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ConfigEndpointProbeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConfigEndpointProbe",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ConfigEndpointProbeResponse>(await this.callApi(params, req, runtime), new ConfigEndpointProbeResponse({}));
   }
 
   async configEndpointProbe(request: ConfigEndpointProbeRequest): Promise<ConfigEndpointProbeResponse> {
@@ -7860,10 +9107,33 @@ export default class Client extends OpenApi {
 
   async createAcceleratorWithOptions(request: CreateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoPay"] = request.autoPay;
+    query["AutoRenew"] = request.autoRenew;
+    query["AutoRenewDuration"] = request.autoRenewDuration;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["ClientToken"] = request.clientToken;
+    query["Duration"] = request.duration;
+    query["Name"] = request.name;
+    query["PricingCycle"] = request.pricingCycle;
+    query["RegionId"] = request.regionId;
+    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAcceleratorResponse>(await this.doRPCRequest("CreateAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAcceleratorResponse>(await this.callApi(params, req, runtime), new CreateAcceleratorResponse({}));
   }
 
   async createAccelerator(request: CreateAcceleratorRequest): Promise<CreateAcceleratorResponse> {
@@ -7873,10 +9143,29 @@ export default class Client extends OpenApi {
 
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclEntries"] = request.aclEntries;
+    query["AclName"] = request.aclName;
+    query["AddressIPVersion"] = request.addressIPVersion;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAclResponse>(await this.doRPCRequest("CreateAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAclResponse>(await this.callApi(params, req, runtime), new CreateAclResponse({}));
   }
 
   async createAcl(request: CreateAclRequest): Promise<CreateAclResponse> {
@@ -7886,10 +9175,37 @@ export default class Client extends OpenApi {
 
   async createBandwidthPackageWithOptions(request: CreateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["Bandwidth"] = request.bandwidth;
+    query["BandwidthType"] = request.bandwidthType;
+    query["BillingType"] = request.billingType;
+    query["CbnGeographicRegionIdA"] = request.cbnGeographicRegionIdA;
+    query["CbnGeographicRegionIdB"] = request.cbnGeographicRegionIdB;
+    query["ChargeType"] = request.chargeType;
+    query["ClientToken"] = request.clientToken;
+    query["Duration"] = request.duration;
+    query["PricingCycle"] = request.pricingCycle;
+    query["Ratio"] = request.ratio;
+    query["RegionId"] = request.regionId;
+    query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateBandwidthPackageResponse>(await this.doRPCRequest("CreateBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new CreateBandwidthPackageResponse({}));
   }
 
   async createBandwidthPackage(request: CreateBandwidthPackageRequest): Promise<CreateBandwidthPackageResponse> {
@@ -7897,12 +9213,139 @@ export default class Client extends OpenApi {
     return await this.createBandwidthPackageWithOptions(request, runtime);
   }
 
-  async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
+  async createBasicAcceleratorWithOptions(request: CreateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["ClientToken"] = request.clientToken;
+    query["Duration"] = request.duration;
+    query["PricingCycle"] = request.pricingCycle;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateEndpointGroupResponse>(await this.doRPCRequest("CreateEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBasicAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new CreateBasicAcceleratorResponse({}));
+  }
+
+  async createBasicAccelerator(request: CreateBasicAcceleratorRequest): Promise<CreateBasicAcceleratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicAcceleratorWithOptions(request, runtime);
+  }
+
+  async createBasicEndpointGroupWithOptions(request: CreateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["EndpointAddress"] = request.endpointAddress;
+    query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    query["EndpointType"] = request.endpointType;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBasicEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new CreateBasicEndpointGroupResponse({}));
+  }
+
+  async createBasicEndpointGroup(request: CreateBasicEndpointGroupRequest): Promise<CreateBasicEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicEndpointGroupWithOptions(request, runtime);
+  }
+
+  async createBasicIpSetWithOptions(request: CreateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicIpSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AccelerateRegionId"] = request.accelerateRegionId;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBasicIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBasicIpSetResponse>(await this.callApi(params, req, runtime), new CreateBasicIpSetResponse({}));
+  }
+
+  async createBasicIpSet(request: CreateBasicIpSetRequest): Promise<CreateBasicIpSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBasicIpSetWithOptions(request, runtime);
+  }
+
+  async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["EndpointConfigurations"] = request.endpointConfigurations;
+    query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    query["EndpointGroupType"] = request.endpointGroupType;
+    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    query["HealthCheckEnabled"] = request.healthCheckEnabled;
+    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    query["HealthCheckPath"] = request.healthCheckPath;
+    query["HealthCheckPort"] = request.healthCheckPort;
+    query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    query["ListenerId"] = request.listenerId;
+    query["Name"] = request.name;
+    query["PortOverrides"] = request.portOverrides;
+    query["RegionId"] = request.regionId;
+    query["ThresholdCount"] = request.thresholdCount;
+    query["TrafficPercentage"] = request.trafficPercentage;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEndpointGroupResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupResponse({}));
   }
 
   async createEndpointGroup(request: CreateEndpointGroupRequest): Promise<CreateEndpointGroupResponse> {
@@ -7912,10 +9355,29 @@ export default class Client extends OpenApi {
 
   async createEndpointGroupsWithOptions(request: CreateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateEndpointGroupsResponse>(await this.doRPCRequest("CreateEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new CreateEndpointGroupsResponse({}));
   }
 
   async createEndpointGroups(request: CreateEndpointGroupsRequest): Promise<CreateEndpointGroupsResponse> {
@@ -7925,10 +9387,28 @@ export default class Client extends OpenApi {
 
   async createForwardingRulesWithOptions(request: CreateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["ForwardingRules"] = request.forwardingRules;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateForwardingRulesResponse>(await this.doRPCRequest("CreateForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateForwardingRulesResponse>(await this.callApi(params, req, runtime), new CreateForwardingRulesResponse({}));
   }
 
   async createForwardingRules(request: CreateForwardingRulesRequest): Promise<CreateForwardingRulesResponse> {
@@ -7938,10 +9418,27 @@ export default class Client extends OpenApi {
 
   async createIpSetsWithOptions(request: CreateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccelerateRegion"] = request.accelerateRegion;
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateIpSetsResponse>(await this.doRPCRequest("CreateIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIpSetsResponse>(await this.callApi(params, req, runtime), new CreateIpSetsResponse({}));
   }
 
   async createIpSets(request: CreateIpSetsRequest): Promise<CreateIpSetsResponse> {
@@ -7951,10 +9448,35 @@ export default class Client extends OpenApi {
 
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["Certificates"] = request.certificates;
+    query["ClientAffinity"] = request.clientAffinity;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["Name"] = request.name;
+    query["PortRanges"] = request.portRanges;
+    query["Protocol"] = request.protocol;
+    query["ProxyProtocol"] = request.proxyProtocol;
+    query["RegionId"] = request.regionId;
+    query["SecurityPolicyId"] = request.securityPolicyId;
+    query["XForwardedForConfig"] = request.XForwardedForConfig;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateListenerResponse>(await this.doRPCRequest("CreateListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateListenerResponse>(await this.callApi(params, req, runtime), new CreateListenerResponse({}));
   }
 
   async createListener(request: CreateListenerRequest): Promise<CreateListenerResponse> {
@@ -7964,10 +9486,28 @@ export default class Client extends OpenApi {
 
   async createSpareIpsWithOptions(request: CreateSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["SpareIps"] = request.spareIps;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateSpareIpsResponse>(await this.doRPCRequest("CreateSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSpareIpsResponse>(await this.callApi(params, req, runtime), new CreateSpareIpsResponse({}));
   }
 
   async createSpareIps(request: CreateSpareIpsRequest): Promise<CreateSpareIpsResponse> {
@@ -7977,10 +9517,25 @@ export default class Client extends OpenApi {
 
   async deleteAcceleratorWithOptions(request: DeleteAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAcceleratorResponse>(await this.doRPCRequest("DeleteAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAcceleratorResponse>(await this.callApi(params, req, runtime), new DeleteAcceleratorResponse({}));
   }
 
   async deleteAccelerator(request: DeleteAcceleratorRequest): Promise<DeleteAcceleratorResponse> {
@@ -7990,10 +9545,27 @@ export default class Client extends OpenApi {
 
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclId"] = request.aclId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAclResponse>(await this.doRPCRequest("DeleteAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAclResponse>(await this.callApi(params, req, runtime), new DeleteAclResponse({}));
   }
 
   async deleteAcl(request: DeleteAclRequest): Promise<DeleteAclResponse> {
@@ -8003,10 +9575,26 @@ export default class Client extends OpenApi {
 
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteBandwidthPackageResponse>(await this.doRPCRequest("DeleteBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteBandwidthPackageResponse({}));
   }
 
   async deleteBandwidthPackage(request: DeleteBandwidthPackageRequest): Promise<DeleteBandwidthPackageResponse> {
@@ -8014,12 +9602,113 @@ export default class Client extends OpenApi {
     return await this.deleteBandwidthPackageWithOptions(request, runtime);
   }
 
-  async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
+  async deleteBasicAcceleratorWithOptions(request: DeleteBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteEndpointGroupResponse>(await this.doRPCRequest("DeleteEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new DeleteBasicAcceleratorResponse({}));
+  }
+
+  async deleteBasicAccelerator(request: DeleteBasicAcceleratorRequest): Promise<DeleteBasicAcceleratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicAcceleratorWithOptions(request, runtime);
+  }
+
+  async deleteBasicEndpointGroupWithOptions(request: DeleteBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new DeleteBasicEndpointGroupResponse({}));
+  }
+
+  async deleteBasicEndpointGroup(request: DeleteBasicEndpointGroupRequest): Promise<DeleteBasicEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicEndpointGroupWithOptions(request, runtime);
+  }
+
+  async deleteBasicIpSetWithOptions(request: DeleteBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicIpSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["IpSetId"] = request.ipSetId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBasicIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBasicIpSetResponse>(await this.callApi(params, req, runtime), new DeleteBasicIpSetResponse({}));
+  }
+
+  async deleteBasicIpSet(request: DeleteBasicIpSetRequest): Promise<DeleteBasicIpSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBasicIpSetWithOptions(request, runtime);
+  }
+
+  async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEndpointGroupResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupResponse({}));
   }
 
   async deleteEndpointGroup(request: DeleteEndpointGroupRequest): Promise<DeleteEndpointGroupResponse> {
@@ -8029,10 +9718,27 @@ export default class Client extends OpenApi {
 
   async deleteEndpointGroupsWithOptions(request: DeleteEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteEndpointGroupsResponse>(await this.doRPCRequest("DeleteEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEndpointGroupsResponse>(await this.callApi(params, req, runtime), new DeleteEndpointGroupsResponse({}));
   }
 
   async deleteEndpointGroups(request: DeleteEndpointGroupsRequest): Promise<DeleteEndpointGroupsResponse> {
@@ -8042,10 +9748,28 @@ export default class Client extends OpenApi {
 
   async deleteForwardingRulesWithOptions(request: DeleteForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["ForwardingRuleIds"] = request.forwardingRuleIds;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteForwardingRulesResponse>(await this.doRPCRequest("DeleteForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteForwardingRulesResponse>(await this.callApi(params, req, runtime), new DeleteForwardingRulesResponse({}));
   }
 
   async deleteForwardingRules(request: DeleteForwardingRulesRequest): Promise<DeleteForwardingRulesResponse> {
@@ -8055,10 +9779,27 @@ export default class Client extends OpenApi {
 
   async deleteIpSetWithOptions(request: DeleteIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["IpSetId"] = request.ipSetId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteIpSetResponse>(await this.doRPCRequest("DeleteIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpSetResponse>(await this.callApi(params, req, runtime), new DeleteIpSetResponse({}));
   }
 
   async deleteIpSet(request: DeleteIpSetRequest): Promise<DeleteIpSetResponse> {
@@ -8068,10 +9809,25 @@ export default class Client extends OpenApi {
 
   async deleteIpSetsWithOptions(request: DeleteIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IpSetIds"] = request.ipSetIds;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteIpSetsResponse>(await this.doRPCRequest("DeleteIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIpSetsResponse>(await this.callApi(params, req, runtime), new DeleteIpSetsResponse({}));
   }
 
   async deleteIpSets(request: DeleteIpSetsRequest): Promise<DeleteIpSetsResponse> {
@@ -8081,10 +9837,26 @@ export default class Client extends OpenApi {
 
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["ListenerId"] = request.listenerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteListenerResponse>(await this.doRPCRequest("DeleteListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteListenerResponse>(await this.callApi(params, req, runtime), new DeleteListenerResponse({}));
   }
 
   async deleteListener(request: DeleteListenerRequest): Promise<DeleteListenerResponse> {
@@ -8094,10 +9866,28 @@ export default class Client extends OpenApi {
 
   async deleteSpareIpsWithOptions(request: DeleteSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["SpareIps"] = request.spareIps;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSpareIpsResponse>(await this.doRPCRequest("DeleteSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSpareIpsResponse>(await this.callApi(params, req, runtime), new DeleteSpareIpsResponse({}));
   }
 
   async deleteSpareIps(request: DeleteSpareIpsRequest): Promise<DeleteSpareIpsResponse> {
@@ -8107,10 +9897,25 @@ export default class Client extends OpenApi {
 
   async describeAcceleratorWithOptions(request: DescribeAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeAcceleratorResponse>(await this.doRPCRequest("DescribeAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAcceleratorResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorResponse({}));
   }
 
   async describeAccelerator(request: DescribeAcceleratorRequest): Promise<DescribeAcceleratorResponse> {
@@ -8120,10 +9925,25 @@ export default class Client extends OpenApi {
 
   async describeBandwidthPackageWithOptions(request: DescribeBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeBandwidthPackageResponse>(await this.doRPCRequest("DescribeBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DescribeBandwidthPackageResponse({}));
   }
 
   async describeBandwidthPackage(request: DescribeBandwidthPackageRequest): Promise<DescribeBandwidthPackageResponse> {
@@ -8133,10 +9953,25 @@ export default class Client extends OpenApi {
 
   async describeEndpointGroupWithOptions(request: DescribeEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeEndpointGroupResponse>(await this.doRPCRequest("DescribeEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEndpointGroupResponse>(await this.callApi(params, req, runtime), new DescribeEndpointGroupResponse({}));
   }
 
   async describeEndpointGroup(request: DescribeEndpointGroupRequest): Promise<DescribeEndpointGroupResponse> {
@@ -8146,10 +9981,25 @@ export default class Client extends OpenApi {
 
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IpSetId"] = request.ipSetId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeIpSetResponse>(await this.doRPCRequest("DescribeIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpSetResponse>(await this.callApi(params, req, runtime), new DescribeIpSetResponse({}));
   }
 
   async describeIpSet(request: DescribeIpSetRequest): Promise<DescribeIpSetResponse> {
@@ -8159,10 +10009,25 @@ export default class Client extends OpenApi {
 
   async describeListenerWithOptions(request: DescribeListenerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeListenerResponse>(await this.doRPCRequest("DescribeListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeListenerResponse>(await this.callApi(params, req, runtime), new DescribeListenerResponse({}));
   }
 
   async describeListener(request: DescribeListenerRequest): Promise<DescribeListenerResponse> {
@@ -8172,10 +10037,24 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -8185,10 +10064,25 @@ export default class Client extends OpenApi {
 
   async detachDdosFromAcceleratorWithOptions(request: DetachDdosFromAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DetachDdosFromAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetachDdosFromAcceleratorResponse>(await this.doRPCRequest("DetachDdosFromAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetachDdosFromAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachDdosFromAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachDdosFromAcceleratorResponse>(await this.callApi(params, req, runtime), new DetachDdosFromAcceleratorResponse({}));
   }
 
   async detachDdosFromAccelerator(request: DetachDdosFromAcceleratorRequest): Promise<DetachDdosFromAcceleratorResponse> {
@@ -8198,10 +10092,28 @@ export default class Client extends OpenApi {
 
   async detachLogStoreFromEndpointGroupWithOptions(request: DetachLogStoreFromEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachLogStoreFromEndpointGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupIds"] = request.endpointGroupIds;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetachLogStoreFromEndpointGroupResponse>(await this.doRPCRequest("DetachLogStoreFromEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DetachLogStoreFromEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachLogStoreFromEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachLogStoreFromEndpointGroupResponse>(await this.callApi(params, req, runtime), new DetachLogStoreFromEndpointGroupResponse({}));
   }
 
   async detachLogStoreFromEndpointGroup(request: DetachLogStoreFromEndpointGroupRequest): Promise<DetachLogStoreFromEndpointGroupResponse> {
@@ -8211,10 +10123,28 @@ export default class Client extends OpenApi {
 
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclIds"] = request.aclIds;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DissociateAclsFromListenerResponse>(await this.doRPCRequest("DissociateAclsFromListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateAclsFromListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateAclsFromListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateAclsFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAclsFromListenerResponse({}));
   }
 
   async dissociateAclsFromListener(request: DissociateAclsFromListenerRequest): Promise<DissociateAclsFromListenerResponse> {
@@ -8224,10 +10154,28 @@ export default class Client extends OpenApi {
 
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["Domains"] = request.domains;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DissociateAdditionalCertificatesFromListenerResponse>(await this.doRPCRequest("DissociateAdditionalCertificatesFromListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateAdditionalCertificatesFromListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateAdditionalCertificatesFromListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateAdditionalCertificatesFromListenerResponse>(await this.callApi(params, req, runtime), new DissociateAdditionalCertificatesFromListenerResponse({}));
   }
 
   async dissociateAdditionalCertificatesFromListener(request: DissociateAdditionalCertificatesFromListenerRequest): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
@@ -8237,10 +10185,25 @@ export default class Client extends OpenApi {
 
   async getAclWithOptions(request: GetAclRequest, runtime: $Util.RuntimeOptions): Promise<GetAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclId"] = request.aclId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAclResponse>(await this.doRPCRequest("GetAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAclResponse>(await this.callApi(params, req, runtime), new GetAclResponse({}));
   }
 
   async getAcl(request: GetAclRequest): Promise<GetAclResponse> {
@@ -8248,12 +10211,116 @@ export default class Client extends OpenApi {
     return await this.getAclWithOptions(request, runtime);
   }
 
-  async getHealthStatusWithOptions(request: GetHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthStatusResponse> {
+  async getBasicAcceleratorWithOptions(request: GetBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetHealthStatusResponse>(await this.doRPCRequest("GetHealthStatus", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetHealthStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBasicAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new GetBasicAcceleratorResponse({}));
+  }
+
+  async getBasicAccelerator(request: GetBasicAcceleratorRequest): Promise<GetBasicAcceleratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBasicAcceleratorWithOptions(request, runtime);
+  }
+
+  async getBasicEndpointGroupWithOptions(request: GetBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBasicEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new GetBasicEndpointGroupResponse({}));
+  }
+
+  async getBasicEndpointGroup(request: GetBasicEndpointGroupRequest): Promise<GetBasicEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBasicEndpointGroupWithOptions(request, runtime);
+  }
+
+  async getBasicIpSetWithOptions(request: GetBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicIpSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["IpSetId"] = request.ipSetId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetBasicIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBasicIpSetResponse>(await this.callApi(params, req, runtime), new GetBasicIpSetResponse({}));
+  }
+
+  async getBasicIpSet(request: GetBasicIpSetRequest): Promise<GetBasicIpSetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getBasicIpSetWithOptions(request, runtime);
+  }
+
+  async getHealthStatusWithOptions(request: GetHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHealthStatus",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHealthStatusResponse>(await this.callApi(params, req, runtime), new GetHealthStatusResponse({}));
   }
 
   async getHealthStatus(request: GetHealthStatusRequest): Promise<GetHealthStatusResponse> {
@@ -8263,10 +10330,28 @@ export default class Client extends OpenApi {
 
   async getSpareIpWithOptions(request: GetSpareIpRequest, runtime: $Util.RuntimeOptions): Promise<GetSpareIpResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["SpareIp"] = request.spareIp;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetSpareIpResponse>(await this.doRPCRequest("GetSpareIp", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new GetSpareIpResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSpareIp",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSpareIpResponse>(await this.callApi(params, req, runtime), new GetSpareIpResponse({}));
   }
 
   async getSpareIp(request: GetSpareIpRequest): Promise<GetSpareIpResponse> {
@@ -8276,10 +10361,24 @@ export default class Client extends OpenApi {
 
   async listAccelerateAreasWithOptions(request: ListAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAccelerateAreasResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAccelerateAreasResponse>(await this.doRPCRequest("ListAccelerateAreas", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccelerateAreasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccelerateAreas",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAccelerateAreasResponse({}));
   }
 
   async listAccelerateAreas(request: ListAccelerateAreasRequest): Promise<ListAccelerateAreasResponse> {
@@ -8289,10 +10388,28 @@ export default class Client extends OpenApi {
 
   async listAcceleratorsWithOptions(request: ListAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcceleratorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["State"] = request.state;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAcceleratorsResponse>(await this.doRPCRequest("ListAccelerators", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAcceleratorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccelerators",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAcceleratorsResponse>(await this.callApi(params, req, runtime), new ListAcceleratorsResponse({}));
   }
 
   async listAccelerators(request: ListAcceleratorsRequest): Promise<ListAcceleratorsResponse> {
@@ -8302,10 +10419,29 @@ export default class Client extends OpenApi {
 
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclIds"] = request.aclIds;
+    query["AclName"] = request.aclName;
+    query["ClientToken"] = request.clientToken;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAclsResponse>(await this.doRPCRequest("ListAcls", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAclsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAcls",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAclsResponse>(await this.callApi(params, req, runtime), new ListAclsResponse({}));
   }
 
   async listAcls(request: ListAclsRequest): Promise<ListAclsResponse> {
@@ -8315,10 +10451,25 @@ export default class Client extends OpenApi {
 
   async listAvailableAccelerateAreasWithOptions(request: ListAvailableAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableAccelerateAreasResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAvailableAccelerateAreasResponse>(await this.doRPCRequest("ListAvailableAccelerateAreas", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAvailableAccelerateAreasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAvailableAccelerateAreas",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableAccelerateAreasResponse>(await this.callApi(params, req, runtime), new ListAvailableAccelerateAreasResponse({}));
   }
 
   async listAvailableAccelerateAreas(request: ListAvailableAccelerateAreasRequest): Promise<ListAvailableAccelerateAreasResponse> {
@@ -8328,10 +10479,25 @@ export default class Client extends OpenApi {
 
   async listAvailableBusiRegionsWithOptions(request: ListAvailableBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableBusiRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAvailableBusiRegionsResponse>(await this.doRPCRequest("ListAvailableBusiRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListAvailableBusiRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAvailableBusiRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListAvailableBusiRegionsResponse({}));
   }
 
   async listAvailableBusiRegions(request: ListAvailableBusiRegionsRequest): Promise<ListAvailableBusiRegionsResponse> {
@@ -8339,25 +10505,31 @@ export default class Client extends OpenApi {
     return await this.listAvailableBusiRegionsWithOptions(request, runtime);
   }
 
-  async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListBandwidthackagesResponse>(await this.doRPCRequest("ListBandwidthackages", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBandwidthackagesResponse({}));
-  }
-
-  async listBandwidthackages(request: ListBandwidthackagesRequest): Promise<ListBandwidthackagesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listBandwidthackagesWithOptions(request, runtime);
-  }
-
   async listBandwidthPackagesWithOptions(request: ListBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthPackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["State"] = request.state;
+    query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListBandwidthPackagesResponse>(await this.doRPCRequest("ListBandwidthPackages", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBandwidthPackagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBandwidthPackages",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthPackagesResponse({}));
   }
 
   async listBandwidthPackages(request: ListBandwidthPackagesRequest): Promise<ListBandwidthPackagesResponse> {
@@ -8365,12 +10537,86 @@ export default class Client extends OpenApi {
     return await this.listBandwidthPackagesWithOptions(request, runtime);
   }
 
-  async listBusiRegionsWithOptions(request: ListBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusiRegionsResponse> {
+  async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListBusiRegionsResponse>(await this.doRPCRequest("ListBusiRegions", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListBusiRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBandwidthackages",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBandwidthackagesResponse>(await this.callApi(params, req, runtime), new ListBandwidthackagesResponse({}));
+  }
+
+  async listBandwidthackages(request: ListBandwidthackagesRequest): Promise<ListBandwidthackagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBandwidthackagesWithOptions(request, runtime);
+  }
+
+  async listBasicAcceleratorsWithOptions(request: ListBasicAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicAcceleratorsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["State"] = request.state;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBasicAccelerators",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBasicAcceleratorsResponse>(await this.callApi(params, req, runtime), new ListBasicAcceleratorsResponse({}));
+  }
+
+  async listBasicAccelerators(request: ListBasicAcceleratorsRequest): Promise<ListBasicAcceleratorsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listBasicAcceleratorsWithOptions(request, runtime);
+  }
+
+  async listBusiRegionsWithOptions(request: ListBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusiRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListBusiRegions",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBusiRegionsResponse>(await this.callApi(params, req, runtime), new ListBusiRegionsResponse({}));
   }
 
   async listBusiRegions(request: ListBusiRegionsRequest): Promise<ListBusiRegionsResponse> {
@@ -8380,10 +10626,31 @@ export default class Client extends OpenApi {
 
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["AccessLogSwitch"] = request.accessLogSwitch;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["EndpointGroupType"] = request.endpointGroupType;
+    query["ListenerId"] = request.listenerId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListEndpointGroupsResponse>(await this.doRPCRequest("ListEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEndpointGroupsResponse>(await this.callApi(params, req, runtime), new ListEndpointGroupsResponse({}));
   }
 
   async listEndpointGroups(request: ListEndpointGroupsRequest): Promise<ListEndpointGroupsResponse> {
@@ -8393,10 +10660,30 @@ export default class Client extends OpenApi {
 
   async listForwardingRulesWithOptions(request: ListForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["ForwardingRuleId"] = request.forwardingRuleId;
+    query["ListenerId"] = request.listenerId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListForwardingRulesResponse>(await this.doRPCRequest("ListForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListForwardingRulesResponse>(await this.callApi(params, req, runtime), new ListForwardingRulesResponse({}));
   }
 
   async listForwardingRules(request: ListForwardingRulesRequest): Promise<ListForwardingRulesResponse> {
@@ -8406,10 +10693,27 @@ export default class Client extends OpenApi {
 
   async listIpSetsWithOptions(request: ListIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListIpSetsResponse>(await this.doRPCRequest("ListIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIpSetsResponse>(await this.callApi(params, req, runtime), new ListIpSetsResponse({}));
   }
 
   async listIpSets(request: ListIpSetsRequest): Promise<ListIpSetsResponse> {
@@ -8419,10 +10723,29 @@ export default class Client extends OpenApi {
 
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ListenerId"] = request.listenerId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["Role"] = request.role;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListListenerCertificatesResponse>(await this.doRPCRequest("ListListenerCertificates", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListListenerCertificatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListListenerCertificates",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListListenerCertificatesResponse>(await this.callApi(params, req, runtime), new ListListenerCertificatesResponse({}));
   }
 
   async listListenerCertificates(request: ListListenerCertificatesRequest): Promise<ListListenerCertificatesResponse> {
@@ -8432,10 +10755,27 @@ export default class Client extends OpenApi {
 
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListListenersResponse>(await this.doRPCRequest("ListListeners", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListListenersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListListeners",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListListenersResponse>(await this.callApi(params, req, runtime), new ListListenersResponse({}));
   }
 
   async listListeners(request: ListListenersRequest): Promise<ListListenersResponse> {
@@ -8445,10 +10785,27 @@ export default class Client extends OpenApi {
 
   async listSpareIpsWithOptions(request: ListSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListSpareIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListSpareIpsResponse>(await this.doRPCRequest("ListSpareIps", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListSpareIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSpareIps",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSpareIpsResponse>(await this.callApi(params, req, runtime), new ListSpareIpsResponse({}));
   }
 
   async listSpareIps(request: ListSpareIpsRequest): Promise<ListSpareIpsResponse> {
@@ -8458,10 +10815,26 @@ export default class Client extends OpenApi {
 
   async listSystemSecurityPoliciesWithOptions(request: ListSystemSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListSystemSecurityPoliciesResponse>(await this.doRPCRequest("ListSystemSecurityPolicies", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ListSystemSecurityPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSystemSecurityPolicies",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSystemSecurityPoliciesResponse>(await this.callApi(params, req, runtime), new ListSystemSecurityPoliciesResponse({}));
   }
 
   async listSystemSecurityPolicies(request: ListSystemSecurityPoliciesRequest): Promise<ListSystemSecurityPoliciesResponse> {
@@ -8471,10 +10844,28 @@ export default class Client extends OpenApi {
 
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclEntries"] = request.aclEntries;
+    query["AclId"] = request.aclId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RemoveEntriesFromAclResponse>(await this.doRPCRequest("RemoveEntriesFromAcl", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveEntriesFromAclResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveEntriesFromAcl",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveEntriesFromAclResponse>(await this.callApi(params, req, runtime), new RemoveEntriesFromAclResponse({}));
   }
 
   async removeEntriesFromAcl(request: RemoveEntriesFromAclRequest): Promise<RemoveEntriesFromAclResponse> {
@@ -8484,10 +10875,26 @@ export default class Client extends OpenApi {
 
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["RegionId"] = request.regionId;
+    query["TargetBandwidthPackageId"] = request.targetBandwidthPackageId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ReplaceBandwidthPackageResponse>(await this.doRPCRequest("ReplaceBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new ReplaceBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReplaceBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceBandwidthPackageResponse>(await this.callApi(params, req, runtime), new ReplaceBandwidthPackageResponse({}));
   }
 
   async replaceBandwidthPackage(request: ReplaceBandwidthPackageRequest): Promise<ReplaceBandwidthPackageResponse> {
@@ -8497,10 +10904,31 @@ export default class Client extends OpenApi {
 
   async updateAcceleratorWithOptions(request: UpdateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAcceleratorResponse>(await this.doRPCRequest("UpdateAccelerator", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAcceleratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorResponse({}));
   }
 
   async updateAccelerator(request: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
@@ -8510,10 +10938,25 @@ export default class Client extends OpenApi {
 
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAcceleratorConfirmResponse>(await this.doRPCRequest("UpdateAcceleratorConfirm", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAcceleratorConfirmResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAcceleratorConfirm",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorConfirmResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorConfirmResponse({}));
   }
 
   async updateAcceleratorConfirm(request: UpdateAcceleratorConfirmRequest): Promise<UpdateAcceleratorConfirmResponse> {
@@ -8523,10 +10966,28 @@ export default class Client extends OpenApi {
 
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AclId"] = request.aclId;
+    query["AclName"] = request.aclName;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAclAttributeResponse>(await this.doRPCRequest("UpdateAclAttribute", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAclAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAclAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAclAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAclAttributeResponse({}));
   }
 
   async updateAclAttribute(request: UpdateAclAttributeRequest): Promise<UpdateAclAttributeResponse> {
@@ -8536,10 +10997,31 @@ export default class Client extends OpenApi {
 
   async updateBandwidthPackageWithOptions(request: UpdateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoPay"] = request.autoPay;
+    query["AutoUseCoupon"] = request.autoUseCoupon;
+    query["Bandwidth"] = request.bandwidth;
+    query["BandwidthPackageId"] = request.bandwidthPackageId;
+    query["BandwidthType"] = request.bandwidthType;
+    query["Description"] = request.description;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateBandwidthPackageResponse>(await this.doRPCRequest("UpdateBandwidthPackage", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateBandwidthPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateBandwidthPackage",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBandwidthPackageResponse>(await this.callApi(params, req, runtime), new UpdateBandwidthPackageResponse({}));
   }
 
   async updateBandwidthPackage(request: UpdateBandwidthPackageRequest): Promise<UpdateBandwidthPackageResponse> {
@@ -8547,12 +11029,105 @@ export default class Client extends OpenApi {
     return await this.updateBandwidthPackageWithOptions(request, runtime);
   }
 
-  async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
+  async updateBasicAcceleratorWithOptions(request: UpdateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicAcceleratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupResponse>(await this.doRPCRequest("UpdateEndpointGroup", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateBasicAccelerator",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBasicAcceleratorResponse>(await this.callApi(params, req, runtime), new UpdateBasicAcceleratorResponse({}));
+  }
+
+  async updateBasicAccelerator(request: UpdateBasicAcceleratorRequest): Promise<UpdateBasicAcceleratorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBasicAcceleratorWithOptions(request, runtime);
+  }
+
+  async updateBasicEndpointGroupWithOptions(request: UpdateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["EndpointAddress"] = request.endpointAddress;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["EndpointType"] = request.endpointType;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateBasicEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateBasicEndpointGroupResponse>(await this.callApi(params, req, runtime), new UpdateBasicEndpointGroupResponse({}));
+  }
+
+  async updateBasicEndpointGroup(request: UpdateBasicEndpointGroupRequest): Promise<UpdateBasicEndpointGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateBasicEndpointGroupWithOptions(request, runtime);
+  }
+
+  async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["EndpointConfigurations"] = request.endpointConfigurations;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    query["HealthCheckEnabled"] = request.healthCheckEnabled;
+    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    query["HealthCheckPath"] = request.healthCheckPath;
+    query["HealthCheckPort"] = request.healthCheckPort;
+    query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    query["Name"] = request.name;
+    query["PortOverrides"] = request.portOverrides;
+    query["RegionId"] = request.regionId;
+    query["ThresholdCount"] = request.thresholdCount;
+    query["TrafficPercentage"] = request.trafficPercentage;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroup",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupResponse({}));
   }
 
   async updateEndpointGroup(request: UpdateEndpointGroupRequest): Promise<UpdateEndpointGroupResponse> {
@@ -8562,10 +11137,28 @@ export default class Client extends OpenApi {
 
   async updateEndpointGroupAttributeWithOptions(request: UpdateEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["EndpointGroupId"] = request.endpointGroupId;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupAttributeResponse>(await this.doRPCRequest("UpdateEndpointGroupAttribute", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroupAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupAttributeResponse({}));
   }
 
   async updateEndpointGroupAttribute(request: UpdateEndpointGroupAttributeRequest): Promise<UpdateEndpointGroupAttributeResponse> {
@@ -8575,10 +11168,28 @@ export default class Client extends OpenApi {
 
   async updateEndpointGroupsWithOptions(request: UpdateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEndpointGroupsResponse>(await this.doRPCRequest("UpdateEndpointGroups", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEndpointGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEndpointGroups",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEndpointGroupsResponse>(await this.callApi(params, req, runtime), new UpdateEndpointGroupsResponse({}));
   }
 
   async updateEndpointGroups(request: UpdateEndpointGroupsRequest): Promise<UpdateEndpointGroupsResponse> {
@@ -8588,10 +11199,28 @@ export default class Client extends OpenApi {
 
   async updateForwardingRulesWithOptions(request: UpdateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateForwardingRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["ClientToken"] = request.clientToken;
+    query["ForwardingRules"] = request.forwardingRules;
+    query["ListenerId"] = request.listenerId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateForwardingRulesResponse>(await this.doRPCRequest("UpdateForwardingRules", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateForwardingRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateForwardingRules",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateForwardingRulesResponse>(await this.callApi(params, req, runtime), new UpdateForwardingRulesResponse({}));
   }
 
   async updateForwardingRules(request: UpdateForwardingRulesRequest): Promise<UpdateForwardingRulesResponse> {
@@ -8601,10 +11230,27 @@ export default class Client extends OpenApi {
 
   async updateIpSetWithOptions(request: UpdateIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Bandwidth"] = request.bandwidth;
+    query["ClientToken"] = request.clientToken;
+    query["IpSetId"] = request.ipSetId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateIpSetResponse>(await this.doRPCRequest("UpdateIpSet", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIpSet",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpSetResponse>(await this.callApi(params, req, runtime), new UpdateIpSetResponse({}));
   }
 
   async updateIpSet(request: UpdateIpSetRequest): Promise<UpdateIpSetResponse> {
@@ -8614,10 +11260,25 @@ export default class Client extends OpenApi {
 
   async updateIpSetsWithOptions(request: UpdateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IpSets"] = request.ipSets;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateIpSetsResponse>(await this.doRPCRequest("UpdateIpSets", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIpSets",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIpSetsResponse>(await this.callApi(params, req, runtime), new UpdateIpSetsResponse({}));
   }
 
   async updateIpSets(request: UpdateIpSetsRequest): Promise<UpdateIpSetsResponse> {
@@ -8627,10 +11288,36 @@ export default class Client extends OpenApi {
 
   async updateListenerWithOptions(request: UpdateListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BackendPorts"] = request.backendPorts;
+    query["Certificates"] = request.certificates;
+    query["ClientAffinity"] = request.clientAffinity;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["ListenerId"] = request.listenerId;
+    query["Name"] = request.name;
+    query["PortRanges"] = request.portRanges;
+    query["Protocol"] = request.protocol;
+    query["ProxyProtocol"] = request.proxyProtocol;
+    query["RegionId"] = request.regionId;
+    query["SecurityPolicyId"] = request.securityPolicyId;
+    query["XForwardedForConfig"] = request.XForwardedForConfig;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateListenerResponse>(await this.doRPCRequest("UpdateListener", "2019-11-20", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateListener",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateListenerResponse>(await this.callApi(params, req, runtime), new UpdateListenerResponse({}));
   }
 
   async updateListener(request: UpdateListenerRequest): Promise<UpdateListenerResponse> {
