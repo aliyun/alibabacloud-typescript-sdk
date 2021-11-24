@@ -402,6 +402,7 @@ export class CreateClusterRequest extends $tea.Model {
   customSan?: string;
   deletionProtection?: boolean;
   disableRollback?: boolean;
+  enableRrsa?: boolean;
   encryptionProviderKey?: string;
   endpointPublicAccess?: boolean;
   formatDisk?: boolean;
@@ -486,6 +487,7 @@ export class CreateClusterRequest extends $tea.Model {
       customSan: 'custom_san',
       deletionProtection: 'deletion_protection',
       disableRollback: 'disable_rollback',
+      enableRrsa: 'enable_rrsa',
       encryptionProviderKey: 'encryption_provider_key',
       endpointPublicAccess: 'endpoint_public_access',
       formatDisk: 'format_disk',
@@ -573,6 +575,7 @@ export class CreateClusterRequest extends $tea.Model {
       customSan: 'string',
       deletionProtection: 'boolean',
       disableRollback: 'boolean',
+      enableRrsa: 'boolean',
       encryptionProviderKey: 'string',
       endpointPublicAccess: 'boolean',
       formatDisk: 'boolean',
@@ -1324,17 +1327,58 @@ export class DeleteKubernetesTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeletePolicyInstanceRequest extends $tea.Model {
+  instanceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceName: 'instance_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePolicyInstanceResponseBody extends $tea.Model {
+  instances?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeletePolicyInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: DeletePolicyInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeletePolicyInstanceResponseBody,
     };
   }
 
@@ -1406,17 +1450,39 @@ export class DeployPolicyInstanceRequest extends $tea.Model {
   }
 }
 
+export class DeployPolicyInstanceResponseBody extends $tea.Model {
+  instances?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeployPolicyInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: DeployPolicyInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeployPolicyInstanceResponseBody,
     };
   }
 
@@ -3742,6 +3808,7 @@ export class ModifyClusterRequest extends $tea.Model {
   apiServerEip?: boolean;
   apiServerEipId?: string;
   deletionProtection?: boolean;
+  enableRrsa?: boolean;
   ingressDomainRebinding?: string;
   ingressLoadbalancerId?: string;
   instanceDeletionProtection?: boolean;
@@ -3752,6 +3819,7 @@ export class ModifyClusterRequest extends $tea.Model {
       apiServerEip: 'api_server_eip',
       apiServerEipId: 'api_server_eip_id',
       deletionProtection: 'deletion_protection',
+      enableRrsa: 'enable_rrsa',
       ingressDomainRebinding: 'ingress_domain_rebinding',
       ingressLoadbalancerId: 'ingress_loadbalancer_id',
       instanceDeletionProtection: 'instance_deletion_protection',
@@ -3765,6 +3833,7 @@ export class ModifyClusterRequest extends $tea.Model {
       apiServerEip: 'boolean',
       apiServerEipId: 'string',
       deletionProtection: 'boolean',
+      enableRrsa: 'boolean',
       ingressDomainRebinding: 'string',
       ingressLoadbalancerId: 'string',
       instanceDeletionProtection: 'boolean',
@@ -4048,17 +4117,39 @@ export class ModifyPolicyInstanceRequest extends $tea.Model {
   }
 }
 
+export class ModifyPolicyInstanceResponseBody extends $tea.Model {
+  instances?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPolicyInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: ModifyPolicyInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyPolicyInstanceResponseBody,
     };
   }
 
@@ -8277,7 +8368,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<AttachInstancesResponse>(await this.doROARequest("AttachInstances", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/attach`, "json", req, runtime), new AttachInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachInstances",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/attach`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
   }
 
   async cancelClusterUpgrade(ClusterId: string): Promise<CancelClusterUpgradeResponse> {
@@ -8291,7 +8393,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CancelClusterUpgradeResponse>(await this.doROARequest("CancelClusterUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade/cancel`, "none", req, runtime), new CancelClusterUpgradeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelClusterUpgrade",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/upgrade/cancel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CancelClusterUpgradeResponse>(await this.callApi(params, req, runtime), new CancelClusterUpgradeResponse({}));
   }
 
   async cancelComponentUpgrade(clusterId: string, componentId: string): Promise<CancelComponentUpgradeResponse> {
@@ -8306,7 +8419,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CancelComponentUpgradeResponse>(await this.doROARequest("CancelComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/components/${componentId}/cancel`, "none", req, runtime), new CancelComponentUpgradeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelComponentUpgrade",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/components/{componentId}/cancel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CancelComponentUpgradeResponse>(await this.callApi(params, req, runtime), new CancelComponentUpgradeResponse({}));
   }
 
   async cancelWorkflow(workflowName: string, request: CancelWorkflowRequest): Promise<CancelWorkflowResponse> {
@@ -8327,7 +8451,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CancelWorkflowResponse>(await this.doROARequest("CancelWorkflow", "2015-12-15", "HTTPS", "PUT", "AK", `/gs/workflow/${workflowName}`, "none", req, runtime), new CancelWorkflowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelWorkflow",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/gs/workflow/${workflowName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CancelWorkflowResponse>(await this.callApi(params, req, runtime), new CancelWorkflowResponse({}));
   }
 
   async createAutoscalingConfig(ClusterId: string, request: CreateAutoscalingConfigRequest): Promise<CreateAutoscalingConfigResponse> {
@@ -8364,7 +8499,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateAutoscalingConfigResponse>(await this.doROARequest("CreateAutoscalingConfig", "2015-12-15", "HTTPS", "POST", "AK", `/cluster/${ClusterId}/autoscale/config/`, "none", req, runtime), new CreateAutoscalingConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAutoscalingConfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/cluster/${ClusterId}/autoscale/config/`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateAutoscalingConfigResponse>(await this.callApi(params, req, runtime), new CreateAutoscalingConfigResponse({}));
   }
 
   async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
@@ -8434,6 +8580,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.disableRollback)) {
       body["disable_rollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.enableRrsa)) {
+      body["enable_rrsa"] = request.enableRrsa;
     }
 
     if (!Util.isUnset(request.encryptionProviderKey)) {
@@ -8708,7 +8858,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateClusterResponse>(await this.doROARequest("CreateCluster", "2015-12-15", "HTTPS", "POST", "AK", `/clusters`, "json", req, runtime), new CreateClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
   }
 
   async createClusterNodePool(ClusterId: string, request: CreateClusterNodePoolRequest): Promise<CreateClusterNodePoolResponse> {
@@ -8765,7 +8926,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateClusterNodePoolResponse>(await this.doROARequest("CreateClusterNodePool", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/nodepools`, "json", req, runtime), new CreateClusterNodePoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateClusterNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClusterNodePoolResponse>(await this.callApi(params, req, runtime), new CreateClusterNodePoolResponse({}));
   }
 
   async createEdgeMachine(request: CreateEdgeMachineRequest): Promise<CreateEdgeMachineResponse> {
@@ -8793,7 +8965,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateEdgeMachineResponse>(await this.doROARequest("CreateEdgeMachine", "2015-12-15", "HTTPS", "POST", "AK", `/edge_machines`, "json", req, runtime), new CreateEdgeMachineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateEdgeMachine",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEdgeMachineResponse>(await this.callApi(params, req, runtime), new CreateEdgeMachineResponse({}));
   }
 
   async createKubernetesTrigger(request: CreateKubernetesTriggerRequest): Promise<CreateKubernetesTriggerResponse> {
@@ -8825,7 +9008,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateKubernetesTriggerResponse>(await this.doROARequest("CreateKubernetesTrigger", "2015-12-15", "HTTPS", "POST", "AK", `/triggers`, "json", req, runtime), new CreateKubernetesTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateKubernetesTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/triggers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new CreateKubernetesTriggerResponse({}));
   }
 
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
@@ -8861,7 +9055,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateTemplateResponse>(await this.doROARequest("CreateTemplate", "2015-12-15", "HTTPS", "POST", "AK", `/templates`, "json", req, runtime), new CreateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTemplate",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/templates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
   async createTrigger(clusterId: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
@@ -8894,7 +9099,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateTriggerResponse>(await this.doROARequest("CreateTrigger", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/triggers`, "json", req, runtime), new CreateTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/triggers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
   async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
@@ -8929,7 +9145,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteClusterResponse>(await this.doROARequest("DeleteCluster", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${ClusterId}`, "none", req, runtime), new DeleteClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
   }
 
   async deleteClusterNodepool(ClusterId: string, NodepoolId: string): Promise<DeleteClusterNodepoolResponse> {
@@ -8944,7 +9171,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteClusterNodepoolResponse>(await this.doROARequest("DeleteClusterNodepool", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${ClusterId}/nodepools/${NodepoolId}`, "json", req, runtime), new DeleteClusterNodepoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteClusterNodepool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClusterNodepoolResponse>(await this.callApi(params, req, runtime), new DeleteClusterNodepoolResponse({}));
   }
 
   async deleteClusterNodes(ClusterId: string, request: DeleteClusterNodesRequest): Promise<DeleteClusterNodesResponse> {
@@ -8973,7 +9211,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteClusterNodesResponse>(await this.doROARequest("DeleteClusterNodes", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/nodes`, "json", req, runtime), new DeleteClusterNodesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteClusterNodes",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClusterNodesResponse>(await this.callApi(params, req, runtime), new DeleteClusterNodesResponse({}));
   }
 
   async deleteEdgeMachine(edgeMachineid: string, request: DeleteEdgeMachineRequest): Promise<DeleteEdgeMachineResponse> {
@@ -8994,7 +9243,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteEdgeMachineResponse>(await this.doROARequest("DeleteEdgeMachine", "2015-12-15", "HTTPS", "DELETE", "AK", `/edge_machines/[edge_machineid]`, "none", req, runtime), new DeleteEdgeMachineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEdgeMachine",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines/[edge_machineid]`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteEdgeMachineResponse>(await this.callApi(params, req, runtime), new DeleteEdgeMachineResponse({}));
   }
 
   async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
@@ -9008,23 +9268,51 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteKubernetesTriggerResponse>(await this.doROARequest("DeleteKubernetesTrigger", "2015-12-15", "HTTPS", "DELETE", "AK", `/triggers/revoke/${Id}`, "none", req, runtime), new DeleteKubernetesTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteKubernetesTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/triggers/revoke/${Id}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new DeleteKubernetesTriggerResponse({}));
   }
 
-  async deletePolicyInstance(clusterId: string, policyName: string, instanceId: string): Promise<DeletePolicyInstanceResponse> {
+  async deletePolicyInstance(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest): Promise<DeletePolicyInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePolicyInstanceWithOptions(clusterId, policyName, instanceId, headers, runtime);
+    return await this.deletePolicyInstanceWithOptions(clusterId, policyName, request, headers, runtime);
   }
 
-  async deletePolicyInstanceWithOptions(clusterId: string, policyName: string, instanceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
+  async deletePolicyInstanceWithOptions(clusterId: string, policyName: string, request: DeletePolicyInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeletePolicyInstanceResponse> {
+    Util.validateModel(request);
     clusterId = OpenApiUtil.getEncodeParam(clusterId);
     policyName = OpenApiUtil.getEncodeParam(policyName);
-    instanceId = OpenApiUtil.getEncodeParam(instanceId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceName)) {
+      query["instance_name"] = request.instanceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePolicyInstanceResponse>(await this.doROARequest("DeletePolicyInstance", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/${clusterId}/policies/${policyName}/instances/${instanceId}`, "none", req, runtime), new DeletePolicyInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePolicyInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeletePolicyInstanceResponse({}));
   }
 
   async deleteTemplate(TemplateId: string): Promise<DeleteTemplateResponse> {
@@ -9038,7 +9326,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteTemplateResponse>(await this.doROARequest("DeleteTemplate", "2015-12-15", "HTTPS", "DELETE", "AK", `/templates/${TemplateId}`, "none", req, runtime), new DeleteTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplate",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/templates/${TemplateId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   async deleteTrigger(clusterId: string, Id: string): Promise<DeleteTriggerResponse> {
@@ -9053,7 +9352,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteTriggerResponse>(await this.doROARequest("DeleteTrigger", "2015-12-15", "HTTPS", "DELETE", "AK", `/clusters/[cluster_id]/triggers/[Id]`, "none", req, runtime), new DeleteTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/[cluster_id]/triggers/[Id]`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
   async deployPolicyInstance(clusterId: string, policyName: string, request: DeployPolicyInstanceRequest): Promise<DeployPolicyInstanceResponse> {
@@ -9083,7 +9393,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeployPolicyInstanceResponse>(await this.doROARequest("DeployPolicyInstance", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/policies/${policyName}`, "none", req, runtime), new DeployPolicyInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeployPolicyInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployPolicyInstanceResponse>(await this.callApi(params, req, runtime), new DeployPolicyInstanceResponse({}));
   }
 
   async descirbeWorkflow(workflowName: string): Promise<DescirbeWorkflowResponse> {
@@ -9097,7 +9418,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescirbeWorkflowResponse>(await this.doROARequest("DescirbeWorkflow", "2015-12-15", "HTTPS", "GET", "AK", `/gs/workflow/${workflowName}`, "json", req, runtime), new DescirbeWorkflowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescirbeWorkflow",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/gs/workflow/${workflowName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescirbeWorkflowResponse>(await this.callApi(params, req, runtime), new DescirbeWorkflowResponse({}));
   }
 
   async describeAddons(request: DescribeAddonsRequest): Promise<DescribeAddonsResponse> {
@@ -9121,7 +9453,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAddonsResponse>(await this.doROARequest("DescribeAddons", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/components/metadata`, "json", req, runtime), new DescribeAddonsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAddons",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/components/metadata`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAddonsResponse>(await this.callApi(params, req, runtime), new DescribeAddonsResponse({}));
   }
 
   async describeClusterAddonMetadata(clusterId: string, componentId: string, version: string): Promise<DescribeClusterAddonMetadataResponse> {
@@ -9137,7 +9480,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterAddonMetadataResponse>(await this.doROARequest("DescribeClusterAddonMetadata", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${clusterId}/components/${componentId}/metadata`, "json", req, runtime), new DescribeClusterAddonMetadataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAddonMetadata",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/components/{componentId}/metadata`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterAddonMetadataResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonMetadataResponse({}));
   }
 
   async describeClusterAddonUpgradeStatus(ClusterId: string, ComponentId: string): Promise<DescribeClusterAddonUpgradeStatusResponse> {
@@ -9152,7 +9506,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterAddonUpgradeStatusResponse>(await this.doROARequest("DescribeClusterAddonUpgradeStatus", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/components/${ComponentId}/upgradestatus`, "json", req, runtime), new DescribeClusterAddonUpgradeStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAddonUpgradeStatus",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/{ComponentId}/upgradestatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterAddonUpgradeStatusResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonUpgradeStatusResponse({}));
   }
 
   async describeClusterAddonsUpgradeStatus(ClusterId: string, request: DescribeClusterAddonsUpgradeStatusRequest): Promise<DescribeClusterAddonsUpgradeStatusResponse> {
@@ -9179,7 +9544,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClusterAddonsUpgradeStatusResponse>(await this.doROARequest("DescribeClusterAddonsUpgradeStatus", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/components/upgradestatus`, "json", req, runtime), new DescribeClusterAddonsUpgradeStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAddonsUpgradeStatus",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/upgradestatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterAddonsUpgradeStatusResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsUpgradeStatusResponse({}));
   }
 
   async describeClusterAddonsVersion(ClusterId: string): Promise<DescribeClusterAddonsVersionResponse> {
@@ -9193,7 +9569,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterAddonsVersionResponse>(await this.doROARequest("DescribeClusterAddonsVersion", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/components/version`, "json", req, runtime), new DescribeClusterAddonsVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAddonsVersion",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/version`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterAddonsVersionResponse>(await this.callApi(params, req, runtime), new DescribeClusterAddonsVersionResponse({}));
   }
 
   async describeClusterAttachScripts(ClusterId: string, request: DescribeClusterAttachScriptsRequest): Promise<DescribeClusterAttachScriptsResponse> {
@@ -9234,7 +9621,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeClusterAttachScriptsResponse>(await this.doROARequest("DescribeClusterAttachScripts", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/attachscript`, "string", req, runtime), new DescribeClusterAttachScriptsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterAttachScripts",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/attachscript`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $tea.cast<DescribeClusterAttachScriptsResponse>(await this.callApi(params, req, runtime), new DescribeClusterAttachScriptsResponse({}));
   }
 
   async describeClusterDetail(ClusterId: string): Promise<DescribeClusterDetailResponse> {
@@ -9248,7 +9646,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterDetailResponse>(await this.doROARequest("DescribeClusterDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new DescribeClusterDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterDetail",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterDetailResponse({}));
   }
 
   async describeClusterLogs(ClusterId: string): Promise<DescribeClusterLogsResponse> {
@@ -9262,7 +9671,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterLogsResponse>(await this.doROARequest("DescribeClusterLogs", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/logs`, "array", req, runtime), new DescribeClusterLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterLogs",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeClusterLogsResponse>(await this.callApi(params, req, runtime), new DescribeClusterLogsResponse({}));
   }
 
   async describeClusterNamespaces(ClusterId: string): Promise<DescribeClusterNamespacesResponse> {
@@ -9276,7 +9696,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterNamespacesResponse>(await this.doROARequest("DescribeClusterNamespaces", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/namespaces`, "array", req, runtime), new DescribeClusterNamespacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterNamespaces",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/k8s/${ClusterId}/namespaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeClusterNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeClusterNamespacesResponse({}));
   }
 
   async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<DescribeClusterNodePoolDetailResponse> {
@@ -9291,7 +9722,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.doROARequest("DescribeClusterNodePoolDetail", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodepools/${NodepoolId}`, "json", req, runtime), new DescribeClusterNodePoolDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterNodePoolDetail",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterNodePoolDetailResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolDetailResponse({}));
   }
 
   async describeClusterNodePools(ClusterId: string): Promise<DescribeClusterNodePoolsResponse> {
@@ -9305,7 +9747,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterNodePoolsResponse>(await this.doROARequest("DescribeClusterNodePools", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodepools`, "json", req, runtime), new DescribeClusterNodePoolsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterNodePools",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterNodePoolsResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodePoolsResponse({}));
   }
 
   async describeClusterNodes(ClusterId: string, request: DescribeClusterNodesRequest): Promise<DescribeClusterNodesResponse> {
@@ -9342,7 +9795,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClusterNodesResponse>(await this.doROARequest("DescribeClusterNodes", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/nodes`, "json", req, runtime), new DescribeClusterNodesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterNodes",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterNodesResponse>(await this.callApi(params, req, runtime), new DescribeClusterNodesResponse({}));
   }
 
   async describeClusterResources(ClusterId: string): Promise<DescribeClusterResourcesResponse> {
@@ -9356,7 +9820,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeClusterResourcesResponse>(await this.doROARequest("DescribeClusterResources", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${ClusterId}/resources`, "array", req, runtime), new DescribeClusterResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterResources",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/resources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeClusterResourcesResponse>(await this.callApi(params, req, runtime), new DescribeClusterResourcesResponse({}));
   }
 
   async describeClusterUserKubeconfig(ClusterId: string, request: DescribeClusterUserKubeconfigRequest): Promise<DescribeClusterUserKubeconfigResponse> {
@@ -9381,7 +9856,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClusterUserKubeconfigResponse>(await this.doROARequest("DescribeClusterUserKubeconfig", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/user_config`, "json", req, runtime), new DescribeClusterUserKubeconfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterUserKubeconfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/k8s/${ClusterId}/user_config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterUserKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterUserKubeconfigResponse({}));
   }
 
   async describeClusterV2UserKubeconfig(ClusterId: string, request: DescribeClusterV2UserKubeconfigRequest): Promise<DescribeClusterV2UserKubeconfigResponse> {
@@ -9402,7 +9888,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClusterV2UserKubeconfigResponse>(await this.doROARequest("DescribeClusterV2UserKubeconfig", "2015-12-15", "HTTPS", "GET", "AK", `/api/v2/k8s/${ClusterId}/user_config`, "json", req, runtime), new DescribeClusterV2UserKubeconfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusterV2UserKubeconfig",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/k8s/${ClusterId}/user_config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClusterV2UserKubeconfigResponse>(await this.callApi(params, req, runtime), new DescribeClusterV2UserKubeconfigResponse({}));
   }
 
   async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
@@ -9426,7 +9923,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClustersResponse>(await this.doROARequest("DescribeClusters", "2015-12-15", "HTTPS", "GET", "AK", `/clusters`, "array", req, runtime), new DescribeClustersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClusters",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeClustersResponse>(await this.callApi(params, req, runtime), new DescribeClustersResponse({}));
   }
 
   async describeClustersV1(request: DescribeClustersV1Request): Promise<DescribeClustersV1Response> {
@@ -9466,7 +9974,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeClustersV1Response>(await this.doROARequest("DescribeClustersV1", "2015-12-15", "HTTPS", "GET", "AK", `/api/v1/clusters`, "json", req, runtime), new DescribeClustersV1Response({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeClustersV1",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v1/clusters`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeClustersV1Response>(await this.callApi(params, req, runtime), new DescribeClustersV1Response({}));
   }
 
   async describeEdgeMachineActiveProcess(edgeMachineid: string): Promise<DescribeEdgeMachineActiveProcessResponse> {
@@ -9480,7 +9999,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeEdgeMachineActiveProcessResponse>(await this.doROARequest("DescribeEdgeMachineActiveProcess", "2015-12-15", "HTTPS", "GET", "AK", `/edge_machines/[edge_machineid]/activeprocess`, "json", req, runtime), new DescribeEdgeMachineActiveProcessResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEdgeMachineActiveProcess",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines/[edge_machineid]/activeprocess`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEdgeMachineActiveProcessResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineActiveProcessResponse({}));
   }
 
   async describeEdgeMachineModels(): Promise<DescribeEdgeMachineModelsResponse> {
@@ -9493,7 +10023,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeEdgeMachineModelsResponse>(await this.doROARequest("DescribeEdgeMachineModels", "2015-12-15", "HTTPS", "GET", "AK", `/edge_machines/models`, "json", req, runtime), new DescribeEdgeMachineModelsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEdgeMachineModels",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEdgeMachineModelsResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineModelsResponse({}));
   }
 
   async describeEdgeMachineTunnelConfigDetail(edgeMachineid: string): Promise<DescribeEdgeMachineTunnelConfigDetailResponse> {
@@ -9507,7 +10048,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeEdgeMachineTunnelConfigDetailResponse>(await this.doROARequest("DescribeEdgeMachineTunnelConfigDetail", "2015-12-15", "HTTPS", "POST", "AK", `/edge_machines/[edge_machineid]/tunnelconfig`, "json", req, runtime), new DescribeEdgeMachineTunnelConfigDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEdgeMachineTunnelConfigDetail",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines/[edge_machineid]/tunnelconfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEdgeMachineTunnelConfigDetailResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachineTunnelConfigDetailResponse({}));
   }
 
   async describeEdgeMachines(request: DescribeEdgeMachinesRequest): Promise<DescribeEdgeMachinesResponse> {
@@ -9547,7 +10099,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEdgeMachinesResponse>(await this.doROARequest("DescribeEdgeMachines", "2015-12-15", "HTTPS", "GET", "AK", `/edge_machines`, "json", req, runtime), new DescribeEdgeMachinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEdgeMachines",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/edge_machines`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEdgeMachinesResponse>(await this.callApi(params, req, runtime), new DescribeEdgeMachinesResponse({}));
   }
 
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
@@ -9579,7 +10142,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEventsResponse>(await this.doROARequest("DescribeEvents", "2015-12-15", "HTTPS", "GET", "AK", `/events`, "json", req, runtime), new DescribeEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEvents",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
   async describeExternalAgent(ClusterId: string, request: DescribeExternalAgentRequest): Promise<DescribeExternalAgentResponse> {
@@ -9600,7 +10174,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExternalAgentResponse>(await this.doROARequest("DescribeExternalAgent", "2015-12-15", "HTTPS", "GET", "AK", `/k8s/${ClusterId}/external/agent/deployment`, "json", req, runtime), new DescribeExternalAgentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExternalAgent",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/k8s/${ClusterId}/external/agent/deployment`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExternalAgentResponse>(await this.callApi(params, req, runtime), new DescribeExternalAgentResponse({}));
   }
 
   async describeKubernetesVersionMetadata(request: DescribeKubernetesVersionMetadataRequest): Promise<DescribeKubernetesVersionMetadataResponse> {
@@ -9632,7 +10217,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeKubernetesVersionMetadataResponse>(await this.doROARequest("DescribeKubernetesVersionMetadata", "2015-12-15", "HTTPS", "GET", "AK", `/api/v1/metadata/versions`, "array", req, runtime), new DescribeKubernetesVersionMetadataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeKubernetesVersionMetadata",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v1/metadata/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeKubernetesVersionMetadataResponse>(await this.callApi(params, req, runtime), new DescribeKubernetesVersionMetadataResponse({}));
   }
 
   async describePolicies(): Promise<DescribePoliciesResponse> {
@@ -9645,7 +10241,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribePoliciesResponse>(await this.doROARequest("DescribePolicies", "2015-12-15", "HTTPS", "GET", "AK", `/policies`, "json", req, runtime), new DescribePoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePolicies",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePoliciesResponse>(await this.callApi(params, req, runtime), new DescribePoliciesResponse({}));
   }
 
   async describePolicyDetails(policyName: string): Promise<DescribePolicyDetailsResponse> {
@@ -9659,7 +10266,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribePolicyDetailsResponse>(await this.doROARequest("DescribePolicyDetails", "2015-12-15", "HTTPS", "GET", "AK", `/policies/${policyName}`, "json", req, runtime), new DescribePolicyDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyDetails",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/policies/${policyName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyDetailsResponse>(await this.callApi(params, req, runtime), new DescribePolicyDetailsResponse({}));
   }
 
   async describePolicyGovernanceInCluster(clusterId: string): Promise<DescribePolicyGovernanceInClusterResponse> {
@@ -9673,7 +10291,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.doROARequest("DescribePolicyGovernanceInCluster", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${clusterId}/policygovernance`, "json", req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyGovernanceInCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policygovernance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyGovernanceInClusterResponse>(await this.callApi(params, req, runtime), new DescribePolicyGovernanceInClusterResponse({}));
   }
 
   async describePolicyInstances(clusterId: string, request: DescribePolicyInstancesRequest): Promise<DescribePolicyInstancesResponse> {
@@ -9698,7 +10327,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePolicyInstancesResponse>(await this.doROARequest("DescribePolicyInstances", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${clusterId}/policies`, "array", req, runtime), new DescribePolicyInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyInstances",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policies`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribePolicyInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesResponse({}));
   }
 
   async describePolicyInstancesStatus(clusterId: string): Promise<DescribePolicyInstancesStatusResponse> {
@@ -9712,7 +10352,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.doROARequest("DescribePolicyInstancesStatus", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/${clusterId}/policies/status`, "json", req, runtime), new DescribePolicyInstancesStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePolicyInstancesStatus",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policies/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePolicyInstancesStatusResponse>(await this.callApi(params, req, runtime), new DescribePolicyInstancesStatusResponse({}));
   }
 
   async describeTaskInfo(taskId: string): Promise<DescribeTaskInfoResponse> {
@@ -9726,7 +10377,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeTaskInfoResponse>(await this.doROARequest("DescribeTaskInfo", "2015-12-15", "HTTPS", "GET", "AK", `/tasks/${taskId}`, "json", req, runtime), new DescribeTaskInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTaskInfo",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/tasks/${taskId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTaskInfoResponse>(await this.callApi(params, req, runtime), new DescribeTaskInfoResponse({}));
   }
 
   async describeTemplateAttribute(TemplateId: string, request: DescribeTemplateAttributeRequest): Promise<DescribeTemplateAttributeResponse> {
@@ -9747,7 +10409,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTemplateAttributeResponse>(await this.doROARequest("DescribeTemplateAttribute", "2015-12-15", "HTTPS", "GET", "AK", `/templates/${TemplateId}`, "array", req, runtime), new DescribeTemplateAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTemplateAttribute",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/templates/${TemplateId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeTemplateAttributeResponse>(await this.callApi(params, req, runtime), new DescribeTemplateAttributeResponse({}));
   }
 
   async describeTemplates(request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
@@ -9775,7 +10448,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTemplatesResponse>(await this.doROARequest("DescribeTemplates", "2015-12-15", "HTTPS", "GET", "AK", `/templates`, "json", req, runtime), new DescribeTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTemplates",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/templates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
   }
 
   async describeTrigger(clusterId: string, request: DescribeTriggerRequest): Promise<DescribeTriggerResponse> {
@@ -9808,7 +10492,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTriggerResponse>(await this.doROARequest("DescribeTrigger", "2015-12-15", "HTTPS", "GET", "AK", `/clusters/[cluster_id]/triggers`, "array", req, runtime), new DescribeTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/[cluster_id]/triggers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeTriggerResponse>(await this.callApi(params, req, runtime), new DescribeTriggerResponse({}));
   }
 
   async describeUserPermission(uid: string): Promise<DescribeUserPermissionResponse> {
@@ -9822,7 +10517,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeUserPermissionResponse>(await this.doROARequest("DescribeUserPermission", "2015-12-15", "HTTPS", "GET", "AK", `/permissions/users/${uid}`, "array", req, runtime), new DescribeUserPermissionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserPermission",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/permissions/users/${uid}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<DescribeUserPermissionResponse>(await this.callApi(params, req, runtime), new DescribeUserPermissionResponse({}));
   }
 
   async describeUserQuota(): Promise<DescribeUserQuotaResponse> {
@@ -9835,7 +10541,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeUserQuotaResponse>(await this.doROARequest("DescribeUserQuota", "2015-12-15", "HTTPS", "GET", "AK", `/quota`, "json", req, runtime), new DescribeUserQuotaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserQuota",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/quota`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeUserQuotaResponse({}));
   }
 
   async describeWorkflows(): Promise<DescribeWorkflowsResponse> {
@@ -9848,7 +10565,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DescribeWorkflowsResponse>(await this.doROARequest("DescribeWorkflows", "2015-12-15", "HTTPS", "GET", "AK", `/gs/workflows`, "json", req, runtime), new DescribeWorkflowsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWorkflows",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/gs/workflows`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWorkflowsResponse>(await this.callApi(params, req, runtime), new DescribeWorkflowsResponse({}));
   }
 
   async edgeClusterAddEdgeMachine(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest): Promise<EdgeClusterAddEdgeMachineResponse> {
@@ -9878,7 +10606,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<EdgeClusterAddEdgeMachineResponse>(await this.doROARequest("EdgeClusterAddEdgeMachine", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/[clusterid]/attachedgemachine/[edge_machineid]`, "json", req, runtime), new EdgeClusterAddEdgeMachineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EdgeClusterAddEdgeMachine",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/[clusterid]/attachedgemachine/[edge_machineid]`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<EdgeClusterAddEdgeMachineResponse>(await this.callApi(params, req, runtime), new EdgeClusterAddEdgeMachineResponse({}));
   }
 
   async getKubernetesTrigger(ClusterId: string, request: GetKubernetesTriggerRequest): Promise<GetKubernetesTriggerResponse> {
@@ -9911,7 +10650,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetKubernetesTriggerResponse>(await this.doROARequest("GetKubernetesTrigger", "2015-12-15", "HTTPS", "GET", "AK", `/triggers/${ClusterId}`, "array", req, runtime), new GetKubernetesTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetKubernetesTrigger",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/triggers/${ClusterId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "array",
+    });
+    return $tea.cast<GetKubernetesTriggerResponse>(await this.callApi(params, req, runtime), new GetKubernetesTriggerResponse({}));
   }
 
   async getUpgradeStatus(ClusterId: string): Promise<GetUpgradeStatusResponse> {
@@ -9925,7 +10675,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetUpgradeStatusResponse>(await this.doROARequest("GetUpgradeStatus", "2015-12-15", "HTTPS", "GET", "AK", `/api/v2/clusters/${ClusterId}/upgrade/status`, "json", req, runtime), new GetUpgradeStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUpgradeStatus",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/upgrade/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUpgradeStatusResponse>(await this.callApi(params, req, runtime), new GetUpgradeStatusResponse({}));
   }
 
   async grantPermissions(uid: string, request: GrantPermissionsRequest): Promise<GrantPermissionsResponse> {
@@ -9941,7 +10702,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: Util.toArray(request.body),
     });
-    return $tea.cast<GrantPermissionsResponse>(await this.doROARequest("GrantPermissions", "2015-12-15", "HTTPS", "POST", "AK", `/permissions/users/${uid}`, "none", req, runtime), new GrantPermissionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GrantPermissions",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/permissions/users/${uid}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GrantPermissionsResponse>(await this.callApi(params, req, runtime), new GrantPermissionsResponse({}));
   }
 
   async installClusterAddons(ClusterId: string, request: InstallClusterAddonsRequest): Promise<InstallClusterAddonsResponse> {
@@ -9957,7 +10729,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: Util.toArray(request.body),
     });
-    return $tea.cast<InstallClusterAddonsResponse>(await this.doROARequest("InstallClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/install`, "none", req, runtime), new InstallClusterAddonsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InstallClusterAddons",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/install`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<InstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new InstallClusterAddonsResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -10003,7 +10786,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doROARequest("ListTagResources", "2015-12-15", "HTTPS", "GET", "AK", `/tags`, "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async migrateCluster(clusterId: string): Promise<MigrateClusterResponse> {
@@ -10017,7 +10811,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<MigrateClusterResponse>(await this.doROARequest("MigrateCluster", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/migrate`, "none", req, runtime), new MigrateClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MigrateCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/migrate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<MigrateClusterResponse>(await this.callApi(params, req, runtime), new MigrateClusterResponse({}));
   }
 
   async modifyCluster(ClusterId: string, request: ModifyClusterRequest): Promise<ModifyClusterResponse> {
@@ -10040,6 +10845,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deletionProtection)) {
       body["deletion_protection"] = request.deletionProtection;
+    }
+
+    if (!Util.isUnset(request.enableRrsa)) {
+      body["enable_rrsa"] = request.enableRrsa;
     }
 
     if (!Util.isUnset(request.ingressDomainRebinding)) {
@@ -10066,7 +10875,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ModifyClusterResponse>(await this.doROARequest("ModifyCluster", "2015-12-15", "HTTPS", "PUT", "AK", `/api/v2/clusters/${ClusterId}`, "json", req, runtime), new ModifyClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyClusterResponse>(await this.callApi(params, req, runtime), new ModifyClusterResponse({}));
   }
 
   async modifyClusterAddon(clusterId: string, componentId: string, request: ModifyClusterAddonRequest): Promise<ModifyClusterAddonResponse> {
@@ -10088,7 +10908,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ModifyClusterAddonResponse>(await this.doROARequest("ModifyClusterAddon", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterId}/components/${componentId}/config`, "none", req, runtime), new ModifyClusterAddonResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyClusterAddon",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/components/{componentId}/config`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ModifyClusterAddonResponse>(await this.callApi(params, req, runtime), new ModifyClusterAddonResponse({}));
   }
 
   async modifyClusterConfiguration(ClusterId: string, request: ModifyClusterConfigurationRequest): Promise<ModifyClusterConfigurationResponse> {
@@ -10109,7 +10940,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ModifyClusterConfigurationResponse>(await this.doROARequest("ModifyClusterConfiguration", "2015-12-15", "HTTPS", "PUT", "AK", `/clusters/${ClusterId}/configuration`, "none", req, runtime), new ModifyClusterConfigurationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyClusterConfiguration",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/configuration`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ModifyClusterConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyClusterConfigurationResponse({}));
   }
 
   async modifyClusterNodePool(ClusterId: string, NodepoolId: string, request: ModifyClusterNodePoolRequest): Promise<ModifyClusterNodePoolResponse> {
@@ -10155,7 +10997,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ModifyClusterNodePoolResponse>(await this.doROARequest("ModifyClusterNodePool", "2015-12-15", "HTTPS", "PUT", "AK", `/clusters/${ClusterId}/nodepools/${NodepoolId}`, "json", req, runtime), new ModifyClusterNodePoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyClusterNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ModifyClusterNodePoolResponse({}));
   }
 
   async modifyClusterTags(ClusterId: string, request: ModifyClusterTagsRequest): Promise<ModifyClusterTagsResponse> {
@@ -10171,7 +11024,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: Util.toArray(request.body),
     });
-    return $tea.cast<ModifyClusterTagsResponse>(await this.doROARequest("ModifyClusterTags", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/tags`, "none", req, runtime), new ModifyClusterTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyClusterTags",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ModifyClusterTagsResponse>(await this.callApi(params, req, runtime), new ModifyClusterTagsResponse({}));
   }
 
   async modifyPolicyInstance(clusterId: string, policyName: string, request: ModifyPolicyInstanceRequest): Promise<ModifyPolicyInstanceResponse> {
@@ -10205,7 +11069,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ModifyPolicyInstanceResponse>(await this.doROARequest("ModifyPolicyInstance", "2015-12-15", "HTTPS", "PUT", "AK", `/clusters/${clusterId}/policies/${policyName}`, "none", req, runtime), new ModifyPolicyInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyPolicyInstance",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPolicyInstanceResponse>(await this.callApi(params, req, runtime), new ModifyPolicyInstanceResponse({}));
   }
 
   async openAckService(request: OpenAckServiceRequest): Promise<OpenAckServiceResponse> {
@@ -10225,7 +11100,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OpenAckServiceResponse>(await this.doROARequest("OpenAckService", "2015-12-15", "HTTPS", "POST", "AK", `/service/open`, "json", req, runtime), new OpenAckServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenAckService",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/service/open`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenAckServiceResponse>(await this.callApi(params, req, runtime), new OpenAckServiceResponse({}));
   }
 
   async pauseClusterUpgrade(ClusterId: string): Promise<PauseClusterUpgradeResponse> {
@@ -10239,7 +11125,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<PauseClusterUpgradeResponse>(await this.doROARequest("PauseClusterUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade/pause`, "none", req, runtime), new PauseClusterUpgradeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PauseClusterUpgrade",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/upgrade/pause`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PauseClusterUpgradeResponse>(await this.callApi(params, req, runtime), new PauseClusterUpgradeResponse({}));
   }
 
   async pauseComponentUpgrade(clusterid: string, componentid: string): Promise<PauseComponentUpgradeResponse> {
@@ -10254,7 +11151,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<PauseComponentUpgradeResponse>(await this.doROARequest("PauseComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/${componentid}/pause`, "none", req, runtime), new PauseComponentUpgradeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PauseComponentUpgrade",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterid}/components/{componentid}/pause`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PauseComponentUpgradeResponse>(await this.callApi(params, req, runtime), new PauseComponentUpgradeResponse({}));
   }
 
   async removeClusterNodes(ClusterId: string, request: RemoveClusterNodesRequest): Promise<RemoveClusterNodesResponse> {
@@ -10283,7 +11191,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RemoveClusterNodesResponse>(await this.doROARequest("RemoveClusterNodes", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/nodes/remove`, "none", req, runtime), new RemoveClusterNodesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveClusterNodes",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/nodes/remove`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<RemoveClusterNodesResponse>(await this.callApi(params, req, runtime), new RemoveClusterNodesResponse({}));
   }
 
   async removeWorkflow(workflowName: string): Promise<RemoveWorkflowResponse> {
@@ -10297,7 +11216,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<RemoveWorkflowResponse>(await this.doROARequest("RemoveWorkflow", "2015-12-15", "HTTPS", "DELETE", "AK", `/gs/workflow/${workflowName}`, "none", req, runtime), new RemoveWorkflowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveWorkflow",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/gs/workflow/${workflowName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<RemoveWorkflowResponse>(await this.callApi(params, req, runtime), new RemoveWorkflowResponse({}));
   }
 
   async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
@@ -10312,7 +11242,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ResumeComponentUpgradeResponse>(await this.doROARequest("ResumeComponentUpgrade", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${clusterid}/components/${componentid}/resume`, "none", req, runtime), new ResumeComponentUpgradeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResumeComponentUpgrade",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterid}/components/{componentid}/resume`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ResumeComponentUpgradeResponse>(await this.callApi(params, req, runtime), new ResumeComponentUpgradeResponse({}));
   }
 
   async resumeUpgradeCluster(ClusterId: string): Promise<ResumeUpgradeClusterResponse> {
@@ -10326,7 +11267,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ResumeUpgradeClusterResponse>(await this.doROARequest("ResumeUpgradeCluster", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade/resume`, "none", req, runtime), new ResumeUpgradeClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResumeUpgradeCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/upgrade/resume`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<ResumeUpgradeClusterResponse>(await this.callApi(params, req, runtime), new ResumeUpgradeClusterResponse({}));
   }
 
   async scaleCluster(ClusterId: string, request: ScaleClusterRequest): Promise<ScaleClusterResponse> {
@@ -10419,7 +11371,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ScaleClusterResponse>(await this.doROARequest("ScaleCluster", "2015-12-15", "HTTPS", "PUT", "AK", `/clusters/${ClusterId}`, "json", req, runtime), new ScaleClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ScaleCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ScaleClusterResponse>(await this.callApi(params, req, runtime), new ScaleClusterResponse({}));
   }
 
   async scaleClusterNodePool(ClusterId: string, NodepoolId: string, request: ScaleClusterNodePoolRequest): Promise<ScaleClusterNodePoolResponse> {
@@ -10441,7 +11404,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ScaleClusterNodePoolResponse>(await this.doROARequest("ScaleClusterNodePool", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/nodepools/${NodepoolId}`, "json", req, runtime), new ScaleClusterNodePoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ScaleClusterNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ScaleClusterNodePoolResponse>(await this.callApi(params, req, runtime), new ScaleClusterNodePoolResponse({}));
   }
 
   async scaleOutCluster(ClusterId: string, request: ScaleOutClusterRequest): Promise<ScaleOutClusterResponse> {
@@ -10542,7 +11516,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ScaleOutClusterResponse>(await this.doROARequest("ScaleOutCluster", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}`, "json", req, runtime), new ScaleOutClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ScaleOutCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ScaleOutClusterResponse>(await this.callApi(params, req, runtime), new ScaleOutClusterResponse({}));
   }
 
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
@@ -10634,7 +11619,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<StartWorkflowResponse>(await this.doROARequest("StartWorkflow", "2015-12-15", "HTTPS", "POST", "AK", `/gs/workflow`, "json", req, runtime), new StartWorkflowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartWorkflow",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/gs/workflow`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -10666,7 +11662,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doROARequest("TagResources", "2015-12-15", "HTTPS", "PUT", "AK", `/tags`, "none", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async unInstallClusterAddons(ClusterId: string, request: UnInstallClusterAddonsRequest): Promise<UnInstallClusterAddonsResponse> {
@@ -10682,7 +11689,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: Util.toArray(request.addons),
     });
-    return $tea.cast<UnInstallClusterAddonsResponse>(await this.doROARequest("UnInstallClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/uninstall`, "none", req, runtime), new UnInstallClusterAddonsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnInstallClusterAddons",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/uninstall`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UnInstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new UnInstallClusterAddonsResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -10714,7 +11732,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doROARequest("UntagResources", "2015-12-15", "HTTPS", "DELETE", "AK", `/tags`, "none", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/tags`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async updateK8sClusterUserConfigExpire(ClusterId: string): Promise<UpdateK8sClusterUserConfigExpireResponse> {
@@ -10728,7 +11757,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateK8sClusterUserConfigExpireResponse>(await this.doROARequest("UpdateK8sClusterUserConfigExpire", "2015-12-15", "HTTPS", "POST", "AK", `/k8s/${ClusterId}/user_config/expire`, "none", req, runtime), new UpdateK8sClusterUserConfigExpireResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateK8sClusterUserConfigExpire",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/k8s/${ClusterId}/user_config/expire`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateK8sClusterUserConfigExpireResponse>(await this.callApi(params, req, runtime), new UpdateK8sClusterUserConfigExpireResponse({}));
   }
 
   async updateTemplate(TemplateId: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -10765,7 +11805,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.doROARequest("UpdateTemplate", "2015-12-15", "HTTPS", "PUT", "AK", `/templates/${TemplateId}`, "none", req, runtime), new UpdateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTemplate",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/templates/${TemplateId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
   async upgradeCluster(ClusterId: string, request: UpgradeClusterRequest): Promise<UpgradeClusterResponse> {
@@ -10794,7 +11845,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpgradeClusterResponse>(await this.doROARequest("UpgradeCluster", "2015-12-15", "HTTPS", "POST", "AK", `/api/v2/clusters/${ClusterId}/upgrade`, "none", req, runtime), new UpgradeClusterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/api/v2/clusters/${ClusterId}/upgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpgradeClusterResponse>(await this.callApi(params, req, runtime), new UpgradeClusterResponse({}));
   }
 
   async upgradeClusterAddons(ClusterId: string, request: UpgradeClusterAddonsRequest): Promise<UpgradeClusterAddonsResponse> {
@@ -10810,7 +11872,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: Util.toArray(request.body),
     });
-    return $tea.cast<UpgradeClusterAddonsResponse>(await this.doROARequest("UpgradeClusterAddons", "2015-12-15", "HTTPS", "POST", "AK", `/clusters/${ClusterId}/components/upgrade`, "none", req, runtime), new UpgradeClusterAddonsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpgradeClusterAddons",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${ClusterId}/components/upgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpgradeClusterAddonsResponse>(await this.callApi(params, req, runtime), new UpgradeClusterAddonsResponse({}));
   }
 
 }
