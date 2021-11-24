@@ -362,102 +362,6 @@ export class CreateMPULayoutResponse extends $tea.Model {
   }
 }
 
-export class CreateRecordIndexFileRequest extends $tea.Model {
-  appId?: string;
-  channelId?: string;
-  endTime?: string;
-  ossBucket?: string;
-  ossEndpoint?: string;
-  ossObject?: string;
-  ownerId?: number;
-  startTime?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      endTime: 'EndTime',
-      ossBucket: 'OssBucket',
-      ossEndpoint: 'OssEndpoint',
-      ossObject: 'OssObject',
-      ownerId: 'OwnerId',
-      startTime: 'StartTime',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      channelId: 'string',
-      endTime: 'string',
-      ossBucket: 'string',
-      ossEndpoint: 'string',
-      ossObject: 'string',
-      ownerId: 'number',
-      startTime: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRecordIndexFileResponseBody extends $tea.Model {
-  duration?: number;
-  height?: number;
-  requestId?: string;
-  url?: string;
-  width?: number;
-  static names(): { [key: string]: string } {
-    return {
-      duration: 'Duration',
-      height: 'Height',
-      requestId: 'RequestId',
-      url: 'Url',
-      width: 'Width',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      duration: 'number',
-      height: 'number',
-      requestId: 'string',
-      url: 'string',
-      width: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRecordIndexFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRecordIndexFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRecordIndexFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteAutoLiveStreamRuleRequest extends $tea.Model {
   appId?: string;
   ownerId?: number;
@@ -1134,99 +1038,6 @@ export class DescribeRecordFilesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRecordFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordTasksRequest extends $tea.Model {
-  appId?: string;
-  channelId?: string;
-  endTime?: string;
-  ownerId?: number;
-  pageNum?: number;
-  pageSize?: number;
-  startTime?: string;
-  status?: string;
-  taskIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      endTime: 'EndTime',
-      ownerId: 'OwnerId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      startTime: 'StartTime',
-      status: 'Status',
-      taskIds: 'TaskIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      channelId: 'string',
-      endTime: 'string',
-      ownerId: 'number',
-      pageNum: 'number',
-      pageSize: 'number',
-      startTime: 'string',
-      status: 'string',
-      taskIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordTasksResponseBody extends $tea.Model {
-  recordTasks?: DescribeRecordTasksResponseBodyRecordTasks[];
-  requestId?: string;
-  totalNum?: number;
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      recordTasks: 'RecordTasks',
-      requestId: 'RequestId',
-      totalNum: 'TotalNum',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      recordTasks: { 'type': 'array', 'itemType': DescribeRecordTasksResponseBodyRecordTasks },
-      requestId: 'string',
-      totalNum: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRecordTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRecordTasksResponseBody,
     };
   }
 
@@ -2255,18 +2066,15 @@ export class UpdateAutoLiveStreamRuleRequest extends $tea.Model {
 
 export class UpdateAutoLiveStreamRuleResponseBody extends $tea.Model {
   requestId?: string;
-  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      ruleId: 'number',
     };
   }
 
@@ -2978,71 +2786,6 @@ export class DescribeRecordFilesResponseBodyRecordFiles extends $tea.Model {
       stopTime: 'string',
       taskId: 'string',
       url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordTasksResponseBodyRecordTasksUserPanes extends $tea.Model {
-  paneId?: number;
-  source?: string;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paneId: 'PaneId',
-      source: 'Source',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paneId: 'number',
-      source: 'string',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordTasksResponseBodyRecordTasks extends $tea.Model {
-  appId?: string;
-  channelId?: string;
-  createTime?: string;
-  status?: number;
-  subSpecUsers?: string[];
-  taskId?: string;
-  templateId?: string;
-  userPanes?: DescribeRecordTasksResponseBodyRecordTasksUserPanes[];
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      createTime: 'CreateTime',
-      status: 'Status',
-      subSpecUsers: 'SubSpecUsers',
-      taskId: 'TaskId',
-      templateId: 'TemplateId',
-      userPanes: 'UserPanes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      channelId: 'string',
-      createTime: 'string',
-      status: 'number',
-      subSpecUsers: { 'type': 'array', 'itemType': 'string' },
-      taskId: 'string',
-      templateId: 'string',
-      userPanes: { 'type': 'array', 'itemType': DescribeRecordTasksResponseBodyRecordTasksUserPanes },
     };
   }
 
@@ -4281,41 +4024,6 @@ export default class Client extends OpenApi {
     return await this.createMPULayoutWithOptions(request, runtime);
   }
 
-  async createRecordIndexFileWithOptions(request: CreateRecordIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateRecordIndexFileResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["EndTime"] = request.endTime;
-    query["OssBucket"] = request.ossBucket;
-    query["OssEndpoint"] = request.ossEndpoint;
-    query["OssObject"] = request.ossObject;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TaskId"] = request.taskId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateRecordIndexFile",
-      version: "2018-01-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRecordIndexFileResponse>(await this.callApi(params, req, runtime), new CreateRecordIndexFileResponse({}));
-  }
-
-  async createRecordIndexFile(request: CreateRecordIndexFileRequest): Promise<CreateRecordIndexFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRecordIndexFileWithOptions(request, runtime);
-  }
-
   async deleteAutoLiveStreamRuleWithOptions(request: DeleteAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4585,41 +4293,6 @@ export default class Client extends OpenApi {
   async describeRecordFiles(request: DescribeRecordFilesRequest): Promise<DescribeRecordFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordFilesWithOptions(request, runtime);
-  }
-
-  async describeRecordTasksWithOptions(request: DescribeRecordTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordTasksResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
-    query["Status"] = request.status;
-    query["TaskIds"] = request.taskIds;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeRecordTasks",
-      version: "2018-01-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRecordTasksResponse>(await this.callApi(params, req, runtime), new DescribeRecordTasksResponse({}));
-  }
-
-  async describeRecordTasks(request: DescribeRecordTasksRequest): Promise<DescribeRecordTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRecordTasksWithOptions(request, runtime);
   }
 
   async describeRecordTemplatesWithOptions(request: DescribeRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordTemplatesResponse> {
