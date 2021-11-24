@@ -2990,6 +2990,78 @@ export class ListAppsResponse extends $tea.Model {
   }
 }
 
+export class ListClassesRequest extends $tea.Model {
+  appId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClassesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListClassesResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListClassesResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClassesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListClassesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListClassesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCommentsRequest extends $tea.Model {
   appId?: string;
   pageNum?: number;
@@ -4468,15 +4540,18 @@ export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
 
 export class UpdateAppTemplateConfigResponseBody extends $tea.Model {
   requestId?: string;
+  result?: UpdateAppTemplateConfigResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      result: UpdateAppTemplateConfigResponseBodyResult,
     };
   }
 
@@ -6298,6 +6373,86 @@ export class ListAppsResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListClassesResponseBodyResultClassList extends $tea.Model {
+  classId?: string;
+  confId?: string;
+  createNickname?: string;
+  createUserId?: string;
+  endTime?: number;
+  liveId?: string;
+  roomId?: string;
+  startTime?: number;
+  status?: number;
+  title?: string;
+  whiteboardId?: string;
+  whiteboardRecordId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      classId: 'ClassId',
+      confId: 'ConfId',
+      createNickname: 'CreateNickname',
+      createUserId: 'CreateUserId',
+      endTime: 'EndTime',
+      liveId: 'LiveId',
+      roomId: 'RoomId',
+      startTime: 'StartTime',
+      status: 'Status',
+      title: 'Title',
+      whiteboardId: 'WhiteboardId',
+      whiteboardRecordId: 'WhiteboardRecordId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classId: 'string',
+      confId: 'string',
+      createNickname: 'string',
+      createUserId: 'string',
+      endTime: 'number',
+      liveId: 'string',
+      roomId: 'string',
+      startTime: 'number',
+      status: 'number',
+      title: 'string',
+      whiteboardId: 'string',
+      whiteboardRecordId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClassesResponseBodyResult extends $tea.Model {
+  classList?: ListClassesResponseBodyResultClassList[];
+  hasMore?: boolean;
+  pageTotal?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      classList: 'ClassList',
+      hasMore: 'HasMore',
+      pageTotal: 'PageTotal',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      classList: { 'type': 'array', 'itemType': ListClassesResponseBodyResultClassList },
+      hasMore: 'boolean',
+      pageTotal: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCommentsResponseBodyResultCommentVOList extends $tea.Model {
   appId?: string;
   commentId?: string;
@@ -7093,6 +7248,47 @@ export class UpdateAppTemplateConfigRequestConfigList extends $tea.Model {
   }
 }
 
+export class UpdateAppTemplateConfigResponseBodyResultConfigLogs extends $tea.Model {
+  code?: string;
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAppTemplateConfigResponseBodyResult extends $tea.Model {
+  configLogs?: UpdateAppTemplateConfigResponseBodyResultConfigLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      configLogs: 'ConfigLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configLogs: { 'type': 'array', 'itemType': UpdateAppTemplateConfigResponseBodyResultConfigLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -7681,6 +7877,19 @@ export default class Client extends OpenApi {
   async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAppsWithOptions(request, runtime);
+  }
+
+  async listClassesWithOptions(request: ListClassesRequest, runtime: $Util.RuntimeOptions): Promise<ListClassesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListClassesResponse>(await this.doRPCRequest("ListClasses", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListClassesResponse({}));
+  }
+
+  async listClasses(request: ListClassesRequest): Promise<ListClassesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClassesWithOptions(request, runtime);
   }
 
   async listCommentsWithOptions(request: ListCommentsRequest, runtime: $Util.RuntimeOptions): Promise<ListCommentsResponse> {
