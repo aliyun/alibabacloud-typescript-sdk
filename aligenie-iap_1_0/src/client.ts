@@ -954,13 +954,11 @@ export class WakeUpAppHeaders extends $tea.Model {
 }
 
 export class WakeUpAppRequest extends $tea.Model {
-  genieAppId?: string;
   isDebug?: boolean;
   path?: string;
   targetInfo?: WakeUpAppRequestTargetInfo;
   static names(): { [key: string]: string } {
     return {
-      genieAppId: 'GenieAppId',
       isDebug: 'IsDebug',
       path: 'Path',
       targetInfo: 'TargetInfo',
@@ -969,7 +967,6 @@ export class WakeUpAppRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      genieAppId: 'string',
       isDebug: 'boolean',
       path: 'string',
       targetInfo: WakeUpAppRequestTargetInfo,
@@ -1685,7 +1682,7 @@ export class PushNotificationsRequestNotificationUnicastRequest extends $tea.Mod
   isDebug?: boolean;
   messageTemplateId?: string;
   organizationId?: string;
-  placeHolder?: { [key: string]: any };
+  placeHolder?: { [key: string]: string };
   sendTarget?: PushNotificationsRequestNotificationUnicastRequestSendTarget;
   static names(): { [key: string]: string } {
     return {
@@ -1706,7 +1703,7 @@ export class PushNotificationsRequestNotificationUnicastRequest extends $tea.Mod
       isDebug: 'boolean',
       messageTemplateId: 'string',
       organizationId: 'string',
-      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       sendTarget: PushNotificationsRequestNotificationUnicastRequestSendTarget,
     };
   }
@@ -1763,15 +1760,33 @@ export class SendNotificationsRequestDeviceInfo extends $tea.Model {
   }
 }
 
+export class SendNotificationsRequestNotificationUnicastRequestSendTarget extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendNotificationsRequestNotificationUnicastRequest extends $tea.Model {
   isDebug?: boolean;
   messageTemplateId?: string;
-  placeHolder?: { [key: string]: any };
+  placeHolder?: { [key: string]: string };
+  sendTarget?: SendNotificationsRequestNotificationUnicastRequestSendTarget;
   static names(): { [key: string]: string } {
     return {
       isDebug: 'IsDebug',
       messageTemplateId: 'MessageTemplateId',
       placeHolder: 'PlaceHolder',
+      sendTarget: 'SendTarget',
     };
   }
 
@@ -1779,7 +1794,8 @@ export class SendNotificationsRequestNotificationUnicastRequest extends $tea.Mod
     return {
       isDebug: 'boolean',
       messageTemplateId: 'string',
-      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      placeHolder: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sendTarget: SendNotificationsRequestNotificationUnicastRequestSendTarget,
     };
   }
 
@@ -2069,11 +2085,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2135,11 +2151,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2193,11 +2209,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2259,11 +2275,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2325,11 +2341,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2383,11 +2399,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2457,11 +2473,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2523,11 +2539,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -2557,10 +2573,6 @@ export default class Client extends OpenApi {
   async wakeUpAppWithOptions(request: WakeUpAppRequest, headers: WakeUpAppHeaders, runtime: $Util.RuntimeOptions): Promise<WakeUpAppResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.genieAppId)) {
-      body["GenieAppId"] = request.genieAppId;
-    }
-
     if (!Util.isUnset(request.isDebug)) {
       body["IsDebug"] = request.isDebug;
     }
@@ -2579,11 +2591,11 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
-      realHeaders["x-acs-aligenie-access-token"] = headers.xAcsAligenieAccessToken;
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
     }
 
     if (!Util.isUnset(headers.authorization)) {
-      realHeaders["Authorization"] = headers.authorization;
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
     }
 
     let req = new $OpenApi.OpenApiRequest({

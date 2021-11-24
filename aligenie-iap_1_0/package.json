@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aligenieiap_1_0",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
