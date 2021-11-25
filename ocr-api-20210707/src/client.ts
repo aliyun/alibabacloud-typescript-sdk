@@ -6,6 +6,7 @@ import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
+import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class RecognizeAdvancedRequest extends $tea.Model {
@@ -14,6 +15,7 @@ export class RecognizeAdvancedRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
@@ -21,6 +23,7 @@ export class RecognizeAdvancedRequest extends $tea.Model {
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -31,6 +34,7 @@ export class RecognizeAdvancedRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -91,15 +95,18 @@ export class RecognizeAdvancedResponse extends $tea.Model {
 
 export class RecognizeAirItineraryRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -160,15 +167,18 @@ export class RecognizeAirItineraryResponse extends $tea.Model {
 
 export class RecognizeBankAccountLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -229,15 +239,18 @@ export class RecognizeBankAccountLicenseResponse extends $tea.Model {
 
 export class RecognizeBankCardRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -298,15 +311,18 @@ export class RecognizeBankCardResponse extends $tea.Model {
 
 export class RecognizeBasicRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -367,15 +383,18 @@ export class RecognizeBasicResponse extends $tea.Model {
 
 export class RecognizeBirthCertificationRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -436,15 +455,18 @@ export class RecognizeBirthCertificationResponse extends $tea.Model {
 
 export class RecognizeBusinessLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -505,15 +527,18 @@ export class RecognizeBusinessLicenseResponse extends $tea.Model {
 
 export class RecognizeCarInvoiceRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -574,15 +599,18 @@ export class RecognizeCarInvoiceResponse extends $tea.Model {
 
 export class RecognizeCarNumberRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -643,15 +671,18 @@ export class RecognizeCarNumberResponse extends $tea.Model {
 
 export class RecognizeCarVinCodeRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -712,15 +743,18 @@ export class RecognizeCarVinCodeResponse extends $tea.Model {
 
 export class RecognizeCtwoMedicalDeviceManageLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -781,15 +815,18 @@ export class RecognizeCtwoMedicalDeviceManageLicenseResponse extends $tea.Model 
 
 export class RecognizeDrivingLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -850,15 +887,18 @@ export class RecognizeDrivingLicenseResponse extends $tea.Model {
 
 export class RecognizeEduFormulaRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -919,15 +959,18 @@ export class RecognizeEduFormulaResponse extends $tea.Model {
 
 export class RecognizeEduOralCalculationRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -991,12 +1034,14 @@ export class RecognizeEduPaperCutRequest extends $tea.Model {
   imageType?: string;
   subject?: string;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       cutType: 'CutType',
       imageType: 'ImageType',
       subject: 'Subject',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1006,6 +1051,7 @@ export class RecognizeEduPaperCutRequest extends $tea.Model {
       imageType: 'string',
       subject: 'string',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1069,12 +1115,14 @@ export class RecognizeEduPaperOcrRequest extends $tea.Model {
   outputOricoord?: boolean;
   subject?: string;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       imageType: 'ImageType',
       outputOricoord: 'OutputOricoord',
       subject: 'Subject',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1084,6 +1132,7 @@ export class RecognizeEduPaperOcrRequest extends $tea.Model {
       outputOricoord: 'boolean',
       subject: 'string',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1145,10 +1194,12 @@ export class RecognizeEduPaperOcrResponse extends $tea.Model {
 export class RecognizeEduPaperStructedRequest extends $tea.Model {
   needRotate?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1156,6 +1207,7 @@ export class RecognizeEduPaperStructedRequest extends $tea.Model {
     return {
       needRotate: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1217,10 +1269,12 @@ export class RecognizeEduPaperStructedResponse extends $tea.Model {
 export class RecognizeEduQuestionOcrRequest extends $tea.Model {
   needRotate?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1228,6 +1282,7 @@ export class RecognizeEduQuestionOcrRequest extends $tea.Model {
     return {
       needRotate: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1290,11 +1345,13 @@ export class RecognizeEnglishRequest extends $tea.Model {
   needRotate?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1303,6 +1360,7 @@ export class RecognizeEnglishRequest extends $tea.Model {
       needRotate: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1363,15 +1421,18 @@ export class RecognizeEnglishResponse extends $tea.Model {
 
 export class RecognizeEstateCertificationRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1432,15 +1493,18 @@ export class RecognizeEstateCertificationResponse extends $tea.Model {
 
 export class RecognizeFoodManageLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1501,15 +1565,18 @@ export class RecognizeFoodManageLicenseResponse extends $tea.Model {
 
 export class RecognizeFoodProduceLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1570,15 +1637,18 @@ export class RecognizeFoodProduceLicenseResponse extends $tea.Model {
 
 export class RecognizeGeneralRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1643,6 +1713,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
@@ -1650,6 +1721,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1660,6 +1732,7 @@ export class RecognizeHandwritingRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1720,15 +1793,18 @@ export class RecognizeHandwritingResponse extends $tea.Model {
 
 export class RecognizeHouseholdRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1789,15 +1865,18 @@ export class RecognizeHouseholdResponse extends $tea.Model {
 
 export class RecognizeIdcardRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1858,15 +1937,18 @@ export class RecognizeIdcardResponse extends $tea.Model {
 
 export class RecognizeInvoiceRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -1930,12 +2012,14 @@ export class RecognizeJanpaneseRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -1945,6 +2029,7 @@ export class RecognizeJanpaneseRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2008,12 +2093,14 @@ export class RecognizeKoreanRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2023,6 +2110,7 @@ export class RecognizeKoreanRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2086,12 +2174,14 @@ export class RecognizeLatinRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2101,6 +2191,7 @@ export class RecognizeLatinRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2161,15 +2252,18 @@ export class RecognizeLatinResponse extends $tea.Model {
 
 export class RecognizeMedicalDeviceManageLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2230,15 +2324,18 @@ export class RecognizeMedicalDeviceManageLicenseResponse extends $tea.Model {
 
 export class RecognizeMedicalDeviceProduceLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2299,15 +2396,18 @@ export class RecognizeMedicalDeviceProduceLicenseResponse extends $tea.Model {
 
 export class RecognizeMixedInvoicesRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2373,6 +2473,7 @@ export class RecognizeMultiLanguageRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       languages: 'Languages',
@@ -2381,6 +2482,7 @@ export class RecognizeMultiLanguageRequest extends $tea.Model {
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2392,6 +2494,7 @@ export class RecognizeMultiLanguageRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2407,6 +2510,7 @@ export class RecognizeMultiLanguageShrinkRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       languagesShrink: 'Languages',
@@ -2415,6 +2519,7 @@ export class RecognizeMultiLanguageShrinkRequest extends $tea.Model {
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2426,6 +2531,7 @@ export class RecognizeMultiLanguageShrinkRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2486,15 +2592,18 @@ export class RecognizeMultiLanguageResponse extends $tea.Model {
 
 export class RecognizePassportRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2555,15 +2664,18 @@ export class RecognizePassportResponse extends $tea.Model {
 
 export class RecognizeQuotaInvoiceRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2624,15 +2736,18 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
 
 export class RecognizeRollTicketRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2696,12 +2811,14 @@ export class RecognizeRussianRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2711,6 +2828,7 @@ export class RecognizeRussianRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2771,15 +2889,18 @@ export class RecognizeRussianResponse extends $tea.Model {
 
 export class RecognizeTableOcrRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2840,15 +2961,18 @@ export class RecognizeTableOcrResponse extends $tea.Model {
 
 export class RecognizeTaxiInvoiceRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2912,12 +3036,14 @@ export class RecognizeThaiRequest extends $tea.Model {
   outputCharInfo?: boolean;
   outputTable?: boolean;
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       outputCharInfo: 'OutputCharInfo',
       outputTable: 'OutputTable',
       url: 'Url',
+      body: 'body',
     };
   }
 
@@ -2927,6 +3053,7 @@ export class RecognizeThaiRequest extends $tea.Model {
       outputCharInfo: 'boolean',
       outputTable: 'boolean',
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -2987,15 +3114,18 @@ export class RecognizeThaiResponse extends $tea.Model {
 
 export class RecognizeTradeMarkCertificationRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -3056,15 +3186,18 @@ export class RecognizeTradeMarkCertificationResponse extends $tea.Model {
 
 export class RecognizeTrainInvoiceRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -3125,15 +3258,18 @@ export class RecognizeTrainInvoiceResponse extends $tea.Model {
 
 export class RecognizeVehicleLicenseRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -3194,15 +3330,18 @@ export class RecognizeVehicleLicenseResponse extends $tea.Model {
 
 export class RecognizeWaybillRequest extends $tea.Model {
   url?: string;
+  body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      body: 'Readable',
     };
   }
 
@@ -3286,11 +3425,29 @@ export default class Client extends OpenApi {
 
   async recognizeAdvancedWithOptions(request: RecognizeAdvancedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAdvancedResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["NeedSortPage"] = request.needSortPage;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeAdvancedResponse>(await this.doRPCRequest("RecognizeAdvanced", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeAdvancedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeAdvanced",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeAdvancedResponse>(await this.callApi(params, req, runtime), new RecognizeAdvancedResponse({}));
   }
 
   async recognizeAdvanced(request: RecognizeAdvancedRequest): Promise<RecognizeAdvancedResponse> {
@@ -3300,11 +3457,25 @@ export default class Client extends OpenApi {
 
   async recognizeAirItineraryWithOptions(request: RecognizeAirItineraryRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAirItineraryResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeAirItineraryResponse>(await this.doRPCRequest("RecognizeAirItinerary", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeAirItineraryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeAirItinerary",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeAirItineraryResponse>(await this.callApi(params, req, runtime), new RecognizeAirItineraryResponse({}));
   }
 
   async recognizeAirItinerary(request: RecognizeAirItineraryRequest): Promise<RecognizeAirItineraryResponse> {
@@ -3314,11 +3485,25 @@ export default class Client extends OpenApi {
 
   async recognizeBankAccountLicenseWithOptions(request: RecognizeBankAccountLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAccountLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeBankAccountLicenseResponse>(await this.doRPCRequest("RecognizeBankAccountLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeBankAccountLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBankAccountLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBankAccountLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBankAccountLicenseResponse({}));
   }
 
   async recognizeBankAccountLicense(request: RecognizeBankAccountLicenseRequest): Promise<RecognizeBankAccountLicenseResponse> {
@@ -3328,11 +3513,25 @@ export default class Client extends OpenApi {
 
   async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeBankCardResponse>(await this.doRPCRequest("RecognizeBankCard", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeBankCardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBankCard",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBankCardResponse>(await this.callApi(params, req, runtime), new RecognizeBankCardResponse({}));
   }
 
   async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
@@ -3342,11 +3541,25 @@ export default class Client extends OpenApi {
 
   async recognizeBasicWithOptions(request: RecognizeBasicRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBasicResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeBasicResponse>(await this.doRPCRequest("RecognizeBasic", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeBasicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBasic",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBasicResponse>(await this.callApi(params, req, runtime), new RecognizeBasicResponse({}));
   }
 
   async recognizeBasic(request: RecognizeBasicRequest): Promise<RecognizeBasicResponse> {
@@ -3356,11 +3569,25 @@ export default class Client extends OpenApi {
 
   async recognizeBirthCertificationWithOptions(request: RecognizeBirthCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBirthCertificationResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeBirthCertificationResponse>(await this.doRPCRequest("RecognizeBirthCertification", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeBirthCertificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBirthCertification",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBirthCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeBirthCertificationResponse({}));
   }
 
   async recognizeBirthCertification(request: RecognizeBirthCertificationRequest): Promise<RecognizeBirthCertificationResponse> {
@@ -3370,11 +3597,25 @@ export default class Client extends OpenApi {
 
   async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.doRPCRequest("RecognizeBusinessLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeBusinessLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBusinessLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessLicenseResponse({}));
   }
 
   async recognizeBusinessLicense(request: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
@@ -3384,11 +3625,25 @@ export default class Client extends OpenApi {
 
   async recognizeCarInvoiceWithOptions(request: RecognizeCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarInvoiceResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeCarInvoiceResponse>(await this.doRPCRequest("RecognizeCarInvoice", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeCarInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeCarInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCarInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeCarInvoiceResponse({}));
   }
 
   async recognizeCarInvoice(request: RecognizeCarInvoiceRequest): Promise<RecognizeCarInvoiceResponse> {
@@ -3398,11 +3653,25 @@ export default class Client extends OpenApi {
 
   async recognizeCarNumberWithOptions(request: RecognizeCarNumberRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarNumberResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeCarNumberResponse>(await this.doRPCRequest("RecognizeCarNumber", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeCarNumberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeCarNumber",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCarNumberResponse>(await this.callApi(params, req, runtime), new RecognizeCarNumberResponse({}));
   }
 
   async recognizeCarNumber(request: RecognizeCarNumberRequest): Promise<RecognizeCarNumberResponse> {
@@ -3412,11 +3681,25 @@ export default class Client extends OpenApi {
 
   async recognizeCarVinCodeWithOptions(request: RecognizeCarVinCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarVinCodeResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeCarVinCodeResponse>(await this.doRPCRequest("RecognizeCarVinCode", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeCarVinCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeCarVinCode",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCarVinCodeResponse>(await this.callApi(params, req, runtime), new RecognizeCarVinCodeResponse({}));
   }
 
   async recognizeCarVinCode(request: RecognizeCarVinCodeRequest): Promise<RecognizeCarVinCodeResponse> {
@@ -3426,11 +3709,25 @@ export default class Client extends OpenApi {
 
   async recognizeCtwoMedicalDeviceManageLicenseWithOptions(request: RecognizeCtwoMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeCtwoMedicalDeviceManageLicenseResponse>(await this.doRPCRequest("RecognizeCtwoMedicalDeviceManageLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeCtwoMedicalDeviceManageLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeCtwoMedicalDeviceManageLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCtwoMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeCtwoMedicalDeviceManageLicenseResponse({}));
   }
 
   async recognizeCtwoMedicalDeviceManageLicense(request: RecognizeCtwoMedicalDeviceManageLicenseRequest): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
@@ -3440,11 +3737,25 @@ export default class Client extends OpenApi {
 
   async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.doRPCRequest("RecognizeDrivingLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeDrivingLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeDrivingLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeDrivingLicenseResponse({}));
   }
 
   async recognizeDrivingLicense(request: RecognizeDrivingLicenseRequest): Promise<RecognizeDrivingLicenseResponse> {
@@ -3454,11 +3765,25 @@ export default class Client extends OpenApi {
 
   async recognizeEduFormulaWithOptions(request: RecognizeEduFormulaRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduFormulaResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduFormulaResponse>(await this.doRPCRequest("RecognizeEduFormula", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduFormulaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduFormula",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduFormulaResponse>(await this.callApi(params, req, runtime), new RecognizeEduFormulaResponse({}));
   }
 
   async recognizeEduFormula(request: RecognizeEduFormulaRequest): Promise<RecognizeEduFormulaResponse> {
@@ -3468,11 +3793,25 @@ export default class Client extends OpenApi {
 
   async recognizeEduOralCalculationWithOptions(request: RecognizeEduOralCalculationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduOralCalculationResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduOralCalculationResponse>(await this.doRPCRequest("RecognizeEduOralCalculation", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduOralCalculationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduOralCalculation",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduOralCalculationResponse>(await this.callApi(params, req, runtime), new RecognizeEduOralCalculationResponse({}));
   }
 
   async recognizeEduOralCalculation(request: RecognizeEduOralCalculationRequest): Promise<RecognizeEduOralCalculationResponse> {
@@ -3482,11 +3821,28 @@ export default class Client extends OpenApi {
 
   async recognizeEduPaperCutWithOptions(request: RecognizeEduPaperCutRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperCutResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["CutType"] = request.cutType;
+    query["ImageType"] = request.imageType;
+    query["Subject"] = request.subject;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduPaperCutResponse>(await this.doRPCRequest("RecognizeEduPaperCut", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduPaperCutResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduPaperCut",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduPaperCutResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperCutResponse({}));
   }
 
   async recognizeEduPaperCut(request: RecognizeEduPaperCutRequest): Promise<RecognizeEduPaperCutResponse> {
@@ -3496,11 +3852,28 @@ export default class Client extends OpenApi {
 
   async recognizeEduPaperOcrWithOptions(request: RecognizeEduPaperOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperOcrResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["ImageType"] = request.imageType;
+    query["OutputOricoord"] = request.outputOricoord;
+    query["Subject"] = request.subject;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduPaperOcrResponse>(await this.doRPCRequest("RecognizeEduPaperOcr", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduPaperOcrResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduPaperOcr",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduPaperOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperOcrResponse({}));
   }
 
   async recognizeEduPaperOcr(request: RecognizeEduPaperOcrRequest): Promise<RecognizeEduPaperOcrResponse> {
@@ -3510,11 +3883,26 @@ export default class Client extends OpenApi {
 
   async recognizeEduPaperStructedWithOptions(request: RecognizeEduPaperStructedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperStructedResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduPaperStructedResponse>(await this.doRPCRequest("RecognizeEduPaperStructed", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduPaperStructedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduPaperStructed",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduPaperStructedResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperStructedResponse({}));
   }
 
   async recognizeEduPaperStructed(request: RecognizeEduPaperStructedRequest): Promise<RecognizeEduPaperStructedResponse> {
@@ -3524,11 +3912,26 @@ export default class Client extends OpenApi {
 
   async recognizeEduQuestionOcrWithOptions(request: RecognizeEduQuestionOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduQuestionOcrResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEduQuestionOcrResponse>(await this.doRPCRequest("RecognizeEduQuestionOcr", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEduQuestionOcrResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEduQuestionOcr",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEduQuestionOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduQuestionOcrResponse({}));
   }
 
   async recognizeEduQuestionOcr(request: RecognizeEduQuestionOcrRequest): Promise<RecognizeEduQuestionOcrResponse> {
@@ -3538,11 +3941,27 @@ export default class Client extends OpenApi {
 
   async recognizeEnglishWithOptions(request: RecognizeEnglishRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEnglishResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEnglishResponse>(await this.doRPCRequest("RecognizeEnglish", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEnglishResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEnglish",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEnglishResponse>(await this.callApi(params, req, runtime), new RecognizeEnglishResponse({}));
   }
 
   async recognizeEnglish(request: RecognizeEnglishRequest): Promise<RecognizeEnglishResponse> {
@@ -3552,11 +3971,25 @@ export default class Client extends OpenApi {
 
   async recognizeEstateCertificationWithOptions(request: RecognizeEstateCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEstateCertificationResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeEstateCertificationResponse>(await this.doRPCRequest("RecognizeEstateCertification", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeEstateCertificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeEstateCertification",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeEstateCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeEstateCertificationResponse({}));
   }
 
   async recognizeEstateCertification(request: RecognizeEstateCertificationRequest): Promise<RecognizeEstateCertificationResponse> {
@@ -3566,11 +3999,25 @@ export default class Client extends OpenApi {
 
   async recognizeFoodManageLicenseWithOptions(request: RecognizeFoodManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodManageLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeFoodManageLicenseResponse>(await this.doRPCRequest("RecognizeFoodManageLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeFoodManageLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeFoodManageLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeFoodManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodManageLicenseResponse({}));
   }
 
   async recognizeFoodManageLicense(request: RecognizeFoodManageLicenseRequest): Promise<RecognizeFoodManageLicenseResponse> {
@@ -3580,11 +4027,25 @@ export default class Client extends OpenApi {
 
   async recognizeFoodProduceLicenseWithOptions(request: RecognizeFoodProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodProduceLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeFoodProduceLicenseResponse>(await this.doRPCRequest("RecognizeFoodProduceLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeFoodProduceLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeFoodProduceLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeFoodProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodProduceLicenseResponse({}));
   }
 
   async recognizeFoodProduceLicense(request: RecognizeFoodProduceLicenseRequest): Promise<RecognizeFoodProduceLicenseResponse> {
@@ -3594,11 +4055,25 @@ export default class Client extends OpenApi {
 
   async recognizeGeneralWithOptions(request: RecognizeGeneralRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeGeneralResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeGeneralResponse>(await this.doRPCRequest("RecognizeGeneral", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeGeneralResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeGeneral",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeGeneralResponse>(await this.callApi(params, req, runtime), new RecognizeGeneralResponse({}));
   }
 
   async recognizeGeneral(request: RecognizeGeneralRequest): Promise<RecognizeGeneralResponse> {
@@ -3608,11 +4083,29 @@ export default class Client extends OpenApi {
 
   async recognizeHandwritingWithOptions(request: RecognizeHandwritingRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandwritingResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["NeedSortPage"] = request.needSortPage;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeHandwritingResponse>(await this.doRPCRequest("RecognizeHandwriting", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeHandwritingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeHandwriting",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeHandwritingResponse>(await this.callApi(params, req, runtime), new RecognizeHandwritingResponse({}));
   }
 
   async recognizeHandwriting(request: RecognizeHandwritingRequest): Promise<RecognizeHandwritingResponse> {
@@ -3622,11 +4115,25 @@ export default class Client extends OpenApi {
 
   async recognizeHouseholdWithOptions(request: RecognizeHouseholdRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHouseholdResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeHouseholdResponse>(await this.doRPCRequest("RecognizeHousehold", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeHouseholdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeHousehold",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeHouseholdResponse>(await this.callApi(params, req, runtime), new RecognizeHouseholdResponse({}));
   }
 
   async recognizeHousehold(request: RecognizeHouseholdRequest): Promise<RecognizeHouseholdResponse> {
@@ -3636,11 +4143,25 @@ export default class Client extends OpenApi {
 
   async recognizeIdcardWithOptions(request: RecognizeIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdcardResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeIdcardResponse>(await this.doRPCRequest("RecognizeIdcard", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeIdcardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeIdcard",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeIdcardResponse({}));
   }
 
   async recognizeIdcard(request: RecognizeIdcardRequest): Promise<RecognizeIdcardResponse> {
@@ -3650,11 +4171,25 @@ export default class Client extends OpenApi {
 
   async recognizeInvoiceWithOptions(request: RecognizeInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInvoiceResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeInvoiceResponse>(await this.doRPCRequest("RecognizeInvoice", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeInvoiceResponse({}));
   }
 
   async recognizeInvoice(request: RecognizeInvoiceRequest): Promise<RecognizeInvoiceResponse> {
@@ -3664,11 +4199,28 @@ export default class Client extends OpenApi {
 
   async recognizeJanpaneseWithOptions(request: RecognizeJanpaneseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeJanpaneseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeJanpaneseResponse>(await this.doRPCRequest("RecognizeJanpanese", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeJanpaneseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeJanpanese",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeJanpaneseResponse>(await this.callApi(params, req, runtime), new RecognizeJanpaneseResponse({}));
   }
 
   async recognizeJanpanese(request: RecognizeJanpaneseRequest): Promise<RecognizeJanpaneseResponse> {
@@ -3678,11 +4230,28 @@ export default class Client extends OpenApi {
 
   async recognizeKoreanWithOptions(request: RecognizeKoreanRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeKoreanResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeKoreanResponse>(await this.doRPCRequest("RecognizeKorean", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeKoreanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeKorean",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeKoreanResponse>(await this.callApi(params, req, runtime), new RecognizeKoreanResponse({}));
   }
 
   async recognizeKorean(request: RecognizeKoreanRequest): Promise<RecognizeKoreanResponse> {
@@ -3692,11 +4261,28 @@ export default class Client extends OpenApi {
 
   async recognizeLatinWithOptions(request: RecognizeLatinRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLatinResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeLatinResponse>(await this.doRPCRequest("RecognizeLatin", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeLatinResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeLatin",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeLatinResponse>(await this.callApi(params, req, runtime), new RecognizeLatinResponse({}));
   }
 
   async recognizeLatin(request: RecognizeLatinRequest): Promise<RecognizeLatinResponse> {
@@ -3706,11 +4292,25 @@ export default class Client extends OpenApi {
 
   async recognizeMedicalDeviceManageLicenseWithOptions(request: RecognizeMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeMedicalDeviceManageLicenseResponse>(await this.doRPCRequest("RecognizeMedicalDeviceManageLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeMedicalDeviceManageLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeMedicalDeviceManageLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceManageLicenseResponse({}));
   }
 
   async recognizeMedicalDeviceManageLicense(request: RecognizeMedicalDeviceManageLicenseRequest): Promise<RecognizeMedicalDeviceManageLicenseResponse> {
@@ -3720,11 +4320,25 @@ export default class Client extends OpenApi {
 
   async recognizeMedicalDeviceProduceLicenseWithOptions(request: RecognizeMedicalDeviceProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceProduceLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeMedicalDeviceProduceLicenseResponse>(await this.doRPCRequest("RecognizeMedicalDeviceProduceLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeMedicalDeviceProduceLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeMedicalDeviceProduceLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeMedicalDeviceProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceProduceLicenseResponse({}));
   }
 
   async recognizeMedicalDeviceProduceLicense(request: RecognizeMedicalDeviceProduceLicenseRequest): Promise<RecognizeMedicalDeviceProduceLicenseResponse> {
@@ -3734,11 +4348,25 @@ export default class Client extends OpenApi {
 
   async recognizeMixedInvoicesWithOptions(request: RecognizeMixedInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMixedInvoicesResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeMixedInvoicesResponse>(await this.doRPCRequest("RecognizeMixedInvoices", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeMixedInvoicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeMixedInvoices",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeMixedInvoicesResponse>(await this.callApi(params, req, runtime), new RecognizeMixedInvoicesResponse({}));
   }
 
   async recognizeMixedInvoices(request: RecognizeMixedInvoicesRequest): Promise<RecognizeMixedInvoicesResponse> {
@@ -3754,11 +4382,30 @@ export default class Client extends OpenApi {
       request.languagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.languages, "Languages", "simple");
     }
 
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Languages"] = request.languagesShrink;
+    query["NeedRotate"] = request.needRotate;
+    query["NeedSortPage"] = request.needSortPage;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeMultiLanguageResponse>(await this.doRPCRequest("RecognizeMultiLanguage", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeMultiLanguageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeMultiLanguage",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeMultiLanguageResponse>(await this.callApi(params, req, runtime), new RecognizeMultiLanguageResponse({}));
   }
 
   async recognizeMultiLanguage(request: RecognizeMultiLanguageRequest): Promise<RecognizeMultiLanguageResponse> {
@@ -3768,11 +4415,25 @@ export default class Client extends OpenApi {
 
   async recognizePassportWithOptions(request: RecognizePassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizePassportResponse>(await this.doRPCRequest("RecognizePassport", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizePassportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizePassport",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePassportResponse>(await this.callApi(params, req, runtime), new RecognizePassportResponse({}));
   }
 
   async recognizePassport(request: RecognizePassportRequest): Promise<RecognizePassportResponse> {
@@ -3782,11 +4443,25 @@ export default class Client extends OpenApi {
 
   async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.doRPCRequest("RecognizeQuotaInvoice", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeQuotaInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeQuotaInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeQuotaInvoiceResponse({}));
   }
 
   async recognizeQuotaInvoice(request: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
@@ -3796,11 +4471,25 @@ export default class Client extends OpenApi {
 
   async recognizeRollTicketWithOptions(request: RecognizeRollTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRollTicketResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeRollTicketResponse>(await this.doRPCRequest("RecognizeRollTicket", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeRollTicketResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeRollTicket",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeRollTicketResponse>(await this.callApi(params, req, runtime), new RecognizeRollTicketResponse({}));
   }
 
   async recognizeRollTicket(request: RecognizeRollTicketRequest): Promise<RecognizeRollTicketResponse> {
@@ -3810,11 +4499,28 @@ export default class Client extends OpenApi {
 
   async recognizeRussianWithOptions(request: RecognizeRussianRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRussianResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeRussianResponse>(await this.doRPCRequest("RecognizeRussian", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeRussianResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeRussian",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeRussianResponse>(await this.callApi(params, req, runtime), new RecognizeRussianResponse({}));
   }
 
   async recognizeRussian(request: RecognizeRussianRequest): Promise<RecognizeRussianResponse> {
@@ -3824,11 +4530,25 @@ export default class Client extends OpenApi {
 
   async recognizeTableOcrWithOptions(request: RecognizeTableOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableOcrResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeTableOcrResponse>(await this.doRPCRequest("RecognizeTableOcr", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeTableOcrResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTableOcr",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTableOcrResponse>(await this.callApi(params, req, runtime), new RecognizeTableOcrResponse({}));
   }
 
   async recognizeTableOcr(request: RecognizeTableOcrRequest): Promise<RecognizeTableOcrResponse> {
@@ -3838,11 +4558,25 @@ export default class Client extends OpenApi {
 
   async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.doRPCRequest("RecognizeTaxiInvoice", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeTaxiInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTaxiInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTaxiInvoiceResponse({}));
   }
 
   async recognizeTaxiInvoice(request: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
@@ -3852,11 +4586,28 @@ export default class Client extends OpenApi {
 
   async recognizeThaiWithOptions(request: RecognizeThaiRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeThaiResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["NeedRotate"] = request.needRotate;
+    query["OutputCharInfo"] = request.outputCharInfo;
+    query["OutputTable"] = request.outputTable;
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeThaiResponse>(await this.doRPCRequest("RecognizeThai", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeThaiResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeThai",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeThaiResponse>(await this.callApi(params, req, runtime), new RecognizeThaiResponse({}));
   }
 
   async recognizeThai(request: RecognizeThaiRequest): Promise<RecognizeThaiResponse> {
@@ -3866,11 +4617,25 @@ export default class Client extends OpenApi {
 
   async recognizeTradeMarkCertificationWithOptions(request: RecognizeTradeMarkCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTradeMarkCertificationResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeTradeMarkCertificationResponse>(await this.doRPCRequest("RecognizeTradeMarkCertification", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeTradeMarkCertificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTradeMarkCertification",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTradeMarkCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeTradeMarkCertificationResponse({}));
   }
 
   async recognizeTradeMarkCertification(request: RecognizeTradeMarkCertificationRequest): Promise<RecognizeTradeMarkCertificationResponse> {
@@ -3880,11 +4645,25 @@ export default class Client extends OpenApi {
 
   async recognizeTrainInvoiceWithOptions(request: RecognizeTrainInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTrainInvoiceResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeTrainInvoiceResponse>(await this.doRPCRequest("RecognizeTrainInvoice", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeTrainInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTrainInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTrainInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTrainInvoiceResponse({}));
   }
 
   async recognizeTrainInvoice(request: RecognizeTrainInvoiceRequest): Promise<RecognizeTrainInvoiceResponse> {
@@ -3894,11 +4673,25 @@ export default class Client extends OpenApi {
 
   async recognizeVehicleLicenseWithOptions(request: RecognizeVehicleLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleLicenseResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeVehicleLicenseResponse>(await this.doRPCRequest("RecognizeVehicleLicense", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeVehicleLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehicleLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleLicenseResponse({}));
   }
 
   async recognizeVehicleLicense(request: RecognizeVehicleLicenseRequest): Promise<RecognizeVehicleLicenseResponse> {
@@ -3908,11 +4701,25 @@ export default class Client extends OpenApi {
 
   async recognizeWaybillWithOptions(request: RecognizeWaybillRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeWaybillResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["Url"] = request.url;
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+      stream: request.body,
     });
-    return $tea.cast<RecognizeWaybillResponse>(await this.doRPCRequest("RecognizeWaybill", "2021-07-07", "HTTPS", "GET", "AK", "json", req, runtime), new RecognizeWaybillResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeWaybill",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeWaybillResponse>(await this.callApi(params, req, runtime), new RecognizeWaybillResponse({}));
   }
 
   async recognizeWaybill(request: RecognizeWaybillRequest): Promise<RecognizeWaybillResponse> {
