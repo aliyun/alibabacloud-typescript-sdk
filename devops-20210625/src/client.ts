@@ -865,6 +865,59 @@ export class GetPipelineRunResponse extends $tea.Model {
   }
 }
 
+export class GetVMDeployOrderResponseBody extends $tea.Model {
+  deployOrder?: GetVMDeployOrderResponseBodyDeployOrder;
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deployOrder: 'deployOrder',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployOrder: GetVMDeployOrderResponseBodyDeployOrder,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVMDeployOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetVMDeployOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetVMDeployOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVariableGroupResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1700,6 +1753,112 @@ export class ListWorkspacesResponse extends $tea.Model {
   }
 }
 
+export class LogPipelineJobRunResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  log?: LogPipelineJobRunResponseBodyLog;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      log: 'log',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      log: LogPipelineJobRunResponseBodyLog,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogPipelineJobRunResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: LogPipelineJobRunResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: LogPipelineJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogVMDeployMachineResponseBody extends $tea.Model {
+  deployMachineLog?: LogVMDeployMachineResponseBodyDeployMachineLog;
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deployMachineLog: 'deployMachineLog',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployMachineLog: LogVMDeployMachineResponseBodyDeployMachineLog,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogVMDeployMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: LogVMDeployMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: LogVMDeployMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PassPipelineValidateResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1903,6 +2062,56 @@ export class ResetSshKeyResponse extends $tea.Model {
   }
 }
 
+export class ResumeVMDeployOrderResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeVMDeployOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResumeVMDeployOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResumeVMDeployOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetryPipelineJobRunResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1953,6 +2162,56 @@ export class RetryPipelineJobRunResponse extends $tea.Model {
   }
 }
 
+export class RetryVMDeployMachineResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RetryVMDeployMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RetryVMDeployMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RetryVMDeployMachineResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SkipPipelineJobRunResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -1995,6 +2254,56 @@ export class SkipPipelineJobRunResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SkipPipelineJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipVMDeployMachineResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SkipVMDeployMachineResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SkipVMDeployMachineResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SkipVMDeployMachineResponseBody,
     };
   }
 
@@ -2167,6 +2476,56 @@ export class StopPipelineRunResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StopPipelineRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopVMDeployOrderResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopVMDeployOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: StopVMDeployOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: StopVMDeployOrderResponseBody,
     };
   }
 
@@ -3048,6 +3407,167 @@ export class GetPipelineRunResponseBodyPipelineRun extends $tea.Model {
   }
 }
 
+export class GetVMDeployOrderResponseBodyDeployOrderActions extends $tea.Model {
+  disable?: boolean;
+  params?: { [key: string]: any };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disable: 'disable',
+      params: 'params',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disable: 'boolean',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions extends $tea.Model {
+  disable?: boolean;
+  params?: { [key: string]: any };
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      disable: 'disable',
+      params: 'params',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disable: 'boolean',
+      params: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachines extends $tea.Model {
+  actions?: GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions[];
+  batchNum?: number;
+  clientStatus?: string;
+  createTime?: number;
+  ip?: string;
+  machineSn?: string;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'actions',
+      batchNum: 'batchNum',
+      clientStatus: 'clientStatus',
+      createTime: 'createTime',
+      ip: 'ip',
+      machineSn: 'machineSn',
+      status: 'status',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachinesActions },
+      batchNum: 'number',
+      clientStatus: 'string',
+      createTime: 'number',
+      ip: 'string',
+      machineSn: 'string',
+      status: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfo extends $tea.Model {
+  batchNum?: number;
+  deployMachines?: GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachines[];
+  hostGroupId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      batchNum: 'batchNum',
+      deployMachines: 'deployMachines',
+      hostGroupId: 'hostGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchNum: 'number',
+      deployMachines: { 'type': 'array', 'itemType': GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfoDeployMachines },
+      hostGroupId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetVMDeployOrderResponseBodyDeployOrder extends $tea.Model {
+  actions?: GetVMDeployOrderResponseBodyDeployOrderActions[];
+  createTime?: number;
+  creator?: string;
+  currentBatch?: number;
+  deployMachineInfo?: GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfo;
+  deployOrderId?: string;
+  exceptionCode?: string;
+  status?: string;
+  totalBatch?: number;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'actions',
+      createTime: 'createTime',
+      creator: 'creator',
+      currentBatch: 'currentBatch',
+      deployMachineInfo: 'deployMachineInfo',
+      deployOrderId: 'deployOrderId',
+      exceptionCode: 'exceptionCode',
+      status: 'status',
+      totalBatch: 'totalBatch',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': GetVMDeployOrderResponseBodyDeployOrderActions },
+      createTime: 'number',
+      creator: 'string',
+      currentBatch: 'number',
+      deployMachineInfo: GetVMDeployOrderResponseBodyDeployOrderDeployMachineInfo,
+      deployOrderId: 'string',
+      exceptionCode: 'string',
+      status: 'string',
+      totalBatch: 'number',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVariableGroupResponseBodyVariableGroupRelatedPipelines extends $tea.Model {
   id?: number;
   name?: string;
@@ -3570,6 +4090,59 @@ export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
   }
 }
 
+export class LogPipelineJobRunResponseBodyLog extends $tea.Model {
+  content?: string;
+  more?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      more: 'more',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      more: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LogVMDeployMachineResponseBodyDeployMachineLog extends $tea.Model {
+  aliyunRegion?: string;
+  deployBeginTime?: number;
+  deployEndTime?: number;
+  deployLog?: string;
+  deployLogPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunRegion: 'aliyunRegion',
+      deployBeginTime: 'deployBeginTime',
+      deployEndTime: 'deployEndTime',
+      deployLog: 'deployLog',
+      deployLogPath: 'deployLogPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunRegion: 'string',
+      deployBeginTime: 'number',
+      deployEndTime: 'number',
+      deployLog: 'string',
+      deployLogPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ResetSshKeyResponseBodySshKey extends $tea.Model {
   id?: number;
   publicKey?: string;
@@ -3669,7 +4242,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateHostGroupResponse>(await this.doROARequestWithForm("CreateHostGroup", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/hostGroups`, "json", req, runtime), new CreateHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateHostGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/hostGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateHostGroupResponse>(await this.callApi(params, req, runtime), new CreateHostGroupResponse({}));
   }
 
   async createResourceMember(organizationId: string, resourceType: string, resourceId: string, request: CreateResourceMemberRequest): Promise<CreateResourceMemberResponse> {
@@ -3696,7 +4280,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateResourceMemberResponse>(await this.doROARequestWithForm("CreateResourceMember", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/${resourceType}/${resourceId}/members`, "json", req, runtime), new CreateResourceMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateResourceMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/{resourceType}/{resourceId}/members`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceMemberResponse>(await this.callApi(params, req, runtime), new CreateResourceMemberResponse({}));
   }
 
   async createSshKey(organizationId: string): Promise<CreateSshKeyResponse> {
@@ -3710,7 +4305,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateSshKeyResponse>(await this.doROARequest("CreateSshKey", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/sshKey`, "json", req, runtime), new CreateSshKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSshKey",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/sshKey`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSshKeyResponse>(await this.callApi(params, req, runtime), new CreateSshKeyResponse({}));
   }
 
   async createVariableGroup(organizationId: string, request: CreateVariableGroupRequest): Promise<CreateVariableGroupResponse> {
@@ -3739,7 +4345,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateVariableGroupResponse>(await this.doROARequestWithForm("CreateVariableGroup", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/variableGroups`, "json", req, runtime), new CreateVariableGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVariableGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/variableGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVariableGroupResponse>(await this.callApi(params, req, runtime), new CreateVariableGroupResponse({}));
   }
 
   async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
@@ -3787,7 +4404,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateWorkspaceResponse>(await this.doROARequestWithForm("CreateWorkspace", "2021-06-25", "HTTPS", "POST", "AK", `/api/workspaces`, "json", req, runtime), new CreateWorkspaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateWorkspace",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/workspaces`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
   }
 
   async deleteHostGroup(organizationId: string, id: string): Promise<DeleteHostGroupResponse> {
@@ -3802,7 +4430,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteHostGroupResponse>(await this.doROARequest("DeleteHostGroup", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/hostGroups/${id}`, "json", req, runtime), new DeleteHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteHostGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/hostGroups/{id}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteHostGroupResponse>(await this.callApi(params, req, runtime), new DeleteHostGroupResponse({}));
   }
 
   async deletePipeline(organizationId: string, pipelineId: string): Promise<DeletePipelineResponse> {
@@ -3817,7 +4456,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeletePipelineResponse>(await this.doROARequest("DeletePipeline", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/pipelines/${pipelineId}`, "json", req, runtime), new DeletePipelineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePipeline",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePipelineResponse>(await this.callApi(params, req, runtime), new DeletePipelineResponse({}));
   }
 
   async deleteResourceMember(organizationId: string, resourceType: string, resourceId: string, accountId: string): Promise<DeleteResourceMemberResponse> {
@@ -3834,7 +4484,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteResourceMemberResponse>(await this.doROARequest("DeleteResourceMember", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/${resourceType}/${resourceId}/members/${accountId}`, "json", req, runtime), new DeleteResourceMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteResourceMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/{resourceType}/{resourceId}/members/{accountId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResourceMemberResponse>(await this.callApi(params, req, runtime), new DeleteResourceMemberResponse({}));
   }
 
   async deleteVariableGroup(organizationId: string, id: string): Promise<DeleteVariableGroupResponse> {
@@ -3849,7 +4510,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteVariableGroupResponse>(await this.doROARequest("DeleteVariableGroup", "2021-06-25", "HTTPS", "DELETE", "AK", `/organization/${organizationId}/variableGroups/${id}`, "json", req, runtime), new DeleteVariableGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVariableGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/variableGroups/{id}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVariableGroupResponse>(await this.callApi(params, req, runtime), new DeleteVariableGroupResponse({}));
   }
 
   async frozenWorkspace(workspaceId: string): Promise<FrozenWorkspaceResponse> {
@@ -3863,7 +4535,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<FrozenWorkspaceResponse>(await this.doROARequest("FrozenWorkspace", "2021-06-25", "HTTPS", "PUT", "AK", `/api/workspaces/${workspaceId}/frozen`, "json", req, runtime), new FrozenWorkspaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FrozenWorkspace",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/workspaces/${workspaceId}/frozen`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FrozenWorkspaceResponse>(await this.callApi(params, req, runtime), new FrozenWorkspaceResponse({}));
   }
 
   async getHostGroup(organizationId: string, id: string): Promise<GetHostGroupResponse> {
@@ -3878,7 +4561,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetHostGroupResponse>(await this.doROARequest("GetHostGroup", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/hostGroups/${id}`, "json", req, runtime), new GetHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetHostGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/hostGroups/{id}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHostGroupResponse>(await this.callApi(params, req, runtime), new GetHostGroupResponse({}));
   }
 
   async getOrganizationMember(organizationId: string, accountId: string): Promise<GetOrganizationMemberResponse> {
@@ -3893,7 +4587,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetOrganizationMemberResponse>(await this.doROARequest("GetOrganizationMember", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/members/${accountId}`, "json", req, runtime), new GetOrganizationMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetOrganizationMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/members/{accountId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOrganizationMemberResponse>(await this.callApi(params, req, runtime), new GetOrganizationMemberResponse({}));
   }
 
   async getPipeline(organizationId: string, pipelineId: string): Promise<GetPipelineResponse> {
@@ -3908,7 +4613,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetPipelineResponse>(await this.doROARequest("GetPipeline", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/pipelines/${pipelineId}`, "json", req, runtime), new GetPipelineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipeline",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineResponse>(await this.callApi(params, req, runtime), new GetPipelineResponse({}));
   }
 
   async getPipelineRun(organizationId: string, pipelineId: string, pipelineRunId: string): Promise<GetPipelineRunResponse> {
@@ -3924,7 +4640,45 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetPipelineRunResponse>(await this.doROARequest("GetPipelineRun", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}`, "json", req, runtime), new GetPipelineRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPipelineRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPipelineRunResponse>(await this.callApi(params, req, runtime), new GetPipelineRunResponse({}));
+  }
+
+  async getVMDeployOrder(organizationId: string, pipelineId: string, deployOrderId: string): Promise<GetVMDeployOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getVMDeployOrderWithOptions(organizationId, pipelineId, deployOrderId, headers, runtime);
+  }
+
+  async getVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetVMDeployOrderResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetVMDeployOrder",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVMDeployOrderResponse>(await this.callApi(params, req, runtime), new GetVMDeployOrderResponse({}));
   }
 
   async getVariableGroup(organizationId: string, id: string): Promise<GetVariableGroupResponse> {
@@ -3939,7 +4693,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetVariableGroupResponse>(await this.doROARequest("GetVariableGroup", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/variableGroups/${id}`, "json", req, runtime), new GetVariableGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVariableGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/variableGroups/{id}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVariableGroupResponse>(await this.callApi(params, req, runtime), new GetVariableGroupResponse({}));
   }
 
   async getWorkspace(workspaceId: string): Promise<GetWorkspaceResponse> {
@@ -3953,7 +4718,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetWorkspaceResponse>(await this.doROARequest("GetWorkspace", "2021-06-25", "HTTPS", "GET", "AK", `/api/workspaces/${workspaceId}`, "json", req, runtime), new GetWorkspaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetWorkspace",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/workspaces/${workspaceId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
   }
 
   async listHostGroups(organizationId: string, request: ListHostGroupsRequest): Promise<ListHostGroupsResponse> {
@@ -4006,7 +4782,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListHostGroupsResponse>(await this.doROARequest("ListHostGroups", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/hostGroups`, "json", req, runtime), new ListHostGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListHostGroups",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/hostGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHostGroupsResponse>(await this.callApi(params, req, runtime), new ListHostGroupsResponse({}));
   }
 
   async listOrganizationMembers(organizationId: string, request: ListOrganizationMembersRequest): Promise<ListOrganizationMembersResponse> {
@@ -4055,7 +4842,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListOrganizationMembersResponse>(await this.doROARequest("ListOrganizationMembers", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/members`, "json", req, runtime), new ListOrganizationMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListOrganizationMembers",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOrganizationMembersResponse>(await this.callApi(params, req, runtime), new ListOrganizationMembersResponse({}));
   }
 
   async listPipelineRuns(organizationId: string, pipelineId: string, request: ListPipelineRunsRequest): Promise<ListPipelineRunsResponse> {
@@ -4097,7 +4895,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPipelineRunsResponse>(await this.doROARequest("ListPipelineRuns", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns`, "json", req, runtime), new ListPipelineRunsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPipelineRuns",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelineRunsResponse>(await this.callApi(params, req, runtime), new ListPipelineRunsResponse({}));
   }
 
   async listPipelines(organizationId: string, request: ListPipelinesRequest): Promise<ListPipelinesResponse> {
@@ -4154,7 +4963,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPipelinesResponse>(await this.doROARequest("ListPipelines", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/pipelines`, "json", req, runtime), new ListPipelinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPipelines",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
   }
 
   async listResourceMembers(organizationId: string, resourceType: string, resourceId: string): Promise<ListResourceMembersResponse> {
@@ -4170,7 +4990,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ListResourceMembersResponse>(await this.doROARequest("ListResourceMembers", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/${resourceType}/${resourceId}/members`, "json", req, runtime), new ListResourceMembersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResourceMembers",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/{resourceType}/{resourceId}/members`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceMembersResponse>(await this.callApi(params, req, runtime), new ListResourceMembersResponse({}));
   }
 
   async listServiceConnections(organizationId: string, request: ListServiceConnectionsRequest): Promise<ListServiceConnectionsResponse> {
@@ -4191,7 +5022,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceConnectionsResponse>(await this.doROARequest("ListServiceConnections", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/serviceConnections`, "json", req, runtime), new ListServiceConnectionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceConnections",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/serviceConnections`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceConnectionsResponse>(await this.callApi(params, req, runtime), new ListServiceConnectionsResponse({}));
   }
 
   async listVariableGroups(organizationId: string, request: ListVariableGroupsRequest): Promise<ListVariableGroupsResponse> {
@@ -4224,7 +5066,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVariableGroupsResponse>(await this.doROARequest("ListVariableGroups", "2021-06-25", "HTTPS", "GET", "AK", `/organization/${organizationId}/variableGroups`, "json", req, runtime), new ListVariableGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVariableGroups",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/variableGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVariableGroupsResponse>(await this.callApi(params, req, runtime), new ListVariableGroupsResponse({}));
   }
 
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
@@ -4266,7 +5119,74 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListWorkspacesResponse>(await this.doROARequest("ListWorkspaces", "2021-06-25", "HTTPS", "GET", "AK", `/api/workspaces`, "json", req, runtime), new ListWorkspacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListWorkspaces",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/workspaces`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkspacesResponse>(await this.callApi(params, req, runtime), new ListWorkspacesResponse({}));
+  }
+
+  async logPipelineJobRun(organizationId: string, pipelineId: string, jobId: string, pipelineRunId: string): Promise<LogPipelineJobRunResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.logPipelineJobRunWithOptions(organizationId, pipelineId, jobId, pipelineRunId, headers, runtime);
+  }
+
+  async logPipelineJobRunWithOptions(organizationId: string, pipelineId: string, jobId: string, pipelineRunId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LogPipelineJobRunResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    jobId = OpenApiUtil.getEncodeParam(jobId);
+    pipelineRunId = OpenApiUtil.getEncodeParam(pipelineRunId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "LogPipelineJobRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipeline/{pipelineId}/pipelineRun/{pipelineRunId}/job/{jobId}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LogPipelineJobRunResponse>(await this.callApi(params, req, runtime), new LogPipelineJobRunResponse({}));
+  }
+
+  async logVMDeployMachine(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string): Promise<LogVMDeployMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.logVMDeployMachineWithOptions(organizationId, pipelineId, deployOrderId, machineSn, headers, runtime);
+  }
+
+  async logVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<LogVMDeployMachineResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    machineSn = OpenApiUtil.getEncodeParam(machineSn);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "LogVMDeployMachine",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/log`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<LogVMDeployMachineResponse>(await this.callApi(params, req, runtime), new LogVMDeployMachineResponse({}));
   }
 
   async passPipelineValidate(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<PassPipelineValidateResponse> {
@@ -4283,7 +5203,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<PassPipelineValidateResponse>(await this.doROARequest("PassPipelineValidate", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/pass`, "json", req, runtime), new PassPipelineValidateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PassPipelineValidate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/pass`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PassPipelineValidateResponse>(await this.callApi(params, req, runtime), new PassPipelineValidateResponse({}));
   }
 
   async refusePipelineValidate(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<RefusePipelineValidateResponse> {
@@ -4300,7 +5231,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<RefusePipelineValidateResponse>(await this.doROARequest("RefusePipelineValidate", "2021-06-25", "HTTPS", "POST", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/refuse`, "json", req, runtime), new RefusePipelineValidateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RefusePipelineValidate",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/refuse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RefusePipelineValidateResponse>(await this.callApi(params, req, runtime), new RefusePipelineValidateResponse({}));
   }
 
   async releaseWorkspace(workspaceId: string): Promise<ReleaseWorkspaceResponse> {
@@ -4314,7 +5256,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ReleaseWorkspaceResponse>(await this.doROARequest("ReleaseWorkspace", "2021-06-25", "HTTPS", "DELETE", "AK", `/api/workspaces/${workspaceId}/release`, "json", req, runtime), new ReleaseWorkspaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ReleaseWorkspace",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/workspaces/${workspaceId}/release`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseWorkspaceResponse>(await this.callApi(params, req, runtime), new ReleaseWorkspaceResponse({}));
   }
 
   async resetSshKey(organizationId: string): Promise<ResetSshKeyResponse> {
@@ -4328,7 +5281,45 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<ResetSshKeyResponse>(await this.doROARequest("ResetSshKey", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/sshKey`, "json", req, runtime), new ResetSshKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetSshKey",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/sshKey`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetSshKeyResponse>(await this.callApi(params, req, runtime), new ResetSshKeyResponse({}));
+  }
+
+  async resumeVMDeployOrder(organizationId: string, pipelineId: string, deployOrderId: string): Promise<ResumeVMDeployOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeVMDeployOrderWithOptions(organizationId, pipelineId, deployOrderId, headers, runtime);
+  }
+
+  async resumeVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ResumeVMDeployOrderResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeVMDeployOrder",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}/resume`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeVMDeployOrderResponse>(await this.callApi(params, req, runtime), new ResumeVMDeployOrderResponse({}));
   }
 
   async retryPipelineJobRun(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<RetryPipelineJobRunResponse> {
@@ -4345,7 +5336,46 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<RetryPipelineJobRunResponse>(await this.doROARequest("RetryPipelineJobRun", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}`, "json", req, runtime), new RetryPipelineJobRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RetryPipelineJobRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryPipelineJobRunResponse>(await this.callApi(params, req, runtime), new RetryPipelineJobRunResponse({}));
+  }
+
+  async retryVMDeployMachine(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string): Promise<RetryVMDeployMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retryVMDeployMachineWithOptions(organizationId, pipelineId, deployOrderId, machineSn, headers, runtime);
+  }
+
+  async retryVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RetryVMDeployMachineResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    machineSn = OpenApiUtil.getEncodeParam(machineSn);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "RetryVMDeployMachine",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/retry`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RetryVMDeployMachineResponse>(await this.callApi(params, req, runtime), new RetryVMDeployMachineResponse({}));
   }
 
   async skipPipelineJobRun(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<SkipPipelineJobRunResponse> {
@@ -4362,7 +5392,46 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<SkipPipelineJobRunResponse>(await this.doROARequest("SkipPipelineJobRun", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/skip`, "json", req, runtime), new SkipPipelineJobRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SkipPipelineJobRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/skip`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SkipPipelineJobRunResponse>(await this.callApi(params, req, runtime), new SkipPipelineJobRunResponse({}));
+  }
+
+  async skipVMDeployMachine(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string): Promise<SkipVMDeployMachineResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.skipVMDeployMachineWithOptions(organizationId, pipelineId, deployOrderId, machineSn, headers, runtime);
+  }
+
+  async skipVMDeployMachineWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, machineSn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SkipVMDeployMachineResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    machineSn = OpenApiUtil.getEncodeParam(machineSn);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "SkipVMDeployMachine",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}/machine/{machineSn}/skip`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SkipVMDeployMachineResponse>(await this.callApi(params, req, runtime), new SkipVMDeployMachineResponse({}));
   }
 
   async startPipelineRun(organizationId: string, pipelineId: string, request: StartPipelineRunRequest): Promise<StartPipelineRunResponse> {
@@ -4384,7 +5453,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<StartPipelineRunResponse>(await this.doROARequestWithForm("StartPipelineRun", "2021-06-25", "HTTPS", "POST", "AK", `/organizations/${organizationId}/pipelines/${pipelineId}/run`, "json", req, runtime), new StartPipelineRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartPipelineRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organizations/${organizationId}/pipelines/{pipelineId}/run`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartPipelineRunResponse>(await this.callApi(params, req, runtime), new StartPipelineRunResponse({}));
   }
 
   async stopPipelineJobRun(organizationId: string, pipelineId: string, pipelineRunId: string, jobId: string): Promise<StopPipelineJobRunResponse> {
@@ -4401,7 +5481,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StopPipelineJobRunResponse>(await this.doROARequest("StopPipelineJobRun", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/jobs/${jobId}/stop`, "json", req, runtime), new StopPipelineJobRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopPipelineJobRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/jobs/{jobId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopPipelineJobRunResponse>(await this.callApi(params, req, runtime), new StopPipelineJobRunResponse({}));
   }
 
   async stopPipelineRun(organizationId: string, pipelineId: string, pipelineRunId: string): Promise<StopPipelineRunResponse> {
@@ -4417,7 +5508,45 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StopPipelineRunResponse>(await this.doROARequest("StopPipelineRun", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/pipelines/${pipelineId}/pipelineRuns/${pipelineRunId}/stop`, "json", req, runtime), new StopPipelineRunResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopPipelineRun",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/pipelineRuns/{pipelineRunId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopPipelineRunResponse>(await this.callApi(params, req, runtime), new StopPipelineRunResponse({}));
+  }
+
+  async stopVMDeployOrder(organizationId: string, pipelineId: string, deployOrderId: string): Promise<StopVMDeployOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopVMDeployOrderWithOptions(organizationId, pipelineId, deployOrderId, headers, runtime);
+  }
+
+  async stopVMDeployOrderWithOptions(organizationId: string, pipelineId: string, deployOrderId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopVMDeployOrderResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    deployOrderId = OpenApiUtil.getEncodeParam(deployOrderId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopVMDeployOrder",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/{pipelineId}/deploy/{deployOrderId}/stop`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopVMDeployOrderResponse>(await this.callApi(params, req, runtime), new StopVMDeployOrderResponse({}));
   }
 
   async updateHostGroup(organizationId: string, id: string, request: UpdateHostGroupRequest): Promise<UpdateHostGroupResponse> {
@@ -4475,7 +5604,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateHostGroupResponse>(await this.doROARequestWithForm("UpdateHostGroup", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/hostGroups/${id}`, "json", req, runtime), new UpdateHostGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateHostGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/hostGroups/{id}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateHostGroupResponse>(await this.callApi(params, req, runtime), new UpdateHostGroupResponse({}));
   }
 
   async updateResourceMember(organizationId: string, resourceType: string, resourceId: string, accountId: string, request: UpdateResourceMemberRequest): Promise<UpdateResourceMemberResponse> {
@@ -4499,7 +5639,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateResourceMemberResponse>(await this.doROARequestWithForm("UpdateResourceMember", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/${resourceType}/${resourceId}/members/${accountId}`, "json", req, runtime), new UpdateResourceMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/{resourceType}/{resourceId}/members/{accountId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceMemberResponse>(await this.callApi(params, req, runtime), new UpdateResourceMemberResponse({}));
   }
 
   async updateVariableGroup(organizationId: string, id: string, request: UpdateVariableGroupRequest): Promise<UpdateVariableGroupResponse> {
@@ -4529,7 +5680,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateVariableGroupResponse>(await this.doROARequestWithForm("UpdateVariableGroup", "2021-06-25", "HTTPS", "PUT", "AK", `/organization/${organizationId}/variableGroups/${id}`, "json", req, runtime), new UpdateVariableGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateVariableGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/variableGroups/{id}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVariableGroupResponse>(await this.callApi(params, req, runtime), new UpdateVariableGroupResponse({}));
   }
 
 }
