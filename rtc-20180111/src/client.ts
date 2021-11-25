@@ -428,6 +428,72 @@ export class DeleteAutoLiveStreamRuleResponse extends $tea.Model {
   }
 }
 
+export class DeleteChannelRequest extends $tea.Model {
+  appId?: string;
+  channelId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChannelResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChannelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteChannelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEventSubscribeRequest extends $tea.Model {
   appId?: string;
   ownerId?: number;
@@ -618,6 +684,90 @@ export class DeleteRecordTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteRecordTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsRequest extends $tea.Model {
+  appId?: string;
+  order?: string;
+  ownerId?: number;
+  pageNum?: number;
+  pageSize?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      order: 'Order',
+      ownerId: 'OwnerId',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      order: 'string',
+      ownerId: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBody extends $tea.Model {
+  appList?: DescribeAppsResponseBodyAppList;
+  requestId?: string;
+  totalNum?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appList: 'AppList',
+      requestId: 'RequestId',
+      totalNum: 'TotalNum',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appList: DescribeAppsResponseBodyAppList,
+      requestId: 'string',
+      totalNum: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAppsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAppsResponseBody,
     };
   }
 
@@ -1409,6 +1559,72 @@ export class GetMPUTaskStatusResponse extends $tea.Model {
   }
 }
 
+export class ModifyAppRequest extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAppResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyAppResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMPULayoutRequest extends $tea.Model {
   appId?: string;
   audioMixCount?: number;
@@ -1812,75 +2028,6 @@ export class StartRecordTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartRecordTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopChannelUserPublishRequest extends $tea.Model {
-  appId?: string;
-  channelId?: string;
-  ownerId?: number;
-  userId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appId: 'AppId',
-      channelId: 'ChannelId',
-      ownerId: 'OwnerId',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appId: 'string',
-      channelId: 'string',
-      ownerId: 'number',
-      userId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopChannelUserPublishResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopChannelUserPublishResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StopChannelUserPublishResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StopChannelUserPublishResponseBody,
     };
   }
 
@@ -2581,6 +2728,81 @@ export class CreateMPULayoutRequestPanes extends $tea.Model {
       x: 'number',
       y: 'number',
       ZOrder: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBodyAppListAppServiceAreas extends $tea.Model {
+  serviceArea?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      serviceArea: 'ServiceArea',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceArea: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBodyAppListApp extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  appType?: string;
+  billType?: string;
+  createTime?: string;
+  serviceAreas?: DescribeAppsResponseBodyAppListAppServiceAreas;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      appType: 'AppType',
+      billType: 'BillType',
+      createTime: 'CreateTime',
+      serviceAreas: 'ServiceAreas',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      appType: 'string',
+      billType: 'string',
+      createTime: 'string',
+      serviceAreas: DescribeAppsResponseBodyAppListAppServiceAreas,
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAppsResponseBodyAppList extends $tea.Model {
+  app?: DescribeAppsResponseBodyAppListApp[];
+  static names(): { [key: string]: string } {
+    return {
+      app: 'App',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      app: { 'type': 'array', 'itemType': DescribeAppsResponseBodyAppListApp },
     };
   }
 
@@ -4053,6 +4275,35 @@ export default class Client extends OpenApi {
     return await this.deleteAutoLiveStreamRuleWithOptions(request, runtime);
   }
 
+  async deleteChannelWithOptions(request: DeleteChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChannelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AppId"] = request.appId;
+    query["ChannelId"] = request.channelId;
+    query["OwnerId"] = request.ownerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteChannel",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChannelResponse>(await this.callApi(params, req, runtime), new DeleteChannelResponse({}));
+  }
+
+  async deleteChannel(request: DeleteChannelRequest): Promise<DeleteChannelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteChannelWithOptions(request, runtime);
+  }
+
   async deleteEventSubscribeWithOptions(request: DeleteEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSubscribeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4138,6 +4389,38 @@ export default class Client extends OpenApi {
   async deleteRecordTemplate(request: DeleteRecordTemplateRequest): Promise<DeleteRecordTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRecordTemplateWithOptions(request, runtime);
+  }
+
+  async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AppId"] = request.appId;
+    query["Order"] = request.order;
+    query["OwnerId"] = request.ownerId;
+    query["PageNum"] = request.pageNum;
+    query["PageSize"] = request.pageSize;
+    query["Status"] = request.status;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApps",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
+  }
+
+  async describeApps(request: DescribeAppsRequest): Promise<DescribeAppsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAppsWithOptions(request, runtime);
   }
 
   async describeAutoLiveStreamRuleWithOptions(request: DescribeAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoLiveStreamRuleResponse> {
@@ -4443,6 +4726,35 @@ export default class Client extends OpenApi {
     return await this.getMPUTaskStatusWithOptions(request, runtime);
   }
 
+  async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AppId"] = request.appId;
+    query["AppName"] = request.appName;
+    query["OwnerId"] = request.ownerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApp",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
+  }
+
+  async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAppWithOptions(request, runtime);
+  }
+
   async modifyMPULayoutWithOptions(request: ModifyMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4604,36 +4916,6 @@ export default class Client extends OpenApi {
   async startRecordTask(request: StartRecordTaskRequest): Promise<StartRecordTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startRecordTaskWithOptions(request, runtime);
-  }
-
-  async stopChannelUserPublishWithOptions(request: StopChannelUserPublishRequest, runtime: $Util.RuntimeOptions): Promise<StopChannelUserPublishResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["OwnerId"] = request.ownerId;
-    query["UserId"] = request.userId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "StopChannelUserPublish",
-      version: "2018-01-11",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopChannelUserPublishResponse>(await this.callApi(params, req, runtime), new StopChannelUserPublishResponse({}));
-  }
-
-  async stopChannelUserPublish(request: StopChannelUserPublishRequest): Promise<StopChannelUserPublishResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopChannelUserPublishWithOptions(request, runtime);
   }
 
   async stopMPUTaskWithOptions(request: StopMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopMPUTaskResponse> {
