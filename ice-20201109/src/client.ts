@@ -34,7 +34,7 @@ export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
   liveMaterials?: AddEditingProjectMaterialsResponseBodyLiveMaterials[];
   mediaInfos?: AddEditingProjectMaterialsResponseBodyMediaInfos[];
   projectId?: string;
-  projectMaterials?: string;
+  projectMaterials?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51,7 +51,7 @@ export class AddEditingProjectMaterialsResponseBody extends $tea.Model {
       liveMaterials: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyLiveMaterials },
       mediaInfos: { 'type': 'array', 'itemType': AddEditingProjectMaterialsResponseBodyMediaInfos },
       projectId: 'string',
-      projectMaterials: 'string',
+      projectMaterials: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -75,6 +75,69 @@ export class AddEditingProjectMaterialsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddEditingProjectMaterialsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFavoritePublicMediaRequest extends $tea.Model {
+  mediaIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFavoritePublicMediaResponseBody extends $tea.Model {
+  ignoredList?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ignoredList: 'IgnoredList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoredList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFavoritePublicMediaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddFavoritePublicMediaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddFavoritePublicMediaResponseBody,
     };
   }
 
@@ -225,6 +288,69 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: BatchGetMediaInfosResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelFavoritePublicMediaRequest extends $tea.Model {
+  mediaIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaIds: 'MediaIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelFavoritePublicMediaResponseBody extends $tea.Model {
+  ignoredList?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ignoredList: 'IgnoredList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoredList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelFavoritePublicMediaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelFavoritePublicMediaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelFavoritePublicMediaResponseBody,
     };
   }
 
@@ -638,6 +764,25 @@ export class DeleteTemplateResponse extends $tea.Model {
   }
 }
 
+export class DescribeIceProductStatusRequest extends $tea.Model {
+  commodityCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIceProductStatusResponseBody extends $tea.Model {
   ICEServiceAvaliable?: boolean;
   requestId?: string;
@@ -674,6 +819,75 @@ export class DescribeIceProductStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeIceProductStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaterialPackageInfoRequest extends $tea.Model {
+  materialPackageId?: string;
+  materialPackageType?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialPackageId: 'MaterialPackageId',
+      materialPackageType: 'MaterialPackageType',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialPackageId: 'string',
+      materialPackageType: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaterialPackageInfoResponseBody extends $tea.Model {
+  materialPackageInfoList?: DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      materialPackageInfoList: 'MaterialPackageInfoList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      materialPackageInfoList: { 'type': 'array', 'itemType': DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaterialPackageInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeMaterialPackageInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeMaterialPackageInfoResponseBody,
     };
   }
 
@@ -874,7 +1088,7 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
   liveMaterials?: GetEditingProjectMaterialsResponseBodyLiveMaterials[];
   mediaInfos?: GetEditingProjectMaterialsResponseBodyMediaInfos[];
   projectId?: string;
-  projectMaterials?: string;
+  projectMaterials?: string[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -891,7 +1105,7 @@ export class GetEditingProjectMaterialsResponseBody extends $tea.Model {
       liveMaterials: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyLiveMaterials },
       mediaInfos: { 'type': 'array', 'itemType': GetEditingProjectMaterialsResponseBodyMediaInfos },
       projectId: 'string',
-      projectMaterials: 'string',
+      projectMaterials: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -1237,20 +1451,80 @@ export class GetMediaProducingJobResponse extends $tea.Model {
   }
 }
 
+export class GetPublicMediaInfoRequest extends $tea.Model {
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBody extends $tea.Model {
+  mediaInfo?: GetPublicMediaInfoResponseBodyMediaInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mediaInfo: 'MediaInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mediaInfo: GetPublicMediaInfoResponseBodyMediaInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetPublicMediaInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetPublicMediaInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSmartHandleJobRequest extends $tea.Model {
   jobId?: string;
-  withAiResult?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
-      withAiResult: 'WithAiResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
-      withAiResult: 'string',
     };
   }
 
@@ -1260,7 +1534,6 @@ export class GetSmartHandleJobRequest extends $tea.Model {
 }
 
 export class GetSmartHandleJobResponseBody extends $tea.Model {
-  FEExtend?: string;
   jobId?: string;
   output?: string;
   requestId?: string;
@@ -1269,7 +1542,6 @@ export class GetSmartHandleJobResponseBody extends $tea.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
-      FEExtend: 'FEExtend',
       jobId: 'JobId',
       output: 'Output',
       requestId: 'RequestId',
@@ -1281,7 +1553,6 @@ export class GetSmartHandleJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      FEExtend: 'string',
       jobId: 'string',
       output: 'string',
       requestId: 'string',
@@ -1452,15 +1723,18 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
 
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
   businessType?: string;
+  entityId?: string;
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
+      entityId: 'EntityId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       businessType: 'string',
+      entityId: 'string',
     };
   }
 
@@ -2195,6 +2469,93 @@ export class SearchEditingProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SearchEditingProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoRequest extends $tea.Model {
+  authorized?: boolean;
+  dynamicMetaDataMatchFields?: string;
+  entityId?: string;
+  favorite?: boolean;
+  mediaIds?: string;
+  pageNo?: number;
+  pageSize?: number;
+  sortBy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorized: 'Authorized',
+      dynamicMetaDataMatchFields: 'DynamicMetaDataMatchFields',
+      entityId: 'EntityId',
+      favorite: 'Favorite',
+      mediaIds: 'MediaIds',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      sortBy: 'SortBy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorized: 'boolean',
+      dynamicMetaDataMatchFields: 'string',
+      entityId: 'string',
+      favorite: 'boolean',
+      mediaIds: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      sortBy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoResponseBody extends $tea.Model {
+  publicMediaInfos?: SearchPublicMediaInfoResponseBodyPublicMediaInfos[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      publicMediaInfos: 'PublicMediaInfos',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publicMediaInfos: { 'type': 'array', 'itemType': SearchPublicMediaInfoResponseBodyPublicMediaInfos },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SearchPublicMediaInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SearchPublicMediaInfoResponseBody,
     };
   }
 
@@ -4017,6 +4378,77 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
   }
 }
 
+export class DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoListMaterialPackagePurchaseList extends $tea.Model {
+  currCapacity?: string;
+  endTime?: string;
+  initCapacity?: string;
+  remainingAuthTime?: string;
+  startTime?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currCapacity: 'CurrCapacity',
+      endTime: 'EndTime',
+      initCapacity: 'InitCapacity',
+      remainingAuthTime: 'RemainingAuthTime',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currCapacity: 'string',
+      endTime: 'string',
+      initCapacity: 'string',
+      remainingAuthTime: 'string',
+      startTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoList extends $tea.Model {
+  authTime?: string;
+  authorized?: boolean;
+  displayPrice?: string;
+  initCapacity?: string;
+  materialCount?: number;
+  materialPackageId?: string;
+  materialPackagePurchaseList?: DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoListMaterialPackagePurchaseList[];
+  static names(): { [key: string]: string } {
+    return {
+      authTime: 'AuthTime',
+      authorized: 'Authorized',
+      displayPrice: 'DisplayPrice',
+      initCapacity: 'InitCapacity',
+      materialCount: 'MaterialCount',
+      materialPackageId: 'MaterialPackageId',
+      materialPackagePurchaseList: 'MaterialPackagePurchaseList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authTime: 'string',
+      authorized: 'boolean',
+      displayPrice: 'string',
+      initCapacity: 'string',
+      materialCount: 'number',
+      materialPackageId: 'string',
+      materialPackagePurchaseList: { 'type': 'array', 'itemType': DescribeMaterialPackageInfoResponseBodyMaterialPackageInfoListMaterialPackagePurchaseList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEditingProjectResponseBodyProject extends $tea.Model {
   businessConfig?: string;
   businessStatus?: string;
@@ -4439,16 +4871,12 @@ export class GetMediaInfoResponseBodyMediaInfoAiRoughDataList extends $tea.Model
   }
 }
 
-export class GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList extends $tea.Model {
+export class GetMediaInfoResponseBodyMediaInfoDynamicMetaData extends $tea.Model {
   data?: string;
-  in?: number;
-  out?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
-      in: 'In',
-      out: 'Out',
       type: 'Type',
     };
   }
@@ -4456,8 +4884,6 @@ export class GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList extends $tea.M
   static types(): { [key: string]: any } {
     return {
       data: 'string',
-      in: 'number',
-      out: 'number',
       type: 'string',
     };
   }
@@ -4814,14 +5240,14 @@ export class GetMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model 
 
 export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
   aiRoughDataList?: GetMediaInfoResponseBodyMediaInfoAiRoughDataList[];
-  dynamicMetaDataList?: GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList[];
+  dynamicMetaData?: GetMediaInfoResponseBodyMediaInfoDynamicMetaData;
   fileInfoList?: GetMediaInfoResponseBodyMediaInfoFileInfoList[];
   mediaBasicInfo?: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo;
   mediaId?: string;
   static names(): { [key: string]: string } {
     return {
       aiRoughDataList: 'AiRoughDataList',
-      dynamicMetaDataList: 'DynamicMetaDataList',
+      dynamicMetaData: 'DynamicMetaData',
       fileInfoList: 'FileInfoList',
       mediaBasicInfo: 'MediaBasicInfo',
       mediaId: 'MediaId',
@@ -4831,7 +5257,7 @@ export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aiRoughDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoAiRoughDataList },
-      dynamicMetaDataList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoDynamicMetaDataList },
+      dynamicMetaData: GetMediaInfoResponseBodyMediaInfoDynamicMetaData,
       fileInfoList: { 'type': 'array', 'itemType': GetMediaInfoResponseBodyMediaInfoFileInfoList },
       mediaBasicInfo: GetMediaInfoResponseBodyMediaInfoMediaBasicInfo,
       mediaId: 'string',
@@ -4858,6 +5284,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
   status?: string;
   templateId?: string;
   timeline?: string;
+  vodMediaId?: string;
   static names(): { [key: string]: string } {
     return {
       clipsParam: 'ClipsParam',
@@ -4874,6 +5301,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       status: 'Status',
       templateId: 'TemplateId',
       timeline: 'Timeline',
+      vodMediaId: 'VodMediaId',
     };
   }
 
@@ -4893,6 +5321,399 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       status: 'string',
       templateId: 'string',
       timeline: 'string',
+      vodMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData extends $tea.Model {
+  data?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList extends $tea.Model {
+  bitrate?: string;
+  channelLayout?: string;
+  channels?: string;
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  duration?: string;
+  fps?: string;
+  index?: string;
+  lang?: string;
+  numFrames?: string;
+  profile?: string;
+  sampleFmt?: string;
+  sampleRate?: string;
+  startTime?: string;
+  timebase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      channelLayout: 'ChannelLayout',
+      channels: 'Channels',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      duration: 'Duration',
+      fps: 'Fps',
+      index: 'Index',
+      lang: 'Lang',
+      numFrames: 'NumFrames',
+      profile: 'Profile',
+      sampleFmt: 'SampleFmt',
+      sampleRate: 'SampleRate',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      channelLayout: 'string',
+      channels: 'string',
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      duration: 'string',
+      fps: 'string',
+      index: 'string',
+      lang: 'string',
+      numFrames: 'string',
+      profile: 'string',
+      sampleFmt: 'string',
+      sampleRate: 'string',
+      startTime: 'string',
+      timebase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo extends $tea.Model {
+  bitrate?: string;
+  duration?: string;
+  fileName?: string;
+  fileSize?: string;
+  fileStatus?: string;
+  fileType?: string;
+  fileUrl?: string;
+  formatName?: string;
+  height?: string;
+  region?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileStatus: 'FileStatus',
+      fileType: 'FileType',
+      fileUrl: 'FileUrl',
+      formatName: 'FormatName',
+      height: 'Height',
+      region: 'Region',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      duration: 'string',
+      fileName: 'string',
+      fileSize: 'string',
+      fileStatus: 'string',
+      fileType: 'string',
+      fileUrl: 'string',
+      formatName: 'string',
+      height: 'string',
+      region: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $tea.Model {
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  duration?: string;
+  index?: string;
+  lang?: string;
+  startTime?: string;
+  timebase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      duration: 'Duration',
+      index: 'Index',
+      lang: 'Lang',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      duration: 'string',
+      index: 'string',
+      lang: 'string',
+      startTime: 'string',
+      timebase: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList extends $tea.Model {
+  avgFPS?: string;
+  bitrate?: string;
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  dar?: string;
+  duration?: string;
+  fps?: string;
+  hasBFrames?: string;
+  height?: string;
+  index?: string;
+  lang?: string;
+  level?: string;
+  nbFrames?: string;
+  numFrames?: string;
+  pixFmt?: string;
+  profile?: string;
+  rotate?: string;
+  sar?: string;
+  startTime?: string;
+  timebase?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgFPS: 'AvgFPS',
+      bitrate: 'Bitrate',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      dar: 'Dar',
+      duration: 'Duration',
+      fps: 'Fps',
+      hasBFrames: 'HasBFrames',
+      height: 'Height',
+      index: 'Index',
+      lang: 'Lang',
+      level: 'Level',
+      nbFrames: 'Nb_frames',
+      numFrames: 'NumFrames',
+      pixFmt: 'PixFmt',
+      profile: 'Profile',
+      rotate: 'Rotate',
+      sar: 'Sar',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgFPS: 'string',
+      bitrate: 'string',
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      dar: 'string',
+      duration: 'string',
+      fps: 'string',
+      hasBFrames: 'string',
+      height: 'string',
+      index: 'string',
+      lang: 'string',
+      level: 'string',
+      nbFrames: 'string',
+      numFrames: 'string',
+      pixFmt: 'string',
+      profile: 'string',
+      rotate: 'string',
+      sar: 'string',
+      startTime: 'string',
+      timebase: 'string',
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoFileInfoList extends $tea.Model {
+  audioStreamInfoList?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
+  fileBasicInfo?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo;
+  subtitleStreamInfoList?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
+  videoStreamInfoList?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      audioStreamInfoList: 'AudioStreamInfoList',
+      fileBasicInfo: 'FileBasicInfo',
+      subtitleStreamInfoList: 'SubtitleStreamInfoList',
+      videoStreamInfoList: 'VideoStreamInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioStreamInfoList: { 'type': 'array', 'itemType': GetPublicMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList },
+      fileBasicInfo: GetPublicMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo,
+      subtitleStreamInfoList: { 'type': 'array', 'itemType': GetPublicMediaInfoResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList },
+      videoStreamInfoList: { 'type': 'array', 'itemType': GetPublicMediaInfoResponseBodyMediaInfoFileInfoListVideoStreamInfoList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
+  dynamicMetaData?: GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData;
+  fileInfoList?: GetPublicMediaInfoResponseBodyMediaInfoFileInfoList[];
+  mediaBasicInfo?: GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicMetaData: 'DynamicMetaData',
+      fileInfoList: 'FileInfoList',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicMetaData: GetPublicMediaInfoResponseBodyMediaInfoDynamicMetaData,
+      fileInfoList: { 'type': 'array', 'itemType': GetPublicMediaInfoResponseBodyMediaInfoFileInfoList },
+      mediaBasicInfo: GetPublicMediaInfoResponseBodyMediaInfoMediaBasicInfo,
+      mediaId: 'string',
     };
   }
 
@@ -4903,18 +5724,15 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
 
 export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.Model {
   inputFile?: string;
-  jobParameters?: string;
   static names(): { [key: string]: string } {
     return {
       inputFile: 'InputFile',
-      jobParameters: 'JobParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       inputFile: 'string',
-      jobParameters: 'string',
     };
   }
 
@@ -4948,7 +5766,6 @@ export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.
 export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
   createTime?: string;
   description?: string;
-  editingConfig?: string;
   inputConfig?: GetSmartHandleJobResponseBodySmartJobInfoInputConfig;
   jobType?: string;
   modifiedTime?: string;
@@ -4959,7 +5776,6 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
     return {
       createTime: 'CreateTime',
       description: 'Description',
-      editingConfig: 'EditingConfig',
       inputConfig: 'InputConfig',
       jobType: 'JobType',
       modifiedTime: 'ModifiedTime',
@@ -4973,7 +5789,6 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
     return {
       createTime: 'string',
       description: 'string',
-      editingConfig: 'string',
       inputConfig: GetSmartHandleJobResponseBodySmartJobInfoInputConfig,
       jobType: 'string',
       modifiedTime: 'string',
@@ -5046,15 +5861,42 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
   }
 }
 
+export class ListAllPublicMediaTagsResponseBodyMediaTagListOptions extends $tea.Model {
+  optionChineseName?: string;
+  optionEnglishName?: string;
+  optionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      optionChineseName: 'OptionChineseName',
+      optionEnglishName: 'OptionEnglishName',
+      optionId: 'OptionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionChineseName: 'string',
+      optionEnglishName: 'string',
+      optionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
   mediaTagId?: string;
   mediaTagNameChinese?: string;
   mediaTagNameEnglish?: string;
+  options?: ListAllPublicMediaTagsResponseBodyMediaTagListOptions[];
   static names(): { [key: string]: string } {
     return {
       mediaTagId: 'MediaTagId',
       mediaTagNameChinese: 'MediaTagNameChinese',
       mediaTagNameEnglish: 'MediaTagNameEnglish',
+      options: 'Options',
     };
   }
 
@@ -5063,6 +5905,7 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
       mediaTagId: 'string',
       mediaTagNameChinese: 'string',
       mediaTagNameEnglish: 'string',
+      options: { 'type': 'array', 'itemType': ListAllPublicMediaTagsResponseBodyMediaTagListOptions },
     };
   }
 
@@ -5695,6 +6538,142 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
   }
 }
 
+export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData extends $tea.Model {
+  data?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo extends $tea.Model {
+  businessType?: string;
+  category?: string;
+  coverURL?: string;
+  createTime?: string;
+  deletedTime?: string;
+  description?: string;
+  mediaId?: string;
+  mediaTags?: string;
+  mediaType?: string;
+  modifiedTime?: string;
+  source?: string;
+  spriteImages?: string;
+  status?: string;
+  title?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      category: 'Category',
+      coverURL: 'CoverURL',
+      createTime: 'CreateTime',
+      deletedTime: 'DeletedTime',
+      description: 'Description',
+      mediaId: 'MediaId',
+      mediaTags: 'MediaTags',
+      mediaType: 'MediaType',
+      modifiedTime: 'ModifiedTime',
+      source: 'Source',
+      spriteImages: 'SpriteImages',
+      status: 'Status',
+      title: 'Title',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      category: 'string',
+      coverURL: 'string',
+      createTime: 'string',
+      deletedTime: 'string',
+      description: 'string',
+      mediaId: 'string',
+      mediaTags: 'string',
+      mediaType: 'string',
+      modifiedTime: 'string',
+      source: 'string',
+      spriteImages: 'string',
+      status: 'string',
+      title: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo extends $tea.Model {
+  dynamicMetaData?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData;
+  mediaBasicInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicMetaData: 'DynamicMetaData',
+      mediaBasicInfo: 'MediaBasicInfo',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicMetaData: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoDynamicMetaData,
+      mediaBasicInfo: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfoMediaBasicInfo,
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchPublicMediaInfoResponseBodyPublicMediaInfos extends $tea.Model {
+  authorized?: boolean;
+  favorite?: boolean;
+  mediaInfo?: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo;
+  remainingAuthTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorized: 'Authorized',
+      favorite: 'Favorite',
+      mediaInfo: 'MediaInfo',
+      remainingAuthTime: 'RemainingAuthTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorized: 'boolean',
+      favorite: 'boolean',
+      mediaInfo: SearchPublicMediaInfoResponseBodyPublicMediaInfosMediaInfo,
+      remainingAuthTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5778,10 +6757,25 @@ export default class Client extends OpenApi {
 
   async addEditingProjectMaterialsWithOptions(request: AddEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<AddEditingProjectMaterialsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MaterialMaps"] = request.materialMaps;
+    query["ProjectId"] = request.projectId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddEditingProjectMaterialsResponse>(await this.doRPCRequest("AddEditingProjectMaterials", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddEditingProjectMaterialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddEditingProjectMaterials",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new AddEditingProjectMaterialsResponse({}));
   }
 
   async addEditingProjectMaterials(request: AddEditingProjectMaterialsRequest): Promise<AddEditingProjectMaterialsResponse> {
@@ -5789,12 +6783,60 @@ export default class Client extends OpenApi {
     return await this.addEditingProjectMaterialsWithOptions(request, runtime);
   }
 
-  async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
+  async addFavoritePublicMediaWithOptions(request: AddFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<AddFavoritePublicMediaResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddTemplateResponse>(await this.doRPCRequest("AddTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new AddTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddFavoritePublicMedia",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddFavoritePublicMediaResponse>(await this.callApi(params, req, runtime), new AddFavoritePublicMediaResponse({}));
+  }
+
+  async addFavoritePublicMedia(request: AddFavoritePublicMediaRequest): Promise<AddFavoritePublicMediaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addFavoritePublicMediaWithOptions(request, runtime);
+  }
+
+  async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Config"] = request.config;
+    query["CoverUrl"] = request.coverUrl;
+    query["Name"] = request.name;
+    query["PreviewMedia"] = request.previewMedia;
+    query["RelatedMediaids"] = request.relatedMediaids;
+    query["Source"] = request.source;
+    query["Status"] = request.status;
+    query["Type"] = request.type;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddTemplate",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTemplateResponse>(await this.callApi(params, req, runtime), new AddTemplateResponse({}));
   }
 
   async addTemplate(request: AddTemplateRequest): Promise<AddTemplateResponse> {
@@ -5804,10 +6846,25 @@ export default class Client extends OpenApi {
 
   async batchGetMediaInfosWithOptions(request: BatchGetMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetMediaInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AdditionType"] = request.additionType;
+    query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BatchGetMediaInfosResponse>(await this.doRPCRequest("BatchGetMediaInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new BatchGetMediaInfosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchGetMediaInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchGetMediaInfosResponse>(await this.callApi(params, req, runtime), new BatchGetMediaInfosResponse({}));
   }
 
   async batchGetMediaInfos(request: BatchGetMediaInfosRequest): Promise<BatchGetMediaInfosResponse> {
@@ -5815,12 +6872,61 @@ export default class Client extends OpenApi {
     return await this.batchGetMediaInfosWithOptions(request, runtime);
   }
 
-  async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
+  async cancelFavoritePublicMediaWithOptions(request: CancelFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<CancelFavoritePublicMediaResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateEditingProjectResponse>(await this.doRPCRequest("CreateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEditingProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelFavoritePublicMedia",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelFavoritePublicMediaResponse>(await this.callApi(params, req, runtime), new CancelFavoritePublicMediaResponse({}));
+  }
+
+  async cancelFavoritePublicMedia(request: CancelFavoritePublicMediaRequest): Promise<CancelFavoritePublicMediaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelFavoritePublicMediaWithOptions(request, runtime);
+  }
+
+  async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["BusinessConfig"] = request.businessConfig;
+    query["ClipsParam"] = request.clipsParam;
+    query["CoverURL"] = request.coverURL;
+    query["Description"] = request.description;
+    query["MaterialMaps"] = request.materialMaps;
+    query["ProjectType"] = request.projectType;
+    query["TemplateId"] = request.templateId;
+    query["Timeline"] = request.timeline;
+    query["Title"] = request.title;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateEditingProject",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEditingProjectResponse>(await this.callApi(params, req, runtime), new CreateEditingProjectResponse({}));
   }
 
   async createEditingProject(request: CreateEditingProjectRequest): Promise<CreateEditingProjectResponse> {
@@ -5832,9 +6938,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteEditingProjectMaterialsResponse>(await this.doRPCRequest("DeleteEditingProjectMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteEditingProjectMaterialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEditingProjectMaterials",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new DeleteEditingProjectMaterialsResponse({}));
   }
 
   async deleteEditingProjectMaterials(request: DeleteEditingProjectMaterialsRequest): Promise<DeleteEditingProjectMaterialsResponse> {
@@ -5844,10 +6961,24 @@ export default class Client extends OpenApi {
 
   async deleteEditingProjectsWithOptions(request: DeleteEditingProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ProjectIds"] = request.projectIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteEditingProjectsResponse>(await this.doRPCRequest("DeleteEditingProjects", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEditingProjectsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEditingProjects",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEditingProjectsResponse>(await this.callApi(params, req, runtime), new DeleteEditingProjectsResponse({}));
   }
 
   async deleteEditingProjects(request: DeleteEditingProjectsRequest): Promise<DeleteEditingProjectsResponse> {
@@ -5857,10 +6988,25 @@ export default class Client extends OpenApi {
 
   async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InputURLs"] = request.inputURLs;
+    query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteMediaInfosResponse>(await this.doRPCRequest("DeleteMediaInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteMediaInfosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteMediaInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMediaInfosResponse>(await this.callApi(params, req, runtime), new DeleteMediaInfosResponse({}));
   }
 
   async deleteMediaInfos(request: DeleteMediaInfosRequest): Promise<DeleteMediaInfosResponse> {
@@ -5870,10 +7016,24 @@ export default class Client extends OpenApi {
 
   async deleteSmartJobWithOptions(request: DeleteSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSmartJobResponse>(await this.doRPCRequest("DeleteSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmartJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSmartJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSmartJobResponse>(await this.callApi(params, req, runtime), new DeleteSmartJobResponse({}));
   }
 
   async deleteSmartJob(request: DeleteSmartJobRequest): Promise<DeleteSmartJobResponse> {
@@ -5885,9 +7045,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTemplateResponse>(await this.doRPCRequest("DeleteTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DeleteTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplate",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
@@ -5895,19 +7066,76 @@ export default class Client extends OpenApi {
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
-  async describeIceProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeIceProductStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeIceProductStatusResponse>(await this.doRPCRequest("DescribeIceProductStatus", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIceProductStatusResponse({}));
+  async describeIceProductStatusWithOptions(request: DescribeIceProductStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIceProductStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["CommodityCode"] = request.commodityCode;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeIceProductStatus",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIceProductStatusResponse>(await this.callApi(params, req, runtime), new DescribeIceProductStatusResponse({}));
   }
 
-  async describeIceProductStatus(): Promise<DescribeIceProductStatusResponse> {
+  async describeIceProductStatus(request: DescribeIceProductStatusRequest): Promise<DescribeIceProductStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeIceProductStatusWithOptions(runtime);
+    return await this.describeIceProductStatusWithOptions(request, runtime);
+  }
+
+  async describeMaterialPackageInfoWithOptions(request: DescribeMaterialPackageInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaterialPackageInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["MaterialPackageId"] = request.materialPackageId;
+    query["MaterialPackageType"] = request.materialPackageType;
+    query["Status"] = request.status;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeMaterialPackageInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMaterialPackageInfoResponse>(await this.callApi(params, req, runtime), new DescribeMaterialPackageInfoResponse({}));
+  }
+
+  async describeMaterialPackageInfo(request: DescribeMaterialPackageInfoRequest): Promise<DescribeMaterialPackageInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeMaterialPackageInfoWithOptions(request, runtime);
   }
 
   async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.doRPCRequest("DescribeRelatedAuthorizationStatus", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRelatedAuthorizationStatus",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.callApi(params, req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
   }
 
   async describeRelatedAuthorizationStatus(): Promise<DescribeRelatedAuthorizationStatusResponse> {
@@ -5917,7 +7145,18 @@ export default class Client extends OpenApi {
 
   async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetDefaultStorageLocationResponse>(await this.doRPCRequest("GetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetDefaultStorageLocationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDefaultStorageLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDefaultStorageLocationResponse>(await this.callApi(params, req, runtime), new GetDefaultStorageLocationResponse({}));
   }
 
   async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
@@ -5929,9 +7168,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetEditingProjectResponse>(await this.doRPCRequest("GetEditingProject", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetEditingProject",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEditingProjectResponse>(await this.callApi(params, req, runtime), new GetEditingProjectResponse({}));
   }
 
   async getEditingProject(request: GetEditingProjectRequest): Promise<GetEditingProjectResponse> {
@@ -5943,9 +7193,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetEditingProjectMaterialsResponse>(await this.doRPCRequest("GetEditingProjectMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetEditingProjectMaterialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetEditingProjectMaterials",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new GetEditingProjectMaterialsResponse({}));
   }
 
   async getEditingProjectMaterials(request: GetEditingProjectMaterialsRequest): Promise<GetEditingProjectMaterialsResponse> {
@@ -5955,7 +7216,18 @@ export default class Client extends OpenApi {
 
   async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetEventCallbackResponse>(await this.doRPCRequest("GetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetEventCallbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetEventCallback",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEventCallbackResponse>(await this.callApi(params, req, runtime), new GetEventCallbackResponse({}));
   }
 
   async getEventCallback(): Promise<GetEventCallbackResponse> {
@@ -5967,9 +7239,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLiveEditingIndexFileResponse>(await this.doRPCRequest("GetLiveEditingIndexFile", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetLiveEditingIndexFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveEditingIndexFile",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveEditingIndexFileResponse>(await this.callApi(params, req, runtime), new GetLiveEditingIndexFileResponse({}));
   }
 
   async getLiveEditingIndexFile(request: GetLiveEditingIndexFileRequest): Promise<GetLiveEditingIndexFileResponse> {
@@ -5979,10 +7262,24 @@ export default class Client extends OpenApi {
 
   async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveEditingJobResponse>(await this.doRPCRequest("GetLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveEditingJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveEditingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveEditingJobResponse>(await this.callApi(params, req, runtime), new GetLiveEditingJobResponse({}));
   }
 
   async getLiveEditingJob(request: GetLiveEditingJobRequest): Promise<GetLiveEditingJobResponse> {
@@ -5992,10 +7289,26 @@ export default class Client extends OpenApi {
 
   async getMediaInfoWithOptions(request: GetMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InputURL"] = request.inputURL;
+    query["MediaId"] = request.mediaId;
+    query["OutputType"] = request.outputType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetMediaInfoResponse>(await this.doRPCRequest("GetMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new GetMediaInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMediaInfoResponse>(await this.callApi(params, req, runtime), new GetMediaInfoResponse({}));
   }
 
   async getMediaInfo(request: GetMediaInfoRequest): Promise<GetMediaInfoResponse> {
@@ -6007,9 +7320,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetMediaProducingJobResponse>(await this.doRPCRequest("GetMediaProducingJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetMediaProducingJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMediaProducingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMediaProducingJobResponse>(await this.callApi(params, req, runtime), new GetMediaProducingJobResponse({}));
   }
 
   async getMediaProducingJob(request: GetMediaProducingJobRequest): Promise<GetMediaProducingJobResponse> {
@@ -6017,13 +7341,51 @@ export default class Client extends OpenApi {
     return await this.getMediaProducingJobWithOptions(request, runtime);
   }
 
+  async getPublicMediaInfoWithOptions(request: GetPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicMediaInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["MediaId"] = request.mediaId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPublicMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPublicMediaInfoResponse>(await this.callApi(params, req, runtime), new GetPublicMediaInfoResponse({}));
+  }
+
+  async getPublicMediaInfo(request: GetPublicMediaInfoRequest): Promise<GetPublicMediaInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPublicMediaInfoWithOptions(request, runtime);
+  }
+
   async getSmartHandleJobWithOptions(request: GetSmartHandleJobRequest, runtime: $Util.RuntimeOptions): Promise<GetSmartHandleJobResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSmartHandleJobResponse>(await this.doRPCRequest("GetSmartHandleJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetSmartHandleJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSmartHandleJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSmartHandleJobResponse>(await this.callApi(params, req, runtime), new GetSmartHandleJobResponse({}));
   }
 
   async getSmartHandleJob(request: GetSmartHandleJobRequest): Promise<GetSmartHandleJobResponse> {
@@ -6035,9 +7397,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplate",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
@@ -6049,9 +7422,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetTemplateMaterialsResponse>(await this.doRPCRequest("GetTemplateMaterials", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new GetTemplateMaterialsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplateMaterials",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateMaterialsResponse>(await this.callApi(params, req, runtime), new GetTemplateMaterialsResponse({}));
   }
 
   async getTemplateMaterials(request: GetTemplateMaterialsRequest): Promise<GetTemplateMaterialsResponse> {
@@ -6061,10 +7445,25 @@ export default class Client extends OpenApi {
 
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BusinessType"] = request.businessType;
+    query["EntityId"] = request.entityId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAllPublicMediaTagsResponse>(await this.doRPCRequest("ListAllPublicMediaTags", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListAllPublicMediaTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAllPublicMediaTags",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAllPublicMediaTagsResponse>(await this.callApi(params, req, runtime), new ListAllPublicMediaTagsResponse({}));
   }
 
   async listAllPublicMediaTags(request: ListAllPublicMediaTagsRequest): Promise<ListAllPublicMediaTagsResponse> {
@@ -6074,10 +7473,34 @@ export default class Client extends OpenApi {
 
   async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BusinessType"] = request.businessType;
+    query["Category"] = request.category;
+    query["EndTime"] = request.endTime;
+    query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
+    query["MaxResults"] = request.maxResults;
+    query["MediaType"] = request.mediaType;
+    query["NextToken"] = request.nextToken;
+    query["SortBy"] = request.sortBy;
+    query["Source"] = request.source;
+    query["StartTime"] = request.startTime;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListMediaBasicInfosResponse>(await this.doRPCRequest("ListMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaBasicInfosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListMediaBasicInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMediaBasicInfosResponse>(await this.callApi(params, req, runtime), new ListMediaBasicInfosResponse({}));
   }
 
   async listMediaBasicInfos(request: ListMediaBasicInfosRequest): Promise<ListMediaBasicInfosResponse> {
@@ -6087,10 +7510,24 @@ export default class Client extends OpenApi {
 
   async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListMediaProducingJobsResponse>(await this.doRPCRequest("ListMediaProducingJobs", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListMediaProducingJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListMediaProducingJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMediaProducingJobsResponse>(await this.callApi(params, req, runtime), new ListMediaProducingJobsResponse({}));
   }
 
   async listMediaProducingJobs(request: ListMediaProducingJobsRequest): Promise<ListMediaProducingJobsResponse> {
@@ -6100,10 +7537,27 @@ export default class Client extends OpenApi {
 
   async listPublicMediaBasicInfosWithOptions(request: ListPublicMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicMediaBasicInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
+    query["MaxResults"] = request.maxResults;
+    query["MediaTagId"] = request.mediaTagId;
+    query["NextToken"] = request.nextToken;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListPublicMediaBasicInfosResponse>(await this.doRPCRequest("ListPublicMediaBasicInfos", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListPublicMediaBasicInfosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPublicMediaBasicInfos",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPublicMediaBasicInfosResponse>(await this.callApi(params, req, runtime), new ListPublicMediaBasicInfosResponse({}));
   }
 
   async listPublicMediaBasicInfos(request: ListPublicMediaBasicInfosRequest): Promise<ListPublicMediaBasicInfosResponse> {
@@ -6115,9 +7569,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSmartJobsResponse>(await this.doRPCRequest("ListSmartJobs", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSmartJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSmartJobs",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSmartJobsResponse>(await this.callApi(params, req, runtime), new ListSmartJobsResponse({}));
   }
 
   async listSmartJobs(request: ListSmartJobsRequest): Promise<ListSmartJobsResponse> {
@@ -6129,9 +7594,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSysTemplatesResponse>(await this.doRPCRequest("ListSysTemplates", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new ListSysTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSysTemplates",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSysTemplatesResponse>(await this.callApi(params, req, runtime), new ListSysTemplatesResponse({}));
   }
 
   async listSysTemplates(request: ListSysTemplatesRequest): Promise<ListSysTemplatesResponse> {
@@ -6141,10 +7617,28 @@ export default class Client extends OpenApi {
 
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CreateSource"] = request.createSource;
+    query["Keyword"] = request.keyword;
+    query["SortType"] = request.sortType;
+    query["Status"] = request.status;
+    query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTemplates",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
@@ -6154,10 +7648,36 @@ export default class Client extends OpenApi {
 
   async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BusinessType"] = request.businessType;
+    query["Category"] = request.category;
+    query["ClientToken"] = request.clientToken;
+    query["CoverURL"] = request.coverURL;
+    query["Description"] = request.description;
+    query["DynamicMetaDataList"] = request.dynamicMetaDataList;
+    query["InputURL"] = request.inputURL;
+    query["MediaTags"] = request.mediaTags;
+    query["MediaType"] = request.mediaType;
+    query["Overwrite"] = request.overwrite;
+    query["RegisterConfig"] = request.registerConfig;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RegisterMediaInfoResponse>(await this.doRPCRequest("RegisterMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterMediaInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegisterMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterMediaInfoResponse>(await this.callApi(params, req, runtime), new RegisterMediaInfoResponse({}));
   }
 
   async registerMediaInfo(request: RegisterMediaInfoRequest): Promise<RegisterMediaInfoResponse> {
@@ -6167,10 +7687,32 @@ export default class Client extends OpenApi {
 
   async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CreateSource"] = request.createSource;
+    query["EndTime"] = request.endTime;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["ProjectType"] = request.projectType;
+    query["SortBy"] = request.sortBy;
+    query["StartTime"] = request.startTime;
+    query["Status"] = request.status;
+    query["TemplateType"] = request.templateType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SearchEditingProjectResponse>(await this.doRPCRequest("SearchEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SearchEditingProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchEditingProject",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchEditingProjectResponse>(await this.callApi(params, req, runtime), new SearchEditingProjectResponse({}));
   }
 
   async searchEditingProject(request: SearchEditingProjectRequest): Promise<SearchEditingProjectResponse> {
@@ -6178,12 +7720,62 @@ export default class Client extends OpenApi {
     return await this.searchEditingProjectWithOptions(request, runtime);
   }
 
-  async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
+  async searchPublicMediaInfoWithOptions(request: SearchPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<SearchPublicMediaInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Authorized"] = request.authorized;
+    query["DynamicMetaDataMatchFields"] = request.dynamicMetaDataMatchFields;
+    query["EntityId"] = request.entityId;
+    query["Favorite"] = request.favorite;
+    query["MediaIds"] = request.mediaIds;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["SortBy"] = request.sortBy;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetDefaultStorageLocationResponse>(await this.doRPCRequest("SetDefaultStorageLocation", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultStorageLocationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SearchPublicMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchPublicMediaInfoResponse>(await this.callApi(params, req, runtime), new SearchPublicMediaInfoResponse({}));
+  }
+
+  async searchPublicMediaInfo(request: SearchPublicMediaInfoRequest): Promise<SearchPublicMediaInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchPublicMediaInfoWithOptions(request, runtime);
+  }
+
+  async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Bucket"] = request.bucket;
+    query["Path"] = request.path;
+    query["StorageType"] = request.storageType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDefaultStorageLocation",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultStorageLocationResponse>(await this.callApi(params, req, runtime), new SetDefaultStorageLocationResponse({}));
   }
 
   async setDefaultStorageLocation(request: SetDefaultStorageLocationRequest): Promise<SetDefaultStorageLocationResponse> {
@@ -6193,10 +7785,25 @@ export default class Client extends OpenApi {
 
   async setEventCallbackWithOptions(request: SetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetEventCallbackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallbackQueueName"] = request.callbackQueueName;
+    query["EventTypeList"] = request.eventTypeList;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetEventCallbackResponse>(await this.doRPCRequest("SetEventCallback", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SetEventCallbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetEventCallback",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetEventCallbackResponse>(await this.callApi(params, req, runtime), new SetEventCallbackResponse({}));
   }
 
   async setEventCallback(request: SetEventCallbackRequest): Promise<SetEventCallbackResponse> {
@@ -6206,10 +7813,29 @@ export default class Client extends OpenApi {
 
   async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["Duration"] = request.duration;
+    query["InputFile"] = request.inputFile;
+    query["StartTime"] = request.startTime;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitASRJobResponse>(await this.doRPCRequest("SubmitASRJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitASRJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitASRJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitASRJobResponse>(await this.callApi(params, req, runtime), new SubmitASRJobResponse({}));
   }
 
   async submitASRJob(request: SubmitASRJobRequest): Promise<SubmitASRJobResponse> {
@@ -6219,10 +7845,30 @@ export default class Client extends OpenApi {
 
   async submitAudioProduceJobWithOptions(request: SubmitAudioProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioProduceJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["EditingConfig"] = request.editingConfig;
+    query["InputConfig"] = request.inputConfig;
+    query["OutputConfig"] = request.outputConfig;
+    query["Overwrite"] = request.overwrite;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitAudioProduceJobResponse>(await this.doRPCRequest("SubmitAudioProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitAudioProduceJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitAudioProduceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitAudioProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitAudioProduceJobResponse({}));
   }
 
   async submitAudioProduceJob(request: SubmitAudioProduceJobRequest): Promise<SubmitAudioProduceJobResponse> {
@@ -6232,10 +7878,31 @@ export default class Client extends OpenApi {
 
   async submitDelogoJobWithOptions(request: SubmitDelogoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDelogoJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["InputFile"] = request.inputFile;
+    query["InputType"] = request.inputType;
+    query["OutputConfig"] = request.outputConfig;
+    query["OutputMediaTarget"] = request.outputMediaTarget;
+    query["Overwrite"] = request.overwrite;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitDelogoJobResponse>(await this.doRPCRequest("SubmitDelogoJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitDelogoJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitDelogoJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDelogoJobResponse>(await this.callApi(params, req, runtime), new SubmitDelogoJobResponse({}));
   }
 
   async submitDelogoJob(request: SubmitDelogoJobRequest): Promise<SubmitDelogoJobResponse> {
@@ -6245,10 +7912,31 @@ export default class Client extends OpenApi {
 
   async submitH2VJobWithOptions(request: SubmitH2VJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitH2VJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["InputFile"] = request.inputFile;
+    query["InputType"] = request.inputType;
+    query["OutputConfig"] = request.outputConfig;
+    query["OutputMediaTarget"] = request.outputMediaTarget;
+    query["Overwrite"] = request.overwrite;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitH2VJobResponse>(await this.doRPCRequest("SubmitH2VJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitH2VJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitH2VJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitH2VJobResponse>(await this.callApi(params, req, runtime), new SubmitH2VJobResponse({}));
   }
 
   async submitH2VJob(request: SubmitH2VJobRequest): Promise<SubmitH2VJobResponse> {
@@ -6260,9 +7948,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubmitKeyWordCutJobResponse>(await this.doRPCRequest("SubmitKeyWordCutJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new SubmitKeyWordCutJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitKeyWordCutJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitKeyWordCutJobResponse>(await this.callApi(params, req, runtime), new SubmitKeyWordCutJobResponse({}));
   }
 
   async submitKeyWordCutJob(request: SubmitKeyWordCutJobRequest): Promise<SubmitKeyWordCutJobResponse> {
@@ -6272,10 +7971,30 @@ export default class Client extends OpenApi {
 
   async submitLiveEditingJobWithOptions(request: SubmitLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveEditingJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Clips"] = request.clips;
+    query["LiveStreamConfig"] = request.liveStreamConfig;
+    query["MediaProduceConfig"] = request.mediaProduceConfig;
+    query["OutputMediaConfig"] = request.outputMediaConfig;
+    query["OutputMediaTarget"] = request.outputMediaTarget;
+    query["ProjectId"] = request.projectId;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitLiveEditingJobResponse>(await this.doRPCRequest("SubmitLiveEditingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitLiveEditingJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitLiveEditingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitLiveEditingJobResponse>(await this.callApi(params, req, runtime), new SubmitLiveEditingJobResponse({}));
   }
 
   async submitLiveEditingJob(request: SubmitLiveEditingJobRequest): Promise<SubmitLiveEditingJobResponse> {
@@ -6285,10 +8004,31 @@ export default class Client extends OpenApi {
 
   async submitMattingJobWithOptions(request: SubmitMattingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMattingJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["InputFile"] = request.inputFile;
+    query["InputType"] = request.inputType;
+    query["OutputConfig"] = request.outputConfig;
+    query["OutputMediaTarget"] = request.outputMediaTarget;
+    query["Overwrite"] = request.overwrite;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitMattingJobResponse>(await this.doRPCRequest("SubmitMattingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMattingJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitMattingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitMattingJobResponse>(await this.callApi(params, req, runtime), new SubmitMattingJobResponse({}));
   }
 
   async submitMattingJob(request: SubmitMattingJobRequest): Promise<SubmitMattingJobResponse> {
@@ -6298,10 +8038,34 @@ export default class Client extends OpenApi {
 
   async submitMediaProducingJobWithOptions(request: SubmitMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaProducingJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["ClipsParam"] = request.clipsParam;
+    query["EditingProduceConfig"] = request.editingProduceConfig;
+    query["OutputMediaConfig"] = request.outputMediaConfig;
+    query["OutputMediaTarget"] = request.outputMediaTarget;
+    query["ProjectId"] = request.projectId;
+    query["ProjectMetadata"] = request.projectMetadata;
+    query["Source"] = request.source;
+    query["TemplateId"] = request.templateId;
+    query["Timeline"] = request.timeline;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitMediaProducingJobResponse>(await this.doRPCRequest("SubmitMediaProducingJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitMediaProducingJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitMediaProducingJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitMediaProducingJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaProducingJobResponse({}));
   }
 
   async submitMediaProducingJob(request: SubmitMediaProducingJobRequest): Promise<SubmitMediaProducingJobResponse> {
@@ -6313,9 +8077,20 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SubmitPPTCutJobResponse>(await this.doRPCRequest("SubmitPPTCutJob", "2020-11-09", "HTTPS", "GET", "AK", "json", req, runtime), new SubmitPPTCutJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitPPTCutJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitPPTCutJobResponse>(await this.callApi(params, req, runtime), new SubmitPPTCutJobResponse({}));
   }
 
   async submitPPTCutJob(request: SubmitPPTCutJobRequest): Promise<SubmitPPTCutJobResponse> {
@@ -6325,10 +8100,31 @@ export default class Client extends OpenApi {
 
   async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["EditingConfig"] = request.editingConfig;
+    query["InputConfig"] = request.inputConfig;
+    query["IsAsync"] = request.isAsync;
+    query["OutputConfig"] = request.outputConfig;
+    query["Title"] = request.title;
+    query["Type"] = request.type;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.doRPCRequest("SubmitSubtitleProduceJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitSubtitleProduceJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitSubtitleProduceJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitSubtitleProduceJobResponse({}));
   }
 
   async submitSubtitleProduceJob(request: SubmitSubtitleProduceJobRequest): Promise<SubmitSubtitleProduceJobResponse> {
@@ -6338,10 +8134,31 @@ export default class Client extends OpenApi {
 
   async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BusinessStatus"] = request.businessStatus;
+    query["ClipsParam"] = request.clipsParam;
+    query["CoverURL"] = request.coverURL;
+    query["Description"] = request.description;
+    query["ProjectId"] = request.projectId;
+    query["TemplateId"] = request.templateId;
+    query["Timeline"] = request.timeline;
+    query["Title"] = request.title;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateEditingProjectResponse>(await this.doRPCRequest("UpdateEditingProject", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEditingProjectResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEditingProject",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEditingProjectResponse>(await this.callApi(params, req, runtime), new UpdateEditingProjectResponse({}));
   }
 
   async updateEditingProject(request: UpdateEditingProjectRequest): Promise<UpdateEditingProjectResponse> {
@@ -6351,10 +8168,35 @@ export default class Client extends OpenApi {
 
   async updateMediaInfoWithOptions(request: UpdateMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AppendDynamicMeta"] = request.appendDynamicMeta;
+    query["AppendTags"] = request.appendTags;
+    query["BusinessType"] = request.businessType;
+    query["Category"] = request.category;
+    query["CoverURL"] = request.coverURL;
+    query["Description"] = request.description;
+    query["DynamicMetaDataList"] = request.dynamicMetaDataList;
+    query["InputURL"] = request.inputURL;
+    query["MediaId"] = request.mediaId;
+    query["MediaTags"] = request.mediaTags;
+    query["Title"] = request.title;
+    query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateMediaInfoResponse>(await this.doRPCRequest("UpdateMediaInfo", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateMediaInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateMediaInfo",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateMediaInfoResponse>(await this.callApi(params, req, runtime), new UpdateMediaInfoResponse({}));
   }
 
   async updateMediaInfo(request: UpdateMediaInfoRequest): Promise<UpdateMediaInfoResponse> {
@@ -6364,10 +8206,25 @@ export default class Client extends OpenApi {
 
   async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FEExtend"] = request.FEExtend;
+    query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateSmartJobResponse>(await this.doRPCRequest("UpdateSmartJob", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSmartJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSmartJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSmartJobResponse>(await this.callApi(params, req, runtime), new UpdateSmartJobResponse({}));
   }
 
   async updateSmartJob(request: UpdateSmartJobRequest): Promise<UpdateSmartJobResponse> {
@@ -6377,10 +8234,31 @@ export default class Client extends OpenApi {
 
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Config"] = request.config;
+    query["CoverUrl"] = request.coverUrl;
+    query["Name"] = request.name;
+    query["PreviewMedia"] = request.previewMedia;
+    query["RelatedMediaids"] = request.relatedMediaids;
+    query["Source"] = request.source;
+    query["Status"] = request.status;
+    query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2020-11-09", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTemplate",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
