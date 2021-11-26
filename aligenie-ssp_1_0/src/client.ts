@@ -679,7 +679,7 @@ export class ListDeviceByUserIdResponse extends $tea.Model {
   }
 }
 
-export class ListDeviceIdByIdentitysHeaders extends $tea.Model {
+export class ListDeviceIdByIdentitiesHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
   authorization?: string;
@@ -704,7 +704,7 @@ export class ListDeviceIdByIdentitysHeaders extends $tea.Model {
   }
 }
 
-export class ListDeviceIdByIdentitysRequest extends $tea.Model {
+export class ListDeviceIdByIdentitiesRequest extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
   identityIds?: string[];
@@ -735,7 +735,7 @@ export class ListDeviceIdByIdentitysRequest extends $tea.Model {
   }
 }
 
-export class ListDeviceIdByIdentitysShrinkRequest extends $tea.Model {
+export class ListDeviceIdByIdentitiesShrinkRequest extends $tea.Model {
   encodeKey?: string;
   encodeType?: string;
   identityIdsShrink?: string;
@@ -766,7 +766,7 @@ export class ListDeviceIdByIdentitysShrinkRequest extends $tea.Model {
   }
 }
 
-export class ListDeviceIdByIdentitysResponseBody extends $tea.Model {
+export class ListDeviceIdByIdentitiesResponseBody extends $tea.Model {
   code?: number;
   message?: string;
   requestId?: string;
@@ -794,9 +794,9 @@ export class ListDeviceIdByIdentitysResponseBody extends $tea.Model {
   }
 }
 
-export class ListDeviceIdByIdentitysResponse extends $tea.Model {
+export class ListDeviceIdByIdentitiesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListDeviceIdByIdentitysResponseBody;
+  body: ListDeviceIdByIdentitiesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -807,7 +807,7 @@ export class ListDeviceIdByIdentitysResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDeviceIdByIdentitysResponseBody,
+      body: ListDeviceIdByIdentitiesResponseBody,
     };
   }
 
@@ -1664,15 +1664,15 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDeviceByUserIdResponse>(await this.callApi(params, req, runtime), new ListDeviceByUserIdResponse({}));
   }
 
-  async listDeviceIdByIdentitys(request: ListDeviceIdByIdentitysRequest): Promise<ListDeviceIdByIdentitysResponse> {
+  async listDeviceIdByIdentities(request: ListDeviceIdByIdentitiesRequest): Promise<ListDeviceIdByIdentitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers = new ListDeviceIdByIdentitysHeaders({ });
-    return await this.listDeviceIdByIdentitysWithOptions(request, headers, runtime);
+    let headers = new ListDeviceIdByIdentitiesHeaders({ });
+    return await this.listDeviceIdByIdentitiesWithOptions(request, headers, runtime);
   }
 
-  async listDeviceIdByIdentitysWithOptions(tmpReq: ListDeviceIdByIdentitysRequest, headers: ListDeviceIdByIdentitysHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceIdByIdentitysResponse> {
+  async listDeviceIdByIdentitiesWithOptions(tmpReq: ListDeviceIdByIdentitiesRequest, headers: ListDeviceIdByIdentitiesHeaders, runtime: $Util.RuntimeOptions): Promise<ListDeviceIdByIdentitiesResponse> {
     Util.validateModel(tmpReq);
-    let request = new ListDeviceIdByIdentitysShrinkRequest({ });
+    let request = new ListDeviceIdByIdentitiesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!Util.isUnset(tmpReq.identityIds)) {
       request.identityIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.identityIds, "IdentityIds", "json");
@@ -1717,17 +1717,17 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ListDeviceIdByIdentitys",
+      action: "ListDeviceIdByIdentities",
       version: "ssp_1.0",
       protocol: "HTTPS",
-      pathname: `/v1.0/ssp/listDeviceIdByIdentitys`,
+      pathname: `/v1.0/ssp/listDeviceIdByIdentities`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListDeviceIdByIdentitysResponse>(await this.callApi(params, req, runtime), new ListDeviceIdByIdentitysResponse({}));
+    return $tea.cast<ListDeviceIdByIdentitiesResponse>(await this.callApi(params, req, runtime), new ListDeviceIdByIdentitiesResponse({}));
   }
 
   async unbindDevice(request: UnbindDeviceRequest): Promise<UnbindDeviceResponse> {
