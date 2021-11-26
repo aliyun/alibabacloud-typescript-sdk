@@ -536,7 +536,6 @@ export class GetJMeterSampleMetricsResponseBody extends $tea.Model {
   sampleMetricList?: string[];
   samplerMap?: { [key: string]: any };
   success?: boolean;
-  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -545,7 +544,6 @@ export class GetJMeterSampleMetricsResponseBody extends $tea.Model {
       sampleMetricList: 'SampleMetricList',
       samplerMap: 'SamplerMap',
       success: 'Success',
-      totalCount: 'TotalCount',
     };
   }
 
@@ -557,7 +555,6 @@ export class GetJMeterSampleMetricsResponseBody extends $tea.Model {
       sampleMetricList: { 'type': 'array', 'itemType': 'string' },
       samplerMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       success: 'boolean',
-      totalCount: 'number',
     };
   }
 
