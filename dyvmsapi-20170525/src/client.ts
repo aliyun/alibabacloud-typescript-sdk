@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -275,87 +276,6 @@ export class BatchRobotSmartCallResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: BatchRobotSmartCallResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindNumberAndVoipIdRequest extends $tea.Model {
-  ownerId?: number;
-  phoneNumber?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  voipId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      voipId: 'VoipId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      phoneNumber: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      voipId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindNumberAndVoipIdResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BindNumberAndVoipIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BindNumberAndVoipIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BindNumberAndVoipIdResponseBody,
     };
   }
 
@@ -700,87 +620,6 @@ export class ClickToDialResponse extends $tea.Model {
   }
 }
 
-export class CloseSipAccountRequest extends $tea.Model {
-  ownerId?: number;
-  partnerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sipAccountID?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      partnerId: 'PartnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sipAccountID: 'SipAccountID',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      partnerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sipAccountID: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseSipAccountResponseBody extends $tea.Model {
-  code?: string;
-  data?: boolean;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'boolean',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloseSipAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CloseSipAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CloseSipAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateCallTaskRequest extends $tea.Model {
   bizType?: string;
   data?: string;
@@ -991,87 +830,6 @@ export class CreateRobotTaskResponse extends $tea.Model {
   }
 }
 
-export class CreateSipAccountRequest extends $tea.Model {
-  businessKey?: string;
-  ownerId?: number;
-  partnerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      businessKey: 'BusinessKey',
-      ownerId: 'OwnerId',
-      partnerId: 'PartnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      businessKey: 'string',
-      ownerId: 'number',
-      partnerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSipAccountResponseBody extends $tea.Model {
-  code?: string;
-  data?: CreateSipAccountResponseBodyData;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateSipAccountResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSipAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateSipAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSipAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteRobotTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -1142,291 +900,6 @@ export class DeleteRobotTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteRobotTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordDataRequest extends $tea.Model {
-  accountId?: string;
-  accountType?: string;
-  acid?: string;
-  ownerId?: number;
-  prodCode?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  secLevel?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      accountType: 'AccountType',
-      acid: 'Acid',
-      ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      secLevel: 'SecLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      accountType: 'string',
-      acid: 'string',
-      ownerId: 'number',
-      prodCode: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      secLevel: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordDataResponseBody extends $tea.Model {
-  acid?: string;
-  agentId?: string;
-  code?: string;
-  message?: string;
-  ossLink?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      acid: 'Acid',
-      agentId: 'AgentId',
-      code: 'Code',
-      message: 'Message',
-      ossLink: 'OssLink',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      acid: 'string',
-      agentId: 'string',
-      code: 'string',
-      message: 'string',
-      ossLink: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRecordDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRecordDataResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRecordDataResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoRtcNumberAuthRequest extends $tea.Model {
-  ownerId?: number;
-  phoneNumber?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      phoneNumber: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoRtcNumberAuthResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoRtcNumberAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DoRtcNumberAuthResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DoRtcNumberAuthResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoubleCallSeatRequest extends $tea.Model {
-  asrFlag?: boolean;
-  asrModelId?: string;
-  callType?: string;
-  calledNumber?: string;
-  calledShowNumber?: string;
-  callerNumber?: string;
-  callerShowNumber?: string;
-  outId?: string;
-  ownerId?: number;
-  recordFlag?: boolean;
-  recordPoint?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  sessionTimeout?: number;
-  voiceCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      asrFlag: 'AsrFlag',
-      asrModelId: 'AsrModelId',
-      callType: 'CallType',
-      calledNumber: 'CalledNumber',
-      calledShowNumber: 'CalledShowNumber',
-      callerNumber: 'CallerNumber',
-      callerShowNumber: 'CallerShowNumber',
-      outId: 'OutId',
-      ownerId: 'OwnerId',
-      recordFlag: 'RecordFlag',
-      recordPoint: 'RecordPoint',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      sessionTimeout: 'SessionTimeout',
-      voiceCode: 'VoiceCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      asrFlag: 'boolean',
-      asrModelId: 'string',
-      callType: 'string',
-      calledNumber: 'string',
-      calledShowNumber: 'string',
-      callerNumber: 'string',
-      callerShowNumber: 'string',
-      outId: 'string',
-      ownerId: 'number',
-      recordFlag: 'boolean',
-      recordPoint: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      sessionTimeout: 'number',
-      voiceCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoubleCallSeatResponseBody extends $tea.Model {
-  callId?: string;
-  code?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callId: 'CallId',
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callId: 'string',
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DoubleCallSeatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DoubleCallSeatResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DoubleCallSeatResponseBody,
     };
   }
 
@@ -1664,6 +1137,81 @@ export class GetHotlineQualificationByOrderResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetHotlineQualificationByOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMqttTokenRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMqttTokenResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMqttTokenResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMqttTokenResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMqttTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetMqttTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetMqttTokenResponseBody,
     };
   }
 
@@ -2309,282 +1857,6 @@ export class ListHotlineTransferRegisterFileResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListHotlineTransferRegisterFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOrderedNumbersRequest extends $tea.Model {
-  ownerId?: number;
-  prodCode?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      prodCode: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOrderedNumbersResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  numbers?: string[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      numbers: 'Numbers',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      numbers: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOrderedNumbersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListOrderedNumbersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListOrderedNumbersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOutboundStrategiesRequest extends $tea.Model {
-  buId?: number;
-  keyword?: string;
-  ownerId?: number;
-  prodCode?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      buId: 'BuId',
-      keyword: 'Keyword',
-      ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buId: 'number',
-      keyword: 'string',
-      ownerId: 'number',
-      prodCode: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOutboundStrategiesResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  outboundStrategies?: ListOutboundStrategiesResponseBodyOutboundStrategies[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      outboundStrategies: 'OutboundStrategies',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      outboundStrategies: { 'type': 'array', 'itemType': ListOutboundStrategiesResponseBodyOutboundStrategies },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOutboundStrategiesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListOutboundStrategiesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListOutboundStrategiesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotTaskCallsRequest extends $tea.Model {
-  callResult?: string;
-  called?: string;
-  dialogCountFrom?: string;
-  dialogCountTo?: string;
-  durationFrom?: string;
-  durationTo?: string;
-  hangupDirection?: string;
-  ownerId?: number;
-  pageNo?: number;
-  pageSize?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callResult: 'CallResult',
-      called: 'Called',
-      dialogCountFrom: 'DialogCountFrom',
-      dialogCountTo: 'DialogCountTo',
-      durationFrom: 'DurationFrom',
-      durationTo: 'DurationTo',
-      hangupDirection: 'HangupDirection',
-      ownerId: 'OwnerId',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callResult: 'string',
-      called: 'string',
-      dialogCountFrom: 'string',
-      dialogCountTo: 'string',
-      durationFrom: 'string',
-      durationTo: 'string',
-      hangupDirection: 'string',
-      ownerId: 'number',
-      pageNo: 'number',
-      pageSize: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotTaskCallsResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  pageNo?: string;
-  pageSize?: string;
-  requestId?: string;
-  totalCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      pageNo: 'string',
-      pageSize: 'string',
-      requestId: 'string',
-      totalCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRobotTaskCallsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRobotTaskCallsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRobotTaskCallsResponseBody,
     };
   }
 
@@ -3448,84 +2720,6 @@ export class QueryRobotv2AllListResponse extends $tea.Model {
   }
 }
 
-export class QueryRtcNumberAuthStatusRequest extends $tea.Model {
-  ownerId?: number;
-  phoneNumber?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      phoneNumber: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRtcNumberAuthStatusResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryRtcNumberAuthStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryRtcNumberAuthStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryRtcNumberAuthStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryVirtualNumberRequest extends $tea.Model {
   ownerId?: number;
   pageNo?: number;
@@ -3709,29 +2903,26 @@ export class QueryVirtualNumberRelationResponse extends $tea.Model {
   }
 }
 
-export class QueryVoipNumberBindInfosRequest extends $tea.Model {
+export class RefreshMqttTokenRequest extends $tea.Model {
+  clientId?: string;
   ownerId?: number;
-  phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  voipId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientId: 'ClientId',
       ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      voipId: 'VoipId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clientId: 'string',
       ownerId: 'number',
-      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      voipId: 'string',
     };
   }
 
@@ -3740,16 +2931,16 @@ export class QueryVoipNumberBindInfosRequest extends $tea.Model {
   }
 }
 
-export class QueryVoipNumberBindInfosResponseBody extends $tea.Model {
+export class RefreshMqttTokenResponseBody extends $tea.Model {
   code?: string;
+  data?: RefreshMqttTokenResponseBodyData;
   message?: string;
-  module?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      data: 'Data',
       message: 'Message',
-      module: 'Module',
       requestId: 'RequestId',
     };
   }
@@ -3757,8 +2948,8 @@ export class QueryVoipNumberBindInfosResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: RefreshMqttTokenResponseBodyData,
       message: 'string',
-      module: 'string',
       requestId: 'string',
     };
   }
@@ -3768,9 +2959,9 @@ export class QueryVoipNumberBindInfosResponseBody extends $tea.Model {
   }
 }
 
-export class QueryVoipNumberBindInfosResponse extends $tea.Model {
+export class RefreshMqttTokenResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: QueryVoipNumberBindInfosResponseBody;
+  body: RefreshMqttTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3781,94 +2972,7 @@ export class QueryVoipNumberBindInfosResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryVoipNumberBindInfosResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportVoipProblemsRequest extends $tea.Model {
-  channelId?: string;
-  desc?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  title?: string;
-  voipId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      channelId: 'ChannelId',
-      desc: 'Desc',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      title: 'Title',
-      voipId: 'VoipId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      channelId: 'string',
-      desc: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      title: 'string',
-      voipId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportVoipProblemsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReportVoipProblemsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ReportVoipProblemsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ReportVoipProblemsResponseBody,
+      body: RefreshMqttTokenResponseBody,
     };
   }
 
@@ -4480,111 +3584,6 @@ export class SmartCallOperateResponse extends $tea.Model {
   }
 }
 
-export class StartMicroOutboundRequest extends $tea.Model {
-  accountId?: string;
-  accountType?: string;
-  appName?: string;
-  calledNumber?: string;
-  callingNumber?: string;
-  commandCode?: string;
-  extInfo?: string;
-  ownerId?: number;
-  prodCode?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-      accountType: 'AccountType',
-      appName: 'AppName',
-      calledNumber: 'CalledNumber',
-      callingNumber: 'CallingNumber',
-      commandCode: 'CommandCode',
-      extInfo: 'ExtInfo',
-      ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-      accountType: 'string',
-      appName: 'string',
-      calledNumber: 'string',
-      callingNumber: 'string',
-      commandCode: 'string',
-      extInfo: 'string',
-      ownerId: 'number',
-      prodCode: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartMicroOutboundResponseBody extends $tea.Model {
-  code?: string;
-  customerInfo?: string;
-  invokeCmdId?: string;
-  invokeCreateTime?: string;
-  message?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      customerInfo: 'CustomerInfo',
-      invokeCmdId: 'InvokeCmdId',
-      invokeCreateTime: 'InvokeCreateTime',
-      message: 'Message',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      customerInfo: 'string',
-      invokeCmdId: 'string',
-      invokeCreateTime: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartMicroOutboundResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartMicroOutboundResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartMicroOutboundResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartRobotTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4849,165 +3848,6 @@ export class SubmitHotlineTransferRegisterResponse extends $tea.Model {
   }
 }
 
-export class UnbindNumberAndVoipIdRequest extends $tea.Model {
-  ownerId?: number;
-  phoneNumber?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  voipId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      voipId: 'VoipId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      phoneNumber: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      voipId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindNumberAndVoipIdResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindNumberAndVoipIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UnbindNumberAndVoipIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UnbindNumberAndVoipIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UndoRtcNumberAuthRequest extends $tea.Model {
-  ownerId?: number;
-  phoneNumber?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      phoneNumber: 'PhoneNumber',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      phoneNumber: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UndoRtcNumberAuthResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UndoRtcNumberAuthResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UndoRtcNumberAuthResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UndoRtcNumberAuthResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UploadRobotTaskCalledFileRequest extends $tea.Model {
   calledNumber?: string;
   id?: number;
@@ -5095,193 +3935,6 @@ export class UploadRobotTaskCalledFileResponse extends $tea.Model {
   }
 }
 
-export class VoipAddAccountRequest extends $tea.Model {
-  deviceId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoipAddAccountResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoipAddAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: VoipAddAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VoipAddAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoipGetTokenRequest extends $tea.Model {
-  deviceId?: string;
-  isCustomAccount?: boolean;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  voipId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceId: 'DeviceId',
-      isCustomAccount: 'IsCustomAccount',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      voipId: 'VoipId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceId: 'string',
-      isCustomAccount: 'boolean',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      voipId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoipGetTokenResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  module?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      module: 'Module',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      module: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VoipGetTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: VoipGetTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VoipGetTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSipAccountResponseBodyData extends $tea.Model {
-  sipAccountID?: string;
-  voipName?: string;
-  voipPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sipAccountID: 'SipAccountID',
-      voipName: 'VoipName',
-      voipPassword: 'VoipPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sipAccountID: 'string',
-      voipName: 'string',
-      voipPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCallInfoResponseBodyData extends $tea.Model {
   channelId?: string;
   status?: string;
@@ -5321,6 +3974,46 @@ export class GetHotlineQualificationByOrderResponseBodyData extends $tea.Model {
       orderId: 'string',
       qualificationId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMqttTokenResponseBodyData extends $tea.Model {
+  clientId?: string;
+  expireTime?: string;
+  host?: string;
+  instanceId?: string;
+  p2pTopic?: string;
+  serverId?: string;
+  token?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      instanceId: 'InstanceId',
+      p2pTopic: 'P2pTopic',
+      serverId: 'ServerId',
+      token: 'Token',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      expireTime: 'string',
+      host: 'string',
+      instanceId: 'string',
+      p2pTopic: 'string',
+      serverId: 'string',
+      token: 'string',
+      username: 'string',
     };
   }
 
@@ -5579,88 +4272,6 @@ export class ListHotlineTransferRegisterFileResponseBodyData extends $tea.Model 
   }
 }
 
-export class ListOutboundStrategiesResponseBodyOutboundStrategies extends $tea.Model {
-  buId?: number;
-  creatorId?: number;
-  creatorName?: string;
-  departmentId?: number;
-  extAttr?: string;
-  gmtCreateStr?: string;
-  gmtModifiedStr?: string;
-  id?: number;
-  modifierId?: number;
-  modifierName?: string;
-  numType?: number;
-  outboundNum?: string;
-  process?: number;
-  resourceAllocation?: number;
-  robotId?: string;
-  robotName?: string;
-  robotType?: number;
-  ruleCode?: number;
-  sceneName?: string;
-  status?: number;
-  successRate?: number;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      buId: 'BuId',
-      creatorId: 'CreatorId',
-      creatorName: 'CreatorName',
-      departmentId: 'DepartmentId',
-      extAttr: 'ExtAttr',
-      gmtCreateStr: 'GmtCreateStr',
-      gmtModifiedStr: 'GmtModifiedStr',
-      id: 'Id',
-      modifierId: 'ModifierId',
-      modifierName: 'ModifierName',
-      numType: 'NumType',
-      outboundNum: 'OutboundNum',
-      process: 'Process',
-      resourceAllocation: 'ResourceAllocation',
-      robotId: 'RobotId',
-      robotName: 'RobotName',
-      robotType: 'RobotType',
-      ruleCode: 'RuleCode',
-      sceneName: 'SceneName',
-      status: 'Status',
-      successRate: 'SuccessRate',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      buId: 'number',
-      creatorId: 'number',
-      creatorName: 'string',
-      departmentId: 'number',
-      extAttr: 'string',
-      gmtCreateStr: 'string',
-      gmtModifiedStr: 'string',
-      id: 'number',
-      modifierId: 'number',
-      modifierName: 'string',
-      numType: 'number',
-      outboundNum: 'string',
-      process: 'number',
-      resourceAllocation: 'number',
-      robotId: 'string',
-      robotName: 'string',
-      robotType: 'number',
-      ruleCode: 'number',
-      sceneName: 'string',
-      status: 'number',
-      successRate: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryCallInPoolTransferConfigResponseBodyDataDetails extends $tea.Model {
   called?: string;
   static names(): { [key: string]: string } {
@@ -5770,6 +4381,46 @@ export class QueryCallInTransferRecordResponseBodyData extends $tea.Model {
   }
 }
 
+export class RefreshMqttTokenResponseBodyData extends $tea.Model {
+  clientId?: string;
+  expireTime?: string;
+  host?: string;
+  instanceId?: string;
+  p2pTopic?: string;
+  serverId?: string;
+  token?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      instanceId: 'InstanceId',
+      p2pTopic: 'P2pTopic',
+      serverId: 'ServerId',
+      token: 'Token',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      expireTime: 'string',
+      host: 'string',
+      instanceId: 'string',
+      p2pTopic: 'string',
+      serverId: 'string',
+      token: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetTransferCalleePoolConfigRequestDetails extends $tea.Model {
   called?: string;
   caller?: string;
@@ -5842,10 +4493,27 @@ export default class Client extends OpenApi {
 
   async addRtcAccountWithOptions(request: AddRtcAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddRtcAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DeviceId"] = request.deviceId;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddRtcAccountResponse>(await this.doRPCRequest("AddRtcAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddRtcAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddRtcAccount",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRtcAccountResponse>(await this.callApi(params, req, runtime), new AddRtcAccountResponse({}));
   }
 
   async addRtcAccount(request: AddRtcAccountRequest): Promise<AddRtcAccountResponse> {
@@ -5855,10 +4523,31 @@ export default class Client extends OpenApi {
 
   async addVirtualNumberRelationWithOptions(request: AddVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddVirtualNumberRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CorpNameList"] = request.corpNameList;
+    query["NumberList"] = request.numberList;
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNum"] = request.phoneNum;
+    query["ProdCode"] = request.prodCode;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RouteType"] = request.routeType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddVirtualNumberRelationResponse>(await this.doRPCRequest("AddVirtualNumberRelation", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddVirtualNumberRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddVirtualNumberRelation",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new AddVirtualNumberRelationResponse({}));
   }
 
   async addVirtualNumberRelation(request: AddVirtualNumberRelationRequest): Promise<AddVirtualNumberRelationResponse> {
@@ -5868,10 +4557,37 @@ export default class Client extends OpenApi {
 
   async batchRobotSmartCallWithOptions(request: BatchRobotSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<BatchRobotSmartCallResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["CorpName"] = request.corpName;
+    query["DialogId"] = request.dialogId;
+    query["EarlyMediaAsr"] = request.earlyMediaAsr;
+    query["IsSelfLine"] = request.isSelfLine;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ScheduleCall"] = request.scheduleCall;
+    query["ScheduleTime"] = request.scheduleTime;
+    query["TaskName"] = request.taskName;
+    query["TtsParam"] = request.ttsParam;
+    query["TtsParamHead"] = request.ttsParamHead;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<BatchRobotSmartCallResponse>(await this.doRPCRequest("BatchRobotSmartCall", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new BatchRobotSmartCallResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchRobotSmartCall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchRobotSmartCallResponse>(await this.callApi(params, req, runtime), new BatchRobotSmartCallResponse({}));
   }
 
   async batchRobotSmartCall(request: BatchRobotSmartCallRequest): Promise<BatchRobotSmartCallResponse> {
@@ -5879,25 +4595,29 @@ export default class Client extends OpenApi {
     return await this.batchRobotSmartCallWithOptions(request, runtime);
   }
 
-  async bindNumberAndVoipIdWithOptions(request: BindNumberAndVoipIdRequest, runtime: $Util.RuntimeOptions): Promise<BindNumberAndVoipIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BindNumberAndVoipIdResponse>(await this.doRPCRequest("BindNumberAndVoipId", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new BindNumberAndVoipIdResponse({}));
-  }
-
-  async bindNumberAndVoipId(request: BindNumberAndVoipIdRequest): Promise<BindNumberAndVoipIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.bindNumberAndVoipIdWithOptions(request, runtime);
-  }
-
   async cancelCallWithOptions(request: CancelCallRequest, runtime: $Util.RuntimeOptions): Promise<CancelCallResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallId"] = request.callId;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelCallResponse>(await this.doRPCRequest("CancelCall", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CancelCallResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelCall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelCallResponse>(await this.callApi(params, req, runtime), new CancelCallResponse({}));
   }
 
   async cancelCall(request: CancelCallRequest): Promise<CancelCallResponse> {
@@ -5907,10 +4627,27 @@ export default class Client extends OpenApi {
 
   async cancelOrderRobotTaskWithOptions(request: CancelOrderRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelOrderRobotTaskResponse>(await this.doRPCRequest("CancelOrderRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CancelOrderRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelOrderRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOrderRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelOrderRobotTaskResponse({}));
   }
 
   async cancelOrderRobotTask(request: CancelOrderRobotTaskRequest): Promise<CancelOrderRobotTaskResponse> {
@@ -5920,10 +4657,27 @@ export default class Client extends OpenApi {
 
   async cancelRobotTaskWithOptions(request: CancelRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelRobotTaskResponse>(await this.doRPCRequest("CancelRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CancelRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelRobotTaskResponse({}));
   }
 
   async cancelRobotTask(request: CancelRobotTaskRequest): Promise<CancelRobotTaskResponse> {
@@ -5933,10 +4687,35 @@ export default class Client extends OpenApi {
 
   async clickToDialWithOptions(request: ClickToDialRequest, runtime: $Util.RuntimeOptions): Promise<ClickToDialResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AsrFlag"] = request.asrFlag;
+    query["AsrModelId"] = request.asrModelId;
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["CallerNumber"] = request.callerNumber;
+    query["CallerShowNumber"] = request.callerShowNumber;
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["RecordFlag"] = request.recordFlag;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SessionTimeout"] = request.sessionTimeout;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ClickToDialResponse>(await this.doRPCRequest("ClickToDial", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ClickToDialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ClickToDial",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ClickToDialResponse>(await this.callApi(params, req, runtime), new ClickToDialResponse({}));
   }
 
   async clickToDial(request: ClickToDialRequest): Promise<ClickToDialResponse> {
@@ -5944,25 +4723,39 @@ export default class Client extends OpenApi {
     return await this.clickToDialWithOptions(request, runtime);
   }
 
-  async closeSipAccountWithOptions(request: CloseSipAccountRequest, runtime: $Util.RuntimeOptions): Promise<CloseSipAccountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CloseSipAccountResponse>(await this.doRPCRequest("CloseSipAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CloseSipAccountResponse({}));
-  }
-
-  async closeSipAccount(request: CloseSipAccountRequest): Promise<CloseSipAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.closeSipAccountWithOptions(request, runtime);
-  }
-
   async createCallTaskWithOptions(request: CreateCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["Data"] = request.data;
+    query["DataType"] = request.dataType;
+    query["FireTime"] = request.fireTime;
+    query["OwnerId"] = request.ownerId;
+    query["Resource"] = request.resource;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ResourceType"] = request.resourceType;
+    query["ScheduleType"] = request.scheduleType;
+    query["StopTime"] = request.stopTime;
+    query["TaskName"] = request.taskName;
+    query["TemplateCode"] = request.templateCode;
+    query["TemplateName"] = request.templateName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateCallTaskResponse>(await this.doRPCRequest("CreateCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCallTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCallTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCallTaskResponse>(await this.callApi(params, req, runtime), new CreateCallTaskResponse({}));
   }
 
   async createCallTask(request: CreateCallTaskRequest): Promise<CreateCallTaskResponse> {
@@ -5972,10 +4765,36 @@ export default class Client extends OpenApi {
 
   async createRobotTaskWithOptions(request: CreateRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Caller"] = request.caller;
+    query["CorpName"] = request.corpName;
+    query["DialogId"] = request.dialogId;
+    query["IsSelfLine"] = request.isSelfLine;
+    query["NumberStatusIdent"] = request.numberStatusIdent;
+    query["OwnerId"] = request.ownerId;
+    query["RecallInterval"] = request.recallInterval;
+    query["RecallStateCodes"] = request.recallStateCodes;
+    query["RecallTimes"] = request.recallTimes;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RetryType"] = request.retryType;
+    query["TaskName"] = request.taskName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRobotTaskResponse>(await this.doRPCRequest("CreateRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRobotTaskResponse>(await this.callApi(params, req, runtime), new CreateRobotTaskResponse({}));
   }
 
   async createRobotTask(request: CreateRobotTaskRequest): Promise<CreateRobotTaskResponse> {
@@ -5983,25 +4802,29 @@ export default class Client extends OpenApi {
     return await this.createRobotTaskWithOptions(request, runtime);
   }
 
-  async createSipAccountWithOptions(request: CreateSipAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSipAccountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateSipAccountResponse>(await this.doRPCRequest("CreateSipAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSipAccountResponse({}));
-  }
-
-  async createSipAccount(request: CreateSipAccountRequest): Promise<CreateSipAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSipAccountWithOptions(request, runtime);
-  }
-
   async deleteRobotTaskWithOptions(request: DeleteRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRobotTaskResponse>(await this.doRPCRequest("DeleteRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRobotTaskResponse>(await this.callApi(params, req, runtime), new DeleteRobotTaskResponse({}));
   }
 
   async deleteRobotTask(request: DeleteRobotTaskRequest): Promise<DeleteRobotTaskResponse> {
@@ -6009,51 +4832,31 @@ export default class Client extends OpenApi {
     return await this.deleteRobotTaskWithOptions(request, runtime);
   }
 
-  async describeRecordDataWithOptions(request: DescribeRecordDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordDataResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeRecordDataResponse>(await this.doRPCRequest("DescribeRecordData", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRecordDataResponse({}));
-  }
-
-  async describeRecordData(request: DescribeRecordDataRequest): Promise<DescribeRecordDataResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRecordDataWithOptions(request, runtime);
-  }
-
-  async doRtcNumberAuthWithOptions(request: DoRtcNumberAuthRequest, runtime: $Util.RuntimeOptions): Promise<DoRtcNumberAuthResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DoRtcNumberAuthResponse>(await this.doRPCRequest("DoRtcNumberAuth", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DoRtcNumberAuthResponse({}));
-  }
-
-  async doRtcNumberAuth(request: DoRtcNumberAuthRequest): Promise<DoRtcNumberAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.doRtcNumberAuthWithOptions(request, runtime);
-  }
-
-  async doubleCallSeatWithOptions(request: DoubleCallSeatRequest, runtime: $Util.RuntimeOptions): Promise<DoubleCallSeatResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DoubleCallSeatResponse>(await this.doRPCRequest("DoubleCallSeat", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DoubleCallSeatResponse({}));
-  }
-
-  async doubleCallSeat(request: DoubleCallSeatRequest): Promise<DoubleCallSeatResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.doubleCallSeatWithOptions(request, runtime);
-  }
-
   async executeCallTaskWithOptions(request: ExecuteCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteCallTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FireTime"] = request.fireTime;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Status"] = request.status;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteCallTaskResponse>(await this.doRPCRequest("ExecuteCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteCallTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteCallTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteCallTaskResponse>(await this.callApi(params, req, runtime), new ExecuteCallTaskResponse({}));
   }
 
   async executeCallTask(request: ExecuteCallTaskRequest): Promise<ExecuteCallTaskResponse> {
@@ -6063,10 +4866,27 @@ export default class Client extends OpenApi {
 
   async getCallInfoWithOptions(request: GetCallInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCallInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RtcId"] = request.rtcId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetCallInfoResponse>(await this.doRPCRequest("GetCallInfo", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetCallInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCallInfo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCallInfoResponse>(await this.callApi(params, req, runtime), new GetCallInfoResponse({}));
   }
 
   async getCallInfo(request: GetCallInfoRequest): Promise<GetCallInfoResponse> {
@@ -6076,10 +4896,27 @@ export default class Client extends OpenApi {
 
   async getHotlineQualificationByOrderWithOptions(request: GetHotlineQualificationByOrderRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineQualificationByOrderResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetHotlineQualificationByOrderResponse>(await this.doRPCRequest("GetHotlineQualificationByOrder", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetHotlineQualificationByOrderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetHotlineQualificationByOrder",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHotlineQualificationByOrderResponse>(await this.callApi(params, req, runtime), new GetHotlineQualificationByOrderResponse({}));
   }
 
   async getHotlineQualificationByOrder(request: GetHotlineQualificationByOrderRequest): Promise<GetHotlineQualificationByOrderResponse> {
@@ -6087,12 +4924,60 @@ export default class Client extends OpenApi {
     return await this.getHotlineQualificationByOrderWithOptions(request, runtime);
   }
 
-  async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
+  async getMqttTokenWithOptions(request: GetMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetMqttTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRtcTokenResponse>(await this.doRPCRequest("GetRtcToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetRtcTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMqttToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMqttTokenResponse>(await this.callApi(params, req, runtime), new GetMqttTokenResponse({}));
+  }
+
+  async getMqttToken(request: GetMqttTokenRequest): Promise<GetMqttTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMqttTokenWithOptions(request, runtime);
+  }
+
+  async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["DeviceId"] = request.deviceId;
+    query["IsCustomAccount"] = request.isCustomAccount;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["UserId"] = request.userId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRtcToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
   }
 
   async getRtcToken(request: GetRtcTokenRequest): Promise<GetRtcTokenResponse> {
@@ -6102,10 +4987,27 @@ export default class Client extends OpenApi {
 
   async getTokenWithOptions(request: GetTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TokenType"] = request.tokenType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTokenResponse>(await this.doRPCRequest("GetToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
   }
 
   async getToken(request: GetTokenRequest): Promise<GetTokenResponse> {
@@ -6115,10 +5017,36 @@ export default class Client extends OpenApi {
 
   async ivrCallWithOptions(request: IvrCallRequest, runtime: $Util.RuntimeOptions): Promise<IvrCallResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ByeCode"] = request.byeCode;
+    query["ByeTtsParams"] = request.byeTtsParams;
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["MenuKeyMap"] = request.menuKeyMap;
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["PlayTimes"] = request.playTimes;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["StartCode"] = request.startCode;
+    query["StartTtsParams"] = request.startTtsParams;
+    query["Timeout"] = request.timeout;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<IvrCallResponse>(await this.doRPCRequest("IvrCall", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new IvrCallResponse({}));
+    let params = new $OpenApi.Params({
+      action: "IvrCall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<IvrCallResponse>(await this.callApi(params, req, runtime), new IvrCallResponse({}));
   }
 
   async ivrCall(request: IvrCallRequest): Promise<IvrCallResponse> {
@@ -6128,10 +5056,33 @@ export default class Client extends OpenApi {
 
   async listCallTaskWithOptions(request: ListCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["OwnerId"] = request.ownerId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Status"] = request.status;
+    query["TaskId"] = request.taskId;
+    query["TaskName"] = request.taskName;
+    query["TemplateName"] = request.templateName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCallTaskResponse>(await this.doRPCRequest("ListCallTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListCallTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCallTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallTaskResponse>(await this.callApi(params, req, runtime), new ListCallTaskResponse({}));
   }
 
   async listCallTask(request: ListCallTaskRequest): Promise<ListCallTaskResponse> {
@@ -6141,10 +5092,31 @@ export default class Client extends OpenApi {
 
   async listCallTaskDetailWithOptions(request: ListCallTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledNum"] = request.calledNum;
+    query["OwnerId"] = request.ownerId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Status"] = request.status;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCallTaskDetailResponse>(await this.doRPCRequest("ListCallTaskDetail", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListCallTaskDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCallTaskDetail",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallTaskDetailResponse>(await this.callApi(params, req, runtime), new ListCallTaskDetailResponse({}));
   }
 
   async listCallTaskDetail(request: ListCallTaskDetailRequest): Promise<ListCallTaskDetailResponse> {
@@ -6154,10 +5126,30 @@ export default class Client extends OpenApi {
 
   async listHotlineTransferNumberWithOptions(request: ListHotlineTransferNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferNumberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["HotlineNumber"] = request.hotlineNumber;
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["QualificationId"] = request.qualificationId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListHotlineTransferNumberResponse>(await this.doRPCRequest("ListHotlineTransferNumber", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListHotlineTransferNumberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListHotlineTransferNumber",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotlineTransferNumberResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferNumberResponse({}));
   }
 
   async listHotlineTransferNumber(request: ListHotlineTransferNumberRequest): Promise<ListHotlineTransferNumberResponse> {
@@ -6167,10 +5159,30 @@ export default class Client extends OpenApi {
 
   async listHotlineTransferRegisterFileWithOptions(request: ListHotlineTransferRegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferRegisterFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["HotlineNumber"] = request.hotlineNumber;
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["QualificationId"] = request.qualificationId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListHotlineTransferRegisterFileResponse>(await this.doRPCRequest("ListHotlineTransferRegisterFile", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListHotlineTransferRegisterFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListHotlineTransferRegisterFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHotlineTransferRegisterFileResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferRegisterFileResponse({}));
   }
 
   async listHotlineTransferRegisterFile(request: ListHotlineTransferRegisterFileRequest): Promise<ListHotlineTransferRegisterFileResponse> {
@@ -6178,51 +5190,31 @@ export default class Client extends OpenApi {
     return await this.listHotlineTransferRegisterFileWithOptions(request, runtime);
   }
 
-  async listOrderedNumbersWithOptions(request: ListOrderedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListOrderedNumbersResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListOrderedNumbersResponse>(await this.doRPCRequest("ListOrderedNumbers", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListOrderedNumbersResponse({}));
-  }
-
-  async listOrderedNumbers(request: ListOrderedNumbersRequest): Promise<ListOrderedNumbersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOrderedNumbersWithOptions(request, runtime);
-  }
-
-  async listOutboundStrategiesWithOptions(request: ListOutboundStrategiesRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundStrategiesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListOutboundStrategiesResponse>(await this.doRPCRequest("ListOutboundStrategies", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListOutboundStrategiesResponse({}));
-  }
-
-  async listOutboundStrategies(request: ListOutboundStrategiesRequest): Promise<ListOutboundStrategiesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOutboundStrategiesWithOptions(request, runtime);
-  }
-
-  async listRobotTaskCallsWithOptions(request: ListRobotTaskCallsRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotTaskCallsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListRobotTaskCallsResponse>(await this.doRPCRequest("ListRobotTaskCalls", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListRobotTaskCallsResponse({}));
-  }
-
-  async listRobotTaskCalls(request: ListRobotTaskCallsRequest): Promise<ListRobotTaskCallsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRobotTaskCallsWithOptions(request, runtime);
-  }
-
   async queryCallDetailByCallIdWithOptions(request: QueryCallDetailByCallIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallDetailByCallIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallId"] = request.callId;
+    query["OwnerId"] = request.ownerId;
+    query["ProdId"] = request.prodId;
+    query["QueryDate"] = request.queryDate;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryCallDetailByCallIdResponse>(await this.doRPCRequest("QueryCallDetailByCallId", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallDetailByCallIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCallDetailByCallId",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallDetailByCallIdResponse>(await this.callApi(params, req, runtime), new QueryCallDetailByCallIdResponse({}));
   }
 
   async queryCallDetailByCallId(request: QueryCallDetailByCallIdRequest): Promise<QueryCallDetailByCallIdResponse> {
@@ -6232,10 +5224,29 @@ export default class Client extends OpenApi {
 
   async queryCallDetailByTaskIdWithOptions(request: QueryCallDetailByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallDetailByTaskIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Callee"] = request.callee;
+    query["OwnerId"] = request.ownerId;
+    query["QueryDate"] = request.queryDate;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryCallDetailByTaskIdResponse>(await this.doRPCRequest("QueryCallDetailByTaskId", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallDetailByTaskIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCallDetailByTaskId",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new QueryCallDetailByTaskIdResponse({}));
   }
 
   async queryCallDetailByTaskId(request: QueryCallDetailByTaskIdRequest): Promise<QueryCallDetailByTaskIdResponse> {
@@ -6245,10 +5256,27 @@ export default class Client extends OpenApi {
 
   async queryCallInPoolTransferConfigWithOptions(request: QueryCallInPoolTransferConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInPoolTransferConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryCallInPoolTransferConfigResponse>(await this.doRPCRequest("QueryCallInPoolTransferConfig", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallInPoolTransferConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCallInPoolTransferConfig",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallInPoolTransferConfigResponse>(await this.callApi(params, req, runtime), new QueryCallInPoolTransferConfigResponse({}));
   }
 
   async queryCallInPoolTransferConfig(request: QueryCallInPoolTransferConfigRequest): Promise<QueryCallInPoolTransferConfigResponse> {
@@ -6258,10 +5286,31 @@ export default class Client extends OpenApi {
 
   async queryCallInTransferRecordWithOptions(request: QueryCallInTransferRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInTransferRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallInCaller"] = request.callInCaller;
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["QueryDate"] = request.queryDate;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryCallInTransferRecordResponse>(await this.doRPCRequest("QueryCallInTransferRecord", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCallInTransferRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCallInTransferRecord",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallInTransferRecordResponse>(await this.callApi(params, req, runtime), new QueryCallInTransferRecordResponse({}));
   }
 
   async queryCallInTransferRecord(request: QueryCallInTransferRecordRequest): Promise<QueryCallInTransferRecordResponse> {
@@ -6271,10 +5320,27 @@ export default class Client extends OpenApi {
 
   async queryRobotInfoListWithOptions(request: QueryRobotInfoListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotInfoListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuditStatus"] = request.auditStatus;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotInfoListResponse>(await this.doRPCRequest("QueryRobotInfoList", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotInfoListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotInfoList",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotInfoListResponse>(await this.callApi(params, req, runtime), new QueryRobotInfoListResponse({}));
   }
 
   async queryRobotInfoList(request: QueryRobotInfoListRequest): Promise<QueryRobotInfoListResponse> {
@@ -6284,10 +5350,29 @@ export default class Client extends OpenApi {
 
   async queryRobotTaskCallDetailWithOptions(request: QueryRobotTaskCallDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Callee"] = request.callee;
+    query["OwnerId"] = request.ownerId;
+    query["QueryDate"] = request.queryDate;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotTaskCallDetailResponse>(await this.doRPCRequest("QueryRobotTaskCallDetail", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotTaskCallDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotTaskCallDetail",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotTaskCallDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallDetailResponse({}));
   }
 
   async queryRobotTaskCallDetail(request: QueryRobotTaskCallDetailRequest): Promise<QueryRobotTaskCallDetailResponse> {
@@ -6297,10 +5382,36 @@ export default class Client extends OpenApi {
 
   async queryRobotTaskCallListWithOptions(request: QueryRobotTaskCallListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallResult"] = request.callResult;
+    query["Called"] = request.called;
+    query["DialogCountFrom"] = request.dialogCountFrom;
+    query["DialogCountTo"] = request.dialogCountTo;
+    query["DurationFrom"] = request.durationFrom;
+    query["DurationTo"] = request.durationTo;
+    query["HangupDirection"] = request.hangupDirection;
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotTaskCallListResponse>(await this.doRPCRequest("QueryRobotTaskCallList", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotTaskCallListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotTaskCallList",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotTaskCallListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallListResponse({}));
   }
 
   async queryRobotTaskCallList(request: QueryRobotTaskCallListRequest): Promise<QueryRobotTaskCallListResponse> {
@@ -6310,10 +5421,27 @@ export default class Client extends OpenApi {
 
   async queryRobotTaskDetailWithOptions(request: QueryRobotTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Id"] = request.id;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotTaskDetailResponse>(await this.doRPCRequest("QueryRobotTaskDetail", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotTaskDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotTaskDetail",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskDetailResponse({}));
   }
 
   async queryRobotTaskDetail(request: QueryRobotTaskDetailRequest): Promise<QueryRobotTaskDetailResponse> {
@@ -6323,10 +5451,31 @@ export default class Client extends OpenApi {
 
   async queryRobotTaskListWithOptions(request: QueryRobotTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Status"] = request.status;
+    query["TaskName"] = request.taskName;
+    query["Time"] = request.time;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotTaskListResponse>(await this.doRPCRequest("QueryRobotTaskList", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotTaskListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotTaskList",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotTaskListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskListResponse({}));
   }
 
   async queryRobotTaskList(request: QueryRobotTaskListRequest): Promise<QueryRobotTaskListResponse> {
@@ -6336,10 +5485,26 @@ export default class Client extends OpenApi {
 
   async queryRobotv2AllListWithOptions(request: QueryRobotv2AllListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotv2AllListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryRobotv2AllListResponse>(await this.doRPCRequest("QueryRobotv2AllList", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRobotv2AllListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryRobotv2AllList",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryRobotv2AllListResponse>(await this.callApi(params, req, runtime), new QueryRobotv2AllListResponse({}));
   }
 
   async queryRobotv2AllList(request: QueryRobotv2AllListRequest): Promise<QueryRobotv2AllListResponse> {
@@ -6347,25 +5512,32 @@ export default class Client extends OpenApi {
     return await this.queryRobotv2AllListWithOptions(request, runtime);
   }
 
-  async queryRtcNumberAuthStatusWithOptions(request: QueryRtcNumberAuthStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryRtcNumberAuthStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryRtcNumberAuthStatusResponse>(await this.doRPCRequest("QueryRtcNumberAuthStatus", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryRtcNumberAuthStatusResponse({}));
-  }
-
-  async queryRtcNumberAuthStatus(request: QueryRtcNumberAuthStatusRequest): Promise<QueryRtcNumberAuthStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryRtcNumberAuthStatusWithOptions(request, runtime);
-  }
-
   async queryVirtualNumberWithOptions(request: QueryVirtualNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["ProdCode"] = request.prodCode;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RouteType"] = request.routeType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryVirtualNumberResponse>(await this.doRPCRequest("QueryVirtualNumber", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVirtualNumberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryVirtualNumber",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVirtualNumberResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberResponse({}));
   }
 
   async queryVirtualNumber(request: QueryVirtualNumberRequest): Promise<QueryVirtualNumberResponse> {
@@ -6375,10 +5547,35 @@ export default class Client extends OpenApi {
 
   async queryVirtualNumberRelationWithOptions(request: QueryVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberRelationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["PhoneNum"] = request.phoneNum;
+    query["ProdCode"] = request.prodCode;
+    query["QualificationId"] = request.qualificationId;
+    query["RegionNameCity"] = request.regionNameCity;
+    query["RelatedNum"] = request.relatedNum;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["RouteType"] = request.routeType;
+    query["SpecId"] = request.specId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryVirtualNumberRelationResponse>(await this.doRPCRequest("QueryVirtualNumberRelation", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVirtualNumberRelationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryVirtualNumberRelation",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberRelationResponse({}));
   }
 
   async queryVirtualNumberRelation(request: QueryVirtualNumberRelationRequest): Promise<QueryVirtualNumberRelationResponse> {
@@ -6386,38 +5583,61 @@ export default class Client extends OpenApi {
     return await this.queryVirtualNumberRelationWithOptions(request, runtime);
   }
 
-  async queryVoipNumberBindInfosWithOptions(request: QueryVoipNumberBindInfosRequest, runtime: $Util.RuntimeOptions): Promise<QueryVoipNumberBindInfosResponse> {
+  async refreshMqttTokenWithOptions(request: RefreshMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshMqttTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientId"] = request.clientId;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QueryVoipNumberBindInfosResponse>(await this.doRPCRequest("QueryVoipNumberBindInfos", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QueryVoipNumberBindInfosResponse({}));
-  }
-
-  async queryVoipNumberBindInfos(request: QueryVoipNumberBindInfosRequest): Promise<QueryVoipNumberBindInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryVoipNumberBindInfosWithOptions(request, runtime);
-  }
-
-  async reportVoipProblemsWithOptions(request: ReportVoipProblemsRequest, runtime: $Util.RuntimeOptions): Promise<ReportVoipProblemsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "RefreshMqttToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<ReportVoipProblemsResponse>(await this.doRPCRequest("ReportVoipProblems", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ReportVoipProblemsResponse({}));
+    return $tea.cast<RefreshMqttTokenResponse>(await this.callApi(params, req, runtime), new RefreshMqttTokenResponse({}));
   }
 
-  async reportVoipProblems(request: ReportVoipProblemsRequest): Promise<ReportVoipProblemsResponse> {
+  async refreshMqttToken(request: RefreshMqttTokenRequest): Promise<RefreshMqttTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.reportVoipProblemsWithOptions(request, runtime);
+    return await this.refreshMqttTokenWithOptions(request, runtime);
   }
 
   async sendVerificationWithOptions(request: SendVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Target"] = request.target;
+    query["VerifyType"] = request.verifyType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SendVerificationResponse>(await this.doRPCRequest("SendVerification", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendVerificationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendVerification",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SendVerificationResponse>(await this.callApi(params, req, runtime), new SendVerificationResponse({}));
   }
 
   async sendVerification(request: SendVerificationRequest): Promise<SendVerificationResponse> {
@@ -6427,10 +5647,30 @@ export default class Client extends OpenApi {
 
   async setTransferCalleePoolConfigWithOptions(request: SetTransferCalleePoolConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetTransferCalleePoolConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledRouteMode"] = request.calledRouteMode;
+    query["Details"] = request.details;
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["QualificationId"] = request.qualificationId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetTransferCalleePoolConfigResponse>(await this.doRPCRequest("SetTransferCalleePoolConfig", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SetTransferCalleePoolConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetTransferCalleePoolConfig",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetTransferCalleePoolConfigResponse>(await this.callApi(params, req, runtime), new SetTransferCalleePoolConfigResponse({}));
   }
 
   async setTransferCalleePoolConfig(request: SetTransferCalleePoolConfigRequest): Promise<SetTransferCalleePoolConfigResponse> {
@@ -6440,10 +5680,34 @@ export default class Client extends OpenApi {
 
   async singleCallByTtsWithOptions(request: SingleCallByTtsRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByTtsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["PlayTimes"] = request.playTimes;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Speed"] = request.speed;
+    query["TtsCode"] = request.ttsCode;
+    query["TtsParam"] = request.ttsParam;
+    query["Volume"] = request.volume;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SingleCallByTtsResponse>(await this.doRPCRequest("SingleCallByTts", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SingleCallByTtsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SingleCallByTts",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SingleCallByTtsResponse>(await this.callApi(params, req, runtime), new SingleCallByTtsResponse({}));
   }
 
   async singleCallByTts(request: SingleCallByTtsRequest): Promise<SingleCallByTtsResponse> {
@@ -6453,10 +5717,33 @@ export default class Client extends OpenApi {
 
   async singleCallByVoiceWithOptions(request: SingleCallByVoiceRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByVoiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["PlayTimes"] = request.playTimes;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Speed"] = request.speed;
+    query["VoiceCode"] = request.voiceCode;
+    query["Volume"] = request.volume;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SingleCallByVoiceResponse>(await this.doRPCRequest("SingleCallByVoice", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SingleCallByVoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SingleCallByVoice",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SingleCallByVoiceResponse>(await this.callApi(params, req, runtime), new SingleCallByVoiceResponse({}));
   }
 
   async singleCallByVoice(request: SingleCallByVoiceRequest): Promise<SingleCallByVoiceResponse> {
@@ -6466,10 +5753,52 @@ export default class Client extends OpenApi {
 
   async smartCallWithOptions(request: SmartCallRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ActionCodeBreak"] = request.actionCodeBreak;
+    query["ActionCodeTimeBreak"] = request.actionCodeTimeBreak;
+    query["AsrBaseId"] = request.asrBaseId;
+    query["AsrModelId"] = request.asrModelId;
+    query["BackgroundFileCode"] = request.backgroundFileCode;
+    query["BackgroundSpeed"] = request.backgroundSpeed;
+    query["BackgroundVolume"] = request.backgroundVolume;
+    query["CalledNumber"] = request.calledNumber;
+    query["CalledShowNumber"] = request.calledShowNumber;
+    query["DynamicId"] = request.dynamicId;
+    query["EarlyMediaAsr"] = request.earlyMediaAsr;
+    query["EnableITN"] = request.enableITN;
+    query["MuteTime"] = request.muteTime;
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["PauseTime"] = request.pauseTime;
+    query["RecordFlag"] = request.recordFlag;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SessionTimeout"] = request.sessionTimeout;
+    query["Speed"] = request.speed;
+    query["StreamAsr"] = request.streamAsr;
+    query["TtsConf"] = request.ttsConf;
+    query["TtsSpeed"] = request.ttsSpeed;
+    query["TtsStyle"] = request.ttsStyle;
+    query["TtsVolume"] = request.ttsVolume;
+    query["VoiceCode"] = request.voiceCode;
+    query["VoiceCodeParam"] = request.voiceCodeParam;
+    query["Volume"] = request.volume;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SmartCallResponse>(await this.doRPCRequest("SmartCall", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SmartCallResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SmartCall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SmartCallResponse>(await this.callApi(params, req, runtime), new SmartCallResponse({}));
   }
 
   async smartCall(request: SmartCallRequest): Promise<SmartCallResponse> {
@@ -6479,10 +5808,29 @@ export default class Client extends OpenApi {
 
   async smartCallOperateWithOptions(request: SmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallOperateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallId"] = request.callId;
+    query["Command"] = request.command;
+    query["OwnerId"] = request.ownerId;
+    query["Param"] = request.param;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SmartCallOperateResponse>(await this.doRPCRequest("SmartCallOperate", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SmartCallOperateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SmartCallOperate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SmartCallOperateResponse>(await this.callApi(params, req, runtime), new SmartCallOperateResponse({}));
   }
 
   async smartCallOperate(request: SmartCallOperateRequest): Promise<SmartCallOperateResponse> {
@@ -6490,25 +5838,30 @@ export default class Client extends OpenApi {
     return await this.smartCallOperateWithOptions(request, runtime);
   }
 
-  async startMicroOutboundWithOptions(request: StartMicroOutboundRequest, runtime: $Util.RuntimeOptions): Promise<StartMicroOutboundResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StartMicroOutboundResponse>(await this.doRPCRequest("StartMicroOutbound", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new StartMicroOutboundResponse({}));
-  }
-
-  async startMicroOutbound(request: StartMicroOutboundRequest): Promise<StartMicroOutboundResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startMicroOutboundWithOptions(request, runtime);
-  }
-
   async startRobotTaskWithOptions(request: StartRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ScheduleTime"] = request.scheduleTime;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StartRobotTaskResponse>(await this.doRPCRequest("StartRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new StartRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartRobotTaskResponse>(await this.callApi(params, req, runtime), new StartRobotTaskResponse({}));
   }
 
   async startRobotTask(request: StartRobotTaskRequest): Promise<StartRobotTaskResponse> {
@@ -6518,10 +5871,27 @@ export default class Client extends OpenApi {
 
   async stopRobotTaskWithOptions(request: StopRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRobotTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StopRobotTaskResponse>(await this.doRPCRequest("StopRobotTask", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new StopRobotTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopRobotTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopRobotTaskResponse>(await this.callApi(params, req, runtime), new StopRobotTaskResponse({}));
   }
 
   async stopRobotTask(request: StopRobotTaskRequest): Promise<StopRobotTaskResponse> {
@@ -6531,10 +5901,36 @@ export default class Client extends OpenApi {
 
   async submitHotlineTransferRegisterWithOptions(request: SubmitHotlineTransferRegisterRequest, runtime: $Util.RuntimeOptions): Promise<SubmitHotlineTransferRegisterResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Agreement"] = request.agreement;
+    query["HotlineNumber"] = request.hotlineNumber;
+    query["OperatorIdentityCard"] = request.operatorIdentityCard;
+    query["OperatorMail"] = request.operatorMail;
+    query["OperatorMailVerifyCode"] = request.operatorMailVerifyCode;
+    query["OperatorMobile"] = request.operatorMobile;
+    query["OperatorMobileVerifyCode"] = request.operatorMobileVerifyCode;
+    query["OperatorName"] = request.operatorName;
+    query["OwnerId"] = request.ownerId;
+    query["QualificationId"] = request.qualificationId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TransferPhoneNumberInfos"] = request.transferPhoneNumberInfos;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SubmitHotlineTransferRegisterResponse>(await this.doRPCRequest("SubmitHotlineTransferRegister", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SubmitHotlineTransferRegisterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitHotlineTransferRegister",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitHotlineTransferRegisterResponse>(await this.callApi(params, req, runtime), new SubmitHotlineTransferRegisterResponse({}));
   }
 
   async submitHotlineTransferRegister(request: SubmitHotlineTransferRegisterRequest): Promise<SubmitHotlineTransferRegisterResponse> {
@@ -6542,69 +5938,37 @@ export default class Client extends OpenApi {
     return await this.submitHotlineTransferRegisterWithOptions(request, runtime);
   }
 
-  async unbindNumberAndVoipIdWithOptions(request: UnbindNumberAndVoipIdRequest, runtime: $Util.RuntimeOptions): Promise<UnbindNumberAndVoipIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UnbindNumberAndVoipIdResponse>(await this.doRPCRequest("UnbindNumberAndVoipId", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindNumberAndVoipIdResponse({}));
-  }
-
-  async unbindNumberAndVoipId(request: UnbindNumberAndVoipIdRequest): Promise<UnbindNumberAndVoipIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.unbindNumberAndVoipIdWithOptions(request, runtime);
-  }
-
-  async undoRtcNumberAuthWithOptions(request: UndoRtcNumberAuthRequest, runtime: $Util.RuntimeOptions): Promise<UndoRtcNumberAuthResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UndoRtcNumberAuthResponse>(await this.doRPCRequest("UndoRtcNumberAuth", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new UndoRtcNumberAuthResponse({}));
-  }
-
-  async undoRtcNumberAuth(request: UndoRtcNumberAuthRequest): Promise<UndoRtcNumberAuthResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.undoRtcNumberAuthWithOptions(request, runtime);
-  }
-
   async uploadRobotTaskCalledFileWithOptions(request: UploadRobotTaskCalledFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadRobotTaskCalledFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CalledNumber"] = request.calledNumber;
+    query["Id"] = request.id;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TtsParam"] = request.ttsParam;
+    query["TtsParamHead"] = request.ttsParamHead;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UploadRobotTaskCalledFileResponse>(await this.doRPCRequest("UploadRobotTaskCalledFile", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new UploadRobotTaskCalledFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UploadRobotTaskCalledFile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadRobotTaskCalledFileResponse>(await this.callApi(params, req, runtime), new UploadRobotTaskCalledFileResponse({}));
   }
 
   async uploadRobotTaskCalledFile(request: UploadRobotTaskCalledFileRequest): Promise<UploadRobotTaskCalledFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uploadRobotTaskCalledFileWithOptions(request, runtime);
-  }
-
-  async voipAddAccountWithOptions(request: VoipAddAccountRequest, runtime: $Util.RuntimeOptions): Promise<VoipAddAccountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<VoipAddAccountResponse>(await this.doRPCRequest("VoipAddAccount", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new VoipAddAccountResponse({}));
-  }
-
-  async voipAddAccount(request: VoipAddAccountRequest): Promise<VoipAddAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.voipAddAccountWithOptions(request, runtime);
-  }
-
-  async voipGetTokenWithOptions(request: VoipGetTokenRequest, runtime: $Util.RuntimeOptions): Promise<VoipGetTokenResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<VoipGetTokenResponse>(await this.doRPCRequest("VoipGetToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new VoipGetTokenResponse({}));
-  }
-
-  async voipGetToken(request: VoipGetTokenRequest): Promise<VoipGetTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.voipGetTokenWithOptions(request, runtime);
   }
 
 }
