@@ -4,38 +4,123 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AddSmsSignRequest extends $tea.Model {
+export class AddShortUrlRequest extends $tea.Model {
+  effectiveDays?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  signName?: string;
-  signSource?: number;
-  remark?: string;
-  signFileList?: AddSmsSignRequestSignFileList[];
+  shortUrlName?: string;
+  sourceUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      effectiveDays: 'EffectiveDays',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      shortUrlName: 'ShortUrlName',
+      sourceUrl: 'SourceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      effectiveDays: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      shortUrlName: 'string',
+      sourceUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddShortUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: AddShortUrlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddShortUrlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddShortUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddShortUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddShortUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddSmsSignRequest extends $tea.Model {
+  ownerId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signFileList?: AddSmsSignRequestSignFileList[];
+  signName?: string;
+  signSource?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      remark: 'Remark',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      signFileList: 'SignFileList',
       signName: 'SignName',
       signSource: 'SignSource',
-      remark: 'Remark',
-      signFileList: 'SignFileList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      signFileList: { 'type': 'array', 'itemType': AddSmsSignRequestSignFileList },
       signName: 'string',
       signSource: 'number',
-      remark: 'string',
-      signFileList: { 'type': 'array', 'itemType': AddSmsSignRequestSignFileList },
     };
   }
 
@@ -96,33 +181,33 @@ export class AddSmsSignResponse extends $tea.Model {
 
 export class AddSmsTemplateRequest extends $tea.Model {
   ownerId?: number;
+  remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  templateType?: number;
-  templateName?: string;
   templateContent?: string;
-  remark?: string;
+  templateName?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
       templateContent: 'TemplateContent',
-      remark: 'Remark',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      templateType: 'number',
-      templateName: 'string',
       templateContent: 'string',
-      remark: 'string',
+      templateName: 'string',
+      templateType: 'number',
     };
   }
 
@@ -173,6 +258,181 @@ export class AddSmsTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AddSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateRequest extends $tea.Model {
+  memo?: string;
+  template?: { [key: string]: any };
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memo: 'Memo',
+      template: 'Template',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memo: 'string',
+      template: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateShrinkRequest extends $tea.Model {
+  memo?: string;
+  templateShrink?: string;
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      memo: 'Memo',
+      templateShrink: 'Template',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      memo: 'string',
+      templateShrink: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateCardSmsTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateCardSmsTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCardSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCardSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShortUrlRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sourceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceUrl: 'SourceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShortUrlResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteShortUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteShortUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteShortUrlResponseBody,
     };
   }
 
@@ -337,35 +597,262 @@ export class DeleteSmsTemplateResponse extends $tea.Model {
   }
 }
 
-export class ModifySmsSignRequest extends $tea.Model {
+export class GetMediaResourceIdRequest extends $tea.Model {
+  extendInfo?: string;
+  fileSize?: number;
+  memo?: string;
+  ossKey?: string;
+  resourceType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      extendInfo: 'ExtendInfo',
+      fileSize: 'FileSize',
+      memo: 'Memo',
+      ossKey: 'OssKey',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extendInfo: 'string',
+      fileSize: 'number',
+      memo: 'string',
+      ossKey: 'string',
+      resourceType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetMediaResourceIdResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetMediaResourceIdResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetMediaResourceIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetMediaResourceIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetOSSInfoForCardTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetOSSInfoForCardTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetOSSInfoForCardTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetOSSInfoForCardTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
   ownerId?: number;
+  pageSize?: number;
+  prodCode?: string;
+  regionId?: string;
+  resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      ownerId: 'OwnerId',
+      pageSize: 'PageSize',
+      prodCode: 'ProdCode',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      ownerId: 'number',
+      pageSize: 'number',
+      prodCode: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  code?: string;
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySmsSignRequest extends $tea.Model {
+  ownerId?: number;
+  remark?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  signFileList?: ModifySmsSignRequestSignFileList[];
   signName?: string;
   signSource?: number;
-  remark?: string;
-  signFileList?: ModifySmsSignRequestSignFileList[];
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      signFileList: 'SignFileList',
       signName: 'SignName',
       signSource: 'SignSource',
-      remark: 'Remark',
-      signFileList: 'SignFileList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      signFileList: { 'type': 'array', 'itemType': ModifySmsSignRequestSignFileList },
       signName: 'string',
       signSource: 'number',
-      remark: 'string',
-      signFileList: { 'type': 'array', 'itemType': ModifySmsSignRequestSignFileList },
     };
   }
 
@@ -426,36 +913,36 @@ export class ModifySmsSignResponse extends $tea.Model {
 
 export class ModifySmsTemplateRequest extends $tea.Model {
   ownerId?: number;
+  remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  templateType?: number;
-  templateName?: string;
   templateCode?: string;
   templateContent?: string;
-  remark?: string;
+  templateName?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      remark: 'Remark',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
       templateCode: 'TemplateCode',
       templateContent: 'TemplateContent',
-      remark: 'Remark',
+      templateName: 'TemplateName',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      remark: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      templateType: 'number',
-      templateName: 'string',
       templateCode: 'string',
       templateContent: 'string',
-      remark: 'string',
+      templateName: 'string',
+      templateType: 'number',
     };
   }
 
@@ -514,38 +1001,107 @@ export class ModifySmsTemplateResponse extends $tea.Model {
   }
 }
 
-export class QuerySendDetailsRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  phoneNumber?: string;
-  bizId?: string;
-  sendDate?: string;
-  pageSize?: number;
-  currentPage?: number;
+export class QueryCardSmsTemplateRequest extends $tea.Model {
+  templateCode?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      phoneNumber: 'PhoneNumber',
-      bizId: 'BizId',
-      sendDate: 'SendDate',
-      pageSize: 'PageSize',
-      currentPage: 'CurrentPage',
+      templateCode: 'TemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryCardSmsTemplateResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryCardSmsTemplateResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCardSmsTemplateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryCardSmsTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryCardSmsTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendDetailsRequest extends $tea.Model {
+  bizId?: string;
+  currentPage?: number;
+  ownerId?: number;
+  pageSize?: number;
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sendDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      currentPage: 'CurrentPage',
+      ownerId: 'OwnerId',
+      pageSize: 'PageSize',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sendDate: 'SendDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      currentPage: 'number',
       ownerId: 'number',
+      pageSize: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumber: 'string',
-      bizId: 'string',
       sendDate: 'string',
-      pageSize: 'number',
-      currentPage: 'number',
     };
   }
 
@@ -558,15 +1114,15 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
   code?: string;
   message?: string;
   requestId?: string;
-  totalCount?: string;
   smsSendDetailDTOs?: QuerySendDetailsResponseBodySmsSendDetailDTOs;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
       smsSendDetailDTOs: 'SmsSendDetailDTOs',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -575,8 +1131,8 @@ export class QuerySendDetailsResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      totalCount: 'string',
       smsSendDetailDTOs: QuerySendDetailsResponseBodySmsSendDetailDTOs,
+      totalCount: 'string',
     };
   }
 
@@ -599,6 +1155,84 @@ export class QuerySendDetailsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QuerySendDetailsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShortUrlRequest extends $tea.Model {
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  shortUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      shortUrl: 'ShortUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      shortUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShortUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryShortUrlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryShortUrlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryShortUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryShortUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryShortUrlResponseBody,
     };
   }
 
@@ -636,34 +1270,34 @@ export class QuerySmsSignRequest extends $tea.Model {
 }
 
 export class QuerySmsSignResponseBody extends $tea.Model {
-  requestId?: string;
-  signStatus?: number;
   code?: string;
-  message?: string;
   createDate?: string;
+  message?: string;
   reason?: string;
+  requestId?: string;
   signName?: string;
+  signStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      signStatus: 'SignStatus',
       code: 'Code',
-      message: 'Message',
       createDate: 'CreateDate',
+      message: 'Message',
       reason: 'Reason',
+      requestId: 'RequestId',
       signName: 'SignName',
+      signStatus: 'SignStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      signStatus: 'number',
       code: 'string',
-      message: 'string',
       createDate: 'string',
+      message: 'string',
       reason: 'string',
+      requestId: 'string',
       signName: 'string',
+      signStatus: 'number',
     };
   }
 
@@ -723,43 +1357,43 @@ export class QuerySmsTemplateRequest extends $tea.Model {
 }
 
 export class QuerySmsTemplateResponseBody extends $tea.Model {
-  templateContent?: string;
+  code?: string;
+  createDate?: string;
+  message?: string;
+  reason?: string;
   requestId?: string;
   templateCode?: string;
-  templateStatus?: number;
-  code?: string;
-  templateType?: number;
-  message?: string;
+  templateContent?: string;
   templateName?: string;
-  createDate?: string;
-  reason?: string;
+  templateStatus?: number;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
-      templateContent: 'TemplateContent',
+      code: 'Code',
+      createDate: 'CreateDate',
+      message: 'Message',
+      reason: 'Reason',
       requestId: 'RequestId',
       templateCode: 'TemplateCode',
-      templateStatus: 'TemplateStatus',
-      code: 'Code',
-      templateType: 'TemplateType',
-      message: 'Message',
+      templateContent: 'TemplateContent',
       templateName: 'TemplateName',
-      createDate: 'CreateDate',
-      reason: 'Reason',
+      templateStatus: 'TemplateStatus',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateContent: 'string',
+      code: 'string',
+      createDate: 'string',
+      message: 'string',
+      reason: 'string',
       requestId: 'string',
       templateCode: 'string',
-      templateStatus: 'number',
-      code: 'string',
-      templateType: 'number',
-      message: 'string',
+      templateContent: 'string',
       templateName: 'string',
-      createDate: 'string',
-      reason: 'string',
+      templateStatus: 'number',
+      templateType: 'number',
     };
   }
 
@@ -792,36 +1426,36 @@ export class QuerySmsTemplateResponse extends $tea.Model {
 
 export class SendBatchSmsRequest extends $tea.Model {
   ownerId?: number;
+  phoneNumberJson?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  phoneNumberJson?: string;
   signNameJson?: string;
+  smsUpExtendCodeJson?: string;
   templateCode?: string;
   templateParamJson?: string;
-  smsUpExtendCodeJson?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      phoneNumberJson: 'PhoneNumberJson',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      phoneNumberJson: 'PhoneNumberJson',
       signNameJson: 'SignNameJson',
+      smsUpExtendCodeJson: 'SmsUpExtendCodeJson',
       templateCode: 'TemplateCode',
       templateParamJson: 'TemplateParamJson',
-      smsUpExtendCodeJson: 'SmsUpExtendCodeJson',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      phoneNumberJson: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumberJson: 'string',
       signNameJson: 'string',
+      smsUpExtendCodeJson: 'string',
       templateCode: 'string',
       templateParamJson: 'string',
-      smsUpExtendCodeJson: 'string',
     };
   }
 
@@ -831,24 +1465,24 @@ export class SendBatchSmsRequest extends $tea.Model {
 }
 
 export class SendBatchSmsResponseBody extends $tea.Model {
+  bizId?: string;
   code?: string;
   message?: string;
-  bizId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       code: 'Code',
       message: 'Message',
-      bizId: 'BizId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       code: 'string',
       message: 'string',
-      bizId: 'string',
       requestId: 'string',
     };
   }
@@ -880,35 +1514,44 @@ export class SendBatchSmsResponse extends $tea.Model {
   }
 }
 
-export class SendMessageToGlobeRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  to?: string;
-  from?: string;
-  message?: string;
-  type?: string;
+export class SendCardSmsRequest extends $tea.Model {
+  cardObjects?: SendCardSmsRequestCardObjects[];
+  cardTemplateCode?: string;
+  digitalTemplateCode?: string;
+  digitalTemplateParam?: string;
+  fallbackType?: string;
+  outId?: string;
+  signName?: string;
+  smsTemplateCode?: string;
+  smsTemplateParam?: string;
+  smsUpExtendCode?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      to: 'To',
-      from: 'From',
-      message: 'Message',
-      type: 'Type',
+      cardObjects: 'CardObjects',
+      cardTemplateCode: 'CardTemplateCode',
+      digitalTemplateCode: 'DigitalTemplateCode',
+      digitalTemplateParam: 'DigitalTemplateParam',
+      fallbackType: 'FallbackType',
+      outId: 'OutId',
+      signName: 'SignName',
+      smsTemplateCode: 'SmsTemplateCode',
+      smsTemplateParam: 'SmsTemplateParam',
+      smsUpExtendCode: 'SmsUpExtendCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      to: 'string',
-      from: 'string',
-      message: 'string',
-      type: 'string',
+      cardObjects: { 'type': 'array', 'itemType': SendCardSmsRequestCardObjects },
+      cardTemplateCode: 'string',
+      digitalTemplateCode: 'string',
+      digitalTemplateParam: 'string',
+      fallbackType: 'string',
+      outId: 'string',
+      signName: 'string',
+      smsTemplateCode: 'string',
+      smsTemplateParam: 'string',
+      smsUpExtendCode: 'string',
     };
   }
 
@@ -917,35 +1560,26 @@ export class SendMessageToGlobeRequest extends $tea.Model {
   }
 }
 
-export class SendMessageToGlobeResponseBody extends $tea.Model {
-  from?: string;
-  messageId?: string;
-  requestId?: string;
-  segments?: string;
+export class SendCardSmsResponseBody extends $tea.Model {
   code?: string;
-  to?: string;
-  numberDetail?: SendMessageToGlobeResponseBodyNumberDetail;
+  data?: SendCardSmsResponseBodyData;
+  requestId?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      from: 'From',
-      messageId: 'MessageId',
-      requestId: 'RequestId',
-      segments: 'Segments',
       code: 'Code',
-      to: 'To',
-      numberDetail: 'NumberDetail',
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      from: 'string',
-      messageId: 'string',
-      requestId: 'string',
-      segments: 'string',
       code: 'string',
-      to: 'string',
-      numberDetail: SendMessageToGlobeResponseBodyNumberDetail,
+      data: SendCardSmsResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 
@@ -954,9 +1588,9 @@ export class SendMessageToGlobeResponseBody extends $tea.Model {
   }
 }
 
-export class SendMessageToGlobeResponse extends $tea.Model {
+export class SendCardSmsResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: SendMessageToGlobeResponseBody;
+  body: SendCardSmsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -967,7 +1601,7 @@ export class SendMessageToGlobeResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SendMessageToGlobeResponseBody,
+      body: SendCardSmsResponseBody,
     };
   }
 
@@ -977,40 +1611,40 @@ export class SendMessageToGlobeResponse extends $tea.Model {
 }
 
 export class SendSmsRequest extends $tea.Model {
+  outId?: string;
   ownerId?: number;
+  phoneNumbers?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  phoneNumbers?: string;
   signName?: string;
+  smsUpExtendCode?: string;
   templateCode?: string;
   templateParam?: string;
-  smsUpExtendCode?: string;
-  outId?: string;
   static names(): { [key: string]: string } {
     return {
+      outId: 'OutId',
       ownerId: 'OwnerId',
+      phoneNumbers: 'PhoneNumbers',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      phoneNumbers: 'PhoneNumbers',
       signName: 'SignName',
+      smsUpExtendCode: 'SmsUpExtendCode',
       templateCode: 'TemplateCode',
       templateParam: 'TemplateParam',
-      smsUpExtendCode: 'SmsUpExtendCode',
-      outId: 'OutId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      outId: 'string',
       ownerId: 'number',
+      phoneNumbers: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumbers: 'string',
       signName: 'string',
+      smsUpExtendCode: 'string',
       templateCode: 'string',
       templateParam: 'string',
-      smsUpExtendCode: 'string',
-      outId: 'string',
     };
   }
 
@@ -1020,24 +1654,24 @@ export class SendSmsRequest extends $tea.Model {
 }
 
 export class SendSmsResponseBody extends $tea.Model {
+  bizId?: string;
   code?: string;
   message?: string;
-  bizId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
       code: 'Code',
       message: 'Message',
-      bizId: 'BizId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
       code: 'string',
       message: 'string',
-      bizId: 'string',
       requestId: 'string',
     };
   }
@@ -1069,6 +1703,208 @@ export class SendSmsResponse extends $tea.Model {
   }
 }
 
+export class TagResourcesRequest extends $tea.Model {
+  ownerId?: number;
+  prodCode?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      prodCode: 'ProdCode',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      prodCode: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  ownerId?: number;
+  prodCode?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      ownerId: 'OwnerId',
+      prodCode: 'ProdCode',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      ownerId: 'number',
+      prodCode: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddShortUrlResponseBodyData extends $tea.Model {
+  expireDate?: string;
+  shortUrl?: string;
+  sourceUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireDate: 'ExpireDate',
+      shortUrl: 'ShortUrl',
+      sourceUrl: 'SourceUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireDate: 'string',
+      shortUrl: 'string',
+      sourceUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddSmsSignRequestSignFileList extends $tea.Model {
   fileContents?: string;
   fileSuffix?: string;
@@ -1083,6 +1919,147 @@ export class AddSmsSignRequestSignFileList extends $tea.Model {
     return {
       fileContents: 'string',
       fileSuffix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCardSmsTemplateResponseBodyData extends $tea.Model {
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMediaResourceIdResponseBodyData extends $tea.Model {
+  resourceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOSSInfoForCardTemplateResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  aliUid?: string;
+  expireTime?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      aliUid: 'AliUid',
+      expireTime: 'ExpireTime',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      aliUid: 'string',
+      expireTime: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
     };
   }
 
@@ -1113,38 +2090,57 @@ export class ModifySmsSignRequestSignFileList extends $tea.Model {
   }
 }
 
-export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
-  errCode?: string;
-  templateCode?: string;
-  outId?: string;
-  receiveDate?: string;
-  sendDate?: string;
-  phoneNum?: string;
-  content?: string;
-  sendStatus?: number;
+export class QueryCardSmsTemplateResponseBodyData extends $tea.Model {
+  templates?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
-      errCode: 'ErrCode',
-      templateCode: 'TemplateCode',
-      outId: 'OutId',
-      receiveDate: 'ReceiveDate',
-      sendDate: 'SendDate',
-      phoneNum: 'PhoneNum',
-      content: 'Content',
-      sendStatus: 'SendStatus',
+      templates: 'Templates',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      templates: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySendDetailsResponseBodySmsSendDetailDTOsSmsSendDetailDTO extends $tea.Model {
+  content?: string;
+  errCode?: string;
+  outId?: string;
+  phoneNum?: string;
+  receiveDate?: string;
+  sendDate?: string;
+  sendStatus?: number;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      errCode: 'ErrCode',
+      outId: 'OutId',
+      phoneNum: 'PhoneNum',
+      receiveDate: 'ReceiveDate',
+      sendDate: 'SendDate',
+      sendStatus: 'SendStatus',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
       errCode: 'string',
-      templateCode: 'string',
       outId: 'string',
+      phoneNum: 'string',
       receiveDate: 'string',
       sendDate: 'string',
-      phoneNum: 'string',
-      content: 'string',
       sendStatus: 'number',
+      templateCode: 'string',
     };
   }
 
@@ -1172,23 +2168,119 @@ export class QuerySendDetailsResponseBodySmsSendDetailDTOs extends $tea.Model {
   }
 }
 
-export class SendMessageToGlobeResponseBodyNumberDetail extends $tea.Model {
-  country?: string;
-  carrier?: string;
-  region?: string;
+export class QueryShortUrlResponseBodyData extends $tea.Model {
+  createDate?: string;
+  expireDate?: string;
+  pageViewCount?: string;
+  shortUrl?: string;
+  shortUrlName?: string;
+  shortUrlStatus?: string;
+  sourceUrl?: string;
+  uniqueVisitorCount?: string;
   static names(): { [key: string]: string } {
     return {
-      country: 'Country',
-      carrier: 'Carrier',
-      region: 'Region',
+      createDate: 'CreateDate',
+      expireDate: 'ExpireDate',
+      pageViewCount: 'PageViewCount',
+      shortUrl: 'ShortUrl',
+      shortUrlName: 'ShortUrlName',
+      shortUrlStatus: 'ShortUrlStatus',
+      sourceUrl: 'SourceUrl',
+      uniqueVisitorCount: 'UniqueVisitorCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      country: 'string',
-      carrier: 'string',
-      region: 'string',
+      createDate: 'string',
+      expireDate: 'string',
+      pageViewCount: 'string',
+      shortUrl: 'string',
+      shortUrlName: 'string',
+      shortUrlStatus: 'string',
+      sourceUrl: 'string',
+      uniqueVisitorCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsRequestCardObjects extends $tea.Model {
+  customUrl?: string;
+  dyncParams?: string;
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customUrl: 'customUrl',
+      dyncParams: 'dyncParams',
+      mobile: 'mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customUrl: 'string',
+      dyncParams: 'string',
+      mobile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendCardSmsResponseBodyData extends $tea.Model {
+  bizCardId?: string;
+  bizDigitalId?: string;
+  bizSmsId?: string;
+  cardTmpState?: number;
+  mediaMobiles?: string;
+  notMediaMobiles?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCardId: 'BizCardId',
+      bizDigitalId: 'BizDigitalId',
+      bizSmsId: 'BizSmsId',
+      cardTmpState: 'CardTmpState',
+      mediaMobiles: 'MediaMobiles',
+      notMediaMobiles: 'NotMediaMobiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCardId: 'string',
+      bizDigitalId: 'string',
+      bizSmsId: 'string',
+      cardTmpState: 'number',
+      mediaMobiles: 'string',
+      notMediaMobiles: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -1226,12 +2318,60 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
+  async addShortUrlWithOptions(request: AddShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<AddShortUrlResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddSmsSignResponse>(await this.doRPCRequest("AddSmsSign", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddSmsSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddShortUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddShortUrlResponse>(await this.callApi(params, req, runtime), new AddShortUrlResponse({}));
+  }
+
+  async addShortUrl(request: AddShortUrlRequest): Promise<AddShortUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addShortUrlWithOptions(request, runtime);
+  }
+
+  async addSmsSignWithOptions(request: AddSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["Remark"] = request.remark;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignName"] = request.signName;
+    query["SignSource"] = request.signSource;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddSmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSmsSignResponse>(await this.callApi(params, req, runtime), new AddSmsSignResponse({}));
   }
 
   async addSmsSign(request: AddSmsSignRequest): Promise<AddSmsSignResponse> {
@@ -1241,10 +2381,30 @@ export default class Client extends OpenApi {
 
   async addSmsTemplateWithOptions(request: AddSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddSmsTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["Remark"] = request.remark;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TemplateContent"] = request.templateContent;
+    query["TemplateName"] = request.templateName;
+    query["TemplateType"] = request.templateType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddSmsTemplateResponse>(await this.doRPCRequest("AddSmsTemplate", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new AddSmsTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSmsTemplateResponse>(await this.callApi(params, req, runtime), new AddSmsTemplateResponse({}));
   }
 
   async addSmsTemplate(request: AddSmsTemplateRequest): Promise<AddSmsTemplateResponse> {
@@ -1252,12 +2412,93 @@ export default class Client extends OpenApi {
     return await this.addSmsTemplateWithOptions(request, runtime);
   }
 
-  async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
-    Util.validateModel(request);
+  async createCardSmsTemplateWithOptions(tmpReq: CreateCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCardSmsTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateCardSmsTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.template)) {
+      request.templateShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.template, "Template", "json");
+    }
+
+    let query = { };
+    query["Memo"] = request.memo;
+    query["Template"] = request.templateShrink;
+    query["TemplateName"] = request.templateName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSmsSignResponse>(await this.doRPCRequest("DeleteSmsSign", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmsSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCardSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new CreateCardSmsTemplateResponse({}));
+  }
+
+  async createCardSmsTemplate(request: CreateCardSmsTemplateRequest): Promise<CreateCardSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCardSmsTemplateWithOptions(request, runtime);
+  }
+
+  async deleteShortUrlWithOptions(request: DeleteShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteShortUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteShortUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteShortUrlResponse>(await this.callApi(params, req, runtime), new DeleteShortUrlResponse({}));
+  }
+
+  async deleteShortUrl(request: DeleteShortUrlRequest): Promise<DeleteShortUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteShortUrlWithOptions(request, runtime);
+  }
+
+  async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignName"] = request.signName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSmsSignResponse>(await this.callApi(params, req, runtime), new DeleteSmsSignResponse({}));
   }
 
   async deleteSmsSign(request: DeleteSmsSignRequest): Promise<DeleteSmsSignResponse> {
@@ -1267,10 +2508,27 @@ export default class Client extends OpenApi {
 
   async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TemplateCode"] = request.templateCode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSmsTemplateResponse>(await this.doRPCRequest("DeleteSmsTemplate", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmsTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSmsTemplateResponse>(await this.callApi(params, req, runtime), new DeleteSmsTemplateResponse({}));
   }
 
   async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
@@ -1278,12 +2536,119 @@ export default class Client extends OpenApi {
     return await this.deleteSmsTemplateWithOptions(request, runtime);
   }
 
-  async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsSignResponse> {
+  async getMediaResourceIdWithOptions(request: GetMediaResourceIdRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaResourceIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ExtendInfo"] = request.extendInfo;
+    query["FileSize"] = request.fileSize;
+    query["Memo"] = request.memo;
+    query["OssKey"] = request.ossKey;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySmsSignResponse>(await this.doRPCRequest("ModifySmsSign", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySmsSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMediaResourceId",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMediaResourceIdResponse>(await this.callApi(params, req, runtime), new GetMediaResourceIdResponse({}));
+  }
+
+  async getMediaResourceId(request: GetMediaResourceIdRequest): Promise<GetMediaResourceIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMediaResourceIdWithOptions(request, runtime);
+  }
+
+  async getOSSInfoForCardTemplateWithOptions(runtime: $Util.RuntimeOptions): Promise<GetOSSInfoForCardTemplateResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "GetOSSInfoForCardTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOSSInfoForCardTemplateResponse>(await this.callApi(params, req, runtime), new GetOSSInfoForCardTemplateResponse({}));
+  }
+
+  async getOSSInfoForCardTemplate(): Promise<GetOSSInfoForCardTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOSSInfoForCardTemplateWithOptions(runtime);
+  }
+
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["NextToken"] = request.nextToken;
+    query["OwnerId"] = request.ownerId;
+    query["PageSize"] = request.pageSize;
+    query["ProdCode"] = request.prodCode;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ResourceType"] = request.resourceType;
+    query["Tag"] = request.tag;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  async modifySmsSignWithOptions(request: ModifySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["Remark"] = request.remark;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignName"] = request.signName;
+    query["SignSource"] = request.signSource;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySmsSignResponse>(await this.callApi(params, req, runtime), new ModifySmsSignResponse({}));
   }
 
   async modifySmsSign(request: ModifySmsSignRequest): Promise<ModifySmsSignResponse> {
@@ -1293,10 +2658,31 @@ export default class Client extends OpenApi {
 
   async modifySmsTemplateWithOptions(request: ModifySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ModifySmsTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["Remark"] = request.remark;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TemplateCode"] = request.templateCode;
+    query["TemplateContent"] = request.templateContent;
+    query["TemplateName"] = request.templateName;
+    query["TemplateType"] = request.templateType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifySmsTemplateResponse>(await this.doRPCRequest("ModifySmsTemplate", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySmsTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySmsTemplateResponse>(await this.callApi(params, req, runtime), new ModifySmsTemplateResponse({}));
   }
 
   async modifySmsTemplate(request: ModifySmsTemplateRequest): Promise<ModifySmsTemplateResponse> {
@@ -1304,12 +2690,60 @@ export default class Client extends OpenApi {
     return await this.modifySmsTemplateWithOptions(request, runtime);
   }
 
-  async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
+  async queryCardSmsTemplateWithOptions(request: QueryCardSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QueryCardSmsTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["TemplateCode"] = request.templateCode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QuerySendDetailsResponse>(await this.doRPCRequest("QuerySendDetails", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySendDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCardSmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCardSmsTemplateResponse>(await this.callApi(params, req, runtime), new QueryCardSmsTemplateResponse({}));
+  }
+
+  async queryCardSmsTemplate(request: QueryCardSmsTemplateRequest): Promise<QueryCardSmsTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCardSmsTemplateWithOptions(request, runtime);
+  }
+
+  async querySendDetailsWithOptions(request: QuerySendDetailsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySendDetailsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["CurrentPage"] = request.currentPage;
+    query["OwnerId"] = request.ownerId;
+    query["PageSize"] = request.pageSize;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SendDate"] = request.sendDate;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySendDetails",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySendDetailsResponse>(await this.callApi(params, req, runtime), new QuerySendDetailsResponse({}));
   }
 
   async querySendDetails(request: QuerySendDetailsRequest): Promise<QuerySendDetailsResponse> {
@@ -1317,12 +2751,58 @@ export default class Client extends OpenApi {
     return await this.querySendDetailsWithOptions(request, runtime);
   }
 
-  async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
+  async queryShortUrlWithOptions(request: QueryShortUrlRequest, runtime: $Util.RuntimeOptions): Promise<QueryShortUrlResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QuerySmsSignResponse>(await this.doRPCRequest("QuerySmsSign", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySmsSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryShortUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryShortUrlResponse>(await this.callApi(params, req, runtime), new QueryShortUrlResponse({}));
+  }
+
+  async queryShortUrl(request: QueryShortUrlRequest): Promise<QueryShortUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryShortUrlWithOptions(request, runtime);
+  }
+
+  async querySmsSignWithOptions(request: QuerySmsSignRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsSignResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignName"] = request.signName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySmsSign",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySmsSignResponse>(await this.callApi(params, req, runtime), new QuerySmsSignResponse({}));
   }
 
   async querySmsSign(request: QuerySmsSignRequest): Promise<QuerySmsSignResponse> {
@@ -1332,10 +2812,27 @@ export default class Client extends OpenApi {
 
   async querySmsTemplateWithOptions(request: QuerySmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<QuerySmsTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["TemplateCode"] = request.templateCode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<QuerySmsTemplateResponse>(await this.doRPCRequest("QuerySmsTemplate", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySmsTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySmsTemplate",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySmsTemplateResponse>(await this.callApi(params, req, runtime), new QuerySmsTemplateResponse({}));
   }
 
   async querySmsTemplate(request: QuerySmsTemplateRequest): Promise<QuerySmsTemplateResponse> {
@@ -1345,10 +2842,31 @@ export default class Client extends OpenApi {
 
   async sendBatchSmsWithOptions(request: SendBatchSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendBatchSmsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumberJson"] = request.phoneNumberJson;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignNameJson"] = request.signNameJson;
+    query["SmsUpExtendCodeJson"] = request.smsUpExtendCodeJson;
+    query["TemplateCode"] = request.templateCode;
+    query["TemplateParamJson"] = request.templateParamJson;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SendBatchSmsResponse>(await this.doRPCRequest("SendBatchSms", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendBatchSmsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendBatchSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SendBatchSmsResponse>(await this.callApi(params, req, runtime), new SendBatchSmsResponse({}));
   }
 
   async sendBatchSms(request: SendBatchSmsRequest): Promise<SendBatchSmsResponse> {
@@ -1356,30 +2874,144 @@ export default class Client extends OpenApi {
     return await this.sendBatchSmsWithOptions(request, runtime);
   }
 
-  async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
+  async sendCardSmsWithOptions(request: SendCardSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendCardSmsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CardObjects"] = request.cardObjects;
+    query["CardTemplateCode"] = request.cardTemplateCode;
+    query["DigitalTemplateCode"] = request.digitalTemplateCode;
+    query["DigitalTemplateParam"] = request.digitalTemplateParam;
+    query["FallbackType"] = request.fallbackType;
+    query["OutId"] = request.outId;
+    query["SignName"] = request.signName;
+    query["SmsTemplateCode"] = request.smsTemplateCode;
+    query["SmsTemplateParam"] = request.smsTemplateParam;
+    query["SmsUpExtendCode"] = request.smsUpExtendCode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SendMessageToGlobeResponse>(await this.doRPCRequest("SendMessageToGlobe", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendMessageToGlobeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendCardSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCardSmsResponse>(await this.callApi(params, req, runtime), new SendCardSmsResponse({}));
   }
 
-  async sendMessageToGlobe(request: SendMessageToGlobeRequest): Promise<SendMessageToGlobeResponse> {
+  async sendCardSms(request: SendCardSmsRequest): Promise<SendCardSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.sendMessageToGlobeWithOptions(request, runtime);
+    return await this.sendCardSmsWithOptions(request, runtime);
   }
 
   async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OutId"] = request.outId;
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumbers"] = request.phoneNumbers;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SignName"] = request.signName;
+    query["SmsUpExtendCode"] = request.smsUpExtendCode;
+    query["TemplateCode"] = request.templateCode;
+    query["TemplateParam"] = request.templateParam;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SendSmsResponse>(await this.doRPCRequest("SendSms", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new SendSmsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendSms",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SendSmsResponse>(await this.callApi(params, req, runtime), new SendSmsResponse({}));
   }
 
   async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendSmsWithOptions(request, runtime);
+  }
+
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["ProdCode"] = request.prodCode;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ResourceType"] = request.resourceType;
+    query["Tag"] = request.tag;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["All"] = request.all;
+    query["OwnerId"] = request.ownerId;
+    query["ProdCode"] = request.prodCode;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["ResourceType"] = request.resourceType;
+    query["TagKey"] = request.tagKey;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
 }

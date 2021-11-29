@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dysmsapi20170525",
-  "version": "2.0.2",
+  "version": "2.0.8",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -21,8 +21,9 @@
   "dependencies": {
     "@alicloud/tea-typescript": "^1.7.1",
     "@alicloud/tea-util": "^1.4.0",
-    "@alicloud/openapi-client": "^0.3.0",
-    "@alicloud/endpoint-util": "^0.0.1"
+    "@alicloud/openapi-client": "^0.3.8",
+    "@alicloud/endpoint-util": "^0.0.1",
+    "@alicloud/openapi-util": "^0.2.4"
   },
   "files": [
     "dist",
