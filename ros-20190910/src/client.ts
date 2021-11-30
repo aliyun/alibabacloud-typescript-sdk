@@ -805,6 +805,142 @@ export class CreateTemplateResponse extends $tea.Model {
   }
 }
 
+export class CreateTemplateScratchRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  executionMode?: string;
+  logicalIdStrategy?: string;
+  preferenceParameters?: CreateTemplateScratchRequestPreferenceParameters[];
+  regionId?: string;
+  sourceResourceGroup?: CreateTemplateScratchRequestSourceResourceGroup;
+  sourceResources?: CreateTemplateScratchRequestSourceResources[];
+  sourceTag?: CreateTemplateScratchRequestSourceTag;
+  templateScratchType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      regionId: 'RegionId',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      templateScratchType: 'TemplateScratchType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      executionMode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': CreateTemplateScratchRequestPreferenceParameters },
+      regionId: 'string',
+      sourceResourceGroup: CreateTemplateScratchRequestSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': CreateTemplateScratchRequestSourceResources },
+      sourceTag: CreateTemplateScratchRequestSourceTag,
+      templateScratchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  executionMode?: string;
+  logicalIdStrategy?: string;
+  preferenceParametersShrink?: string;
+  regionId?: string;
+  sourceResourceGroupShrink?: string;
+  sourceResourcesShrink?: string;
+  sourceTagShrink?: string;
+  templateScratchType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParametersShrink: 'PreferenceParameters',
+      regionId: 'RegionId',
+      sourceResourceGroupShrink: 'SourceResourceGroup',
+      sourceResourcesShrink: 'SourceResources',
+      sourceTagShrink: 'SourceTag',
+      templateScratchType: 'TemplateScratchType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      executionMode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParametersShrink: 'string',
+      regionId: 'string',
+      sourceResourceGroupShrink: 'string',
+      sourceResourcesShrink: 'string',
+      sourceTagShrink: 'string',
+      templateScratchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchResponseBody extends $tea.Model {
+  requestId?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateTemplateScratchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateTemplateScratchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteChangeSetRequest extends $tea.Model {
   changeSetId?: string;
   regionId?: string;
@@ -1185,6 +1321,69 @@ export class DeleteTemplateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateScratchRequest extends $tea.Model {
+  regionId?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateScratchResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteTemplateScratchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteTemplateScratchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteTemplateScratchResponseBody,
     };
   }
 
@@ -1582,6 +1781,78 @@ export class ExecuteChangeSetResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExecuteChangeSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplateByScratchRequest extends $tea.Model {
+  provisionRegionId?: string;
+  regionId?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      provisionRegionId: 'ProvisionRegionId',
+      regionId: 'RegionId',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      provisionRegionId: 'string',
+      regionId: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplateByScratchResponseBody extends $tea.Model {
+  requestId?: string;
+  resourcesToImport?: GenerateTemplateByScratchResponseBodyResourcesToImport[];
+  templateBody?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourcesToImport: 'ResourcesToImport',
+      templateBody: 'TemplateBody',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourcesToImport: { 'type': 'array', 'itemType': GenerateTemplateByScratchResponseBodyResourcesToImport },
+      templateBody: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplateByScratchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GenerateTemplateByScratchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GenerateTemplateByScratchResponseBody,
     };
   }
 
@@ -3007,6 +3278,75 @@ export class GetTemplateParameterConstraintsResponse extends $tea.Model {
   }
 }
 
+export class GetTemplateScratchRequest extends $tea.Model {
+  regionId?: string;
+  showDataOption?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      showDataOption: 'ShowDataOption',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      showDataOption: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBody extends $tea.Model {
+  requestId?: string;
+  templateScratch?: GetTemplateScratchResponseBodyTemplateScratch;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateScratch: 'TemplateScratch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateScratch: GetTemplateScratchResponseBodyTemplateScratch,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTemplateScratchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTemplateScratchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateSummaryRequest extends $tea.Model {
   changeSetId?: string;
   regionId?: string;
@@ -4210,6 +4550,93 @@ export class ListTagValuesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListTagValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  status?: string;
+  templateScratchId?: string;
+  templateScratchType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      status: 'Status',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchType: 'TemplateScratchType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      status: 'string',
+      templateScratchId: 'string',
+      templateScratchType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  templateScratches?: ListTemplateScratchesResponseBodyTemplateScratches[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      templateScratches: 'TemplateScratches',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      templateScratches: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratches },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTemplateScratchesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTemplateScratchesResponseBody,
     };
   }
 
@@ -5624,6 +6051,142 @@ export class UpdateTemplateResponse extends $tea.Model {
   }
 }
 
+export class UpdateTemplateScratchRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  executionMode?: string;
+  logicalIdStrategy?: string;
+  preferenceParameters?: UpdateTemplateScratchRequestPreferenceParameters[];
+  regionId?: string;
+  sourceResourceGroup?: UpdateTemplateScratchRequestSourceResourceGroup;
+  sourceResources?: UpdateTemplateScratchRequestSourceResources[];
+  sourceTag?: UpdateTemplateScratchRequestSourceTag;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      regionId: 'RegionId',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      executionMode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': UpdateTemplateScratchRequestPreferenceParameters },
+      regionId: 'string',
+      sourceResourceGroup: UpdateTemplateScratchRequestSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': UpdateTemplateScratchRequestSourceResources },
+      sourceTag: UpdateTemplateScratchRequestSourceTag,
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchShrinkRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  executionMode?: string;
+  logicalIdStrategy?: string;
+  preferenceParametersShrink?: string;
+  regionId?: string;
+  sourceResourceGroupShrink?: string;
+  sourceResourcesShrink?: string;
+  sourceTagShrink?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      executionMode: 'ExecutionMode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParametersShrink: 'PreferenceParameters',
+      regionId: 'RegionId',
+      sourceResourceGroupShrink: 'SourceResourceGroup',
+      sourceResourcesShrink: 'SourceResources',
+      sourceTagShrink: 'SourceTag',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      executionMode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParametersShrink: 'string',
+      regionId: 'string',
+      sourceResourceGroupShrink: 'string',
+      sourceResourcesShrink: 'string',
+      sourceTagShrink: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchResponseBody extends $tea.Model {
+  requestId?: string;
+  templateScratchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      templateScratchId: 'TemplateScratchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      templateScratchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateTemplateScratchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateTemplateScratchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateTemplateRequest extends $tea.Model {
   clientToken?: string;
   regionId?: string;
@@ -5947,6 +6510,94 @@ export class CreateStackInstancesShrinkRequestParameterOverrides extends $tea.Mo
   }
 }
 
+export class CreateTemplateScratchRequestPreferenceParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResourceGroup extends $tea.Model {
+  resourceGroupId?: string;
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTemplateScratchRequestSourceTag extends $tea.Model {
+  resourceTags?: { [key: string]: any };
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteStackInstancesRequestDeploymentTargets extends $tea.Model {
   rdFolderIds?: string[];
   static names(): { [key: string]: string } {
@@ -6011,6 +6662,31 @@ export class DetectStackResourceDriftResponseBodyPropertyDifferences extends $te
       differenceType: 'string',
       expectedValue: 'string',
       propertyPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplateByScratchResponseBodyResourcesToImport extends $tea.Model {
+  logicalResourceId?: string;
+  resourceIdentifier?: { [key: string]: any };
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logicalResourceId: 'LogicalResourceId',
+      resourceIdentifier: 'ResourceIdentifier',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logicalResourceId: 'string',
+      resourceIdentifier: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceType: 'string',
     };
   }
 
@@ -6905,6 +7581,177 @@ export class GetTemplateParameterConstraintsResponseBodyParameterConstraints ext
   }
 }
 
+export class GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup extends $tea.Model {
+  resourceGroupId?: string;
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $tea.Model {
+  resourceTags?: { [key: string]: any };
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $tea.Model {
+  regionId?: string;
+  stackId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      stackId: 'StackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      stackId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  failedCode?: string;
+  logicalIdStrategy?: string;
+  preferenceParameters?: GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters[];
+  sourceResourceGroup?: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup;
+  sourceResources?: GetTemplateScratchResponseBodyTemplateScratchSourceResources[];
+  sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
+  stacks?: GetTemplateScratchResponseBodyTemplateScratchStacks[];
+  status?: string;
+  statusReason?: string;
+  templateScratchData?: { [key: string]: any };
+  templateScratchId?: string;
+  templateScratchType?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      failedCode: 'FailedCode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      stacks: 'Stacks',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      templateScratchData: 'TemplateScratchData',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchType: 'TemplateScratchType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      failedCode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchPreferenceParameters },
+      sourceResourceGroup: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchSourceResources },
+      sourceTag: GetTemplateScratchResponseBodyTemplateScratchSourceTag,
+      stacks: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchStacks },
+      status: 'string',
+      statusReason: 'string',
+      templateScratchData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      templateScratchId: 'string',
+      templateScratchType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateSummaryResponseBodyResourceIdentifierSummaries extends $tea.Model {
   logicalResourceIds?: string[];
   resourceIdentifiers?: string[];
@@ -7519,6 +8366,149 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
+export class ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup extends $tea.Model {
+  resourceGroupId?: string;
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratchesSourceTag extends $tea.Model {
+  resourceTags?: { [key: string]: any };
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTemplateScratchesResponseBodyTemplateScratches extends $tea.Model {
+  createTime?: string;
+  description?: string;
+  failedCode?: string;
+  logicalIdStrategy?: string;
+  preferenceParameters?: ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters[];
+  sourceResourceGroup?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup;
+  sourceResources?: ListTemplateScratchesResponseBodyTemplateScratchesSourceResources[];
+  sourceTag?: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag;
+  status?: string;
+  statusReason?: string;
+  templateScratchId?: string;
+  templateScratchType?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      failedCode: 'FailedCode',
+      logicalIdStrategy: 'LogicalIdStrategy',
+      preferenceParameters: 'PreferenceParameters',
+      sourceResourceGroup: 'SourceResourceGroup',
+      sourceResources: 'SourceResources',
+      sourceTag: 'SourceTag',
+      status: 'Status',
+      statusReason: 'StatusReason',
+      templateScratchId: 'TemplateScratchId',
+      templateScratchType: 'TemplateScratchType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      description: 'string',
+      failedCode: 'string',
+      logicalIdStrategy: 'string',
+      preferenceParameters: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesPreferenceParameters },
+      sourceResourceGroup: ListTemplateScratchesResponseBodyTemplateScratchesSourceResourceGroup,
+      sourceResources: { 'type': 'array', 'itemType': ListTemplateScratchesResponseBodyTemplateScratchesSourceResources },
+      sourceTag: ListTemplateScratchesResponseBodyTemplateScratchesSourceTag,
+      status: 'string',
+      statusReason: 'string',
+      templateScratchId: 'string',
+      templateScratchType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTemplateVersionsResponseBodyVersions extends $tea.Model {
   createTime?: string;
   description?: string;
@@ -7962,6 +8952,94 @@ export class UpdateStackInstancesShrinkRequestParameterOverrides extends $tea.Mo
   }
 }
 
+export class UpdateTemplateScratchRequestPreferenceParameters extends $tea.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceResourceGroup extends $tea.Model {
+  resourceGroupId?: string;
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateTemplateScratchRequestSourceTag extends $tea.Model {
+  resourceTags?: { [key: string]: any };
+  resourceTypeFilter?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      resourceTags: 'ResourceTags',
+      resourceTypeFilter: 'ResourceTypeFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourceTypeFilter: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateTemplateResponseBodyOutputs extends $tea.Model {
   description?: string;
   outputKey?: string;
@@ -8009,10 +9087,26 @@ export default class Client extends OpenApi {
 
   async cancelUpdateStackWithOptions(request: CancelUpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpdateStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CancelType"] = request.cancelType;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelUpdateStackResponse>(await this.doRPCRequest("CancelUpdateStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CancelUpdateStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelUpdateStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelUpdateStackResponse>(await this.callApi(params, req, runtime), new CancelUpdateStackResponse({}));
   }
 
   async cancelUpdateStack(request: CancelUpdateStackRequest): Promise<CancelUpdateStackResponse> {
@@ -8022,10 +9116,35 @@ export default class Client extends OpenApi {
 
   async continueCreateStackWithOptions(request: ContinueCreateStackRequest, runtime: $Util.RuntimeOptions): Promise<ContinueCreateStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DryRun"] = request.dryRun;
+    query["Mode"] = request.mode;
+    query["Parallelism"] = request.parallelism;
+    query["Parameters"] = request.parameters;
+    query["RamRoleName"] = request.ramRoleName;
+    query["RecreatingResources"] = request.recreatingResources;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ContinueCreateStackResponse>(await this.doRPCRequest("ContinueCreateStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ContinueCreateStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ContinueCreateStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ContinueCreateStackResponse>(await this.callApi(params, req, runtime), new ContinueCreateStackResponse({}));
   }
 
   async continueCreateStack(request: ContinueCreateStackRequest): Promise<ContinueCreateStackResponse> {
@@ -8035,10 +9154,48 @@ export default class Client extends OpenApi {
 
   async createChangeSetWithOptions(request: CreateChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateChangeSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChangeSetName"] = request.changeSetName;
+    query["ChangeSetType"] = request.changeSetType;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["DisableRollback"] = request.disableRollback;
+    query["NotificationURLs"] = request.notificationURLs;
+    query["Parallelism"] = request.parallelism;
+    query["Parameters"] = request.parameters;
+    query["RamRoleName"] = request.ramRoleName;
+    query["RegionId"] = request.regionId;
+    query["ReplacementOption"] = request.replacementOption;
+    query["ResourcesToImport"] = request.resourcesToImport;
+    query["StackId"] = request.stackId;
+    query["StackName"] = request.stackName;
+    query["StackPolicyBody"] = request.stackPolicyBody;
+    query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
+    query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
+    query["StackPolicyURL"] = request.stackPolicyURL;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    query["UsePreviousParameters"] = request.usePreviousParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateChangeSetResponse>(await this.doRPCRequest("CreateChangeSet", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateChangeSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateChangeSet",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChangeSetResponse>(await this.callApi(params, req, runtime), new CreateChangeSetResponse({}));
   }
 
   async createChangeSet(request: CreateChangeSetRequest): Promise<CreateChangeSetResponse> {
@@ -8048,10 +9205,43 @@ export default class Client extends OpenApi {
 
   async createStackWithOptions(request: CreateStackRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["CreateOption"] = request.createOption;
+    query["DeletionProtection"] = request.deletionProtection;
+    query["DisableRollback"] = request.disableRollback;
+    query["NotificationURLs"] = request.notificationURLs;
+    query["Parallelism"] = request.parallelism;
+    query["Parameters"] = request.parameters;
+    query["RamRoleName"] = request.ramRoleName;
+    query["RegionId"] = request.regionId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["StackName"] = request.stackName;
+    query["StackPolicyBody"] = request.stackPolicyBody;
+    query["StackPolicyURL"] = request.stackPolicyURL;
+    query["Tags"] = request.tags;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateStackResponse>(await this.doRPCRequest("CreateStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStackResponse>(await this.callApi(params, req, runtime), new CreateStackResponse({}));
   }
 
   async createStack(request: CreateStackRequest): Promise<CreateStackResponse> {
@@ -8067,10 +9257,37 @@ export default class Client extends OpenApi {
       request.autoDeploymentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.autoDeployment), "AutoDeployment", "json");
     }
 
+    let query = { };
+    query["AdministrationRoleName"] = request.administrationRoleName;
+    query["AutoDeployment"] = request.autoDeploymentShrink;
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["ExecutionRoleName"] = request.executionRoleName;
+    query["Parameters"] = request.parameters;
+    query["PermissionModel"] = request.permissionModel;
+    query["RegionId"] = request.regionId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["StackGroupName"] = request.stackGroupName;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateStackGroupResponse>(await this.doRPCRequest("CreateStackGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateStackGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateStackGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStackGroupResponse>(await this.callApi(params, req, runtime), new CreateStackGroupResponse({}));
   }
 
   async createStackGroup(request: CreateStackGroupRequest): Promise<CreateStackGroupResponse> {
@@ -8098,10 +9315,34 @@ export default class Client extends OpenApi {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
+    let query = { };
+    query["AccountIds"] = request.accountIdsShrink;
+    query["ClientToken"] = request.clientToken;
+    query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    query["DisableRollback"] = request.disableRollback;
+    query["OperationDescription"] = request.operationDescription;
+    query["OperationPreferences"] = request.operationPreferencesShrink;
+    query["ParameterOverrides"] = request.parameterOverrides;
+    query["RegionId"] = request.regionId;
+    query["RegionIds"] = request.regionIdsShrink;
+    query["StackGroupName"] = request.stackGroupName;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateStackInstancesResponse>(await this.doRPCRequest("CreateStackInstances", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateStackInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateStackInstances",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStackInstancesResponse>(await this.callApi(params, req, runtime), new CreateStackInstancesResponse({}));
   }
 
   async createStackInstances(request: CreateStackInstancesRequest): Promise<CreateStackInstancesResponse> {
@@ -8111,10 +9352,28 @@ export default class Client extends OpenApi {
 
   async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateName"] = request.templateName;
+    query["TemplateURL"] = request.templateURL;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateTemplateResponse>(await this.doRPCRequest("CreateTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
@@ -8122,12 +9381,81 @@ export default class Client extends OpenApi {
     return await this.createTemplateWithOptions(request, runtime);
   }
 
-  async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChangeSetResponse> {
-    Util.validateModel(request);
+  async createTemplateScratchWithOptions(tmpReq: CreateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateScratchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateTemplateScratchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.preferenceParameters)) {
+      request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.sourceResourceGroup))) {
+      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceResourceGroup), "SourceResourceGroup", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceResources)) {
+      request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.sourceTag))) {
+      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceTag), "SourceTag", "json");
+    }
+
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["ExecutionMode"] = request.executionMode;
+    query["LogicalIdStrategy"] = request.logicalIdStrategy;
+    query["PreferenceParameters"] = request.preferenceParametersShrink;
+    query["RegionId"] = request.regionId;
+    query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
+    query["SourceResources"] = request.sourceResourcesShrink;
+    query["SourceTag"] = request.sourceTagShrink;
+    query["TemplateScratchType"] = request.templateScratchType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteChangeSetResponse>(await this.doRPCRequest("DeleteChangeSet", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteChangeSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTemplateScratch",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTemplateScratchResponse>(await this.callApi(params, req, runtime), new CreateTemplateScratchResponse({}));
+  }
+
+  async createTemplateScratch(request: CreateTemplateScratchRequest): Promise<CreateTemplateScratchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTemplateScratchWithOptions(request, runtime);
+  }
+
+  async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChangeSetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteChangeSet",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChangeSetResponse>(await this.callApi(params, req, runtime), new DeleteChangeSetResponse({}));
   }
 
   async deleteChangeSet(request: DeleteChangeSetRequest): Promise<DeleteChangeSetResponse> {
@@ -8137,10 +9465,28 @@ export default class Client extends OpenApi {
 
   async deleteStackWithOptions(request: DeleteStackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RamRoleName"] = request.ramRoleName;
+    query["RegionId"] = request.regionId;
+    query["RetainAllResources"] = request.retainAllResources;
+    query["RetainResources"] = request.retainResources;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteStackResponse>(await this.doRPCRequest("DeleteStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStackResponse>(await this.callApi(params, req, runtime), new DeleteStackResponse({}));
   }
 
   async deleteStack(request: DeleteStackRequest): Promise<DeleteStackResponse> {
@@ -8150,10 +9496,25 @@ export default class Client extends OpenApi {
 
   async deleteStackGroupWithOptions(request: DeleteStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteStackGroupResponse>(await this.doRPCRequest("DeleteStackGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteStackGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteStackGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStackGroupResponse>(await this.callApi(params, req, runtime), new DeleteStackGroupResponse({}));
   }
 
   async deleteStackGroup(request: DeleteStackGroupRequest): Promise<DeleteStackGroupResponse> {
@@ -8181,10 +9542,32 @@ export default class Client extends OpenApi {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
+    let query = { };
+    query["AccountIds"] = request.accountIdsShrink;
+    query["ClientToken"] = request.clientToken;
+    query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    query["OperationDescription"] = request.operationDescription;
+    query["OperationPreferences"] = request.operationPreferencesShrink;
+    query["RegionId"] = request.regionId;
+    query["RegionIds"] = request.regionIdsShrink;
+    query["RetainStacks"] = request.retainStacks;
+    query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteStackInstancesResponse>(await this.doRPCRequest("DeleteStackInstances", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteStackInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteStackInstances",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStackInstancesResponse>(await this.callApi(params, req, runtime), new DeleteStackInstancesResponse({}));
   }
 
   async deleteStackInstances(request: DeleteStackInstancesRequest): Promise<DeleteStackInstancesResponse> {
@@ -8194,10 +9577,24 @@ export default class Client extends OpenApi {
 
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteTemplateResponse>(await this.doRPCRequest("DeleteTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
   async deleteTemplate(request: DeleteTemplateRequest): Promise<DeleteTemplateResponse> {
@@ -8205,12 +9602,54 @@ export default class Client extends OpenApi {
     return await this.deleteTemplateWithOptions(request, runtime);
   }
 
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+  async deleteTemplateScratchWithOptions(request: DeleteTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateScratchResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTemplateScratch",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTemplateScratchResponse>(await this.callApi(params, req, runtime), new DeleteTemplateScratchResponse({}));
+  }
+
+  async deleteTemplateScratch(request: DeleteTemplateScratchRequest): Promise<DeleteTemplateScratchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteTemplateScratchWithOptions(request, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceptLanguage"] = request.acceptLanguage;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -8220,10 +9659,27 @@ export default class Client extends OpenApi {
 
   async detectStackDriftWithOptions(request: DetectStackDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackDriftResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetectStackDriftResponse>(await this.doRPCRequest("DetectStackDrift", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DetectStackDriftResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectStackDrift",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectStackDriftResponse>(await this.callApi(params, req, runtime), new DetectStackDriftResponse({}));
   }
 
   async detectStackDrift(request: DetectStackDriftRequest): Promise<DetectStackDriftResponse> {
@@ -8239,10 +9695,27 @@ export default class Client extends OpenApi {
       request.operationPreferencesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationPreferences, "OperationPreferences", "json");
     }
 
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["OperationPreferences"] = request.operationPreferencesShrink;
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetectStackGroupDriftResponse>(await this.doRPCRequest("DetectStackGroupDrift", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DetectStackGroupDriftResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectStackGroupDrift",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectStackGroupDriftResponse>(await this.callApi(params, req, runtime), new DetectStackGroupDriftResponse({}));
   }
 
   async detectStackGroupDrift(request: DetectStackGroupDriftRequest): Promise<DetectStackGroupDriftResponse> {
@@ -8252,10 +9725,27 @@ export default class Client extends OpenApi {
 
   async detectStackResourceDriftWithOptions(request: DetectStackResourceDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackResourceDriftResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetectStackResourceDriftResponse>(await this.doRPCRequest("DetectStackResourceDrift", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DetectStackResourceDriftResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectStackResourceDrift",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectStackResourceDriftResponse>(await this.callApi(params, req, runtime), new DetectStackResourceDriftResponse({}));
   }
 
   async detectStackResourceDrift(request: DetectStackResourceDriftRequest): Promise<DetectStackResourceDriftResponse> {
@@ -8265,10 +9755,26 @@ export default class Client extends OpenApi {
 
   async executeChangeSetWithOptions(request: ExecuteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteChangeSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteChangeSetResponse>(await this.doRPCRequest("ExecuteChangeSet", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteChangeSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteChangeSet",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteChangeSetResponse>(await this.callApi(params, req, runtime), new ExecuteChangeSetResponse({}));
   }
 
   async executeChangeSet(request: ExecuteChangeSetRequest): Promise<ExecuteChangeSetResponse> {
@@ -8276,12 +9782,58 @@ export default class Client extends OpenApi {
     return await this.executeChangeSetWithOptions(request, runtime);
   }
 
-  async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
+  async generateTemplateByScratchWithOptions(request: GenerateTemplateByScratchRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplateByScratchResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ProvisionRegionId"] = request.provisionRegionId;
+    query["RegionId"] = request.regionId;
+    query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GenerateTemplatePolicyResponse>(await this.doRPCRequest("GenerateTemplatePolicy", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateTemplatePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateTemplateByScratch",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateTemplateByScratchResponse>(await this.callApi(params, req, runtime), new GenerateTemplateByScratchResponse({}));
+  }
+
+  async generateTemplateByScratch(request: GenerateTemplateByScratchRequest): Promise<GenerateTemplateByScratchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.generateTemplateByScratchWithOptions(request, runtime);
+  }
+
+  async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateTemplatePolicy",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateTemplatePolicyResponse>(await this.callApi(params, req, runtime), new GenerateTemplatePolicyResponse({}));
   }
 
   async generateTemplatePolicy(request: GenerateTemplatePolicyRequest): Promise<GenerateTemplatePolicyResponse> {
@@ -8291,10 +9843,26 @@ export default class Client extends OpenApi {
 
   async getChangeSetWithOptions(request: GetChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<GetChangeSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["RegionId"] = request.regionId;
+    query["ShowTemplate"] = request.showTemplate;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetChangeSetResponse>(await this.doRPCRequest("GetChangeSet", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetChangeSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetChangeSet",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChangeSetResponse>(await this.callApi(params, req, runtime), new GetChangeSetResponse({}));
   }
 
   async getChangeSet(request: GetChangeSetRequest): Promise<GetChangeSetResponse> {
@@ -8304,10 +9872,25 @@ export default class Client extends OpenApi {
 
   async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Feature"] = request.feature;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetFeatureDetailsResponse>(await this.doRPCRequest("GetFeatureDetails", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetFeatureDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFeatureDetails",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFeatureDetailsResponse>(await this.callApi(params, req, runtime), new GetFeatureDetailsResponse({}));
   }
 
   async getFeatureDetails(request: GetFeatureDetailsRequest): Promise<GetFeatureDetailsResponse> {
@@ -8317,10 +9900,24 @@ export default class Client extends OpenApi {
 
   async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetResourceTypeResponse>(await this.doRPCRequest("GetResourceType", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetResourceTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourceType",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
   }
 
   async getResourceType(request: GetResourceTypeRequest): Promise<GetResourceTypeResponse> {
@@ -8330,10 +9927,24 @@ export default class Client extends OpenApi {
 
   async getResourceTypeTemplateWithOptions(request: GetResourceTypeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetResourceTypeTemplateResponse>(await this.doRPCRequest("GetResourceTypeTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetResourceTypeTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourceTypeTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceTypeTemplateResponse>(await this.callApi(params, req, runtime), new GetResourceTypeTemplateResponse({}));
   }
 
   async getResourceTypeTemplate(request: GetResourceTypeTemplateRequest): Promise<GetResourceTypeTemplateResponse> {
@@ -8343,10 +9954,30 @@ export default class Client extends OpenApi {
 
   async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Parameters"] = request.parameters;
+    query["RegionId"] = request.regionId;
+    query["Services"] = request.services;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetServiceProvisionsResponse>(await this.doRPCRequest("GetServiceProvisions", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceProvisionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetServiceProvisions",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
   }
 
   async getServiceProvisions(request: GetServiceProvisionsRequest): Promise<GetServiceProvisionsResponse> {
@@ -8356,10 +9987,28 @@ export default class Client extends OpenApi {
 
   async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["OutputOption"] = request.outputOption;
+    query["RegionId"] = request.regionId;
+    query["ShowResourceProgress"] = request.showResourceProgress;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackResponse>(await this.doRPCRequest("GetStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
   }
 
   async getStack(request: GetStackRequest): Promise<GetStackResponse> {
@@ -8369,10 +10018,25 @@ export default class Client extends OpenApi {
 
   async getStackDriftDetectionStatusWithOptions(request: GetStackDriftDetectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetStackDriftDetectionStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DriftDetectionId"] = request.driftDetectionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackDriftDetectionStatusResponse>(await this.doRPCRequest("GetStackDriftDetectionStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackDriftDetectionStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackDriftDetectionStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackDriftDetectionStatusResponse>(await this.callApi(params, req, runtime), new GetStackDriftDetectionStatusResponse({}));
   }
 
   async getStackDriftDetectionStatus(request: GetStackDriftDetectionStatusRequest): Promise<GetStackDriftDetectionStatusResponse> {
@@ -8382,10 +10046,26 @@ export default class Client extends OpenApi {
 
   async getStackGroupWithOptions(request: GetStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackGroupId"] = request.stackGroupId;
+    query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackGroupResponse>(await this.doRPCRequest("GetStackGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackGroupResponse>(await this.callApi(params, req, runtime), new GetStackGroupResponse({}));
   }
 
   async getStackGroup(request: GetStackGroupRequest): Promise<GetStackGroupResponse> {
@@ -8395,10 +10075,25 @@ export default class Client extends OpenApi {
 
   async getStackGroupOperationWithOptions(request: GetStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupOperationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OperationId"] = request.operationId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackGroupOperationResponse>(await this.doRPCRequest("GetStackGroupOperation", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackGroupOperationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackGroupOperation",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackGroupOperationResponse>(await this.callApi(params, req, runtime), new GetStackGroupOperationResponse({}));
   }
 
   async getStackGroupOperation(request: GetStackGroupOperationRequest): Promise<GetStackGroupOperationResponse> {
@@ -8408,10 +10103,27 @@ export default class Client extends OpenApi {
 
   async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
+    query["StackInstanceAccountId"] = request.stackInstanceAccountId;
+    query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackInstanceResponse>(await this.doRPCRequest("GetStackInstance", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackInstance",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackInstanceResponse>(await this.callApi(params, req, runtime), new GetStackInstanceResponse({}));
   }
 
   async getStackInstance(request: GetStackInstanceRequest): Promise<GetStackInstanceResponse> {
@@ -8421,10 +10133,25 @@ export default class Client extends OpenApi {
 
   async getStackPolicyWithOptions(request: GetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetStackPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackPolicyResponse>(await this.doRPCRequest("GetStackPolicy", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackPolicy",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackPolicyResponse>(await this.callApi(params, req, runtime), new GetStackPolicyResponse({}));
   }
 
   async getStackPolicy(request: GetStackPolicyRequest): Promise<GetStackPolicyResponse> {
@@ -8434,10 +10161,28 @@ export default class Client extends OpenApi {
 
   async getStackResourceWithOptions(request: GetStackResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["RegionId"] = request.regionId;
+    query["ShowResourceAttributes"] = request.showResourceAttributes;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStackResourceResponse>(await this.doRPCRequest("GetStackResource", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetStackResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStackResource",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStackResourceResponse>(await this.callApi(params, req, runtime), new GetStackResourceResponse({}));
   }
 
   async getStackResource(request: GetStackResourceRequest): Promise<GetStackResourceResponse> {
@@ -8447,10 +10192,31 @@ export default class Client extends OpenApi {
 
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["IncludePermission"] = request.includePermission;
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
+    query["StackId"] = request.stackId;
+    query["TemplateId"] = request.templateId;
+    query["TemplateStage"] = request.templateStage;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTemplateResponse>(await this.doRPCRequest("GetTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
   async getTemplate(request: GetTemplateRequest): Promise<GetTemplateResponse> {
@@ -8460,10 +10226,30 @@ export default class Client extends OpenApi {
 
   async getTemplateEstimateCostWithOptions(request: GetTemplateEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateEstimateCostResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Parameters"] = request.parameters;
+    query["RegionId"] = request.regionId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTemplateEstimateCostResponse>(await this.doRPCRequest("GetTemplateEstimateCost", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateEstimateCostResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplateEstimateCost",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateEstimateCostResponse>(await this.callApi(params, req, runtime), new GetTemplateEstimateCostResponse({}));
   }
 
   async getTemplateEstimateCost(request: GetTemplateEstimateCostRequest): Promise<GetTemplateEstimateCostResponse> {
@@ -8479,10 +10265,31 @@ export default class Client extends OpenApi {
       request.parametersKeyFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parametersKeyFilter, "ParametersKeyFilter", "json");
     }
 
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Parameters"] = request.parameters;
+    query["ParametersKeyFilter"] = request.parametersKeyFilterShrink;
+    query["RegionId"] = request.regionId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.doRPCRequest("GetTemplateParameterConstraints", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateParameterConstraintsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplateParameterConstraints",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
   }
 
   async getTemplateParameterConstraints(request: GetTemplateParameterConstraintsRequest): Promise<GetTemplateParameterConstraintsResponse> {
@@ -8490,12 +10297,62 @@ export default class Client extends OpenApi {
     return await this.getTemplateParameterConstraintsWithOptions(request, runtime);
   }
 
-  async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
+  async getTemplateScratchWithOptions(request: GetTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateScratchResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ShowDataOption"] = request.showDataOption;
+    query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetTemplateSummaryResponse>(await this.doRPCRequest("GetTemplateSummary", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new GetTemplateSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTemplateScratch",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateScratchResponse>(await this.callApi(params, req, runtime), new GetTemplateScratchResponse({}));
+  }
+
+  async getTemplateScratch(request: GetTemplateScratchRequest): Promise<GetTemplateScratchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateScratchWithOptions(request, runtime);
+  }
+
+  async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
+    query["StackId"] = request.stackId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemplateSummary",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateSummaryResponse>(await this.callApi(params, req, runtime), new GetTemplateSummaryResponse({}));
   }
 
   async getTemplateSummary(request: GetTemplateSummaryRequest): Promise<GetTemplateSummaryResponse> {
@@ -8505,10 +10362,31 @@ export default class Client extends OpenApi {
 
   async listChangeSetsWithOptions(request: ListChangeSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListChangeSetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChangeSetId"] = request.changeSetId;
+    query["ChangeSetName"] = request.changeSetName;
+    query["ExecutionStatus"] = request.executionStatus;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListChangeSetsResponse>(await this.doRPCRequest("ListChangeSets", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListChangeSetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListChangeSets",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChangeSetsResponse>(await this.callApi(params, req, runtime), new ListChangeSetsResponse({}));
   }
 
   async listChangeSets(request: ListChangeSetsRequest): Promise<ListChangeSetsResponse> {
@@ -8518,7 +10396,18 @@ export default class Client extends OpenApi {
 
   async listResourceTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListResourceTypesResponse>(await this.doRPCRequest("ListResourceTypes", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListResourceTypesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResourceTypes",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
   }
 
   async listResourceTypes(): Promise<ListResourceTypesResponse> {
@@ -8528,10 +10417,30 @@ export default class Client extends OpenApi {
 
   async listStackEventsWithOptions(request: ListStackEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
+    query["StackId"] = request.stackId;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackEventsResponse>(await this.doRPCRequest("ListStackEvents", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackEvents",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackEventsResponse>(await this.callApi(params, req, runtime), new ListStackEventsResponse({}));
   }
 
   async listStackEvents(request: ListStackEventsRequest): Promise<ListStackEventsResponse> {
@@ -8541,10 +10450,27 @@ export default class Client extends OpenApi {
 
   async listStackGroupOperationResultsWithOptions(request: ListStackGroupOperationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationResultsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OperationId"] = request.operationId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackGroupOperationResultsResponse>(await this.doRPCRequest("ListStackGroupOperationResults", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackGroupOperationResultsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackGroupOperationResults",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackGroupOperationResultsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationResultsResponse({}));
   }
 
   async listStackGroupOperationResults(request: ListStackGroupOperationResultsRequest): Promise<ListStackGroupOperationResultsResponse> {
@@ -8554,10 +10480,27 @@ export default class Client extends OpenApi {
 
   async listStackGroupOperationsWithOptions(request: ListStackGroupOperationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackGroupOperationsResponse>(await this.doRPCRequest("ListStackGroupOperations", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackGroupOperationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackGroupOperations",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackGroupOperationsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationsResponse({}));
   }
 
   async listStackGroupOperations(request: ListStackGroupOperationsRequest): Promise<ListStackGroupOperationsResponse> {
@@ -8567,10 +10510,28 @@ export default class Client extends OpenApi {
 
   async listStackGroupsWithOptions(request: ListStackGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackGroupsResponse>(await this.doRPCRequest("ListStackGroups", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackGroups",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackGroupsResponse>(await this.callApi(params, req, runtime), new ListStackGroupsResponse({}));
   }
 
   async listStackGroups(request: ListStackGroupsRequest): Promise<ListStackGroupsResponse> {
@@ -8580,10 +10541,29 @@ export default class Client extends OpenApi {
 
   async listStackInstancesWithOptions(request: ListStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["StackGroupName"] = request.stackGroupName;
+    query["StackInstanceAccountId"] = request.stackInstanceAccountId;
+    query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackInstancesResponse>(await this.doRPCRequest("ListStackInstances", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackInstances",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackInstancesResponse>(await this.callApi(params, req, runtime), new ListStackInstancesResponse({}));
   }
 
   async listStackInstances(request: ListStackInstancesRequest): Promise<ListStackInstancesResponse> {
@@ -8593,10 +10573,30 @@ export default class Client extends OpenApi {
 
   async listStackOperationRisksWithOptions(request: ListStackOperationRisksRequest, runtime: $Util.RuntimeOptions): Promise<ListStackOperationRisksResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["OperationType"] = request.operationType;
+    query["RamRoleName"] = request.ramRoleName;
+    query["RegionId"] = request.regionId;
+    query["RetainAllResources"] = request.retainAllResources;
+    query["RetainResources"] = request.retainResources;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackOperationRisksResponse>(await this.doRPCRequest("ListStackOperationRisks", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackOperationRisksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackOperationRisks",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackOperationRisksResponse>(await this.callApi(params, req, runtime), new ListStackOperationRisksResponse({}));
   }
 
   async listStackOperationRisks(request: ListStackOperationRisksRequest): Promise<ListStackOperationRisksResponse> {
@@ -8606,10 +10606,28 @@ export default class Client extends OpenApi {
 
   async listStackResourceDriftsWithOptions(request: ListStackResourceDriftsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourceDriftsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ResourceDriftStatus"] = request.resourceDriftStatus;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackResourceDriftsResponse>(await this.doRPCRequest("ListStackResourceDrifts", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackResourceDriftsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackResourceDrifts",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackResourceDriftsResponse>(await this.callApi(params, req, runtime), new ListStackResourceDriftsResponse({}));
   }
 
   async listStackResourceDrifts(request: ListStackResourceDriftsRequest): Promise<ListStackResourceDriftsResponse> {
@@ -8619,10 +10637,25 @@ export default class Client extends OpenApi {
 
   async listStackResourcesWithOptions(request: ListStackResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStackResourcesResponse>(await this.doRPCRequest("ListStackResources", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStackResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStackResources",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStackResourcesResponse>(await this.callApi(params, req, runtime), new ListStackResourcesResponse({}));
   }
 
   async listStackResources(request: ListStackResourcesRequest): Promise<ListStackResourcesResponse> {
@@ -8632,10 +10665,34 @@ export default class Client extends OpenApi {
 
   async listStacksWithOptions(request: ListStacksRequest, runtime: $Util.RuntimeOptions): Promise<ListStacksResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ParentStackId"] = request.parentStackId;
+    query["RegionId"] = request.regionId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["ShowNestedStack"] = request.showNestedStack;
+    query["StackId"] = request.stackId;
+    query["StackIds"] = request.stackIds;
+    query["StackName"] = request.stackName;
+    query["Status"] = request.status;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListStacksResponse>(await this.doRPCRequest("ListStacks", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListStacksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStacks",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStacksResponse>(await this.callApi(params, req, runtime), new ListStacksResponse({}));
   }
 
   async listStacks(request: ListStacksRequest): Promise<ListStacksResponse> {
@@ -8645,10 +10702,26 @@ export default class Client extends OpenApi {
 
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagKeysResponse>(await this.doRPCRequest("ListTagKeys", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagKeysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
@@ -8658,10 +10731,28 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -8671,10 +10762,27 @@ export default class Client extends OpenApi {
 
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Key"] = request.key;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagValuesResponse>(await this.doRPCRequest("ListTagValues", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagValuesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagValues",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
@@ -8682,12 +10790,60 @@ export default class Client extends OpenApi {
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
-  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
+  async listTemplateScratchesWithOptions(request: ListTemplateScratchesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateScratchesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["Status"] = request.status;
+    query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateScratchType"] = request.templateScratchType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTemplateVersionsResponse>(await this.doRPCRequest("ListTemplateVersions", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplateVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTemplateScratches",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplateScratchesResponse>(await this.callApi(params, req, runtime), new ListTemplateScratchesResponse({}));
+  }
+
+  async listTemplateScratches(request: ListTemplateScratchesRequest): Promise<ListTemplateScratchesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTemplateScratchesWithOptions(request, runtime);
+  }
+
+  async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["TemplateId"] = request.templateId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTemplateVersions",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
   }
 
   async listTemplateVersions(request: ListTemplateVersionsRequest): Promise<ListTemplateVersionsResponse> {
@@ -8697,10 +10853,29 @@ export default class Client extends OpenApi {
 
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["ShareType"] = request.shareType;
+    query["Tag"] = request.tag;
+    query["TemplateName"] = request.templateName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTemplatesResponse>(await this.doRPCRequest("ListTemplates", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ListTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTemplates",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
@@ -8710,10 +10885,27 @@ export default class Client extends OpenApi {
 
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["NewResourceGroupId"] = request.newResourceGroupId;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<MoveResourceGroupResponse>(await this.doRPCRequest("MoveResourceGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new MoveResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveResourceGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
   }
 
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
@@ -8723,10 +10915,36 @@ export default class Client extends OpenApi {
 
   async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DisableRollback"] = request.disableRollback;
+    query["Parallelism"] = request.parallelism;
+    query["Parameters"] = request.parameters;
+    query["RegionId"] = request.regionId;
+    query["StackName"] = request.stackName;
+    query["StackPolicyBody"] = request.stackPolicyBody;
+    query["StackPolicyURL"] = request.stackPolicyURL;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<PreviewStackResponse>(await this.doRPCRequest("PreviewStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new PreviewStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PreviewStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PreviewStackResponse>(await this.callApi(params, req, runtime), new PreviewStackResponse({}));
   }
 
   async previewStack(request: PreviewStackRequest): Promise<PreviewStackResponse> {
@@ -8736,10 +10954,26 @@ export default class Client extends OpenApi {
 
   async setDeletionProtectionWithOptions(request: SetDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetDeletionProtectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DeletionProtection"] = request.deletionProtection;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetDeletionProtectionResponse>(await this.doRPCRequest("SetDeletionProtection", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new SetDeletionProtectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDeletionProtection",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
   }
 
   async setDeletionProtection(request: SetDeletionProtectionRequest): Promise<SetDeletionProtectionResponse> {
@@ -8749,10 +10983,27 @@ export default class Client extends OpenApi {
 
   async setStackPolicyWithOptions(request: SetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetStackPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
+    query["StackPolicyBody"] = request.stackPolicyBody;
+    query["StackPolicyURL"] = request.stackPolicyURL;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetStackPolicyResponse>(await this.doRPCRequest("SetStackPolicy", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new SetStackPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetStackPolicy",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetStackPolicyResponse>(await this.callApi(params, req, runtime), new SetStackPolicyResponse({}));
   }
 
   async setStackPolicy(request: SetStackPolicyRequest): Promise<SetStackPolicyResponse> {
@@ -8762,10 +11013,28 @@ export default class Client extends OpenApi {
 
   async setTemplatePermissionWithOptions(request: SetTemplatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetTemplatePermissionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccountIds"] = request.accountIds;
+    query["ShareOption"] = request.shareOption;
+    query["TemplateId"] = request.templateId;
+    query["TemplateVersion"] = request.templateVersion;
+    query["VersionOption"] = request.versionOption;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetTemplatePermissionResponse>(await this.doRPCRequest("SetTemplatePermission", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new SetTemplatePermissionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetTemplatePermission",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetTemplatePermissionResponse>(await this.callApi(params, req, runtime), new SetTemplatePermissionResponse({}));
   }
 
   async setTemplatePermission(request: SetTemplatePermissionRequest): Promise<SetTemplatePermissionResponse> {
@@ -8775,10 +11044,29 @@ export default class Client extends OpenApi {
 
   async signalResourceWithOptions(request: SignalResourceRequest, runtime: $Util.RuntimeOptions): Promise<SignalResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
+    query["Status"] = request.status;
+    query["UniqueId"] = request.uniqueId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SignalResourceResponse>(await this.doRPCRequest("SignalResource", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new SignalResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SignalResource",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SignalResourceResponse>(await this.callApi(params, req, runtime), new SignalResourceResponse({}));
   }
 
   async signalResource(request: SignalResourceRequest): Promise<SignalResourceResponse> {
@@ -8788,10 +11076,25 @@ export default class Client extends OpenApi {
 
   async stopStackGroupOperationWithOptions(request: StopStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<StopStackGroupOperationResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OperationId"] = request.operationId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StopStackGroupOperationResponse>(await this.doRPCRequest("StopStackGroupOperation", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new StopStackGroupOperationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopStackGroupOperation",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StopStackGroupOperationResponse>(await this.callApi(params, req, runtime), new StopStackGroupOperationResponse({}));
   }
 
   async stopStackGroupOperation(request: StopStackGroupOperationRequest): Promise<StopStackGroupOperationResponse> {
@@ -8801,10 +11104,27 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -8814,10 +11134,28 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["All"] = request.all;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
+    query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -8827,10 +11165,42 @@ export default class Client extends OpenApi {
 
   async updateStackWithOptions(request: UpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DisableRollback"] = request.disableRollback;
+    query["Parallelism"] = request.parallelism;
+    query["Parameters"] = request.parameters;
+    query["RamRoleName"] = request.ramRoleName;
+    query["RegionId"] = request.regionId;
+    query["ReplacementOption"] = request.replacementOption;
+    query["StackId"] = request.stackId;
+    query["StackPolicyBody"] = request.stackPolicyBody;
+    query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
+    query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
+    query["StackPolicyURL"] = request.stackPolicyURL;
+    query["Tags"] = request.tags;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    query["UsePreviousParameters"] = request.usePreviousParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateStackResponse>(await this.doRPCRequest("UpdateStack", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateStackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateStack",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStackResponse>(await this.callApi(params, req, runtime), new UpdateStackResponse({}));
   }
 
   async updateStack(request: UpdateStackRequest): Promise<UpdateStackResponse> {
@@ -8862,10 +11232,41 @@ export default class Client extends OpenApi {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
+    let query = { };
+    query["AccountIds"] = request.accountIdsShrink;
+    query["AdministrationRoleName"] = request.administrationRoleName;
+    query["AutoDeployment"] = request.autoDeploymentShrink;
+    query["ClientToken"] = request.clientToken;
+    query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    query["Description"] = request.description;
+    query["ExecutionRoleName"] = request.executionRoleName;
+    query["OperationDescription"] = request.operationDescription;
+    query["OperationPreferences"] = request.operationPreferencesShrink;
+    query["Parameters"] = request.parameters;
+    query["PermissionModel"] = request.permissionModel;
+    query["RegionId"] = request.regionId;
+    query["RegionIds"] = request.regionIdsShrink;
+    query["StackGroupName"] = request.stackGroupName;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateURL"] = request.templateURL;
+    query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateStackGroupResponse>(await this.doRPCRequest("UpdateStackGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateStackGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateStackGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStackGroupResponse>(await this.callApi(params, req, runtime), new UpdateStackGroupResponse({}));
   }
 
   async updateStackGroup(request: UpdateStackGroupRequest): Promise<UpdateStackGroupResponse> {
@@ -8893,10 +11294,33 @@ export default class Client extends OpenApi {
       request.regionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.regionIds, "RegionIds", "json");
     }
 
+    let query = { };
+    query["AccountIds"] = request.accountIdsShrink;
+    query["ClientToken"] = request.clientToken;
+    query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    query["OperationDescription"] = request.operationDescription;
+    query["OperationPreferences"] = request.operationPreferencesShrink;
+    query["ParameterOverrides"] = request.parameterOverrides;
+    query["RegionId"] = request.regionId;
+    query["RegionIds"] = request.regionIdsShrink;
+    query["StackGroupName"] = request.stackGroupName;
+    query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateStackInstancesResponse>(await this.doRPCRequest("UpdateStackInstances", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateStackInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateStackInstances",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStackInstancesResponse>(await this.callApi(params, req, runtime), new UpdateStackInstancesResponse({}));
   }
 
   async updateStackInstances(request: UpdateStackInstancesRequest): Promise<UpdateStackInstancesResponse> {
@@ -8906,10 +11330,29 @@ export default class Client extends OpenApi {
 
   async updateStackTemplateByResourcesWithOptions(request: UpdateStackTemplateByResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackTemplateByResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["LogicalResourceId"] = request.logicalResourceId;
+    query["RegionId"] = request.regionId;
+    query["StackId"] = request.stackId;
+    query["TemplateFormat"] = request.templateFormat;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateStackTemplateByResourcesResponse>(await this.doRPCRequest("UpdateStackTemplateByResources", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateStackTemplateByResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateStackTemplateByResources",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateStackTemplateByResourcesResponse>(await this.callApi(params, req, runtime), new UpdateStackTemplateByResourcesResponse({}));
   }
 
   async updateStackTemplateByResources(request: UpdateStackTemplateByResourcesRequest): Promise<UpdateStackTemplateByResourcesResponse> {
@@ -8919,10 +11362,28 @@ export default class Client extends OpenApi {
 
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Description"] = request.description;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateId"] = request.templateId;
+    query["TemplateName"] = request.templateName;
+    query["TemplateURL"] = request.templateURL;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateTemplateResponse>(await this.doRPCRequest("UpdateTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateTemplate(request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -8930,12 +11391,84 @@ export default class Client extends OpenApi {
     return await this.updateTemplateWithOptions(request, runtime);
   }
 
-  async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateResponse> {
-    Util.validateModel(request);
+  async updateTemplateScratchWithOptions(tmpReq: UpdateTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateScratchResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateTemplateScratchShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.preferenceParameters)) {
+      request.preferenceParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.preferenceParameters, "PreferenceParameters", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.sourceResourceGroup))) {
+      request.sourceResourceGroupShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceResourceGroup), "SourceResourceGroup", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sourceResources)) {
+      request.sourceResourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceResources, "SourceResources", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.sourceTag))) {
+      request.sourceTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.sourceTag), "SourceTag", "json");
+    }
+
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["ExecutionMode"] = request.executionMode;
+    query["LogicalIdStrategy"] = request.logicalIdStrategy;
+    query["PreferenceParameters"] = request.preferenceParametersShrink;
+    query["RegionId"] = request.regionId;
+    query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
+    query["SourceResources"] = request.sourceResourcesShrink;
+    query["SourceTag"] = request.sourceTagShrink;
+    query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ValidateTemplateResponse>(await this.doRPCRequest("ValidateTemplate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ValidateTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTemplateScratch",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTemplateScratchResponse>(await this.callApi(params, req, runtime), new UpdateTemplateScratchResponse({}));
+  }
+
+  async updateTemplateScratch(request: UpdateTemplateScratchRequest): Promise<UpdateTemplateScratchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateTemplateScratchWithOptions(request, runtime);
+  }
+
+  async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
+    query["TemplateBody"] = request.templateBody;
+    query["TemplateURL"] = request.templateURL;
+    query["ValidationOption"] = request.validationOption;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ValidateTemplate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateTemplateResponse>(await this.callApi(params, req, runtime), new ValidateTemplateResponse({}));
   }
 
   async validateTemplate(request: ValidateTemplateRequest): Promise<ValidateTemplateResponse> {
