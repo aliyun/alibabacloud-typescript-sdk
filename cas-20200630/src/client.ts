@@ -8,38 +8,146 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CreateClientCertificateRequest extends $tea.Model {
-  sanType?: number;
-  sanValue?: string;
-  commonName?: string;
-  algorithm?: string;
-  days?: number;
-  parentIdentifier?: string;
-  beforeTime?: number;
+export class CreateCertificateWithExtensionRequest extends $tea.Model {
   afterTime?: number;
+  algorithmKeySize?: number;
+  aliasName?: string;
+  appendCrl?: boolean;
+  basicConstraintsCritical?: boolean;
+  beforeTime?: number;
+  certType?: string;
+  commonName?: string;
+  countryCode?: string;
+  csrPemString?: string;
+  locality?: string;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sans?: string;
+  state?: string;
   static names(): { [key: string]: string } {
     return {
-      sanType: 'SanType',
-      sanValue: 'SanValue',
-      commonName: 'CommonName',
-      algorithm: 'Algorithm',
-      days: 'Days',
-      parentIdentifier: 'ParentIdentifier',
-      beforeTime: 'BeforeTime',
       afterTime: 'AfterTime',
+      algorithmKeySize: 'AlgorithmKeySize',
+      aliasName: 'AliasName',
+      appendCrl: 'AppendCrl',
+      basicConstraintsCritical: 'BasicConstraintsCritical',
+      beforeTime: 'BeforeTime',
+      certType: 'CertType',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      csrPemString: 'CsrPemString',
+      locality: 'Locality',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sans: 'Sans',
+      state: 'State',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sanType: 'number',
-      sanValue: 'string',
+      afterTime: 'number',
+      algorithmKeySize: 'number',
+      aliasName: 'string',
+      appendCrl: 'boolean',
+      basicConstraintsCritical: 'boolean',
+      beforeTime: 'number',
+      certType: 'string',
       commonName: 'string',
+      countryCode: 'string',
+      csrPemString: 'string',
+      locality: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sans: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateWithExtensionResponseBody extends $tea.Model {
+  identifier?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'Identifier',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateWithExtensionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCertificateWithExtensionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCertificateWithExtensionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientCertificateRequest extends $tea.Model {
+  afterTime?: number;
+  algorithm?: string;
+  beforeTime?: number;
+  commonName?: string;
+  days?: number;
+  parentIdentifier?: string;
+  sanType?: number;
+  sanValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      afterTime: 'AfterTime',
+      algorithm: 'Algorithm',
+      beforeTime: 'BeforeTime',
+      commonName: 'CommonName',
+      days: 'Days',
+      parentIdentifier: 'ParentIdentifier',
+      sanType: 'SanType',
+      sanValue: 'SanValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      afterTime: 'number',
       algorithm: 'string',
+      beforeTime: 'number',
+      commonName: 'string',
       days: 'number',
       parentIdentifier: 'string',
-      beforeTime: 'number',
-      afterTime: 'number',
+      sanType: 'number',
+      sanValue: 'string',
     };
   }
 
@@ -50,16 +158,16 @@ export class CreateClientCertificateRequest extends $tea.Model {
 
 export class CreateClientCertificateResponseBody extends $tea.Model {
   identifier?: string;
-  rootX509Certificate?: string;
   parentX509Certificate?: string;
   requestId?: string;
+  rootX509Certificate?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
-      rootX509Certificate: 'RootX509Certificate',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
+      rootX509Certificate: 'RootX509Certificate',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -67,9 +175,9 @@ export class CreateClientCertificateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
-      rootX509Certificate: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
+      rootX509Certificate: 'string',
       x509Certificate: 'string',
     };
   }
@@ -102,34 +210,34 @@ export class CreateClientCertificateResponse extends $tea.Model {
 }
 
 export class CreateClientCertificateWithCsrRequest extends $tea.Model {
+  afterTime?: number;
+  beforeTime?: number;
   csr?: string;
-  sanType?: number;
-  sanValue?: string;
   days?: number;
   parentIdentifier?: string;
-  beforeTime?: number;
-  afterTime?: number;
+  sanType?: number;
+  sanValue?: string;
   static names(): { [key: string]: string } {
     return {
+      afterTime: 'AfterTime',
+      beforeTime: 'BeforeTime',
       csr: 'Csr',
-      sanType: 'SanType',
-      sanValue: 'SanValue',
       days: 'Days',
       parentIdentifier: 'ParentIdentifier',
-      beforeTime: 'BeforeTime',
-      afterTime: 'AfterTime',
+      sanType: 'SanType',
+      sanValue: 'SanValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      afterTime: 'number',
+      beforeTime: 'number',
       csr: 'string',
-      sanType: 'number',
-      sanValue: 'string',
       days: 'number',
       parentIdentifier: 'string',
-      beforeTime: 'number',
-      afterTime: 'number',
+      sanType: 'number',
+      sanValue: 'string',
     };
   }
 
@@ -140,16 +248,16 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
 
 export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
   identifier?: string;
-  rootX509Certificate?: string;
   parentX509Certificate?: string;
   requestId?: string;
+  rootX509Certificate?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
-      rootX509Certificate: 'RootX509Certificate',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
+      rootX509Certificate: 'RootX509Certificate',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -157,9 +265,9 @@ export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
-      rootX509Certificate: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
+      rootX509Certificate: 'string',
       x509Certificate: 'string',
     };
   }
@@ -252,36 +360,36 @@ export class CreateRevokeClientCertificateResponse extends $tea.Model {
 }
 
 export class CreateRootCACertificateRequest extends $tea.Model {
+  algorithm?: string;
+  commonName?: string;
+  countryCode?: string;
+  locality?: string;
   organization?: string;
   organizationUnit?: string;
-  countryCode?: string;
   state?: string;
-  locality?: string;
-  commonName?: string;
-  algorithm?: string;
   years?: number;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      locality: 'Locality',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
-      countryCode: 'CountryCode',
       state: 'State',
-      locality: 'Locality',
-      commonName: 'CommonName',
-      algorithm: 'Algorithm',
       years: 'Years',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      locality: 'string',
       organization: 'string',
       organizationUnit: 'string',
-      countryCode: 'string',
       state: 'string',
-      locality: 'string',
-      commonName: 'string',
-      algorithm: 'string',
       years: 'number',
     };
   }
@@ -336,34 +444,34 @@ export class CreateRootCACertificateResponse extends $tea.Model {
 }
 
 export class CreateServerCertificateRequest extends $tea.Model {
-  domain?: string;
-  commonName?: string;
-  algorithm?: string;
-  days?: number;
-  parentIdentifier?: string;
-  beforeTime?: number;
   afterTime?: number;
+  algorithm?: string;
+  beforeTime?: number;
+  commonName?: string;
+  days?: number;
+  domain?: string;
+  parentIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
-      commonName: 'CommonName',
-      algorithm: 'Algorithm',
-      days: 'Days',
-      parentIdentifier: 'ParentIdentifier',
-      beforeTime: 'BeforeTime',
       afterTime: 'AfterTime',
+      algorithm: 'Algorithm',
+      beforeTime: 'BeforeTime',
+      commonName: 'CommonName',
+      days: 'Days',
+      domain: 'Domain',
+      parentIdentifier: 'ParentIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
-      commonName: 'string',
-      algorithm: 'string',
-      days: 'number',
-      parentIdentifier: 'string',
-      beforeTime: 'number',
       afterTime: 'number',
+      algorithm: 'string',
+      beforeTime: 'number',
+      commonName: 'string',
+      days: 'number',
+      domain: 'string',
+      parentIdentifier: 'string',
     };
   }
 
@@ -374,16 +482,16 @@ export class CreateServerCertificateRequest extends $tea.Model {
 
 export class CreateServerCertificateResponseBody extends $tea.Model {
   identifier?: string;
-  rootX509Certificate?: string;
   parentX509Certificate?: string;
   requestId?: string;
+  rootX509Certificate?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
-      rootX509Certificate: 'RootX509Certificate',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
+      rootX509Certificate: 'RootX509Certificate',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -391,9 +499,9 @@ export class CreateServerCertificateResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
-      rootX509Certificate: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
+      rootX509Certificate: 'string',
       x509Certificate: 'string',
     };
   }
@@ -426,31 +534,31 @@ export class CreateServerCertificateResponse extends $tea.Model {
 }
 
 export class CreateServerCertificateWithCsrRequest extends $tea.Model {
-  csr?: string;
-  domain?: string;
-  days?: number;
-  parentIdentifier?: string;
-  beforeTime?: number;
   afterTime?: number;
+  beforeTime?: number;
+  csr?: string;
+  days?: number;
+  domain?: string;
+  parentIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
-      csr: 'Csr',
-      domain: 'Domain',
-      days: 'Days',
-      parentIdentifier: 'ParentIdentifier',
-      beforeTime: 'BeforeTime',
       afterTime: 'AfterTime',
+      beforeTime: 'BeforeTime',
+      csr: 'Csr',
+      days: 'Days',
+      domain: 'Domain',
+      parentIdentifier: 'ParentIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      csr: 'string',
-      domain: 'string',
-      days: 'number',
-      parentIdentifier: 'string',
-      beforeTime: 'number',
       afterTime: 'number',
+      beforeTime: 'number',
+      csr: 'string',
+      days: 'number',
+      domain: 'string',
+      parentIdentifier: 'string',
     };
   }
 
@@ -461,16 +569,16 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
 
 export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
   identifier?: string;
-  rootX509Certificate?: string;
   parentX509Certificate?: string;
   requestId?: string;
+  rootX509Certificate?: string;
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
       identifier: 'Identifier',
-      rootX509Certificate: 'RootX509Certificate',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
+      rootX509Certificate: 'RootX509Certificate',
       x509Certificate: 'X509Certificate',
     };
   }
@@ -478,9 +586,9 @@ export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       identifier: 'string',
-      rootX509Certificate: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
+      rootX509Certificate: 'string',
       x509Certificate: 'string',
     };
   }
@@ -513,39 +621,39 @@ export class CreateServerCertificateWithCsrResponse extends $tea.Model {
 }
 
 export class CreateSubCACertificateRequest extends $tea.Model {
-  parentIdentifier?: string;
+  algorithm?: string;
+  commonName?: string;
+  countryCode?: string;
+  locality?: string;
   organization?: string;
   organizationUnit?: string;
-  countryCode?: string;
+  parentIdentifier?: string;
   state?: string;
-  locality?: string;
-  commonName?: string;
-  algorithm?: string;
   years?: number;
   static names(): { [key: string]: string } {
     return {
-      parentIdentifier: 'ParentIdentifier',
+      algorithm: 'Algorithm',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      locality: 'Locality',
       organization: 'Organization',
       organizationUnit: 'OrganizationUnit',
-      countryCode: 'CountryCode',
+      parentIdentifier: 'ParentIdentifier',
       state: 'State',
-      locality: 'Locality',
-      commonName: 'CommonName',
-      algorithm: 'Algorithm',
       years: 'Years',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      parentIdentifier: 'string',
+      algorithm: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      locality: 'string',
       organization: 'string',
       organizationUnit: 'string',
-      countryCode: 'string',
+      parentIdentifier: 'string',
       state: 'string',
-      locality: 'string',
-      commonName: 'string',
-      algorithm: 'string',
       years: 'number',
     };
   }
@@ -679,19 +787,19 @@ export class DescribeCACertificateRequest extends $tea.Model {
 }
 
 export class DescribeCACertificateResponseBody extends $tea.Model {
-  requestId?: string;
   certificate?: DescribeCACertificateResponseBodyCertificate;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificate: 'Certificate',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificate: DescribeCACertificateResponseBodyCertificate,
+      requestId: 'string',
     };
   }
 
@@ -723,19 +831,19 @@ export class DescribeCACertificateResponse extends $tea.Model {
 }
 
 export class DescribeCACertificateCountResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -789,31 +897,31 @@ export class DescribeCACertificateListRequest extends $tea.Model {
 }
 
 export class DescribeCACertificateListResponseBody extends $tea.Model {
-  currentPage?: number;
-  requestId?: string;
-  totalCount?: number;
-  pageCount?: number;
-  showSize?: number;
   certificateList?: DescribeCACertificateListResponseBodyCertificateList[];
+  currentPage?: number;
+  pageCount?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      pageCount: 'PageCount',
-      showSize: 'ShowSize',
       certificateList: 'CertificateList',
+      currentPage: 'CurrentPage',
+      pageCount: 'PageCount',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-      pageCount: 'number',
-      showSize: 'number',
       certificateList: { 'type': 'array', 'itemType': DescribeCACertificateListResponseBodyCertificateList },
+      currentPage: 'number',
+      pageCount: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -844,6 +952,72 @@ export class DescribeCACertificateListResponse extends $tea.Model {
   }
 }
 
+export class DescribeCertificatePrivateKeyRequest extends $tea.Model {
+  encryptedCode?: string;
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptedCode: 'EncryptedCode',
+      identifier: 'Identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptedCode: 'string',
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertificatePrivateKeyResponseBody extends $tea.Model {
+  encryptedData?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encryptedData: 'EncryptedData',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptedData: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertificatePrivateKeyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCertificatePrivateKeyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCertificatePrivateKeyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClientCertificateRequest extends $tea.Model {
   identifier?: string;
   static names(): { [key: string]: string } {
@@ -864,19 +1038,19 @@ export class DescribeClientCertificateRequest extends $tea.Model {
 }
 
 export class DescribeClientCertificateResponseBody extends $tea.Model {
-  requestId?: string;
   certificate?: DescribeClientCertificateResponseBodyCertificate;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificate: 'Certificate',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificate: DescribeClientCertificateResponseBodyCertificate,
+      requestId: 'string',
     };
   }
 
@@ -927,19 +1101,19 @@ export class DescribeClientCertificateForSerialNumberRequest extends $tea.Model 
 }
 
 export class DescribeClientCertificateForSerialNumberResponseBody extends $tea.Model {
-  requestId?: string;
   certificateList?: DescribeClientCertificateForSerialNumberResponseBodyCertificateList[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateList: 'CertificateList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateList: { 'type': 'array', 'itemType': DescribeClientCertificateForSerialNumberResponseBodyCertificateList },
+      requestId: 'string',
     };
   }
 
@@ -990,19 +1164,19 @@ export class DescribeClientCertificateStatusRequest extends $tea.Model {
 }
 
 export class DescribeClientCertificateStatusResponseBody extends $tea.Model {
-  requestId?: string;
   certificateStatus?: DescribeClientCertificateStatusResponseBodyCertificateStatus[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateStatus: 'CertificateStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateStatus: { 'type': 'array', 'itemType': DescribeClientCertificateStatusResponseBodyCertificateStatus },
+      requestId: 'string',
     };
   }
 
@@ -1053,19 +1227,19 @@ export class DescribeClientCertificateStatusForSerialNumberRequest extends $tea.
 }
 
 export class DescribeClientCertificateStatusForSerialNumberResponseBody extends $tea.Model {
-  requestId?: string;
   certificateStatus?: DescribeClientCertificateStatusForSerialNumberResponseBodyCertificateStatus[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateStatus: 'CertificateStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateStatus: { 'type': 'array', 'itemType': DescribeClientCertificateStatusForSerialNumberResponseBodyCertificateStatus },
+      requestId: 'string',
     };
   }
 
@@ -1116,19 +1290,19 @@ export class GetCAInstanceStatusRequest extends $tea.Model {
 }
 
 export class GetCAInstanceStatusResponseBody extends $tea.Model {
-  requestId?: string;
   instanceStatusList?: GetCAInstanceStatusResponseBodyInstanceStatusList[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceStatusList: 'InstanceStatusList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceStatusList: { 'type': 'array', 'itemType': GetCAInstanceStatusResponseBodyInstanceStatusList },
+      requestId: 'string',
     };
   }
 
@@ -1179,19 +1353,19 @@ export class ListCACertificateLogRequest extends $tea.Model {
 }
 
 export class ListCACertificateLogResponseBody extends $tea.Model {
-  requestId?: string;
   logList?: ListCACertificateLogResponseBodyLogList[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       logList: 'LogList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       logList: { 'type': 'array', 'itemType': ListCACertificateLogResponseBodyLogList },
+      requestId: 'string',
     };
   }
 
@@ -1245,31 +1419,31 @@ export class ListClientCertificateRequest extends $tea.Model {
 }
 
 export class ListClientCertificateResponseBody extends $tea.Model {
-  currentPage?: number;
-  requestId?: string;
-  totalCount?: number;
-  pageCount?: number;
-  showSize?: number;
   certificateList?: ListClientCertificateResponseBodyCertificateList[];
+  currentPage?: number;
+  pageCount?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      pageCount: 'PageCount',
-      showSize: 'ShowSize',
       certificateList: 'CertificateList',
+      currentPage: 'CurrentPage',
+      pageCount: 'PageCount',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-      pageCount: 'number',
-      showSize: 'number',
       certificateList: { 'type': 'array', 'itemType': ListClientCertificateResponseBodyCertificateList },
+      currentPage: 'number',
+      pageCount: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -1323,31 +1497,31 @@ export class ListRevokeCertificateRequest extends $tea.Model {
 }
 
 export class ListRevokeCertificateResponseBody extends $tea.Model {
-  currentPage?: number;
-  requestId?: string;
-  totalCount?: number;
-  pageCount?: number;
-  showSize?: number;
   certificateList?: ListRevokeCertificateResponseBodyCertificateList[];
+  currentPage?: number;
+  pageCount?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      currentPage: 'CurrentPage',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      pageCount: 'PageCount',
-      showSize: 'ShowSize',
       certificateList: 'CertificateList',
+      currentPage: 'CurrentPage',
+      pageCount: 'PageCount',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      currentPage: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-      pageCount: 'number',
-      showSize: 'number',
       certificateList: { 'type': 'array', 'itemType': ListRevokeCertificateResponseBodyCertificateList },
+      currentPage: 'number',
+      pageCount: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -1442,79 +1616,79 @@ export class UpdateCACertificateStatusResponse extends $tea.Model {
 }
 
 export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
-  years?: number;
-  status?: string;
-  serialNumber?: string;
-  certificateType?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  parentIdentifier?: string;
-  locality?: string;
-  identifier?: string;
-  sans?: string;
-  keySize?: number;
-  x509Certificate?: string;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: number;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: number;
+  certificateType?: string;
+  commonName?: string;
+  countryCode?: string;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  status?: string;
+  subjectDN?: string;
+  x509Certificate?: string;
+  years?: number;
   static names(): { [key: string]: string } {
     return {
-      years: 'Years',
-      status: 'Status',
-      serialNumber: 'SerialNumber',
-      certificateType: 'CertificateType',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      parentIdentifier: 'ParentIdentifier',
-      locality: 'Locality',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      keySize: 'KeySize',
-      x509Certificate: 'X509Certificate',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certificateType: 'CertificateType',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      status: 'Status',
+      subjectDN: 'SubjectDN',
+      x509Certificate: 'X509Certificate',
+      years: 'Years',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      years: 'number',
-      status: 'string',
-      serialNumber: 'string',
-      certificateType: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      parentIdentifier: 'string',
-      locality: 'string',
-      identifier: 'string',
-      sans: 'string',
-      keySize: 'number',
-      x509Certificate: 'string',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'number',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'number',
+      certificateType: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      status: 'string',
+      subjectDN: 'string',
+      x509Certificate: 'string',
+      years: 'number',
     };
   }
 
@@ -1524,79 +1698,79 @@ export class DescribeCACertificateResponseBodyCertificate extends $tea.Model {
 }
 
 export class DescribeCACertificateListResponseBodyCertificateList extends $tea.Model {
-  years?: number;
-  status?: string;
-  serialNumber?: string;
-  certificateType?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  parentIdentifier?: string;
-  locality?: string;
-  identifier?: string;
-  sans?: string;
-  keySize?: number;
-  x509Certificate?: string;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: number;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: number;
+  certificateType?: string;
+  commonName?: string;
+  countryCode?: string;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  status?: string;
+  subjectDN?: string;
+  x509Certificate?: string;
+  years?: number;
   static names(): { [key: string]: string } {
     return {
-      years: 'Years',
-      status: 'Status',
-      serialNumber: 'SerialNumber',
-      certificateType: 'CertificateType',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      parentIdentifier: 'ParentIdentifier',
-      locality: 'Locality',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      keySize: 'KeySize',
-      x509Certificate: 'X509Certificate',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certificateType: 'CertificateType',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      status: 'Status',
+      subjectDN: 'SubjectDN',
+      x509Certificate: 'X509Certificate',
+      years: 'Years',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      years: 'number',
-      status: 'string',
-      serialNumber: 'string',
-      certificateType: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      parentIdentifier: 'string',
-      locality: 'string',
-      identifier: 'string',
-      sans: 'string',
-      keySize: 'number',
-      x509Certificate: 'string',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'number',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'number',
+      certificateType: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      status: 'string',
+      subjectDN: 'string',
+      x509Certificate: 'string',
+      years: 'number',
     };
   }
 
@@ -1606,79 +1780,79 @@ export class DescribeCACertificateListResponseBodyCertificateList extends $tea.M
 }
 
 export class DescribeClientCertificateResponseBodyCertificate extends $tea.Model {
-  status?: string;
-  serialNumber?: string;
-  certificateType?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  parentIdentifier?: string;
-  locality?: string;
-  identifier?: string;
-  sans?: string;
-  days?: number;
-  keySize?: number;
-  x509Certificate?: string;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: number;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: number;
+  certificateType?: string;
+  commonName?: string;
+  countryCode?: string;
+  days?: number;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  status?: string;
+  subjectDN?: string;
+  x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      serialNumber: 'SerialNumber',
-      certificateType: 'CertificateType',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      parentIdentifier: 'ParentIdentifier',
-      locality: 'Locality',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      days: 'Days',
-      keySize: 'KeySize',
-      x509Certificate: 'X509Certificate',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certificateType: 'CertificateType',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      days: 'Days',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      status: 'Status',
+      subjectDN: 'SubjectDN',
+      x509Certificate: 'X509Certificate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      serialNumber: 'string',
-      certificateType: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      parentIdentifier: 'string',
-      locality: 'string',
-      identifier: 'string',
-      sans: 'string',
-      days: 'number',
-      keySize: 'number',
-      x509Certificate: 'string',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'number',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'number',
+      certificateType: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      days: 'number',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      status: 'string',
+      subjectDN: 'string',
+      x509Certificate: 'string',
     };
   }
 
@@ -1688,73 +1862,73 @@ export class DescribeClientCertificateResponseBodyCertificate extends $tea.Model
 }
 
 export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList extends $tea.Model {
-  years?: number;
-  status?: string;
-  serialNumber?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  locality?: string;
-  identifier?: string;
-  sans?: string;
-  keySize?: number;
-  x509Certificate?: string;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: string;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: string;
+  commonName?: string;
+  countryCode?: string;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  status?: string;
+  subjectDN?: string;
+  x509Certificate?: string;
+  years?: number;
   static names(): { [key: string]: string } {
     return {
-      years: 'Years',
-      status: 'Status',
-      serialNumber: 'SerialNumber',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      locality: 'Locality',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      keySize: 'KeySize',
-      x509Certificate: 'X509Certificate',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      status: 'Status',
+      subjectDN: 'SubjectDN',
+      x509Certificate: 'X509Certificate',
+      years: 'Years',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      years: 'number',
-      status: 'string',
-      serialNumber: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      locality: 'string',
-      identifier: 'string',
-      sans: 'string',
-      keySize: 'number',
-      x509Certificate: 'string',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'string',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      status: 'string',
+      subjectDN: 'string',
+      x509Certificate: 'string',
+      years: 'number',
     };
   }
 
@@ -1764,22 +1938,22 @@ export class DescribeClientCertificateForSerialNumberResponseBodyCertificateList
 }
 
 export class DescribeClientCertificateStatusResponseBodyCertificateStatus extends $tea.Model {
+  revokeTime?: number;
   serialNumber?: string;
   status?: string;
-  revokeTime?: number;
   static names(): { [key: string]: string } {
     return {
+      revokeTime: 'RevokeTime',
       serialNumber: 'SerialNumber',
       status: 'Status',
-      revokeTime: 'RevokeTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      revokeTime: 'number',
       serialNumber: 'string',
       status: 'string',
-      revokeTime: 'number',
     };
   }
 
@@ -1789,22 +1963,22 @@ export class DescribeClientCertificateStatusResponseBodyCertificateStatus extend
 }
 
 export class DescribeClientCertificateStatusForSerialNumberResponseBodyCertificateStatus extends $tea.Model {
+  revokeTime?: number;
   serialNumber?: string;
   status?: string;
-  revokeTime?: number;
   static names(): { [key: string]: string } {
     return {
+      revokeTime: 'RevokeTime',
       serialNumber: 'SerialNumber',
       status: 'Status',
-      revokeTime: 'RevokeTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      revokeTime: 'number',
       serialNumber: 'string',
       status: 'string',
-      revokeTime: 'number',
     };
   }
 
@@ -1814,39 +1988,39 @@ export class DescribeClientCertificateStatusForSerialNumberResponseBodyCertifica
 }
 
 export class GetCAInstanceStatusResponseBodyInstanceStatusList extends $tea.Model {
+  afterTime?: number;
+  beforeTime?: number;
+  certIssuedCount?: number;
   certTotalCount?: number;
+  identifier?: string;
+  instanceId?: string;
   status?: string;
   type?: string;
-  certIssuedCount?: number;
-  beforeTime?: number;
-  identifier?: string;
-  afterTime?: number;
-  instanceId?: string;
   useExpireTime?: number;
   static names(): { [key: string]: string } {
     return {
+      afterTime: 'AfterTime',
+      beforeTime: 'BeforeTime',
+      certIssuedCount: 'CertIssuedCount',
       certTotalCount: 'CertTotalCount',
+      identifier: 'Identifier',
+      instanceId: 'InstanceId',
       status: 'Status',
       type: 'Type',
-      certIssuedCount: 'CertIssuedCount',
-      beforeTime: 'BeforeTime',
-      identifier: 'Identifier',
-      afterTime: 'AfterTime',
-      instanceId: 'InstanceId',
       useExpireTime: 'UseExpireTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      afterTime: 'number',
+      beforeTime: 'number',
+      certIssuedCount: 'number',
       certTotalCount: 'number',
+      identifier: 'string',
+      instanceId: 'string',
       status: 'string',
       type: 'string',
-      certIssuedCount: 'number',
-      beforeTime: 'number',
-      identifier: 'string',
-      afterTime: 'number',
-      instanceId: 'string',
       useExpireTime: 'number',
     };
   }
@@ -1857,24 +2031,24 @@ export class GetCAInstanceStatusResponseBodyInstanceStatusList extends $tea.Mode
 }
 
 export class ListCACertificateLogResponseBodyLogList extends $tea.Model {
-  identifier?: string;
   content?: string;
   createTime?: number;
+  identifier?: string;
   opType?: string;
   static names(): { [key: string]: string } {
     return {
-      identifier: 'Identifier',
       content: 'Content',
       createTime: 'CreateTime',
+      identifier: 'Identifier',
       opType: 'OpType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identifier: 'string',
       content: 'string',
       createTime: 'number',
+      identifier: 'string',
       opType: 'string',
     };
   }
@@ -1885,79 +2059,79 @@ export class ListCACertificateLogResponseBodyLogList extends $tea.Model {
 }
 
 export class ListClientCertificateResponseBodyCertificateList extends $tea.Model {
-  status?: string;
-  serialNumber?: string;
-  certificateType?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  parentIdentifier?: string;
-  locality?: string;
-  identifier?: string;
-  sans?: string;
-  days?: number;
-  keySize?: number;
-  x509Certificate?: string;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: number;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: number;
+  certificateType?: string;
+  commonName?: string;
+  countryCode?: string;
+  days?: number;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  parentIdentifier?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  status?: string;
+  subjectDN?: string;
+  x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      serialNumber: 'SerialNumber',
-      certificateType: 'CertificateType',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      parentIdentifier: 'ParentIdentifier',
-      locality: 'Locality',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      days: 'Days',
-      keySize: 'KeySize',
-      x509Certificate: 'X509Certificate',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      certificateType: 'CertificateType',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      days: 'Days',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      parentIdentifier: 'ParentIdentifier',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      status: 'Status',
+      subjectDN: 'SubjectDN',
+      x509Certificate: 'X509Certificate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      serialNumber: 'string',
-      certificateType: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      parentIdentifier: 'string',
-      locality: 'string',
-      identifier: 'string',
-      sans: 'string',
-      days: 'number',
-      keySize: 'number',
-      x509Certificate: 'string',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'number',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'number',
+      certificateType: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      days: 'number',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      parentIdentifier: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      status: 'string',
+      subjectDN: 'string',
+      x509Certificate: 'string',
     };
   }
 
@@ -1967,67 +2141,67 @@ export class ListClientCertificateResponseBodyCertificateList extends $tea.Model
 }
 
 export class ListRevokeCertificateResponseBodyCertificateList extends $tea.Model {
-  serialNumber?: string;
-  algorithm?: string;
-  state?: string;
-  organization?: string;
-  locality?: string;
-  revokeDate?: string;
-  identifier?: string;
-  sans?: string;
-  keySize?: number;
-  subjectDN?: string;
-  signAlgorithm?: string;
-  organizationUnit?: string;
   afterDate?: string;
-  sha2?: string;
-  commonName?: string;
-  md5?: string;
-  countryCode?: string;
+  algorithm?: string;
   beforeDate?: string;
+  commonName?: string;
+  countryCode?: string;
+  identifier?: string;
+  keySize?: number;
+  locality?: string;
+  md5?: string;
+  organization?: string;
+  organizationUnit?: string;
+  revokeDate?: string;
+  sans?: string;
+  serialNumber?: string;
+  sha2?: string;
+  signAlgorithm?: string;
+  state?: string;
+  subjectDN?: string;
   static names(): { [key: string]: string } {
     return {
-      serialNumber: 'SerialNumber',
-      algorithm: 'Algorithm',
-      state: 'State',
-      organization: 'Organization',
-      locality: 'Locality',
-      revokeDate: 'RevokeDate',
-      identifier: 'Identifier',
-      sans: 'Sans',
-      keySize: 'KeySize',
-      subjectDN: 'SubjectDN',
-      signAlgorithm: 'SignAlgorithm',
-      organizationUnit: 'OrganizationUnit',
       afterDate: 'AfterDate',
-      sha2: 'Sha2',
-      commonName: 'CommonName',
-      md5: 'Md5',
-      countryCode: 'CountryCode',
+      algorithm: 'Algorithm',
       beforeDate: 'BeforeDate',
+      commonName: 'CommonName',
+      countryCode: 'CountryCode',
+      identifier: 'Identifier',
+      keySize: 'KeySize',
+      locality: 'Locality',
+      md5: 'Md5',
+      organization: 'Organization',
+      organizationUnit: 'OrganizationUnit',
+      revokeDate: 'RevokeDate',
+      sans: 'Sans',
+      serialNumber: 'SerialNumber',
+      sha2: 'Sha2',
+      signAlgorithm: 'SignAlgorithm',
+      state: 'State',
+      subjectDN: 'SubjectDN',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serialNumber: 'string',
-      algorithm: 'string',
-      state: 'string',
-      organization: 'string',
-      locality: 'string',
-      revokeDate: 'string',
-      identifier: 'string',
-      sans: 'string',
-      keySize: 'number',
-      subjectDN: 'string',
-      signAlgorithm: 'string',
-      organizationUnit: 'string',
       afterDate: 'string',
-      sha2: 'string',
-      commonName: 'string',
-      md5: 'string',
-      countryCode: 'string',
+      algorithm: 'string',
       beforeDate: 'string',
+      commonName: 'string',
+      countryCode: 'string',
+      identifier: 'string',
+      keySize: 'number',
+      locality: 'string',
+      md5: 'string',
+      organization: 'string',
+      organizationUnit: 'string',
+      revokeDate: 'string',
+      sans: 'string',
+      serialNumber: 'string',
+      sha2: 'string',
+      signAlgorithm: 'string',
+      state: 'string',
+      subjectDN: 'string',
     };
   }
 
@@ -2110,17 +2284,59 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createCertificateWithExtensionWithOptions(request: CreateCertificateWithExtensionRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateWithExtensionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AfterTime"] = request.afterTime;
+    query["AlgorithmKeySize"] = request.algorithmKeySize;
+    query["AliasName"] = request.aliasName;
+    query["AppendCrl"] = request.appendCrl;
+    query["BasicConstraintsCritical"] = request.basicConstraintsCritical;
+    query["BeforeTime"] = request.beforeTime;
+    query["CertType"] = request.certType;
+    query["CommonName"] = request.commonName;
+    query["CountryCode"] = request.countryCode;
+    query["CsrPemString"] = request.csrPemString;
+    query["Locality"] = request.locality;
+    query["Organization"] = request.organization;
+    query["OrganizationUnit"] = request.organizationUnit;
+    query["ParentIdentifier"] = request.parentIdentifier;
+    query["Sans"] = request.sans;
+    query["State"] = request.state;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCertificateWithExtension",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateWithExtensionResponse>(await this.callApi(params, req, runtime), new CreateCertificateWithExtensionResponse({}));
+  }
+
+  async createCertificateWithExtension(request: CreateCertificateWithExtensionRequest): Promise<CreateCertificateWithExtensionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCertificateWithExtensionWithOptions(request, runtime);
+  }
+
   async createClientCertificateWithOptions(request: CreateClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SanType"] = request.sanType;
-    query["SanValue"] = request.sanValue;
-    query["CommonName"] = request.commonName;
+    query["AfterTime"] = request.afterTime;
     query["Algorithm"] = request.algorithm;
+    query["BeforeTime"] = request.beforeTime;
+    query["CommonName"] = request.commonName;
     query["Days"] = request.days;
     query["ParentIdentifier"] = request.parentIdentifier;
-    query["BeforeTime"] = request.beforeTime;
-    query["AfterTime"] = request.afterTime;
+    query["SanType"] = request.sanType;
+    query["SanValue"] = request.sanValue;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: Util.toMap(request),
@@ -2147,13 +2363,13 @@ export default class Client extends OpenApi {
   async createClientCertificateWithCsrWithOptions(request: CreateClientCertificateWithCsrRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientCertificateWithCsrResponse> {
     Util.validateModel(request);
     let query = { };
+    query["AfterTime"] = request.afterTime;
+    query["BeforeTime"] = request.beforeTime;
     query["Csr"] = request.csr;
-    query["SanType"] = request.sanType;
-    query["SanValue"] = request.sanValue;
     query["Days"] = request.days;
     query["ParentIdentifier"] = request.parentIdentifier;
-    query["BeforeTime"] = request.beforeTime;
-    query["AfterTime"] = request.afterTime;
+    query["SanType"] = request.sanType;
+    query["SanValue"] = request.sanValue;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: Util.toMap(request),
@@ -2207,13 +2423,13 @@ export default class Client extends OpenApi {
   async createRootCACertificateWithOptions(request: CreateRootCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateRootCACertificateResponse> {
     Util.validateModel(request);
     let query = { };
+    query["Algorithm"] = request.algorithm;
+    query["CommonName"] = request.commonName;
+    query["CountryCode"] = request.countryCode;
+    query["Locality"] = request.locality;
     query["Organization"] = request.organization;
     query["OrganizationUnit"] = request.organizationUnit;
-    query["CountryCode"] = request.countryCode;
     query["State"] = request.state;
-    query["Locality"] = request.locality;
-    query["CommonName"] = request.commonName;
-    query["Algorithm"] = request.algorithm;
     query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -2241,13 +2457,13 @@ export default class Client extends OpenApi {
   async createServerCertificateWithOptions(request: CreateServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["CommonName"] = request.commonName;
-    query["Algorithm"] = request.algorithm;
-    query["Days"] = request.days;
-    query["ParentIdentifier"] = request.parentIdentifier;
-    query["BeforeTime"] = request.beforeTime;
     query["AfterTime"] = request.afterTime;
+    query["Algorithm"] = request.algorithm;
+    query["BeforeTime"] = request.beforeTime;
+    query["CommonName"] = request.commonName;
+    query["Days"] = request.days;
+    query["Domain"] = request.domain;
+    query["ParentIdentifier"] = request.parentIdentifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: Util.toMap(request),
@@ -2274,12 +2490,12 @@ export default class Client extends OpenApi {
   async createServerCertificateWithCsrWithOptions(request: CreateServerCertificateWithCsrRequest, runtime: $Util.RuntimeOptions): Promise<CreateServerCertificateWithCsrResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Csr"] = request.csr;
-    query["Domain"] = request.domain;
-    query["Days"] = request.days;
-    query["ParentIdentifier"] = request.parentIdentifier;
-    query["BeforeTime"] = request.beforeTime;
     query["AfterTime"] = request.afterTime;
+    query["BeforeTime"] = request.beforeTime;
+    query["Csr"] = request.csr;
+    query["Days"] = request.days;
+    query["Domain"] = request.domain;
+    query["ParentIdentifier"] = request.parentIdentifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: Util.toMap(request),
@@ -2306,14 +2522,14 @@ export default class Client extends OpenApi {
   async createSubCACertificateWithOptions(request: CreateSubCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSubCACertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ParentIdentifier"] = request.parentIdentifier;
+    query["Algorithm"] = request.algorithm;
+    query["CommonName"] = request.commonName;
+    query["CountryCode"] = request.countryCode;
+    query["Locality"] = request.locality;
     query["Organization"] = request.organization;
     query["OrganizationUnit"] = request.organizationUnit;
-    query["CountryCode"] = request.countryCode;
+    query["ParentIdentifier"] = request.parentIdentifier;
     query["State"] = request.state;
-    query["Locality"] = request.locality;
-    query["CommonName"] = request.commonName;
-    query["Algorithm"] = request.algorithm;
     query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -2439,6 +2655,34 @@ export default class Client extends OpenApi {
   async describeCACertificateList(request: DescribeCACertificateListRequest): Promise<DescribeCACertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCACertificateListWithOptions(request, runtime);
+  }
+
+  async describeCertificatePrivateKeyWithOptions(request: DescribeCertificatePrivateKeyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificatePrivateKeyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["EncryptedCode"] = request.encryptedCode;
+    query["Identifier"] = request.identifier;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCertificatePrivateKey",
+      version: "2020-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertificatePrivateKeyResponse>(await this.callApi(params, req, runtime), new DescribeCertificatePrivateKeyResponse({}));
+  }
+
+  async describeCertificatePrivateKey(request: DescribeCertificatePrivateKeyRequest): Promise<DescribeCertificatePrivateKeyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCertificatePrivateKeyWithOptions(request, runtime);
   }
 
   async describeClientCertificateWithOptions(request: DescribeClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClientCertificateResponse> {
