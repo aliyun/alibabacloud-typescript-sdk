@@ -898,6 +898,8 @@ export class CreateBandwidthPackageResponse extends $tea.Model {
 
 export class CreateBasicAcceleratorRequest extends $tea.Model {
   autoPay?: boolean;
+  autoRenew?: boolean;
+  autoRenewDuration?: number;
   autoUseCoupon?: string;
   clientToken?: string;
   duration?: number;
@@ -906,6 +908,8 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      autoRenewDuration: 'AutoRenewDuration',
       autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       duration: 'Duration',
@@ -917,6 +921,8 @@ export class CreateBasicAcceleratorRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'boolean',
+      autoRenewDuration: 'number',
       autoUseCoupon: 'string',
       clientToken: 'string',
       duration: 'number',
@@ -2625,6 +2631,81 @@ export class DescribeAcceleratorResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAcceleratorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAcceleratorAutoRenewAttributeRequest extends $tea.Model {
+  acceleratorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAcceleratorAutoRenewAttributeResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  autoRenew?: boolean;
+  autoRenewDuration?: number;
+  renewalStatus?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      autoRenew: 'AutoRenew',
+      autoRenewDuration: 'AutoRenewDuration',
+      renewalStatus: 'RenewalStatus',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      autoRenew: 'boolean',
+      autoRenewDuration: 'number',
+      renewalStatus: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAcceleratorAutoRenewAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAcceleratorAutoRenewAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAcceleratorAutoRenewAttributeResponseBody,
     };
   }
 
@@ -5432,6 +5513,87 @@ export class UpdateAcceleratorResponse extends $tea.Model {
   }
 }
 
+export class UpdateAcceleratorAutoRenewAttributeRequest extends $tea.Model {
+  acceleratorId?: string;
+  autoRenew?: boolean;
+  autoRenewDuration?: number;
+  clientToken?: string;
+  name?: string;
+  regionId?: string;
+  renewalStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      autoRenew: 'AutoRenew',
+      autoRenewDuration: 'AutoRenewDuration',
+      clientToken: 'ClientToken',
+      name: 'Name',
+      regionId: 'RegionId',
+      renewalStatus: 'RenewalStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      autoRenew: 'boolean',
+      autoRenewDuration: 'number',
+      clientToken: 'string',
+      name: 'string',
+      regionId: 'string',
+      renewalStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorAutoRenewAttributeResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAcceleratorAutoRenewAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateAcceleratorAutoRenewAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateAcceleratorAutoRenewAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAcceleratorConfirmRequest extends $tea.Model {
   acceleratorId?: string;
   regionId?: string;
@@ -7547,10 +7709,12 @@ export class ListAvailableAccelerateAreasResponseBodyAreas extends $tea.Model {
 
 export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
+  pop?: boolean;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       localName: 'LocalName',
+      pop: 'Pop',
       regionId: 'RegionId',
     };
   }
@@ -7558,6 +7722,7 @@ export class ListAvailableBusiRegionsResponseBodyRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       localName: 'string',
+      pop: 'boolean',
       regionId: 'string',
     };
   }
@@ -9217,6 +9382,8 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = { };
     query["AutoPay"] = request.autoPay;
+    query["AutoRenew"] = request.autoRenew;
+    query["AutoRenewDuration"] = request.autoRenewDuration;
     query["AutoUseCoupon"] = request.autoUseCoupon;
     query["ClientToken"] = request.clientToken;
     query["Duration"] = request.duration;
@@ -9921,6 +10088,34 @@ export default class Client extends OpenApi {
   async describeAccelerator(request: DescribeAcceleratorRequest): Promise<DescribeAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAcceleratorWithOptions(request, runtime);
+  }
+
+  async describeAcceleratorAutoRenewAttributeWithOptions(request: DescribeAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorAutoRenewAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAcceleratorAutoRenewAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAcceleratorAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAcceleratorAutoRenewAttributeResponse({}));
+  }
+
+  async describeAcceleratorAutoRenewAttribute(request: DescribeAcceleratorAutoRenewAttributeRequest): Promise<DescribeAcceleratorAutoRenewAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAcceleratorAutoRenewAttributeWithOptions(request, runtime);
   }
 
   async describeBandwidthPackageWithOptions(request: DescribeBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageResponse> {
@@ -10934,6 +11129,39 @@ export default class Client extends OpenApi {
   async updateAccelerator(request: UpdateAcceleratorRequest): Promise<UpdateAcceleratorResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAcceleratorWithOptions(request, runtime);
+  }
+
+  async updateAcceleratorAutoRenewAttributeWithOptions(request: UpdateAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AcceleratorId"] = request.acceleratorId;
+    query["AutoRenew"] = request.autoRenew;
+    query["AutoRenewDuration"] = request.autoRenewDuration;
+    query["ClientToken"] = request.clientToken;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    query["RenewalStatus"] = request.renewalStatus;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAcceleratorAutoRenewAttribute",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAcceleratorAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAcceleratorAutoRenewAttributeResponse({}));
+  }
+
+  async updateAcceleratorAutoRenewAttribute(request: UpdateAcceleratorAutoRenewAttributeRequest): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAcceleratorAutoRenewAttributeWithOptions(request, runtime);
   }
 
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
