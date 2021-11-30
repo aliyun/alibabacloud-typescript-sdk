@@ -1603,6 +1603,87 @@ export class CreateDataSourceResponse extends $tea.Model {
   }
 }
 
+export class CreateExportMigrationRequest extends $tea.Model {
+  description?: string;
+  exportMode?: string;
+  exportObjectStatus?: string;
+  incrementalSince?: number;
+  name?: string;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      exportMode: 'ExportMode',
+      exportObjectStatus: 'ExportObjectStatus',
+      incrementalSince: 'IncrementalSince',
+      name: 'Name',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      exportMode: 'string',
+      exportObjectStatus: 'string',
+      incrementalSince: 'number',
+      name: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExportMigrationResponseBody extends $tea.Model {
+  data?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExportMigrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateExportMigrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateExportMigrationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFileRequest extends $tea.Model {
   autoParsing?: boolean;
   autoRerunIntervalMillis?: number;
@@ -7600,21 +7681,27 @@ export class GetInstanceStatusCountResponse extends $tea.Model {
 
 export class GetInstanceStatusStatisticRequest extends $tea.Model {
   bizDate?: string;
+  dagType?: string;
   projectEnv?: string;
   projectId?: number;
+  schedulerType?: string;
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
+      dagType: 'DagType',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
+      schedulerType: 'SchedulerType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bizDate: 'string',
+      dagType: 'string',
       projectEnv: 'string',
       projectId: 'number',
+      schedulerType: 'string',
     };
   }
 
@@ -9018,6 +9105,75 @@ export class GetMigrationProcessResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetMigrationProcessResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationSummaryRequest extends $tea.Model {
+  migrationId?: number;
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      migrationId: 'MigrationId',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      migrationId: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationSummaryResponseBody extends $tea.Model {
+  data?: GetMigrationSummaryResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetMigrationSummaryResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetMigrationSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetMigrationSummaryResponseBody,
     };
   }
 
@@ -11346,6 +11502,84 @@ export class ListDISyncTasksResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListDISyncTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDagsRequest extends $tea.Model {
+  opSeq?: number;
+  projectEnv?: string;
+  static names(): { [key: string]: string } {
+    return {
+      opSeq: 'OpSeq',
+      projectEnv: 'ProjectEnv',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      opSeq: 'number',
+      projectEnv: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDagsResponseBody extends $tea.Model {
+  data?: ListDagsResponseBodyData;
+  errorCode?: string;
+  errorMessage?: string;
+  httpStatusCode?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      httpStatusCode: 'HttpStatusCode',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListDagsResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDagsResponseBody,
     };
   }
 
@@ -19907,6 +20141,7 @@ export class GetDagResponseBodyData extends $tea.Model {
   gmtdate?: number;
   modifyTime?: number;
   name?: string;
+  opSeq?: number;
   projectId?: number;
   startTime?: number;
   status?: string;
@@ -19921,6 +20156,7 @@ export class GetDagResponseBodyData extends $tea.Model {
       gmtdate: 'Gmtdate',
       modifyTime: 'ModifyTime',
       name: 'Name',
+      opSeq: 'OpSeq',
       projectId: 'ProjectId',
       startTime: 'StartTime',
       status: 'Status',
@@ -19938,6 +20174,7 @@ export class GetDagResponseBodyData extends $tea.Model {
       gmtdate: 'number',
       modifyTime: 'number',
       name: 'string',
+      opSeq: 'number',
       projectId: 'number',
       startTime: 'number',
       status: 'string',
@@ -21755,6 +21992,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
   businessId?: number;
   connection?: string;
   createTime?: number;
+  createUser?: string;
   cycTime?: number;
   dagId?: number;
   dagType?: string;
@@ -21783,6 +22021,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       businessId: 'BusinessId',
       connection: 'Connection',
       createTime: 'CreateTime',
+      createUser: 'CreateUser',
       cycTime: 'CycTime',
       dagId: 'DagId',
       dagType: 'DagType',
@@ -21814,6 +22053,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       businessId: 'number',
       connection: 'string',
       createTime: 'number',
+      createUser: 'string',
       cycTime: 'number',
       dagId: 'number',
       dagType: 'string',
@@ -22057,6 +22297,7 @@ export class GetManualDagInstancesResponseBodyInstances extends $tea.Model {
   beginWaitTimeTime?: number;
   bizDate?: number;
   createTime?: number;
+  createUser?: string;
   cycTime?: number;
   dagId?: number;
   dagType?: string;
@@ -22075,6 +22316,7 @@ export class GetManualDagInstancesResponseBodyInstances extends $tea.Model {
       beginWaitTimeTime: 'BeginWaitTimeTime',
       bizDate: 'BizDate',
       createTime: 'CreateTime',
+      createUser: 'CreateUser',
       cycTime: 'CycTime',
       dagId: 'DagId',
       dagType: 'DagType',
@@ -22096,6 +22338,7 @@ export class GetManualDagInstancesResponseBodyInstances extends $tea.Model {
       beginWaitTimeTime: 'number',
       bizDate: 'number',
       createTime: 'number',
+      createUser: 'string',
       cycTime: 'number',
       dagId: 'number',
       dagType: 'string',
@@ -23054,6 +23297,49 @@ export class GetMigrationProcessResponseBodyData extends $tea.Model {
     return {
       taskName: 'string',
       taskStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetMigrationSummaryResponseBodyData extends $tea.Model {
+  createUser?: string;
+  downloadUrl?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  migrationId?: number;
+  name?: string;
+  opUser?: string;
+  projectId?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createUser: 'CreateUser',
+      downloadUrl: 'DownloadUrl',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      migrationId: 'MigrationId',
+      name: 'Name',
+      opUser: 'OpUser',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createUser: 'string',
+      downloadUrl: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      migrationId: 'number',
+      name: 'string',
+      opUser: 'string',
+      projectId: 'number',
+      status: 'string',
     };
   }
 
@@ -25076,6 +25362,80 @@ export class ListDISyncTasksResponseBodyTaskList extends $tea.Model {
   }
 }
 
+export class ListDagsResponseBodyDataDags extends $tea.Model {
+  bizdate?: number;
+  createTime?: number;
+  createUser?: string;
+  dagId?: number;
+  finishTime?: number;
+  gmtdate?: number;
+  modifyTime?: number;
+  name?: string;
+  opSeq?: number;
+  projectId?: number;
+  startTime?: number;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizdate: 'Bizdate',
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      dagId: 'DagId',
+      finishTime: 'FinishTime',
+      gmtdate: 'Gmtdate',
+      modifyTime: 'ModifyTime',
+      name: 'Name',
+      opSeq: 'OpSeq',
+      projectId: 'ProjectId',
+      startTime: 'StartTime',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizdate: 'number',
+      createTime: 'number',
+      createUser: 'string',
+      dagId: 'number',
+      finishTime: 'number',
+      gmtdate: 'number',
+      modifyTime: 'number',
+      name: 'string',
+      opSeq: 'number',
+      projectId: 'number',
+      startTime: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDagsResponseBodyData extends $tea.Model {
+  dags?: ListDagsResponseBodyDataDags[];
+  static names(): { [key: string]: string } {
+    return {
+      dags: 'Dags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dags: { 'type': 'array', 'itemType': ListDagsResponseBodyDataDags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataServiceApiAuthoritiesResponseBodyDataApiAuthorizationListAuthorizationRecords extends $tea.Model {
   createdTime?: string;
   creatorId?: string;
@@ -26931,6 +27291,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
   businessId?: number;
   connection?: string;
   createTime?: number;
+  createUser?: string;
   cycTime?: number;
   dagId?: number;
   dagType?: string;
@@ -26960,6 +27321,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
       businessId: 'BusinessId',
       connection: 'Connection',
       createTime: 'CreateTime',
+      createUser: 'CreateUser',
       cycTime: 'CycTime',
       dagId: 'DagId',
       dagType: 'DagType',
@@ -26992,6 +27354,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
       businessId: 'number',
       connection: 'string',
       createTime: 'number',
+      createUser: 'string',
       cycTime: 'number',
       dagId: 'number',
       dagType: 'string',
@@ -27053,6 +27416,7 @@ export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
   beginWaitTimeTime?: number;
   bizDate?: number;
   createTime?: number;
+  createUser?: string;
   cycTime?: number;
   dagId?: number;
   dagType?: string;
@@ -27071,6 +27435,7 @@ export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
       beginWaitTimeTime: 'BeginWaitTimeTime',
       bizDate: 'BizDate',
       createTime: 'CreateTime',
+      createUser: 'CreateUser',
       cycTime: 'CycTime',
       dagId: 'DagId',
       dagType: 'DagType',
@@ -27092,6 +27457,7 @@ export class ListManualDagInstancesResponseBodyInstances extends $tea.Model {
       beginWaitTimeTime: 'number',
       bizDate: 'number',
       createTime: 'number',
+      createUser: 'string',
       cycTime: 'number',
       dagId: 'number',
       dagType: 'string',
@@ -29661,6 +30027,19 @@ export default class Client extends OpenApi {
     return await this.createDataSourceWithOptions(request, runtime);
   }
 
+  async createExportMigrationWithOptions(request: CreateExportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateExportMigrationResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<CreateExportMigrationResponse>(await this.doRPCRequest("CreateExportMigration", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new CreateExportMigrationResponse({}));
+  }
+
+  async createExportMigration(request: CreateExportMigrationRequest): Promise<CreateExportMigrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createExportMigrationWithOptions(request, runtime);
+  }
+
   async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -30930,6 +31309,19 @@ export default class Client extends OpenApi {
     return await this.getMigrationProcessWithOptions(request, runtime);
   }
 
+  async getMigrationSummaryWithOptions(request: GetMigrationSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationSummaryResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<GetMigrationSummaryResponse>(await this.doRPCRequest("GetMigrationSummary", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetMigrationSummaryResponse({}));
+  }
+
+  async getMigrationSummary(request: GetMigrationSummaryRequest): Promise<GetMigrationSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getMigrationSummaryWithOptions(request, runtime);
+  }
+
   async getNodeWithOptions(request: GetNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -31322,6 +31714,19 @@ export default class Client extends OpenApi {
   async listDISyncTasks(request: ListDISyncTasksRequest): Promise<ListDISyncTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDISyncTasksWithOptions(request, runtime);
+  }
+
+  async listDagsWithOptions(request: ListDagsRequest, runtime: $Util.RuntimeOptions): Promise<ListDagsResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDagsResponse>(await this.doRPCRequest("ListDags", "2020-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDagsResponse({}));
+  }
+
+  async listDags(request: ListDagsRequest): Promise<ListDagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDagsWithOptions(request, runtime);
   }
 
   async listDataServiceApiAuthoritiesWithOptions(request: ListDataServiceApiAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiAuthoritiesResponse> {
