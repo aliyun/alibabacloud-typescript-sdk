@@ -9,19 +9,19 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CancelArtifactBuildTaskRequest extends $tea.Model {
-  instanceId?: string;
   buildTaskId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       buildTaskId: 'BuildTaskId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       buildTaskId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -78,22 +78,22 @@ export class CancelArtifactBuildTaskResponse extends $tea.Model {
 }
 
 export class CancelRepoBuildRecordRequest extends $tea.Model {
+  buildRecordId?: string;
   instanceId?: string;
   repoId?: string;
-  buildRecordId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      buildRecordId: 'BuildRecordId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRecordId: 'string',
       instanceId: 'string',
       repoId: 'string',
-      buildRecordId: 'string',
     };
   }
 
@@ -150,22 +150,22 @@ export class CancelRepoBuildRecordResponse extends $tea.Model {
 }
 
 export class CreateBuildRecordByRuleRequest extends $tea.Model {
+  buildRuleId?: string;
   instanceId?: string;
   repoId?: string;
-  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRuleId: 'string',
       instanceId: 'string',
       repoId: 'string',
-      buildRuleId: 'string',
     };
   }
 
@@ -175,25 +175,25 @@ export class CreateBuildRecordByRuleRequest extends $tea.Model {
 }
 
 export class CreateBuildRecordByRuleResponseBody extends $tea.Model {
+  buildRecordId?: string;
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  buildRecordId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRecordId: 'BuildRecordId',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      buildRecordId: 'BuildRecordId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRecordId: 'string',
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      buildRecordId: 'string',
     };
   }
 
@@ -224,26 +224,110 @@ export class CreateBuildRecordByRuleResponse extends $tea.Model {
   }
 }
 
-export class CreateChartNamespaceRequest extends $tea.Model {
+export class CreateChainRequest extends $tea.Model {
+  chainConfig?: string;
+  description?: string;
   instanceId?: string;
-  namespaceName?: string;
-  autoCreateRepo?: boolean;
-  defaultRepoType?: string;
+  name?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      chainConfig: 'ChainConfig',
+      description: 'Description',
       instanceId: 'InstanceId',
-      namespaceName: 'NamespaceName',
-      autoCreateRepo: 'AutoCreateRepo',
-      defaultRepoType: 'DefaultRepoType',
+      name: 'Name',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chainConfig: 'string',
+      description: 'string',
       instanceId: 'string',
-      namespaceName: 'string',
+      name: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChainResponseBody extends $tea.Model {
+  chainId?: string;
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateChainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateChainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateChartNamespaceRequest extends $tea.Model {
+  autoCreateRepo?: boolean;
+  defaultRepoType?: string;
+  instanceId?: string;
+  namespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreateRepo: 'AutoCreateRepo',
+      defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       autoCreateRepo: 'boolean',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      namespaceName: 'string',
     };
   }
 
@@ -332,14 +416,14 @@ export class CreateChartRepositoryRequest extends $tea.Model {
 
 export class CreateChartRepositoryResponseBody extends $tea.Model {
   code?: string;
-  repoId?: string;
   isSuccess?: boolean;
+  repoId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      repoId: 'RepoId',
       isSuccess: 'IsSuccess',
+      repoId: 'RepoId',
       requestId: 'RequestId',
     };
   }
@@ -347,8 +431,8 @@ export class CreateChartRepositoryResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      repoId: 'string',
       isSuccess: 'boolean',
+      repoId: 'string',
       requestId: 'string',
     };
   }
@@ -381,27 +465,27 @@ export class CreateChartRepositoryResponse extends $tea.Model {
 }
 
 export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
-  instanceId?: string;
+  comment?: string;
   endpointType?: string;
   entry?: string;
-  comment?: string;
+  instanceId?: string;
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
+      comment: 'Comment',
       endpointType: 'EndpointType',
       entry: 'Entry',
-      comment: 'Comment',
+      instanceId: 'InstanceId',
       moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
+      comment: 'string',
       endpointType: 'string',
       entry: 'string',
-      comment: 'string',
+      instanceId: 'string',
       moduleName: 'string',
     };
   }
@@ -460,24 +544,24 @@ export class CreateInstanceEndpointAclPolicyResponse extends $tea.Model {
 
 export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
   instanceId?: string;
+  moduleName?: string;
   vpcId?: string;
   vswitchId?: string;
-  moduleName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      moduleName: 'ModuleName',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
-      moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      moduleName: 'string',
       vpcId: 'string',
       vswitchId: 'string',
-      moduleName: 'string',
     };
   }
 
@@ -534,25 +618,25 @@ export class CreateInstanceVpcEndpointLinkedVpcResponse extends $tea.Model {
 }
 
 export class CreateNamespaceRequest extends $tea.Model {
-  instanceId?: string;
-  namespaceName?: string;
   autoCreateRepo?: boolean;
   defaultRepoType?: string;
+  instanceId?: string;
+  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      namespaceName: 'NamespaceName',
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      namespaceName: 'string',
       autoCreateRepo: 'boolean',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      namespaceName: 'string',
     };
   }
 
@@ -609,34 +693,34 @@ export class CreateNamespaceResponse extends $tea.Model {
 }
 
 export class CreateRepoBuildRuleRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
   dockerfileLocation?: string;
   dockerfileName?: string;
-  pushType?: string;
-  pushName?: string;
   imageTag?: string;
+  instanceId?: string;
+  pushName?: string;
+  pushType?: string;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
       dockerfileLocation: 'DockerfileLocation',
       dockerfileName: 'DockerfileName',
-      pushType: 'PushType',
-      pushName: 'PushName',
       imageTag: 'ImageTag',
+      instanceId: 'InstanceId',
+      pushName: 'PushName',
+      pushType: 'PushType',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      repoId: 'string',
       dockerfileLocation: 'string',
       dockerfileName: 'string',
-      pushType: 'string',
-      pushName: 'string',
       imageTag: 'string',
+      instanceId: 'string',
+      pushName: 'string',
+      pushType: 'string',
+      repoId: 'string',
     };
   }
 
@@ -646,25 +730,25 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class CreateRepoBuildRuleResponseBody extends $tea.Model {
+  buildRuleId?: string;
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRuleId: 'BuildRuleId',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRuleId: 'string',
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      buildRuleId: 'string',
     };
   }
 
@@ -695,125 +779,38 @@ export class CreateRepoBuildRuleResponse extends $tea.Model {
   }
 }
 
-export class CreateRepositoryRequest extends $tea.Model {
-  instanceId?: string;
-  repoName?: string;
-  repoNamespaceName?: string;
-  repoType?: string;
-  summary?: string;
-  detail?: string;
-  tagImmutability?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      repoName: 'RepoName',
-      repoNamespaceName: 'RepoNamespaceName',
-      repoType: 'RepoType',
-      summary: 'Summary',
-      detail: 'Detail',
-      tagImmutability: 'TagImmutability',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      repoName: 'string',
-      repoNamespaceName: 'string',
-      repoType: 'string',
-      summary: 'string',
-      detail: 'string',
-      tagImmutability: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRepositoryResponseBody extends $tea.Model {
-  code?: string;
-  repoId?: string;
-  isSuccess?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      repoId: 'RepoId',
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      repoId: 'string',
-      isSuccess: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRepositoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRepositoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRepositoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
-  codeRepoType?: string;
-  codeRepoNamespaceName?: string;
-  codeRepoName?: string;
   autoBuild?: boolean;
-  overseaBuild?: boolean;
+  codeRepoName?: string;
+  codeRepoNamespaceName?: string;
+  codeRepoType?: string;
   disableCacheBuild?: boolean;
+  instanceId?: string;
+  overseaBuild?: boolean;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
-      codeRepoType: 'CodeRepoType',
-      codeRepoNamespaceName: 'CodeRepoNamespaceName',
-      codeRepoName: 'CodeRepoName',
       autoBuild: 'AutoBuild',
-      overseaBuild: 'OverseaBuild',
+      codeRepoName: 'CodeRepoName',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
+      codeRepoType: 'CodeRepoType',
       disableCacheBuild: 'DisableCacheBuild',
+      instanceId: 'InstanceId',
+      overseaBuild: 'OverseaBuild',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      repoId: 'string',
-      codeRepoType: 'string',
-      codeRepoNamespaceName: 'string',
-      codeRepoName: 'string',
       autoBuild: 'boolean',
-      overseaBuild: 'boolean',
+      codeRepoName: 'string',
+      codeRepoNamespaceName: 'string',
+      codeRepoType: 'string',
       disableCacheBuild: 'boolean',
+      instanceId: 'string',
+      overseaBuild: 'boolean',
+      repoId: 'string',
     };
   }
 
@@ -873,27 +870,29 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
   repoName?: string;
-  targetRegionId?: string;
+  syncRuleName?: string;
+  syncScope?: string;
+  syncTrigger?: string;
+  tagFilter?: string;
   targetInstanceId?: string;
   targetNamespaceName?: string;
+  targetRegionId?: string;
   targetRepoName?: string;
-  tagFilter?: string;
-  syncScope?: string;
-  syncRuleName?: string;
-  syncTrigger?: string;
+  targetUserId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
-      targetRegionId: 'TargetRegionId',
+      syncRuleName: 'SyncRuleName',
+      syncScope: 'SyncScope',
+      syncTrigger: 'SyncTrigger',
+      tagFilter: 'TagFilter',
       targetInstanceId: 'TargetInstanceId',
       targetNamespaceName: 'TargetNamespaceName',
+      targetRegionId: 'TargetRegionId',
       targetRepoName: 'TargetRepoName',
-      tagFilter: 'TagFilter',
-      syncScope: 'SyncScope',
-      syncRuleName: 'SyncRuleName',
-      syncTrigger: 'SyncTrigger',
+      targetUserId: 'TargetUserId',
     };
   }
 
@@ -902,14 +901,15 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
       instanceId: 'string',
       namespaceName: 'string',
       repoName: 'string',
-      targetRegionId: 'string',
+      syncRuleName: 'string',
+      syncScope: 'string',
+      syncTrigger: 'string',
+      tagFilter: 'string',
       targetInstanceId: 'string',
       targetNamespaceName: 'string',
+      targetRegionId: 'string',
       targetRepoName: 'string',
-      tagFilter: 'string',
-      syncScope: 'string',
-      syncRuleName: 'string',
-      syncTrigger: 'string',
+      targetUserId: 'string',
     };
   }
 
@@ -920,24 +920,24 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
 
 export class CreateRepoSyncRuleResponseBody extends $tea.Model {
   code?: string;
-  syncRuleId?: string;
   isSuccess?: boolean;
   requestId?: string;
+  syncRuleId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      syncRuleId: 'SyncRuleId',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
+      syncRuleId: 'SyncRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      syncRuleId: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
+      syncRuleId: 'string',
     };
   }
 
@@ -968,17 +968,113 @@ export class CreateRepoSyncRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateRepoSyncTaskRequest extends $tea.Model {
+  instanceId?: string;
+  override?: boolean;
+  repoId?: string;
+  tag?: string;
+  targetInstanceId?: string;
+  targetNamespace?: string;
+  targetRegionId?: string;
+  targetRepoName?: string;
+  targetTag?: string;
+  targetUserId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      override: 'Override',
+      repoId: 'RepoId',
+      tag: 'Tag',
+      targetInstanceId: 'TargetInstanceId',
+      targetNamespace: 'TargetNamespace',
+      targetRegionId: 'TargetRegionId',
+      targetRepoName: 'TargetRepoName',
+      targetTag: 'TargetTag',
+      targetUserId: 'TargetUserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      override: 'boolean',
+      repoId: 'string',
+      tag: 'string',
+      targetInstanceId: 'string',
+      targetNamespace: 'string',
+      targetRegionId: 'string',
+      targetRepoName: 'string',
+      targetTag: 'string',
+      targetUserId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoSyncTaskResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  syncTaskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      syncTaskId: 'SyncTaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      syncTaskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepoSyncTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRepoSyncTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRepoSyncTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
   instanceId?: string;
   repoId?: string;
-  tag?: string;
   syncRuleId?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      tag: 'Tag',
       syncRuleId: 'SyncRuleId',
+      tag: 'Tag',
     };
   }
 
@@ -986,8 +1082,8 @@ export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
     return {
       instanceId: 'string',
       repoId: 'string',
-      tag: 'string',
       syncRuleId: 'string',
+      tag: 'string',
     };
   }
 
@@ -1047,27 +1143,27 @@ export class CreateRepoSyncTaskByRuleResponse extends $tea.Model {
 }
 
 export class CreateRepoTagRequest extends $tea.Model {
+  fromTag?: string;
   instanceId?: string;
   namespaceName?: string;
   repoName?: string;
-  fromTag?: string;
   toTag?: string;
   static names(): { [key: string]: string } {
     return {
+      fromTag: 'FromTag',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
-      fromTag: 'FromTag',
       toTag: 'ToTag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fromTag: 'string',
       instanceId: 'string',
       namespaceName: 'string',
       repoName: 'string',
-      fromTag: 'string',
       toTag: 'string',
     };
   }
@@ -1125,28 +1221,28 @@ export class CreateRepoTagResponse extends $tea.Model {
 }
 
 export class CreateRepoTagScanTaskRequest extends $tea.Model {
+  digest?: string;
   instanceId?: string;
   repoId?: string;
-  tag?: string;
-  digest?: string;
   scanService?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
+      digest: 'Digest',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      tag: 'Tag',
-      digest: 'Digest',
       scanService: 'ScanService',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      digest: 'string',
       instanceId: 'string',
       repoId: 'string',
-      tag: 'string',
-      digest: 'string',
       scanService: 'string',
+      tag: 'string',
     };
   }
 
@@ -1206,17 +1302,17 @@ export class CreateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
   repoId?: string;
   triggerName?: string;
-  triggerUrl?: string;
-  triggerType?: string;
   triggerTag?: string;
+  triggerType?: string;
+  triggerUrl?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       triggerName: 'TriggerName',
-      triggerUrl: 'TriggerUrl',
-      triggerType: 'TriggerType',
       triggerTag: 'TriggerTag',
+      triggerType: 'TriggerType',
+      triggerUrl: 'TriggerUrl',
     };
   }
 
@@ -1225,9 +1321,9 @@ export class CreateRepoTriggerRequest extends $tea.Model {
       instanceId: 'string',
       repoId: 'string',
       triggerName: 'string',
-      triggerUrl: 'string',
-      triggerType: 'string',
       triggerTag: 'string',
+      triggerType: 'string',
+      triggerUrl: 'string',
     };
   }
 
@@ -1278,6 +1374,162 @@ export class CreateRepoTriggerResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateRepoTriggerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryRequest extends $tea.Model {
+  detail?: string;
+  instanceId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
+  repoType?: string;
+  summary?: string;
+  tagImmutability?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      instanceId: 'InstanceId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoType: 'RepoType',
+      summary: 'Summary',
+      tagImmutability: 'TagImmutability',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      instanceId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      repoType: 'string',
+      summary: 'string',
+      tagImmutability: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  repoId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      repoId: 'RepoId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      repoId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChainRequest extends $tea.Model {
+  chainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChainResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteChainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteChainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteChainResponseBody,
     };
   }
 
@@ -1356,15 +1608,15 @@ export class DeleteChartNamespaceResponse extends $tea.Model {
 }
 
 export class DeleteChartReleaseRequest extends $tea.Model {
-  instanceId?: string;
   chart?: string;
+  instanceId?: string;
   release?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       chart: 'Chart',
+      instanceId: 'InstanceId',
       release: 'Release',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
@@ -1373,8 +1625,8 @@ export class DeleteChartReleaseRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       chart: 'string',
+      instanceId: 'string',
       release: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
@@ -1435,21 +1687,21 @@ export class DeleteChartReleaseResponse extends $tea.Model {
 
 export class DeleteChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  repoNamespaceName?: string;
   repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoNamespaceName: 'RepoNamespaceName',
       repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoNamespaceName: 'string',
       repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -1505,25 +1757,91 @@ export class DeleteChartRepositoryResponse extends $tea.Model {
   }
 }
 
-export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
+export class DeleteEventCenterRuleRequest extends $tea.Model {
   instanceId?: string;
-  endpointType?: string;
-  entry?: string;
-  moduleName?: string;
+  ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      endpointType: 'EndpointType',
-      entry: 'Entry',
-      moduleName: 'ModuleName',
+      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEventCenterRuleResponseBody extends $tea.Model {
+  code?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEventCenterRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteEventCenterRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteEventCenterRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
+  endpointType?: string;
+  entry?: string;
+  instanceId?: string;
+  moduleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endpointType: 'EndpointType',
+      entry: 'Entry',
+      instanceId: 'InstanceId',
+      moduleName: 'ModuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       endpointType: 'string',
       entry: 'string',
+      instanceId: 'string',
       moduleName: 'string',
     };
   }
@@ -1582,24 +1900,24 @@ export class DeleteInstanceEndpointAclPolicyResponse extends $tea.Model {
 
 export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
   instanceId?: string;
+  moduleName?: string;
   vpcId?: string;
   vswitchId?: string;
-  moduleName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      moduleName: 'ModuleName',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
-      moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      moduleName: 'string',
       vpcId: 'string',
       vswitchId: 'string',
-      moduleName: 'string',
     };
   }
 
@@ -1725,22 +2043,22 @@ export class DeleteNamespaceResponse extends $tea.Model {
 }
 
 export class DeleteRepoBuildRuleRequest extends $tea.Model {
+  buildRuleId?: string;
   instanceId?: string;
   repoId?: string;
-  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRuleId: 'string',
       instanceId: 'string',
       repoId: 'string',
-      buildRuleId: 'string',
     };
   }
 
@@ -1788,75 +2106,6 @@ export class DeleteRepoBuildRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteRepoBuildRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRepositoryRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      repoId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRepositoryResponseBody extends $tea.Model {
-  code?: string;
-  isSuccess?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      isSuccess: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteRepositoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteRepositoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteRepositoryResponseBody,
     };
   }
 
@@ -2078,20 +2327,89 @@ export class DeleteRepoTriggerResponse extends $tea.Model {
   }
 }
 
-export class GetArtifactBuildTaskRequest extends $tea.Model {
+export class DeleteRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  buildTaskId?: string;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      buildTaskId: 'BuildTaskId',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      repoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskRequest extends $tea.Model {
+  buildTaskId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildTaskId: 'BuildTaskId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       buildTaskId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2101,46 +2419,46 @@ export class GetArtifactBuildTaskRequest extends $tea.Model {
 }
 
 export class GetArtifactBuildTaskResponseBody extends $tea.Model {
-  endTime?: number;
-  startTime?: number;
   artifactBuildType?: string;
-  requestId?: string;
-  taskStatus?: string;
   buildTaskId?: string;
   code?: string;
-  isSuccess?: boolean;
+  endTime?: number;
   instructions?: string[];
+  isSuccess?: boolean;
+  requestId?: string;
   sourceArtifact?: GetArtifactBuildTaskResponseBodySourceArtifact;
+  startTime?: number;
   targetArtifact?: GetArtifactBuildTaskResponseBodyTargetArtifact;
+  taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      startTime: 'StartTime',
       artifactBuildType: 'ArtifactBuildType',
-      requestId: 'RequestId',
-      taskStatus: 'TaskStatus',
       buildTaskId: 'BuildTaskId',
       code: 'Code',
-      isSuccess: 'IsSuccess',
+      endTime: 'EndTime',
       instructions: 'Instructions',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
       sourceArtifact: 'SourceArtifact',
+      startTime: 'StartTime',
       targetArtifact: 'TargetArtifact',
+      taskStatus: 'TaskStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'number',
-      startTime: 'number',
       artifactBuildType: 'string',
-      requestId: 'string',
-      taskStatus: 'string',
       buildTaskId: 'string',
       code: 'string',
-      isSuccess: 'boolean',
+      endTime: 'number',
       instructions: { 'type': 'array', 'itemType': 'string' },
+      isSuccess: 'boolean',
+      requestId: 'string',
       sourceArtifact: GetArtifactBuildTaskResponseBodySourceArtifact,
+      startTime: 'number',
       targetArtifact: GetArtifactBuildTaskResponseBodyTargetArtifact,
+      taskStatus: 'string',
     };
   }
 
@@ -2191,31 +2509,31 @@ export class GetAuthorizationTokenRequest extends $tea.Model {
 }
 
 export class GetAuthorizationTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  expireTime?: number;
-  code?: string;
-  isSuccess?: boolean;
-  tempUsername?: string;
   authorizationToken?: string;
+  code?: string;
+  expireTime?: number;
+  isSuccess?: boolean;
+  requestId?: string;
+  tempUsername?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      expireTime: 'ExpireTime',
-      code: 'Code',
-      isSuccess: 'IsSuccess',
-      tempUsername: 'TempUsername',
       authorizationToken: 'AuthorizationToken',
+      code: 'Code',
+      expireTime: 'ExpireTime',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      tempUsername: 'TempUsername',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      expireTime: 'number',
-      code: 'string',
-      isSuccess: 'boolean',
-      tempUsername: 'string',
       authorizationToken: 'string',
+      code: 'string',
+      expireTime: 'number',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      tempUsername: 'string',
     };
   }
 
@@ -2238,6 +2556,102 @@ export class GetAuthorizationTokenResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAuthorizationTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainRequest extends $tea.Model {
+  chainId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBody extends $tea.Model {
+  chainConfig?: GetChainResponseBodyChainConfig;
+  chainId?: string;
+  code?: string;
+  createTime?: number;
+  description?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
+  modifiedTime?: number;
+  name?: string;
+  requestId?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainConfig: 'ChainConfig',
+      chainId: 'ChainId',
+      code: 'Code',
+      createTime: 'CreateTime',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      requestId: 'RequestId',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainConfig: GetChainResponseBodyChainConfig,
+      chainId: 'string',
+      code: 'string',
+      createTime: 'number',
+      description: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
+      modifiedTime: 'number',
+      name: 'string',
+      requestId: 'string',
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetChainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetChainResponseBody,
     };
   }
 
@@ -2269,40 +2683,40 @@ export class GetChartNamespaceRequest extends $tea.Model {
 }
 
 export class GetChartNamespaceResponseBody extends $tea.Model {
+  autoCreateRepo?: boolean;
+  code?: string;
   defaultRepoType?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
   namespaceId?: string;
+  namespaceName?: string;
   namespaceStatus?: string;
   requestId?: string;
-  code?: string;
-  instanceId?: string;
-  autoCreateRepo?: boolean;
-  isSuccess?: boolean;
-  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoCreateRepo: 'AutoCreateRepo',
+      code: 'Code',
       defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
       namespaceId: 'NamespaceId',
+      namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
-      code: 'Code',
-      instanceId: 'InstanceId',
-      autoCreateRepo: 'AutoCreateRepo',
-      isSuccess: 'IsSuccess',
-      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoCreateRepo: 'boolean',
+      code: 'string',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
       namespaceId: 'string',
+      namespaceName: 'string',
       namespaceStatus: 'string',
       requestId: 'string',
-      code: 'string',
-      instanceId: 'string',
-      autoCreateRepo: 'boolean',
-      isSuccess: 'boolean',
-      namespaceName: 'string',
     };
   }
 
@@ -2335,21 +2749,21 @@ export class GetChartNamespaceResponse extends $tea.Model {
 
 export class GetChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  repoNamespaceName?: string;
   repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoNamespaceName: 'RepoNamespaceName',
       repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoNamespaceName: 'string',
       repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -2359,49 +2773,49 @@ export class GetChartRepositoryRequest extends $tea.Model {
 }
 
 export class GetChartRepositoryResponseBody extends $tea.Model {
-  summary?: string;
+  code?: string;
   createTime?: number;
-  isSuccess?: boolean;
   instanceId?: string;
+  isSuccess?: boolean;
+  modifiedTime?: number;
+  repoId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   repoStatus?: string;
   repoType?: string;
   requestId?: string;
-  repoId?: string;
-  modifiedTime?: number;
-  code?: string;
-  repoNamespaceName?: string;
-  repoName?: string;
+  summary?: string;
   static names(): { [key: string]: string } {
     return {
-      summary: 'Summary',
+      code: 'Code',
       createTime: 'CreateTime',
-      isSuccess: 'IsSuccess',
       instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
+      modifiedTime: 'ModifiedTime',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
       repoType: 'RepoType',
       requestId: 'RequestId',
-      repoId: 'RepoId',
-      modifiedTime: 'ModifiedTime',
-      code: 'Code',
-      repoNamespaceName: 'RepoNamespaceName',
-      repoName: 'RepoName',
+      summary: 'Summary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      summary: 'string',
+      code: 'string',
       createTime: 'number',
-      isSuccess: 'boolean',
       instanceId: 'string',
+      isSuccess: 'boolean',
+      modifiedTime: 'number',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
       repoStatus: 'string',
       repoType: 'string',
       requestId: 'string',
-      repoId: 'string',
-      modifiedTime: 'number',
-      code: 'string',
-      repoNamespaceName: 'string',
-      repoName: 'string',
+      summary: 'string',
     };
   }
 
@@ -2452,40 +2866,40 @@ export class GetInstanceRequest extends $tea.Model {
 }
 
 export class GetInstanceResponseBody extends $tea.Model {
-  modifiedTime?: number;
-  requestId?: string;
+  code?: string;
   createTime?: number;
+  instanceId?: string;
   instanceName?: string;
   instanceSpecification?: string;
-  code?: string;
   instanceStatus?: string;
-  instanceId?: string;
   isSuccess?: boolean;
+  modifiedTime?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      modifiedTime: 'ModifiedTime',
-      requestId: 'RequestId',
+      code: 'Code',
       createTime: 'CreateTime',
+      instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceSpecification: 'InstanceSpecification',
-      code: 'Code',
       instanceStatus: 'InstanceStatus',
-      instanceId: 'InstanceId',
       isSuccess: 'IsSuccess',
+      modifiedTime: 'ModifiedTime',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modifiedTime: 'number',
-      requestId: 'string',
+      code: 'string',
       createTime: 'number',
+      instanceId: 'string',
       instanceName: 'string',
       instanceSpecification: 'string',
-      code: 'string',
       instanceStatus: 'string',
-      instanceId: 'string',
       isSuccess: 'boolean',
+      modifiedTime: 'number',
+      requestId: 'string',
     };
   }
 
@@ -2518,24 +2932,24 @@ export class GetInstanceResponse extends $tea.Model {
 
 export class GetInstanceCountResponseBody extends $tea.Model {
   code?: string;
+  count?: number;
   isSuccess?: boolean;
   requestId?: string;
-  count?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      count: 'Count',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      count: 'Count',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      count: 'number',
       isSuccess: 'boolean',
       requestId: 'string',
-      count: 'number',
     };
   }
 
@@ -2567,21 +2981,21 @@ export class GetInstanceCountResponse extends $tea.Model {
 }
 
 export class GetInstanceEndpointRequest extends $tea.Model {
-  instanceId?: string;
   endpointType?: string;
+  instanceId?: string;
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       endpointType: 'EndpointType',
+      instanceId: 'InstanceId',
       moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       endpointType: 'string',
+      instanceId: 'string',
       moduleName: 'string',
     };
   }
@@ -2592,37 +3006,37 @@ export class GetInstanceEndpointRequest extends $tea.Model {
 }
 
 export class GetInstanceEndpointResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  code?: string;
-  isSuccess?: boolean;
   aclEnable?: boolean;
-  enable?: boolean;
-  domains?: GetInstanceEndpointResponseBodyDomains[];
   aclEntries?: GetInstanceEndpointResponseBodyAclEntries[];
+  code?: string;
+  domains?: GetInstanceEndpointResponseBodyDomains[];
+  enable?: boolean;
+  isSuccess?: boolean;
+  requestId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      requestId: 'RequestId',
-      code: 'Code',
-      isSuccess: 'IsSuccess',
       aclEnable: 'AclEnable',
-      enable: 'Enable',
-      domains: 'Domains',
       aclEntries: 'AclEntries',
+      code: 'Code',
+      domains: 'Domains',
+      enable: 'Enable',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      requestId: 'string',
-      code: 'string',
-      isSuccess: 'boolean',
       aclEnable: 'boolean',
-      enable: 'boolean',
-      domains: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyDomains },
       aclEntries: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyAclEntries },
+      code: 'string',
+      domains: { 'type': 'array', 'itemType': GetInstanceEndpointResponseBodyDomains },
+      enable: 'boolean',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      status: 'string',
     };
   }
 
@@ -2673,46 +3087,46 @@ export class GetInstanceUsageRequest extends $tea.Model {
 }
 
 export class GetInstanceUsageResponseBody extends $tea.Model {
-  namespaceUsage?: string;
-  repoQuota?: string;
-  requestId?: string;
   chartNamespaceQuota?: string;
-  repoUsage?: string;
-  namespaceQuota?: string;
-  code?: string;
-  isSuccess?: boolean;
-  chartRepoUsage?: string;
   chartNamespaceUsage?: string;
   chartRepoQuota?: string;
+  chartRepoUsage?: string;
+  code?: string;
+  isSuccess?: boolean;
+  namespaceQuota?: string;
+  namespaceUsage?: string;
+  repoQuota?: string;
+  repoUsage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      namespaceUsage: 'NamespaceUsage',
-      repoQuota: 'RepoQuota',
-      requestId: 'RequestId',
       chartNamespaceQuota: 'ChartNamespaceQuota',
-      repoUsage: 'RepoUsage',
-      namespaceQuota: 'NamespaceQuota',
-      code: 'Code',
-      isSuccess: 'IsSuccess',
-      chartRepoUsage: 'ChartRepoUsage',
       chartNamespaceUsage: 'ChartNamespaceUsage',
       chartRepoQuota: 'ChartRepoQuota',
+      chartRepoUsage: 'ChartRepoUsage',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      namespaceQuota: 'NamespaceQuota',
+      namespaceUsage: 'NamespaceUsage',
+      repoQuota: 'RepoQuota',
+      repoUsage: 'RepoUsage',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      namespaceUsage: 'string',
-      repoQuota: 'string',
-      requestId: 'string',
       chartNamespaceQuota: 'string',
-      repoUsage: 'string',
-      namespaceQuota: 'string',
-      code: 'string',
-      isSuccess: 'boolean',
-      chartRepoUsage: 'string',
       chartNamespaceUsage: 'string',
       chartRepoQuota: 'string',
+      chartRepoUsage: 'string',
+      code: 'string',
+      isSuccess: 'boolean',
+      namespaceQuota: 'string',
+      namespaceUsage: 'string',
+      repoQuota: 'string',
+      repoUsage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -2767,30 +3181,30 @@ export class GetInstanceVpcEndpointRequest extends $tea.Model {
 
 export class GetInstanceVpcEndpointResponseBody extends $tea.Model {
   code?: string;
-  isSuccess?: boolean;
-  requestId?: string;
-  enable?: boolean;
   domains?: string[];
+  enable?: boolean;
+  isSuccess?: boolean;
   linkedVpcs?: GetInstanceVpcEndpointResponseBodyLinkedVpcs[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
-      enable: 'Enable',
       domains: 'Domains',
+      enable: 'Enable',
+      isSuccess: 'IsSuccess',
       linkedVpcs: 'LinkedVpcs',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      isSuccess: 'boolean',
-      requestId: 'string',
-      enable: 'boolean',
       domains: { 'type': 'array', 'itemType': 'string' },
+      enable: 'boolean',
+      isSuccess: 'boolean',
       linkedVpcs: { 'type': 'array', 'itemType': GetInstanceVpcEndpointResponseBodyLinkedVpcs },
+      requestId: 'string',
     };
   }
 
@@ -2823,21 +3237,21 @@ export class GetInstanceVpcEndpointResponse extends $tea.Model {
 
 export class GetNamespaceRequest extends $tea.Model {
   instanceId?: string;
-  namespaceName?: string;
   namespaceId?: string;
+  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      namespaceName: 'NamespaceName',
       namespaceId: 'NamespaceId',
+      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      namespaceName: 'string',
       namespaceId: 'string',
+      namespaceName: 'string',
     };
   }
 
@@ -2847,40 +3261,40 @@ export class GetNamespaceRequest extends $tea.Model {
 }
 
 export class GetNamespaceResponseBody extends $tea.Model {
+  autoCreateRepo?: boolean;
+  code?: string;
   defaultRepoType?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
   namespaceId?: string;
+  namespaceName?: string;
   namespaceStatus?: string;
   requestId?: string;
-  code?: string;
-  instanceId?: string;
-  autoCreateRepo?: boolean;
-  isSuccess?: boolean;
-  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoCreateRepo: 'AutoCreateRepo',
+      code: 'Code',
       defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
       namespaceId: 'NamespaceId',
+      namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
-      code: 'Code',
-      instanceId: 'InstanceId',
-      autoCreateRepo: 'AutoCreateRepo',
-      isSuccess: 'IsSuccess',
-      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoCreateRepo: 'boolean',
+      code: 'string',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
       namespaceId: 'string',
+      namespaceName: 'string',
       namespaceStatus: 'string',
       requestId: 'string',
-      code: 'string',
-      instanceId: 'string',
-      autoCreateRepo: 'boolean',
-      isSuccess: 'boolean',
-      namespaceName: 'string',
     };
   }
 
@@ -2912,19 +3326,19 @@ export class GetNamespaceResponse extends $tea.Model {
 }
 
 export class GetRepoBuildRecordRequest extends $tea.Model {
-  instanceId?: string;
   buildRecordId?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       buildRecordId: 'BuildRecordId',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       buildRecordId: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -2934,37 +3348,37 @@ export class GetRepoBuildRecordRequest extends $tea.Model {
 }
 
 export class GetRepoBuildRecordResponseBody extends $tea.Model {
-  status?: string;
-  endTime?: number;
-  startTime?: number;
-  requestId?: string;
-  code?: string;
-  isSuccess?: boolean;
   buildRecordId?: string;
+  code?: string;
+  endTime?: number;
   image?: GetRepoBuildRecordResponseBodyImage;
+  isSuccess?: boolean;
+  requestId?: string;
+  startTime?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      requestId: 'RequestId',
-      code: 'Code',
-      isSuccess: 'IsSuccess',
       buildRecordId: 'BuildRecordId',
+      code: 'Code',
+      endTime: 'EndTime',
       image: 'Image',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      endTime: 'number',
-      startTime: 'number',
-      requestId: 'string',
-      code: 'string',
-      isSuccess: 'boolean',
       buildRecordId: 'string',
+      code: 'string',
+      endTime: 'number',
       image: GetRepoBuildRecordResponseBodyImage,
+      isSuccess: 'boolean',
+      requestId: 'string',
+      startTime: 'number',
+      status: 'string',
     };
   }
 
@@ -2996,22 +3410,22 @@ export class GetRepoBuildRecordResponse extends $tea.Model {
 }
 
 export class GetRepoBuildRecordStatusRequest extends $tea.Model {
+  buildRecordId?: string;
   instanceId?: string;
   repoId?: string;
-  buildRecordId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      buildRecordId: 'BuildRecordId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRecordId: 'string',
       instanceId: 'string',
       repoId: 'string',
-      buildRecordId: 'string',
     };
   }
 
@@ -3021,25 +3435,25 @@ export class GetRepoBuildRecordStatusRequest extends $tea.Model {
 }
 
 export class GetRepoBuildRecordStatusResponseBody extends $tea.Model {
+  buildStatus?: string;
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  buildStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      buildStatus: 'BuildStatus',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      buildStatus: 'BuildStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildStatus: 'string',
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      buildStatus: 'string',
     };
   }
 
@@ -3062,117 +3476,6 @@ export class GetRepoBuildRecordStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetRepoBuildRecordStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepositoryRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
-  repoNamespaceName?: string;
-  repoName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
-      repoNamespaceName: 'RepoNamespaceName',
-      repoName: 'RepoName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      repoId: 'string',
-      repoNamespaceName: 'string',
-      repoName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepositoryResponseBody extends $tea.Model {
-  summary?: string;
-  createTime?: number;
-  isSuccess?: boolean;
-  instanceId?: string;
-  repoStatus?: string;
-  repoType?: string;
-  repoBuildType?: string;
-  modifiedTime?: number;
-  requestId?: string;
-  repoId?: string;
-  code?: string;
-  repoNamespaceName?: string;
-  tagImmutability?: boolean;
-  repoName?: string;
-  detail?: string;
-  static names(): { [key: string]: string } {
-    return {
-      summary: 'Summary',
-      createTime: 'CreateTime',
-      isSuccess: 'IsSuccess',
-      instanceId: 'InstanceId',
-      repoStatus: 'RepoStatus',
-      repoType: 'RepoType',
-      repoBuildType: 'RepoBuildType',
-      modifiedTime: 'ModifiedTime',
-      requestId: 'RequestId',
-      repoId: 'RepoId',
-      code: 'Code',
-      repoNamespaceName: 'RepoNamespaceName',
-      tagImmutability: 'TagImmutability',
-      repoName: 'RepoName',
-      detail: 'Detail',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summary: 'string',
-      createTime: 'number',
-      isSuccess: 'boolean',
-      instanceId: 'string',
-      repoStatus: 'string',
-      repoType: 'string',
-      repoBuildType: 'string',
-      modifiedTime: 'number',
-      requestId: 'string',
-      repoId: 'string',
-      code: 'string',
-      repoNamespaceName: 'string',
-      tagImmutability: 'boolean',
-      repoName: 'string',
-      detail: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepositoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetRepositoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRepositoryResponseBody,
     };
   }
 
@@ -3204,46 +3507,46 @@ export class GetRepoSourceCodeRepoRequest extends $tea.Model {
 }
 
 export class GetRepoSourceCodeRepoResponseBody extends $tea.Model {
+  autoBuild?: string;
+  code?: string;
+  codeRepoDomain?: string;
+  codeRepoName?: string;
+  codeRepoNamespaceName?: string;
   codeRepoType?: string;
+  disableCacheBuild?: string;
+  isSuccess?: boolean;
+  overseaBuild?: string;
   repoId?: string;
   requestId?: string;
-  codeRepoNamespaceName?: string;
-  overseaBuild?: string;
-  code?: string;
-  codeRepoName?: string;
-  autoBuild?: string;
-  isSuccess?: boolean;
-  disableCacheBuild?: string;
-  codeRepoDomain?: string;
   static names(): { [key: string]: string } {
     return {
+      autoBuild: 'AutoBuild',
+      code: 'Code',
+      codeRepoDomain: 'CodeRepoDomain',
+      codeRepoName: 'CodeRepoName',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
       codeRepoType: 'CodeRepoType',
+      disableCacheBuild: 'DisableCacheBuild',
+      isSuccess: 'IsSuccess',
+      overseaBuild: 'OverseaBuild',
       repoId: 'RepoId',
       requestId: 'RequestId',
-      codeRepoNamespaceName: 'CodeRepoNamespaceName',
-      overseaBuild: 'OverseaBuild',
-      code: 'Code',
-      codeRepoName: 'CodeRepoName',
-      autoBuild: 'AutoBuild',
-      isSuccess: 'IsSuccess',
-      disableCacheBuild: 'DisableCacheBuild',
-      codeRepoDomain: 'CodeRepoDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      autoBuild: 'string',
+      code: 'string',
+      codeRepoDomain: 'string',
+      codeRepoName: 'string',
+      codeRepoNamespaceName: 'string',
       codeRepoType: 'string',
+      disableCacheBuild: 'string',
+      isSuccess: 'boolean',
+      overseaBuild: 'string',
       repoId: 'string',
       requestId: 'string',
-      codeRepoNamespaceName: 'string',
-      overseaBuild: 'string',
-      code: 'string',
-      codeRepoName: 'string',
-      autoBuild: 'string',
-      isSuccess: 'boolean',
-      disableCacheBuild: 'string',
-      codeRepoDomain: 'string',
     };
   }
 
@@ -3297,52 +3600,52 @@ export class GetRepoSyncTaskRequest extends $tea.Model {
 }
 
 export class GetRepoSyncTaskResponseBody extends $tea.Model {
-  syncRuleId?: string;
-  progress?: number;
-  requestId?: string;
-  syncedSize?: number;
-  taskStatus?: string;
-  syncTaskId?: string;
-  syncBatchTaskId?: string;
   code?: string;
-  isSuccess?: boolean;
-  taskTrigger?: string;
   imageFrom?: GetRepoSyncTaskResponseBodyImageFrom;
   imageTo?: GetRepoSyncTaskResponseBodyImageTo;
+  isSuccess?: boolean;
   layerTasks?: GetRepoSyncTaskResponseBodyLayerTasks[];
+  progress?: number;
+  requestId?: string;
+  syncBatchTaskId?: string;
+  syncRuleId?: string;
+  syncTaskId?: string;
+  syncedSize?: number;
+  taskStatus?: string;
+  taskTrigger?: string;
   static names(): { [key: string]: string } {
     return {
-      syncRuleId: 'SyncRuleId',
-      progress: 'Progress',
-      requestId: 'RequestId',
-      syncedSize: 'SyncedSize',
-      taskStatus: 'TaskStatus',
-      syncTaskId: 'SyncTaskId',
-      syncBatchTaskId: 'SyncBatchTaskId',
       code: 'Code',
-      isSuccess: 'IsSuccess',
-      taskTrigger: 'TaskTrigger',
       imageFrom: 'ImageFrom',
       imageTo: 'ImageTo',
+      isSuccess: 'IsSuccess',
       layerTasks: 'LayerTasks',
+      progress: 'Progress',
+      requestId: 'RequestId',
+      syncBatchTaskId: 'SyncBatchTaskId',
+      syncRuleId: 'SyncRuleId',
+      syncTaskId: 'SyncTaskId',
+      syncedSize: 'SyncedSize',
+      taskStatus: 'TaskStatus',
+      taskTrigger: 'TaskTrigger',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      syncRuleId: 'string',
-      progress: 'number',
-      requestId: 'string',
-      syncedSize: 'number',
-      taskStatus: 'string',
-      syncTaskId: 'string',
-      syncBatchTaskId: 'string',
       code: 'string',
-      isSuccess: 'boolean',
-      taskTrigger: 'string',
       imageFrom: GetRepoSyncTaskResponseBodyImageFrom,
       imageTo: GetRepoSyncTaskResponseBodyImageTo,
+      isSuccess: 'boolean',
       layerTasks: { 'type': 'array', 'itemType': GetRepoSyncTaskResponseBodyLayerTasks },
+      progress: 'number',
+      requestId: 'string',
+      syncBatchTaskId: 'string',
+      syncRuleId: 'string',
+      syncTaskId: 'string',
+      syncedSize: 'number',
+      taskStatus: 'string',
+      taskTrigger: 'string',
     };
   }
 
@@ -3374,25 +3677,25 @@ export class GetRepoSyncTaskResponse extends $tea.Model {
 }
 
 export class GetRepoTagLayersRequest extends $tea.Model {
+  digest?: string;
   instanceId?: string;
   repoId?: string;
   tag?: string;
-  digest?: string;
   static names(): { [key: string]: string } {
     return {
+      digest: 'Digest',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
       tag: 'Tag',
-      digest: 'Digest',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      digest: 'string',
       instanceId: 'string',
       repoId: 'string',
       tag: 'string',
-      digest: 'string',
     };
   }
 
@@ -3404,14 +3707,14 @@ export class GetRepoTagLayersRequest extends $tea.Model {
 export class GetRepoTagLayersResponseBody extends $tea.Model {
   code?: string;
   isSuccess?: boolean;
-  requestId?: string;
   layers?: GetRepoTagLayersResponseBodyLayers[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
       layers: 'Layers',
+      requestId: 'RequestId',
     };
   }
 
@@ -3419,8 +3722,8 @@ export class GetRepoTagLayersResponseBody extends $tea.Model {
     return {
       code: 'string',
       isSuccess: 'boolean',
-      requestId: 'string',
       layers: { 'type': 'array', 'itemType': GetRepoTagLayersResponseBodyLayers },
+      requestId: 'string',
     };
   }
 
@@ -3453,24 +3756,24 @@ export class GetRepoTagLayersResponse extends $tea.Model {
 
 export class GetRepoTagManifestRequest extends $tea.Model {
   instanceId?: string;
-  tag?: string;
-  schemaVersion?: number;
   repoId?: string;
+  schemaVersion?: number;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      tag: 'Tag',
-      schemaVersion: 'SchemaVersion',
       repoId: 'RepoId',
+      schemaVersion: 'SchemaVersion',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      tag: 'string',
-      schemaVersion: 'number',
       repoId: 'string',
+      schemaVersion: 'number',
+      tag: 'string',
     };
   }
 
@@ -3482,14 +3785,14 @@ export class GetRepoTagManifestRequest extends $tea.Model {
 export class GetRepoTagManifestResponseBody extends $tea.Model {
   code?: string;
   isSuccess?: boolean;
-  requestId?: string;
   manifest?: GetRepoTagManifestResponseBodyManifest;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
       manifest: 'Manifest',
+      requestId: 'RequestId',
     };
   }
 
@@ -3497,8 +3800,8 @@ export class GetRepoTagManifestResponseBody extends $tea.Model {
     return {
       code: 'string',
       isSuccess: 'boolean',
-      requestId: 'string',
       manifest: GetRepoTagManifestResponseBodyManifest,
+      requestId: 'string',
     };
   }
 
@@ -3530,28 +3833,28 @@ export class GetRepoTagManifestResponse extends $tea.Model {
 }
 
 export class GetRepoTagScanStatusRequest extends $tea.Model {
+  digest?: string;
   instanceId?: string;
   repoId?: string;
-  tag?: string;
   scanTaskId?: string;
-  digest?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
+      digest: 'Digest',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      tag: 'Tag',
       scanTaskId: 'ScanTaskId',
-      digest: 'Digest',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      digest: 'string',
       instanceId: 'string',
       repoId: 'string',
-      tag: 'string',
       scanTaskId: 'string',
-      digest: 'string',
+      tag: 'string',
     };
   }
 
@@ -3561,28 +3864,28 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
 }
 
 export class GetRepoTagScanStatusResponseBody extends $tea.Model {
-  status?: string;
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
   scanService?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       scanService: 'ScanService',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       scanService: 'string',
+      status: 'string',
     };
   }
 
@@ -3614,28 +3917,28 @@ export class GetRepoTagScanStatusResponse extends $tea.Model {
 }
 
 export class GetRepoTagScanSummaryRequest extends $tea.Model {
+  digest?: string;
   instanceId?: string;
   repoId?: string;
-  tag?: string;
   scanTaskId?: string;
-  digest?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
+      digest: 'Digest',
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      tag: 'Tag',
       scanTaskId: 'ScanTaskId',
-      digest: 'Digest',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      digest: 'string',
       instanceId: 'string',
       repoId: 'string',
-      tag: 'string',
       scanTaskId: 'string',
-      digest: 'string',
+      tag: 'string',
     };
   }
 
@@ -3645,37 +3948,37 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
 }
 
 export class GetRepoTagScanSummaryResponseBody extends $tea.Model {
-  unknownSeverity?: number;
+  code?: string;
+  highSeverity?: number;
+  isSuccess?: boolean;
+  lowSeverity?: number;
+  mediumSeverity?: number;
   requestId?: string;
   totalSeverity?: number;
-  code?: string;
-  mediumSeverity?: number;
-  isSuccess?: boolean;
-  highSeverity?: number;
-  lowSeverity?: number;
+  unknownSeverity?: number;
   static names(): { [key: string]: string } {
     return {
-      unknownSeverity: 'UnknownSeverity',
+      code: 'Code',
+      highSeverity: 'HighSeverity',
+      isSuccess: 'IsSuccess',
+      lowSeverity: 'LowSeverity',
+      mediumSeverity: 'MediumSeverity',
       requestId: 'RequestId',
       totalSeverity: 'TotalSeverity',
-      code: 'Code',
-      mediumSeverity: 'MediumSeverity',
-      isSuccess: 'IsSuccess',
-      highSeverity: 'HighSeverity',
-      lowSeverity: 'LowSeverity',
+      unknownSeverity: 'UnknownSeverity',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      unknownSeverity: 'number',
+      code: 'string',
+      highSeverity: 'number',
+      isSuccess: 'boolean',
+      lowSeverity: 'number',
+      mediumSeverity: 'number',
       requestId: 'string',
       totalSeverity: 'number',
-      code: 'string',
-      mediumSeverity: 'number',
-      isSuccess: 'boolean',
-      highSeverity: 'number',
-      lowSeverity: 'number',
+      unknownSeverity: 'number',
     };
   }
 
@@ -3706,15 +4009,126 @@ export class GetRepoTagScanSummaryResponse extends $tea.Model {
   }
 }
 
-export class ListArtifactBuildTaskLogRequest extends $tea.Model {
+export class GetRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  repoId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  createTime?: number;
+  detail?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
+  modifiedTime?: number;
+  repoBuildType?: string;
+  repoId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
+  repoStatus?: string;
+  repoType?: string;
+  requestId?: string;
+  summary?: string;
+  tagImmutability?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      createTime: 'CreateTime',
+      detail: 'Detail',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
+      modifiedTime: 'ModifiedTime',
+      repoBuildType: 'RepoBuildType',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoStatus: 'RepoStatus',
+      repoType: 'RepoType',
+      requestId: 'RequestId',
+      summary: 'Summary',
+      tagImmutability: 'TagImmutability',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      createTime: 'number',
+      detail: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
+      modifiedTime: 'number',
+      repoBuildType: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      repoStatus: 'string',
+      repoType: 'string',
+      requestId: 'string',
+      summary: 'string',
+      tagImmutability: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListArtifactBuildTaskLogRequest extends $tea.Model {
   buildTaskId?: string;
+  instanceId?: string;
   page?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       buildTaskId: 'BuildTaskId',
+      instanceId: 'InstanceId',
       page: 'Page',
       pageSize: 'PageSize',
     };
@@ -3722,8 +4136,8 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       buildTaskId: 'string',
+      instanceId: 'string',
       page: 'number',
       pageSize: 'number',
     };
@@ -3735,28 +4149,28 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
 }
 
 export class ListArtifactBuildTaskLogResponseBody extends $tea.Model {
+  buildTaskLogs?: ListArtifactBuildTaskLogResponseBodyBuildTaskLogs[];
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
   totalCount?: number;
-  buildTaskLogs?: ListArtifactBuildTaskLogResponseBodyBuildTaskLogs[];
   static names(): { [key: string]: string } {
     return {
+      buildTaskLogs: 'BuildTaskLogs',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      buildTaskLogs: 'BuildTaskLogs',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildTaskLogs: { 'type': 'array', 'itemType': ListArtifactBuildTaskLogResponseBodyBuildTaskLogs },
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
       totalCount: 'number',
-      buildTaskLogs: { 'type': 'array', 'itemType': ListArtifactBuildTaskLogResponseBodyBuildTaskLogs },
     };
   }
 
@@ -3787,17 +4201,200 @@ export class ListArtifactBuildTaskLogResponse extends $tea.Model {
   }
 }
 
+export class ListChainRequest extends $tea.Model {
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainResponseBody extends $tea.Model {
+  chains?: ListChainResponseBodyChains[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chains: 'Chains',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chains: { 'type': 'array', 'itemType': ListChainResponseBodyChains },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListChainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListChainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainInstanceResponseBody extends $tea.Model {
+  chainInstances?: ListChainInstanceResponseBodyChainInstances[];
+  code?: string;
+  instanceId?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chainInstances: 'ChainInstances',
+      code: 'Code',
+      instanceId: 'InstanceId',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainInstances: { 'type': 'array', 'itemType': ListChainInstanceResponseBodyChainInstances },
+      code: 'string',
+      instanceId: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListChainInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListChainInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChartNamespaceRequest extends $tea.Model {
   instanceId?: string;
-  namespaceStatus?: string;
   namespaceName?: string;
+  namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      namespaceStatus: 'NamespaceStatus',
       namespaceName: 'NamespaceName',
+      namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
     };
@@ -3806,8 +4403,8 @@ export class ListChartNamespaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      namespaceStatus: 'string',
       namespaceName: 'string',
+      namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
     };
@@ -3819,34 +4416,34 @@ export class ListChartNamespaceRequest extends $tea.Model {
 }
 
 export class ListChartNamespaceResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   namespaces?: ListChartNamespaceResponseBodyNamespaces[];
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       namespaces: 'Namespaces',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       namespaces: { 'type': 'array', 'itemType': ListChartNamespaceResponseBodyNamespaces },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -3878,31 +4475,31 @@ export class ListChartNamespaceResponse extends $tea.Model {
 }
 
 export class ListChartReleaseRequest extends $tea.Model {
+  chart?: string;
   instanceId?: string;
-  repoName?: string;
-  repoNamespaceName?: string;
   pageNo?: number;
   pageSize?: number;
-  chart?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      chart: 'Chart',
       instanceId: 'InstanceId',
-      repoName: 'RepoName',
-      repoNamespaceName: 'RepoNamespaceName',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      chart: 'Chart',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chart: 'string',
       instanceId: 'string',
-      repoName: 'string',
-      repoNamespaceName: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      chart: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -3912,34 +4509,34 @@ export class ListChartReleaseRequest extends $tea.Model {
 }
 
 export class ListChartReleaseResponseBody extends $tea.Model {
-  requestId?: string;
-  code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   chartReleases?: ListChartReleaseResponseBodyChartReleases[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       chartReleases: 'ChartReleases',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       chartReleases: { 'type': 'array', 'itemType': ListChartReleaseResponseBodyChartReleases },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -3972,30 +4569,30 @@ export class ListChartReleaseResponse extends $tea.Model {
 
 export class ListChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  repoStatus?: string;
-  repoName?: string;
-  repoNamespaceName?: string;
   pageNo?: number;
   pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  repoStatus?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoStatus: 'RepoStatus',
-      repoName: 'RepoName',
-      repoNamespaceName: 'RepoNamespaceName',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoStatus: 'RepoStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoStatus: 'string',
-      repoName: 'string',
-      repoNamespaceName: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      repoStatus: 'string',
     };
   }
 
@@ -4005,34 +4602,34 @@ export class ListChartRepositoryRequest extends $tea.Model {
 }
 
 export class ListChartRepositoryResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
+  pageNo?: number;
   pageSize?: number;
-  totalCount?: string;
   repositories?: ListChartRepositoryResponseBodyRepositories[];
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       repositories: 'Repositories',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
+      pageNo: 'number',
       pageSize: 'number',
-      totalCount: 'string',
       repositories: { 'type': 'array', 'itemType': ListChartRepositoryResponseBodyRepositories },
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -4055,6 +4652,165 @@ export class ListChartRepositoryResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListChartRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRecordRequest extends $tea.Model {
+  eventType?: string;
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventType: 'EventType',
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventType: 'string',
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRecordResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  records?: ListEventCenterRecordResponseBodyRecords[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      records: 'Records',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      records: { 'type': 'array', 'itemType': ListEventCenterRecordResponseBodyRecords },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListEventCenterRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListEventCenterRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRuleNameRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRuleNameResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  ruleNames?: ListEventCenterRuleNameResponseBodyRuleNames[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      ruleNames: 'RuleNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      ruleNames: { 'type': 'array', 'itemType': ListEventCenterRuleNameResponseBodyRuleNames },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRuleNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListEventCenterRuleNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListEventCenterRuleNameResponseBody,
     };
   }
 
@@ -4092,34 +4848,34 @@ export class ListInstanceRequest extends $tea.Model {
 }
 
 export class ListInstanceResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: number;
   instances?: ListInstanceResponseBodyInstances[];
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       instances: 'Instances',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'number',
       instances: { 'type': 'array', 'itemType': ListInstanceResponseBodyInstances },
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -4174,24 +4930,24 @@ export class ListInstanceEndpointRequest extends $tea.Model {
 
 export class ListInstanceEndpointResponseBody extends $tea.Model {
   code?: string;
+  endpoints?: ListInstanceEndpointResponseBodyEndpoints[];
   isSuccess?: boolean;
   requestId?: string;
-  endpoints?: ListInstanceEndpointResponseBodyEndpoints[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      endpoints: 'Endpoints',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      endpoints: 'Endpoints',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      endpoints: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpoints },
       isSuccess: 'boolean',
       requestId: 'string',
-      endpoints: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpoints },
     };
   }
 
@@ -4244,14 +5000,14 @@ export class ListInstanceRegionRequest extends $tea.Model {
 export class ListInstanceRegionResponseBody extends $tea.Model {
   code?: string;
   isSuccess?: boolean;
-  requestId?: string;
   regions?: ListInstanceRegionResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
@@ -4259,8 +5015,8 @@ export class ListInstanceRegionResponseBody extends $tea.Model {
     return {
       code: 'string',
       isSuccess: 'boolean',
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': ListInstanceRegionResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -4293,15 +5049,15 @@ export class ListInstanceRegionResponse extends $tea.Model {
 
 export class ListNamespaceRequest extends $tea.Model {
   instanceId?: string;
-  namespaceStatus?: string;
   namespaceName?: string;
+  namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      namespaceStatus: 'NamespaceStatus',
       namespaceName: 'NamespaceName',
+      namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
     };
@@ -4310,8 +5066,8 @@ export class ListNamespaceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      namespaceStatus: 'string',
       namespaceName: 'string',
+      namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
     };
@@ -4323,34 +5079,34 @@ export class ListNamespaceRequest extends $tea.Model {
 }
 
 export class ListNamespaceResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   namespaces?: ListNamespaceResponseBodyNamespaces[];
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       namespaces: 'Namespaces',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       namespaces: { 'type': 'array', 'itemType': ListNamespaceResponseBodyNamespaces },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -4383,24 +5139,24 @@ export class ListNamespaceResponse extends $tea.Model {
 
 export class ListRepoBuildRecordRequest extends $tea.Model {
   instanceId?: string;
-  repoId?: string;
   pageNo?: number;
   pageSize?: number;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoId: 'RepoId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoId: 'string',
     };
   }
 
@@ -4410,34 +5166,34 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRecordResponseBody extends $tea.Model {
-  requestId?: string;
-  code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   buildRecords?: ListRepoBuildRecordResponseBodyBuildRecords[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       buildRecords: 'BuildRecords',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       buildRecords: { 'type': 'array', 'itemType': ListRepoBuildRecordResponseBodyBuildRecords },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -4469,25 +5225,25 @@ export class ListRepoBuildRecordResponse extends $tea.Model {
 }
 
 export class ListRepoBuildRecordLogRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
   buildRecordId?: string;
+  instanceId?: string;
   offset?: number;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
       buildRecordId: 'BuildRecordId',
+      instanceId: 'InstanceId',
       offset: 'Offset',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      repoId: 'string',
       buildRecordId: 'string',
+      instanceId: 'string',
       offset: 'number',
+      repoId: 'string',
     };
   }
 
@@ -4497,34 +5253,34 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRecordLogResponseBody extends $tea.Model {
-  requestId?: string;
-  code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   buildRecordLogs?: ListRepoBuildRecordLogResponseBodyBuildRecordLogs[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       buildRecordLogs: 'BuildRecordLogs',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       buildRecordLogs: { 'type': 'array', 'itemType': ListRepoBuildRecordLogResponseBodyBuildRecordLogs },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -4557,24 +5313,24 @@ export class ListRepoBuildRecordLogResponse extends $tea.Model {
 
 export class ListRepoBuildRuleRequest extends $tea.Model {
   instanceId?: string;
-  repoId?: string;
   pageNo?: number;
   pageSize?: number;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoId: 'RepoId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoId: 'string',
     };
   }
 
@@ -4584,34 +5340,34 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class ListRepoBuildRuleResponseBody extends $tea.Model {
-  requestId?: string;
-  code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   buildRules?: ListRepoBuildRuleResponseBodyBuildRules[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       buildRules: 'BuildRules',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       buildRules: { 'type': 'array', 'itemType': ListRepoBuildRuleResponseBodyBuildRules },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -4642,113 +5398,20 @@ export class ListRepoBuildRuleResponse extends $tea.Model {
   }
 }
 
-export class ListRepositoryRequest extends $tea.Model {
-  instanceId?: string;
-  repoStatus?: string;
-  repoName?: string;
-  repoNamespaceName?: string;
-  pageNo?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      repoStatus: 'RepoStatus',
-      repoName: 'RepoName',
-      repoNamespaceName: 'RepoNamespaceName',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      repoStatus: 'string',
-      repoName: 'string',
-      repoNamespaceName: 'string',
-      pageNo: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepositoryResponseBody extends $tea.Model {
-  requestId?: string;
-  code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
-  repositories?: ListRepositoryResponseBodyRepositories[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      repositories: 'Repositories',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
-      repositories: { 'type': 'array', 'itemType': ListRepositoryResponseBodyRepositories },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepositoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListRepositoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRepositoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
+  namespaceName?: string;
   pageNo?: number;
   pageSize?: number;
-  namespaceName?: string;
   repoName?: string;
   targetInstanceId?: string;
   targetRegionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      namespaceName: 'NamespaceName',
       repoName: 'RepoName',
       targetInstanceId: 'TargetInstanceId',
       targetRegionId: 'TargetRegionId',
@@ -4758,9 +5421,9 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      namespaceName: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      namespaceName: 'string',
       repoName: 'string',
       targetInstanceId: 'string',
       targetRegionId: 'string',
@@ -4773,34 +5436,34 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
 }
 
 export class ListRepoSyncRuleResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
+  pageNo?: number;
   pageSize?: number;
-  totalCount?: number;
+  requestId?: string;
   syncRules?: ListRepoSyncRuleResponseBodySyncRules[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      requestId: 'RequestId',
       syncRules: 'SyncRules',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
+      pageNo: 'number',
       pageSize: 'number',
-      totalCount: 'number',
+      requestId: 'string',
       syncRules: { 'type': 'array', 'itemType': ListRepoSyncRuleResponseBodySyncRules },
+      totalCount: 'number',
     };
   }
 
@@ -4833,33 +5496,33 @@ export class ListRepoSyncRuleResponse extends $tea.Model {
 
 export class ListRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
-  repoNamespaceName?: string;
-  repoName?: string;
-  tag?: string;
   pageNo?: number;
   pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
   syncRecordId?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoNamespaceName: 'RepoNamespaceName',
-      repoName: 'RepoName',
-      tag: 'Tag',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
       syncRecordId: 'SyncRecordId',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoNamespaceName: 'string',
-      repoName: 'string',
-      tag: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
       syncRecordId: 'string',
+      tag: 'string',
     };
   }
 
@@ -4869,34 +5532,34 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
 }
 
 export class ListRepoSyncTaskResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
+  pageNo?: number;
   pageSize?: number;
-  totalCount?: string;
+  requestId?: string;
   syncTasks?: ListRepoSyncTaskResponseBodySyncTasks[];
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
-      totalCount: 'TotalCount',
+      requestId: 'RequestId',
       syncTasks: 'SyncTasks',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
+      pageNo: 'number',
       pageSize: 'number',
-      totalCount: 'string',
+      requestId: 'string',
       syncTasks: { 'type': 'array', 'itemType': ListRepoSyncTaskResponseBodySyncTasks },
+      totalCount: 'string',
     };
   }
 
@@ -4929,24 +5592,24 @@ export class ListRepoSyncTaskResponse extends $tea.Model {
 
 export class ListRepoTagRequest extends $tea.Model {
   instanceId?: string;
-  repoId?: string;
   pageNo?: number;
   pageSize?: number;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      repoId: 'RepoId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      repoId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoId: 'string',
     };
   }
 
@@ -4956,34 +5619,34 @@ export class ListRepoTagRequest extends $tea.Model {
 }
 
 export class ListRepoTagResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
-  isSuccess?: boolean;
-  pageSize?: number;
-  totalCount?: string;
   images?: ListRepoTagResponseBodyImages[];
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
-      isSuccess: 'IsSuccess',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
       images: 'Images',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
-      isSuccess: 'boolean',
-      pageSize: 'number',
-      totalCount: 'string',
       images: { 'type': 'array', 'itemType': ListRepoTagResponseBodyImages },
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'string',
     };
   }
 
@@ -5015,37 +5678,37 @@ export class ListRepoTagResponse extends $tea.Model {
 }
 
 export class ListRepoTagScanResultRequest extends $tea.Model {
+  digest?: string;
   instanceId?: string;
-  repoId?: string;
-  tag?: string;
-  scanTaskId?: string;
   pageNo?: number;
   pageSize?: number;
+  repoId?: string;
+  scanTaskId?: string;
   severity?: string;
-  digest?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
+      digest: 'Digest',
       instanceId: 'InstanceId',
-      repoId: 'RepoId',
-      tag: 'Tag',
-      scanTaskId: 'ScanTaskId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      repoId: 'RepoId',
+      scanTaskId: 'ScanTaskId',
       severity: 'Severity',
-      digest: 'Digest',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      digest: 'string',
       instanceId: 'string',
-      repoId: 'string',
-      tag: 'string',
-      scanTaskId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      repoId: 'string',
+      scanTaskId: 'string',
       severity: 'string',
-      digest: 'string',
+      tag: 'string',
     };
   }
 
@@ -5055,20 +5718,20 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
 }
 
 export class ListRepoTagScanResultResponseBody extends $tea.Model {
-  requestId?: string;
   code?: string;
-  pageNo?: number;
   isSuccess?: boolean;
+  pageNo?: number;
   pageSize?: number;
+  requestId?: string;
   totalCount?: number;
   vulnerabilities?: ListRepoTagScanResultResponseBodyVulnerabilities[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       code: 'Code',
-      pageNo: 'PageNo',
       isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
       totalCount: 'TotalCount',
       vulnerabilities: 'Vulnerabilities',
     };
@@ -5076,11 +5739,11 @@ export class ListRepoTagScanResultResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       code: 'string',
-      pageNo: 'number',
       isSuccess: 'boolean',
+      pageNo: 'number',
       pageSize: 'number',
+      requestId: 'string',
       totalCount: 'number',
       vulnerabilities: { 'type': 'array', 'itemType': ListRepoTagScanResultResponseBodyVulnerabilities },
     };
@@ -5185,20 +5848,32 @@ export class ListRepoTriggerResponse extends $tea.Model {
   }
 }
 
-export class ListRepoTriggerRecordRequest extends $tea.Model {
+export class ListRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  triggerRecordId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  repoStatus?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      triggerRecordId: 'TriggerRecordId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoStatus: 'RepoStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      triggerRecordId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      repoStatus: 'string',
     };
   }
 
@@ -5207,17 +5882,23 @@ export class ListRepoTriggerRecordRequest extends $tea.Model {
   }
 }
 
-export class ListRepoTriggerRecordResponseBody extends $tea.Model {
+export class ListRepositoryResponseBody extends $tea.Model {
   code?: string;
   isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  repositories?: ListRepositoryResponseBodyRepositories[];
   requestId?: string;
-  repoTriggerRecords?: ListRepoTriggerRecordResponseBodyRepoTriggerRecords[];
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      repositories: 'Repositories',
       requestId: 'RequestId',
-      repoTriggerRecords: 'RepoTriggerRecords',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -5225,8 +5906,11 @@ export class ListRepoTriggerRecordResponseBody extends $tea.Model {
     return {
       code: 'string',
       isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      repositories: { 'type': 'array', 'itemType': ListRepositoryResponseBodyRepositories },
       requestId: 'string',
-      repoTriggerRecords: { 'type': 'array', 'itemType': ListRepoTriggerRecordResponseBodyRepoTriggerRecords },
+      totalCount: 'string',
     };
   }
 
@@ -5235,9 +5919,9 @@ export class ListRepoTriggerRecordResponseBody extends $tea.Model {
   }
 }
 
-export class ListRepoTriggerRecordResponse extends $tea.Model {
+export class ListRepositoryResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListRepoTriggerRecordResponseBody;
+  body: ListRepositoryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5248,7 +5932,7 @@ export class ListRepoTriggerRecordResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListRepoTriggerRecordResponseBody,
+      body: ListRepositoryResponseBody,
     };
   }
 
@@ -5326,26 +6010,104 @@ export class ResetLoginPasswordResponse extends $tea.Model {
   }
 }
 
-export class UpdateChartNamespaceRequest extends $tea.Model {
+export class UpdateChainRequest extends $tea.Model {
+  chainConfig?: string;
+  chainId?: string;
+  description?: string;
   instanceId?: string;
-  namespaceName?: string;
-  autoCreateRepo?: boolean;
-  defaultRepoType?: string;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
+      chainConfig: 'ChainConfig',
+      chainId: 'ChainId',
+      description: 'Description',
       instanceId: 'InstanceId',
-      namespaceName: 'NamespaceName',
-      autoCreateRepo: 'AutoCreateRepo',
-      defaultRepoType: 'DefaultRepoType',
+      name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      chainConfig: 'string',
+      chainId: 'string',
+      description: 'string',
       instanceId: 'string',
-      namespaceName: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChainResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateChainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateChainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateChartNamespaceRequest extends $tea.Model {
+  autoCreateRepo?: boolean;
+  defaultRepoType?: string;
+  instanceId?: string;
+  namespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCreateRepo: 'AutoCreateRepo',
+      defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       autoCreateRepo: 'boolean',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      namespaceName: 'string',
     };
   }
 
@@ -5403,27 +6165,27 @@ export class UpdateChartNamespaceResponse extends $tea.Model {
 
 export class UpdateChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   repoType?: string;
   summary?: string;
-  repoNamespaceName?: string;
-  repoName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
       summary: 'Summary',
-      repoNamespaceName: 'RepoNamespaceName',
-      repoName: 'RepoName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
       repoType: 'string',
       summary: 'string',
-      repoNamespaceName: 'string',
-      repoName: 'string',
     };
   }
 
@@ -5479,25 +6241,164 @@ export class UpdateChartRepositoryResponse extends $tea.Model {
   }
 }
 
-export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
+export class UpdateEventCenterRuleRequest extends $tea.Model {
+  eventChannel?: string;
+  eventConfig?: string;
+  eventScope?: string;
+  eventType?: string;
   instanceId?: string;
-  endpointType?: string;
+  namespaces?: string[];
+  repoNames?: string[];
+  repoTagFilterPattern?: string;
+  ruleId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventChannel: 'EventChannel',
+      eventConfig: 'EventConfig',
+      eventScope: 'EventScope',
+      eventType: 'EventType',
+      instanceId: 'InstanceId',
+      namespaces: 'Namespaces',
+      repoNames: 'RepoNames',
+      repoTagFilterPattern: 'RepoTagFilterPattern',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventChannel: 'string',
+      eventConfig: 'string',
+      eventScope: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+      repoNames: { 'type': 'array', 'itemType': 'string' },
+      repoTagFilterPattern: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
+  eventChannel?: string;
+  eventConfig?: string;
+  eventScope?: string;
+  eventType?: string;
+  instanceId?: string;
+  namespacesShrink?: string;
+  repoNamesShrink?: string;
+  repoTagFilterPattern?: string;
+  ruleId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventChannel: 'EventChannel',
+      eventConfig: 'EventConfig',
+      eventScope: 'EventScope',
+      eventType: 'EventType',
+      instanceId: 'InstanceId',
+      namespacesShrink: 'Namespaces',
+      repoNamesShrink: 'RepoNames',
+      repoTagFilterPattern: 'RepoTagFilterPattern',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventChannel: 'string',
+      eventConfig: 'string',
+      eventScope: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      namespacesShrink: 'string',
+      repoNamesShrink: 'string',
+      repoTagFilterPattern: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventCenterRuleResponseBody extends $tea.Model {
+  code?: number;
+  requestId?: string;
+  ruleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      requestId: 'string',
+      ruleId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateEventCenterRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateEventCenterRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateEventCenterRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
   enable?: boolean;
+  endpointType?: string;
+  instanceId?: string;
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      endpointType: 'EndpointType',
       enable: 'Enable',
+      endpointType: 'EndpointType',
+      instanceId: 'InstanceId',
       moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      endpointType: 'string',
       enable: 'boolean',
+      endpointType: 'string',
+      instanceId: 'string',
       moduleName: 'string',
     };
   }
@@ -5555,25 +6456,25 @@ export class UpdateInstanceEndpointStatusResponse extends $tea.Model {
 }
 
 export class UpdateNamespaceRequest extends $tea.Model {
-  instanceId?: string;
-  namespaceName?: string;
   autoCreateRepo?: boolean;
   defaultRepoType?: string;
+  instanceId?: string;
+  namespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      namespaceName: 'NamespaceName',
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
+      instanceId: 'InstanceId',
+      namespaceName: 'NamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      namespaceName: 'string',
       autoCreateRepo: 'boolean',
       defaultRepoType: 'string',
+      instanceId: 'string',
+      namespaceName: 'string',
     };
   }
 
@@ -5630,40 +6531,40 @@ export class UpdateNamespaceResponse extends $tea.Model {
 }
 
 export class UpdateRepoBuildRuleRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
+  buildRuleId?: string;
   dockerfileLocation?: string;
   dockerfileName?: string;
-  pushType?: string;
-  pushName?: string;
   imageTag?: string;
-  buildRuleId?: string;
+  instanceId?: string;
   platforms?: string[];
+  pushName?: string;
+  pushType?: string;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
+      buildRuleId: 'BuildRuleId',
       dockerfileLocation: 'DockerfileLocation',
       dockerfileName: 'DockerfileName',
-      pushType: 'PushType',
-      pushName: 'PushName',
       imageTag: 'ImageTag',
-      buildRuleId: 'BuildRuleId',
+      instanceId: 'InstanceId',
       platforms: 'Platforms',
+      pushName: 'PushName',
+      pushType: 'PushType',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      repoId: 'string',
+      buildRuleId: 'string',
       dockerfileLocation: 'string',
       dockerfileName: 'string',
-      pushType: 'string',
-      pushName: 'string',
       imageTag: 'string',
-      buildRuleId: 'string',
+      instanceId: 'string',
       platforms: { 'type': 'array', 'itemType': 'string' },
+      pushName: 'string',
+      pushType: 'string',
+      repoId: 'string',
     };
   }
 
@@ -5673,25 +6574,25 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
 }
 
 export class UpdateRepoBuildRuleResponseBody extends $tea.Model {
+  buildRuleId?: string;
   code?: string;
   isSuccess?: boolean;
   requestId?: string;
-  buildRuleId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildRuleId: 'BuildRuleId',
       code: 'Code',
       isSuccess: 'IsSuccess',
       requestId: 'RequestId',
-      buildRuleId: 'BuildRuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildRuleId: 'string',
       code: 'string',
       isSuccess: 'boolean',
       requestId: 'string',
-      buildRuleId: 'string',
     };
   }
 
@@ -5722,122 +6623,41 @@ export class UpdateRepoBuildRuleResponse extends $tea.Model {
   }
 }
 
-export class UpdateRepositoryRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
-  repoType?: string;
-  summary?: string;
-  detail?: string;
-  tagImmutability?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
-      repoType: 'RepoType',
-      summary: 'Summary',
-      detail: 'Detail',
-      tagImmutability: 'TagImmutability',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      repoId: 'string',
-      repoType: 'string',
-      summary: 'string',
-      detail: 'string',
-      tagImmutability: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRepositoryResponseBody extends $tea.Model {
-  code?: string;
-  isSuccess?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      isSuccess: 'IsSuccess',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      isSuccess: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateRepositoryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateRepositoryResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateRepositoryResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
-  instanceId?: string;
-  repoId?: string;
-  codeRepoType?: string;
-  codeRepoNamespaceName?: string;
-  codeRepoName?: string;
   autoBuild?: string;
-  overseaBuild?: string;
-  disableCacheBuild?: string;
   codeRepoId?: string;
+  codeRepoName?: string;
+  codeRepoNamespaceName?: string;
+  codeRepoType?: string;
+  disableCacheBuild?: string;
+  instanceId?: string;
+  overseaBuild?: string;
+  repoId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      repoId: 'RepoId',
-      codeRepoType: 'CodeRepoType',
-      codeRepoNamespaceName: 'CodeRepoNamespaceName',
-      codeRepoName: 'CodeRepoName',
       autoBuild: 'AutoBuild',
-      overseaBuild: 'OverseaBuild',
-      disableCacheBuild: 'DisableCacheBuild',
       codeRepoId: 'CodeRepoId',
+      codeRepoName: 'CodeRepoName',
+      codeRepoNamespaceName: 'CodeRepoNamespaceName',
+      codeRepoType: 'CodeRepoType',
+      disableCacheBuild: 'DisableCacheBuild',
+      instanceId: 'InstanceId',
+      overseaBuild: 'OverseaBuild',
+      repoId: 'RepoId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      repoId: 'string',
-      codeRepoType: 'string',
-      codeRepoNamespaceName: 'string',
-      codeRepoName: 'string',
       autoBuild: 'string',
-      overseaBuild: 'string',
-      disableCacheBuild: 'string',
       codeRepoId: 'string',
+      codeRepoName: 'string',
+      codeRepoNamespaceName: 'string',
+      codeRepoType: 'string',
+      disableCacheBuild: 'string',
+      instanceId: 'string',
+      overseaBuild: 'string',
+      repoId: 'string',
     };
   }
 
@@ -5896,20 +6716,20 @@ export class UpdateRepoSourceCodeRepoResponse extends $tea.Model {
 export class UpdateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
   repoId?: string;
-  triggerName?: string;
-  triggerUrl?: string;
-  triggerType?: string;
-  triggerTag?: string;
   triggerId?: string;
+  triggerName?: string;
+  triggerTag?: string;
+  triggerType?: string;
+  triggerUrl?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       repoId: 'RepoId',
-      triggerName: 'TriggerName',
-      triggerUrl: 'TriggerUrl',
-      triggerType: 'TriggerType',
-      triggerTag: 'TriggerTag',
       triggerId: 'TriggerId',
+      triggerName: 'TriggerName',
+      triggerTag: 'TriggerTag',
+      triggerType: 'TriggerType',
+      triggerUrl: 'TriggerUrl',
     };
   }
 
@@ -5917,11 +6737,11 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
     return {
       instanceId: 'string',
       repoId: 'string',
-      triggerName: 'string',
-      triggerUrl: 'string',
-      triggerType: 'string',
-      triggerTag: 'string',
       triggerId: 'string',
+      triggerName: 'string',
+      triggerTag: 'string',
+      triggerType: 'string',
+      triggerUrl: 'string',
     };
   }
 
@@ -5977,23 +6797,104 @@ export class UpdateRepoTriggerResponse extends $tea.Model {
   }
 }
 
-export class GetArtifactBuildTaskResponseBodySourceArtifact extends $tea.Model {
+export class UpdateRepositoryRequest extends $tea.Model {
+  detail?: string;
+  instanceId?: string;
   repoId?: string;
-  version?: string;
-  artifactType?: string;
+  repoType?: string;
+  summary?: string;
+  tagImmutability?: boolean;
   static names(): { [key: string]: string } {
     return {
+      detail: 'Detail',
+      instanceId: 'InstanceId',
       repoId: 'RepoId',
-      version: 'Version',
-      artifactType: 'ArtifactType',
+      repoType: 'RepoType',
+      summary: 'Summary',
+      tagImmutability: 'TagImmutability',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      detail: 'string',
+      instanceId: 'string',
+      repoId: 'string',
+      repoType: 'string',
+      summary: 'string',
+      tagImmutability: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponseBody extends $tea.Model {
+  code?: string;
+  isSuccess?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      isSuccess: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetArtifactBuildTaskResponseBodySourceArtifact extends $tea.Model {
+  artifactType?: string;
+  repoId?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      artifactType: 'ArtifactType',
+      repoId: 'RepoId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      artifactType: 'string',
       repoId: 'string',
       version: 'string',
-      artifactType: 'string',
     };
   }
 
@@ -6003,22 +6904,22 @@ export class GetArtifactBuildTaskResponseBodySourceArtifact extends $tea.Model {
 }
 
 export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $tea.Model {
+  artifactType?: string;
   repoId?: string;
   version?: string;
-  artifactType?: string;
   static names(): { [key: string]: string } {
     return {
+      artifactType: 'ArtifactType',
       repoId: 'RepoId',
       version: 'Version',
-      artifactType: 'ArtifactType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      artifactType: 'string',
       repoId: 'string',
       version: 'string',
-      artifactType: 'string',
     };
   }
 
@@ -6027,20 +6928,170 @@ export class GetArtifactBuildTaskResponseBodyTargetArtifact extends $tea.Model {
   }
 }
 
-export class GetInstanceEndpointResponseBodyDomains extends $tea.Model {
-  type?: string;
-  domain?: string;
+export class GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy extends $tea.Model {
+  action?: string;
+  issueCount?: string;
+  issueLevel?: string;
+  logic?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      domain: 'Domain',
+      action: 'Action',
+      issueCount: 'IssueCount',
+      issueLevel: 'IssueLevel',
+      logic: 'Logic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      domain: 'string',
+      action: 'string',
+      issueCount: 'string',
+      issueLevel: 'string',
+      logic: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfigNodesNodeConfig extends $tea.Model {
+  denyPolicy?: GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy;
+  retry?: number;
+  scanEngine?: string;
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      denyPolicy: 'DenyPolicy',
+      retry: 'Retry',
+      scanEngine: 'ScanEngine',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      denyPolicy: GetChainResponseBodyChainConfigNodesNodeConfigDenyPolicy,
+      retry: 'number',
+      scanEngine: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfigNodes extends $tea.Model {
+  enable?: boolean;
+  nodeConfig?: GetChainResponseBodyChainConfigNodesNodeConfig;
+  nodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      nodeConfig: 'NodeConfig',
+      nodeName: 'NodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      nodeConfig: GetChainResponseBodyChainConfigNodesNodeConfig,
+      nodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfigRoutersFrom extends $tea.Model {
+  nodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeName: 'NodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfigRoutersTo extends $tea.Model {
+  nodeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodeName: 'NodeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfigRouters extends $tea.Model {
+  from?: GetChainResponseBodyChainConfigRoutersFrom;
+  to?: GetChainResponseBodyChainConfigRoutersTo;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: GetChainResponseBodyChainConfigRoutersFrom,
+      to: GetChainResponseBodyChainConfigRoutersTo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChainResponseBodyChainConfig extends $tea.Model {
+  chainConfigId?: string;
+  isActive?: boolean;
+  nodes?: GetChainResponseBodyChainConfigNodes[];
+  routers?: GetChainResponseBodyChainConfigRouters[];
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainConfigId: 'ChainConfigId',
+      isActive: 'IsActive',
+      nodes: 'Nodes',
+      routers: 'Routers',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainConfigId: 'string',
+      isActive: 'boolean',
+      nodes: { 'type': 'array', 'itemType': GetChainResponseBodyChainConfigNodes },
+      routers: { 'type': 'array', 'itemType': GetChainResponseBodyChainConfigRouters },
+      version: 'string',
     };
   }
 
@@ -6071,28 +7122,50 @@ export class GetInstanceEndpointResponseBodyAclEntries extends $tea.Model {
   }
 }
 
+export class GetInstanceEndpointResponseBodyDomains extends $tea.Model {
+  domain?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $tea.Model {
+  defaultAccess?: boolean;
+  ip?: string;
   status?: string;
   vpcId?: string;
-  ip?: string;
-  defaultAccess?: boolean;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      defaultAccess: 'DefaultAccess',
+      ip: 'Ip',
       status: 'Status',
       vpcId: 'VpcId',
-      ip: 'Ip',
-      defaultAccess: 'DefaultAccess',
       vswitchId: 'VswitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      defaultAccess: 'boolean',
+      ip: 'string',
       status: 'string',
       vpcId: 'string',
-      ip: 'string',
-      defaultAccess: 'boolean',
       vswitchId: 'string',
     };
   }
@@ -6103,22 +7176,22 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $tea.Model {
 }
 
 export class GetRepoBuildRecordResponseBodyImage extends $tea.Model {
-  repoNamespaceName?: string;
   imageTag?: string;
   repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
       imageTag: 'ImageTag',
       repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
       imageTag: 'string',
       repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -6128,28 +7201,28 @@ export class GetRepoBuildRecordResponseBodyImage extends $tea.Model {
 }
 
 export class GetRepoSyncTaskResponseBodyImageFrom extends $tea.Model {
-  repoNamespaceName?: string;
-  instanceId?: string;
   imageTag?: string;
-  repoName?: string;
+  instanceId?: string;
   regionId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
       imageTag: 'ImageTag',
-      repoName: 'RepoName',
+      instanceId: 'InstanceId',
       regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
-      instanceId: 'string',
       imageTag: 'string',
-      repoName: 'string',
+      instanceId: 'string',
       regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -6159,28 +7232,28 @@ export class GetRepoSyncTaskResponseBodyImageFrom extends $tea.Model {
 }
 
 export class GetRepoSyncTaskResponseBodyImageTo extends $tea.Model {
-  repoNamespaceName?: string;
-  instanceId?: string;
   imageTag?: string;
-  repoName?: string;
+  instanceId?: string;
   regionId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
       imageTag: 'ImageTag',
-      repoName: 'RepoName',
+      instanceId: 'InstanceId',
       regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
-      instanceId: 'string',
       imageTag: 'string',
-      repoName: 'string',
+      instanceId: 'string',
       regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -6190,31 +7263,31 @@ export class GetRepoSyncTaskResponseBodyImageTo extends $tea.Model {
 }
 
 export class GetRepoSyncTaskResponseBodyLayerTasks extends $tea.Model {
-  taskStatus?: string;
+  artifactDigest?: string;
   digest?: string;
-  syncedSize?: number;
   size?: number;
   syncLayerTaskId?: string;
-  artifactDigest?: string;
+  syncedSize?: number;
+  taskStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      taskStatus: 'TaskStatus',
+      artifactDigest: 'ArtifactDigest',
       digest: 'Digest',
-      syncedSize: 'SyncedSize',
       size: 'Size',
       syncLayerTaskId: 'SyncLayerTaskId',
-      artifactDigest: 'ArtifactDigest',
+      syncedSize: 'SyncedSize',
+      taskStatus: 'TaskStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskStatus: 'string',
+      artifactDigest: 'string',
       digest: 'string',
-      syncedSize: 'number',
       size: 'number',
       syncLayerTaskId: 'string',
-      artifactDigest: 'string',
+      syncedSize: 'number',
+      taskStatus: 'string',
     };
   }
 
@@ -6225,27 +7298,52 @@ export class GetRepoSyncTaskResponseBodyLayerTasks extends $tea.Model {
 
 export class GetRepoTagLayersResponseBodyLayers extends $tea.Model {
   blobDigest?: string;
+  blobSize?: number;
+  layerCMD?: string;
   layerIndex?: number;
   layerInstruction?: string;
-  layerCMD?: string;
-  blobSize?: number;
   static names(): { [key: string]: string } {
     return {
       blobDigest: 'BlobDigest',
+      blobSize: 'BlobSize',
+      layerCMD: 'LayerCMD',
       layerIndex: 'LayerIndex',
       layerInstruction: 'LayerInstruction',
-      layerCMD: 'LayerCMD',
-      blobSize: 'BlobSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       blobDigest: 'string',
+      blobSize: 'number',
+      layerCMD: 'string',
       layerIndex: 'number',
       layerInstruction: 'string',
-      layerCMD: 'string',
-      blobSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoTagManifestResponseBodyManifestConfig extends $tea.Model {
+  digest?: string;
+  mediaType?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      digest: 'Digest',
+      mediaType: 'MediaType',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      digest: 'string',
+      mediaType: 'string',
+      size: 'number',
     };
   }
 
@@ -6292,31 +7390,6 @@ export class GetRepoTagManifestResponseBodyManifestHistory extends $tea.Model {
   }
 }
 
-export class GetRepoTagManifestResponseBodyManifestSignatures extends $tea.Model {
-  signature?: string;
-  header?: { [key: string]: any };
-  protected?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signature: 'Signature',
-      header: 'Header',
-      protected: 'Protected',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signature: 'string',
-      header: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      protected: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRepoTagManifestResponseBodyManifestLayers extends $tea.Model {
   digest?: string;
   mediaType?: string;
@@ -6342,23 +7415,23 @@ export class GetRepoTagManifestResponseBodyManifestLayers extends $tea.Model {
   }
 }
 
-export class GetRepoTagManifestResponseBodyManifestConfig extends $tea.Model {
-  digest?: string;
-  mediaType?: string;
-  size?: number;
+export class GetRepoTagManifestResponseBodyManifestSignatures extends $tea.Model {
+  header?: { [key: string]: any };
+  protected?: string;
+  signature?: string;
   static names(): { [key: string]: string } {
     return {
-      digest: 'Digest',
-      mediaType: 'MediaType',
-      size: 'Size',
+      header: 'Header',
+      protected: 'Protected',
+      signature: 'Signature',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      digest: 'string',
-      mediaType: 'string',
-      size: 'number',
+      header: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      protected: 'string',
+      signature: 'string',
     };
   }
 
@@ -6368,43 +7441,43 @@ export class GetRepoTagManifestResponseBodyManifestConfig extends $tea.Model {
 }
 
 export class GetRepoTagManifestResponseBodyManifest extends $tea.Model {
-  tag?: string;
-  name?: string;
-  mediaType?: string;
-  schemaVersion?: number;
   architecture?: string;
+  config?: GetRepoTagManifestResponseBodyManifestConfig;
   fsLayers?: GetRepoTagManifestResponseBodyManifestFsLayers[];
   history?: GetRepoTagManifestResponseBodyManifestHistory[];
-  signatures?: GetRepoTagManifestResponseBodyManifestSignatures[];
   layers?: GetRepoTagManifestResponseBodyManifestLayers[];
-  config?: GetRepoTagManifestResponseBodyManifestConfig;
+  mediaType?: string;
+  name?: string;
+  schemaVersion?: number;
+  signatures?: GetRepoTagManifestResponseBodyManifestSignatures[];
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
-      tag: 'Tag',
-      name: 'Name',
-      mediaType: 'MediaType',
-      schemaVersion: 'SchemaVersion',
       architecture: 'Architecture',
+      config: 'Config',
       fsLayers: 'FsLayers',
       history: 'History',
-      signatures: 'Signatures',
       layers: 'Layers',
-      config: 'Config',
+      mediaType: 'MediaType',
+      name: 'Name',
+      schemaVersion: 'SchemaVersion',
+      signatures: 'Signatures',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tag: 'string',
-      name: 'string',
-      mediaType: 'string',
-      schemaVersion: 'number',
       architecture: 'string',
+      config: GetRepoTagManifestResponseBodyManifestConfig,
       fsLayers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestFsLayers },
       history: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestHistory },
-      signatures: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestSignatures },
       layers: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestLayers },
-      config: GetRepoTagManifestResponseBodyManifestConfig,
+      mediaType: 'string',
+      name: 'string',
+      schemaVersion: 'number',
+      signatures: { 'type': 'array', 'itemType': GetRepoTagManifestResponseBodyManifestSignatures },
+      tag: 'string',
     };
   }
 
@@ -6414,19 +7487,124 @@ export class GetRepoTagManifestResponseBodyManifest extends $tea.Model {
 }
 
 export class ListArtifactBuildTaskLogResponseBodyBuildTaskLogs extends $tea.Model {
-  message?: string;
   lineNumber?: number;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
       lineNumber: 'LineNumber',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
       lineNumber: 'number',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainResponseBodyChains extends $tea.Model {
+  chainId?: string;
+  createTime?: number;
+  description?: string;
+  instanceId?: string;
+  modifiedTime?: number;
+  name?: string;
+  scopeId?: string;
+  scopeType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      createTime: 'CreateTime',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
+      name: 'Name',
+      scopeId: 'ScopeId',
+      scopeType: 'ScopeType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      createTime: 'number',
+      description: 'string',
+      instanceId: 'string',
+      modifiedTime: 'number',
+      name: 'string',
+      scopeId: 'string',
+      scopeType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainInstanceResponseBodyChainInstancesChain extends $tea.Model {
+  chainId?: string;
+  chainName?: string;
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      chainId: 'ChainId',
+      chainName: 'ChainName',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chainId: 'string',
+      chainName: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChainInstanceResponseBodyChainInstances extends $tea.Model {
+  chain?: ListChainInstanceResponseBodyChainInstancesChain;
+  chainInstanceId?: string;
+  endTime?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  result?: string;
+  startTime?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chain: 'Chain',
+      chainInstanceId: 'ChainInstanceId',
+      endTime: 'EndTime',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      result: 'Result',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chain: ListChainInstanceResponseBodyChainInstancesChain,
+      chainInstanceId: 'string',
+      endTime: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      result: 'string',
+      startTime: 'number',
+      status: 'string',
     };
   }
 
@@ -6436,31 +7614,31 @@ export class ListArtifactBuildTaskLogResponseBodyBuildTaskLogs extends $tea.Mode
 }
 
 export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
-  defaultRepoType?: string;
-  namespaceStatus?: string;
-  namespaceId?: string;
   autoCreateRepo?: boolean;
+  defaultRepoType?: string;
   instanceId?: string;
+  namespaceId?: string;
   namespaceName?: string;
+  namespaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      defaultRepoType: 'DefaultRepoType',
-      namespaceStatus: 'NamespaceStatus',
-      namespaceId: 'NamespaceId',
       autoCreateRepo: 'AutoCreateRepo',
+      defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
+      namespaceStatus: 'NamespaceStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      defaultRepoType: 'string',
-      namespaceStatus: 'string',
-      namespaceId: 'string',
       autoCreateRepo: 'boolean',
+      defaultRepoType: 'string',
       instanceId: 'string',
+      namespaceId: 'string',
       namespaceName: 'string',
+      namespaceStatus: 'string',
     };
   }
 
@@ -6470,34 +7648,34 @@ export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
 }
 
 export class ListChartReleaseResponseBodyChartReleases extends $tea.Model {
-  status?: string;
-  modifiedTime?: number;
-  repoId?: string;
-  release?: string;
-  size?: string;
-  instanceId?: string;
   chart?: string;
+  instanceId?: string;
+  modifiedTime?: number;
+  release?: string;
+  repoId?: string;
+  size?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      modifiedTime: 'ModifiedTime',
-      repoId: 'RepoId',
-      release: 'Release',
-      size: 'Size',
-      instanceId: 'InstanceId',
       chart: 'Chart',
+      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
+      release: 'Release',
+      repoId: 'RepoId',
+      size: 'Size',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      modifiedTime: 'number',
-      repoId: 'string',
-      release: 'string',
-      size: 'string',
-      instanceId: 'string',
       chart: 'string',
+      instanceId: 'string',
+      modifiedTime: 'number',
+      release: 'string',
+      repoId: 'string',
+      size: 'string',
+      status: 'string',
     };
   }
 
@@ -6507,40 +7685,117 @@ export class ListChartReleaseResponseBodyChartReleases extends $tea.Model {
 }
 
 export class ListChartRepositoryResponseBodyRepositories extends $tea.Model {
-  summary?: string;
+  createTime?: number;
+  instanceId?: string;
   modifiedTime?: number;
   repoId?: string;
-  createTime?: number;
-  repoNamespaceName?: string;
-  instanceId?: string;
-  repoType?: string;
-  repoStatus?: string;
   repoName?: string;
+  repoNamespaceName?: string;
+  repoStatus?: string;
+  repoType?: string;
+  summary?: string;
   static names(): { [key: string]: string } {
     return {
-      summary: 'Summary',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
       modifiedTime: 'ModifiedTime',
       repoId: 'RepoId',
-      createTime: 'CreateTime',
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
-      repoType: 'RepoType',
-      repoStatus: 'RepoStatus',
       repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoStatus: 'RepoStatus',
+      repoType: 'RepoType',
+      summary: 'Summary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      summary: 'string',
+      createTime: 'number',
+      instanceId: 'string',
       modifiedTime: 'number',
       repoId: 'string',
-      createTime: 'number',
-      repoNamespaceName: 'string',
-      instanceId: 'string',
-      repoType: 'string',
-      repoStatus: 'string',
       repoName: 'string',
+      repoNamespaceName: 'string',
+      repoStatus: 'string',
+      repoType: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRecordResponseBodyRecords extends $tea.Model {
+  createTime?: number;
+  eventChannel?: string;
+  eventNotifyId?: string;
+  eventNotifyMethod?: string;
+  eventType?: string;
+  instanceId?: string;
+  namespace?: string;
+  recordId?: string;
+  repoName?: string;
+  ruleId?: string;
+  ruleName?: string;
+  tag?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      eventChannel: 'EventChannel',
+      eventNotifyId: 'EventNotifyId',
+      eventNotifyMethod: 'EventNotifyMethod',
+      eventType: 'EventType',
+      instanceId: 'InstanceId',
+      namespace: 'Namespace',
+      recordId: 'RecordId',
+      repoName: 'RepoName',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      tag: 'Tag',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      eventChannel: 'string',
+      eventNotifyId: 'string',
+      eventNotifyMethod: 'string',
+      eventType: 'string',
+      instanceId: 'string',
+      namespace: 'string',
+      recordId: 'string',
+      repoName: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      tag: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEventCenterRuleNameResponseBodyRuleNames extends $tea.Model {
+  ruleId?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: 'string',
+      ruleName: 'string',
     };
   }
 
@@ -6550,75 +7805,34 @@ export class ListChartRepositoryResponseBodyRepositories extends $tea.Model {
 }
 
 export class ListInstanceResponseBodyInstances extends $tea.Model {
-  modifiedTime?: string;
-  instanceName?: string;
   createTime?: string;
+  instanceId?: string;
+  instanceName?: string;
   instanceSpecification?: string;
   instanceStatus?: string;
-  instanceId?: string;
+  modifiedTime?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      modifiedTime: 'ModifiedTime',
-      instanceName: 'InstanceName',
       createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       instanceSpecification: 'InstanceSpecification',
       instanceStatus: 'InstanceStatus',
-      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      modifiedTime: 'string',
-      instanceName: 'string',
       createTime: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
       instanceSpecification: 'string',
       instanceStatus: 'string',
-      instanceId: 'string',
+      modifiedTime: 'string',
       regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceEndpointResponseBodyEndpointsDomains extends $tea.Model {
-  type?: string;
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInstanceEndpointResponseBodyEndpointsLinkedVpcs extends $tea.Model {
-  vpcId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      vpcId: 'VpcId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      vpcId: 'string',
     };
   }
 
@@ -6646,35 +7860,76 @@ export class ListInstanceEndpointResponseBodyEndpointsAclEntries extends $tea.Mo
   }
 }
 
-export class ListInstanceEndpointResponseBodyEndpoints extends $tea.Model {
-  status?: string;
-  endpointType?: string;
-  aclEnable?: boolean;
-  enable?: boolean;
-  domains?: ListInstanceEndpointResponseBodyEndpointsDomains[];
-  linkedVpcs?: ListInstanceEndpointResponseBodyEndpointsLinkedVpcs[];
-  aclEntries?: ListInstanceEndpointResponseBodyEndpointsAclEntries[];
+export class ListInstanceEndpointResponseBodyEndpointsDomains extends $tea.Model {
+  domain?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      endpointType: 'EndpointType',
-      aclEnable: 'AclEnable',
-      enable: 'Enable',
-      domains: 'Domains',
-      linkedVpcs: 'LinkedVpcs',
-      aclEntries: 'AclEntries',
+      domain: 'Domain',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      endpointType: 'string',
+      domain: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceEndpointResponseBodyEndpointsLinkedVpcs extends $tea.Model {
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstanceEndpointResponseBodyEndpoints extends $tea.Model {
+  aclEnable?: boolean;
+  aclEntries?: ListInstanceEndpointResponseBodyEndpointsAclEntries[];
+  domains?: ListInstanceEndpointResponseBodyEndpointsDomains[];
+  enable?: boolean;
+  endpointType?: string;
+  linkedVpcs?: ListInstanceEndpointResponseBodyEndpointsLinkedVpcs[];
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aclEnable: 'AclEnable',
+      aclEntries: 'AclEntries',
+      domains: 'Domains',
+      enable: 'Enable',
+      endpointType: 'EndpointType',
+      linkedVpcs: 'LinkedVpcs',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       aclEnable: 'boolean',
-      enable: 'boolean',
-      domains: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsDomains },
-      linkedVpcs: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsLinkedVpcs },
       aclEntries: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsAclEntries },
+      domains: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsDomains },
+      enable: 'boolean',
+      endpointType: 'string',
+      linkedVpcs: { 'type': 'array', 'itemType': ListInstanceEndpointResponseBodyEndpointsLinkedVpcs },
+      status: 'string',
     };
   }
 
@@ -6706,31 +7961,31 @@ export class ListInstanceRegionResponseBodyRegions extends $tea.Model {
 }
 
 export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
-  defaultRepoType?: string;
-  namespaceStatus?: string;
-  namespaceId?: string;
   autoCreateRepo?: boolean;
+  defaultRepoType?: string;
   instanceId?: string;
+  namespaceId?: string;
   namespaceName?: string;
+  namespaceStatus?: string;
   static names(): { [key: string]: string } {
     return {
-      defaultRepoType: 'DefaultRepoType',
-      namespaceStatus: 'NamespaceStatus',
-      namespaceId: 'NamespaceId',
       autoCreateRepo: 'AutoCreateRepo',
+      defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
+      namespaceStatus: 'NamespaceStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      defaultRepoType: 'string',
-      namespaceStatus: 'string',
-      namespaceId: 'string',
       autoCreateRepo: 'boolean',
+      defaultRepoType: 'string',
       instanceId: 'string',
+      namespaceId: 'string',
       namespaceName: 'string',
+      namespaceStatus: 'string',
     };
   }
 
@@ -6740,25 +7995,25 @@ export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
 }
 
 export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $tea.Model {
-  repoNamespaceName?: string;
   imageTag?: string;
   repoId?: string;
   repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
       imageTag: 'ImageTag',
       repoId: 'RepoId',
       repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
       imageTag: 'string',
       repoId: 'string',
       repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -6768,28 +8023,28 @@ export class ListRepoBuildRecordResponseBodyBuildRecordsImage extends $tea.Model
 }
 
 export class ListRepoBuildRecordResponseBodyBuildRecords extends $tea.Model {
-  endTime?: string;
-  startTime?: string;
-  buildStatus?: string;
   buildRecordId?: string;
+  buildStatus?: string;
+  endTime?: string;
   image?: ListRepoBuildRecordResponseBodyBuildRecordsImage;
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-      buildStatus: 'BuildStatus',
       buildRecordId: 'BuildRecordId',
+      buildStatus: 'BuildStatus',
+      endTime: 'EndTime',
       image: 'Image',
+      startTime: 'StartTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'string',
-      startTime: 'string',
-      buildStatus: 'string',
       buildRecordId: 'string',
+      buildStatus: 'string',
+      endTime: 'string',
       image: ListRepoBuildRecordResponseBodyBuildRecordsImage,
+      startTime: 'string',
     };
   }
 
@@ -6799,22 +8054,22 @@ export class ListRepoBuildRecordResponseBodyBuildRecords extends $tea.Model {
 }
 
 export class ListRepoBuildRecordLogResponseBodyBuildRecordLogs extends $tea.Model {
+  buildStage?: string;
   lineNumber?: number;
   message?: string;
-  buildStage?: string;
   static names(): { [key: string]: string } {
     return {
+      buildStage: 'BuildStage',
       lineNumber: 'LineNumber',
       message: 'Message',
-      buildStage: 'BuildStage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildStage: 'string',
       lineNumber: 'number',
       message: 'string',
-      buildStage: 'string',
     };
   }
 
@@ -6824,86 +8079,37 @@ export class ListRepoBuildRecordLogResponseBodyBuildRecordLogs extends $tea.Mode
 }
 
 export class ListRepoBuildRuleResponseBodyBuildRules extends $tea.Model {
-  dockerfileLocation?: string;
-  buildRuleId?: string;
-  pushType?: string;
-  pushName?: string;
-  imageTag?: string;
-  dockerfileName?: string;
-  platforms?: string[];
   buildArgs?: string[];
+  buildRuleId?: string;
+  dockerfileLocation?: string;
+  dockerfileName?: string;
+  imageTag?: string;
+  platforms?: string[];
+  pushName?: string;
+  pushType?: string;
   static names(): { [key: string]: string } {
     return {
-      dockerfileLocation: 'DockerfileLocation',
-      buildRuleId: 'BuildRuleId',
-      pushType: 'PushType',
-      pushName: 'PushName',
-      imageTag: 'ImageTag',
-      dockerfileName: 'DockerfileName',
-      platforms: 'Platforms',
       buildArgs: 'BuildArgs',
+      buildRuleId: 'BuildRuleId',
+      dockerfileLocation: 'DockerfileLocation',
+      dockerfileName: 'DockerfileName',
+      imageTag: 'ImageTag',
+      platforms: 'Platforms',
+      pushName: 'PushName',
+      pushType: 'PushType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dockerfileLocation: 'string',
-      buildRuleId: 'string',
-      pushType: 'string',
-      pushName: 'string',
-      imageTag: 'string',
-      dockerfileName: 'string',
-      platforms: { 'type': 'array', 'itemType': 'string' },
       buildArgs: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListRepositoryResponseBodyRepositories extends $tea.Model {
-  summary?: string;
-  repoBuildType?: string;
-  modifiedTime?: number;
-  repoId?: string;
-  createTime?: number;
-  repoNamespaceName?: string;
-  tagImmutability?: boolean;
-  instanceId?: string;
-  repoType?: string;
-  repoStatus?: string;
-  repoName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      summary: 'Summary',
-      repoBuildType: 'RepoBuildType',
-      modifiedTime: 'ModifiedTime',
-      repoId: 'RepoId',
-      createTime: 'CreateTime',
-      repoNamespaceName: 'RepoNamespaceName',
-      tagImmutability: 'TagImmutability',
-      instanceId: 'InstanceId',
-      repoType: 'RepoType',
-      repoStatus: 'RepoStatus',
-      repoName: 'RepoName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      summary: 'string',
-      repoBuildType: 'string',
-      modifiedTime: 'number',
-      repoId: 'string',
-      createTime: 'number',
-      repoNamespaceName: 'string',
-      tagImmutability: 'boolean',
-      instanceId: 'string',
-      repoType: 'string',
-      repoStatus: 'string',
-      repoName: 'string',
+      buildRuleId: 'string',
+      dockerfileLocation: 'string',
+      dockerfileName: 'string',
+      imageTag: 'string',
+      platforms: { 'type': 'array', 'itemType': 'string' },
+      pushName: 'string',
+      pushType: 'string',
     };
   }
 
@@ -6913,61 +8119,64 @@ export class ListRepositoryResponseBodyRepositories extends $tea.Model {
 }
 
 export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
-  syncTrigger?: string;
   createTime?: number;
-  localRegionId?: string;
-  syncScope?: string;
-  tagFilter?: string;
-  targetNamespaceName?: string;
-  targetInstanceId?: string;
-  targetRepoName?: string;
-  syncRuleId?: string;
-  modifiedTime?: number;
-  syncRuleName?: string;
-  targetRegionId?: string;
+  crossUser?: boolean;
   localInstanceId?: string;
   localNamespaceName?: string;
+  localRegionId?: string;
   localRepoName?: string;
+  modifiedTime?: number;
   syncDirection?: string;
+  syncRuleId?: string;
+  syncRuleName?: string;
+  syncScope?: string;
+  syncTrigger?: string;
+  tagFilter?: string;
+  targetInstanceId?: string;
+  targetNamespaceName?: string;
+  targetRegionId?: string;
+  targetRepoName?: string;
   static names(): { [key: string]: string } {
     return {
-      syncTrigger: 'SyncTrigger',
       createTime: 'CreateTime',
-      localRegionId: 'LocalRegionId',
-      syncScope: 'SyncScope',
-      tagFilter: 'TagFilter',
-      targetNamespaceName: 'TargetNamespaceName',
-      targetInstanceId: 'TargetInstanceId',
-      targetRepoName: 'TargetRepoName',
-      syncRuleId: 'SyncRuleId',
-      modifiedTime: 'ModifiedTime',
-      syncRuleName: 'SyncRuleName',
-      targetRegionId: 'TargetRegionId',
+      crossUser: 'CrossUser',
       localInstanceId: 'LocalInstanceId',
       localNamespaceName: 'LocalNamespaceName',
+      localRegionId: 'LocalRegionId',
       localRepoName: 'LocalRepoName',
+      modifiedTime: 'ModifiedTime',
       syncDirection: 'SyncDirection',
+      syncRuleId: 'SyncRuleId',
+      syncRuleName: 'SyncRuleName',
+      syncScope: 'SyncScope',
+      syncTrigger: 'SyncTrigger',
+      tagFilter: 'TagFilter',
+      targetInstanceId: 'TargetInstanceId',
+      targetNamespaceName: 'TargetNamespaceName',
+      targetRegionId: 'TargetRegionId',
+      targetRepoName: 'TargetRepoName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      syncTrigger: 'string',
       createTime: 'number',
-      localRegionId: 'string',
-      syncScope: 'string',
-      tagFilter: 'string',
-      targetNamespaceName: 'string',
-      targetInstanceId: 'string',
-      targetRepoName: 'string',
-      syncRuleId: 'string',
-      modifiedTime: 'number',
-      syncRuleName: 'string',
-      targetRegionId: 'string',
+      crossUser: 'boolean',
       localInstanceId: 'string',
       localNamespaceName: 'string',
+      localRegionId: 'string',
       localRepoName: 'string',
+      modifiedTime: 'number',
       syncDirection: 'string',
+      syncRuleId: 'string',
+      syncRuleName: 'string',
+      syncScope: 'string',
+      syncTrigger: 'string',
+      tagFilter: 'string',
+      targetInstanceId: 'string',
+      targetNamespaceName: 'string',
+      targetRegionId: 'string',
+      targetRepoName: 'string',
     };
   }
 
@@ -6977,28 +8186,28 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $tea.Model {
 }
 
 export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $tea.Model {
-  repoNamespaceName?: string;
-  instanceId?: string;
   imageTag?: string;
-  repoName?: string;
+  instanceId?: string;
   regionId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
       imageTag: 'ImageTag',
-      repoName: 'RepoName',
+      instanceId: 'InstanceId',
       regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
-      instanceId: 'string',
       imageTag: 'string',
-      repoName: 'string',
+      instanceId: 'string',
       regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -7008,28 +8217,28 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageFrom extends $tea.Model {
 }
 
 export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $tea.Model {
-  repoNamespaceName?: string;
-  instanceId?: string;
   imageTag?: string;
-  repoName?: string;
+  instanceId?: string;
   regionId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      repoNamespaceName: 'RepoNamespaceName',
-      instanceId: 'InstanceId',
       imageTag: 'ImageTag',
-      repoName: 'RepoName',
+      instanceId: 'InstanceId',
       regionId: 'RegionId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      repoNamespaceName: 'string',
-      instanceId: 'string',
       imageTag: 'string',
-      repoName: 'string',
+      instanceId: 'string',
       regionId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
     };
   }
 
@@ -7039,40 +8248,43 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $tea.Model {
 }
 
 export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
+  createTime?: number;
+  crossUser?: boolean;
+  imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
+  imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   modifedTime?: number;
+  syncBatchTaskId?: string;
   syncRuleId?: string;
   syncTaskId?: string;
   taskStatus?: string;
-  createTime?: number;
-  syncBatchTaskId?: string;
   taskTrigger?: string;
-  imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
-  imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
+      crossUser: 'CrossUser',
+      imageFrom: 'ImageFrom',
+      imageTo: 'ImageTo',
       modifedTime: 'ModifedTime',
+      syncBatchTaskId: 'SyncBatchTaskId',
       syncRuleId: 'SyncRuleId',
       syncTaskId: 'SyncTaskId',
       taskStatus: 'TaskStatus',
-      createTime: 'CreateTime',
-      syncBatchTaskId: 'SyncBatchTaskId',
       taskTrigger: 'TaskTrigger',
-      imageFrom: 'ImageFrom',
-      imageTo: 'ImageTo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'number',
+      crossUser: 'boolean',
+      imageFrom: ListRepoSyncTaskResponseBodySyncTasksImageFrom,
+      imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
       modifedTime: 'number',
+      syncBatchTaskId: 'string',
       syncRuleId: 'string',
       syncTaskId: 'string',
       taskStatus: 'string',
-      createTime: 'number',
-      syncBatchTaskId: 'string',
       taskTrigger: 'string',
-      imageFrom: ListRepoSyncTaskResponseBodySyncTasksImageFrom,
-      imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
     };
   }
 
@@ -7082,34 +8294,34 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
 }
 
 export class ListRepoTagResponseBodyImages extends $tea.Model {
-  status?: string;
-  imageSize?: number;
-  imageCreate?: string;
   digest?: string;
-  imageUpdate?: string;
-  tag?: string;
+  imageCreate?: string;
   imageId?: string;
+  imageSize?: number;
+  imageUpdate?: string;
+  status?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      imageSize: 'ImageSize',
-      imageCreate: 'ImageCreate',
       digest: 'Digest',
-      imageUpdate: 'ImageUpdate',
-      tag: 'Tag',
+      imageCreate: 'ImageCreate',
       imageId: 'ImageId',
+      imageSize: 'ImageSize',
+      imageUpdate: 'ImageUpdate',
+      status: 'Status',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      imageSize: 'number',
-      imageCreate: 'string',
       digest: 'string',
-      imageUpdate: 'string',
-      tag: 'string',
+      imageCreate: 'string',
       imageId: 'string',
+      imageSize: 'number',
+      imageUpdate: 'string',
+      status: 'string',
+      tag: 'string',
     };
   }
 
@@ -7119,43 +8331,43 @@ export class ListRepoTagResponseBodyImages extends $tea.Model {
 }
 
 export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model {
-  severity?: string;
   addedBy?: string;
+  cveLink?: string;
   cveName?: string;
   description?: string;
   feature?: string;
-  version?: string;
-  versionFormat?: string;
-  cveLink?: string;
-  versionFixed?: string;
   fixCmd?: string;
+  severity?: string;
+  version?: string;
+  versionFixed?: string;
+  versionFormat?: string;
   static names(): { [key: string]: string } {
     return {
-      severity: 'Severity',
       addedBy: 'AddedBy',
+      cveLink: 'CveLink',
       cveName: 'CveName',
       description: 'Description',
       feature: 'Feature',
-      version: 'Version',
-      versionFormat: 'VersionFormat',
-      cveLink: 'CveLink',
-      versionFixed: 'VersionFixed',
       fixCmd: 'FixCmd',
+      severity: 'Severity',
+      version: 'Version',
+      versionFixed: 'VersionFixed',
+      versionFormat: 'VersionFormat',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      severity: 'string',
       addedBy: 'string',
+      cveLink: 'string',
       cveName: 'string',
       description: 'string',
       feature: 'string',
-      version: 'string',
-      versionFormat: 'string',
-      cveLink: 'string',
-      versionFixed: 'string',
       fixCmd: 'string',
+      severity: 'string',
+      version: 'string',
+      versionFixed: 'string',
+      versionFormat: 'string',
     };
   }
 
@@ -7165,31 +8377,31 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
 }
 
 export class ListRepoTriggerResponseBodyTriggers extends $tea.Model {
-  triggerName?: string;
   repoEvent?: string;
   triggerId?: string;
-  triggerUrl?: string;
-  triggerType?: string;
+  triggerName?: string;
   triggerTag?: string;
+  triggerType?: string;
+  triggerUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      triggerName: 'TriggerName',
       repoEvent: 'RepoEvent',
       triggerId: 'TriggerId',
-      triggerUrl: 'TriggerUrl',
-      triggerType: 'TriggerType',
+      triggerName: 'TriggerName',
       triggerTag: 'TriggerTag',
+      triggerType: 'TriggerType',
+      triggerUrl: 'TriggerUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      triggerName: 'string',
       repoEvent: 'string',
       triggerId: 'string',
-      triggerUrl: 'string',
-      triggerType: 'string',
+      triggerName: 'string',
       triggerTag: 'string',
+      triggerType: 'string',
+      triggerUrl: 'string',
     };
   }
 
@@ -7198,53 +8410,47 @@ export class ListRepoTriggerResponseBodyTriggers extends $tea.Model {
   }
 }
 
-export class ListRepoTriggerRecordResponseBodyRepoTriggerRecords extends $tea.Model {
-  requestHeaders?: string;
-  triggerName?: string;
-  responseHeaders?: string;
-  triggerLogId?: string;
-  responseBody?: string;
-  triggerUrl?: string;
-  requestBody?: string;
-  triggerType?: string;
-  triggerTag?: string;
-  statusCode?: string;
-  repoEvent?: string;
-  triggerId?: string;
-  requestTime?: number;
+export class ListRepositoryResponseBodyRepositories extends $tea.Model {
+  createTime?: number;
+  instanceId?: string;
+  modifiedTime?: number;
+  repoBuildType?: string;
+  repoId?: string;
+  repoName?: string;
+  repoNamespaceName?: string;
+  repoStatus?: string;
+  repoType?: string;
+  summary?: string;
+  tagImmutability?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestHeaders: 'RequestHeaders',
-      triggerName: 'TriggerName',
-      responseHeaders: 'ResponseHeaders',
-      triggerLogId: 'TriggerLogId',
-      responseBody: 'ResponseBody',
-      triggerUrl: 'TriggerUrl',
-      requestBody: 'RequestBody',
-      triggerType: 'TriggerType',
-      triggerTag: 'TriggerTag',
-      statusCode: 'StatusCode',
-      repoEvent: 'RepoEvent',
-      triggerId: 'TriggerId',
-      requestTime: 'RequestTime',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
+      repoBuildType: 'RepoBuildType',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+      repoStatus: 'RepoStatus',
+      repoType: 'RepoType',
+      summary: 'Summary',
+      tagImmutability: 'TagImmutability',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestHeaders: 'string',
-      triggerName: 'string',
-      responseHeaders: 'string',
-      triggerLogId: 'string',
-      responseBody: 'string',
-      triggerUrl: 'string',
-      requestBody: 'string',
-      triggerType: 'string',
-      triggerTag: 'string',
-      statusCode: 'string',
-      repoEvent: 'string',
-      triggerId: 'string',
-      requestTime: 'number',
+      createTime: 'number',
+      instanceId: 'string',
+      modifiedTime: 'number',
+      repoBuildType: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+      repoStatus: 'string',
+      repoType: 'string',
+      summary: 'string',
+      tagImmutability: 'boolean',
     };
   }
 
@@ -7278,10 +8484,25 @@ export default class Client extends OpenApi {
 
   async cancelArtifactBuildTaskWithOptions(request: CancelArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelArtifactBuildTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildTaskId"] = request.buildTaskId;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelArtifactBuildTaskResponse>(await this.doRPCRequest("CancelArtifactBuildTask", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CancelArtifactBuildTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelArtifactBuildTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelArtifactBuildTaskResponse>(await this.callApi(params, req, runtime), new CancelArtifactBuildTaskResponse({}));
   }
 
   async cancelArtifactBuildTask(request: CancelArtifactBuildTaskRequest): Promise<CancelArtifactBuildTaskResponse> {
@@ -7291,10 +8512,26 @@ export default class Client extends OpenApi {
 
   async cancelRepoBuildRecordWithOptions(request: CancelRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelRepoBuildRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRecordId"] = request.buildRecordId;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelRepoBuildRecordResponse>(await this.doRPCRequest("CancelRepoBuildRecord", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CancelRepoBuildRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelRepoBuildRecord",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new CancelRepoBuildRecordResponse({}));
   }
 
   async cancelRepoBuildRecord(request: CancelRepoBuildRecordRequest): Promise<CancelRepoBuildRecordResponse> {
@@ -7304,10 +8541,26 @@ export default class Client extends OpenApi {
 
   async createBuildRecordByRuleWithOptions(request: CreateBuildRecordByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRuleId"] = request.buildRuleId;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateBuildRecordByRuleResponse>(await this.doRPCRequest("CreateBuildRecordByRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBuildRecordByRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBuildRecordByRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBuildRecordByRuleResponse>(await this.callApi(params, req, runtime), new CreateBuildRecordByRuleResponse({}));
   }
 
   async createBuildRecordByRule(request: CreateBuildRecordByRuleRequest): Promise<CreateBuildRecordByRuleResponse> {
@@ -7315,12 +8568,61 @@ export default class Client extends OpenApi {
     return await this.createBuildRecordByRuleWithOptions(request, runtime);
   }
 
-  async createChartNamespaceWithOptions(request: CreateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateChartNamespaceResponse> {
+  async createChainWithOptions(request: CreateChainRequest, runtime: $Util.RuntimeOptions): Promise<CreateChainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChainConfig"] = request.chainConfig;
+    query["Description"] = request.description;
+    query["InstanceId"] = request.instanceId;
+    query["Name"] = request.name;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateChartNamespaceResponse>(await this.doRPCRequest("CreateChartNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateChartNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateChain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChainResponse>(await this.callApi(params, req, runtime), new CreateChainResponse({}));
+  }
+
+  async createChain(request: CreateChainRequest): Promise<CreateChainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createChainWithOptions(request, runtime);
+  }
+
+  async createChartNamespaceWithOptions(request: CreateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateChartNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AutoCreateRepo"] = request.autoCreateRepo;
+    query["DefaultRepoType"] = request.defaultRepoType;
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateChartNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChartNamespaceResponse>(await this.callApi(params, req, runtime), new CreateChartNamespaceResponse({}));
   }
 
   async createChartNamespace(request: CreateChartNamespaceRequest): Promise<CreateChartNamespaceResponse> {
@@ -7330,10 +8632,28 @@ export default class Client extends OpenApi {
 
   async createChartRepositoryWithOptions(request: CreateChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateChartRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["RepoType"] = request.repoType;
+    query["Summary"] = request.summary;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateChartRepositoryResponse>(await this.doRPCRequest("CreateChartRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateChartRepositoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateChartRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateChartRepositoryResponse>(await this.callApi(params, req, runtime), new CreateChartRepositoryResponse({}));
   }
 
   async createChartRepository(request: CreateChartRepositoryRequest): Promise<CreateChartRepositoryResponse> {
@@ -7343,10 +8663,28 @@ export default class Client extends OpenApi {
 
   async createInstanceEndpointAclPolicyWithOptions(request: CreateInstanceEndpointAclPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceEndpointAclPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Comment"] = request.comment;
+    query["EndpointType"] = request.endpointType;
+    query["Entry"] = request.entry;
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateInstanceEndpointAclPolicyResponse>(await this.doRPCRequest("CreateInstanceEndpointAclPolicy", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateInstanceEndpointAclPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceEndpointAclPolicy",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceEndpointAclPolicyResponse>(await this.callApi(params, req, runtime), new CreateInstanceEndpointAclPolicyResponse({}));
   }
 
   async createInstanceEndpointAclPolicy(request: CreateInstanceEndpointAclPolicyRequest): Promise<CreateInstanceEndpointAclPolicyResponse> {
@@ -7356,10 +8694,27 @@ export default class Client extends OpenApi {
 
   async createInstanceVpcEndpointLinkedVpcWithOptions(request: CreateInstanceVpcEndpointLinkedVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceVpcEndpointLinkedVpcResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
+    query["VpcId"] = request.vpcId;
+    query["VswitchId"] = request.vswitchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateInstanceVpcEndpointLinkedVpcResponse>(await this.doRPCRequest("CreateInstanceVpcEndpointLinkedVpc", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateInstanceVpcEndpointLinkedVpcResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateInstanceVpcEndpointLinkedVpc",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateInstanceVpcEndpointLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateInstanceVpcEndpointLinkedVpcResponse({}));
   }
 
   async createInstanceVpcEndpointLinkedVpc(request: CreateInstanceVpcEndpointLinkedVpcRequest): Promise<CreateInstanceVpcEndpointLinkedVpcResponse> {
@@ -7369,10 +8724,27 @@ export default class Client extends OpenApi {
 
   async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoCreateRepo"] = request.autoCreateRepo;
+    query["DefaultRepoType"] = request.defaultRepoType;
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.doRPCRequest("CreateNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
@@ -7382,10 +8754,30 @@ export default class Client extends OpenApi {
 
   async createRepoBuildRuleWithOptions(request: CreateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoBuildRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DockerfileLocation"] = request.dockerfileLocation;
+    query["DockerfileName"] = request.dockerfileName;
+    query["ImageTag"] = request.imageTag;
+    query["InstanceId"] = request.instanceId;
+    query["PushName"] = request.pushName;
+    query["PushType"] = request.pushType;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoBuildRuleResponse>(await this.doRPCRequest("CreateRepoBuildRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoBuildRuleResponse({}));
   }
 
   async createRepoBuildRule(request: CreateRepoBuildRuleRequest): Promise<CreateRepoBuildRuleResponse> {
@@ -7393,25 +8785,33 @@ export default class Client extends OpenApi {
     return await this.createRepoBuildRuleWithOptions(request, runtime);
   }
 
-  async createRepositoryWithOptions(request: CreateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepositoryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateRepositoryResponse>(await this.doRPCRequest("CreateRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepositoryResponse({}));
-  }
-
-  async createRepository(request: CreateRepositoryRequest): Promise<CreateRepositoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRepositoryWithOptions(request, runtime);
-  }
-
   async createRepoSourceCodeRepoWithOptions(request: CreateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoBuild"] = request.autoBuild;
+    query["CodeRepoName"] = request.codeRepoName;
+    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
+    query["CodeRepoType"] = request.codeRepoType;
+    query["DisableCacheBuild"] = request.disableCacheBuild;
+    query["InstanceId"] = request.instanceId;
+    query["OverseaBuild"] = request.overseaBuild;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoSourceCodeRepoResponse>(await this.doRPCRequest("CreateRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoSourceCodeRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoSourceCodeRepo",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new CreateRepoSourceCodeRepoResponse({}));
   }
 
   async createRepoSourceCodeRepo(request: CreateRepoSourceCodeRepoRequest): Promise<CreateRepoSourceCodeRepoResponse> {
@@ -7421,10 +8821,35 @@ export default class Client extends OpenApi {
 
   async createRepoSyncRuleWithOptions(request: CreateRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    query["RepoName"] = request.repoName;
+    query["SyncRuleName"] = request.syncRuleName;
+    query["SyncScope"] = request.syncScope;
+    query["SyncTrigger"] = request.syncTrigger;
+    query["TagFilter"] = request.tagFilter;
+    query["TargetInstanceId"] = request.targetInstanceId;
+    query["TargetNamespaceName"] = request.targetNamespaceName;
+    query["TargetRegionId"] = request.targetRegionId;
+    query["TargetRepoName"] = request.targetRepoName;
+    query["TargetUserId"] = request.targetUserId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoSyncRuleResponse>(await this.doRPCRequest("CreateRepoSyncRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoSyncRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoSyncRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncRuleResponse({}));
   }
 
   async createRepoSyncRule(request: CreateRepoSyncRuleRequest): Promise<CreateRepoSyncRuleResponse> {
@@ -7432,12 +8857,65 @@ export default class Client extends OpenApi {
     return await this.createRepoSyncRuleWithOptions(request, runtime);
   }
 
-  async createRepoSyncTaskByRuleWithOptions(request: CreateRepoSyncTaskByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncTaskByRuleResponse> {
+  async createRepoSyncTaskWithOptions(request: CreateRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["Override"] = request.override;
+    query["RepoId"] = request.repoId;
+    query["Tag"] = request.tag;
+    query["TargetInstanceId"] = request.targetInstanceId;
+    query["TargetNamespace"] = request.targetNamespace;
+    query["TargetRegionId"] = request.targetRegionId;
+    query["TargetRepoName"] = request.targetRepoName;
+    query["TargetTag"] = request.targetTag;
+    query["TargetUserId"] = request.targetUserId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoSyncTaskByRuleResponse>(await this.doRPCRequest("CreateRepoSyncTaskByRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoSyncTaskByRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoSyncTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncTaskResponse({}));
+  }
+
+  async createRepoSyncTask(request: CreateRepoSyncTaskRequest): Promise<CreateRepoSyncTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRepoSyncTaskWithOptions(request, runtime);
+  }
+
+  async createRepoSyncTaskByRuleWithOptions(request: CreateRepoSyncTaskByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncTaskByRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["SyncRuleId"] = request.syncRuleId;
+    query["Tag"] = request.tag;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRepoSyncTaskByRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoSyncTaskByRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncTaskByRuleResponse({}));
   }
 
   async createRepoSyncTaskByRule(request: CreateRepoSyncTaskByRuleRequest): Promise<CreateRepoSyncTaskByRuleResponse> {
@@ -7447,10 +8925,28 @@ export default class Client extends OpenApi {
 
   async createRepoTagWithOptions(request: CreateRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FromTag"] = request.fromTag;
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    query["RepoName"] = request.repoName;
+    query["ToTag"] = request.toTag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoTagResponse>(await this.doRPCRequest("CreateRepoTag", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoTag",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoTagResponse>(await this.callApi(params, req, runtime), new CreateRepoTagResponse({}));
   }
 
   async createRepoTag(request: CreateRepoTagRequest): Promise<CreateRepoTagResponse> {
@@ -7460,10 +8956,28 @@ export default class Client extends OpenApi {
 
   async createRepoTagScanTaskWithOptions(request: CreateRepoTagScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagScanTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Digest"] = request.digest;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["ScanService"] = request.scanService;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoTagScanTaskResponse>(await this.doRPCRequest("CreateRepoTagScanTask", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoTagScanTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoTagScanTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoTagScanTaskResponse>(await this.callApi(params, req, runtime), new CreateRepoTagScanTaskResponse({}));
   }
 
   async createRepoTagScanTask(request: CreateRepoTagScanTaskRequest): Promise<CreateRepoTagScanTaskResponse> {
@@ -7473,10 +8987,29 @@ export default class Client extends OpenApi {
 
   async createRepoTriggerWithOptions(request: CreateRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTriggerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["TriggerName"] = request.triggerName;
+    query["TriggerTag"] = request.triggerTag;
+    query["TriggerType"] = request.triggerType;
+    query["TriggerUrl"] = request.triggerUrl;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRepoTriggerResponse>(await this.doRPCRequest("CreateRepoTrigger", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRepoTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoTrigger",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepoTriggerResponse>(await this.callApi(params, req, runtime), new CreateRepoTriggerResponse({}));
   }
 
   async createRepoTrigger(request: CreateRepoTriggerRequest): Promise<CreateRepoTriggerResponse> {
@@ -7484,12 +9017,88 @@ export default class Client extends OpenApi {
     return await this.createRepoTriggerWithOptions(request, runtime);
   }
 
-  async deleteChartNamespaceWithOptions(request: DeleteChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartNamespaceResponse> {
+  async createRepositoryWithOptions(request: CreateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Detail"] = request.detail;
+    query["InstanceId"] = request.instanceId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["RepoType"] = request.repoType;
+    query["Summary"] = request.summary;
+    query["TagImmutability"] = request.tagImmutability;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteChartNamespaceResponse>(await this.doRPCRequest("DeleteChartNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteChartNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepositoryResponse>(await this.callApi(params, req, runtime), new CreateRepositoryResponse({}));
+  }
+
+  async createRepository(request: CreateRepositoryRequest): Promise<CreateRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRepositoryWithOptions(request, runtime);
+  }
+
+  async deleteChainWithOptions(request: DeleteChainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ChainId"] = request.chainId;
+    query["InstanceId"] = request.instanceId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteChain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChainResponse>(await this.callApi(params, req, runtime), new DeleteChainResponse({}));
+  }
+
+  async deleteChain(request: DeleteChainRequest): Promise<DeleteChainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteChainWithOptions(request, runtime);
+  }
+
+  async deleteChartNamespaceWithOptions(request: DeleteChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteChartNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChartNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteChartNamespaceResponse({}));
   }
 
   async deleteChartNamespace(request: DeleteChartNamespaceRequest): Promise<DeleteChartNamespaceResponse> {
@@ -7499,10 +9108,28 @@ export default class Client extends OpenApi {
 
   async deleteChartReleaseWithOptions(request: DeleteChartReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartReleaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Chart"] = request.chart;
+    query["InstanceId"] = request.instanceId;
+    query["Release"] = request.release;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteChartReleaseResponse>(await this.doRPCRequest("DeleteChartRelease", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteChartReleaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteChartRelease",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChartReleaseResponse>(await this.callApi(params, req, runtime), new DeleteChartReleaseResponse({}));
   }
 
   async deleteChartRelease(request: DeleteChartReleaseRequest): Promise<DeleteChartReleaseResponse> {
@@ -7512,10 +9139,26 @@ export default class Client extends OpenApi {
 
   async deleteChartRepositoryWithOptions(request: DeleteChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteChartRepositoryResponse>(await this.doRPCRequest("DeleteChartRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteChartRepositoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteChartRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteChartRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteChartRepositoryResponse({}));
   }
 
   async deleteChartRepository(request: DeleteChartRepositoryRequest): Promise<DeleteChartRepositoryResponse> {
@@ -7523,12 +9166,57 @@ export default class Client extends OpenApi {
     return await this.deleteChartRepositoryWithOptions(request, runtime);
   }
 
-  async deleteInstanceEndpointAclPolicyWithOptions(request: DeleteInstanceEndpointAclPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceEndpointAclPolicyResponse> {
+  async deleteEventCenterRuleWithOptions(request: DeleteEventCenterRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventCenterRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RuleId"] = request.ruleId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteInstanceEndpointAclPolicyResponse>(await this.doRPCRequest("DeleteInstanceEndpointAclPolicy", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteInstanceEndpointAclPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEventCenterRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEventCenterRuleResponse>(await this.callApi(params, req, runtime), new DeleteEventCenterRuleResponse({}));
+  }
+
+  async deleteEventCenterRule(request: DeleteEventCenterRuleRequest): Promise<DeleteEventCenterRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEventCenterRuleWithOptions(request, runtime);
+  }
+
+  async deleteInstanceEndpointAclPolicyWithOptions(request: DeleteInstanceEndpointAclPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceEndpointAclPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["EndpointType"] = request.endpointType;
+    query["Entry"] = request.entry;
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceEndpointAclPolicy",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceEndpointAclPolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstanceEndpointAclPolicyResponse({}));
   }
 
   async deleteInstanceEndpointAclPolicy(request: DeleteInstanceEndpointAclPolicyRequest): Promise<DeleteInstanceEndpointAclPolicyResponse> {
@@ -7538,10 +9226,27 @@ export default class Client extends OpenApi {
 
   async deleteInstanceVpcEndpointLinkedVpcWithOptions(request: DeleteInstanceVpcEndpointLinkedVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceVpcEndpointLinkedVpcResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
+    query["VpcId"] = request.vpcId;
+    query["VswitchId"] = request.vswitchId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteInstanceVpcEndpointLinkedVpcResponse>(await this.doRPCRequest("DeleteInstanceVpcEndpointLinkedVpc", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteInstanceVpcEndpointLinkedVpcResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteInstanceVpcEndpointLinkedVpc",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceVpcEndpointLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteInstanceVpcEndpointLinkedVpcResponse({}));
   }
 
   async deleteInstanceVpcEndpointLinkedVpc(request: DeleteInstanceVpcEndpointLinkedVpcRequest): Promise<DeleteInstanceVpcEndpointLinkedVpcResponse> {
@@ -7551,10 +9256,25 @@ export default class Client extends OpenApi {
 
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.doRPCRequest("DeleteNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
@@ -7564,10 +9284,26 @@ export default class Client extends OpenApi {
 
   async deleteRepoBuildRuleWithOptions(request: DeleteRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoBuildRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRuleId"] = request.buildRuleId;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRepoBuildRuleResponse>(await this.doRPCRequest("DeleteRepoBuildRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new DeleteRepoBuildRuleResponse({}));
   }
 
   async deleteRepoBuildRule(request: DeleteRepoBuildRuleRequest): Promise<DeleteRepoBuildRuleResponse> {
@@ -7575,25 +9311,27 @@ export default class Client extends OpenApi {
     return await this.deleteRepoBuildRuleWithOptions(request, runtime);
   }
 
-  async deleteRepositoryWithOptions(request: DeleteRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteRepositoryResponse>(await this.doRPCRequest("DeleteRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRepositoryResponse({}));
-  }
-
-  async deleteRepository(request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteRepositoryWithOptions(request, runtime);
-  }
-
   async deleteRepoSyncRuleWithOptions(request: DeleteRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoSyncRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["SyncRuleId"] = request.syncRuleId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRepoSyncRuleResponse>(await this.doRPCRequest("DeleteRepoSyncRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRepoSyncRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoSyncRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new DeleteRepoSyncRuleResponse({}));
   }
 
   async deleteRepoSyncRule(request: DeleteRepoSyncRuleRequest): Promise<DeleteRepoSyncRuleResponse> {
@@ -7603,10 +9341,26 @@ export default class Client extends OpenApi {
 
   async deleteRepoTagWithOptions(request: DeleteRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRepoTagResponse>(await this.doRPCRequest("DeleteRepoTag", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRepoTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoTag",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepoTagResponse>(await this.callApi(params, req, runtime), new DeleteRepoTagResponse({}));
   }
 
   async deleteRepoTag(request: DeleteRepoTagRequest): Promise<DeleteRepoTagResponse> {
@@ -7616,10 +9370,26 @@ export default class Client extends OpenApi {
 
   async deleteRepoTriggerWithOptions(request: DeleteRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoTriggerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["TriggerId"] = request.triggerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRepoTriggerResponse>(await this.doRPCRequest("DeleteRepoTrigger", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRepoTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoTrigger",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepoTriggerResponse>(await this.callApi(params, req, runtime), new DeleteRepoTriggerResponse({}));
   }
 
   async deleteRepoTrigger(request: DeleteRepoTriggerRequest): Promise<DeleteRepoTriggerResponse> {
@@ -7627,13 +9397,52 @@ export default class Client extends OpenApi {
     return await this.deleteRepoTriggerWithOptions(request, runtime);
   }
 
+  async deleteRepositoryWithOptions(request: DeleteRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteRepositoryResponse({}));
+  }
+
+  async deleteRepository(request: DeleteRepositoryRequest): Promise<DeleteRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRepositoryWithOptions(request, runtime);
+  }
+
   async getArtifactBuildTaskWithOptions(request: GetArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetArtifactBuildTaskResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetArtifactBuildTaskResponse>(await this.doRPCRequest("GetArtifactBuildTask", "2018-12-01", "HTTPS", "GET", "AK", "json", req, runtime), new GetArtifactBuildTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetArtifactBuildTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetArtifactBuildTaskResponse>(await this.callApi(params, req, runtime), new GetArtifactBuildTaskResponse({}));
   }
 
   async getArtifactBuildTask(request: GetArtifactBuildTaskRequest): Promise<GetArtifactBuildTaskResponse> {
@@ -7643,10 +9452,24 @@ export default class Client extends OpenApi {
 
   async getAuthorizationTokenWithOptions(request: GetAuthorizationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAuthorizationTokenResponse>(await this.doRPCRequest("GetAuthorizationToken", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetAuthorizationTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthorizationToken",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthorizationTokenResponse>(await this.callApi(params, req, runtime), new GetAuthorizationTokenResponse({}));
   }
 
   async getAuthorizationToken(request: GetAuthorizationTokenRequest): Promise<GetAuthorizationTokenResponse> {
@@ -7654,12 +9477,55 @@ export default class Client extends OpenApi {
     return await this.getAuthorizationTokenWithOptions(request, runtime);
   }
 
-  async getChartNamespaceWithOptions(request: GetChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<GetChartNamespaceResponse> {
+  async getChainWithOptions(request: GetChainRequest, runtime: $Util.RuntimeOptions): Promise<GetChainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChainId"] = request.chainId;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetChartNamespaceResponse>(await this.doRPCRequest("GetChartNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetChartNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetChain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChainResponse>(await this.callApi(params, req, runtime), new GetChainResponse({}));
+  }
+
+  async getChain(request: GetChainRequest): Promise<GetChainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getChainWithOptions(request, runtime);
+  }
+
+  async getChartNamespaceWithOptions(request: GetChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<GetChartNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChartNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChartNamespaceResponse>(await this.callApi(params, req, runtime), new GetChartNamespaceResponse({}));
   }
 
   async getChartNamespace(request: GetChartNamespaceRequest): Promise<GetChartNamespaceResponse> {
@@ -7669,10 +9535,26 @@ export default class Client extends OpenApi {
 
   async getChartRepositoryWithOptions(request: GetChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<GetChartRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetChartRepositoryResponse>(await this.doRPCRequest("GetChartRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetChartRepositoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetChartRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChartRepositoryResponse>(await this.callApi(params, req, runtime), new GetChartRepositoryResponse({}));
   }
 
   async getChartRepository(request: GetChartRepositoryRequest): Promise<GetChartRepositoryResponse> {
@@ -7682,10 +9564,24 @@ export default class Client extends OpenApi {
 
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetInstanceResponse>(await this.doRPCRequest("GetInstance", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstance",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
   }
 
   async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
@@ -7695,7 +9591,18 @@ export default class Client extends OpenApi {
 
   async getInstanceCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetInstanceCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetInstanceCountResponse>(await this.doRPCRequest("GetInstanceCount", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceCount",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceCountResponse>(await this.callApi(params, req, runtime), new GetInstanceCountResponse({}));
   }
 
   async getInstanceCount(): Promise<GetInstanceCountResponse> {
@@ -7705,10 +9612,26 @@ export default class Client extends OpenApi {
 
   async getInstanceEndpointWithOptions(request: GetInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndpointType"] = request.endpointType;
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetInstanceEndpointResponse>(await this.doRPCRequest("GetInstanceEndpoint", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceEndpoint",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceEndpointResponse>(await this.callApi(params, req, runtime), new GetInstanceEndpointResponse({}));
   }
 
   async getInstanceEndpoint(request: GetInstanceEndpointRequest): Promise<GetInstanceEndpointResponse> {
@@ -7718,10 +9641,24 @@ export default class Client extends OpenApi {
 
   async getInstanceUsageWithOptions(request: GetInstanceUsageRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceUsageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetInstanceUsageResponse>(await this.doRPCRequest("GetInstanceUsage", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceUsageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceUsage",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceUsageResponse>(await this.callApi(params, req, runtime), new GetInstanceUsageResponse({}));
   }
 
   async getInstanceUsage(request: GetInstanceUsageRequest): Promise<GetInstanceUsageResponse> {
@@ -7731,10 +9668,25 @@ export default class Client extends OpenApi {
 
   async getInstanceVpcEndpointWithOptions(request: GetInstanceVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetInstanceVpcEndpointResponse>(await this.doRPCRequest("GetInstanceVpcEndpoint", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceVpcEndpoint",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceVpcEndpointResponse>(await this.callApi(params, req, runtime), new GetInstanceVpcEndpointResponse({}));
   }
 
   async getInstanceVpcEndpoint(request: GetInstanceVpcEndpointRequest): Promise<GetInstanceVpcEndpointResponse> {
@@ -7744,10 +9696,26 @@ export default class Client extends OpenApi {
 
   async getNamespaceWithOptions(request: GetNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<GetNamespaceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceId"] = request.namespaceId;
+    query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetNamespaceResponse>(await this.doRPCRequest("GetNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetNamespaceResponse>(await this.callApi(params, req, runtime), new GetNamespaceResponse({}));
   }
 
   async getNamespace(request: GetNamespaceRequest): Promise<GetNamespaceResponse> {
@@ -7757,10 +9725,25 @@ export default class Client extends OpenApi {
 
   async getRepoBuildRecordWithOptions(request: GetRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRecordId"] = request.buildRecordId;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoBuildRecordResponse>(await this.doRPCRequest("GetRepoBuildRecord", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoBuildRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoBuildRecord",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRecordResponse({}));
   }
 
   async getRepoBuildRecord(request: GetRepoBuildRecordRequest): Promise<GetRepoBuildRecordResponse> {
@@ -7770,10 +9753,26 @@ export default class Client extends OpenApi {
 
   async getRepoBuildRecordStatusWithOptions(request: GetRepoBuildRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRecordStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRecordId"] = request.buildRecordId;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoBuildRecordStatusResponse>(await this.doRPCRequest("GetRepoBuildRecordStatus", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoBuildRecordStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoBuildRecordStatus",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoBuildRecordStatusResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRecordStatusResponse({}));
   }
 
   async getRepoBuildRecordStatus(request: GetRepoBuildRecordStatusRequest): Promise<GetRepoBuildRecordStatusResponse> {
@@ -7781,25 +9780,27 @@ export default class Client extends OpenApi {
     return await this.getRepoBuildRecordStatusWithOptions(request, runtime);
   }
 
-  async getRepositoryWithOptions(request: GetRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<GetRepositoryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetRepositoryResponse>(await this.doRPCRequest("GetRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepositoryResponse({}));
-  }
-
-  async getRepository(request: GetRepositoryRequest): Promise<GetRepositoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRepositoryWithOptions(request, runtime);
-  }
-
   async getRepoSourceCodeRepoWithOptions(request: GetRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoSourceCodeRepoResponse>(await this.doRPCRequest("GetRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoSourceCodeRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoSourceCodeRepo",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new GetRepoSourceCodeRepoResponse({}));
   }
 
   async getRepoSourceCodeRepo(request: GetRepoSourceCodeRepoRequest): Promise<GetRepoSourceCodeRepoResponse> {
@@ -7809,10 +9810,25 @@ export default class Client extends OpenApi {
 
   async getRepoSyncTaskWithOptions(request: GetRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSyncTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["SyncTaskId"] = request.syncTaskId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoSyncTaskResponse>(await this.doRPCRequest("GetRepoSyncTask", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoSyncTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoSyncTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new GetRepoSyncTaskResponse({}));
   }
 
   async getRepoSyncTask(request: GetRepoSyncTaskRequest): Promise<GetRepoSyncTaskResponse> {
@@ -7822,10 +9838,27 @@ export default class Client extends OpenApi {
 
   async getRepoTagLayersWithOptions(request: GetRepoTagLayersRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagLayersResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Digest"] = request.digest;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoTagLayersResponse>(await this.doRPCRequest("GetRepoTagLayers", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoTagLayersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagLayers",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoTagLayersResponse>(await this.callApi(params, req, runtime), new GetRepoTagLayersResponse({}));
   }
 
   async getRepoTagLayers(request: GetRepoTagLayersRequest): Promise<GetRepoTagLayersResponse> {
@@ -7835,10 +9868,27 @@ export default class Client extends OpenApi {
 
   async getRepoTagManifestWithOptions(request: GetRepoTagManifestRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagManifestResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["SchemaVersion"] = request.schemaVersion;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoTagManifestResponse>(await this.doRPCRequest("GetRepoTagManifest", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoTagManifestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagManifest",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoTagManifestResponse>(await this.callApi(params, req, runtime), new GetRepoTagManifestResponse({}));
   }
 
   async getRepoTagManifest(request: GetRepoTagManifestRequest): Promise<GetRepoTagManifestResponse> {
@@ -7848,10 +9898,28 @@ export default class Client extends OpenApi {
 
   async getRepoTagScanStatusWithOptions(request: GetRepoTagScanStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Digest"] = request.digest;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["ScanTaskId"] = request.scanTaskId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoTagScanStatusResponse>(await this.doRPCRequest("GetRepoTagScanStatus", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoTagScanStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagScanStatus",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoTagScanStatusResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanStatusResponse({}));
   }
 
   async getRepoTagScanStatus(request: GetRepoTagScanStatusRequest): Promise<GetRepoTagScanStatusResponse> {
@@ -7861,10 +9929,28 @@ export default class Client extends OpenApi {
 
   async getRepoTagScanSummaryWithOptions(request: GetRepoTagScanSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Digest"] = request.digest;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["ScanTaskId"] = request.scanTaskId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRepoTagScanSummaryResponse>(await this.doRPCRequest("GetRepoTagScanSummary", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new GetRepoTagScanSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagScanSummary",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoTagScanSummaryResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanSummaryResponse({}));
   }
 
   async getRepoTagScanSummary(request: GetRepoTagScanSummaryRequest): Promise<GetRepoTagScanSummaryResponse> {
@@ -7872,13 +9958,54 @@ export default class Client extends OpenApi {
     return await this.getRepoTagScanSummaryWithOptions(request, runtime);
   }
 
+  async getRepositoryWithOptions(request: GetRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<GetRepositoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepositoryResponse>(await this.callApi(params, req, runtime), new GetRepositoryResponse({}));
+  }
+
+  async getRepository(request: GetRepositoryRequest): Promise<GetRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRepositoryWithOptions(request, runtime);
+  }
+
   async listArtifactBuildTaskLogWithOptions(request: ListArtifactBuildTaskLogRequest, runtime: $Util.RuntimeOptions): Promise<ListArtifactBuildTaskLogResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
-      query: query,
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListArtifactBuildTaskLogResponse>(await this.doRPCRequest("ListArtifactBuildTaskLog", "2018-12-01", "HTTPS", "GET", "AK", "json", req, runtime), new ListArtifactBuildTaskLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListArtifactBuildTaskLog",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListArtifactBuildTaskLogResponse>(await this.callApi(params, req, runtime), new ListArtifactBuildTaskLogResponse({}));
   }
 
   async listArtifactBuildTaskLog(request: ListArtifactBuildTaskLogRequest): Promise<ListArtifactBuildTaskLogResponse> {
@@ -7886,12 +10013,92 @@ export default class Client extends OpenApi {
     return await this.listArtifactBuildTaskLogWithOptions(request, runtime);
   }
 
-  async listChartNamespaceWithOptions(request: ListChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListChartNamespaceResponse> {
+  async listChainWithOptions(request: ListChainRequest, runtime: $Util.RuntimeOptions): Promise<ListChainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListChartNamespaceResponse>(await this.doRPCRequest("ListChartNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListChartNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListChain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChainResponse>(await this.callApi(params, req, runtime), new ListChainResponse({}));
+  }
+
+  async listChain(request: ListChainRequest): Promise<ListChainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listChainWithOptions(request, runtime);
+  }
+
+  async listChainInstanceWithOptions(request: ListChainInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListChainInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChainInstance",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChainInstanceResponse>(await this.callApi(params, req, runtime), new ListChainInstanceResponse({}));
+  }
+
+  async listChainInstance(request: ListChainInstanceRequest): Promise<ListChainInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listChainInstanceWithOptions(request, runtime);
+  }
+
+  async listChartNamespaceWithOptions(request: ListChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListChartNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    query["NamespaceStatus"] = request.namespaceStatus;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChartNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChartNamespaceResponse>(await this.callApi(params, req, runtime), new ListChartNamespaceResponse({}));
   }
 
   async listChartNamespace(request: ListChartNamespaceRequest): Promise<ListChartNamespaceResponse> {
@@ -7901,10 +10108,29 @@ export default class Client extends OpenApi {
 
   async listChartReleaseWithOptions(request: ListChartReleaseRequest, runtime: $Util.RuntimeOptions): Promise<ListChartReleaseResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Chart"] = request.chart;
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListChartReleaseResponse>(await this.doRPCRequest("ListChartRelease", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListChartReleaseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListChartRelease",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChartReleaseResponse>(await this.callApi(params, req, runtime), new ListChartReleaseResponse({}));
   }
 
   async listChartRelease(request: ListChartReleaseRequest): Promise<ListChartReleaseResponse> {
@@ -7914,10 +10140,29 @@ export default class Client extends OpenApi {
 
   async listChartRepositoryWithOptions(request: ListChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<ListChartRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["RepoStatus"] = request.repoStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListChartRepositoryResponse>(await this.doRPCRequest("ListChartRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListChartRepositoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListChartRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChartRepositoryResponse>(await this.callApi(params, req, runtime), new ListChartRepositoryResponse({}));
   }
 
   async listChartRepository(request: ListChartRepositoryRequest): Promise<ListChartRepositoryResponse> {
@@ -7925,12 +10170,79 @@ export default class Client extends OpenApi {
     return await this.listChartRepositoryWithOptions(request, runtime);
   }
 
+  async listEventCenterRecordWithOptions(request: ListEventCenterRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListEventCenterRecordResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEventCenterRecord",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEventCenterRecordResponse>(await this.callApi(params, req, runtime), new ListEventCenterRecordResponse({}));
+  }
+
+  async listEventCenterRecord(request: ListEventCenterRecordRequest): Promise<ListEventCenterRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEventCenterRecordWithOptions(request, runtime);
+  }
+
+  async listEventCenterRuleNameWithOptions(request: ListEventCenterRuleNameRequest, runtime: $Util.RuntimeOptions): Promise<ListEventCenterRuleNameResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEventCenterRuleName",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEventCenterRuleNameResponse>(await this.callApi(params, req, runtime), new ListEventCenterRuleNameResponse({}));
+  }
+
+  async listEventCenterRuleName(request: ListEventCenterRuleNameRequest): Promise<ListEventCenterRuleNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEventCenterRuleNameWithOptions(request, runtime);
+  }
+
   async listInstanceWithOptions(request: ListInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceName"] = request.instanceName;
+    query["InstanceStatus"] = request.instanceStatus;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListInstanceResponse>(await this.doRPCRequest("ListInstance", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstance",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
   }
 
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
@@ -7940,10 +10252,25 @@ export default class Client extends OpenApi {
 
   async listInstanceEndpointWithOptions(request: ListInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListInstanceEndpointResponse>(await this.doRPCRequest("ListInstanceEndpoint", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstanceEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstanceEndpoint",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceEndpointResponse>(await this.callApi(params, req, runtime), new ListInstanceEndpointResponse({}));
   }
 
   async listInstanceEndpoint(request: ListInstanceEndpointRequest): Promise<ListInstanceEndpointResponse> {
@@ -7953,10 +10280,24 @@ export default class Client extends OpenApi {
 
   async listInstanceRegionWithOptions(request: ListInstanceRegionRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRegionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lang"] = request.lang;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListInstanceRegionResponse>(await this.doRPCRequest("ListInstanceRegion", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListInstanceRegionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstanceRegion",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstanceRegionResponse>(await this.callApi(params, req, runtime), new ListInstanceRegionResponse({}));
   }
 
   async listInstanceRegion(request: ListInstanceRegionRequest): Promise<ListInstanceRegionResponse> {
@@ -7966,10 +10307,28 @@ export default class Client extends OpenApi {
 
   async listNamespaceWithOptions(request: ListNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespaceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    query["NamespaceStatus"] = request.namespaceStatus;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListNamespaceResponse>(await this.doRPCRequest("ListNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNamespaceResponse>(await this.callApi(params, req, runtime), new ListNamespaceResponse({}));
   }
 
   async listNamespace(request: ListNamespaceRequest): Promise<ListNamespaceResponse> {
@@ -7979,10 +10338,27 @@ export default class Client extends OpenApi {
 
   async listRepoBuildRecordWithOptions(request: ListRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoBuildRecordResponse>(await this.doRPCRequest("ListRepoBuildRecord", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoBuildRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoBuildRecord",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRecordResponse({}));
   }
 
   async listRepoBuildRecord(request: ListRepoBuildRecordRequest): Promise<ListRepoBuildRecordResponse> {
@@ -7992,10 +10368,27 @@ export default class Client extends OpenApi {
 
   async listRepoBuildRecordLogWithOptions(request: ListRepoBuildRecordLogRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRecordLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRecordId"] = request.buildRecordId;
+    query["InstanceId"] = request.instanceId;
+    query["Offset"] = request.offset;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoBuildRecordLogResponse>(await this.doRPCRequest("ListRepoBuildRecordLog", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoBuildRecordLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoBuildRecordLog",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoBuildRecordLogResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRecordLogResponse({}));
   }
 
   async listRepoBuildRecordLog(request: ListRepoBuildRecordLogRequest): Promise<ListRepoBuildRecordLogResponse> {
@@ -8005,10 +10398,27 @@ export default class Client extends OpenApi {
 
   async listRepoBuildRuleWithOptions(request: ListRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoBuildRuleResponse>(await this.doRPCRequest("ListRepoBuildRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRuleResponse({}));
   }
 
   async listRepoBuildRule(request: ListRepoBuildRuleRequest): Promise<ListRepoBuildRuleResponse> {
@@ -8016,25 +10426,32 @@ export default class Client extends OpenApi {
     return await this.listRepoBuildRuleWithOptions(request, runtime);
   }
 
-  async listRepositoryWithOptions(request: ListRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<ListRepositoryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListRepositoryResponse>(await this.doRPCRequest("ListRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepositoryResponse({}));
-  }
-
-  async listRepository(request: ListRepositoryRequest): Promise<ListRepositoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRepositoryWithOptions(request, runtime);
-  }
-
   async listRepoSyncRuleWithOptions(request: ListRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoSyncRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["TargetInstanceId"] = request.targetInstanceId;
+    query["TargetRegionId"] = request.targetRegionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoSyncRuleResponse>(await this.doRPCRequest("ListRepoSyncRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoSyncRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoSyncRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new ListRepoSyncRuleResponse({}));
   }
 
   async listRepoSyncRule(request: ListRepoSyncRuleRequest): Promise<ListRepoSyncRuleResponse> {
@@ -8044,10 +10461,30 @@ export default class Client extends OpenApi {
 
   async listRepoSyncTaskWithOptions(request: ListRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoSyncTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["SyncRecordId"] = request.syncRecordId;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoSyncTaskResponse>(await this.doRPCRequest("ListRepoSyncTask", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoSyncTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoSyncTask",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new ListRepoSyncTaskResponse({}));
   }
 
   async listRepoSyncTask(request: ListRepoSyncTaskRequest): Promise<ListRepoSyncTaskResponse> {
@@ -8057,10 +10494,27 @@ export default class Client extends OpenApi {
 
   async listRepoTagWithOptions(request: ListRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTagResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoTagResponse>(await this.doRPCRequest("ListRepoTag", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoTagResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoTag",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoTagResponse>(await this.callApi(params, req, runtime), new ListRepoTagResponse({}));
   }
 
   async listRepoTag(request: ListRepoTagRequest): Promise<ListRepoTagResponse> {
@@ -8070,10 +10524,31 @@ export default class Client extends OpenApi {
 
   async listRepoTagScanResultWithOptions(request: ListRepoTagScanResultRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTagScanResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Digest"] = request.digest;
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoId"] = request.repoId;
+    query["ScanTaskId"] = request.scanTaskId;
+    query["Severity"] = request.severity;
+    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoTagScanResultResponse>(await this.doRPCRequest("ListRepoTagScanResult", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoTagScanResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoTagScanResult",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoTagScanResultResponse>(await this.callApi(params, req, runtime), new ListRepoTagScanResultResponse({}));
   }
 
   async listRepoTagScanResult(request: ListRepoTagScanResultRequest): Promise<ListRepoTagScanResultResponse> {
@@ -8083,10 +10558,25 @@ export default class Client extends OpenApi {
 
   async listRepoTriggerWithOptions(request: ListRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTriggerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoTriggerResponse>(await this.doRPCRequest("ListRepoTrigger", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepoTrigger",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepoTriggerResponse>(await this.callApi(params, req, runtime), new ListRepoTriggerResponse({}));
   }
 
   async listRepoTrigger(request: ListRepoTriggerRequest): Promise<ListRepoTriggerResponse> {
@@ -8094,25 +10584,59 @@ export default class Client extends OpenApi {
     return await this.listRepoTriggerWithOptions(request, runtime);
   }
 
-  async listRepoTriggerRecordWithOptions(request: ListRepoTriggerRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTriggerRecordResponse> {
+  async listRepositoryWithOptions(request: ListRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<ListRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["PageNo"] = request.pageNo;
+    query["PageSize"] = request.pageSize;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["RepoStatus"] = request.repoStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRepoTriggerRecordResponse>(await this.doRPCRequest("ListRepoTriggerRecord", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ListRepoTriggerRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryResponse>(await this.callApi(params, req, runtime), new ListRepositoryResponse({}));
   }
 
-  async listRepoTriggerRecord(request: ListRepoTriggerRecordRequest): Promise<ListRepoTriggerRecordResponse> {
+  async listRepository(request: ListRepositoryRequest): Promise<ListRepositoryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listRepoTriggerRecordWithOptions(request, runtime);
+    return await this.listRepositoryWithOptions(request, runtime);
   }
 
   async resetLoginPasswordWithOptions(request: ResetLoginPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetLoginPasswordResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["Password"] = request.password;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ResetLoginPasswordResponse>(await this.doRPCRequest("ResetLoginPassword", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new ResetLoginPasswordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetLoginPassword",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetLoginPasswordResponse>(await this.callApi(params, req, runtime), new ResetLoginPasswordResponse({}));
   }
 
   async resetLoginPassword(request: ResetLoginPasswordRequest): Promise<ResetLoginPasswordResponse> {
@@ -8120,12 +10644,60 @@ export default class Client extends OpenApi {
     return await this.resetLoginPasswordWithOptions(request, runtime);
   }
 
-  async updateChartNamespaceWithOptions(request: UpdateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChartNamespaceResponse> {
+  async updateChainWithOptions(request: UpdateChainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ChainConfig"] = request.chainConfig;
+    query["ChainId"] = request.chainId;
+    query["Description"] = request.description;
+    query["InstanceId"] = request.instanceId;
+    query["Name"] = request.name;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateChartNamespaceResponse>(await this.doRPCRequest("UpdateChartNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateChartNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateChain",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateChainResponse>(await this.callApi(params, req, runtime), new UpdateChainResponse({}));
+  }
+
+  async updateChain(request: UpdateChainRequest): Promise<UpdateChainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateChainWithOptions(request, runtime);
+  }
+
+  async updateChartNamespaceWithOptions(request: UpdateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChartNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AutoCreateRepo"] = request.autoCreateRepo;
+    query["DefaultRepoType"] = request.defaultRepoType;
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateChartNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateChartNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateChartNamespaceResponse({}));
   }
 
   async updateChartNamespace(request: UpdateChartNamespaceRequest): Promise<UpdateChartNamespaceResponse> {
@@ -8135,10 +10707,28 @@ export default class Client extends OpenApi {
 
   async updateChartRepositoryWithOptions(request: UpdateChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChartRepositoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoName"] = request.repoName;
+    query["RepoNamespaceName"] = request.repoNamespaceName;
+    query["RepoType"] = request.repoType;
+    query["Summary"] = request.summary;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateChartRepositoryResponse>(await this.doRPCRequest("UpdateChartRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateChartRepositoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateChartRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateChartRepositoryResponse>(await this.callApi(params, req, runtime), new UpdateChartRepositoryResponse({}));
   }
 
   async updateChartRepository(request: UpdateChartRepositoryRequest): Promise<UpdateChartRepositoryResponse> {
@@ -8146,12 +10736,75 @@ export default class Client extends OpenApi {
     return await this.updateChartRepositoryWithOptions(request, runtime);
   }
 
-  async updateInstanceEndpointStatusWithOptions(request: UpdateInstanceEndpointStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceEndpointStatusResponse> {
-    Util.validateModel(request);
+  async updateEventCenterRuleWithOptions(tmpReq: UpdateEventCenterRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEventCenterRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateEventCenterRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.namespaces)) {
+      request.namespacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.namespaces, "Namespaces", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.repoNames)) {
+      request.repoNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.repoNames, "RepoNames", "json");
+    }
+
+    let query = { };
+    query["EventChannel"] = request.eventChannel;
+    query["EventConfig"] = request.eventConfig;
+    query["EventScope"] = request.eventScope;
+    query["EventType"] = request.eventType;
+    query["InstanceId"] = request.instanceId;
+    query["Namespaces"] = request.namespacesShrink;
+    query["RepoNames"] = request.repoNamesShrink;
+    query["RepoTagFilterPattern"] = request.repoTagFilterPattern;
+    query["RuleId"] = request.ruleId;
+    query["RuleName"] = request.ruleName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateInstanceEndpointStatusResponse>(await this.doRPCRequest("UpdateInstanceEndpointStatus", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateInstanceEndpointStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEventCenterRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEventCenterRuleResponse>(await this.callApi(params, req, runtime), new UpdateEventCenterRuleResponse({}));
+  }
+
+  async updateEventCenterRule(request: UpdateEventCenterRuleRequest): Promise<UpdateEventCenterRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateEventCenterRuleWithOptions(request, runtime);
+  }
+
+  async updateInstanceEndpointStatusWithOptions(request: UpdateInstanceEndpointStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceEndpointStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Enable"] = request.enable;
+    query["EndpointType"] = request.endpointType;
+    query["InstanceId"] = request.instanceId;
+    query["ModuleName"] = request.moduleName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateInstanceEndpointStatus",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceEndpointStatusResponse>(await this.callApi(params, req, runtime), new UpdateInstanceEndpointStatusResponse({}));
   }
 
   async updateInstanceEndpointStatus(request: UpdateInstanceEndpointStatusRequest): Promise<UpdateInstanceEndpointStatusResponse> {
@@ -8161,10 +10814,27 @@ export default class Client extends OpenApi {
 
   async updateNamespaceWithOptions(request: UpdateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoCreateRepo"] = request.autoCreateRepo;
+    query["DefaultRepoType"] = request.defaultRepoType;
+    query["InstanceId"] = request.instanceId;
+    query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateNamespaceResponse>(await this.doRPCRequest("UpdateNamespace", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateNamespace",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
   }
 
   async updateNamespace(request: UpdateNamespaceRequest): Promise<UpdateNamespaceResponse> {
@@ -8174,10 +10844,32 @@ export default class Client extends OpenApi {
 
   async updateRepoBuildRuleWithOptions(request: UpdateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoBuildRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BuildRuleId"] = request.buildRuleId;
+    query["DockerfileLocation"] = request.dockerfileLocation;
+    query["DockerfileName"] = request.dockerfileName;
+    query["ImageTag"] = request.imageTag;
+    query["InstanceId"] = request.instanceId;
+    query["Platforms"] = request.platforms;
+    query["PushName"] = request.pushName;
+    query["PushType"] = request.pushType;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateRepoBuildRuleResponse>(await this.doRPCRequest("UpdateRepoBuildRule", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepoBuildRule",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new UpdateRepoBuildRuleResponse({}));
   }
 
   async updateRepoBuildRule(request: UpdateRepoBuildRuleRequest): Promise<UpdateRepoBuildRuleResponse> {
@@ -8185,25 +10877,34 @@ export default class Client extends OpenApi {
     return await this.updateRepoBuildRuleWithOptions(request, runtime);
   }
 
-  async updateRepositoryWithOptions(request: UpdateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateRepositoryResponse>(await this.doRPCRequest("UpdateRepository", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRepositoryResponse({}));
-  }
-
-  async updateRepository(request: UpdateRepositoryRequest): Promise<UpdateRepositoryResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateRepositoryWithOptions(request, runtime);
-  }
-
   async updateRepoSourceCodeRepoWithOptions(request: UpdateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoBuild"] = request.autoBuild;
+    query["CodeRepoId"] = request.codeRepoId;
+    query["CodeRepoName"] = request.codeRepoName;
+    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
+    query["CodeRepoType"] = request.codeRepoType;
+    query["DisableCacheBuild"] = request.disableCacheBuild;
+    query["InstanceId"] = request.instanceId;
+    query["OverseaBuild"] = request.overseaBuild;
+    query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateRepoSourceCodeRepoResponse>(await this.doRPCRequest("UpdateRepoSourceCodeRepo", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRepoSourceCodeRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepoSourceCodeRepo",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new UpdateRepoSourceCodeRepoResponse({}));
   }
 
   async updateRepoSourceCodeRepo(request: UpdateRepoSourceCodeRepoRequest): Promise<UpdateRepoSourceCodeRepoResponse> {
@@ -8213,15 +10914,67 @@ export default class Client extends OpenApi {
 
   async updateRepoTriggerWithOptions(request: UpdateRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoTriggerResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["TriggerId"] = request.triggerId;
+    query["TriggerName"] = request.triggerName;
+    query["TriggerTag"] = request.triggerTag;
+    query["TriggerType"] = request.triggerType;
+    query["TriggerUrl"] = request.triggerUrl;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateRepoTriggerResponse>(await this.doRPCRequest("UpdateRepoTrigger", "2018-12-01", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRepoTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepoTrigger",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepoTriggerResponse>(await this.callApi(params, req, runtime), new UpdateRepoTriggerResponse({}));
   }
 
   async updateRepoTrigger(request: UpdateRepoTriggerRequest): Promise<UpdateRepoTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateRepoTriggerWithOptions(request, runtime);
+  }
+
+  async updateRepositoryWithOptions(request: UpdateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Detail"] = request.detail;
+    query["InstanceId"] = request.instanceId;
+    query["RepoId"] = request.repoId;
+    query["RepoType"] = request.repoType;
+    query["Summary"] = request.summary;
+    query["TagImmutability"] = request.tagImmutability;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateRepository",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRepositoryResponse>(await this.callApi(params, req, runtime), new UpdateRepositoryResponse({}));
+  }
+
+  async updateRepository(request: UpdateRepositoryRequest): Promise<UpdateRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateRepositoryWithOptions(request, runtime);
   }
 
 }
