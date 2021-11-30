@@ -1088,6 +1088,44 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeleteAlertContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $tea.Model {
   keepSlb?: boolean;
   retainAllResources?: boolean;
@@ -4666,6 +4704,25 @@ export class ScaleOutClusterResponse extends $tea.Model {
   }
 }
 
+export class StartAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartWorkflowRequest extends $tea.Model {
   mappingBamOutFilename?: string;
   mappingBamOutPath?: string;
@@ -4780,6 +4837,25 @@ export class StartWorkflowResponse extends $tea.Model {
   }
 }
 
+export class StopAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
   resourceIds?: string[];
@@ -4808,17 +4884,39 @@ export class TagResourcesRequest extends $tea.Model {
   }
 }
 
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesResponse extends $tea.Model {
   headers: { [key: string]: string };
+  body: TagResourcesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TagResourcesResponseBody,
     };
   }
 
@@ -4866,12 +4964,14 @@ export class UnInstallClusterAddonsResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
   regionId?: string;
   resourceIds?: string[];
   resourceType?: string;
   tagKeys?: string[];
   static names(): { [key: string]: string } {
     return {
+      all: 'all',
       regionId: 'region_id',
       resourceIds: 'resource_ids',
       resourceType: 'resource_type',
@@ -4881,6 +4981,7 @@ export class UntagResourcesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      all: 'boolean',
       regionId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
@@ -4893,7 +4994,48 @@ export class UntagResourcesRequest extends $tea.Model {
   }
 }
 
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContactGroupForAlertResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -8423,7 +8565,7 @@ export default class Client extends OpenApi {
       action: "CancelComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/{componentId}/cancel`,
+      pathname: `/clusters/${clusterId}/components/${componentId}/cancel`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9113,6 +9255,54 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
+  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertContactWithOptions(headers, runtime);
+  }
+
+  async deleteAlertContactWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlertContact",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/contacts`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
+  }
+
+  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
+  }
+
+  async deleteAlertContactGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlertContactGroup",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/contact_groups`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
+  }
+
   async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9175,7 +9365,7 @@ export default class Client extends OpenApi {
       action: "DeleteClusterNodepool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9305,7 +9495,7 @@ export default class Client extends OpenApi {
       action: "DeletePolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      pathname: `/clusters/${clusterId}/policies/${policyName}`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -9397,7 +9587,7 @@ export default class Client extends OpenApi {
       action: "DeployPolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      pathname: `/clusters/${clusterId}/policies/${policyName}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -9484,7 +9674,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonMetadata",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/{componentId}/metadata`,
+      pathname: `/clusters/${clusterId}/components/${componentId}/metadata`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9510,7 +9700,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterAddonUpgradeStatus",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/components/{ComponentId}/upgradestatus`,
+      pathname: `/clusters/${ClusterId}/components/${ComponentId}/upgradestatus`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -9726,7 +9916,7 @@ export default class Client extends OpenApi {
       action: "DescribeClusterNodePoolDetail",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -10912,7 +11102,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterAddon",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/components/{componentId}/config`,
+      pathname: `/clusters/${clusterId}/components/${componentId}/config`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11001,7 +11191,7 @@ export default class Client extends OpenApi {
       action: "ModifyClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11073,7 +11263,7 @@ export default class Client extends OpenApi {
       action: "ModifyPolicyInstance",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterId}/policies/{policyName}`,
+      pathname: `/clusters/${clusterId}/policies/${policyName}`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -11155,7 +11345,7 @@ export default class Client extends OpenApi {
       action: "PauseComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterid}/components/{componentid}/pause`,
+      pathname: `/clusters/${clusterid}/components/${componentid}/pause`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11246,7 +11436,7 @@ export default class Client extends OpenApi {
       action: "ResumeComponentUpgrade",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${clusterid}/components/{componentid}/resume`,
+      pathname: `/clusters/${clusterid}/components/${componentid}/resume`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11408,7 +11598,7 @@ export default class Client extends OpenApi {
       action: "ScaleClusterNodePool",
       version: "2015-12-15",
       protocol: "HTTPS",
-      pathname: `/clusters/${ClusterId}/nodepools/{NodepoolId}`,
+      pathname: `/clusters/${ClusterId}/nodepools/${NodepoolId}`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -11530,6 +11720,31 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleOutClusterResponse>(await this.callApi(params, req, runtime), new ScaleOutClusterResponse({}));
   }
 
+  async startAlert(ClusterId: string): Promise<StartAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startAlertWithOptions(ClusterId, headers, runtime);
+  }
+
+  async startAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
+    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StartAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${ClusterId}/alert_rule/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
+  }
+
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11633,6 +11848,31 @@ export default class Client extends OpenApi {
     return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
   }
 
+  async stopAlert(ClusterId: string): Promise<StopAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAlertWithOptions(ClusterId, headers, runtime);
+  }
+
+  async stopAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
+    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "StopAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${ClusterId}/alert_rule/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
+  }
+
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11671,7 +11911,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
@@ -11712,6 +11952,10 @@ export default class Client extends OpenApi {
   async untagResourcesWithOptions(request: UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.all)) {
+      query["all"] = request.all;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["region_id"] = request.regionId;
     }
@@ -11741,9 +11985,34 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
+  }
+
+  async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
+    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateContactGroupForAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${ClusterId}/alert_rule/contact_groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
   }
 
   async updateK8sClusterUserConfigExpire(ClusterId: string): Promise<UpdateK8sClusterUserConfigExpireResponse> {
