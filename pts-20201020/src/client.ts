@@ -3011,7 +3011,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
   agentCount?: number;
   baseInfo?: GetOpenJMeterSceneResponseBodySceneBaseInfo;
   concurrency?: number;
-  constantThroughputTimers?: string;
+  constantThroughputTimerType?: string;
   dnsCacheConfig?: GetOpenJMeterSceneResponseBodySceneDnsCacheConfig;
   duration?: number;
   environmentId?: string;
@@ -3023,7 +3023,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
   sceneName?: string;
   securityGroupId?: string;
   steps?: number;
-  syncTimers?: string;
+  syncTimerType?: string;
   testFile?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -3032,7 +3032,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       agentCount: 'AgentCount',
       baseInfo: 'BaseInfo',
       concurrency: 'Concurrency',
-      constantThroughputTimers: 'ConstantThroughputTimers',
+      constantThroughputTimerType: 'ConstantThroughputTimerType',
       dnsCacheConfig: 'DnsCacheConfig',
       duration: 'Duration',
       environmentId: 'EnvironmentId',
@@ -3044,7 +3044,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
       steps: 'Steps',
-      syncTimers: 'SyncTimers',
+      syncTimerType: 'SyncTimerType',
       testFile: 'TestFile',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3056,7 +3056,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       agentCount: 'number',
       baseInfo: GetOpenJMeterSceneResponseBodySceneBaseInfo,
       concurrency: 'number',
-      constantThroughputTimers: 'string',
+      constantThroughputTimerType: 'string',
       dnsCacheConfig: GetOpenJMeterSceneResponseBodySceneDnsCacheConfig,
       duration: 'number',
       environmentId: 'string',
@@ -3068,7 +3068,7 @@ export class GetOpenJMeterSceneResponseBodyScene extends $tea.Model {
       sceneName: 'string',
       securityGroupId: 'string',
       steps: 'number',
-      syncTimers: 'string',
+      syncTimerType: 'string',
       testFile: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -4724,7 +4724,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties extends $
 export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   agentCount?: number;
   concurrency?: number;
-  constantThroughputTimers?: string;
+  constantThroughputTimerType?: string;
   dnsCacheConfig?: SaveOpenJMeterSceneRequestOpenJMeterSceneDnsCacheConfig;
   duration?: number;
   enviromentId?: string;
@@ -4737,7 +4737,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   sceneName?: string;
   securityGroupId?: string;
   steps?: number;
-  syncTimers?: string;
+  syncTimerType?: string;
   testFile?: string;
   vSwitchId?: string;
   vpcId?: string;
@@ -4745,7 +4745,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
     return {
       agentCount: 'AgentCount',
       concurrency: 'Concurrency',
-      constantThroughputTimers: 'ConstantThroughputTimers',
+      constantThroughputTimerType: 'ConstantThroughputTimerType',
       dnsCacheConfig: 'DnsCacheConfig',
       duration: 'Duration',
       enviromentId: 'EnviromentId',
@@ -4758,7 +4758,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       sceneName: 'SceneName',
       securityGroupId: 'SecurityGroupId',
       steps: 'Steps',
-      syncTimers: 'SyncTimers',
+      syncTimerType: 'SyncTimerType',
       testFile: 'TestFile',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -4769,7 +4769,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
     return {
       agentCount: 'number',
       concurrency: 'number',
-      constantThroughputTimers: 'string',
+      constantThroughputTimerType: 'string',
       dnsCacheConfig: SaveOpenJMeterSceneRequestOpenJMeterSceneDnsCacheConfig,
       duration: 'number',
       enviromentId: 'string',
@@ -4782,7 +4782,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       sceneName: 'string',
       securityGroupId: 'string',
       steps: 'number',
-      syncTimers: 'string',
+      syncTimerType: 'string',
       testFile: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
