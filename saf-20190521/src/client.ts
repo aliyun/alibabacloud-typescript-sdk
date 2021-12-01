@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -33,30 +34,30 @@ export class ExecuteExtendServiceRequest extends $tea.Model {
 }
 
 export class ExecuteExtendServiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: ExecuteExtendServiceResponseBodyData;
+  httpStatusCode?: string;
   message?: string;
   requestId?: string;
-  httpStatusCode?: string;
-  data?: ExecuteExtendServiceResponseBodyData;
-  code?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
       message: 'Message',
       requestId: 'RequestId',
-      httpStatusCode: 'HttpStatusCode',
-      data: 'Data',
-      code: 'Code',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: ExecuteExtendServiceResponseBodyData,
+      httpStatusCode: 'string',
       message: 'string',
       requestId: 'string',
-      httpStatusCode: 'string',
-      data: ExecuteExtendServiceResponseBodyData,
-      code: 'string',
       success: 'boolean',
     };
   }
@@ -89,19 +90,19 @@ export class ExecuteExtendServiceResponse extends $tea.Model {
 }
 
 export class ExecuteRequestRequest extends $tea.Model {
-  serviceParameters?: string;
   service?: string;
+  serviceParameters?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceParameters: 'ServiceParameters',
       service: 'Service',
+      serviceParameters: 'ServiceParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceParameters: 'string',
       service: 'string',
+      serviceParameters: 'string',
     };
   }
 
@@ -111,25 +112,25 @@ export class ExecuteRequestRequest extends $tea.Model {
 }
 
 export class ExecuteRequestResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any };
-  code?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      code: 'number',
     };
   }
 
@@ -161,19 +162,22 @@ export class ExecuteRequestResponse extends $tea.Model {
 }
 
 export class ExecuteRequestMLRequest extends $tea.Model {
-  serviceParameters?: string;
+  lang?: string;
   service?: string;
+  serviceParameters?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceParameters: 'ServiceParameters',
+      lang: 'Lang',
       service: 'Service',
+      serviceParameters: 'ServiceParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceParameters: 'string',
+      lang: 'string',
       service: 'string',
+      serviceParameters: 'string',
     };
   }
 
@@ -183,25 +187,25 @@ export class ExecuteRequestMLRequest extends $tea.Model {
 }
 
 export class ExecuteRequestMLResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any };
-  code?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      code: 'number',
     };
   }
 
@@ -233,19 +237,22 @@ export class ExecuteRequestMLResponse extends $tea.Model {
 }
 
 export class ExecuteRequestSGRequest extends $tea.Model {
-  serviceParameters?: string;
+  lang?: string;
   service?: string;
+  serviceParameters?: string;
   static names(): { [key: string]: string } {
     return {
-      serviceParameters: 'ServiceParameters',
+      lang: 'Lang',
       service: 'Service',
+      serviceParameters: 'ServiceParameters',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serviceParameters: 'string',
+      lang: 'string',
       service: 'string',
+      serviceParameters: 'string',
     };
   }
 
@@ -255,25 +262,25 @@ export class ExecuteRequestSGRequest extends $tea.Model {
 }
 
 export class ExecuteRequestSGResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
   message?: string;
   requestId?: string;
-  data?: { [key: string]: any };
-  code?: number;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      code: 'number',
     };
   }
 
@@ -296,6 +303,78 @@ export class ExecuteRequestSGResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExecuteRequestSGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestDecisionRequest extends $tea.Model {
+  eventCode?: string;
+  serviceParameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      serviceParameters: 'ServiceParameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      serviceParameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestDecisionResponseBody extends $tea.Model {
+  code?: number;
+  data?: { [key: string]: any };
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RequestDecisionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RequestDecisionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RequestDecisionResponseBody,
     };
   }
 
@@ -351,10 +430,26 @@ export default class Client extends OpenApi {
 
   async executeExtendServiceWithOptions(request: ExecuteExtendServiceRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteExtendServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Region"] = request.region;
+    query["Service"] = request.service;
+    query["ServiceParameters"] = request.serviceParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteExtendServiceResponse>(await this.doRPCRequest("ExecuteExtendService", "2019-05-21", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteExtendServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteExtendService",
+      version: "2019-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteExtendServiceResponse>(await this.callApi(params, req, runtime), new ExecuteExtendServiceResponse({}));
   }
 
   async executeExtendService(request: ExecuteExtendServiceRequest): Promise<ExecuteExtendServiceResponse> {
@@ -364,10 +459,25 @@ export default class Client extends OpenApi {
 
   async executeRequestWithOptions(request: ExecuteRequestRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Service"] = request.service;
+    query["ServiceParameters"] = request.serviceParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteRequestResponse>(await this.doRPCRequest("ExecuteRequest", "2019-05-21", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteRequestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteRequest",
+      version: "2019-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteRequestResponse>(await this.callApi(params, req, runtime), new ExecuteRequestResponse({}));
   }
 
   async executeRequest(request: ExecuteRequestRequest): Promise<ExecuteRequestResponse> {
@@ -377,10 +487,26 @@ export default class Client extends OpenApi {
 
   async executeRequestMLWithOptions(request: ExecuteRequestMLRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestMLResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lang"] = request.lang;
+    query["Service"] = request.service;
+    query["ServiceParameters"] = request.serviceParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteRequestMLResponse>(await this.doRPCRequest("ExecuteRequestML", "2019-05-21", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteRequestMLResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteRequestML",
+      version: "2019-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteRequestMLResponse>(await this.callApi(params, req, runtime), new ExecuteRequestMLResponse({}));
   }
 
   async executeRequestML(request: ExecuteRequestMLRequest): Promise<ExecuteRequestMLResponse> {
@@ -390,15 +516,59 @@ export default class Client extends OpenApi {
 
   async executeRequestSGWithOptions(request: ExecuteRequestSGRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteRequestSGResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lang"] = request.lang;
+    query["Service"] = request.service;
+    query["ServiceParameters"] = request.serviceParameters;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ExecuteRequestSGResponse>(await this.doRPCRequest("ExecuteRequestSG", "2019-05-21", "HTTPS", "POST", "AK", "json", req, runtime), new ExecuteRequestSGResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecuteRequestSG",
+      version: "2019-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteRequestSGResponse>(await this.callApi(params, req, runtime), new ExecuteRequestSGResponse({}));
   }
 
   async executeRequestSG(request: ExecuteRequestSGRequest): Promise<ExecuteRequestSGResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeRequestSGWithOptions(request, runtime);
+  }
+
+  async requestDecisionWithOptions(request: RequestDecisionRequest, runtime: $Util.RuntimeOptions): Promise<RequestDecisionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["EventCode"] = request.eventCode;
+    query["ServiceParameters"] = request.serviceParameters;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "RequestDecision",
+      version: "2019-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RequestDecisionResponse>(await this.callApi(params, req, runtime), new RequestDecisionResponse({}));
+  }
+
+  async requestDecision(request: RequestDecisionRequest): Promise<RequestDecisionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.requestDecisionWithOptions(request, runtime);
   }
 
 }
