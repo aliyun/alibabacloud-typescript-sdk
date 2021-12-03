@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/fc-open20210406",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "@alicloud/tea-typescript": "latest",
     "@alicloud/tea-util": "^1.4.0",
     "@alicloud/openapi-client": "^0.4.0",
-    "@alicloud/openapi-util": "^0.2.4",
+    "@alicloud/openapi-util": "^0.2.7",
     "@alicloud/endpoint-util": "^0.0.1"
   },
   "files": [

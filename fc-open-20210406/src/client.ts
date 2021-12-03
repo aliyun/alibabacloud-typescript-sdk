@@ -2441,18 +2441,15 @@ export class GetLayerVersionByArnResponse extends $tea.Model {
 }
 
 export class GetProvisionConfigRequest extends $tea.Model {
-  target?: number;
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
-      target: 'target',
       qualifier: 'qualifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      target: 'number',
       qualifier: 'string',
     };
   }
@@ -5773,18 +5770,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateAlias",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
+    return $tea.cast<CreateAliasResponse>(await this.doROARequest("CreateAlias", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/aliases`, "json", req, runtime), new CreateAliasResponse({}));
   }
 
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
@@ -5816,18 +5802,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateCustomDomain",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
+    return $tea.cast<CreateCustomDomainResponse>(await this.doROARequest("CreateCustomDomain", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/custom-domains`, "json", req, runtime), new CreateCustomDomainResponse({}));
   }
 
   async createFunction(serviceName: string, request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
@@ -5925,18 +5900,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateFunction",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+    return $tea.cast<CreateFunctionResponse>(await this.doROARequest("CreateFunction", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions`, "json", req, runtime), new CreateFunctionResponse({}));
   }
 
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
@@ -5965,18 +5929,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateLayerVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
+    return $tea.cast<CreateLayerVersionResponse>(await this.doROARequest("CreateLayerVersion", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/layers/${layerName}/versions`, "json", req, runtime), new CreateLayerVersionResponse({}));
   }
 
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
@@ -6024,18 +5977,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateService",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    return $tea.cast<CreateServiceResponse>(await this.doROARequest("CreateService", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services`, "json", req, runtime), new CreateServiceResponse({}));
   }
 
   async createTrigger(serviceName: string, functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
@@ -6081,18 +6023,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateTrigger",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
+    return $tea.cast<CreateTriggerResponse>(await this.doROARequest("CreateTrigger", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`, "json", req, runtime), new CreateTriggerResponse({}));
   }
 
   async createVpcBinding(serviceName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
@@ -6113,18 +6044,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpcBinding",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
+    return $tea.cast<CreateVpcBindingResponse>(await this.doROARequest("CreateVpcBinding", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/bindings`, "none", req, runtime), new CreateVpcBindingResponse({}));
   }
 
   async deleteAlias(serviceName: string, aliasName: string): Promise<DeleteAliasResponse> {
@@ -6148,18 +6068,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteAlias",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
+    return $tea.cast<DeleteAliasResponse>(await this.doROARequest("DeleteAlias", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "none", req, runtime), new DeleteAliasResponse({}));
   }
 
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
@@ -6173,18 +6082,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteCustomDomain",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
+    return $tea.cast<DeleteCustomDomainResponse>(await this.doROARequest("DeleteCustomDomain", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/custom-domains/${domainName}`, "none", req, runtime), new DeleteCustomDomainResponse({}));
   }
 
   async deleteFunction(serviceName: string, functionName: string): Promise<DeleteFunctionResponse> {
@@ -6208,18 +6106,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteFunction",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+    return $tea.cast<DeleteFunctionResponse>(await this.doROARequest("DeleteFunction", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "none", req, runtime), new DeleteFunctionResponse({}));
   }
 
   async deleteFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
@@ -6241,18 +6128,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteFunctionAsyncInvokeConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.doROARequest("DeleteFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "none", req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
   }
 
   async deleteFunctionOnDemandConfig(serviceName: string, functionName: string, request: DeleteFunctionOnDemandConfigRequest): Promise<DeleteFunctionOnDemandConfigResponse> {
@@ -6283,18 +6159,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteFunctionOnDemandConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
+    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.doROARequest("DeleteFunctionOnDemandConfig", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "none", req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
   }
 
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
@@ -6309,18 +6174,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteLayerVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
+    return $tea.cast<DeleteLayerVersionResponse>(await this.doROARequest("DeleteLayerVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "none", req, runtime), new DeleteLayerVersionResponse({}));
   }
 
   async deleteService(serviceName: string): Promise<DeleteServiceResponse> {
@@ -6343,18 +6197,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteService",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    return $tea.cast<DeleteServiceResponse>(await this.doROARequest("DeleteService", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}`, "none", req, runtime), new DeleteServiceResponse({}));
   }
 
   async deleteServiceVersion(serviceName: string, versionId: string): Promise<DeleteServiceVersionResponse> {
@@ -6369,18 +6212,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteServiceVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions/${versionId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteServiceVersionResponse({}));
+    return $tea.cast<DeleteServiceVersionResponse>(await this.doROARequest("DeleteServiceVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/versions/${versionId}`, "none", req, runtime), new DeleteServiceVersionResponse({}));
   }
 
   async deleteTrigger(serviceName: string, functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
@@ -6405,18 +6237,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteTrigger",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
+    return $tea.cast<DeleteTriggerResponse>(await this.doROARequest("DeleteTrigger", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "none", req, runtime), new DeleteTriggerResponse({}));
   }
 
   async deleteVpcBinding(serviceName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
@@ -6431,18 +6252,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpcBinding",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings/${vpcId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
+    return $tea.cast<DeleteVpcBindingResponse>(await this.doROARequest("DeleteVpcBinding", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/bindings/${vpcId}`, "none", req, runtime), new DeleteVpcBindingResponse({}));
   }
 
   async deregisterEventSource(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest): Promise<DeregisterEventSourceResponse> {
@@ -6465,18 +6275,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeregisterEventSource",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources/${sourceArn}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeregisterEventSourceResponse>(await this.callApi(params, req, runtime), new DeregisterEventSourceResponse({}));
+    return $tea.cast<DeregisterEventSourceResponse>(await this.doROARequest("DeregisterEventSource", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources/${sourceArn}`, "none", req, runtime), new DeregisterEventSourceResponse({}));
   }
 
   async getAccountSettings(): Promise<GetAccountSettingsResponse> {
@@ -6489,18 +6288,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetAccountSettings",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/account-settings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAccountSettingsResponse>(await this.callApi(params, req, runtime), new GetAccountSettingsResponse({}));
+    return $tea.cast<GetAccountSettingsResponse>(await this.doROARequest("GetAccountSettings", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/account-settings`, "json", req, runtime), new GetAccountSettingsResponse({}));
   }
 
   async getAlias(serviceName: string, aliasName: string): Promise<GetAliasResponse> {
@@ -6515,18 +6303,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetAlias",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
+    return $tea.cast<GetAliasResponse>(await this.doROARequest("GetAlias", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "json", req, runtime), new GetAliasResponse({}));
   }
 
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
@@ -6540,18 +6317,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetCustomDomain",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
+    return $tea.cast<GetCustomDomainResponse>(await this.doROARequest("GetCustomDomain", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/custom-domains/${domainName}`, "json", req, runtime), new GetCustomDomainResponse({}));
   }
 
   async getFunction(serviceName: string, functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
@@ -6573,18 +6339,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetFunction",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
+    return $tea.cast<GetFunctionResponse>(await this.doROARequest("GetFunction", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "json", req, runtime), new GetFunctionResponse({}));
   }
 
   async getFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest): Promise<GetFunctionAsyncInvokeConfigResponse> {
@@ -6606,18 +6361,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetFunctionAsyncInvokeConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.doROARequest("GetFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "json", req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
   }
 
   async getFunctionCode(serviceName: string, functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
@@ -6639,18 +6383,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetFunctionCode",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/code`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
+    return $tea.cast<GetFunctionCodeResponse>(await this.doROARequest("GetFunctionCode", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/code`, "json", req, runtime), new GetFunctionCodeResponse({}));
   }
 
   async getFunctionOnDemandConfig(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest): Promise<GetFunctionOnDemandConfigResponse> {
@@ -6672,18 +6405,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetFunctionOnDemandConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionOnDemandConfigResponse({}));
+    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.doROARequest("GetFunctionOnDemandConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "json", req, runtime), new GetFunctionOnDemandConfigResponse({}));
   }
 
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
@@ -6698,18 +6420,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetLayerVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
+    return $tea.cast<GetLayerVersionResponse>(await this.doROARequest("GetLayerVersion", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "json", req, runtime), new GetLayerVersionResponse({}));
   }
 
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
@@ -6723,18 +6434,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetLayerVersionByArn",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layerarn/${arn}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
+    return $tea.cast<GetLayerVersionByArnResponse>(await this.doROARequest("GetLayerVersionByArn", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layerarn/${arn}`, "json", req, runtime), new GetLayerVersionByArnResponse({}));
   }
 
   async getProvisionConfig(serviceName: string, functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
@@ -6752,28 +6452,11 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.target)) {
-      body["target"] = request.target;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "GetProvisionConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
+    return $tea.cast<GetProvisionConfigResponse>(await this.doROARequest("GetProvisionConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`, "json", req, runtime), new GetProvisionConfigResponse({}));
   }
 
   async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
@@ -6793,18 +6476,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetResourceTags",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/tag`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetResourceTagsResponse>(await this.callApi(params, req, runtime), new GetResourceTagsResponse({}));
+    return $tea.cast<GetResourceTagsResponse>(await this.doROARequest("GetResourceTags", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/tag`, "json", req, runtime), new GetResourceTagsResponse({}));
   }
 
   async getService(serviceName: string, request: GetServiceRequest): Promise<GetServiceResponse> {
@@ -6825,18 +6497,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetService",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    return $tea.cast<GetServiceResponse>(await this.doROARequest("GetService", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}`, "json", req, runtime), new GetServiceResponse({}));
   }
 
   async getStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest): Promise<GetStatefulAsyncInvocationResponse> {
@@ -6859,18 +6520,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetStatefulAsyncInvocation",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new GetStatefulAsyncInvocationResponse({}));
+    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.doROARequest("GetStatefulAsyncInvocation", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`, "json", req, runtime), new GetStatefulAsyncInvocationResponse({}));
   }
 
   async getTrigger(serviceName: string, functionName: string, triggerName: string): Promise<GetTriggerResponse> {
@@ -6886,18 +6536,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetTrigger",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
+    return $tea.cast<GetTriggerResponse>(await this.doROARequest("GetTrigger", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "json", req, runtime), new GetTriggerResponse({}));
   }
 
   async invokeFunction(serviceName: string, functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
@@ -6941,18 +6580,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: request.body,
     });
-    let params = new $OpenApi.Params({
-      action: "InvokeFunction",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/invocations`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "byte",
-    });
-    return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
+    return $tea.cast<InvokeFunctionResponse>(await this.doROARequest("InvokeFunction", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/invocations`, "byte", req, runtime), new InvokeFunctionResponse({}));
   }
 
   async listAliases(serviceName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
@@ -6985,18 +6613,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAliases",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
+    return $tea.cast<ListAliasesResponse>(await this.doROARequest("ListAliases", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/aliases`, "json", req, runtime), new ListAliasesResponse({}));
   }
 
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
@@ -7028,18 +6645,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListCustomDomains",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
+    return $tea.cast<ListCustomDomainsResponse>(await this.doROARequest("ListCustomDomains", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/custom-domains`, "json", req, runtime), new ListCustomDomainsResponse({}));
   }
 
   async listEventSources(serviceName: string, functionName: string, request: ListEventSourcesRequest): Promise<ListEventSourcesResponse> {
@@ -7061,18 +6667,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListEventSources",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListEventSourcesResponse>(await this.callApi(params, req, runtime), new ListEventSourcesResponse({}));
+    return $tea.cast<ListEventSourcesResponse>(await this.doROARequest("ListEventSources", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`, "json", req, runtime), new ListEventSourcesResponse({}));
   }
 
   async listFunctionAsyncInvokeConfigs(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest): Promise<ListFunctionAsyncInvokeConfigsResponse> {
@@ -7098,18 +6693,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListFunctionAsyncInvokeConfigs",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-configs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
+    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.doROARequest("ListFunctionAsyncInvokeConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-configs`, "json", req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
   }
 
   async listFunctions(serviceName: string, request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
@@ -7146,18 +6730,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListFunctions",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
+    return $tea.cast<ListFunctionsResponse>(await this.doROARequest("ListFunctions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions`, "json", req, runtime), new ListFunctionsResponse({}));
   }
 
   async listInstances(serviceName: string, functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
@@ -7196,18 +6769,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListInstances",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
+    return $tea.cast<ListInstancesResponse>(await this.doROARequest("ListInstances", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`, "json", req, runtime), new ListInstancesResponse({}));
   }
 
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
@@ -7232,18 +6794,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLayerVersions",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
+    return $tea.cast<ListLayerVersionsResponse>(await this.doROARequest("ListLayerVersions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers/${layerName}/versions`, "json", req, runtime), new ListLayerVersionsResponse({}));
   }
 
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
@@ -7275,18 +6826,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLayers",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
+    return $tea.cast<ListLayersResponse>(await this.doROARequest("ListLayers", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers`, "json", req, runtime), new ListLayersResponse({}));
   }
 
   async listOnDemandConfigs(request: ListOnDemandConfigsRequest): Promise<ListOnDemandConfigsResponse> {
@@ -7318,18 +6858,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListOnDemandConfigs",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/on-demand-configs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListOnDemandConfigsResponse>(await this.callApi(params, req, runtime), new ListOnDemandConfigsResponse({}));
+    return $tea.cast<ListOnDemandConfigsResponse>(await this.doROARequest("ListOnDemandConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/on-demand-configs`, "json", req, runtime), new ListOnDemandConfigsResponse({}));
   }
 
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
@@ -7361,18 +6890,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListProvisionConfigs",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/provision-configs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
+    return $tea.cast<ListProvisionConfigsResponse>(await this.doROARequest("ListProvisionConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/provision-configs`, "json", req, runtime), new ListProvisionConfigsResponse({}));
   }
 
   async listReservedCapacities(request: ListReservedCapacitiesRequest): Promise<ListReservedCapacitiesResponse> {
@@ -7396,18 +6914,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListReservedCapacities",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/reserved-capacities`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListReservedCapacitiesResponse>(await this.callApi(params, req, runtime), new ListReservedCapacitiesResponse({}));
+    return $tea.cast<ListReservedCapacitiesResponse>(await this.doROARequest("ListReservedCapacities", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/reserved-capacities`, "json", req, runtime), new ListReservedCapacitiesResponse({}));
   }
 
   async listServiceVersions(serviceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
@@ -7440,18 +6947,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListServiceVersions",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
+    return $tea.cast<ListServiceVersionsResponse>(await this.doROARequest("ListServiceVersions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/versions`, "json", req, runtime), new ListServiceVersionsResponse({}));
   }
 
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
@@ -7483,18 +6979,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListServices",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    return $tea.cast<ListServicesResponse>(await this.doROARequest("ListServices", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services`, "json", req, runtime), new ListServicesResponse({}));
   }
 
   async listStatefulAsyncInvocations(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest): Promise<ListStatefulAsyncInvocationsResponse> {
@@ -7548,18 +7033,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListStatefulAsyncInvocations",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.callApi(params, req, runtime), new ListStatefulAsyncInvocationsResponse({}));
+    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.doROARequest("ListStatefulAsyncInvocations", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations`, "json", req, runtime), new ListStatefulAsyncInvocationsResponse({}));
   }
 
   async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
@@ -7583,18 +7057,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTaggedResources",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTaggedResourcesResponse>(await this.callApi(params, req, runtime), new ListTaggedResourcesResponse({}));
+    return $tea.cast<ListTaggedResourcesResponse>(await this.doROARequest("ListTaggedResources", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/tags`, "json", req, runtime), new ListTaggedResourcesResponse({}));
   }
 
   async listTriggers(serviceName: string, functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
@@ -7628,18 +7091,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTriggers",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
+    return $tea.cast<ListTriggersResponse>(await this.doROARequest("ListTriggers", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`, "json", req, runtime), new ListTriggersResponse({}));
   }
 
   async listVpcBindings(serviceName: string): Promise<ListVpcBindingsResponse> {
@@ -7653,18 +7105,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpcBindings",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/bindings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
+    return $tea.cast<ListVpcBindingsResponse>(await this.doROARequest("ListVpcBindings", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/bindings`, "json", req, runtime), new ListVpcBindingsResponse({}));
   }
 
   async permanentDeleteLayerVersion(userID: string, layerName: string, version: string): Promise<PermanentDeleteLayerVersionResponse> {
@@ -7680,18 +7121,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "PermanentDeleteLayerVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/adminlayers/${userID}/${layerName}/versions/${version}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<PermanentDeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new PermanentDeleteLayerVersionResponse({}));
+    return $tea.cast<PermanentDeleteLayerVersionResponse>(await this.doROARequest("PermanentDeleteLayerVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/adminlayers/${userID}/${layerName}/versions/${version}`, "none", req, runtime), new PermanentDeleteLayerVersionResponse({}));
   }
 
   async publishLayerAsPublic(layerName: string, version: string): Promise<PublishLayerAsPublicResponse> {
@@ -7706,18 +7136,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "PublishLayerAsPublic",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<PublishLayerAsPublicResponse>(await this.callApi(params, req, runtime), new PublishLayerAsPublicResponse({}));
+    return $tea.cast<PublishLayerAsPublicResponse>(await this.doROARequest("PublishLayerAsPublic", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "none", req, runtime), new PublishLayerAsPublicResponse({}));
   }
 
   async publishServiceVersion(serviceName: string, request: PublishServiceVersionRequest): Promise<PublishServiceVersionResponse> {
@@ -7747,18 +7166,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "PublishServiceVersion",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/versions`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PublishServiceVersionResponse>(await this.callApi(params, req, runtime), new PublishServiceVersionResponse({}));
+    return $tea.cast<PublishServiceVersionResponse>(await this.doROARequest("PublishServiceVersion", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/versions`, "json", req, runtime), new PublishServiceVersionResponse({}));
   }
 
   async putFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest): Promise<PutFunctionAsyncInvokeConfigResponse> {
@@ -7798,18 +7206,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "PutFunctionAsyncInvokeConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
+    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.doROARequest("PutFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "json", req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
   }
 
   async putFunctionOnDemandConfig(serviceName: string, functionName: string, request: PutFunctionOnDemandConfigRequest): Promise<PutFunctionOnDemandConfigResponse> {
@@ -7846,18 +7243,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "PutFunctionOnDemandConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionOnDemandConfigResponse({}));
+    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.doROARequest("PutFunctionOnDemandConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "json", req, runtime), new PutFunctionOnDemandConfigResponse({}));
   }
 
   async putProvisionConfig(serviceName: string, functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
@@ -7893,18 +7279,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "PutProvisionConfig",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
+    return $tea.cast<PutProvisionConfigResponse>(await this.doROARequest("PutProvisionConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`, "json", req, runtime), new PutProvisionConfigResponse({}));
   }
 
   async registerEventSource(serviceName: string, functionName: string, request: RegisterEventSourceRequest): Promise<RegisterEventSourceResponse> {
@@ -7932,18 +7307,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "RegisterEventSource",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RegisterEventSourceResponse>(await this.callApi(params, req, runtime), new RegisterEventSourceResponse({}));
+    return $tea.cast<RegisterEventSourceResponse>(await this.doROARequest("RegisterEventSource", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`, "json", req, runtime), new RegisterEventSourceResponse({}));
   }
 
   async stopStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest): Promise<StopStatefulAsyncInvocationResponse> {
@@ -7966,18 +7330,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StopStatefulAsyncInvocation",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new StopStatefulAsyncInvocationResponse({}));
+    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.doROARequest("StopStatefulAsyncInvocation", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`, "none", req, runtime), new StopStatefulAsyncInvocationResponse({}));
   }
 
   async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
@@ -8001,18 +7354,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "TagResource",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/tag`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
+    return $tea.cast<TagResourceResponse>(await this.doROARequest("TagResource", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/tag`, "none", req, runtime), new TagResourceResponse({}));
   }
 
   async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
@@ -8040,18 +7382,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UntagResource",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/tag`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
+    return $tea.cast<UntagResourceResponse>(await this.doROARequest("UntagResource", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/tag`, "none", req, runtime), new UntagResourceResponse({}));
   }
 
   async updateAlias(serviceName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
@@ -8090,18 +7421,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAlias",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
+    return $tea.cast<UpdateAliasResponse>(await this.doROARequest("UpdateAlias", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "json", req, runtime), new UpdateAliasResponse({}));
   }
 
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
@@ -8130,18 +7450,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCustomDomain",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/custom-domains/${domainName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
+    return $tea.cast<UpdateCustomDomainResponse>(await this.doROARequest("UpdateCustomDomain", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/custom-domains/${domainName}`, "json", req, runtime), new UpdateCustomDomainResponse({}));
   }
 
   async updateFunction(serviceName: string, functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
@@ -8244,18 +7553,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateFunction",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+    return $tea.cast<UpdateFunctionResponse>(await this.doROARequest("UpdateFunction", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "json", req, runtime), new UpdateFunctionResponse({}));
   }
 
   async updateService(serviceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
@@ -8313,18 +7611,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateService",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    return $tea.cast<UpdateServiceResponse>(await this.doROARequest("UpdateService", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}`, "json", req, runtime), new UpdateServiceResponse({}));
   }
 
   async updateTrigger(serviceName: string, functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
@@ -8372,18 +7659,7 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTrigger",
-      version: "2021-04-06",
-      protocol: "HTTPS",
-      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
+    return $tea.cast<UpdateTriggerResponse>(await this.doROARequest("UpdateTrigger", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "json", req, runtime), new UpdateTriggerResponse({}));
   }
 
 }
