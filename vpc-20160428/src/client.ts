@@ -3,10 +3,7 @@
  *
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import SPI from '@alicloud/gateway-spi';
-import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -36623,12 +36620,9 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $tea.Model 
 
 
 export default class Client extends OpenApi {
-  _client: SPI;
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._client = new GatewayClient();
-    this._spi = this._client;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "vpc.aliyuncs.com",
@@ -36696,28 +36690,10 @@ export default class Client extends OpenApi {
 
   async activateRouterInterfaceWithOptions(request: ActivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ActivateRouterInterfaceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ActivateRouterInterface",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ActivateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new ActivateRouterInterfaceResponse({}));
+    return $tea.cast<ActivateRouterInterfaceResponse>(await this.doRPCRequest("ActivateRouterInterface", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ActivateRouterInterfaceResponse({}));
   }
 
   async activateRouterInterface(request: ActivateRouterInterfaceRequest): Promise<ActivateRouterInterfaceResponse> {
@@ -36727,29 +36703,10 @@ export default class Client extends OpenApi {
 
   async activeFlowLogWithOptions(request: ActiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<ActiveFlowLogResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["FlowLogId"] = request.flowLogId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ActiveFlowLog",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ActiveFlowLogResponse>(await this.callApi(params, req, runtime), new ActiveFlowLogResponse({}));
+    return $tea.cast<ActiveFlowLogResponse>(await this.doRPCRequest("ActiveFlowLog", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ActiveFlowLogResponse({}));
   }
 
   async activeFlowLog(request: ActiveFlowLogRequest): Promise<ActiveFlowLogResponse> {
@@ -36759,32 +36716,10 @@ export default class Client extends OpenApi {
 
   async addBgpNetworkWithOptions(request: AddBgpNetworkRequest, runtime: $Util.RuntimeOptions): Promise<AddBgpNetworkResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DstCidrBlock"] = request.dstCidrBlock;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddBgpNetwork",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddBgpNetworkResponse>(await this.callApi(params, req, runtime), new AddBgpNetworkResponse({}));
+    return $tea.cast<AddBgpNetworkResponse>(await this.doRPCRequest("AddBgpNetwork", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddBgpNetworkResponse({}));
   }
 
   async addBgpNetwork(request: AddBgpNetworkRequest): Promise<AddBgpNetworkResponse> {
@@ -36794,32 +36729,10 @@ export default class Client extends OpenApi {
 
   async addCommonBandwidthPackageIpWithOptions(request: AddCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["ClientToken"] = request.clientToken;
-    query["IpInstanceId"] = request.ipInstanceId;
-    query["IpType"] = request.ipType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddCommonBandwidthPackageIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddCommonBandwidthPackageIpResponse>(await this.callApi(params, req, runtime), new AddCommonBandwidthPackageIpResponse({}));
+    return $tea.cast<AddCommonBandwidthPackageIpResponse>(await this.doRPCRequest("AddCommonBandwidthPackageIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddCommonBandwidthPackageIpResponse({}));
   }
 
   async addCommonBandwidthPackageIp(request: AddCommonBandwidthPackageIpRequest): Promise<AddCommonBandwidthPackageIpResponse> {
@@ -36829,32 +36742,10 @@ export default class Client extends OpenApi {
 
   async addCommonBandwidthPackageIpsWithOptions(request: AddCommonBandwidthPackageIpsRequest, runtime: $Util.RuntimeOptions): Promise<AddCommonBandwidthPackageIpsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["ClientToken"] = request.clientToken;
-    query["IpInstanceIds"] = request.ipInstanceIds;
-    query["IpType"] = request.ipType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddCommonBandwidthPackageIps",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddCommonBandwidthPackageIpsResponse>(await this.callApi(params, req, runtime), new AddCommonBandwidthPackageIpsResponse({}));
+    return $tea.cast<AddCommonBandwidthPackageIpsResponse>(await this.doRPCRequest("AddCommonBandwidthPackageIps", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddCommonBandwidthPackageIpsResponse({}));
   }
 
   async addCommonBandwidthPackageIps(request: AddCommonBandwidthPackageIpsRequest): Promise<AddCommonBandwidthPackageIpsResponse> {
@@ -36864,30 +36755,10 @@ export default class Client extends OpenApi {
 
   async addGlobalAccelerationInstanceIpWithOptions(request: AddGlobalAccelerationInstanceIpRequest, runtime: $Util.RuntimeOptions): Promise<AddGlobalAccelerationInstanceIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["IpInstanceId"] = request.ipInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddGlobalAccelerationInstanceIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddGlobalAccelerationInstanceIpResponse>(await this.callApi(params, req, runtime), new AddGlobalAccelerationInstanceIpResponse({}));
+    return $tea.cast<AddGlobalAccelerationInstanceIpResponse>(await this.doRPCRequest("AddGlobalAccelerationInstanceIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddGlobalAccelerationInstanceIpResponse({}));
   }
 
   async addGlobalAccelerationInstanceIp(request: AddGlobalAccelerationInstanceIpRequest): Promise<AddGlobalAccelerationInstanceIpResponse> {
@@ -36897,31 +36768,10 @@ export default class Client extends OpenApi {
 
   async addIPv6TranslatorAclListEntryWithOptions(request: AddIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclEntryComment"] = request.aclEntryComment;
-    query["AclEntryIp"] = request.aclEntryIp;
-    query["AclId"] = request.aclId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddIPv6TranslatorAclListEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new AddIPv6TranslatorAclListEntryResponse({}));
+    return $tea.cast<AddIPv6TranslatorAclListEntryResponse>(await this.doRPCRequest("AddIPv6TranslatorAclListEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddIPv6TranslatorAclListEntryResponse({}));
   }
 
   async addIPv6TranslatorAclListEntry(request: AddIPv6TranslatorAclListEntryRequest): Promise<AddIPv6TranslatorAclListEntryResponse> {
@@ -36931,32 +36781,10 @@ export default class Client extends OpenApi {
 
   async addSourcesToTrafficMirrorSessionWithOptions(request: AddSourcesToTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<AddSourcesToTrafficMirrorSessionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorSessionId"] = request.trafficMirrorSessionId;
-    query["TrafficMirrorSourceIds"] = request.trafficMirrorSourceIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AddSourcesToTrafficMirrorSession",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddSourcesToTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new AddSourcesToTrafficMirrorSessionResponse({}));
+    return $tea.cast<AddSourcesToTrafficMirrorSessionResponse>(await this.doRPCRequest("AddSourcesToTrafficMirrorSession", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AddSourcesToTrafficMirrorSessionResponse({}));
   }
 
   async addSourcesToTrafficMirrorSession(request: AddSourcesToTrafficMirrorSessionRequest): Promise<AddSourcesToTrafficMirrorSessionResponse> {
@@ -36966,42 +36794,10 @@ export default class Client extends OpenApi {
 
   async allocateEipAddressWithOptions(request: AllocateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ActivityId"] = request.activityId;
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ISP"] = request.ISP;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Name"] = request.name;
-    query["Netmode"] = request.netmode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AllocateEipAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AllocateEipAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressResponse({}));
+    return $tea.cast<AllocateEipAddressResponse>(await this.doRPCRequest("AllocateEipAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateEipAddressResponse({}));
   }
 
   async allocateEipAddress(request: AllocateEipAddressRequest): Promise<AllocateEipAddressResponse> {
@@ -37011,41 +36807,10 @@ export default class Client extends OpenApi {
 
   async allocateEipAddressProWithOptions(request: AllocateEipAddressProRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipAddressProResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["ISP"] = request.ISP;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InstanceId"] = request.instanceId;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["IpAddress"] = request.ipAddress;
-    query["Netmode"] = request.netmode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionTypes"] = request.securityProtectionTypes;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AllocateEipAddressPro",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AllocateEipAddressProResponse>(await this.callApi(params, req, runtime), new AllocateEipAddressProResponse({}));
+    return $tea.cast<AllocateEipAddressProResponse>(await this.doRPCRequest("AllocateEipAddressPro", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateEipAddressProResponse({}));
   }
 
   async allocateEipAddressPro(request: AllocateEipAddressProRequest): Promise<AllocateEipAddressProResponse> {
@@ -37055,35 +36820,10 @@ export default class Client extends OpenApi {
 
   async allocateEipSegmentAddressWithOptions(request: AllocateEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<AllocateEipSegmentAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["EipMask"] = request.eipMask;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Isp"] = request.isp;
-    query["Netmode"] = request.netmode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AllocateEipSegmentAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AllocateEipSegmentAddressResponse>(await this.callApi(params, req, runtime), new AllocateEipSegmentAddressResponse({}));
+    return $tea.cast<AllocateEipSegmentAddressResponse>(await this.doRPCRequest("AllocateEipSegmentAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateEipSegmentAddressResponse({}));
   }
 
   async allocateEipSegmentAddress(request: AllocateEipSegmentAddressRequest): Promise<AllocateEipSegmentAddressResponse> {
@@ -37093,34 +36833,10 @@ export default class Client extends OpenApi {
 
   async allocateIpv6InternetBandwidthWithOptions(request: AllocateIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<AllocateIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Ipv6AddressId"] = request.ipv6AddressId;
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AllocateIpv6InternetBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AllocateIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new AllocateIpv6InternetBandwidthResponse({}));
+    return $tea.cast<AllocateIpv6InternetBandwidthResponse>(await this.doRPCRequest("AllocateIpv6InternetBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AllocateIpv6InternetBandwidthResponse({}));
   }
 
   async allocateIpv6InternetBandwidth(request: AllocateIpv6InternetBandwidthRequest): Promise<AllocateIpv6InternetBandwidthResponse> {
@@ -37130,38 +36846,10 @@ export default class Client extends OpenApi {
 
   async applyPhysicalConnectionLOAWithOptions(request: ApplyPhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<ApplyPhysicalConnectionLOAResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["CompanyName"] = request.companyName;
-    query["ConstructionTime"] = request.constructionTime;
-    query["InstanceId"] = request.instanceId;
-    query["LineType"] = request.lineType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PMInfo"] = request.PMInfo;
-    query["PeerLocation"] = request.peerLocation;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Si"] = request.si;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ApplyPhysicalConnectionLOA",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ApplyPhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new ApplyPhysicalConnectionLOAResponse({}));
+    return $tea.cast<ApplyPhysicalConnectionLOAResponse>(await this.doRPCRequest("ApplyPhysicalConnectionLOA", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyPhysicalConnectionLOAResponse({}));
   }
 
   async applyPhysicalConnectionLOA(request: ApplyPhysicalConnectionLOARequest): Promise<ApplyPhysicalConnectionLOAResponse> {
@@ -37171,35 +36859,10 @@ export default class Client extends OpenApi {
 
   async associateEipAddressWithOptions(request: AssociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceRegionId"] = request.instanceRegionId;
-    query["InstanceType"] = request.instanceType;
-    query["Mode"] = request.mode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PrivateIpAddress"] = request.privateIpAddress;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateEipAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressResponse({}));
+    return $tea.cast<AssociateEipAddressResponse>(await this.doRPCRequest("AssociateEipAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateEipAddressResponse({}));
   }
 
   async associateEipAddress(request: AssociateEipAddressRequest): Promise<AssociateEipAddressResponse> {
@@ -37209,32 +36872,10 @@ export default class Client extends OpenApi {
 
   async associateGlobalAccelerationInstanceWithOptions(request: AssociateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AssociateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BackendServerId"] = request.backendServerId;
-    query["BackendServerRegionId"] = request.backendServerRegionId;
-    query["BackendServerType"] = request.backendServerType;
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateGlobalAccelerationInstance",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new AssociateGlobalAccelerationInstanceResponse({}));
+    return $tea.cast<AssociateGlobalAccelerationInstanceResponse>(await this.doRPCRequest("AssociateGlobalAccelerationInstance", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateGlobalAccelerationInstanceResponse({}));
   }
 
   async associateGlobalAccelerationInstance(request: AssociateGlobalAccelerationInstanceRequest): Promise<AssociateGlobalAccelerationInstanceResponse> {
@@ -37244,32 +36885,10 @@ export default class Client extends OpenApi {
 
   async associateHaVipWithOptions(request: AssociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<AssociateHaVipResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["HaVipId"] = request.haVipId;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateHaVip",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateHaVipResponse>(await this.callApi(params, req, runtime), new AssociateHaVipResponse({}));
+    return $tea.cast<AssociateHaVipResponse>(await this.doRPCRequest("AssociateHaVip", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateHaVipResponse({}));
   }
 
   async associateHaVip(request: AssociateHaVipRequest): Promise<AssociateHaVipResponse> {
@@ -37279,31 +36898,10 @@ export default class Client extends OpenApi {
 
   async associateNetworkAclWithOptions(request: AssociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<AssociateNetworkAclResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["Resource"] = request.resource;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateNetworkAcl",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateNetworkAclResponse>(await this.callApi(params, req, runtime), new AssociateNetworkAclResponse({}));
+    return $tea.cast<AssociateNetworkAclResponse>(await this.doRPCRequest("AssociateNetworkAcl", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateNetworkAclResponse({}));
   }
 
   async associateNetworkAcl(request: AssociateNetworkAclRequest): Promise<AssociateNetworkAclResponse> {
@@ -37313,40 +36911,10 @@ export default class Client extends OpenApi {
 
   async associatePhysicalConnectionToVirtualBorderRouterWithOptions(request: AssociatePhysicalConnectionToVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<AssociatePhysicalConnectionToVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CircuitCode"] = request.circuitCode;
-    query["ClientToken"] = request.clientToken;
-    query["EnableIpv6"] = request.enableIpv6;
-    query["LocalGatewayIp"] = request.localGatewayIp;
-    query["LocalIpv6GatewayIp"] = request.localIpv6GatewayIp;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerGatewayIp"] = request.peerGatewayIp;
-    query["PeerIpv6GatewayIp"] = request.peerIpv6GatewayIp;
-    query["PeeringIpv6SubnetMask"] = request.peeringIpv6SubnetMask;
-    query["PeeringSubnetMask"] = request.peeringSubnetMask;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
-    query["VlanId"] = request.vlanId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociatePhysicalConnectionToVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociatePhysicalConnectionToVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new AssociatePhysicalConnectionToVirtualBorderRouterResponse({}));
+    return $tea.cast<AssociatePhysicalConnectionToVirtualBorderRouterResponse>(await this.doRPCRequest("AssociatePhysicalConnectionToVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociatePhysicalConnectionToVirtualBorderRouterResponse({}));
   }
 
   async associatePhysicalConnectionToVirtualBorderRouter(request: AssociatePhysicalConnectionToVirtualBorderRouterRequest): Promise<AssociatePhysicalConnectionToVirtualBorderRouterResponse> {
@@ -37356,32 +36924,10 @@ export default class Client extends OpenApi {
 
   async associateRouteTableWithOptions(request: AssociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTableResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateRouteTable",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateRouteTableResponse>(await this.callApi(params, req, runtime), new AssociateRouteTableResponse({}));
+    return $tea.cast<AssociateRouteTableResponse>(await this.doRPCRequest("AssociateRouteTable", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateRouteTableResponse({}));
   }
 
   async associateRouteTable(request: AssociateRouteTableRequest): Promise<AssociateRouteTableResponse> {
@@ -37391,33 +36937,10 @@ export default class Client extends OpenApi {
 
   async associateRouteTableWithGatewayWithOptions(request: AssociateRouteTableWithGatewayRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTableWithGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["GatewayId"] = request.gatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateRouteTableWithGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateRouteTableWithGatewayResponse>(await this.callApi(params, req, runtime), new AssociateRouteTableWithGatewayResponse({}));
+    return $tea.cast<AssociateRouteTableWithGatewayResponse>(await this.doRPCRequest("AssociateRouteTableWithGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateRouteTableWithGatewayResponse({}));
   }
 
   async associateRouteTableWithGateway(request: AssociateRouteTableWithGatewayRequest): Promise<AssociateRouteTableWithGatewayResponse> {
@@ -37427,32 +36950,10 @@ export default class Client extends OpenApi {
 
   async associateRouteTablesWithVpcGatewayEndpointWithOptions(request: AssociateRouteTablesWithVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableIds"] = request.routeTableIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateRouteTablesWithVpcGatewayEndpoint",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateRouteTablesWithVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new AssociateRouteTablesWithVpcGatewayEndpointResponse({}));
+    return $tea.cast<AssociateRouteTablesWithVpcGatewayEndpointResponse>(await this.doRPCRequest("AssociateRouteTablesWithVpcGatewayEndpoint", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateRouteTablesWithVpcGatewayEndpointResponse({}));
   }
 
   async associateRouteTablesWithVpcGatewayEndpoint(request: AssociateRouteTablesWithVpcGatewayEndpointRequest): Promise<AssociateRouteTablesWithVpcGatewayEndpointResponse> {
@@ -37462,33 +36963,10 @@ export default class Client extends OpenApi {
 
   async associateVpcCidrBlockWithOptions(request: AssociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpcCidrBlockResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["IpVersion"] = request.ipVersion;
-    query["Ipv6Isp"] = request.ipv6Isp;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecondaryCidrBlock"] = request.secondaryCidrBlock;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateVpcCidrBlock",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateVpcCidrBlockResponse>(await this.callApi(params, req, runtime), new AssociateVpcCidrBlockResponse({}));
+    return $tea.cast<AssociateVpcCidrBlockResponse>(await this.doRPCRequest("AssociateVpcCidrBlock", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateVpcCidrBlockResponse({}));
   }
 
   async associateVpcCidrBlock(request: AssociateVpcCidrBlockRequest): Promise<AssociateVpcCidrBlockResponse> {
@@ -37498,29 +36976,10 @@ export default class Client extends OpenApi {
 
   async associateVpnGatewayWithCertificateWithOptions(request: AssociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["CertificateType"] = request.certificateType;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AssociateVpnGatewayWithCertificate",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AssociateVpnGatewayWithCertificateResponse>(await this.callApi(params, req, runtime), new AssociateVpnGatewayWithCertificateResponse({}));
+    return $tea.cast<AssociateVpnGatewayWithCertificateResponse>(await this.doRPCRequest("AssociateVpnGatewayWithCertificate", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateVpnGatewayWithCertificateResponse({}));
   }
 
   async associateVpnGatewayWithCertificate(request: AssociateVpnGatewayWithCertificateRequest): Promise<AssociateVpnGatewayWithCertificateResponse> {
@@ -37530,32 +36989,10 @@ export default class Client extends OpenApi {
 
   async attachDhcpOptionsSetToVpcWithOptions(request: AttachDhcpOptionsSetToVpcRequest, runtime: $Util.RuntimeOptions): Promise<AttachDhcpOptionsSetToVpcResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AttachDhcpOptionsSetToVpc",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AttachDhcpOptionsSetToVpcResponse>(await this.callApi(params, req, runtime), new AttachDhcpOptionsSetToVpcResponse({}));
+    return $tea.cast<AttachDhcpOptionsSetToVpcResponse>(await this.doRPCRequest("AttachDhcpOptionsSetToVpc", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AttachDhcpOptionsSetToVpcResponse({}));
   }
 
   async attachDhcpOptionsSetToVpc(request: AttachDhcpOptionsSetToVpcRequest): Promise<AttachDhcpOptionsSetToVpcResponse> {
@@ -37565,28 +37002,10 @@ export default class Client extends OpenApi {
 
   async attachVbrToVpconnWithOptions(request: AttachVbrToVpconnRequest, runtime: $Util.RuntimeOptions): Promise<AttachVbrToVpconnResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["Token"] = request.token;
-    query["VbrId"] = request.vbrId;
-    query["VpconnId"] = request.vpconnId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "AttachVbrToVpconn",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AttachVbrToVpconnResponse>(await this.callApi(params, req, runtime), new AttachVbrToVpconnResponse({}));
+    return $tea.cast<AttachVbrToVpconnResponse>(await this.doRPCRequest("AttachVbrToVpconn", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new AttachVbrToVpconnResponse({}));
   }
 
   async attachVbrToVpconn(request: AttachVbrToVpconnRequest): Promise<AttachVbrToVpconnResponse> {
@@ -37596,30 +37015,10 @@ export default class Client extends OpenApi {
 
   async cancelCommonBandwidthPackageIpBandwidthWithOptions(request: CancelCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["EipId"] = request.eipId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelCommonBandwidthPackageIpBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelCommonBandwidthPackageIpBandwidthResponse>(await this.callApi(params, req, runtime), new CancelCommonBandwidthPackageIpBandwidthResponse({}));
+    return $tea.cast<CancelCommonBandwidthPackageIpBandwidthResponse>(await this.doRPCRequest("CancelCommonBandwidthPackageIpBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CancelCommonBandwidthPackageIpBandwidthResponse({}));
   }
 
   async cancelCommonBandwidthPackageIpBandwidth(request: CancelCommonBandwidthPackageIpBandwidthRequest): Promise<CancelCommonBandwidthPackageIpBandwidthResponse> {
@@ -37629,29 +37028,10 @@ export default class Client extends OpenApi {
 
   async cancelExpressCloudConnectionWithOptions(request: CancelExpressCloudConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelExpressCloudConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["EccId"] = request.eccId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelExpressCloudConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelExpressCloudConnectionResponse>(await this.callApi(params, req, runtime), new CancelExpressCloudConnectionResponse({}));
+    return $tea.cast<CancelExpressCloudConnectionResponse>(await this.doRPCRequest("CancelExpressCloudConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CancelExpressCloudConnectionResponse({}));
   }
 
   async cancelExpressCloudConnection(request: CancelExpressCloudConnectionRequest): Promise<CancelExpressCloudConnectionResponse> {
@@ -37661,30 +37041,10 @@ export default class Client extends OpenApi {
 
   async cancelPhysicalConnectionWithOptions(request: CancelPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CancelPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CancelPhysicalConnectionResponse({}));
+    return $tea.cast<CancelPhysicalConnectionResponse>(await this.doRPCRequest("CancelPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CancelPhysicalConnectionResponse({}));
   }
 
   async cancelPhysicalConnection(request: CancelPhysicalConnectionRequest): Promise<CancelPhysicalConnectionResponse> {
@@ -37694,33 +37054,10 @@ export default class Client extends OpenApi {
 
   async completePhysicalConnectionLOAWithOptions(request: CompletePhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<CompletePhysicalConnectionLOAResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["LineCode"] = request.lineCode;
-    query["LineLabel"] = request.lineLabel;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CompletePhysicalConnectionLOA",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CompletePhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new CompletePhysicalConnectionLOAResponse({}));
+    return $tea.cast<CompletePhysicalConnectionLOAResponse>(await this.doRPCRequest("CompletePhysicalConnectionLOA", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CompletePhysicalConnectionLOAResponse({}));
   }
 
   async completePhysicalConnectionLOA(request: CompletePhysicalConnectionLOARequest): Promise<CompletePhysicalConnectionLOAResponse> {
@@ -37730,30 +37067,10 @@ export default class Client extends OpenApi {
 
   async confirmPhysicalConnectionWithOptions(request: ConfirmPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ConfirmPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ConfirmPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ConfirmPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new ConfirmPhysicalConnectionResponse({}));
+    return $tea.cast<ConfirmPhysicalConnectionResponse>(await this.doRPCRequest("ConfirmPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ConfirmPhysicalConnectionResponse({}));
   }
 
   async confirmPhysicalConnection(request: ConfirmPhysicalConnectionRequest): Promise<ConfirmPhysicalConnectionResponse> {
@@ -37763,28 +37080,10 @@ export default class Client extends OpenApi {
 
   async connectRouterInterfaceWithOptions(request: ConnectRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<ConnectRouterInterfaceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ConnectRouterInterface",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ConnectRouterInterfaceResponse>(await this.callApi(params, req, runtime), new ConnectRouterInterfaceResponse({}));
+    return $tea.cast<ConnectRouterInterfaceResponse>(await this.doRPCRequest("ConnectRouterInterface", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ConnectRouterInterfaceResponse({}));
   }
 
   async connectRouterInterface(request: ConnectRouterInterfaceRequest): Promise<ConnectRouterInterfaceResponse> {
@@ -37794,30 +37093,10 @@ export default class Client extends OpenApi {
 
   async convertBandwidthPackageWithOptions(request: ConvertBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ConvertBandwidthPackageResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ConvertBandwidthPackage",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ConvertBandwidthPackageResponse>(await this.callApi(params, req, runtime), new ConvertBandwidthPackageResponse({}));
+    return $tea.cast<ConvertBandwidthPackageResponse>(await this.doRPCRequest("ConvertBandwidthPackage", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ConvertBandwidthPackageResponse({}));
   }
 
   async convertBandwidthPackage(request: ConvertBandwidthPackageRequest): Promise<ConvertBandwidthPackageResponse> {
@@ -37827,31 +37106,10 @@ export default class Client extends OpenApi {
 
   async copyNetworkAclEntriesWithOptions(request: CopyNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<CopyNetworkAclEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SourceNetworkAclId"] = request.sourceNetworkAclId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CopyNetworkAclEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CopyNetworkAclEntriesResponse>(await this.callApi(params, req, runtime), new CopyNetworkAclEntriesResponse({}));
+    return $tea.cast<CopyNetworkAclEntriesResponse>(await this.doRPCRequest("CopyNetworkAclEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CopyNetworkAclEntriesResponse({}));
   }
 
   async copyNetworkAclEntries(request: CopyNetworkAclEntriesRequest): Promise<CopyNetworkAclEntriesResponse> {
@@ -37861,37 +37119,10 @@ export default class Client extends OpenApi {
 
   async createBgpGroupWithOptions(request: CreateBgpGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBgpGroupResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AuthKey"] = request.authKey;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["IpVersion"] = request.ipVersion;
-    query["IsFakeAsn"] = request.isFakeAsn;
-    query["LocalAsn"] = request.localAsn;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerAsn"] = request.peerAsn;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateBgpGroup",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateBgpGroupResponse>(await this.callApi(params, req, runtime), new CreateBgpGroupResponse({}));
+    return $tea.cast<CreateBgpGroupResponse>(await this.doRPCRequest("CreateBgpGroup", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBgpGroupResponse({}));
   }
 
   async createBgpGroup(request: CreateBgpGroupRequest): Promise<CreateBgpGroupResponse> {
@@ -37901,34 +37132,10 @@ export default class Client extends OpenApi {
 
   async createBgpPeerWithOptions(request: CreateBgpPeerRequest, runtime: $Util.RuntimeOptions): Promise<CreateBgpPeerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BfdMultiHop"] = request.bfdMultiHop;
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["ClientToken"] = request.clientToken;
-    query["EnableBfd"] = request.enableBfd;
-    query["IpVersion"] = request.ipVersion;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerIpAddress"] = request.peerIpAddress;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateBgpPeer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateBgpPeerResponse>(await this.callApi(params, req, runtime), new CreateBgpPeerResponse({}));
+    return $tea.cast<CreateBgpPeerResponse>(await this.doRPCRequest("CreateBgpPeer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBgpPeerResponse({}));
   }
 
   async createBgpPeer(request: CreateBgpPeerRequest): Promise<CreateBgpPeerResponse> {
@@ -37938,38 +37145,10 @@ export default class Client extends OpenApi {
 
   async createCommonBandwidthPackageWithOptions(request: CreateCommonBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateCommonBandwidthPackageResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ISP"] = request.ISP;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Ratio"] = request.ratio;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionTypes"] = request.securityProtectionTypes;
-    query["Zone"] = request.zone;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateCommonBandwidthPackage",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateCommonBandwidthPackageResponse>(await this.callApi(params, req, runtime), new CreateCommonBandwidthPackageResponse({}));
+    return $tea.cast<CreateCommonBandwidthPackageResponse>(await this.doRPCRequest("CreateCommonBandwidthPackage", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCommonBandwidthPackageResponse({}));
   }
 
   async createCommonBandwidthPackage(request: CreateCommonBandwidthPackageRequest): Promise<CreateCommonBandwidthPackageResponse> {
@@ -37979,34 +37158,10 @@ export default class Client extends OpenApi {
 
   async createCustomerGatewayWithOptions(request: CreateCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomerGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Asn"] = request.asn;
-    query["AuthKey"] = request.authKey;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["IpAddress"] = request.ipAddress;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateCustomerGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateCustomerGatewayResponse>(await this.callApi(params, req, runtime), new CreateCustomerGatewayResponse({}));
+    return $tea.cast<CreateCustomerGatewayResponse>(await this.doRPCRequest("CreateCustomerGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCustomerGatewayResponse({}));
   }
 
   async createCustomerGateway(request: CreateCustomerGatewayRequest): Promise<CreateCustomerGatewayResponse> {
@@ -38016,36 +37171,10 @@ export default class Client extends OpenApi {
 
   async createDhcpOptionsSetWithOptions(request: CreateDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDhcpOptionsSetResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BootFileName"] = request.bootFileName;
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetDescription"] = request.dhcpOptionsSetDescription;
-    query["DhcpOptionsSetName"] = request.dhcpOptionsSetName;
-    query["DomainName"] = request.domainName;
-    query["DomainNameServers"] = request.domainNameServers;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TFTPServerName"] = request.TFTPServerName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateDhcpOptionsSet",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new CreateDhcpOptionsSetResponse({}));
+    return $tea.cast<CreateDhcpOptionsSetResponse>(await this.doRPCRequest("CreateDhcpOptionsSet", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDhcpOptionsSetResponse({}));
   }
 
   async createDhcpOptionsSet(request: CreateDhcpOptionsSetRequest): Promise<CreateDhcpOptionsSetResponse> {
@@ -38055,39 +37184,10 @@ export default class Client extends OpenApi {
 
   async createExpressCloudConnectionWithOptions(request: CreateExpressCloudConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateExpressCloudConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ContactMail"] = request.contactMail;
-    query["ContactTel"] = request.contactTel;
-    query["Description"] = request.description;
-    query["IDCardNo"] = request.IDCardNo;
-    query["IdcSP"] = request.idcSP;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerCity"] = request.peerCity;
-    query["PeerLocation"] = request.peerLocation;
-    query["PortType"] = request.portType;
-    query["RedundantEccId"] = request.redundantEccId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateExpressCloudConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateExpressCloudConnectionResponse>(await this.callApi(params, req, runtime), new CreateExpressCloudConnectionResponse({}));
+    return $tea.cast<CreateExpressCloudConnectionResponse>(await this.doRPCRequest("CreateExpressCloudConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateExpressCloudConnectionResponse({}));
   }
 
   async createExpressCloudConnection(request: CreateExpressCloudConnectionRequest): Promise<CreateExpressCloudConnectionResponse> {
@@ -38097,35 +37197,10 @@ export default class Client extends OpenApi {
 
   async createFlowLogWithOptions(request: CreateFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowLogResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["FlowLogName"] = request.flowLogName;
-    query["LogStoreName"] = request.logStoreName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ProjectName"] = request.projectName;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["TrafficType"] = request.trafficType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateFlowLog",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateFlowLogResponse>(await this.callApi(params, req, runtime), new CreateFlowLogResponse({}));
+    return $tea.cast<CreateFlowLogResponse>(await this.doRPCRequest("CreateFlowLog", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFlowLogResponse({}));
   }
 
   async createFlowLog(request: CreateFlowLogRequest): Promise<CreateFlowLogResponse> {
@@ -38135,37 +37210,10 @@ export default class Client extends OpenApi {
 
   async createForwardEntryWithOptions(request: CreateForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ExternalIp"] = request.externalIp;
-    query["ExternalPort"] = request.externalPort;
-    query["ForwardEntryName"] = request.forwardEntryName;
-    query["ForwardTableId"] = request.forwardTableId;
-    query["InternalIp"] = request.internalIp;
-    query["InternalPort"] = request.internalPort;
-    query["IpProtocol"] = request.ipProtocol;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PortBreak"] = request.portBreak;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateForwardEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateForwardEntryResponse>(await this.callApi(params, req, runtime), new CreateForwardEntryResponse({}));
+    return $tea.cast<CreateForwardEntryResponse>(await this.doRPCRequest("CreateForwardEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateForwardEntryResponse({}));
   }
 
   async createForwardEntry(request: CreateForwardEntryRequest): Promise<CreateForwardEntryResponse> {
@@ -38175,39 +37223,10 @@ export default class Client extends OpenApi {
 
   async createFullNatEntryWithOptions(request: CreateFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateFullNatEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AccessIp"] = request.accessIp;
-    query["AccessPort"] = request.accessPort;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["FullNatEntryDescription"] = request.fullNatEntryDescription;
-    query["FullNatEntryName"] = request.fullNatEntryName;
-    query["FullNatTableId"] = request.fullNatTableId;
-    query["IpProtocol"] = request.ipProtocol;
-    query["NatIp"] = request.natIp;
-    query["NatIpPort"] = request.natIpPort;
-    query["NetworkInterfaceId"] = request.networkInterfaceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateFullNatEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateFullNatEntryResponse>(await this.callApi(params, req, runtime), new CreateFullNatEntryResponse({}));
+    return $tea.cast<CreateFullNatEntryResponse>(await this.doRPCRequest("CreateFullNatEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFullNatEntryResponse({}));
   }
 
   async createFullNatEntry(request: CreateFullNatEntryRequest): Promise<CreateFullNatEntryResponse> {
@@ -38217,34 +37236,10 @@ export default class Client extends OpenApi {
 
   async createGlobalAccelerationInstanceWithOptions(request: CreateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthType"] = request.bandwidthType;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServiceLocation"] = request.serviceLocation;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateGlobalAccelerationInstance",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new CreateGlobalAccelerationInstanceResponse({}));
+    return $tea.cast<CreateGlobalAccelerationInstanceResponse>(await this.doRPCRequest("CreateGlobalAccelerationInstance", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateGlobalAccelerationInstanceResponse({}));
   }
 
   async createGlobalAccelerationInstance(request: CreateGlobalAccelerationInstanceRequest): Promise<CreateGlobalAccelerationInstanceResponse> {
@@ -38254,33 +37249,10 @@ export default class Client extends OpenApi {
 
   async createHaVipWithOptions(request: CreateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<CreateHaVipResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["IpAddress"] = request.ipAddress;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateHaVip",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateHaVipResponse>(await this.callApi(params, req, runtime), new CreateHaVipResponse({}));
+    return $tea.cast<CreateHaVipResponse>(await this.doRPCRequest("CreateHaVip", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateHaVipResponse({}));
   }
 
   async createHaVip(request: CreateHaVipRequest): Promise<CreateHaVipResponse> {
@@ -38290,36 +37262,10 @@ export default class Client extends OpenApi {
 
   async createIPv6TranslatorWithOptions(request: CreateIPv6TranslatorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Duration"] = request.duration;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PayType"] = request.payType;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIPv6Translator",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIPv6TranslatorResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorResponse({}));
+    return $tea.cast<CreateIPv6TranslatorResponse>(await this.doRPCRequest("CreateIPv6Translator", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIPv6TranslatorResponse({}));
   }
 
   async createIPv6Translator(request: CreateIPv6TranslatorRequest): Promise<CreateIPv6TranslatorResponse> {
@@ -38329,30 +37275,10 @@ export default class Client extends OpenApi {
 
   async createIPv6TranslatorAclListWithOptions(request: CreateIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorAclListResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclName"] = request.aclName;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIPv6TranslatorAclList",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIPv6TranslatorAclListResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorAclListResponse({}));
+    return $tea.cast<CreateIPv6TranslatorAclListResponse>(await this.doRPCRequest("CreateIPv6TranslatorAclList", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIPv6TranslatorAclListResponse({}));
   }
 
   async createIPv6TranslatorAclList(request: CreateIPv6TranslatorAclListRequest): Promise<CreateIPv6TranslatorAclListResponse> {
@@ -38362,39 +37288,10 @@ export default class Client extends OpenApi {
 
   async createIPv6TranslatorEntryWithOptions(request: CreateIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["AclStatus"] = request.aclStatus;
-    query["AclType"] = request.aclType;
-    query["AllocateIpv6Port"] = request.allocateIpv6Port;
-    query["BackendIpv4Addr"] = request.backendIpv4Addr;
-    query["BackendIpv4Port"] = request.backendIpv4Port;
-    query["EntryBandwidth"] = request.entryBandwidth;
-    query["EntryDescription"] = request.entryDescription;
-    query["EntryName"] = request.entryName;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TransProtocol"] = request.transProtocol;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIPv6TranslatorEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new CreateIPv6TranslatorEntryResponse({}));
+    return $tea.cast<CreateIPv6TranslatorEntryResponse>(await this.doRPCRequest("CreateIPv6TranslatorEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIPv6TranslatorEntryResponse({}));
   }
 
   async createIPv6TranslatorEntry(request: CreateIPv6TranslatorEntryRequest): Promise<CreateIPv6TranslatorEntryResponse> {
@@ -38404,35 +37301,10 @@ export default class Client extends OpenApi {
 
   async createIpsecServerWithOptions(request: CreateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpsecServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientIpPool"] = request.clientIpPool;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EffectImmediately"] = request.effectImmediately;
-    query["IkeConfig"] = request.ikeConfig;
-    query["IpSecServerName"] = request.ipSecServerName;
-    query["IpsecConfig"] = request.ipsecConfig;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Psk"] = request.psk;
-    query["PskEnabled"] = request.pskEnabled;
-    query["RegionId"] = request.regionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIpsecServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIpsecServerResponse>(await this.callApi(params, req, runtime), new CreateIpsecServerResponse({}));
+    return $tea.cast<CreateIpsecServerResponse>(await this.doRPCRequest("CreateIpsecServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpsecServerResponse({}));
   }
 
   async createIpsecServer(request: CreateIpsecServerRequest): Promise<CreateIpsecServerResponse> {
@@ -38442,34 +37314,10 @@ export default class Client extends OpenApi {
 
   async createIpv4GatewayWithOptions(request: CreateIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv4GatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Ipv4GatewayDescription"] = request.ipv4GatewayDescription;
-    query["Ipv4GatewayName"] = request.ipv4GatewayName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIpv4Gateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIpv4GatewayResponse>(await this.callApi(params, req, runtime), new CreateIpv4GatewayResponse({}));
+    return $tea.cast<CreateIpv4GatewayResponse>(await this.doRPCRequest("CreateIpv4Gateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpv4GatewayResponse({}));
   }
 
   async createIpv4Gateway(request: CreateIpv4GatewayRequest): Promise<CreateIpv4GatewayResponse> {
@@ -38479,35 +37327,10 @@ export default class Client extends OpenApi {
 
   async createIpv6EgressOnlyRuleWithOptions(request: CreateIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIpv6EgressOnlyRule",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIpv6EgressOnlyRuleResponse>(await this.callApi(params, req, runtime), new CreateIpv6EgressOnlyRuleResponse({}));
+    return $tea.cast<CreateIpv6EgressOnlyRuleResponse>(await this.doRPCRequest("CreateIpv6EgressOnlyRule", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpv6EgressOnlyRuleResponse({}));
   }
 
   async createIpv6EgressOnlyRule(request: CreateIpv6EgressOnlyRuleRequest): Promise<CreateIpv6EgressOnlyRuleResponse> {
@@ -38517,34 +37340,10 @@ export default class Client extends OpenApi {
 
   async createIpv6GatewayWithOptions(request: CreateIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpv6GatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIpv6Gateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIpv6GatewayResponse>(await this.callApi(params, req, runtime), new CreateIpv6GatewayResponse({}));
+    return $tea.cast<CreateIpv6GatewayResponse>(await this.doRPCRequest("CreateIpv6Gateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIpv6GatewayResponse({}));
   }
 
   async createIpv6Gateway(request: CreateIpv6GatewayRequest): Promise<CreateIpv6GatewayResponse> {
@@ -38554,43 +37353,10 @@ export default class Client extends OpenApi {
 
   async createNatGatewayWithOptions(request: CreateNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Duration"] = request.duration;
-    query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["Name"] = request.name;
-    query["NatType"] = request.natType;
-    query["NetworkType"] = request.networkType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionEnabled"] = request.securityProtectionEnabled;
-    query["Spec"] = request.spec;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateNatGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateNatGatewayResponse>(await this.callApi(params, req, runtime), new CreateNatGatewayResponse({}));
+    return $tea.cast<CreateNatGatewayResponse>(await this.doRPCRequest("CreateNatGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateNatGatewayResponse({}));
   }
 
   async createNatGateway(request: CreateNatGatewayRequest): Promise<CreateNatGatewayResponse> {
@@ -38600,37 +37366,10 @@ export default class Client extends OpenApi {
 
   async createNatIpWithOptions(request: CreateNatIpRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIp"] = request.natIp;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["NatIpCidrId"] = request.natIpCidrId;
-    query["NatIpDescription"] = request.natIpDescription;
-    query["NatIpName"] = request.natIpName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateNatIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateNatIpResponse>(await this.callApi(params, req, runtime), new CreateNatIpResponse({}));
+    return $tea.cast<CreateNatIpResponse>(await this.doRPCRequest("CreateNatIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateNatIpResponse({}));
   }
 
   async createNatIp(request: CreateNatIpRequest): Promise<CreateNatIpResponse> {
@@ -38640,35 +37379,10 @@ export default class Client extends OpenApi {
 
   async createNatIpCidrWithOptions(request: CreateNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<CreateNatIpCidrResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["NatIpCidrDescription"] = request.natIpCidrDescription;
-    query["NatIpCidrName"] = request.natIpCidrName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateNatIpCidr",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateNatIpCidrResponse>(await this.callApi(params, req, runtime), new CreateNatIpCidrResponse({}));
+    return $tea.cast<CreateNatIpCidrResponse>(await this.doRPCRequest("CreateNatIpCidr", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateNatIpCidrResponse({}));
   }
 
   async createNatIpCidr(request: CreateNatIpCidrRequest): Promise<CreateNatIpCidrResponse> {
@@ -38678,32 +37392,10 @@ export default class Client extends OpenApi {
 
   async createNetworkAclWithOptions(request: CreateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkAclResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["NetworkAclName"] = request.networkAclName;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateNetworkAcl",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateNetworkAclResponse>(await this.callApi(params, req, runtime), new CreateNetworkAclResponse({}));
+    return $tea.cast<CreateNetworkAclResponse>(await this.doRPCRequest("CreateNetworkAcl", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateNetworkAclResponse({}));
   }
 
   async createNetworkAcl(request: CreateNetworkAclRequest): Promise<CreateNetworkAclResponse> {
@@ -38713,40 +37405,10 @@ export default class Client extends OpenApi {
 
   async createPhysicalConnectionWithOptions(request: CreatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AccessPointId"] = request.accessPointId;
-    query["CircuitCode"] = request.circuitCode;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["LineOperator"] = request.lineOperator;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerLocation"] = request.peerLocation;
-    query["PortType"] = request.portType;
-    query["RedundantPhysicalConnectionId"] = request.redundantPhysicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Type"] = request.type;
-    query["bandwidth"] = request.bandwidth;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreatePhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionResponse({}));
+    return $tea.cast<CreatePhysicalConnectionResponse>(await this.doRPCRequest("CreatePhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePhysicalConnectionResponse({}));
   }
 
   async createPhysicalConnection(request: CreatePhysicalConnectionRequest): Promise<CreatePhysicalConnectionResponse> {
@@ -38756,34 +37418,10 @@ export default class Client extends OpenApi {
 
   async createPhysicalConnectionOccupancyOrderWithOptions(request: CreatePhysicalConnectionOccupancyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["ClientToken"] = request.clientToken;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreatePhysicalConnectionOccupancyOrder",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePhysicalConnectionOccupancyOrderResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionOccupancyOrderResponse({}));
+    return $tea.cast<CreatePhysicalConnectionOccupancyOrderResponse>(await this.doRPCRequest("CreatePhysicalConnectionOccupancyOrder", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePhysicalConnectionOccupancyOrderResponse({}));
   }
 
   async createPhysicalConnectionOccupancyOrder(request: CreatePhysicalConnectionOccupancyOrderRequest): Promise<CreatePhysicalConnectionOccupancyOrderResponse> {
@@ -38793,35 +37431,10 @@ export default class Client extends OpenApi {
 
   async createPhysicalConnectionSetupOrderWithOptions(request: CreatePhysicalConnectionSetupOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePhysicalConnectionSetupOrderResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AccessPointId"] = request.accessPointId;
-    query["AutoPay"] = request.autoPay;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["LineOperator"] = request.lineOperator;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PortType"] = request.portType;
-    query["RedundantPhysicalConnectionId"] = request.redundantPhysicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreatePhysicalConnectionSetupOrder",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePhysicalConnectionSetupOrderResponse>(await this.callApi(params, req, runtime), new CreatePhysicalConnectionSetupOrderResponse({}));
+    return $tea.cast<CreatePhysicalConnectionSetupOrderResponse>(await this.doRPCRequest("CreatePhysicalConnectionSetupOrder", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePhysicalConnectionSetupOrderResponse({}));
   }
 
   async createPhysicalConnectionSetupOrder(request: CreatePhysicalConnectionSetupOrderRequest): Promise<CreatePhysicalConnectionSetupOrderResponse> {
@@ -38831,36 +37444,10 @@ export default class Client extends OpenApi {
 
   async createRouteEntryWithOptions(request: CreateRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["NextHopId"] = request.nextHopId;
-    query["NextHopList"] = request.nextHopList;
-    query["NextHopType"] = request.nextHopType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteEntryName"] = request.routeEntryName;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateRouteEntryResponse({}));
+    return $tea.cast<CreateRouteEntryResponse>(await this.doRPCRequest("CreateRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRouteEntryResponse({}));
   }
 
   async createRouteEntry(request: CreateRouteEntryRequest): Promise<CreateRouteEntryResponse> {
@@ -38870,34 +37457,10 @@ export default class Client extends OpenApi {
 
   async createRouteTableWithOptions(request: CreateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouteTableResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AssociateType"] = request.associateType;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableName"] = request.routeTableName;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateRouteTable",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRouteTableResponse>(await this.callApi(params, req, runtime), new CreateRouteTableResponse({}));
+    return $tea.cast<CreateRouteTableResponse>(await this.doRPCRequest("CreateRouteTable", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRouteTableResponse({}));
   }
 
   async createRouteTable(request: CreateRouteTableRequest): Promise<CreateRouteTableResponse> {
@@ -38907,49 +37470,10 @@ export default class Client extends OpenApi {
 
   async createRouterInterfaceWithOptions(request: CreateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRouterInterfaceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AccessPointId"] = request.accessPointId;
-    query["AutoPay"] = request.autoPay;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["HealthCheckSourceIp"] = request.healthCheckSourceIp;
-    query["HealthCheckTargetIp"] = request.healthCheckTargetIp;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["Name"] = request.name;
-    query["OppositeAccessPointId"] = request.oppositeAccessPointId;
-    query["OppositeInterfaceId"] = request.oppositeInterfaceId;
-    query["OppositeInterfaceOwnerId"] = request.oppositeInterfaceOwnerId;
-    query["OppositeRegionId"] = request.oppositeRegionId;
-    query["OppositeRouterId"] = request.oppositeRouterId;
-    query["OppositeRouterType"] = request.oppositeRouterType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Role"] = request.role;
-    query["RouterId"] = request.routerId;
-    query["RouterType"] = request.routerType;
-    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateRouterInterface",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new CreateRouterInterfaceResponse({}));
+    return $tea.cast<CreateRouterInterfaceResponse>(await this.doRPCRequest("CreateRouterInterface", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRouterInterfaceResponse({}));
   }
 
   async createRouterInterface(request: CreateRouterInterfaceRequest): Promise<CreateRouterInterfaceResponse> {
@@ -38959,34 +37483,10 @@ export default class Client extends OpenApi {
 
   async createSnatEntryWithOptions(request: CreateSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnatEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SnatEntryName"] = request.snatEntryName;
-    query["SnatIp"] = request.snatIp;
-    query["SnatTableId"] = request.snatTableId;
-    query["SourceCIDR"] = request.sourceCIDR;
-    query["SourceVSwitchId"] = request.sourceVSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateSnatEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSnatEntryResponse>(await this.callApi(params, req, runtime), new CreateSnatEntryResponse({}));
+    return $tea.cast<CreateSnatEntryResponse>(await this.doRPCRequest("CreateSnatEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSnatEntryResponse({}));
   }
 
   async createSnatEntry(request: CreateSnatEntryRequest): Promise<CreateSnatEntryResponse> {
@@ -38996,31 +37496,10 @@ export default class Client extends OpenApi {
 
   async createSslVpnClientCertWithOptions(request: CreateSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<CreateSslVpnClientCertResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnServerId"] = request.sslVpnServerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateSslVpnClientCert",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new CreateSslVpnClientCertResponse({}));
+    return $tea.cast<CreateSslVpnClientCertResponse>(await this.doRPCRequest("CreateSslVpnClientCert", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSslVpnClientCertResponse({}));
   }
 
   async createSslVpnClientCert(request: CreateSslVpnClientCertRequest): Promise<CreateSslVpnClientCertResponse> {
@@ -39030,40 +37509,10 @@ export default class Client extends OpenApi {
 
   async createSslVpnServerWithOptions(request: CreateSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<CreateSslVpnServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Cipher"] = request.cipher;
-    query["ClientIpPool"] = request.clientIpPool;
-    query["ClientToken"] = request.clientToken;
-    query["Compress"] = request.compress;
-    query["EnableMultiFactorAuth"] = request.enableMultiFactorAuth;
-    query["IDaaSInstanceId"] = request.IDaaSInstanceId;
-    query["IDaaSRegionId"] = request.IDaaSRegionId;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Port"] = request.port;
-    query["Proto"] = request.proto;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateSslVpnServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSslVpnServerResponse>(await this.callApi(params, req, runtime), new CreateSslVpnServerResponse({}));
+    return $tea.cast<CreateSslVpnServerResponse>(await this.doRPCRequest("CreateSslVpnServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSslVpnServerResponse({}));
   }
 
   async createSslVpnServer(request: CreateSslVpnServerRequest): Promise<CreateSslVpnServerResponse> {
@@ -39073,34 +37522,10 @@ export default class Client extends OpenApi {
 
   async createTrafficMirrorFilterWithOptions(request: CreateTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EgressRules"] = request.egressRules;
-    query["IngressRules"] = request.ingressRules;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterDescription"] = request.trafficMirrorFilterDescription;
-    query["TrafficMirrorFilterName"] = request.trafficMirrorFilterName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateTrafficMirrorFilter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTrafficMirrorFilterResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorFilterResponse({}));
+    return $tea.cast<CreateTrafficMirrorFilterResponse>(await this.doRPCRequest("CreateTrafficMirrorFilter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTrafficMirrorFilterResponse({}));
   }
 
   async createTrafficMirrorFilter(request: CreateTrafficMirrorFilterRequest): Promise<CreateTrafficMirrorFilterResponse> {
@@ -39110,33 +37535,10 @@ export default class Client extends OpenApi {
 
   async createTrafficMirrorFilterRulesWithOptions(request: CreateTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EgressRules"] = request.egressRules;
-    query["IngressRules"] = request.ingressRules;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateTrafficMirrorFilterRules",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTrafficMirrorFilterRulesResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorFilterRulesResponse({}));
+    return $tea.cast<CreateTrafficMirrorFilterRulesResponse>(await this.doRPCRequest("CreateTrafficMirrorFilterRules", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTrafficMirrorFilterRulesResponse({}));
   }
 
   async createTrafficMirrorFilterRules(request: CreateTrafficMirrorFilterRulesRequest): Promise<CreateTrafficMirrorFilterRulesResponse> {
@@ -39146,40 +37548,10 @@ export default class Client extends OpenApi {
 
   async createTrafficMirrorSessionWithOptions(request: CreateTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficMirrorSessionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Enabled"] = request.enabled;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PacketLength"] = request.packetLength;
-    query["Priority"] = request.priority;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
-    query["TrafficMirrorSessionDescription"] = request.trafficMirrorSessionDescription;
-    query["TrafficMirrorSessionName"] = request.trafficMirrorSessionName;
-    query["TrafficMirrorSourceIds"] = request.trafficMirrorSourceIds;
-    query["TrafficMirrorTargetId"] = request.trafficMirrorTargetId;
-    query["TrafficMirrorTargetType"] = request.trafficMirrorTargetType;
-    query["VirtualNetworkId"] = request.virtualNetworkId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateTrafficMirrorSession",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new CreateTrafficMirrorSessionResponse({}));
+    return $tea.cast<CreateTrafficMirrorSessionResponse>(await this.doRPCRequest("CreateTrafficMirrorSession", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTrafficMirrorSessionResponse({}));
   }
 
   async createTrafficMirrorSession(request: CreateTrafficMirrorSessionRequest): Promise<CreateTrafficMirrorSessionResponse> {
@@ -39189,36 +37561,10 @@ export default class Client extends OpenApi {
 
   async createVSwitchWithOptions(request: CreateVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<CreateVSwitchResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CidrBlock"] = request.cidrBlock;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchName"] = request.vSwitchName;
-    query["VpcId"] = request.vpcId;
-    query["VpcIpv6CidrBlock"] = request.vpcIpv6CidrBlock;
-    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVSwitch",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVSwitchResponse>(await this.callApi(params, req, runtime), new CreateVSwitchResponse({}));
+    return $tea.cast<CreateVSwitchResponse>(await this.doRPCRequest("CreateVSwitch", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVSwitchResponse({}));
   }
 
   async createVSwitch(request: CreateVSwitchRequest): Promise<CreateVSwitchResponse> {
@@ -39228,34 +37574,10 @@ export default class Client extends OpenApi {
 
   async createVbrHaWithOptions(request: CreateVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<CreateVbrHaResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DryRun"] = request.dryRun;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerVbrId"] = request.peerVbrId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVbrHa",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVbrHaResponse>(await this.callApi(params, req, runtime), new CreateVbrHaResponse({}));
+    return $tea.cast<CreateVbrHaResponse>(await this.doRPCRequest("CreateVbrHa", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVbrHaResponse({}));
   }
 
   async createVbrHa(request: CreateVbrHaRequest): Promise<CreateVbrHaResponse> {
@@ -39265,44 +37587,10 @@ export default class Client extends OpenApi {
 
   async createVirtualBorderRouterWithOptions(request: CreateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["CircuitCode"] = request.circuitCode;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EnableIpv6"] = request.enableIpv6;
-    query["LocalGatewayIp"] = request.localGatewayIp;
-    query["LocalIpv6GatewayIp"] = request.localIpv6GatewayIp;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerGatewayIp"] = request.peerGatewayIp;
-    query["PeerIpv6GatewayIp"] = request.peerIpv6GatewayIp;
-    query["PeeringIpv6SubnetMask"] = request.peeringIpv6SubnetMask;
-    query["PeeringSubnetMask"] = request.peeringSubnetMask;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrOwnerId"] = request.vbrOwnerId;
-    query["VlanId"] = request.vlanId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new CreateVirtualBorderRouterResponse({}));
+    return $tea.cast<CreateVirtualBorderRouterResponse>(await this.doRPCRequest("CreateVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVirtualBorderRouterResponse({}));
   }
 
   async createVirtualBorderRouter(request: CreateVirtualBorderRouterRequest): Promise<CreateVirtualBorderRouterResponse> {
@@ -39312,33 +37600,10 @@ export default class Client extends OpenApi {
 
   async createVirtualPhysicalConnectionWithOptions(request: CreateVirtualPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["DryRun"] = request.dryRun;
-    query["Name"] = request.name;
-    query["OrderMode"] = request.orderMode;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["Spec"] = request.spec;
-    query["Token"] = request.token;
-    query["VlanId"] = request.vlanId;
-    query["VpconnAliUid"] = request.vpconnAliUid;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVirtualPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVirtualPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new CreateVirtualPhysicalConnectionResponse({}));
+    return $tea.cast<CreateVirtualPhysicalConnectionResponse>(await this.doRPCRequest("CreateVirtualPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVirtualPhysicalConnectionResponse({}));
   }
 
   async createVirtualPhysicalConnection(request: CreateVirtualPhysicalConnectionRequest): Promise<CreateVirtualPhysicalConnectionResponse> {
@@ -39348,38 +37613,10 @@ export default class Client extends OpenApi {
 
   async createVpcWithOptions(request: CreateVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CidrBlock"] = request.cidrBlock;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DryRun"] = request.dryRun;
-    query["EnableIpv6"] = request.enableIpv6;
-    query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
-    query["Ipv6Isp"] = request.ipv6Isp;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["UserCidr"] = request.userCidr;
-    query["VpcName"] = request.vpcName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpc",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpcResponse>(await this.callApi(params, req, runtime), new CreateVpcResponse({}));
+    return $tea.cast<CreateVpcResponse>(await this.doRPCRequest("CreateVpc", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpcResponse({}));
   }
 
   async createVpc(request: CreateVpcRequest): Promise<CreateVpcResponse> {
@@ -39389,35 +37626,10 @@ export default class Client extends OpenApi {
 
   async createVpcGatewayEndpointWithOptions(request: CreateVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcGatewayEndpointResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointDescription"] = request.endpointDescription;
-    query["EndpointName"] = request.endpointName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PolicyDocument"] = request.policyDocument;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServiceName"] = request.serviceName;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpcGatewayEndpoint",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcGatewayEndpointResponse({}));
+    return $tea.cast<CreateVpcGatewayEndpointResponse>(await this.doRPCRequest("CreateVpcGatewayEndpoint", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpcGatewayEndpointResponse({}));
   }
 
   async createVpcGatewayEndpoint(request: CreateVpcGatewayEndpointRequest): Promise<CreateVpcGatewayEndpointResponse> {
@@ -39427,28 +37639,10 @@ export default class Client extends OpenApi {
 
   async createVpconnFromVbrWithOptions(request: CreateVpconnFromVbrRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpconnFromVbrResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["OrderMode"] = request.orderMode;
-    query["RegionId"] = request.regionId;
-    query["Token"] = request.token;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpconnFromVbr",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpconnFromVbrResponse>(await this.callApi(params, req, runtime), new CreateVpconnFromVbrResponse({}));
+    return $tea.cast<CreateVpconnFromVbrResponse>(await this.doRPCRequest("CreateVpconnFromVbr", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpconnFromVbrResponse({}));
   }
 
   async createVpconnFromVbr(request: CreateVpconnFromVbrRequest): Promise<CreateVpconnFromVbrResponse> {
@@ -39458,43 +37652,10 @@ export default class Client extends OpenApi {
 
   async createVpnConnectionWithOptions(request: CreateVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoConfigRoute"] = request.autoConfigRoute;
-    query["BgpConfig"] = request.bgpConfig;
-    query["ClientToken"] = request.clientToken;
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["EffectImmediately"] = request.effectImmediately;
-    query["EnableDpd"] = request.enableDpd;
-    query["EnableNatTraversal"] = request.enableNatTraversal;
-    query["HealthCheckConfig"] = request.healthCheckConfig;
-    query["IkeConfig"] = request.ikeConfig;
-    query["IpsecConfig"] = request.ipsecConfig;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RemoteCaCertificate"] = request.remoteCaCertificate;
-    query["RemoteSubnet"] = request.remoteSubnet;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpnConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpnConnectionResponse>(await this.callApi(params, req, runtime), new CreateVpnConnectionResponse({}));
+    return $tea.cast<CreateVpnConnectionResponse>(await this.doRPCRequest("CreateVpnConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpnConnectionResponse({}));
   }
 
   async createVpnConnection(request: CreateVpnConnectionRequest): Promise<CreateVpnConnectionResponse> {
@@ -39504,40 +37665,10 @@ export default class Client extends OpenApi {
 
   async createVpnGatewayWithOptions(request: CreateVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["EnableIpsec"] = request.enableIpsec;
-    query["EnableSsl"] = request.enableSsl;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslConnections"] = request.sslConnections;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VpcId"] = request.vpcId;
-    query["VpnType"] = request.vpnType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpnGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpnGatewayResponse>(await this.callApi(params, req, runtime), new CreateVpnGatewayResponse({}));
+    return $tea.cast<CreateVpnGatewayResponse>(await this.doRPCRequest("CreateVpnGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpnGatewayResponse({}));
   }
 
   async createVpnGateway(request: CreateVpnGatewayRequest): Promise<CreateVpnGatewayResponse> {
@@ -39547,37 +37678,10 @@ export default class Client extends OpenApi {
 
   async createVpnPbrRouteEntryWithOptions(request: CreateVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PublishVpc"] = request.publishVpc;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["RouteSource"] = request.routeSource;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpnPbrRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpnPbrRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVpnPbrRouteEntryResponse({}));
+    return $tea.cast<CreateVpnPbrRouteEntryResponse>(await this.doRPCRequest("CreateVpnPbrRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpnPbrRouteEntryResponse({}));
   }
 
   async createVpnPbrRouteEntry(request: CreateVpnPbrRouteEntryRequest): Promise<CreateVpnPbrRouteEntryResponse> {
@@ -39587,36 +37691,10 @@ export default class Client extends OpenApi {
 
   async createVpnRouteEntryWithOptions(request: CreateVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpnRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PublishVpc"] = request.publishVpc;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpnRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new CreateVpnRouteEntryResponse({}));
+    return $tea.cast<CreateVpnRouteEntryResponse>(await this.doRPCRequest("CreateVpnRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpnRouteEntryResponse({}));
   }
 
   async createVpnRouteEntry(request: CreateVpnRouteEntryRequest): Promise<CreateVpnRouteEntryResponse> {
@@ -39626,28 +37704,10 @@ export default class Client extends OpenApi {
 
   async deactivateRouterInterfaceWithOptions(request: DeactivateRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeactivateRouterInterfaceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeactivateRouterInterface",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeactivateRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeactivateRouterInterfaceResponse({}));
+    return $tea.cast<DeactivateRouterInterfaceResponse>(await this.doRPCRequest("DeactivateRouterInterface", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeactivateRouterInterfaceResponse({}));
   }
 
   async deactivateRouterInterface(request: DeactivateRouterInterfaceRequest): Promise<DeactivateRouterInterfaceResponse> {
@@ -39657,29 +37717,10 @@ export default class Client extends OpenApi {
 
   async deactiveFlowLogWithOptions(request: DeactiveFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveFlowLogResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["FlowLogId"] = request.flowLogId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeactiveFlowLog",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeactiveFlowLogResponse>(await this.callApi(params, req, runtime), new DeactiveFlowLogResponse({}));
+    return $tea.cast<DeactiveFlowLogResponse>(await this.doRPCRequest("DeactiveFlowLog", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeactiveFlowLogResponse({}));
   }
 
   async deactiveFlowLog(request: DeactiveFlowLogRequest): Promise<DeactiveFlowLogResponse> {
@@ -39689,30 +37730,10 @@ export default class Client extends OpenApi {
 
   async deleteBgpGroupWithOptions(request: DeleteBgpGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpGroupResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteBgpGroup",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteBgpGroupResponse>(await this.callApi(params, req, runtime), new DeleteBgpGroupResponse({}));
+    return $tea.cast<DeleteBgpGroupResponse>(await this.doRPCRequest("DeleteBgpGroup", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBgpGroupResponse({}));
   }
 
   async deleteBgpGroup(request: DeleteBgpGroupRequest): Promise<DeleteBgpGroupResponse> {
@@ -39722,31 +37743,10 @@ export default class Client extends OpenApi {
 
   async deleteBgpNetworkWithOptions(request: DeleteBgpNetworkRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpNetworkResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DstCidrBlock"] = request.dstCidrBlock;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteBgpNetwork",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteBgpNetworkResponse>(await this.callApi(params, req, runtime), new DeleteBgpNetworkResponse({}));
+    return $tea.cast<DeleteBgpNetworkResponse>(await this.doRPCRequest("DeleteBgpNetwork", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBgpNetworkResponse({}));
   }
 
   async deleteBgpNetwork(request: DeleteBgpNetworkRequest): Promise<DeleteBgpNetworkResponse> {
@@ -39756,30 +37756,10 @@ export default class Client extends OpenApi {
 
   async deleteBgpPeerWithOptions(request: DeleteBgpPeerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBgpPeerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BgpPeerId"] = request.bgpPeerId;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteBgpPeer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteBgpPeerResponse>(await this.callApi(params, req, runtime), new DeleteBgpPeerResponse({}));
+    return $tea.cast<DeleteBgpPeerResponse>(await this.doRPCRequest("DeleteBgpPeer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBgpPeerResponse({}));
   }
 
   async deleteBgpPeer(request: DeleteBgpPeerRequest): Promise<DeleteBgpPeerResponse> {
@@ -39789,30 +37769,10 @@ export default class Client extends OpenApi {
 
   async deleteCommonBandwidthPackageWithOptions(request: DeleteCommonBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCommonBandwidthPackageResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["Force"] = request.force;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteCommonBandwidthPackage",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteCommonBandwidthPackageResponse>(await this.callApi(params, req, runtime), new DeleteCommonBandwidthPackageResponse({}));
+    return $tea.cast<DeleteCommonBandwidthPackageResponse>(await this.doRPCRequest("DeleteCommonBandwidthPackage", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCommonBandwidthPackageResponse({}));
   }
 
   async deleteCommonBandwidthPackage(request: DeleteCommonBandwidthPackageRequest): Promise<DeleteCommonBandwidthPackageResponse> {
@@ -39822,30 +37782,10 @@ export default class Client extends OpenApi {
 
   async deleteCustomerGatewayWithOptions(request: DeleteCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomerGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteCustomerGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteCustomerGatewayResponse>(await this.callApi(params, req, runtime), new DeleteCustomerGatewayResponse({}));
+    return $tea.cast<DeleteCustomerGatewayResponse>(await this.doRPCRequest("DeleteCustomerGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCustomerGatewayResponse({}));
   }
 
   async deleteCustomerGateway(request: DeleteCustomerGatewayRequest): Promise<DeleteCustomerGatewayResponse> {
@@ -39855,31 +37795,10 @@ export default class Client extends OpenApi {
 
   async deleteDhcpOptionsSetWithOptions(request: DeleteDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDhcpOptionsSetResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDhcpOptionsSet",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new DeleteDhcpOptionsSetResponse({}));
+    return $tea.cast<DeleteDhcpOptionsSetResponse>(await this.doRPCRequest("DeleteDhcpOptionsSet", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDhcpOptionsSetResponse({}));
   }
 
   async deleteDhcpOptionsSet(request: DeleteDhcpOptionsSetRequest): Promise<DeleteDhcpOptionsSetResponse> {
@@ -39889,29 +37808,10 @@ export default class Client extends OpenApi {
 
   async deleteExpressCloudConnectionWithOptions(request: DeleteExpressCloudConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressCloudConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["EccId"] = request.eccId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteExpressCloudConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteExpressCloudConnectionResponse>(await this.callApi(params, req, runtime), new DeleteExpressCloudConnectionResponse({}));
+    return $tea.cast<DeleteExpressCloudConnectionResponse>(await this.doRPCRequest("DeleteExpressCloudConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteExpressCloudConnectionResponse({}));
   }
 
   async deleteExpressCloudConnection(request: DeleteExpressCloudConnectionRequest): Promise<DeleteExpressCloudConnectionResponse> {
@@ -39921,31 +37821,10 @@ export default class Client extends OpenApi {
 
   async deleteExpressConnectWithOptions(request: DeleteExpressConnectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteExpressConnectResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Force"] = request.force;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteExpressConnect",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteExpressConnectResponse>(await this.callApi(params, req, runtime), new DeleteExpressConnectResponse({}));
+    return $tea.cast<DeleteExpressConnectResponse>(await this.doRPCRequest("DeleteExpressConnect", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteExpressConnectResponse({}));
   }
 
   async deleteExpressConnect(request: DeleteExpressConnectRequest): Promise<DeleteExpressConnectResponse> {
@@ -39955,29 +37834,10 @@ export default class Client extends OpenApi {
 
   async deleteFlowLogWithOptions(request: DeleteFlowLogRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowLogResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["FlowLogId"] = request.flowLogId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteFlowLog",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteFlowLogResponse>(await this.callApi(params, req, runtime), new DeleteFlowLogResponse({}));
+    return $tea.cast<DeleteFlowLogResponse>(await this.doRPCRequest("DeleteFlowLog", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFlowLogResponse({}));
   }
 
   async deleteFlowLog(request: DeleteFlowLogRequest): Promise<DeleteFlowLogResponse> {
@@ -39987,31 +37847,10 @@ export default class Client extends OpenApi {
 
   async deleteForwardEntryWithOptions(request: DeleteForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ForwardEntryId"] = request.forwardEntryId;
-    query["ForwardTableId"] = request.forwardTableId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteForwardEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteForwardEntryResponse>(await this.callApi(params, req, runtime), new DeleteForwardEntryResponse({}));
+    return $tea.cast<DeleteForwardEntryResponse>(await this.doRPCRequest("DeleteForwardEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteForwardEntryResponse({}));
   }
 
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
@@ -40021,32 +37860,10 @@ export default class Client extends OpenApi {
 
   async deleteFullNatEntryWithOptions(request: DeleteFullNatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFullNatEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["FullNatEntryId"] = request.fullNatEntryId;
-    query["FullNatTableId"] = request.fullNatTableId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteFullNatEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteFullNatEntryResponse>(await this.callApi(params, req, runtime), new DeleteFullNatEntryResponse({}));
+    return $tea.cast<DeleteFullNatEntryResponse>(await this.doRPCRequest("DeleteFullNatEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFullNatEntryResponse({}));
   }
 
   async deleteFullNatEntry(request: DeleteFullNatEntryRequest): Promise<DeleteFullNatEntryResponse> {
@@ -40056,29 +37873,10 @@ export default class Client extends OpenApi {
 
   async deleteGlobalAccelerationInstanceWithOptions(request: DeleteGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteGlobalAccelerationInstance",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new DeleteGlobalAccelerationInstanceResponse({}));
+    return $tea.cast<DeleteGlobalAccelerationInstanceResponse>(await this.doRPCRequest("DeleteGlobalAccelerationInstance", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGlobalAccelerationInstanceResponse({}));
   }
 
   async deleteGlobalAccelerationInstance(request: DeleteGlobalAccelerationInstanceRequest): Promise<DeleteGlobalAccelerationInstanceResponse> {
@@ -40088,30 +37886,10 @@ export default class Client extends OpenApi {
 
   async deleteHaVipWithOptions(request: DeleteHaVipRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHaVipResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["HaVipId"] = request.haVipId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteHaVip",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteHaVipResponse>(await this.callApi(params, req, runtime), new DeleteHaVipResponse({}));
+    return $tea.cast<DeleteHaVipResponse>(await this.doRPCRequest("DeleteHaVip", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteHaVipResponse({}));
   }
 
   async deleteHaVip(request: DeleteHaVipRequest): Promise<DeleteHaVipResponse> {
@@ -40121,30 +37899,10 @@ export default class Client extends OpenApi {
 
   async deleteIPv6TranslatorWithOptions(request: DeleteIPv6TranslatorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIPv6Translator",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIPv6TranslatorResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorResponse({}));
+    return $tea.cast<DeleteIPv6TranslatorResponse>(await this.doRPCRequest("DeleteIPv6Translator", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIPv6TranslatorResponse({}));
   }
 
   async deleteIPv6Translator(request: DeleteIPv6TranslatorRequest): Promise<DeleteIPv6TranslatorResponse> {
@@ -40154,30 +37912,10 @@ export default class Client extends OpenApi {
 
   async deleteIPv6TranslatorAclListWithOptions(request: DeleteIPv6TranslatorAclListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorAclListResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIPv6TranslatorAclList",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIPv6TranslatorAclListResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorAclListResponse({}));
+    return $tea.cast<DeleteIPv6TranslatorAclListResponse>(await this.doRPCRequest("DeleteIPv6TranslatorAclList", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIPv6TranslatorAclListResponse({}));
   }
 
   async deleteIPv6TranslatorAclList(request: DeleteIPv6TranslatorAclListRequest): Promise<DeleteIPv6TranslatorAclListResponse> {
@@ -40187,31 +37925,10 @@ export default class Client extends OpenApi {
 
   async deleteIPv6TranslatorEntryWithOptions(request: DeleteIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6TranslatorEntryId"] = request.ipv6TranslatorEntryId;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIPv6TranslatorEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new DeleteIPv6TranslatorEntryResponse({}));
+    return $tea.cast<DeleteIPv6TranslatorEntryResponse>(await this.doRPCRequest("DeleteIPv6TranslatorEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIPv6TranslatorEntryResponse({}));
   }
 
   async deleteIPv6TranslatorEntry(request: DeleteIPv6TranslatorEntryRequest): Promise<DeleteIPv6TranslatorEntryResponse> {
@@ -40221,27 +37938,10 @@ export default class Client extends OpenApi {
 
   async deleteIpsecServerWithOptions(request: DeleteIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpsecServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IpsecServerId"] = request.ipsecServerId;
-    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIpsecServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIpsecServerResponse>(await this.callApi(params, req, runtime), new DeleteIpsecServerResponse({}));
+    return $tea.cast<DeleteIpsecServerResponse>(await this.doRPCRequest("DeleteIpsecServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpsecServerResponse({}));
   }
 
   async deleteIpsecServer(request: DeleteIpsecServerRequest): Promise<DeleteIpsecServerResponse> {
@@ -40251,32 +37951,10 @@ export default class Client extends OpenApi {
 
   async deleteIpv4GatewayWithOptions(request: DeleteIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv4GatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Ipv4GatewayId"] = request.ipv4GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIpv4Gateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIpv4GatewayResponse>(await this.callApi(params, req, runtime), new DeleteIpv4GatewayResponse({}));
+    return $tea.cast<DeleteIpv4GatewayResponse>(await this.doRPCRequest("DeleteIpv4Gateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpv4GatewayResponse({}));
   }
 
   async deleteIpv4Gateway(request: DeleteIpv4GatewayRequest): Promise<DeleteIpv4GatewayResponse> {
@@ -40286,31 +37964,10 @@ export default class Client extends OpenApi {
 
   async deleteIpv6EgressOnlyRuleWithOptions(request: DeleteIpv6EgressOnlyRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6EgressOnlyRuleResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6EgressOnlyRuleId"] = request.ipv6EgressOnlyRuleId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIpv6EgressOnlyRule",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIpv6EgressOnlyRuleResponse>(await this.callApi(params, req, runtime), new DeleteIpv6EgressOnlyRuleResponse({}));
+    return $tea.cast<DeleteIpv6EgressOnlyRuleResponse>(await this.doRPCRequest("DeleteIpv6EgressOnlyRule", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpv6EgressOnlyRuleResponse({}));
   }
 
   async deleteIpv6EgressOnlyRule(request: DeleteIpv6EgressOnlyRuleRequest): Promise<DeleteIpv6EgressOnlyRuleResponse> {
@@ -40320,30 +37977,10 @@ export default class Client extends OpenApi {
 
   async deleteIpv6GatewayWithOptions(request: DeleteIpv6GatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6GatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIpv6Gateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIpv6GatewayResponse>(await this.callApi(params, req, runtime), new DeleteIpv6GatewayResponse({}));
+    return $tea.cast<DeleteIpv6GatewayResponse>(await this.doRPCRequest("DeleteIpv6Gateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpv6GatewayResponse({}));
   }
 
   async deleteIpv6Gateway(request: DeleteIpv6GatewayRequest): Promise<DeleteIpv6GatewayResponse> {
@@ -40353,31 +37990,10 @@ export default class Client extends OpenApi {
 
   async deleteIpv6InternetBandwidthWithOptions(request: DeleteIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv6AddressId"] = request.ipv6AddressId;
-    query["Ipv6InternetBandwidthId"] = request.ipv6InternetBandwidthId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIpv6InternetBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new DeleteIpv6InternetBandwidthResponse({}));
+    return $tea.cast<DeleteIpv6InternetBandwidthResponse>(await this.doRPCRequest("DeleteIpv6InternetBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIpv6InternetBandwidthResponse({}));
   }
 
   async deleteIpv6InternetBandwidth(request: DeleteIpv6InternetBandwidthRequest): Promise<DeleteIpv6InternetBandwidthResponse> {
@@ -40387,30 +38003,10 @@ export default class Client extends OpenApi {
 
   async deleteNatGatewayWithOptions(request: DeleteNatGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Force"] = request.force;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteNatGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteNatGatewayResponse>(await this.callApi(params, req, runtime), new DeleteNatGatewayResponse({}));
+    return $tea.cast<DeleteNatGatewayResponse>(await this.doRPCRequest("DeleteNatGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteNatGatewayResponse({}));
   }
 
   async deleteNatGateway(request: DeleteNatGatewayRequest): Promise<DeleteNatGatewayResponse> {
@@ -40420,32 +38016,10 @@ export default class Client extends OpenApi {
 
   async deleteNatIpWithOptions(request: DeleteNatIpRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatIpId"] = request.natIpId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteNatIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteNatIpResponse>(await this.callApi(params, req, runtime), new DeleteNatIpResponse({}));
+    return $tea.cast<DeleteNatIpResponse>(await this.doRPCRequest("DeleteNatIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteNatIpResponse({}));
   }
 
   async deleteNatIp(request: DeleteNatIpRequest): Promise<DeleteNatIpResponse> {
@@ -40455,33 +38029,10 @@ export default class Client extends OpenApi {
 
   async deleteNatIpCidrWithOptions(request: DeleteNatIpCidrRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNatIpCidrResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteNatIpCidr",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteNatIpCidrResponse>(await this.callApi(params, req, runtime), new DeleteNatIpCidrResponse({}));
+    return $tea.cast<DeleteNatIpCidrResponse>(await this.doRPCRequest("DeleteNatIpCidr", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteNatIpCidrResponse({}));
   }
 
   async deleteNatIpCidr(request: DeleteNatIpCidrRequest): Promise<DeleteNatIpCidrResponse> {
@@ -40491,30 +38042,10 @@ export default class Client extends OpenApi {
 
   async deleteNetworkAclWithOptions(request: DeleteNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkAclResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteNetworkAcl",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteNetworkAclResponse>(await this.callApi(params, req, runtime), new DeleteNetworkAclResponse({}));
+    return $tea.cast<DeleteNetworkAclResponse>(await this.doRPCRequest("DeleteNetworkAcl", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteNetworkAclResponse({}));
   }
 
   async deleteNetworkAcl(request: DeleteNetworkAclRequest): Promise<DeleteNetworkAclResponse> {
@@ -40524,30 +38055,10 @@ export default class Client extends OpenApi {
 
   async deletePhysicalConnectionWithOptions(request: DeletePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeletePhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeletePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DeletePhysicalConnectionResponse({}));
+    return $tea.cast<DeletePhysicalConnectionResponse>(await this.doRPCRequest("DeletePhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePhysicalConnectionResponse({}));
   }
 
   async deletePhysicalConnection(request: DeletePhysicalConnectionRequest): Promise<DeletePhysicalConnectionResponse> {
@@ -40557,33 +38068,10 @@ export default class Client extends OpenApi {
 
   async deleteRouteEntryWithOptions(request: DeleteRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["NextHopId"] = request.nextHopId;
-    query["NextHopList"] = request.nextHopList;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteEntryId"] = request.routeEntryId;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteRouteEntryResponse({}));
+    return $tea.cast<DeleteRouteEntryResponse>(await this.doRPCRequest("DeleteRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRouteEntryResponse({}));
   }
 
   async deleteRouteEntry(request: DeleteRouteEntryRequest): Promise<DeleteRouteEntryResponse> {
@@ -40593,30 +38081,10 @@ export default class Client extends OpenApi {
 
   async deleteRouteTableWithOptions(request: DeleteRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouteTableResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteRouteTable",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteRouteTableResponse>(await this.callApi(params, req, runtime), new DeleteRouteTableResponse({}));
+    return $tea.cast<DeleteRouteTableResponse>(await this.doRPCRequest("DeleteRouteTable", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRouteTableResponse({}));
   }
 
   async deleteRouteTable(request: DeleteRouteTableRequest): Promise<DeleteRouteTableResponse> {
@@ -40626,30 +38094,10 @@ export default class Client extends OpenApi {
 
   async deleteRouterInterfaceWithOptions(request: DeleteRouterInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRouterInterfaceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteRouterInterface",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteRouterInterfaceResponse>(await this.callApi(params, req, runtime), new DeleteRouterInterfaceResponse({}));
+    return $tea.cast<DeleteRouterInterfaceResponse>(await this.doRPCRequest("DeleteRouterInterface", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRouterInterfaceResponse({}));
   }
 
   async deleteRouterInterface(request: DeleteRouterInterfaceRequest): Promise<DeleteRouterInterfaceResponse> {
@@ -40659,31 +38107,10 @@ export default class Client extends OpenApi {
 
   async deleteSnatEntryWithOptions(request: DeleteSnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnatEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SnatEntryId"] = request.snatEntryId;
-    query["SnatTableId"] = request.snatTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteSnatEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSnatEntryResponse>(await this.callApi(params, req, runtime), new DeleteSnatEntryResponse({}));
+    return $tea.cast<DeleteSnatEntryResponse>(await this.doRPCRequest("DeleteSnatEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSnatEntryResponse({}));
   }
 
   async deleteSnatEntry(request: DeleteSnatEntryRequest): Promise<DeleteSnatEntryResponse> {
@@ -40693,30 +38120,10 @@ export default class Client extends OpenApi {
 
   async deleteSslVpnClientCertWithOptions(request: DeleteSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnClientCertResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnClientCertId"] = request.sslVpnClientCertId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteSslVpnClientCert",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new DeleteSslVpnClientCertResponse({}));
+    return $tea.cast<DeleteSslVpnClientCertResponse>(await this.doRPCRequest("DeleteSslVpnClientCert", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSslVpnClientCertResponse({}));
   }
 
   async deleteSslVpnClientCert(request: DeleteSslVpnClientCertRequest): Promise<DeleteSslVpnClientCertResponse> {
@@ -40726,30 +38133,10 @@ export default class Client extends OpenApi {
 
   async deleteSslVpnServerWithOptions(request: DeleteSslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSslVpnServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnServerId"] = request.sslVpnServerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteSslVpnServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSslVpnServerResponse>(await this.callApi(params, req, runtime), new DeleteSslVpnServerResponse({}));
+    return $tea.cast<DeleteSslVpnServerResponse>(await this.doRPCRequest("DeleteSslVpnServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSslVpnServerResponse({}));
   }
 
   async deleteSslVpnServer(request: DeleteSslVpnServerRequest): Promise<DeleteSslVpnServerResponse> {
@@ -40759,31 +38146,10 @@ export default class Client extends OpenApi {
 
   async deleteTrafficMirrorFilterWithOptions(request: DeleteTrafficMirrorFilterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteTrafficMirrorFilter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteTrafficMirrorFilterResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorFilterResponse({}));
+    return $tea.cast<DeleteTrafficMirrorFilterResponse>(await this.doRPCRequest("DeleteTrafficMirrorFilter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTrafficMirrorFilterResponse({}));
   }
 
   async deleteTrafficMirrorFilter(request: DeleteTrafficMirrorFilterRequest): Promise<DeleteTrafficMirrorFilterResponse> {
@@ -40793,32 +38159,10 @@ export default class Client extends OpenApi {
 
   async deleteTrafficMirrorFilterRulesWithOptions(request: DeleteTrafficMirrorFilterRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorFilterRulesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
-    query["TrafficMirrorFilterRuleIds"] = request.trafficMirrorFilterRuleIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteTrafficMirrorFilterRules",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteTrafficMirrorFilterRulesResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorFilterRulesResponse({}));
+    return $tea.cast<DeleteTrafficMirrorFilterRulesResponse>(await this.doRPCRequest("DeleteTrafficMirrorFilterRules", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTrafficMirrorFilterRulesResponse({}));
   }
 
   async deleteTrafficMirrorFilterRules(request: DeleteTrafficMirrorFilterRulesRequest): Promise<DeleteTrafficMirrorFilterRulesResponse> {
@@ -40828,31 +38172,10 @@ export default class Client extends OpenApi {
 
   async deleteTrafficMirrorSessionWithOptions(request: DeleteTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficMirrorSessionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorSessionId"] = request.trafficMirrorSessionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteTrafficMirrorSession",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new DeleteTrafficMirrorSessionResponse({}));
+    return $tea.cast<DeleteTrafficMirrorSessionResponse>(await this.doRPCRequest("DeleteTrafficMirrorSession", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTrafficMirrorSessionResponse({}));
   }
 
   async deleteTrafficMirrorSession(request: DeleteTrafficMirrorSessionRequest): Promise<DeleteTrafficMirrorSessionResponse> {
@@ -40862,29 +38185,10 @@ export default class Client extends OpenApi {
 
   async deleteVSwitchWithOptions(request: DeleteVSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVSwitchResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVSwitch",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVSwitchResponse>(await this.callApi(params, req, runtime), new DeleteVSwitchResponse({}));
+    return $tea.cast<DeleteVSwitchResponse>(await this.doRPCRequest("DeleteVSwitch", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVSwitchResponse({}));
   }
 
   async deleteVSwitch(request: DeleteVSwitchRequest): Promise<DeleteVSwitchResponse> {
@@ -40894,30 +38198,10 @@ export default class Client extends OpenApi {
 
   async deleteVbrHaWithOptions(request: DeleteVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVbrHaResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVbrHa",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVbrHaResponse>(await this.callApi(params, req, runtime), new DeleteVbrHaResponse({}));
+    return $tea.cast<DeleteVbrHaResponse>(await this.doRPCRequest("DeleteVbrHa", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVbrHaResponse({}));
   }
 
   async deleteVbrHa(request: DeleteVbrHaRequest): Promise<DeleteVbrHaResponse> {
@@ -40927,30 +38211,10 @@ export default class Client extends OpenApi {
 
   async deleteVirtualBorderRouterWithOptions(request: DeleteVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new DeleteVirtualBorderRouterResponse({}));
+    return $tea.cast<DeleteVirtualBorderRouterResponse>(await this.doRPCRequest("DeleteVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVirtualBorderRouterResponse({}));
   }
 
   async deleteVirtualBorderRouter(request: DeleteVirtualBorderRouterRequest): Promise<DeleteVirtualBorderRouterResponse> {
@@ -40960,29 +38224,10 @@ export default class Client extends OpenApi {
 
   async deleteVpcWithOptions(request: DeleteVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpc",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpcResponse>(await this.callApi(params, req, runtime), new DeleteVpcResponse({}));
+    return $tea.cast<DeleteVpcResponse>(await this.doRPCRequest("DeleteVpc", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpcResponse({}));
   }
 
   async deleteVpc(request: DeleteVpcRequest): Promise<DeleteVpcResponse> {
@@ -40992,31 +38237,10 @@ export default class Client extends OpenApi {
 
   async deleteVpcGatewayEndpointWithOptions(request: DeleteVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcGatewayEndpointResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpcGatewayEndpoint",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcGatewayEndpointResponse({}));
+    return $tea.cast<DeleteVpcGatewayEndpointResponse>(await this.doRPCRequest("DeleteVpcGatewayEndpoint", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpcGatewayEndpointResponse({}));
   }
 
   async deleteVpcGatewayEndpoint(request: DeleteVpcGatewayEndpointRequest): Promise<DeleteVpcGatewayEndpointResponse> {
@@ -41026,30 +38250,10 @@ export default class Client extends OpenApi {
 
   async deleteVpnConnectionWithOptions(request: DeleteVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnConnectionId"] = request.vpnConnectionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpnConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpnConnectionResponse>(await this.callApi(params, req, runtime), new DeleteVpnConnectionResponse({}));
+    return $tea.cast<DeleteVpnConnectionResponse>(await this.doRPCRequest("DeleteVpnConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpnConnectionResponse({}));
   }
 
   async deleteVpnConnection(request: DeleteVpnConnectionRequest): Promise<DeleteVpnConnectionResponse> {
@@ -41059,30 +38263,10 @@ export default class Client extends OpenApi {
 
   async deleteVpnGatewayWithOptions(request: DeleteVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpnGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpnGatewayResponse>(await this.callApi(params, req, runtime), new DeleteVpnGatewayResponse({}));
+    return $tea.cast<DeleteVpnGatewayResponse>(await this.doRPCRequest("DeleteVpnGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpnGatewayResponse({}));
   }
 
   async deleteVpnGateway(request: DeleteVpnGatewayRequest): Promise<DeleteVpnGatewayResponse> {
@@ -41092,35 +38276,10 @@ export default class Client extends OpenApi {
 
   async deleteVpnPbrRouteEntryWithOptions(request: DeleteVpnPbrRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnPbrRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["RouteSource"] = request.routeSource;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpnPbrRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpnPbrRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVpnPbrRouteEntryResponse({}));
+    return $tea.cast<DeleteVpnPbrRouteEntryResponse>(await this.doRPCRequest("DeleteVpnPbrRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpnPbrRouteEntryResponse({}));
   }
 
   async deleteVpnPbrRouteEntry(request: DeleteVpnPbrRouteEntryRequest): Promise<DeleteVpnPbrRouteEntryResponse> {
@@ -41130,34 +38289,10 @@ export default class Client extends OpenApi {
 
   async deleteVpnRouteEntryWithOptions(request: DeleteVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpnRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpnRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new DeleteVpnRouteEntryResponse({}));
+    return $tea.cast<DeleteVpnRouteEntryResponse>(await this.doRPCRequest("DeleteVpnRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpnRouteEntryResponse({}));
   }
 
   async deleteVpnRouteEntry(request: DeleteVpnRouteEntryRequest): Promise<DeleteVpnRouteEntryResponse> {
@@ -41167,32 +38302,10 @@ export default class Client extends OpenApi {
 
   async deletionProtectionWithOptions(request: DeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DeletionProtectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["OwnerId"] = request.ownerId;
-    query["ProtectionEnable"] = request.protectionEnable;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DeletionProtection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeletionProtectionResponse>(await this.callApi(params, req, runtime), new DeletionProtectionResponse({}));
+    return $tea.cast<DeletionProtectionResponse>(await this.doRPCRequest("DeletionProtection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DeletionProtectionResponse({}));
   }
 
   async deletionProtection(request: DeletionProtectionRequest): Promise<DeletionProtectionResponse> {
@@ -41202,29 +38315,10 @@ export default class Client extends OpenApi {
 
   async describeAccessPointsWithOptions(request: DescribeAccessPointsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessPointsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeAccessPoints",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAccessPointsResponse>(await this.callApi(params, req, runtime), new DescribeAccessPointsResponse({}));
+    return $tea.cast<DescribeAccessPointsResponse>(await this.doRPCRequest("DescribeAccessPoints", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccessPointsResponse({}));
   }
 
   async describeAccessPoints(request: DescribeAccessPointsRequest): Promise<DescribeAccessPointsResponse> {
@@ -41234,33 +38328,10 @@ export default class Client extends OpenApi {
 
   async describeBgpGroupsWithOptions(request: DescribeBgpGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpGroupsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["IsDefault"] = request.isDefault;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeBgpGroups",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeBgpGroupsResponse>(await this.callApi(params, req, runtime), new DescribeBgpGroupsResponse({}));
+    return $tea.cast<DescribeBgpGroupsResponse>(await this.doRPCRequest("DescribeBgpGroups", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBgpGroupsResponse({}));
   }
 
   async describeBgpGroups(request: DescribeBgpGroupsRequest): Promise<DescribeBgpGroupsResponse> {
@@ -41270,31 +38341,10 @@ export default class Client extends OpenApi {
 
   async describeBgpNetworksWithOptions(request: DescribeBgpNetworksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpNetworksResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeBgpNetworks",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeBgpNetworksResponse>(await this.callApi(params, req, runtime), new DescribeBgpNetworksResponse({}));
+    return $tea.cast<DescribeBgpNetworksResponse>(await this.doRPCRequest("DescribeBgpNetworks", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBgpNetworksResponse({}));
   }
 
   async describeBgpNetworks(request: DescribeBgpNetworksRequest): Promise<DescribeBgpNetworksResponse> {
@@ -41304,34 +38354,10 @@ export default class Client extends OpenApi {
 
   async describeBgpPeersWithOptions(request: DescribeBgpPeersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpPeersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["BgpPeerId"] = request.bgpPeerId;
-    query["IsDefault"] = request.isDefault;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterId"] = request.routerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeBgpPeers",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeBgpPeersResponse>(await this.callApi(params, req, runtime), new DescribeBgpPeersResponse({}));
+    return $tea.cast<DescribeBgpPeersResponse>(await this.doRPCRequest("DescribeBgpPeers", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBgpPeersResponse({}));
   }
 
   async describeBgpPeers(request: DescribeBgpPeersRequest): Promise<DescribeBgpPeersResponse> {
@@ -41341,36 +38367,10 @@ export default class Client extends OpenApi {
 
   async describeCommonBandwidthPackagesWithOptions(request: DescribeCommonBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommonBandwidthPackagesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["DryRun"] = request.dryRun;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionEnabled"] = request.securityProtectionEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeCommonBandwidthPackages",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeCommonBandwidthPackagesResponse>(await this.callApi(params, req, runtime), new DescribeCommonBandwidthPackagesResponse({}));
+    return $tea.cast<DescribeCommonBandwidthPackagesResponse>(await this.doRPCRequest("DescribeCommonBandwidthPackages", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCommonBandwidthPackagesResponse({}));
   }
 
   async describeCommonBandwidthPackages(request: DescribeCommonBandwidthPackagesRequest): Promise<DescribeCommonBandwidthPackagesResponse> {
@@ -41380,29 +38380,10 @@ export default class Client extends OpenApi {
 
   async describeCustomerGatewayWithOptions(request: DescribeCustomerGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomerGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeCustomerGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeCustomerGatewayResponse>(await this.callApi(params, req, runtime), new DescribeCustomerGatewayResponse({}));
+    return $tea.cast<DescribeCustomerGatewayResponse>(await this.doRPCRequest("DescribeCustomerGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCustomerGatewayResponse({}));
   }
 
   async describeCustomerGateway(request: DescribeCustomerGatewayRequest): Promise<DescribeCustomerGatewayResponse> {
@@ -41412,31 +38393,10 @@ export default class Client extends OpenApi {
 
   async describeCustomerGatewaysWithOptions(request: DescribeCustomerGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomerGatewaysResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeCustomerGateways",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeCustomerGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeCustomerGatewaysResponse({}));
+    return $tea.cast<DescribeCustomerGatewaysResponse>(await this.doRPCRequest("DescribeCustomerGateways", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCustomerGatewaysResponse({}));
   }
 
   async describeCustomerGateways(request: DescribeCustomerGatewaysRequest): Promise<DescribeCustomerGatewaysResponse> {
@@ -41446,44 +38406,10 @@ export default class Client extends OpenApi {
 
   async describeEipAddressesWithOptions(request: DescribeEipAddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipAddressesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["AssociatedInstanceId"] = request.associatedInstanceId;
-    query["AssociatedInstanceType"] = request.associatedInstanceType;
-    query["ChargeType"] = request.chargeType;
-    query["DryRun"] = request.dryRun;
-    query["EipAddress"] = request.eipAddress;
-    query["EipName"] = request.eipName;
-    query["ISP"] = request.ISP;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["LockReason"] = request.lockReason;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityProtectionEnabled"] = request.securityProtectionEnabled;
-    query["SegmentInstanceId"] = request.segmentInstanceId;
-    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeEipAddresses",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeEipAddressesResponse>(await this.callApi(params, req, runtime), new DescribeEipAddressesResponse({}));
+    return $tea.cast<DescribeEipAddressesResponse>(await this.doRPCRequest("DescribeEipAddresses", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEipAddressesResponse({}));
   }
 
   async describeEipAddresses(request: DescribeEipAddressesRequest): Promise<DescribeEipAddressesResponse> {
@@ -41493,30 +38419,10 @@ export default class Client extends OpenApi {
 
   async describeEipGatewayInfoWithOptions(request: DescribeEipGatewayInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipGatewayInfoResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeEipGatewayInfo",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeEipGatewayInfoResponse>(await this.callApi(params, req, runtime), new DescribeEipGatewayInfoResponse({}));
+    return $tea.cast<DescribeEipGatewayInfoResponse>(await this.doRPCRequest("DescribeEipGatewayInfo", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEipGatewayInfoResponse({}));
   }
 
   async describeEipGatewayInfo(request: DescribeEipGatewayInfoRequest): Promise<DescribeEipGatewayInfoResponse> {
@@ -41526,32 +38432,10 @@ export default class Client extends OpenApi {
 
   async describeEipMonitorDataWithOptions(request: DescribeEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipMonitorDataResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["EndTime"] = request.endTime;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["StartTime"] = request.startTime;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeEipMonitorData",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeEipMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeEipMonitorDataResponse({}));
+    return $tea.cast<DescribeEipMonitorDataResponse>(await this.doRPCRequest("DescribeEipMonitorData", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEipMonitorDataResponse({}));
   }
 
   async describeEipMonitorData(request: DescribeEipMonitorDataRequest): Promise<DescribeEipMonitorDataResponse> {
@@ -41561,32 +38445,10 @@ export default class Client extends OpenApi {
 
   async describeEipSegmentWithOptions(request: DescribeEipSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEipSegmentResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SegmentInstanceId"] = request.segmentInstanceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeEipSegment",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeEipSegmentResponse>(await this.callApi(params, req, runtime), new DescribeEipSegmentResponse({}));
+    return $tea.cast<DescribeEipSegmentResponse>(await this.doRPCRequest("DescribeEipSegment", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEipSegmentResponse({}));
   }
 
   async describeEipSegment(request: DescribeEipSegmentRequest): Promise<DescribeEipSegmentResponse> {
@@ -41596,31 +38458,10 @@ export default class Client extends OpenApi {
 
   async describeExpressCloudConnectionsWithOptions(request: DescribeExpressCloudConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExpressCloudConnectionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Filter"] = request.filter;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeExpressCloudConnections",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeExpressCloudConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeExpressCloudConnectionsResponse({}));
+    return $tea.cast<DescribeExpressCloudConnectionsResponse>(await this.doRPCRequest("DescribeExpressCloudConnections", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExpressCloudConnectionsResponse({}));
   }
 
   async describeExpressCloudConnections(request: DescribeExpressCloudConnectionsRequest): Promise<DescribeExpressCloudConnectionsResponse> {
@@ -41630,40 +38471,10 @@ export default class Client extends OpenApi {
 
   async describeFlowLogsWithOptions(request: DescribeFlowLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowLogsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["FlowLogId"] = request.flowLogId;
-    query["FlowLogName"] = request.flowLogName;
-    query["LogStoreName"] = request.logStoreName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectName"] = request.projectName;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["Status"] = request.status;
-    query["TrafficType"] = request.trafficType;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeFlowLogs",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeFlowLogsResponse>(await this.callApi(params, req, runtime), new DescribeFlowLogsResponse({}));
+    return $tea.cast<DescribeFlowLogsResponse>(await this.doRPCRequest("DescribeFlowLogs", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFlowLogsResponse({}));
   }
 
   async describeFlowLogs(request: DescribeFlowLogsRequest): Promise<DescribeFlowLogsResponse> {
@@ -41673,38 +38484,10 @@ export default class Client extends OpenApi {
 
   async describeForwardTableEntriesWithOptions(request: DescribeForwardTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeForwardTableEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ExternalIp"] = request.externalIp;
-    query["ExternalPort"] = request.externalPort;
-    query["ForwardEntryId"] = request.forwardEntryId;
-    query["ForwardEntryName"] = request.forwardEntryName;
-    query["ForwardTableId"] = request.forwardTableId;
-    query["InternalIp"] = request.internalIp;
-    query["InternalPort"] = request.internalPort;
-    query["IpProtocol"] = request.ipProtocol;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeForwardTableEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeForwardTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeForwardTableEntriesResponse({}));
+    return $tea.cast<DescribeForwardTableEntriesResponse>(await this.doRPCRequest("DescribeForwardTableEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeForwardTableEntriesResponse({}));
   }
 
   async describeForwardTableEntries(request: DescribeForwardTableEntriesRequest): Promise<DescribeForwardTableEntriesResponse> {
@@ -41714,38 +38497,10 @@ export default class Client extends OpenApi {
 
   async describeGlobalAccelerationInstancesWithOptions(request: DescribeGlobalAccelerationInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGlobalAccelerationInstancesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthType"] = request.bandwidthType;
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["IpAddress"] = request.ipAddress;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServerId"] = request.serverId;
-    query["ServiceLocation"] = request.serviceLocation;
-    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGlobalAccelerationInstances",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGlobalAccelerationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGlobalAccelerationInstancesResponse({}));
+    return $tea.cast<DescribeGlobalAccelerationInstancesResponse>(await this.doRPCRequest("DescribeGlobalAccelerationInstances", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGlobalAccelerationInstancesResponse({}));
   }
 
   async describeGlobalAccelerationInstances(request: DescribeGlobalAccelerationInstancesRequest): Promise<DescribeGlobalAccelerationInstancesResponse> {
@@ -41755,32 +38510,10 @@ export default class Client extends OpenApi {
 
   async describeGrantRulesToCenWithOptions(request: DescribeGrantRulesToCenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGrantRulesToCenResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeGrantRulesToCen",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeGrantRulesToCenResponse>(await this.callApi(params, req, runtime), new DescribeGrantRulesToCenResponse({}));
+    return $tea.cast<DescribeGrantRulesToCenResponse>(await this.doRPCRequest("DescribeGrantRulesToCen", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGrantRulesToCenResponse({}));
   }
 
   async describeGrantRulesToCen(request: DescribeGrantRulesToCenRequest): Promise<DescribeGrantRulesToCenResponse> {
@@ -41790,31 +38523,10 @@ export default class Client extends OpenApi {
 
   async describeHaVipsWithOptions(request: DescribeHaVipsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHaVipsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Filter"] = request.filter;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeHaVips",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeHaVipsResponse>(await this.callApi(params, req, runtime), new DescribeHaVipsResponse({}));
+    return $tea.cast<DescribeHaVipsResponse>(await this.doRPCRequest("DescribeHaVips", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHaVipsResponse({}));
   }
 
   async describeHaVips(request: DescribeHaVipsRequest): Promise<DescribeHaVipsResponse> {
@@ -41824,30 +38536,10 @@ export default class Client extends OpenApi {
 
   async describeHighDefinitionMonitorLogAttributeWithOptions(request: DescribeHighDefinitionMonitorLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHighDefinitionMonitorLogAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeHighDefinitionMonitorLogAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeHighDefinitionMonitorLogAttributeResponse>(await this.callApi(params, req, runtime), new DescribeHighDefinitionMonitorLogAttributeResponse({}));
+    return $tea.cast<DescribeHighDefinitionMonitorLogAttributeResponse>(await this.doRPCRequest("DescribeHighDefinitionMonitorLogAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHighDefinitionMonitorLogAttributeResponse({}));
   }
 
   async describeHighDefinitionMonitorLogAttribute(request: DescribeHighDefinitionMonitorLogAttributeRequest): Promise<DescribeHighDefinitionMonitorLogAttributeResponse> {
@@ -41857,31 +38549,10 @@ export default class Client extends OpenApi {
 
   async describeIPv6TranslatorAclListAttributesWithOptions(request: DescribeIPv6TranslatorAclListAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorAclListAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIPv6TranslatorAclListAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIPv6TranslatorAclListAttributesResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorAclListAttributesResponse({}));
+    return $tea.cast<DescribeIPv6TranslatorAclListAttributesResponse>(await this.doRPCRequest("DescribeIPv6TranslatorAclListAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIPv6TranslatorAclListAttributesResponse({}));
   }
 
   async describeIPv6TranslatorAclListAttributes(request: DescribeIPv6TranslatorAclListAttributesRequest): Promise<DescribeIPv6TranslatorAclListAttributesResponse> {
@@ -41891,32 +38562,10 @@ export default class Client extends OpenApi {
 
   async describeIPv6TranslatorAclListsWithOptions(request: DescribeIPv6TranslatorAclListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorAclListsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["AclName"] = request.aclName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIPv6TranslatorAclLists",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIPv6TranslatorAclListsResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorAclListsResponse({}));
+    return $tea.cast<DescribeIPv6TranslatorAclListsResponse>(await this.doRPCRequest("DescribeIPv6TranslatorAclLists", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIPv6TranslatorAclListsResponse({}));
   }
 
   async describeIPv6TranslatorAclLists(request: DescribeIPv6TranslatorAclListsRequest): Promise<DescribeIPv6TranslatorAclListsResponse> {
@@ -41926,42 +38575,10 @@ export default class Client extends OpenApi {
 
   async describeIPv6TranslatorEntriesWithOptions(request: DescribeIPv6TranslatorEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["AclStatus"] = request.aclStatus;
-    query["AclType"] = request.aclType;
-    query["AllocateIpv6Addr"] = request.allocateIpv6Addr;
-    query["AllocateIpv6Port"] = request.allocateIpv6Port;
-    query["BackendIpv4Addr"] = request.backendIpv4Addr;
-    query["BackendIpv4Port"] = request.backendIpv4Port;
-    query["ClientToken"] = request.clientToken;
-    query["EntryName"] = request.entryName;
-    query["Ipv6TranslatorEntryId"] = request.ipv6TranslatorEntryId;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TransProtocol"] = request.transProtocol;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIPv6TranslatorEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIPv6TranslatorEntriesResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorEntriesResponse({}));
+    return $tea.cast<DescribeIPv6TranslatorEntriesResponse>(await this.doRPCRequest("DescribeIPv6TranslatorEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIPv6TranslatorEntriesResponse({}));
   }
 
   async describeIPv6TranslatorEntries(request: DescribeIPv6TranslatorEntriesRequest): Promise<DescribeIPv6TranslatorEntriesResponse> {
@@ -41971,38 +38588,10 @@ export default class Client extends OpenApi {
 
   async describeIPv6TranslatorsWithOptions(request: DescribeIPv6TranslatorsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIPv6TranslatorsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocateIpv4Addr"] = request.allocateIpv4Addr;
-    query["AllocateIpv6Addr"] = request.allocateIpv6Addr;
-    query["BusinessStatus"] = request.businessStatus;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PayType"] = request.payType;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
-    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIPv6Translators",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIPv6TranslatorsResponse>(await this.callApi(params, req, runtime), new DescribeIPv6TranslatorsResponse({}));
+    return $tea.cast<DescribeIPv6TranslatorsResponse>(await this.doRPCRequest("DescribeIPv6Translators", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIPv6TranslatorsResponse({}));
   }
 
   async describeIPv6Translators(request: DescribeIPv6TranslatorsRequest): Promise<DescribeIPv6TranslatorsResponse> {
@@ -42012,32 +38601,10 @@ export default class Client extends OpenApi {
 
   async describeInstanceAutoRenewAttributeWithOptions(request: DescribeInstanceAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAutoRenewAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["RenewalStatus"] = request.renewalStatus;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeInstanceAutoRenewAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeInstanceAutoRenewAttributeResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAutoRenewAttributeResponse({}));
+    return $tea.cast<DescribeInstanceAutoRenewAttributeResponse>(await this.doRPCRequest("DescribeInstanceAutoRenewAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceAutoRenewAttributeResponse({}));
   }
 
   async describeInstanceAutoRenewAttribute(request: DescribeInstanceAutoRenewAttributeRequest): Promise<DescribeInstanceAutoRenewAttributeResponse> {
@@ -42047,40 +38614,10 @@ export default class Client extends OpenApi {
 
   async describeIpv6AddressesWithOptions(request: DescribeIpv6AddressesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6AddressesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AssociatedInstanceId"] = request.associatedInstanceId;
-    query["AssociatedInstanceType"] = request.associatedInstanceType;
-    query["Ipv6Address"] = request.ipv6Address;
-    query["Ipv6AddressId"] = request.ipv6AddressId;
-    query["Ipv6InternetBandwidthId"] = request.ipv6InternetBandwidthId;
-    query["Name"] = request.name;
-    query["NetworkType"] = request.networkType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv6Addresses",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv6AddressesResponse>(await this.callApi(params, req, runtime), new DescribeIpv6AddressesResponse({}));
+    return $tea.cast<DescribeIpv6AddressesResponse>(await this.doRPCRequest("DescribeIpv6Addresses", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv6AddressesResponse({}));
   }
 
   async describeIpv6Addresses(request: DescribeIpv6AddressesRequest): Promise<DescribeIpv6AddressesResponse> {
@@ -42090,36 +38627,10 @@ export default class Client extends OpenApi {
 
   async describeIpv6EgressOnlyRulesWithOptions(request: DescribeIpv6EgressOnlyRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6EgressOnlyRulesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["Ipv6EgressOnlyRuleId"] = request.ipv6EgressOnlyRuleId;
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv6EgressOnlyRules",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv6EgressOnlyRulesResponse>(await this.callApi(params, req, runtime), new DescribeIpv6EgressOnlyRulesResponse({}));
+    return $tea.cast<DescribeIpv6EgressOnlyRulesResponse>(await this.doRPCRequest("DescribeIpv6EgressOnlyRules", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv6EgressOnlyRulesResponse({}));
   }
 
   async describeIpv6EgressOnlyRules(request: DescribeIpv6EgressOnlyRulesRequest): Promise<DescribeIpv6EgressOnlyRulesResponse> {
@@ -42129,30 +38640,10 @@ export default class Client extends OpenApi {
 
   async describeIpv6GatewayAttributeWithOptions(request: DescribeIpv6GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6GatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv6GatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv6GatewayAttributeResponse>(await this.callApi(params, req, runtime), new DescribeIpv6GatewayAttributeResponse({}));
+    return $tea.cast<DescribeIpv6GatewayAttributeResponse>(await this.doRPCRequest("DescribeIpv6GatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv6GatewayAttributeResponse({}));
   }
 
   async describeIpv6GatewayAttribute(request: DescribeIpv6GatewayAttributeRequest): Promise<DescribeIpv6GatewayAttributeResponse> {
@@ -42162,34 +38653,10 @@ export default class Client extends OpenApi {
 
   async describeIpv6GatewaysWithOptions(request: DescribeIpv6GatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpv6GatewaysResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpv6Gateways",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpv6GatewaysResponse>(await this.callApi(params, req, runtime), new DescribeIpv6GatewaysResponse({}));
+    return $tea.cast<DescribeIpv6GatewaysResponse>(await this.doRPCRequest("DescribeIpv6Gateways", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpv6GatewaysResponse({}));
   }
 
   async describeIpv6Gateways(request: DescribeIpv6GatewaysRequest): Promise<DescribeIpv6GatewaysResponse> {
@@ -42199,41 +38666,10 @@ export default class Client extends OpenApi {
 
   async describeNatGatewaysWithOptions(request: DescribeNatGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNatGatewaysResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["Name"] = request.name;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatType"] = request.natType;
-    query["NetworkType"] = request.networkType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
-    query["Status"] = request.status;
-    query["VpcId"] = request.vpcId;
-    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeNatGateways",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeNatGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeNatGatewaysResponse({}));
+    return $tea.cast<DescribeNatGatewaysResponse>(await this.doRPCRequest("DescribeNatGateways", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNatGatewaysResponse({}));
   }
 
   async describeNatGateways(request: DescribeNatGatewaysRequest): Promise<DescribeNatGatewaysResponse> {
@@ -42243,30 +38679,10 @@ export default class Client extends OpenApi {
 
   async describeNetworkAclAttributesWithOptions(request: DescribeNetworkAclAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeNetworkAclAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeNetworkAclAttributesResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclAttributesResponse({}));
+    return $tea.cast<DescribeNetworkAclAttributesResponse>(await this.doRPCRequest("DescribeNetworkAclAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNetworkAclAttributesResponse({}));
   }
 
   async describeNetworkAclAttributes(request: DescribeNetworkAclAttributesRequest): Promise<DescribeNetworkAclAttributesResponse> {
@@ -42276,36 +38692,10 @@ export default class Client extends OpenApi {
 
   async describeNetworkAclsWithOptions(request: DescribeNetworkAclsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNetworkAclsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["NetworkAclName"] = request.networkAclName;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeNetworkAcls",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeNetworkAclsResponse>(await this.callApi(params, req, runtime), new DescribeNetworkAclsResponse({}));
+    return $tea.cast<DescribeNetworkAclsResponse>(await this.doRPCRequest("DescribeNetworkAcls", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNetworkAclsResponse({}));
   }
 
   async describeNetworkAcls(request: DescribeNetworkAclsRequest): Promise<DescribeNetworkAclsResponse> {
@@ -42315,32 +38705,10 @@ export default class Client extends OpenApi {
 
   async describeNewProjectEipMonitorDataWithOptions(request: DescribeNewProjectEipMonitorDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNewProjectEipMonitorDataResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["EndTime"] = request.endTime;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Period"] = request.period;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["StartTime"] = request.startTime;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeNewProjectEipMonitorData",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeNewProjectEipMonitorDataResponse>(await this.callApi(params, req, runtime), new DescribeNewProjectEipMonitorDataResponse({}));
+    return $tea.cast<DescribeNewProjectEipMonitorDataResponse>(await this.doRPCRequest("DescribeNewProjectEipMonitorData", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNewProjectEipMonitorDataResponse({}));
   }
 
   async describeNewProjectEipMonitorData(request: DescribeNewProjectEipMonitorDataRequest): Promise<DescribeNewProjectEipMonitorDataResponse> {
@@ -42350,30 +38718,10 @@ export default class Client extends OpenApi {
 
   async describePhysicalConnectionLOAWithOptions(request: DescribePhysicalConnectionLOARequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionLOAResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePhysicalConnectionLOA",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePhysicalConnectionLOAResponse>(await this.callApi(params, req, runtime), new DescribePhysicalConnectionLOAResponse({}));
+    return $tea.cast<DescribePhysicalConnectionLOAResponse>(await this.doRPCRequest("DescribePhysicalConnectionLOA", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePhysicalConnectionLOAResponse({}));
   }
 
   async describePhysicalConnectionLOA(request: DescribePhysicalConnectionLOARequest): Promise<DescribePhysicalConnectionLOAResponse> {
@@ -42383,33 +38731,10 @@ export default class Client extends OpenApi {
 
   async describePhysicalConnectionsWithOptions(request: DescribePhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhysicalConnectionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Filter"] = request.filter;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePhysicalConnections",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePhysicalConnectionsResponse>(await this.callApi(params, req, runtime), new DescribePhysicalConnectionsResponse({}));
+    return $tea.cast<DescribePhysicalConnectionsResponse>(await this.doRPCRequest("DescribePhysicalConnections", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePhysicalConnectionsResponse({}));
   }
 
   async describePhysicalConnections(request: DescribePhysicalConnectionsRequest): Promise<DescribePhysicalConnectionsResponse> {
@@ -42419,28 +38744,10 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRegions",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -42450,39 +38757,10 @@ export default class Client extends OpenApi {
 
   async describeRouteEntryListWithOptions(request: DescribeRouteEntryListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteEntryListResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["IpVersion"] = request.ipVersion;
-    query["MaxResult"] = request.maxResult;
-    query["NextHopId"] = request.nextHopId;
-    query["NextHopType"] = request.nextHopType;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteEntryId"] = request.routeEntryId;
-    query["RouteEntryName"] = request.routeEntryName;
-    query["RouteEntryType"] = request.routeEntryType;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRouteEntryList",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRouteEntryListResponse>(await this.callApi(params, req, runtime), new DescribeRouteEntryListResponse({}));
+    return $tea.cast<DescribeRouteEntryListResponse>(await this.doRPCRequest("DescribeRouteEntryList", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRouteEntryListResponse({}));
   }
 
   async describeRouteEntryList(request: DescribeRouteEntryListRequest): Promise<DescribeRouteEntryListResponse> {
@@ -42492,36 +38770,10 @@ export default class Client extends OpenApi {
 
   async describeRouteTableListWithOptions(request: DescribeRouteTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTableListResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["RouteTableName"] = request.routeTableName;
-    query["RouterId"] = request.routerId;
-    query["RouterType"] = request.routerType;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRouteTableList",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRouteTableListResponse>(await this.callApi(params, req, runtime), new DescribeRouteTableListResponse({}));
+    return $tea.cast<DescribeRouteTableListResponse>(await this.doRPCRequest("DescribeRouteTableList", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRouteTableListResponse({}));
   }
 
   async describeRouteTableList(request: DescribeRouteTableListRequest): Promise<DescribeRouteTableListResponse> {
@@ -42531,37 +38783,10 @@ export default class Client extends OpenApi {
 
   async describeRouteTablesWithOptions(request: DescribeRouteTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouteTablesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["RouteTableName"] = request.routeTableName;
-    query["RouterId"] = request.routerId;
-    query["RouterType"] = request.routerType;
-    query["Type"] = request.type;
-    query["VRouterId"] = request.VRouterId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRouteTables",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRouteTablesResponse>(await this.callApi(params, req, runtime), new DescribeRouteTablesResponse({}));
+    return $tea.cast<DescribeRouteTablesResponse>(await this.doRPCRequest("DescribeRouteTables", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRouteTablesResponse({}));
   }
 
   async describeRouteTables(request: DescribeRouteTablesRequest): Promise<DescribeRouteTablesResponse> {
@@ -42571,28 +38796,10 @@ export default class Client extends OpenApi {
 
   async describeRouterInterfaceAttributeWithOptions(request: DescribeRouterInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouterInterfaceAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRouterInterfaceAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRouterInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeRouterInterfaceAttributeResponse({}));
+    return $tea.cast<DescribeRouterInterfaceAttributeResponse>(await this.doRPCRequest("DescribeRouterInterfaceAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRouterInterfaceAttributeResponse({}));
   }
 
   async describeRouterInterfaceAttribute(request: DescribeRouterInterfaceAttributeRequest): Promise<DescribeRouterInterfaceAttributeResponse> {
@@ -42602,31 +38809,10 @@ export default class Client extends OpenApi {
 
   async describeRouterInterfacesWithOptions(request: DescribeRouterInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRouterInterfacesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Filter"] = request.filter;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRouterInterfaces",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRouterInterfacesResponse>(await this.callApi(params, req, runtime), new DescribeRouterInterfacesResponse({}));
+    return $tea.cast<DescribeRouterInterfacesResponse>(await this.doRPCRequest("DescribeRouterInterfaces", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRouterInterfacesResponse({}));
   }
 
   async describeRouterInterfaces(request: DescribeRouterInterfacesRequest): Promise<DescribeRouterInterfacesResponse> {
@@ -42636,30 +38822,10 @@ export default class Client extends OpenApi {
 
   async describeServerRelatedGlobalAccelerationInstancesWithOptions(request: DescribeServerRelatedGlobalAccelerationInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServerId"] = request.serverId;
-    query["ServerType"] = request.serverType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeServerRelatedGlobalAccelerationInstances",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeServerRelatedGlobalAccelerationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeServerRelatedGlobalAccelerationInstancesResponse({}));
+    return $tea.cast<DescribeServerRelatedGlobalAccelerationInstancesResponse>(await this.doRPCRequest("DescribeServerRelatedGlobalAccelerationInstances", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeServerRelatedGlobalAccelerationInstancesResponse({}));
   }
 
   async describeServerRelatedGlobalAccelerationInstances(request: DescribeServerRelatedGlobalAccelerationInstancesRequest): Promise<DescribeServerRelatedGlobalAccelerationInstancesResponse> {
@@ -42669,36 +38835,10 @@ export default class Client extends OpenApi {
 
   async describeSnatTableEntriesWithOptions(request: DescribeSnatTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnatTableEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SnatEntryId"] = request.snatEntryId;
-    query["SnatEntryName"] = request.snatEntryName;
-    query["SnatIp"] = request.snatIp;
-    query["SnatTableId"] = request.snatTableId;
-    query["SourceCIDR"] = request.sourceCIDR;
-    query["SourceVSwitchId"] = request.sourceVSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSnatTableEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSnatTableEntriesResponse>(await this.callApi(params, req, runtime), new DescribeSnatTableEntriesResponse({}));
+    return $tea.cast<DescribeSnatTableEntriesResponse>(await this.doRPCRequest("DescribeSnatTableEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSnatTableEntriesResponse({}));
   }
 
   async describeSnatTableEntries(request: DescribeSnatTableEntriesRequest): Promise<DescribeSnatTableEntriesResponse> {
@@ -42708,29 +38848,10 @@ export default class Client extends OpenApi {
 
   async describeSslVpnClientCertWithOptions(request: DescribeSslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientCertResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnClientCertId"] = request.sslVpnClientCertId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSslVpnClientCert",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSslVpnClientCertResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientCertResponse({}));
+    return $tea.cast<DescribeSslVpnClientCertResponse>(await this.doRPCRequest("DescribeSslVpnClientCert", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSslVpnClientCertResponse({}));
   }
 
   async describeSslVpnClientCert(request: DescribeSslVpnClientCertRequest): Promise<DescribeSslVpnClientCertResponse> {
@@ -42740,33 +38861,10 @@ export default class Client extends OpenApi {
 
   async describeSslVpnClientCertsWithOptions(request: DescribeSslVpnClientCertsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnClientCertsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnClientCertId"] = request.sslVpnClientCertId;
-    query["SslVpnServerId"] = request.sslVpnServerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSslVpnClientCerts",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSslVpnClientCertsResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnClientCertsResponse({}));
+    return $tea.cast<DescribeSslVpnClientCertsResponse>(await this.doRPCRequest("DescribeSslVpnClientCerts", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSslVpnClientCertsResponse({}));
   }
 
   async describeSslVpnClientCerts(request: DescribeSslVpnClientCertsRequest): Promise<DescribeSslVpnClientCertsResponse> {
@@ -42776,33 +38874,10 @@ export default class Client extends OpenApi {
 
   async describeSslVpnServersWithOptions(request: DescribeSslVpnServersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSslVpnServersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnServerId"] = request.sslVpnServerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSslVpnServers",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSslVpnServersResponse>(await this.callApi(params, req, runtime), new DescribeSslVpnServersResponse({}));
+    return $tea.cast<DescribeSslVpnServersResponse>(await this.doRPCRequest("DescribeSslVpnServers", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSslVpnServersResponse({}));
   }
 
   async describeSslVpnServers(request: DescribeSslVpnServersRequest): Promise<DescribeSslVpnServersResponse> {
@@ -42812,31 +38887,10 @@ export default class Client extends OpenApi {
 
   async describeVRoutersWithOptions(request: DescribeVRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVRoutersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VRouterId"] = request.VRouterId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVRouters",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVRoutersResponse({}));
+    return $tea.cast<DescribeVRoutersResponse>(await this.doRPCRequest("DescribeVRouters", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVRoutersResponse({}));
   }
 
   async describeVRouters(request: DescribeVRoutersRequest): Promise<DescribeVRoutersResponse> {
@@ -42846,30 +38900,10 @@ export default class Client extends OpenApi {
 
   async describeVSwitchAttributesWithOptions(request: DescribeVSwitchAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVSwitchAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVSwitchAttributesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchAttributesResponse({}));
+    return $tea.cast<DescribeVSwitchAttributesResponse>(await this.doRPCRequest("DescribeVSwitchAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVSwitchAttributesResponse({}));
   }
 
   async describeVSwitchAttributes(request: DescribeVSwitchAttributesRequest): Promise<DescribeVSwitchAttributesResponse> {
@@ -42879,39 +38913,10 @@ export default class Client extends OpenApi {
 
   async describeVSwitchesWithOptions(request: DescribeVSwitchesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["IsDefault"] = request.isDefault;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VSwitchName"] = request.vSwitchName;
-    query["VSwitchOwnerId"] = request.vSwitchOwnerId;
-    query["VpcId"] = request.vpcId;
-    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVSwitches",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVSwitchesResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchesResponse({}));
+    return $tea.cast<DescribeVSwitchesResponse>(await this.doRPCRequest("DescribeVSwitches", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVSwitchesResponse({}));
   }
 
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
@@ -42921,32 +38926,10 @@ export default class Client extends OpenApi {
 
   async describeVbrHaWithOptions(request: DescribeVbrHaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVbrHaResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrHaId"] = request.vbrHaId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVbrHa",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVbrHaResponse>(await this.callApi(params, req, runtime), new DescribeVbrHaResponse({}));
+    return $tea.cast<DescribeVbrHaResponse>(await this.doRPCRequest("DescribeVbrHa", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVbrHaResponse({}));
   }
 
   async describeVbrHa(request: DescribeVbrHaRequest): Promise<DescribeVbrHaResponse> {
@@ -42956,30 +38939,10 @@ export default class Client extends OpenApi {
 
   async describeVirtualBorderRoutersWithOptions(request: DescribeVirtualBorderRoutersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Filter"] = request.filter;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVirtualBorderRouters",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVirtualBorderRoutersResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersResponse({}));
+    return $tea.cast<DescribeVirtualBorderRoutersResponse>(await this.doRPCRequest("DescribeVirtualBorderRouters", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVirtualBorderRoutersResponse({}));
   }
 
   async describeVirtualBorderRouters(request: DescribeVirtualBorderRoutersRequest): Promise<DescribeVirtualBorderRoutersResponse> {
@@ -42989,31 +38952,10 @@ export default class Client extends OpenApi {
 
   async describeVirtualBorderRoutersForPhysicalConnectionWithOptions(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Filter"] = request.filter;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVirtualBorderRoutersForPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVirtualBorderRoutersForPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new DescribeVirtualBorderRoutersForPhysicalConnectionResponse({}));
+    return $tea.cast<DescribeVirtualBorderRoutersForPhysicalConnectionResponse>(await this.doRPCRequest("DescribeVirtualBorderRoutersForPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVirtualBorderRoutersForPhysicalConnectionResponse({}));
   }
 
   async describeVirtualBorderRoutersForPhysicalConnection(request: DescribeVirtualBorderRoutersForPhysicalConnectionRequest): Promise<DescribeVirtualBorderRoutersForPhysicalConnectionResponse> {
@@ -43023,31 +38965,10 @@ export default class Client extends OpenApi {
 
   async describeVpcAttributeWithOptions(request: DescribeVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["IsDefault"] = request.isDefault;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpcAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpcAttributeResponse>(await this.callApi(params, req, runtime), new DescribeVpcAttributeResponse({}));
+    return $tea.cast<DescribeVpcAttributeResponse>(await this.doRPCRequest("DescribeVpcAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcAttributeResponse({}));
   }
 
   async describeVpcAttribute(request: DescribeVpcAttributeRequest): Promise<DescribeVpcAttributeResponse> {
@@ -43057,37 +38978,10 @@ export default class Client extends OpenApi {
 
   async describeVpcsWithOptions(request: DescribeVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DryRun"] = request.dryRun;
-    query["IsDefault"] = request.isDefault;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
-    query["VpcName"] = request.vpcName;
-    query["VpcOwnerId"] = request.vpcOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpcs",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpcsResponse>(await this.callApi(params, req, runtime), new DescribeVpcsResponse({}));
+    return $tea.cast<DescribeVpcsResponse>(await this.doRPCRequest("DescribeVpcs", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcsResponse({}));
   }
 
   async describeVpcs(request: DescribeVpcsRequest): Promise<DescribeVpcsResponse> {
@@ -43097,29 +38991,10 @@ export default class Client extends OpenApi {
 
   async describeVpnConnectionWithOptions(request: DescribeVpnConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnConnectionId"] = request.vpnConnectionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnConnectionResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionResponse({}));
+    return $tea.cast<DescribeVpnConnectionResponse>(await this.doRPCRequest("DescribeVpnConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnConnectionResponse({}));
   }
 
   async describeVpnConnection(request: DescribeVpnConnectionRequest): Promise<DescribeVpnConnectionResponse> {
@@ -43129,33 +39004,10 @@ export default class Client extends OpenApi {
 
   async describeVpnConnectionsWithOptions(request: DescribeVpnConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnConnectionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnConnectionId"] = request.vpnConnectionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnConnections",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnConnectionsResponse>(await this.callApi(params, req, runtime), new DescribeVpnConnectionsResponse({}));
+    return $tea.cast<DescribeVpnConnectionsResponse>(await this.doRPCRequest("DescribeVpnConnections", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnConnectionsResponse({}));
   }
 
   async describeVpnConnections(request: DescribeVpnConnectionsRequest): Promise<DescribeVpnConnectionsResponse> {
@@ -43165,30 +39017,10 @@ export default class Client extends OpenApi {
 
   async describeVpnGatewayWithOptions(request: DescribeVpnGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnGatewayResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewayResponse({}));
+    return $tea.cast<DescribeVpnGatewayResponse>(await this.doRPCRequest("DescribeVpnGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnGatewayResponse({}));
   }
 
   async describeVpnGateway(request: DescribeVpnGatewayRequest): Promise<DescribeVpnGatewayResponse> {
@@ -43198,36 +39030,10 @@ export default class Client extends OpenApi {
 
   async describeVpnGatewaysWithOptions(request: DescribeVpnGatewaysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnGatewaysResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BusinessStatus"] = request.businessStatus;
-    query["IncludeReservationData"] = request.includeReservationData;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
-    query["Tag"] = request.tag;
-    query["VpcId"] = request.vpcId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnGateways",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnGatewaysResponse>(await this.callApi(params, req, runtime), new DescribeVpnGatewaysResponse({}));
+    return $tea.cast<DescribeVpnGatewaysResponse>(await this.doRPCRequest("DescribeVpnGateways", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnGatewaysResponse({}));
   }
 
   async describeVpnGateways(request: DescribeVpnGatewaysRequest): Promise<DescribeVpnGatewaysResponse> {
@@ -43237,31 +39043,10 @@ export default class Client extends OpenApi {
 
   async describeVpnPbrRouteEntriesWithOptions(request: DescribeVpnPbrRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnPbrRouteEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnPbrRouteEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnPbrRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeVpnPbrRouteEntriesResponse({}));
+    return $tea.cast<DescribeVpnPbrRouteEntriesResponse>(await this.doRPCRequest("DescribeVpnPbrRouteEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnPbrRouteEntriesResponse({}));
   }
 
   async describeVpnPbrRouteEntries(request: DescribeVpnPbrRouteEntriesRequest): Promise<DescribeVpnPbrRouteEntriesResponse> {
@@ -43271,32 +39056,10 @@ export default class Client extends OpenApi {
 
   async describeVpnRouteEntriesWithOptions(request: DescribeVpnRouteEntriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnRouteEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteEntryType"] = request.routeEntryType;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnRouteEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnRouteEntriesResponse>(await this.callApi(params, req, runtime), new DescribeVpnRouteEntriesResponse({}));
+    return $tea.cast<DescribeVpnRouteEntriesResponse>(await this.doRPCRequest("DescribeVpnRouteEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnRouteEntriesResponse({}));
   }
 
   async describeVpnRouteEntries(request: DescribeVpnRouteEntriesRequest): Promise<DescribeVpnRouteEntriesResponse> {
@@ -43306,35 +39069,10 @@ export default class Client extends OpenApi {
 
   async describeVpnSslServerLogsWithOptions(request: DescribeVpnSslServerLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpnSslServerLogsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["From"] = request.from;
-    query["MinutePeriod"] = request.minutePeriod;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnClientCertId"] = request.sslVpnClientCertId;
-    query["To"] = request.to;
-    query["VpnSslServerId"] = request.vpnSslServerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeVpnSslServerLogs",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVpnSslServerLogsResponse>(await this.callApi(params, req, runtime), new DescribeVpnSslServerLogsResponse({}));
+    return $tea.cast<DescribeVpnSslServerLogsResponse>(await this.doRPCRequest("DescribeVpnSslServerLogs", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpnSslServerLogsResponse({}));
   }
 
   async describeVpnSslServerLogs(request: DescribeVpnSslServerLogsRequest): Promise<DescribeVpnSslServerLogsResponse> {
@@ -43344,30 +39082,10 @@ export default class Client extends OpenApi {
 
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ZoneType"] = request.zoneType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeZones",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
+    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
   }
 
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
@@ -43377,32 +39095,10 @@ export default class Client extends OpenApi {
 
   async detachDhcpOptionsSetFromVpcWithOptions(request: DetachDhcpOptionsSetFromVpcRequest, runtime: $Util.RuntimeOptions): Promise<DetachDhcpOptionsSetFromVpcResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DetachDhcpOptionsSetFromVpc",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DetachDhcpOptionsSetFromVpcResponse>(await this.callApi(params, req, runtime), new DetachDhcpOptionsSetFromVpcResponse({}));
+    return $tea.cast<DetachDhcpOptionsSetFromVpcResponse>(await this.doRPCRequest("DetachDhcpOptionsSetFromVpc", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DetachDhcpOptionsSetFromVpcResponse({}));
   }
 
   async detachDhcpOptionsSetFromVpc(request: DetachDhcpOptionsSetFromVpcRequest): Promise<DetachDhcpOptionsSetFromVpcResponse> {
@@ -43412,27 +39108,10 @@ export default class Client extends OpenApi {
 
   async disableNatGatewayEcsMetricWithOptions(request: DisableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<DisableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DisableNatGatewayEcsMetric",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DisableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new DisableNatGatewayEcsMetricResponse({}));
+    return $tea.cast<DisableNatGatewayEcsMetricResponse>(await this.doRPCRequest("DisableNatGatewayEcsMetric", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DisableNatGatewayEcsMetricResponse({}));
   }
 
   async disableNatGatewayEcsMetric(request: DisableNatGatewayEcsMetricRequest): Promise<DisableNatGatewayEcsMetricResponse> {
@@ -43442,30 +39121,10 @@ export default class Client extends OpenApi {
 
   async disableVpcClassicLinkWithOptions(request: DisableVpcClassicLinkRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcClassicLinkResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DisableVpcClassicLink",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DisableVpcClassicLinkResponse>(await this.callApi(params, req, runtime), new DisableVpcClassicLinkResponse({}));
+    return $tea.cast<DisableVpcClassicLinkResponse>(await this.doRPCRequest("DisableVpcClassicLink", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DisableVpcClassicLinkResponse({}));
   }
 
   async disableVpcClassicLink(request: DisableVpcClassicLinkRequest): Promise<DisableVpcClassicLinkResponse> {
@@ -43475,33 +39134,10 @@ export default class Client extends OpenApi {
 
   async dissociateRouteTableFromGatewayWithOptions(request: DissociateRouteTableFromGatewayRequest, runtime: $Util.RuntimeOptions): Promise<DissociateRouteTableFromGatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["GatewayId"] = request.gatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DissociateRouteTableFromGateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DissociateRouteTableFromGatewayResponse>(await this.callApi(params, req, runtime), new DissociateRouteTableFromGatewayResponse({}));
+    return $tea.cast<DissociateRouteTableFromGatewayResponse>(await this.doRPCRequest("DissociateRouteTableFromGateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateRouteTableFromGatewayResponse({}));
   }
 
   async dissociateRouteTableFromGateway(request: DissociateRouteTableFromGatewayRequest): Promise<DissociateRouteTableFromGatewayResponse> {
@@ -43511,32 +39147,10 @@ export default class Client extends OpenApi {
 
   async dissociateRouteTablesFromVpcGatewayEndpointWithOptions(request: DissociateRouteTablesFromVpcGatewayEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DissociateRouteTablesFromVpcGatewayEndpointResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableIds"] = request.routeTableIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DissociateRouteTablesFromVpcGatewayEndpoint",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DissociateRouteTablesFromVpcGatewayEndpointResponse>(await this.callApi(params, req, runtime), new DissociateRouteTablesFromVpcGatewayEndpointResponse({}));
+    return $tea.cast<DissociateRouteTablesFromVpcGatewayEndpointResponse>(await this.doRPCRequest("DissociateRouteTablesFromVpcGatewayEndpoint", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateRouteTablesFromVpcGatewayEndpointResponse({}));
   }
 
   async dissociateRouteTablesFromVpcGatewayEndpoint(request: DissociateRouteTablesFromVpcGatewayEndpointRequest): Promise<DissociateRouteTablesFromVpcGatewayEndpointResponse> {
@@ -43546,29 +39160,10 @@ export default class Client extends OpenApi {
 
   async dissociateVpnGatewayWithCertificateWithOptions(request: DissociateVpnGatewayWithCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DissociateVpnGatewayWithCertificateResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["CertificateType"] = request.certificateType;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DissociateVpnGatewayWithCertificate",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DissociateVpnGatewayWithCertificateResponse>(await this.callApi(params, req, runtime), new DissociateVpnGatewayWithCertificateResponse({}));
+    return $tea.cast<DissociateVpnGatewayWithCertificateResponse>(await this.doRPCRequest("DissociateVpnGatewayWithCertificate", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateVpnGatewayWithCertificateResponse({}));
   }
 
   async dissociateVpnGatewayWithCertificate(request: DissociateVpnGatewayWithCertificateRequest): Promise<DissociateVpnGatewayWithCertificateResponse> {
@@ -43578,29 +39173,10 @@ export default class Client extends OpenApi {
 
   async downloadVpnConnectionConfigWithOptions(request: DownloadVpnConnectionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DownloadVpnConnectionConfigResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnConnectionId"] = request.vpnConnectionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "DownloadVpnConnectionConfig",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DownloadVpnConnectionConfigResponse>(await this.callApi(params, req, runtime), new DownloadVpnConnectionConfigResponse({}));
+    return $tea.cast<DownloadVpnConnectionConfigResponse>(await this.doRPCRequest("DownloadVpnConnectionConfig", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new DownloadVpnConnectionConfigResponse({}));
   }
 
   async downloadVpnConnectionConfig(request: DownloadVpnConnectionConfigRequest): Promise<DownloadVpnConnectionConfigResponse> {
@@ -43610,27 +39186,10 @@ export default class Client extends OpenApi {
 
   async enableNatGatewayEcsMetricWithOptions(request: EnableNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<EnableNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "EnableNatGatewayEcsMetric",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EnableNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new EnableNatGatewayEcsMetricResponse({}));
+    return $tea.cast<EnableNatGatewayEcsMetricResponse>(await this.doRPCRequest("EnableNatGatewayEcsMetric", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new EnableNatGatewayEcsMetricResponse({}));
   }
 
   async enableNatGatewayEcsMetric(request: EnableNatGatewayEcsMetricRequest): Promise<EnableNatGatewayEcsMetricResponse> {
@@ -43640,30 +39199,10 @@ export default class Client extends OpenApi {
 
   async enablePhysicalConnectionWithOptions(request: EnablePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnablePhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "EnablePhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EnablePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new EnablePhysicalConnectionResponse({}));
+    return $tea.cast<EnablePhysicalConnectionResponse>(await this.doRPCRequest("EnablePhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new EnablePhysicalConnectionResponse({}));
   }
 
   async enablePhysicalConnection(request: EnablePhysicalConnectionRequest): Promise<EnablePhysicalConnectionResponse> {
@@ -43673,30 +39212,10 @@ export default class Client extends OpenApi {
 
   async enableVpcClassicLinkWithOptions(request: EnableVpcClassicLinkRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcClassicLinkResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "EnableVpcClassicLink",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EnableVpcClassicLinkResponse>(await this.callApi(params, req, runtime), new EnableVpcClassicLinkResponse({}));
+    return $tea.cast<EnableVpcClassicLinkResponse>(await this.doRPCRequest("EnableVpcClassicLink", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new EnableVpcClassicLinkResponse({}));
   }
 
   async enableVpcClassicLink(request: EnableVpcClassicLinkRequest): Promise<EnableVpcClassicLinkResponse> {
@@ -43706,33 +39225,10 @@ export default class Client extends OpenApi {
 
   async enableVpcIpv4GatewayWithOptions(request: EnableVpcIpv4GatewayRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcIpv4GatewayResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Ipv4GatewayId"] = request.ipv4GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableList"] = request.routeTableList;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "EnableVpcIpv4Gateway",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EnableVpcIpv4GatewayResponse>(await this.callApi(params, req, runtime), new EnableVpcIpv4GatewayResponse({}));
+    return $tea.cast<EnableVpcIpv4GatewayResponse>(await this.doRPCRequest("EnableVpcIpv4Gateway", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new EnableVpcIpv4GatewayResponse({}));
   }
 
   async enableVpcIpv4Gateway(request: EnableVpcIpv4GatewayRequest): Promise<EnableVpcIpv4GatewayResponse> {
@@ -43742,29 +39238,10 @@ export default class Client extends OpenApi {
 
   async getDhcpOptionsSetWithOptions(request: GetDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<GetDhcpOptionsSetResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetDhcpOptionsSet",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new GetDhcpOptionsSetResponse({}));
+    return $tea.cast<GetDhcpOptionsSetResponse>(await this.doRPCRequest("GetDhcpOptionsSet", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetDhcpOptionsSetResponse({}));
   }
 
   async getDhcpOptionsSet(request: GetDhcpOptionsSetRequest): Promise<GetDhcpOptionsSetResponse> {
@@ -43774,30 +39251,10 @@ export default class Client extends OpenApi {
 
   async getIpv4GatewayAttributeWithOptions(request: GetIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetIpv4GatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv4GatewayId"] = request.ipv4GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetIpv4GatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetIpv4GatewayAttributeResponse>(await this.callApi(params, req, runtime), new GetIpv4GatewayAttributeResponse({}));
+    return $tea.cast<GetIpv4GatewayAttributeResponse>(await this.doRPCRequest("GetIpv4GatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetIpv4GatewayAttributeResponse({}));
   }
 
   async getIpv4GatewayAttribute(request: GetIpv4GatewayAttributeRequest): Promise<GetIpv4GatewayAttributeResponse> {
@@ -43807,30 +39264,10 @@ export default class Client extends OpenApi {
 
   async getNatGatewayAttributeWithOptions(request: GetNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetNatGatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["NatGatewayId"] = request.natGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetNatGatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetNatGatewayAttributeResponse>(await this.callApi(params, req, runtime), new GetNatGatewayAttributeResponse({}));
+    return $tea.cast<GetNatGatewayAttributeResponse>(await this.doRPCRequest("GetNatGatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetNatGatewayAttributeResponse({}));
   }
 
   async getNatGatewayAttribute(request: GetNatGatewayAttributeRequest): Promise<GetNatGatewayAttributeResponse> {
@@ -43840,30 +39277,10 @@ export default class Client extends OpenApi {
 
   async getNatGatewayConvertStatusWithOptions(request: GetNatGatewayConvertStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetNatGatewayConvertStatusResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["NatGatewayId"] = request.natGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetNatGatewayConvertStatus",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetNatGatewayConvertStatusResponse>(await this.callApi(params, req, runtime), new GetNatGatewayConvertStatusResponse({}));
+    return $tea.cast<GetNatGatewayConvertStatusResponse>(await this.doRPCRequest("GetNatGatewayConvertStatus", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetNatGatewayConvertStatusResponse({}));
   }
 
   async getNatGatewayConvertStatus(request: GetNatGatewayConvertStatusRequest): Promise<GetNatGatewayConvertStatusResponse> {
@@ -43873,28 +39290,10 @@ export default class Client extends OpenApi {
 
   async getPhysicalConnectionServiceStatusWithOptions(request: GetPhysicalConnectionServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetPhysicalConnectionServiceStatusResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetPhysicalConnectionServiceStatus",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetPhysicalConnectionServiceStatusResponse>(await this.callApi(params, req, runtime), new GetPhysicalConnectionServiceStatusResponse({}));
+    return $tea.cast<GetPhysicalConnectionServiceStatusResponse>(await this.doRPCRequest("GetPhysicalConnectionServiceStatus", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetPhysicalConnectionServiceStatusResponse({}));
   }
 
   async getPhysicalConnectionServiceStatus(request: GetPhysicalConnectionServiceStatusRequest): Promise<GetPhysicalConnectionServiceStatusResponse> {
@@ -43904,24 +39303,10 @@ export default class Client extends OpenApi {
 
   async getTrafficMirrorServiceStatusWithOptions(request: GetTrafficMirrorServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTrafficMirrorServiceStatusResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetTrafficMirrorServiceStatus",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetTrafficMirrorServiceStatusResponse>(await this.callApi(params, req, runtime), new GetTrafficMirrorServiceStatusResponse({}));
+    return $tea.cast<GetTrafficMirrorServiceStatusResponse>(await this.doRPCRequest("GetTrafficMirrorServiceStatus", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetTrafficMirrorServiceStatusResponse({}));
   }
 
   async getTrafficMirrorServiceStatus(request: GetTrafficMirrorServiceStatusRequest): Promise<GetTrafficMirrorServiceStatusResponse> {
@@ -43931,29 +39316,10 @@ export default class Client extends OpenApi {
 
   async getVpcGatewayEndpointAttributeWithOptions(request: GetVpcGatewayEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcGatewayEndpointAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["EndpointId"] = request.endpointId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GetVpcGatewayEndpointAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetVpcGatewayEndpointAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcGatewayEndpointAttributeResponse({}));
+    return $tea.cast<GetVpcGatewayEndpointAttributeResponse>(await this.doRPCRequest("GetVpcGatewayEndpointAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GetVpcGatewayEndpointAttributeResponse({}));
   }
 
   async getVpcGatewayEndpointAttribute(request: GetVpcGatewayEndpointAttributeRequest): Promise<GetVpcGatewayEndpointAttributeResponse> {
@@ -43963,33 +39329,10 @@ export default class Client extends OpenApi {
 
   async grantInstanceToCenWithOptions(request: GrantInstanceToCenRequest, runtime: $Util.RuntimeOptions): Promise<GrantInstanceToCenResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CenId"] = request.cenId;
-    query["CenOwnerId"] = request.cenOwnerId;
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GrantInstanceToCen",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GrantInstanceToCenResponse>(await this.callApi(params, req, runtime), new GrantInstanceToCenResponse({}));
+    return $tea.cast<GrantInstanceToCenResponse>(await this.doRPCRequest("GrantInstanceToCen", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new GrantInstanceToCenResponse({}));
   }
 
   async grantInstanceToCen(request: GrantInstanceToCenRequest): Promise<GrantInstanceToCenResponse> {
@@ -43999,33 +39342,10 @@ export default class Client extends OpenApi {
 
   async listDhcpOptionsSetsWithOptions(request: ListDhcpOptionsSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDhcpOptionsSetsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DhcpOptionsSetName"] = request.dhcpOptionsSetName;
-    query["DomainName"] = request.domainName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDhcpOptionsSets",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDhcpOptionsSetsResponse>(await this.callApi(params, req, runtime), new ListDhcpOptionsSetsResponse({}));
+    return $tea.cast<ListDhcpOptionsSetsResponse>(await this.doRPCRequest("ListDhcpOptionsSets", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListDhcpOptionsSetsResponse({}));
   }
 
   async listDhcpOptionsSets(request: ListDhcpOptionsSetsRequest): Promise<ListDhcpOptionsSetsResponse> {
@@ -44035,29 +39355,10 @@ export default class Client extends OpenApi {
 
   async listEnhanhcedNatGatewayAvailableZonesWithOptions(request: ListEnhanhcedNatGatewayAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListEnhanhcedNatGatewayAvailableZones",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListEnhanhcedNatGatewayAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListEnhanhcedNatGatewayAvailableZonesResponse({}));
+    return $tea.cast<ListEnhanhcedNatGatewayAvailableZonesResponse>(await this.doRPCRequest("ListEnhanhcedNatGatewayAvailableZones", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListEnhanhcedNatGatewayAvailableZonesResponse({}));
   }
 
   async listEnhanhcedNatGatewayAvailableZones(request: ListEnhanhcedNatGatewayAvailableZonesRequest): Promise<ListEnhanhcedNatGatewayAvailableZonesResponse> {
@@ -44067,36 +39368,10 @@ export default class Client extends OpenApi {
 
   async listFullNatEntriesWithOptions(request: ListFullNatEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListFullNatEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["FullNatEntryId"] = request.fullNatEntryId;
-    query["FullNatEntryNames"] = request.fullNatEntryNames;
-    query["FullNatTableId"] = request.fullNatTableId;
-    query["IpProtocol"] = request.ipProtocol;
-    query["MaxResults"] = request.maxResults;
-    query["NetworkInterfaceIds"] = request.networkInterfaceIds;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListFullNatEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListFullNatEntriesResponse>(await this.callApi(params, req, runtime), new ListFullNatEntriesResponse({}));
+    return $tea.cast<ListFullNatEntriesResponse>(await this.doRPCRequest("ListFullNatEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListFullNatEntriesResponse({}));
   }
 
   async listFullNatEntries(request: ListFullNatEntriesRequest): Promise<ListFullNatEntriesResponse> {
@@ -44106,33 +39381,10 @@ export default class Client extends OpenApi {
 
   async listGatewayRouteTableEntriesWithOptions(request: ListGatewayRouteTableEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListGatewayRouteTableEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["GatewayRouteTableId"] = request.gatewayRouteTableId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListGatewayRouteTableEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListGatewayRouteTableEntriesResponse>(await this.callApi(params, req, runtime), new ListGatewayRouteTableEntriesResponse({}));
+    return $tea.cast<ListGatewayRouteTableEntriesResponse>(await this.doRPCRequest("ListGatewayRouteTableEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListGatewayRouteTableEntriesResponse({}));
   }
 
   async listGatewayRouteTableEntries(request: ListGatewayRouteTableEntriesRequest): Promise<ListGatewayRouteTableEntriesResponse> {
@@ -44142,29 +39394,10 @@ export default class Client extends OpenApi {
 
   async listIpsecServersWithOptions(request: ListIpsecServersRequest, runtime: $Util.RuntimeOptions): Promise<ListIpsecServersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["IpsecServerId"] = request.ipsecServerId;
-    query["IpsecServerName"] = request.ipsecServerName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListIpsecServers",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListIpsecServersResponse>(await this.callApi(params, req, runtime), new ListIpsecServersResponse({}));
+    return $tea.cast<ListIpsecServersResponse>(await this.doRPCRequest("ListIpsecServers", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListIpsecServersResponse({}));
   }
 
   async listIpsecServers(request: ListIpsecServersRequest): Promise<ListIpsecServersResponse> {
@@ -44174,34 +39407,10 @@ export default class Client extends OpenApi {
 
   async listIpv4GatewaysWithOptions(request: ListIpv4GatewaysRequest, runtime: $Util.RuntimeOptions): Promise<ListIpv4GatewaysResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Ipv4GatewayId"] = request.ipv4GatewayId;
-    query["Ipv4GatewayName"] = request.ipv4GatewayName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListIpv4Gateways",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListIpv4GatewaysResponse>(await this.callApi(params, req, runtime), new ListIpv4GatewaysResponse({}));
+    return $tea.cast<ListIpv4GatewaysResponse>(await this.doRPCRequest("ListIpv4Gateways", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListIpv4GatewaysResponse({}));
   }
 
   async listIpv4Gateways(request: ListIpv4GatewaysRequest): Promise<ListIpv4GatewaysResponse> {
@@ -44211,33 +39420,10 @@ export default class Client extends OpenApi {
 
   async listNatGatewayEcsMetricWithOptions(request: ListNatGatewayEcsMetricRequest, runtime: $Util.RuntimeOptions): Promise<ListNatGatewayEcsMetricResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["MaxResults"] = request.maxResults;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NextToken"] = request.nextToken;
-    query["OrderKey"] = request.orderKey;
-    query["OrderType"] = request.orderType;
-    query["PrivateIpAddress"] = request.privateIpAddress;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["TimePoint"] = request.timePoint;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListNatGatewayEcsMetric",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListNatGatewayEcsMetricResponse>(await this.callApi(params, req, runtime), new ListNatGatewayEcsMetricResponse({}));
+    return $tea.cast<ListNatGatewayEcsMetricResponse>(await this.doRPCRequest("ListNatGatewayEcsMetric", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListNatGatewayEcsMetricResponse({}));
   }
 
   async listNatGatewayEcsMetric(request: ListNatGatewayEcsMetricRequest): Promise<ListNatGatewayEcsMetricResponse> {
@@ -44247,38 +39433,10 @@ export default class Client extends OpenApi {
 
   async listNatIpCidrsWithOptions(request: ListNatIpCidrsRequest, runtime: $Util.RuntimeOptions): Promise<ListNatIpCidrsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["MaxResults"] = request.maxResults;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["NatIpCidrName"] = request.natIpCidrName;
-    query["NatIpCidrStatus"] = request.natIpCidrStatus;
-    query["NatIpCidrs"] = request.natIpCidrs;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListNatIpCidrs",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListNatIpCidrsResponse>(await this.callApi(params, req, runtime), new ListNatIpCidrsResponse({}));
+    return $tea.cast<ListNatIpCidrsResponse>(await this.doRPCRequest("ListNatIpCidrs", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListNatIpCidrsResponse({}));
   }
 
   async listNatIpCidrs(request: ListNatIpCidrsRequest): Promise<ListNatIpCidrsResponse> {
@@ -44288,38 +39446,10 @@ export default class Client extends OpenApi {
 
   async listNatIpsWithOptions(request: ListNatIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListNatIpsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["MaxResults"] = request.maxResults;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["NatIpIds"] = request.natIpIds;
-    query["NatIpName"] = request.natIpName;
-    query["NatIpStatus"] = request.natIpStatus;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListNatIps",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListNatIpsResponse>(await this.callApi(params, req, runtime), new ListNatIpsResponse({}));
+    return $tea.cast<ListNatIpsResponse>(await this.doRPCRequest("ListNatIps", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListNatIpsResponse({}));
   }
 
   async listNatIps(request: ListNatIpsRequest): Promise<ListNatIpsResponse> {
@@ -44329,30 +39459,10 @@ export default class Client extends OpenApi {
 
   async listPhysicalConnectionFeaturesWithOptions(request: ListPhysicalConnectionFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<ListPhysicalConnectionFeaturesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPhysicalConnectionFeatures",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPhysicalConnectionFeaturesResponse>(await this.callApi(params, req, runtime), new ListPhysicalConnectionFeaturesResponse({}));
+    return $tea.cast<ListPhysicalConnectionFeaturesResponse>(await this.doRPCRequest("ListPhysicalConnectionFeatures", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListPhysicalConnectionFeaturesResponse({}));
   }
 
   async listPhysicalConnectionFeatures(request: ListPhysicalConnectionFeaturesRequest): Promise<ListPhysicalConnectionFeaturesResponse> {
@@ -44362,31 +39472,10 @@ export default class Client extends OpenApi {
 
   async listPrefixListsWithOptions(request: ListPrefixListsRequest, runtime: $Util.RuntimeOptions): Promise<ListPrefixListsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PrefixListIds"] = request.prefixListIds;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPrefixLists",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPrefixListsResponse>(await this.callApi(params, req, runtime), new ListPrefixListsResponse({}));
+    return $tea.cast<ListPrefixListsResponse>(await this.doRPCRequest("ListPrefixLists", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListPrefixListsResponse({}));
   }
 
   async listPrefixLists(request: ListPrefixListsRequest): Promise<ListPrefixListsResponse> {
@@ -44396,33 +39485,10 @@ export default class Client extends OpenApi {
 
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTagResources",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -44432,32 +39498,10 @@ export default class Client extends OpenApi {
 
   async listTrafficMirrorFiltersWithOptions(request: ListTrafficMirrorFiltersRequest, runtime: $Util.RuntimeOptions): Promise<ListTrafficMirrorFiltersResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterIds"] = request.trafficMirrorFilterIds;
-    query["TrafficMirrorFilterName"] = request.trafficMirrorFilterName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTrafficMirrorFilters",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTrafficMirrorFiltersResponse>(await this.callApi(params, req, runtime), new ListTrafficMirrorFiltersResponse({}));
+    return $tea.cast<ListTrafficMirrorFiltersResponse>(await this.doRPCRequest("ListTrafficMirrorFilters", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListTrafficMirrorFiltersResponse({}));
   }
 
   async listTrafficMirrorFilters(request: ListTrafficMirrorFiltersRequest): Promise<ListTrafficMirrorFiltersResponse> {
@@ -44467,38 +39511,10 @@ export default class Client extends OpenApi {
 
   async listTrafficMirrorSessionsWithOptions(request: ListTrafficMirrorSessionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTrafficMirrorSessionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Enabled"] = request.enabled;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Priority"] = request.priority;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
-    query["TrafficMirrorSessionIds"] = request.trafficMirrorSessionIds;
-    query["TrafficMirrorSessionName"] = request.trafficMirrorSessionName;
-    query["TrafficMirrorSourceId"] = request.trafficMirrorSourceId;
-    query["TrafficMirrorTargetId"] = request.trafficMirrorTargetId;
-    query["VirtualNetworkId"] = request.virtualNetworkId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTrafficMirrorSessions",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTrafficMirrorSessionsResponse>(await this.callApi(params, req, runtime), new ListTrafficMirrorSessionsResponse({}));
+    return $tea.cast<ListTrafficMirrorSessionsResponse>(await this.doRPCRequest("ListTrafficMirrorSessions", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListTrafficMirrorSessionsResponse({}));
   }
 
   async listTrafficMirrorSessions(request: ListTrafficMirrorSessionsRequest): Promise<ListTrafficMirrorSessionsResponse> {
@@ -44508,33 +39524,10 @@ export default class Client extends OpenApi {
 
   async listVirtualPhysicalConnectionsWithOptions(request: ListVirtualPhysicalConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVirtualPhysicalConnectionsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["IsConfirmed"] = request.isConfirmed;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["VirtualPhysicalConnectionAliUids"] = request.virtualPhysicalConnectionAliUids;
-    query["VirtualPhysicalConnectionBusinessStatus"] = request.virtualPhysicalConnectionBusinessStatus;
-    query["VirtualPhysicalConnectionIds"] = request.virtualPhysicalConnectionIds;
-    query["VirtualPhysicalConnectionStatuses"] = request.virtualPhysicalConnectionStatuses;
-    query["VlanIds"] = request.vlanIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVirtualPhysicalConnections",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVirtualPhysicalConnectionsResponse>(await this.callApi(params, req, runtime), new ListVirtualPhysicalConnectionsResponse({}));
+    return $tea.cast<ListVirtualPhysicalConnectionsResponse>(await this.doRPCRequest("ListVirtualPhysicalConnections", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListVirtualPhysicalConnectionsResponse({}));
   }
 
   async listVirtualPhysicalConnections(request: ListVirtualPhysicalConnectionsRequest): Promise<ListVirtualPhysicalConnectionsResponse> {
@@ -44544,31 +39537,10 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointServicesByEndUserWithOptions(request: ListVpcEndpointServicesByEndUserRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesByEndUserResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServiceName"] = request.serviceName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpcEndpointServicesByEndUser",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
+    return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.doRPCRequest("ListVpcEndpointServicesByEndUser", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
   }
 
   async listVpcEndpointServicesByEndUser(request: ListVpcEndpointServicesByEndUserRequest): Promise<ListVpcEndpointServicesByEndUserResponse> {
@@ -44578,33 +39550,10 @@ export default class Client extends OpenApi {
 
   async listVpcGatewayEndpointsWithOptions(request: ListVpcGatewayEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcGatewayEndpointsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["EndpointId"] = request.endpointId;
-    query["EndpointName"] = request.endpointName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ServiceName"] = request.serviceName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpcGatewayEndpoints",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpcGatewayEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcGatewayEndpointsResponse({}));
+    return $tea.cast<ListVpcGatewayEndpointsResponse>(await this.doRPCRequest("ListVpcGatewayEndpoints", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcGatewayEndpointsResponse({}));
   }
 
   async listVpcGatewayEndpoints(request: ListVpcGatewayEndpointsRequest): Promise<ListVpcGatewayEndpointsResponse> {
@@ -44614,29 +39563,10 @@ export default class Client extends OpenApi {
 
   async listVpnCertificateAssociationsWithOptions(request: ListVpnCertificateAssociationsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpnCertificateAssociationsResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["CertificateType"] = request.certificateType;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpnCertificateAssociations",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpnCertificateAssociationsResponse>(await this.callApi(params, req, runtime), new ListVpnCertificateAssociationsResponse({}));
+    return $tea.cast<ListVpnCertificateAssociationsResponse>(await this.doRPCRequest("ListVpnCertificateAssociations", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpnCertificateAssociationsResponse({}));
   }
 
   async listVpnCertificateAssociations(request: ListVpnCertificateAssociationsRequest): Promise<ListVpnCertificateAssociationsResponse> {
@@ -44646,36 +39576,10 @@ export default class Client extends OpenApi {
 
   async modifyBgpGroupAttributeWithOptions(request: ModifyBgpGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBgpGroupAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AuthKey"] = request.authKey;
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["IsFakeAsn"] = request.isFakeAsn;
-    query["LocalAsn"] = request.localAsn;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerAsn"] = request.peerAsn;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyBgpGroupAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyBgpGroupAttributeResponse>(await this.callApi(params, req, runtime), new ModifyBgpGroupAttributeResponse({}));
+    return $tea.cast<ModifyBgpGroupAttributeResponse>(await this.doRPCRequest("ModifyBgpGroupAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBgpGroupAttributeResponse({}));
   }
 
   async modifyBgpGroupAttribute(request: ModifyBgpGroupAttributeRequest): Promise<ModifyBgpGroupAttributeResponse> {
@@ -44685,34 +39589,10 @@ export default class Client extends OpenApi {
 
   async modifyBgpPeerAttributeWithOptions(request: ModifyBgpPeerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBgpPeerAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BfdMultiHop"] = request.bfdMultiHop;
-    query["BgpGroupId"] = request.bgpGroupId;
-    query["BgpPeerId"] = request.bgpPeerId;
-    query["ClientToken"] = request.clientToken;
-    query["EnableBfd"] = request.enableBfd;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerIpAddress"] = request.peerIpAddress;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyBgpPeerAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyBgpPeerAttributeResponse>(await this.callApi(params, req, runtime), new ModifyBgpPeerAttributeResponse({}));
+    return $tea.cast<ModifyBgpPeerAttributeResponse>(await this.doRPCRequest("ModifyBgpPeerAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBgpPeerAttributeResponse({}));
   }
 
   async modifyBgpPeerAttribute(request: ModifyBgpPeerAttributeRequest): Promise<ModifyBgpPeerAttributeResponse> {
@@ -44722,31 +39602,10 @@ export default class Client extends OpenApi {
 
   async modifyCommonBandwidthPackageAttributeWithOptions(request: ModifyCommonBandwidthPackageAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackageAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackageAttributeResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageAttributeResponse({}));
+    return $tea.cast<ModifyCommonBandwidthPackageAttributeResponse>(await this.doRPCRequest("ModifyCommonBandwidthPackageAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCommonBandwidthPackageAttributeResponse({}));
   }
 
   async modifyCommonBandwidthPackageAttribute(request: ModifyCommonBandwidthPackageAttributeRequest): Promise<ModifyCommonBandwidthPackageAttributeResponse> {
@@ -44756,34 +39615,10 @@ export default class Client extends OpenApi {
 
   async modifyCommonBandwidthPackageInternetChargeTypeWithOptions(request: ModifyCommonBandwidthPackageInternetChargeTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageInternetChargeTypeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["InstanceChargeType"] = request.instanceChargeType;
-    query["InternetChargeType"] = request.internetChargeType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Ratio"] = request.ratio;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackageInternetChargeType",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackageInternetChargeTypeResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageInternetChargeTypeResponse({}));
+    return $tea.cast<ModifyCommonBandwidthPackageInternetChargeTypeResponse>(await this.doRPCRequest("ModifyCommonBandwidthPackageInternetChargeType", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCommonBandwidthPackageInternetChargeTypeResponse({}));
   }
 
   async modifyCommonBandwidthPackageInternetChargeType(request: ModifyCommonBandwidthPackageInternetChargeTypeRequest): Promise<ModifyCommonBandwidthPackageInternetChargeTypeResponse> {
@@ -44793,31 +39628,10 @@ export default class Client extends OpenApi {
 
   async modifyCommonBandwidthPackageIpBandwidthWithOptions(request: ModifyCommonBandwidthPackageIpBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["EipId"] = request.eipId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackageIpBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackageIpBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageIpBandwidthResponse({}));
+    return $tea.cast<ModifyCommonBandwidthPackageIpBandwidthResponse>(await this.doRPCRequest("ModifyCommonBandwidthPackageIpBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCommonBandwidthPackageIpBandwidthResponse({}));
   }
 
   async modifyCommonBandwidthPackageIpBandwidth(request: ModifyCommonBandwidthPackageIpBandwidthRequest): Promise<ModifyCommonBandwidthPackageIpBandwidthResponse> {
@@ -44827,37 +39641,10 @@ export default class Client extends OpenApi {
 
   async modifyCommonBandwidthPackagePayTypeWithOptions(request: ModifyCommonBandwidthPackagePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackagePayTypeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["Duration"] = request.duration;
-    query["KbpsBandwidth"] = request.kbpsBandwidth;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PayType"] = request.payType;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceBid"] = request.resourceBid;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceUid"] = request.resourceUid;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackagePayType",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackagePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackagePayTypeResponse({}));
+    return $tea.cast<ModifyCommonBandwidthPackagePayTypeResponse>(await this.doRPCRequest("ModifyCommonBandwidthPackagePayType", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCommonBandwidthPackagePayTypeResponse({}));
   }
 
   async modifyCommonBandwidthPackagePayType(request: ModifyCommonBandwidthPackagePayTypeRequest): Promise<ModifyCommonBandwidthPackagePayTypeResponse> {
@@ -44867,30 +39654,10 @@ export default class Client extends OpenApi {
 
   async modifyCommonBandwidthPackageSpecWithOptions(request: ModifyCommonBandwidthPackageSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCommonBandwidthPackageSpecResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCommonBandwidthPackageSpec",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCommonBandwidthPackageSpecResponse>(await this.callApi(params, req, runtime), new ModifyCommonBandwidthPackageSpecResponse({}));
+    return $tea.cast<ModifyCommonBandwidthPackageSpecResponse>(await this.doRPCRequest("ModifyCommonBandwidthPackageSpec", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCommonBandwidthPackageSpecResponse({}));
   }
 
   async modifyCommonBandwidthPackageSpec(request: ModifyCommonBandwidthPackageSpecRequest): Promise<ModifyCommonBandwidthPackageSpecResponse> {
@@ -44900,33 +39667,10 @@ export default class Client extends OpenApi {
 
   async modifyCustomerGatewayAttributeWithOptions(request: ModifyCustomerGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomerGatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AuthKey"] = request.authKey;
-    query["ClientToken"] = request.clientToken;
-    query["CustomerGatewayId"] = request.customerGatewayId;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyCustomerGatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyCustomerGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyCustomerGatewayAttributeResponse({}));
+    return $tea.cast<ModifyCustomerGatewayAttributeResponse>(await this.doRPCRequest("ModifyCustomerGatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCustomerGatewayAttributeResponse({}));
   }
 
   async modifyCustomerGatewayAttribute(request: ModifyCustomerGatewayAttributeRequest): Promise<ModifyCustomerGatewayAttributeResponse> {
@@ -44936,32 +39680,10 @@ export default class Client extends OpenApi {
 
   async modifyEipAddressAttributeWithOptions(request: ModifyEipAddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEipAddressAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["Bandwidth"] = request.bandwidth;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyEipAddressAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyEipAddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyEipAddressAttributeResponse({}));
+    return $tea.cast<ModifyEipAddressAttributeResponse>(await this.doRPCRequest("ModifyEipAddressAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyEipAddressAttributeResponse({}));
   }
 
   async modifyEipAddressAttribute(request: ModifyEipAddressAttributeRequest): Promise<ModifyEipAddressAttributeResponse> {
@@ -44971,34 +39693,10 @@ export default class Client extends OpenApi {
 
   async modifyExpressCloudConnectionAttributeWithOptions(request: ModifyExpressCloudConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressCloudConnectionAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BgpAs"] = request.bgpAs;
-    query["CeIp"] = request.ceIp;
-    query["Description"] = request.description;
-    query["EccId"] = request.eccId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeIp"] = request.peIp;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyExpressCloudConnectionAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyExpressCloudConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyExpressCloudConnectionAttributeResponse({}));
+    return $tea.cast<ModifyExpressCloudConnectionAttributeResponse>(await this.doRPCRequest("ModifyExpressCloudConnectionAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyExpressCloudConnectionAttributeResponse({}));
   }
 
   async modifyExpressCloudConnectionAttribute(request: ModifyExpressCloudConnectionAttributeRequest): Promise<ModifyExpressCloudConnectionAttributeResponse> {
@@ -45008,30 +39706,10 @@ export default class Client extends OpenApi {
 
   async modifyExpressCloudConnectionBandwidthWithOptions(request: ModifyExpressCloudConnectionBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyExpressCloudConnectionBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["EccId"] = request.eccId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyExpressCloudConnectionBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyExpressCloudConnectionBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyExpressCloudConnectionBandwidthResponse({}));
+    return $tea.cast<ModifyExpressCloudConnectionBandwidthResponse>(await this.doRPCRequest("ModifyExpressCloudConnectionBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyExpressCloudConnectionBandwidthResponse({}));
   }
 
   async modifyExpressCloudConnectionBandwidth(request: ModifyExpressCloudConnectionBandwidthRequest): Promise<ModifyExpressCloudConnectionBandwidthResponse> {
@@ -45041,31 +39719,10 @@ export default class Client extends OpenApi {
 
   async modifyFlowLogAttributeWithOptions(request: ModifyFlowLogAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowLogAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["FlowLogId"] = request.flowLogId;
-    query["FlowLogName"] = request.flowLogName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyFlowLogAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyFlowLogAttributeResponse>(await this.callApi(params, req, runtime), new ModifyFlowLogAttributeResponse({}));
+    return $tea.cast<ModifyFlowLogAttributeResponse>(await this.doRPCRequest("ModifyFlowLogAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyFlowLogAttributeResponse({}));
   }
 
   async modifyFlowLogAttribute(request: ModifyFlowLogAttributeRequest): Promise<ModifyFlowLogAttributeResponse> {
@@ -45075,38 +39732,10 @@ export default class Client extends OpenApi {
 
   async modifyForwardEntryWithOptions(request: ModifyForwardEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyForwardEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ExternalIp"] = request.externalIp;
-    query["ExternalPort"] = request.externalPort;
-    query["ForwardEntryId"] = request.forwardEntryId;
-    query["ForwardEntryName"] = request.forwardEntryName;
-    query["ForwardTableId"] = request.forwardTableId;
-    query["InternalIp"] = request.internalIp;
-    query["InternalPort"] = request.internalPort;
-    query["IpProtocol"] = request.ipProtocol;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PortBreak"] = request.portBreak;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyForwardEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyForwardEntryResponse>(await this.callApi(params, req, runtime), new ModifyForwardEntryResponse({}));
+    return $tea.cast<ModifyForwardEntryResponse>(await this.doRPCRequest("ModifyForwardEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyForwardEntryResponse({}));
   }
 
   async modifyForwardEntry(request: ModifyForwardEntryRequest): Promise<ModifyForwardEntryResponse> {
@@ -45116,40 +39745,10 @@ export default class Client extends OpenApi {
 
   async modifyFullNatEntryAttributeWithOptions(request: ModifyFullNatEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFullNatEntryAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AccessIp"] = request.accessIp;
-    query["AccessPort"] = request.accessPort;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["FullNatEntryDescription"] = request.fullNatEntryDescription;
-    query["FullNatEntryId"] = request.fullNatEntryId;
-    query["FullNatEntryName"] = request.fullNatEntryName;
-    query["FullNatTableId"] = request.fullNatTableId;
-    query["IpProtocol"] = request.ipProtocol;
-    query["NatIp"] = request.natIp;
-    query["NatIpPort"] = request.natIpPort;
-    query["NetworkInterfaceId"] = request.networkInterfaceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyFullNatEntryAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyFullNatEntryAttributeResponse>(await this.callApi(params, req, runtime), new ModifyFullNatEntryAttributeResponse({}));
+    return $tea.cast<ModifyFullNatEntryAttributeResponse>(await this.doRPCRequest("ModifyFullNatEntryAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyFullNatEntryAttributeResponse({}));
   }
 
   async modifyFullNatEntryAttribute(request: ModifyFullNatEntryAttributeRequest): Promise<ModifyFullNatEntryAttributeResponse> {
@@ -45159,31 +39758,10 @@ export default class Client extends OpenApi {
 
   async modifyGlobalAccelerationInstanceAttributesWithOptions(request: ModifyGlobalAccelerationInstanceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalAccelerationInstanceAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyGlobalAccelerationInstanceAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyGlobalAccelerationInstanceAttributesResponse>(await this.callApi(params, req, runtime), new ModifyGlobalAccelerationInstanceAttributesResponse({}));
+    return $tea.cast<ModifyGlobalAccelerationInstanceAttributesResponse>(await this.doRPCRequest("ModifyGlobalAccelerationInstanceAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyGlobalAccelerationInstanceAttributesResponse({}));
   }
 
   async modifyGlobalAccelerationInstanceAttributes(request: ModifyGlobalAccelerationInstanceAttributesRequest): Promise<ModifyGlobalAccelerationInstanceAttributesResponse> {
@@ -45193,30 +39771,10 @@ export default class Client extends OpenApi {
 
   async modifyGlobalAccelerationInstanceSpecWithOptions(request: ModifyGlobalAccelerationInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyGlobalAccelerationInstanceSpec",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyGlobalAccelerationInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyGlobalAccelerationInstanceSpecResponse({}));
+    return $tea.cast<ModifyGlobalAccelerationInstanceSpecResponse>(await this.doRPCRequest("ModifyGlobalAccelerationInstanceSpec", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyGlobalAccelerationInstanceSpecResponse({}));
   }
 
   async modifyGlobalAccelerationInstanceSpec(request: ModifyGlobalAccelerationInstanceSpecRequest): Promise<ModifyGlobalAccelerationInstanceSpecResponse> {
@@ -45226,32 +39784,10 @@ export default class Client extends OpenApi {
 
   async modifyHaVipAttributeWithOptions(request: ModifyHaVipAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyHaVipAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["HaVipId"] = request.haVipId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyHaVipAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyHaVipAttributeResponse>(await this.callApi(params, req, runtime), new ModifyHaVipAttributeResponse({}));
+    return $tea.cast<ModifyHaVipAttributeResponse>(await this.doRPCRequest("ModifyHaVipAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyHaVipAttributeResponse({}));
   }
 
   async modifyHaVipAttribute(request: ModifyHaVipAttributeRequest): Promise<ModifyHaVipAttributeResponse> {
@@ -45261,31 +39797,10 @@ export default class Client extends OpenApi {
 
   async modifyIPv6TranslatorAclAttributeWithOptions(request: ModifyIPv6TranslatorAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["AclName"] = request.aclName;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIPv6TranslatorAclAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIPv6TranslatorAclAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAclAttributeResponse({}));
+    return $tea.cast<ModifyIPv6TranslatorAclAttributeResponse>(await this.doRPCRequest("ModifyIPv6TranslatorAclAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIPv6TranslatorAclAttributeResponse({}));
   }
 
   async modifyIPv6TranslatorAclAttribute(request: ModifyIPv6TranslatorAclAttributeRequest): Promise<ModifyIPv6TranslatorAclAttributeResponse> {
@@ -45295,31 +39810,10 @@ export default class Client extends OpenApi {
 
   async modifyIPv6TranslatorAclListEntryWithOptions(request: ModifyIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclEntryComment"] = request.aclEntryComment;
-    query["AclEntryId"] = request.aclEntryId;
-    query["AclId"] = request.aclId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIPv6TranslatorAclListEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAclListEntryResponse({}));
+    return $tea.cast<ModifyIPv6TranslatorAclListEntryResponse>(await this.doRPCRequest("ModifyIPv6TranslatorAclListEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIPv6TranslatorAclListEntryResponse({}));
   }
 
   async modifyIPv6TranslatorAclListEntry(request: ModifyIPv6TranslatorAclListEntryRequest): Promise<ModifyIPv6TranslatorAclListEntryResponse> {
@@ -45329,32 +39823,10 @@ export default class Client extends OpenApi {
 
   async modifyIPv6TranslatorAttributeWithOptions(request: ModifyIPv6TranslatorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIPv6TranslatorAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIPv6TranslatorAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorAttributeResponse({}));
+    return $tea.cast<ModifyIPv6TranslatorAttributeResponse>(await this.doRPCRequest("ModifyIPv6TranslatorAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIPv6TranslatorAttributeResponse({}));
   }
 
   async modifyIPv6TranslatorAttribute(request: ModifyIPv6TranslatorAttributeRequest): Promise<ModifyIPv6TranslatorAttributeResponse> {
@@ -45364,32 +39836,10 @@ export default class Client extends OpenApi {
 
   async modifyIPv6TranslatorBandwidthWithOptions(request: ModifyIPv6TranslatorBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6TranslatorId"] = request.ipv6TranslatorId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIPv6TranslatorBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIPv6TranslatorBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorBandwidthResponse({}));
+    return $tea.cast<ModifyIPv6TranslatorBandwidthResponse>(await this.doRPCRequest("ModifyIPv6TranslatorBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIPv6TranslatorBandwidthResponse({}));
   }
 
   async modifyIPv6TranslatorBandwidth(request: ModifyIPv6TranslatorBandwidthRequest): Promise<ModifyIPv6TranslatorBandwidthResponse> {
@@ -45399,39 +39849,10 @@ export default class Client extends OpenApi {
 
   async modifyIPv6TranslatorEntryWithOptions(request: ModifyIPv6TranslatorEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIPv6TranslatorEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclId"] = request.aclId;
-    query["AclStatus"] = request.aclStatus;
-    query["AclType"] = request.aclType;
-    query["AllocateIpv6Port"] = request.allocateIpv6Port;
-    query["BackendIpv4Addr"] = request.backendIpv4Addr;
-    query["BackendIpv4Port"] = request.backendIpv4Port;
-    query["EntryBandwidth"] = request.entryBandwidth;
-    query["EntryDescription"] = request.entryDescription;
-    query["EntryName"] = request.entryName;
-    query["Ipv6TranslatorEntryId"] = request.ipv6TranslatorEntryId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TransProtocol"] = request.transProtocol;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIPv6TranslatorEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIPv6TranslatorEntryResponse>(await this.callApi(params, req, runtime), new ModifyIPv6TranslatorEntryResponse({}));
+    return $tea.cast<ModifyIPv6TranslatorEntryResponse>(await this.doRPCRequest("ModifyIPv6TranslatorEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIPv6TranslatorEntryResponse({}));
   }
 
   async modifyIPv6TranslatorEntry(request: ModifyIPv6TranslatorEntryRequest): Promise<ModifyIPv6TranslatorEntryResponse> {
@@ -45441,33 +39862,10 @@ export default class Client extends OpenApi {
 
   async modifyInstanceAutoRenewalAttributeWithOptions(request: ModifyInstanceAutoRenewalAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Duration"] = request.duration;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerId"] = request.ownerId;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["RenewalStatus"] = request.renewalStatus;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyInstanceAutoRenewalAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
+    return $tea.cast<ModifyInstanceAutoRenewalAttributeResponse>(await this.doRPCRequest("ModifyInstanceAutoRenewalAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceAutoRenewalAttributeResponse({}));
   }
 
   async modifyInstanceAutoRenewalAttribute(request: ModifyInstanceAutoRenewalAttributeRequest): Promise<ModifyInstanceAutoRenewalAttributeResponse> {
@@ -45477,32 +39875,10 @@ export default class Client extends OpenApi {
 
   async modifyIpv6AddressAttributeWithOptions(request: ModifyIpv6AddressAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6AddressAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["Ipv6AddressId"] = request.ipv6AddressId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIpv6AddressAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIpv6AddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIpv6AddressAttributeResponse({}));
+    return $tea.cast<ModifyIpv6AddressAttributeResponse>(await this.doRPCRequest("ModifyIpv6AddressAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIpv6AddressAttributeResponse({}));
   }
 
   async modifyIpv6AddressAttribute(request: ModifyIpv6AddressAttributeRequest): Promise<ModifyIpv6AddressAttributeResponse> {
@@ -45512,32 +39888,10 @@ export default class Client extends OpenApi {
 
   async modifyIpv6GatewayAttributeWithOptions(request: ModifyIpv6GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6GatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIpv6GatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIpv6GatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyIpv6GatewayAttributeResponse({}));
+    return $tea.cast<ModifyIpv6GatewayAttributeResponse>(await this.doRPCRequest("ModifyIpv6GatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIpv6GatewayAttributeResponse({}));
   }
 
   async modifyIpv6GatewayAttribute(request: ModifyIpv6GatewayAttributeRequest): Promise<ModifyIpv6GatewayAttributeResponse> {
@@ -45547,32 +39901,10 @@ export default class Client extends OpenApi {
 
   async modifyIpv6GatewaySpecWithOptions(request: ModifyIpv6GatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6GatewaySpecResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6GatewayId"] = request.ipv6GatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIpv6GatewaySpec",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIpv6GatewaySpecResponse>(await this.callApi(params, req, runtime), new ModifyIpv6GatewaySpecResponse({}));
+    return $tea.cast<ModifyIpv6GatewaySpecResponse>(await this.doRPCRequest("ModifyIpv6GatewaySpec", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIpv6GatewaySpecResponse({}));
   }
 
   async modifyIpv6GatewaySpec(request: ModifyIpv6GatewaySpecRequest): Promise<ModifyIpv6GatewaySpecResponse> {
@@ -45582,33 +39914,10 @@ export default class Client extends OpenApi {
 
   async modifyIpv6InternetBandwidthWithOptions(request: ModifyIpv6InternetBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpv6InternetBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["Ipv6AddressId"] = request.ipv6AddressId;
-    query["Ipv6InternetBandwidthId"] = request.ipv6InternetBandwidthId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyIpv6InternetBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyIpv6InternetBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyIpv6InternetBandwidthResponse({}));
+    return $tea.cast<ModifyIpv6InternetBandwidthResponse>(await this.doRPCRequest("ModifyIpv6InternetBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyIpv6InternetBandwidthResponse({}));
   }
 
   async modifyIpv6InternetBandwidth(request: ModifyIpv6InternetBandwidthRequest): Promise<ModifyIpv6InternetBandwidthResponse> {
@@ -45618,32 +39927,10 @@ export default class Client extends OpenApi {
 
   async modifyNatGatewayAttributeWithOptions(request: ModifyNatGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
-    query["Name"] = request.name;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyNatGatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNatGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatGatewayAttributeResponse({}));
+    return $tea.cast<ModifyNatGatewayAttributeResponse>(await this.doRPCRequest("ModifyNatGatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNatGatewayAttributeResponse({}));
   }
 
   async modifyNatGatewayAttribute(request: ModifyNatGatewayAttributeRequest): Promise<ModifyNatGatewayAttributeResponse> {
@@ -45653,32 +39940,10 @@ export default class Client extends OpenApi {
 
   async modifyNatGatewaySpecWithOptions(request: ModifyNatGatewaySpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatGatewaySpecResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["ClientToken"] = request.clientToken;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyNatGatewaySpec",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNatGatewaySpecResponse>(await this.callApi(params, req, runtime), new ModifyNatGatewaySpecResponse({}));
+    return $tea.cast<ModifyNatGatewaySpecResponse>(await this.doRPCRequest("ModifyNatGatewaySpec", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNatGatewaySpecResponse({}));
   }
 
   async modifyNatGatewaySpec(request: ModifyNatGatewaySpecRequest): Promise<ModifyNatGatewaySpecResponse> {
@@ -45688,34 +39953,10 @@ export default class Client extends OpenApi {
 
   async modifyNatIpAttributeWithOptions(request: ModifyNatIpAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatIpAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatIpDescription"] = request.natIpDescription;
-    query["NatIpId"] = request.natIpId;
-    query["NatIpName"] = request.natIpName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyNatIpAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNatIpAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatIpAttributeResponse({}));
+    return $tea.cast<ModifyNatIpAttributeResponse>(await this.doRPCRequest("ModifyNatIpAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNatIpAttributeResponse({}));
   }
 
   async modifyNatIpAttribute(request: ModifyNatIpAttributeRequest): Promise<ModifyNatIpAttributeResponse> {
@@ -45725,35 +39966,10 @@ export default class Client extends OpenApi {
 
   async modifyNatIpCidrAttributeWithOptions(request: ModifyNatIpCidrAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNatIpCidrAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatIpCidr"] = request.natIpCidr;
-    query["NatIpCidrDescription"] = request.natIpCidrDescription;
-    query["NatIpCidrName"] = request.natIpCidrName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyNatIpCidrAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNatIpCidrAttributeResponse>(await this.callApi(params, req, runtime), new ModifyNatIpCidrAttributeResponse({}));
+    return $tea.cast<ModifyNatIpCidrAttributeResponse>(await this.doRPCRequest("ModifyNatIpCidrAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNatIpCidrAttributeResponse({}));
   }
 
   async modifyNatIpCidrAttribute(request: ModifyNatIpCidrAttributeRequest): Promise<ModifyNatIpCidrAttributeResponse> {
@@ -45763,32 +39979,10 @@ export default class Client extends OpenApi {
 
   async modifyNetworkAclAttributesWithOptions(request: ModifyNetworkAclAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNetworkAclAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["NetworkAclId"] = request.networkAclId;
-    query["NetworkAclName"] = request.networkAclName;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyNetworkAclAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyNetworkAclAttributesResponse>(await this.callApi(params, req, runtime), new ModifyNetworkAclAttributesResponse({}));
+    return $tea.cast<ModifyNetworkAclAttributesResponse>(await this.doRPCRequest("ModifyNetworkAclAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNetworkAclAttributesResponse({}));
   }
 
   async modifyNetworkAclAttributes(request: ModifyNetworkAclAttributesRequest): Promise<ModifyNetworkAclAttributesResponse> {
@@ -45798,39 +39992,10 @@ export default class Client extends OpenApi {
 
   async modifyPhysicalConnectionAttributeWithOptions(request: ModifyPhysicalConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhysicalConnectionAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CircuitCode"] = request.circuitCode;
-    query["ClientToken"] = request.clientToken;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["LineOperator"] = request.lineOperator;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerLocation"] = request.peerLocation;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["PortType"] = request.portType;
-    query["RedundantPhysicalConnectionId"] = request.redundantPhysicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["bandwidth"] = request.bandwidth;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyPhysicalConnectionAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyPhysicalConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyPhysicalConnectionAttributeResponse({}));
+    return $tea.cast<ModifyPhysicalConnectionAttributeResponse>(await this.doRPCRequest("ModifyPhysicalConnectionAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyPhysicalConnectionAttributeResponse({}));
   }
 
   async modifyPhysicalConnectionAttribute(request: ModifyPhysicalConnectionAttributeRequest): Promise<ModifyPhysicalConnectionAttributeResponse> {
@@ -45840,31 +40005,10 @@ export default class Client extends OpenApi {
 
   async modifyRouteEntryWithOptions(request: ModifyRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteEntryId"] = request.routeEntryId;
-    query["RouteEntryName"] = request.routeEntryName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyRouteEntryResponse>(await this.callApi(params, req, runtime), new ModifyRouteEntryResponse({}));
+    return $tea.cast<ModifyRouteEntryResponse>(await this.doRPCRequest("ModifyRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRouteEntryResponse({}));
   }
 
   async modifyRouteEntry(request: ModifyRouteEntryRequest): Promise<ModifyRouteEntryResponse> {
@@ -45874,31 +40018,10 @@ export default class Client extends OpenApi {
 
   async modifyRouteTableAttributesWithOptions(request: ModifyRouteTableAttributesRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouteTableAttributesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["RouteTableName"] = request.routeTableName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyRouteTableAttributes",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyRouteTableAttributesResponse>(await this.callApi(params, req, runtime), new ModifyRouteTableAttributesResponse({}));
+    return $tea.cast<ModifyRouteTableAttributesResponse>(await this.doRPCRequest("ModifyRouteTableAttributes", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRouteTableAttributesResponse({}));
   }
 
   async modifyRouteTableAttributes(request: ModifyRouteTableAttributesRequest): Promise<ModifyRouteTableAttributesResponse> {
@@ -45908,39 +40031,10 @@ export default class Client extends OpenApi {
 
   async modifyRouterInterfaceAttributeWithOptions(request: ModifyRouterInterfaceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DeleteHealthCheckIp"] = request.deleteHealthCheckIp;
-    query["Description"] = request.description;
-    query["HcRate"] = request.hcRate;
-    query["HcThreshold"] = request.hcThreshold;
-    query["HealthCheckSourceIp"] = request.healthCheckSourceIp;
-    query["HealthCheckTargetIp"] = request.healthCheckTargetIp;
-    query["Name"] = request.name;
-    query["OppositeInterfaceId"] = request.oppositeInterfaceId;
-    query["OppositeInterfaceOwnerId"] = request.oppositeInterfaceOwnerId;
-    query["OppositeRouterId"] = request.oppositeRouterId;
-    query["OppositeRouterType"] = request.oppositeRouterType;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyRouterInterfaceAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyRouterInterfaceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceAttributeResponse({}));
+    return $tea.cast<ModifyRouterInterfaceAttributeResponse>(await this.doRPCRequest("ModifyRouterInterfaceAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRouterInterfaceAttributeResponse({}));
   }
 
   async modifyRouterInterfaceAttribute(request: ModifyRouterInterfaceAttributeRequest): Promise<ModifyRouterInterfaceAttributeResponse> {
@@ -45950,31 +40044,10 @@ export default class Client extends OpenApi {
 
   async modifyRouterInterfaceSpecWithOptions(request: ModifyRouterInterfaceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRouterInterfaceSpecResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouterInterfaceId"] = request.routerInterfaceId;
-    query["Spec"] = request.spec;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyRouterInterfaceSpec",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyRouterInterfaceSpecResponse>(await this.callApi(params, req, runtime), new ModifyRouterInterfaceSpecResponse({}));
+    return $tea.cast<ModifyRouterInterfaceSpecResponse>(await this.doRPCRequest("ModifyRouterInterfaceSpec", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRouterInterfaceSpecResponse({}));
   }
 
   async modifyRouterInterfaceSpec(request: ModifyRouterInterfaceSpecRequest): Promise<ModifyRouterInterfaceSpecResponse> {
@@ -45984,33 +40057,10 @@ export default class Client extends OpenApi {
 
   async modifySnatEntryWithOptions(request: ModifySnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnatEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SnatEntryId"] = request.snatEntryId;
-    query["SnatEntryName"] = request.snatEntryName;
-    query["SnatIp"] = request.snatIp;
-    query["SnatTableId"] = request.snatTableId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifySnatEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifySnatEntryResponse>(await this.callApi(params, req, runtime), new ModifySnatEntryResponse({}));
+    return $tea.cast<ModifySnatEntryResponse>(await this.doRPCRequest("ModifySnatEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySnatEntryResponse({}));
   }
 
   async modifySnatEntry(request: ModifySnatEntryRequest): Promise<ModifySnatEntryResponse> {
@@ -46020,31 +40070,10 @@ export default class Client extends OpenApi {
 
   async modifySslVpnClientCertWithOptions(request: ModifySslVpnClientCertRequest, runtime: $Util.RuntimeOptions): Promise<ModifySslVpnClientCertResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnClientCertId"] = request.sslVpnClientCertId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifySslVpnClientCert",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifySslVpnClientCertResponse>(await this.callApi(params, req, runtime), new ModifySslVpnClientCertResponse({}));
+    return $tea.cast<ModifySslVpnClientCertResponse>(await this.doRPCRequest("ModifySslVpnClientCert", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySslVpnClientCertResponse({}));
   }
 
   async modifySslVpnClientCert(request: ModifySslVpnClientCertRequest): Promise<ModifySslVpnClientCertResponse> {
@@ -46054,40 +40083,10 @@ export default class Client extends OpenApi {
 
   async modifySslVpnServerWithOptions(request: ModifySslVpnServerRequest, runtime: $Util.RuntimeOptions): Promise<ModifySslVpnServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Cipher"] = request.cipher;
-    query["ClientIpPool"] = request.clientIpPool;
-    query["ClientToken"] = request.clientToken;
-    query["Compress"] = request.compress;
-    query["EnableMultiFactorAuth"] = request.enableMultiFactorAuth;
-    query["IDaaSInstanceId"] = request.IDaaSInstanceId;
-    query["IDaaSRegionId"] = request.IDaaSRegionId;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Port"] = request.port;
-    query["Proto"] = request.proto;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SslVpnServerId"] = request.sslVpnServerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifySslVpnServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifySslVpnServerResponse>(await this.callApi(params, req, runtime), new ModifySslVpnServerResponse({}));
+    return $tea.cast<ModifySslVpnServerResponse>(await this.doRPCRequest("ModifySslVpnServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySslVpnServerResponse({}));
   }
 
   async modifySslVpnServer(request: ModifySslVpnServerRequest): Promise<ModifySslVpnServerResponse> {
@@ -46097,31 +40096,10 @@ export default class Client extends OpenApi {
 
   async modifyVRouterAttributeWithOptions(request: ModifyVRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVRouterAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VRouterId"] = request.VRouterId;
-    query["VRouterName"] = request.VRouterName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVRouterAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVRouterAttributeResponse({}));
+    return $tea.cast<ModifyVRouterAttributeResponse>(await this.doRPCRequest("ModifyVRouterAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVRouterAttributeResponse({}));
   }
 
   async modifyVRouterAttribute(request: ModifyVRouterAttributeRequest): Promise<ModifyVRouterAttributeResponse> {
@@ -46131,34 +40109,10 @@ export default class Client extends OpenApi {
 
   async modifyVSwitchAttributeWithOptions(request: ModifyVSwitchAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVSwitchAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Description"] = request.description;
-    query["EnableIPv6"] = request.enableIPv6;
-    query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VSwitchName"] = request.vSwitchName;
-    query["VpcIpv6CidrBlock"] = request.vpcIpv6CidrBlock;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVSwitchAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVSwitchAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVSwitchAttributeResponse({}));
+    return $tea.cast<ModifyVSwitchAttributeResponse>(await this.doRPCRequest("ModifyVSwitchAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVSwitchAttributeResponse({}));
   }
 
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
@@ -46168,46 +40122,10 @@ export default class Client extends OpenApi {
 
   async modifyVirtualBorderRouterAttributeWithOptions(request: ModifyVirtualBorderRouterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVirtualBorderRouterAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AssociatedPhysicalConnections"] = request.associatedPhysicalConnections;
-    query["Bandwidth"] = request.bandwidth;
-    query["CircuitCode"] = request.circuitCode;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DetectMultiplier"] = request.detectMultiplier;
-    query["EnableIpv6"] = request.enableIpv6;
-    query["LocalGatewayIp"] = request.localGatewayIp;
-    query["LocalIpv6GatewayIp"] = request.localIpv6GatewayIp;
-    query["MinRxInterval"] = request.minRxInterval;
-    query["MinTxInterval"] = request.minTxInterval;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PeerGatewayIp"] = request.peerGatewayIp;
-    query["PeerIpv6GatewayIp"] = request.peerIpv6GatewayIp;
-    query["PeeringIpv6SubnetMask"] = request.peeringIpv6SubnetMask;
-    query["PeeringSubnetMask"] = request.peeringSubnetMask;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
-    query["VlanId"] = request.vlanId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVirtualBorderRouterAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVirtualBorderRouterAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVirtualBorderRouterAttributeResponse({}));
+    return $tea.cast<ModifyVirtualBorderRouterAttributeResponse>(await this.doRPCRequest("ModifyVirtualBorderRouterAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVirtualBorderRouterAttributeResponse({}));
   }
 
   async modifyVirtualBorderRouterAttribute(request: ModifyVirtualBorderRouterAttributeRequest): Promise<ModifyVirtualBorderRouterAttributeResponse> {
@@ -46217,35 +40135,10 @@ export default class Client extends OpenApi {
 
   async modifyVpcAttributeWithOptions(request: ModifyVpcAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CidrBlock"] = request.cidrBlock;
-    query["Description"] = request.description;
-    query["EnableIPv6"] = request.enableIPv6;
-    query["Ipv6CidrBlock"] = request.ipv6CidrBlock;
-    query["Ipv6Isp"] = request.ipv6Isp;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
-    query["VpcName"] = request.vpcName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVpcAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVpcAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpcAttributeResponse({}));
+    return $tea.cast<ModifyVpcAttributeResponse>(await this.doRPCRequest("ModifyVpcAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpcAttributeResponse({}));
   }
 
   async modifyVpcAttribute(request: ModifyVpcAttributeRequest): Promise<ModifyVpcAttributeResponse> {
@@ -46255,42 +40148,10 @@ export default class Client extends OpenApi {
 
   async modifyVpnConnectionAttributeWithOptions(request: ModifyVpnConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnConnectionAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoConfigRoute"] = request.autoConfigRoute;
-    query["BgpConfig"] = request.bgpConfig;
-    query["ClientToken"] = request.clientToken;
-    query["EffectImmediately"] = request.effectImmediately;
-    query["EnableDpd"] = request.enableDpd;
-    query["EnableNatTraversal"] = request.enableNatTraversal;
-    query["HealthCheckConfig"] = request.healthCheckConfig;
-    query["IkeConfig"] = request.ikeConfig;
-    query["IpsecConfig"] = request.ipsecConfig;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RemoteCaCertificate"] = request.remoteCaCertificate;
-    query["RemoteSubnet"] = request.remoteSubnet;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnConnectionId"] = request.vpnConnectionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVpnConnectionAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVpnConnectionAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnConnectionAttributeResponse({}));
+    return $tea.cast<ModifyVpnConnectionAttributeResponse>(await this.doRPCRequest("ModifyVpnConnectionAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpnConnectionAttributeResponse({}));
   }
 
   async modifyVpnConnectionAttribute(request: ModifyVpnConnectionAttributeRequest): Promise<ModifyVpnConnectionAttributeResponse> {
@@ -46300,33 +40161,10 @@ export default class Client extends OpenApi {
 
   async modifyVpnGatewayAttributeWithOptions(request: ModifyVpnGatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnGatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AutoPropagate"] = request.autoPropagate;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVpnGatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVpnGatewayAttributeResponse>(await this.callApi(params, req, runtime), new ModifyVpnGatewayAttributeResponse({}));
+    return $tea.cast<ModifyVpnGatewayAttributeResponse>(await this.doRPCRequest("ModifyVpnGatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpnGatewayAttributeResponse({}));
   }
 
   async modifyVpnGatewayAttribute(request: ModifyVpnGatewayAttributeRequest): Promise<ModifyVpnGatewayAttributeResponse> {
@@ -46336,36 +40174,10 @@ export default class Client extends OpenApi {
 
   async modifyVpnPbrRouteEntryWeightWithOptions(request: ModifyVpnPbrRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NewWeight"] = request.newWeight;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["RouteSource"] = request.routeSource;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVpnPbrRouteEntryWeight",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVpnPbrRouteEntryWeightResponse>(await this.callApi(params, req, runtime), new ModifyVpnPbrRouteEntryWeightResponse({}));
+    return $tea.cast<ModifyVpnPbrRouteEntryWeightResponse>(await this.doRPCRequest("ModifyVpnPbrRouteEntryWeight", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpnPbrRouteEntryWeightResponse({}));
   }
 
   async modifyVpnPbrRouteEntryWeight(request: ModifyVpnPbrRouteEntryWeightRequest): Promise<ModifyVpnPbrRouteEntryWeightResponse> {
@@ -46375,35 +40187,10 @@ export default class Client extends OpenApi {
 
   async modifyVpnRouteEntryWeightWithOptions(request: ModifyVpnRouteEntryWeightRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpnRouteEntryWeightResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NewWeight"] = request.newWeight;
-    query["NextHop"] = request.nextHop;
-    query["OverlayMode"] = request.overlayMode;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["VpnGatewayId"] = request.vpnGatewayId;
-    query["Weight"] = request.weight;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyVpnRouteEntryWeight",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyVpnRouteEntryWeightResponse>(await this.callApi(params, req, runtime), new ModifyVpnRouteEntryWeightResponse({}));
+    return $tea.cast<ModifyVpnRouteEntryWeightResponse>(await this.doRPCRequest("ModifyVpnRouteEntryWeight", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpnRouteEntryWeightResponse({}));
   }
 
   async modifyVpnRouteEntryWeight(request: ModifyVpnRouteEntryWeightRequest): Promise<ModifyVpnRouteEntryWeightResponse> {
@@ -46413,31 +40200,10 @@ export default class Client extends OpenApi {
 
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["NewResourceGroupId"] = request.newResourceGroupId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "MoveResourceGroup",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+    return $tea.cast<MoveResourceGroupResponse>(await this.doRPCRequest("MoveResourceGroup", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new MoveResourceGroupResponse({}));
   }
 
   async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
@@ -46447,28 +40213,10 @@ export default class Client extends OpenApi {
 
   async openPhysicalConnectionServiceWithOptions(request: OpenPhysicalConnectionServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPhysicalConnectionServiceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenPhysicalConnectionService",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenPhysicalConnectionServiceResponse>(await this.callApi(params, req, runtime), new OpenPhysicalConnectionServiceResponse({}));
+    return $tea.cast<OpenPhysicalConnectionServiceResponse>(await this.doRPCRequest("OpenPhysicalConnectionService", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new OpenPhysicalConnectionServiceResponse({}));
   }
 
   async openPhysicalConnectionService(request: OpenPhysicalConnectionServiceRequest): Promise<OpenPhysicalConnectionServiceResponse> {
@@ -46478,24 +40226,10 @@ export default class Client extends OpenApi {
 
   async openTrafficMirrorServiceWithOptions(request: OpenTrafficMirrorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenTrafficMirrorServiceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerId"] = request.ownerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenTrafficMirrorService",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenTrafficMirrorServiceResponse>(await this.callApi(params, req, runtime), new OpenTrafficMirrorServiceResponse({}));
+    return $tea.cast<OpenTrafficMirrorServiceResponse>(await this.doRPCRequest("OpenTrafficMirrorService", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new OpenTrafficMirrorServiceResponse({}));
   }
 
   async openTrafficMirrorService(request: OpenTrafficMirrorServiceRequest): Promise<OpenTrafficMirrorServiceResponse> {
@@ -46505,34 +40239,10 @@ export default class Client extends OpenApi {
 
   async publishVpnRouteEntryWithOptions(request: PublishVpnRouteEntryRequest, runtime: $Util.RuntimeOptions): Promise<PublishVpnRouteEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NextHop"] = request.nextHop;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PublishVpc"] = request.publishVpc;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteDest"] = request.routeDest;
-    query["RouteType"] = request.routeType;
-    query["VpnGatewayId"] = request.vpnGatewayId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "PublishVpnRouteEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PublishVpnRouteEntryResponse>(await this.callApi(params, req, runtime), new PublishVpnRouteEntryResponse({}));
+    return $tea.cast<PublishVpnRouteEntryResponse>(await this.doRPCRequest("PublishVpnRouteEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new PublishVpnRouteEntryResponse({}));
   }
 
   async publishVpnRouteEntry(request: PublishVpnRouteEntryRequest): Promise<PublishVpnRouteEntryResponse> {
@@ -46542,27 +40252,10 @@ export default class Client extends OpenApi {
 
   async recoverPhysicalConnectionWithOptions(request: RecoverPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<RecoverPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["InstanceId"] = request.instanceId;
-    query["RegionId"] = request.regionId;
-    query["Token"] = request.token;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RecoverPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RecoverPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new RecoverPhysicalConnectionResponse({}));
+    return $tea.cast<RecoverPhysicalConnectionResponse>(await this.doRPCRequest("RecoverPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RecoverPhysicalConnectionResponse({}));
   }
 
   async recoverPhysicalConnection(request: RecoverPhysicalConnectionRequest): Promise<RecoverPhysicalConnectionResponse> {
@@ -46572,30 +40265,10 @@ export default class Client extends OpenApi {
 
   async recoverVirtualBorderRouterWithOptions(request: RecoverVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<RecoverVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RecoverVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RecoverVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new RecoverVirtualBorderRouterResponse({}));
+    return $tea.cast<RecoverVirtualBorderRouterResponse>(await this.doRPCRequest("RecoverVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RecoverVirtualBorderRouterResponse({}));
   }
 
   async recoverVirtualBorderRouter(request: RecoverVirtualBorderRouterRequest): Promise<RecoverVirtualBorderRouterResponse> {
@@ -46605,29 +40278,10 @@ export default class Client extends OpenApi {
 
   async releaseEipAddressWithOptions(request: ReleaseEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ReleaseEipAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReleaseEipAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipAddressResponse({}));
+    return $tea.cast<ReleaseEipAddressResponse>(await this.doRPCRequest("ReleaseEipAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseEipAddressResponse({}));
   }
 
   async releaseEipAddress(request: ReleaseEipAddressRequest): Promise<ReleaseEipAddressResponse> {
@@ -46637,30 +40291,10 @@ export default class Client extends OpenApi {
 
   async releaseEipSegmentAddressWithOptions(request: ReleaseEipSegmentAddressRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseEipSegmentAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SegmentInstanceId"] = request.segmentInstanceId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ReleaseEipSegmentAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReleaseEipSegmentAddressResponse>(await this.callApi(params, req, runtime), new ReleaseEipSegmentAddressResponse({}));
+    return $tea.cast<ReleaseEipSegmentAddressResponse>(await this.doRPCRequest("ReleaseEipSegmentAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseEipSegmentAddressResponse({}));
   }
 
   async releaseEipSegmentAddress(request: ReleaseEipSegmentAddressRequest): Promise<ReleaseEipSegmentAddressResponse> {
@@ -46670,31 +40304,10 @@ export default class Client extends OpenApi {
 
   async removeCommonBandwidthPackageIpWithOptions(request: RemoveCommonBandwidthPackageIpRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCommonBandwidthPackageIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["ClientToken"] = request.clientToken;
-    query["IpInstanceId"] = request.ipInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RemoveCommonBandwidthPackageIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveCommonBandwidthPackageIpResponse>(await this.callApi(params, req, runtime), new RemoveCommonBandwidthPackageIpResponse({}));
+    return $tea.cast<RemoveCommonBandwidthPackageIpResponse>(await this.doRPCRequest("RemoveCommonBandwidthPackageIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveCommonBandwidthPackageIpResponse({}));
   }
 
   async removeCommonBandwidthPackageIp(request: RemoveCommonBandwidthPackageIpRequest): Promise<RemoveCommonBandwidthPackageIpResponse> {
@@ -46704,30 +40317,10 @@ export default class Client extends OpenApi {
 
   async removeGlobalAccelerationInstanceIpWithOptions(request: RemoveGlobalAccelerationInstanceIpRequest, runtime: $Util.RuntimeOptions): Promise<RemoveGlobalAccelerationInstanceIpResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["IpInstanceId"] = request.ipInstanceId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RemoveGlobalAccelerationInstanceIp",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveGlobalAccelerationInstanceIpResponse>(await this.callApi(params, req, runtime), new RemoveGlobalAccelerationInstanceIpResponse({}));
+    return $tea.cast<RemoveGlobalAccelerationInstanceIpResponse>(await this.doRPCRequest("RemoveGlobalAccelerationInstanceIp", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveGlobalAccelerationInstanceIpResponse({}));
   }
 
   async removeGlobalAccelerationInstanceIp(request: RemoveGlobalAccelerationInstanceIpRequest): Promise<RemoveGlobalAccelerationInstanceIpResponse> {
@@ -46737,31 +40330,10 @@ export default class Client extends OpenApi {
 
   async removeIPv6TranslatorAclListEntryWithOptions(request: RemoveIPv6TranslatorAclListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIPv6TranslatorAclListEntryResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AclEntryId"] = request.aclEntryId;
-    query["AclId"] = request.aclId;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RemoveIPv6TranslatorAclListEntry",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveIPv6TranslatorAclListEntryResponse>(await this.callApi(params, req, runtime), new RemoveIPv6TranslatorAclListEntryResponse({}));
+    return $tea.cast<RemoveIPv6TranslatorAclListEntryResponse>(await this.doRPCRequest("RemoveIPv6TranslatorAclListEntry", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveIPv6TranslatorAclListEntryResponse({}));
   }
 
   async removeIPv6TranslatorAclListEntry(request: RemoveIPv6TranslatorAclListEntryRequest): Promise<RemoveIPv6TranslatorAclListEntryResponse> {
@@ -46771,32 +40343,10 @@ export default class Client extends OpenApi {
 
   async removeSourcesFromTrafficMirrorSessionWithOptions(request: RemoveSourcesFromTrafficMirrorSessionRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorSessionId"] = request.trafficMirrorSessionId;
-    query["TrafficMirrorSourceIds"] = request.trafficMirrorSourceIds;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RemoveSourcesFromTrafficMirrorSession",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveSourcesFromTrafficMirrorSessionResponse>(await this.callApi(params, req, runtime), new RemoveSourcesFromTrafficMirrorSessionResponse({}));
+    return $tea.cast<RemoveSourcesFromTrafficMirrorSessionResponse>(await this.doRPCRequest("RemoveSourcesFromTrafficMirrorSession", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveSourcesFromTrafficMirrorSessionResponse({}));
   }
 
   async removeSourcesFromTrafficMirrorSession(request: RemoveSourcesFromTrafficMirrorSessionRequest): Promise<RemoveSourcesFromTrafficMirrorSessionResponse> {
@@ -46806,31 +40356,10 @@ export default class Client extends OpenApi {
 
   async renewInstanceWithOptions(request: RenewInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RenewInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Duration"] = request.duration;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerId"] = request.ownerId;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RenewInstance",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    return $tea.cast<RenewInstanceResponse>(await this.doRPCRequest("RenewInstance", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RenewInstanceResponse({}));
   }
 
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
@@ -46840,32 +40369,10 @@ export default class Client extends OpenApi {
 
   async replaceVpcDhcpOptionsSetWithOptions(request: ReplaceVpcDhcpOptionsSetRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceVpcDhcpOptionsSetResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ReplaceVpcDhcpOptionsSet",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReplaceVpcDhcpOptionsSetResponse>(await this.callApi(params, req, runtime), new ReplaceVpcDhcpOptionsSetResponse({}));
+    return $tea.cast<ReplaceVpcDhcpOptionsSetResponse>(await this.doRPCRequest("ReplaceVpcDhcpOptionsSet", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new ReplaceVpcDhcpOptionsSetResponse({}));
   }
 
   async replaceVpcDhcpOptionsSet(request: ReplaceVpcDhcpOptionsSetRequest): Promise<ReplaceVpcDhcpOptionsSetResponse> {
@@ -46875,33 +40382,10 @@ export default class Client extends OpenApi {
 
   async revokeInstanceFromCenWithOptions(request: RevokeInstanceFromCenRequest, runtime: $Util.RuntimeOptions): Promise<RevokeInstanceFromCenResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["CenId"] = request.cenId;
-    query["CenOwnerId"] = request.cenOwnerId;
-    query["ClientToken"] = request.clientToken;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "RevokeInstanceFromCen",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RevokeInstanceFromCenResponse>(await this.callApi(params, req, runtime), new RevokeInstanceFromCenResponse({}));
+    return $tea.cast<RevokeInstanceFromCenResponse>(await this.doRPCRequest("RevokeInstanceFromCen", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new RevokeInstanceFromCenResponse({}));
   }
 
   async revokeInstanceFromCen(request: RevokeInstanceFromCenRequest): Promise<RevokeInstanceFromCenResponse> {
@@ -46911,31 +40395,10 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "TagResources",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -46945,30 +40408,10 @@ export default class Client extends OpenApi {
 
   async terminatePhysicalConnectionWithOptions(request: TerminatePhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TerminatePhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "TerminatePhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TerminatePhysicalConnectionResponse>(await this.callApi(params, req, runtime), new TerminatePhysicalConnectionResponse({}));
+    return $tea.cast<TerminatePhysicalConnectionResponse>(await this.doRPCRequest("TerminatePhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new TerminatePhysicalConnectionResponse({}));
   }
 
   async terminatePhysicalConnection(request: TerminatePhysicalConnectionRequest): Promise<TerminatePhysicalConnectionResponse> {
@@ -46978,30 +40421,10 @@ export default class Client extends OpenApi {
 
   async terminateVirtualBorderRouterWithOptions(request: TerminateVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<TerminateVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "TerminateVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TerminateVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new TerminateVirtualBorderRouterResponse({}));
+    return $tea.cast<TerminateVirtualBorderRouterResponse>(await this.doRPCRequest("TerminateVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new TerminateVirtualBorderRouterResponse({}));
   }
 
   async terminateVirtualBorderRouter(request: TerminateVirtualBorderRouterRequest): Promise<TerminateVirtualBorderRouterResponse> {
@@ -47011,32 +40434,10 @@ export default class Client extends OpenApi {
 
   async unTagResourcesWithOptions(request: UnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UnTagResourcesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["All"] = request.all;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnTagResources",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnTagResourcesResponse>(await this.callApi(params, req, runtime), new UnTagResourcesResponse({}));
+    return $tea.cast<UnTagResourcesResponse>(await this.doRPCRequest("UnTagResources", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnTagResourcesResponse({}));
   }
 
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
@@ -47046,34 +40447,10 @@ export default class Client extends OpenApi {
 
   async unassociateEipAddressWithOptions(request: UnassociateEipAddressRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["AllocationId"] = request.allocationId;
-    query["ClientToken"] = request.clientToken;
-    query["Force"] = request.force;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PrivateIpAddress"] = request.privateIpAddress;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateEipAddress",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateEipAddressResponse>(await this.callApi(params, req, runtime), new UnassociateEipAddressResponse({}));
+    return $tea.cast<UnassociateEipAddressResponse>(await this.doRPCRequest("UnassociateEipAddress", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateEipAddressResponse({}));
   }
 
   async unassociateEipAddress(request: UnassociateEipAddressRequest): Promise<UnassociateEipAddressResponse> {
@@ -47083,30 +40460,10 @@ export default class Client extends OpenApi {
 
   async unassociateGlobalAccelerationInstanceWithOptions(request: UnassociateGlobalAccelerationInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateGlobalAccelerationInstanceResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["GlobalAccelerationInstanceId"] = request.globalAccelerationInstanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateGlobalAccelerationInstance",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateGlobalAccelerationInstanceResponse>(await this.callApi(params, req, runtime), new UnassociateGlobalAccelerationInstanceResponse({}));
+    return $tea.cast<UnassociateGlobalAccelerationInstanceResponse>(await this.doRPCRequest("UnassociateGlobalAccelerationInstance", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateGlobalAccelerationInstanceResponse({}));
   }
 
   async unassociateGlobalAccelerationInstance(request: UnassociateGlobalAccelerationInstanceRequest): Promise<UnassociateGlobalAccelerationInstanceResponse> {
@@ -47116,33 +40473,10 @@ export default class Client extends OpenApi {
 
   async unassociateHaVipWithOptions(request: UnassociateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateHaVipResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Force"] = request.force;
-    query["HaVipId"] = request.haVipId;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceType"] = request.instanceType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateHaVip",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateHaVipResponse>(await this.callApi(params, req, runtime), new UnassociateHaVipResponse({}));
+    return $tea.cast<UnassociateHaVipResponse>(await this.doRPCRequest("UnassociateHaVip", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateHaVipResponse({}));
   }
 
   async unassociateHaVip(request: UnassociateHaVipRequest): Promise<UnassociateHaVipResponse> {
@@ -47152,31 +40486,10 @@ export default class Client extends OpenApi {
 
   async unassociateNetworkAclWithOptions(request: UnassociateNetworkAclRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateNetworkAclResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["Resource"] = request.resource;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateNetworkAcl",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateNetworkAclResponse>(await this.callApi(params, req, runtime), new UnassociateNetworkAclResponse({}));
+    return $tea.cast<UnassociateNetworkAclResponse>(await this.doRPCRequest("UnassociateNetworkAcl", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateNetworkAclResponse({}));
   }
 
   async unassociateNetworkAcl(request: UnassociateNetworkAclRequest): Promise<UnassociateNetworkAclResponse> {
@@ -47186,31 +40499,10 @@ export default class Client extends OpenApi {
 
   async unassociatePhysicalConnectionFromVirtualBorderRouterWithOptions(request: UnassociatePhysicalConnectionFromVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicalConnectionId"] = request.physicalConnectionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VbrId"] = request.vbrId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociatePhysicalConnectionFromVirtualBorderRouter",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new UnassociatePhysicalConnectionFromVirtualBorderRouterResponse({}));
+    return $tea.cast<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse>(await this.doRPCRequest("UnassociatePhysicalConnectionFromVirtualBorderRouter", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociatePhysicalConnectionFromVirtualBorderRouterResponse({}));
   }
 
   async unassociatePhysicalConnectionFromVirtualBorderRouter(request: UnassociatePhysicalConnectionFromVirtualBorderRouterRequest): Promise<UnassociatePhysicalConnectionFromVirtualBorderRouterResponse> {
@@ -47220,32 +40512,10 @@ export default class Client extends OpenApi {
 
   async unassociateRouteTableWithOptions(request: UnassociateRouteTableRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateRouteTableResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteTableId"] = request.routeTableId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateRouteTable",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateRouteTableResponse>(await this.callApi(params, req, runtime), new UnassociateRouteTableResponse({}));
+    return $tea.cast<UnassociateRouteTableResponse>(await this.doRPCRequest("UnassociateRouteTable", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateRouteTableResponse({}));
   }
 
   async unassociateRouteTable(request: UnassociateRouteTableRequest): Promise<UnassociateRouteTableResponse> {
@@ -47255,31 +40525,10 @@ export default class Client extends OpenApi {
 
   async unassociateVpcCidrBlockWithOptions(request: UnassociateVpcCidrBlockRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateVpcCidrBlockResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecondaryCidrBlock"] = request.secondaryCidrBlock;
-    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UnassociateVpcCidrBlock",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UnassociateVpcCidrBlockResponse>(await this.callApi(params, req, runtime), new UnassociateVpcCidrBlockResponse({}));
+    return $tea.cast<UnassociateVpcCidrBlockResponse>(await this.doRPCRequest("UnassociateVpcCidrBlock", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UnassociateVpcCidrBlockResponse({}));
   }
 
   async unassociateVpcCidrBlock(request: UnassociateVpcCidrBlockRequest): Promise<UnassociateVpcCidrBlockResponse> {
@@ -47289,30 +40538,10 @@ export default class Client extends OpenApi {
 
   async updateCrossBoarderStatusWithOptions(request: UpdateCrossBoarderStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCrossBoarderStatusResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Enable"] = request.enable;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceUid"] = request.resourceUid;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCrossBoarderStatus",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCrossBoarderStatusResponse>(await this.callApi(params, req, runtime), new UpdateCrossBoarderStatusResponse({}));
+    return $tea.cast<UpdateCrossBoarderStatusResponse>(await this.doRPCRequest("UpdateCrossBoarderStatus", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCrossBoarderStatusResponse({}));
   }
 
   async updateCrossBoarderStatus(request: UpdateCrossBoarderStatusRequest): Promise<UpdateCrossBoarderStatusResponse> {
@@ -47322,37 +40551,10 @@ export default class Client extends OpenApi {
 
   async updateDhcpOptionsSetAttributeWithOptions(request: UpdateDhcpOptionsSetAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDhcpOptionsSetAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["BootFileName"] = request.bootFileName;
-    query["ClientToken"] = request.clientToken;
-    query["DhcpOptionsSetDescription"] = request.dhcpOptionsSetDescription;
-    query["DhcpOptionsSetId"] = request.dhcpOptionsSetId;
-    query["DhcpOptionsSetName"] = request.dhcpOptionsSetName;
-    query["DomainName"] = request.domainName;
-    query["DomainNameServers"] = request.domainNameServers;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TFTPServerName"] = request.TFTPServerName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDhcpOptionsSetAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDhcpOptionsSetAttributeResponse>(await this.callApi(params, req, runtime), new UpdateDhcpOptionsSetAttributeResponse({}));
+    return $tea.cast<UpdateDhcpOptionsSetAttributeResponse>(await this.doRPCRequest("UpdateDhcpOptionsSetAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDhcpOptionsSetAttributeResponse({}));
   }
 
   async updateDhcpOptionsSetAttribute(request: UpdateDhcpOptionsSetAttributeRequest): Promise<UpdateDhcpOptionsSetAttributeResponse> {
@@ -47362,37 +40564,10 @@ export default class Client extends OpenApi {
 
   async updateGatewayRouteTableEntryAttributeWithOptions(request: UpdateGatewayRouteTableEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteTableEntryAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["DryRun"] = request.dryRun;
-    query["IPv4GatewayRouteTableId"] = request.IPv4GatewayRouteTableId;
-    query["Name"] = request.name;
-    query["NextHopId"] = request.nextHopId;
-    query["NextHopType"] = request.nextHopType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateGatewayRouteTableEntryAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateGatewayRouteTableEntryAttributeResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteTableEntryAttributeResponse({}));
+    return $tea.cast<UpdateGatewayRouteTableEntryAttributeResponse>(await this.doRPCRequest("UpdateGatewayRouteTableEntryAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGatewayRouteTableEntryAttributeResponse({}));
   }
 
   async updateGatewayRouteTableEntryAttribute(request: UpdateGatewayRouteTableEntryAttributeRequest): Promise<UpdateGatewayRouteTableEntryAttributeResponse> {
@@ -47402,35 +40577,10 @@ export default class Client extends OpenApi {
 
   async updateIpsecServerWithOptions(request: UpdateIpsecServerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpsecServerResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientIpPool"] = request.clientIpPool;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EffectImmediately"] = request.effectImmediately;
-    query["IkeConfig"] = request.ikeConfig;
-    query["IpsecConfig"] = request.ipsecConfig;
-    query["IpsecServerId"] = request.ipsecServerId;
-    query["IpsecServerName"] = request.ipsecServerName;
-    query["LocalSubnet"] = request.localSubnet;
-    query["Psk"] = request.psk;
-    query["PskEnabled"] = request.pskEnabled;
-    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateIpsecServer",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateIpsecServerResponse>(await this.callApi(params, req, runtime), new UpdateIpsecServerResponse({}));
+    return $tea.cast<UpdateIpsecServerResponse>(await this.doRPCRequest("UpdateIpsecServer", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpsecServerResponse({}));
   }
 
   async updateIpsecServer(request: UpdateIpsecServerRequest): Promise<UpdateIpsecServerResponse> {
@@ -47440,34 +40590,10 @@ export default class Client extends OpenApi {
 
   async updateIpv4GatewayAttributeWithOptions(request: UpdateIpv4GatewayAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpv4GatewayAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Ipv4GatewayDescription"] = request.ipv4GatewayDescription;
-    query["Ipv4GatewayId"] = request.ipv4GatewayId;
-    query["Ipv4GatewayName"] = request.ipv4GatewayName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateIpv4GatewayAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateIpv4GatewayAttributeResponse>(await this.callApi(params, req, runtime), new UpdateIpv4GatewayAttributeResponse({}));
+    return $tea.cast<UpdateIpv4GatewayAttributeResponse>(await this.doRPCRequest("UpdateIpv4GatewayAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIpv4GatewayAttributeResponse({}));
   }
 
   async updateIpv4GatewayAttribute(request: UpdateIpv4GatewayAttributeRequest): Promise<UpdateIpv4GatewayAttributeResponse> {
@@ -47477,34 +40603,10 @@ export default class Client extends OpenApi {
 
   async updateNatGatewayNatTypeWithOptions(request: UpdateNatGatewayNatTypeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNatGatewayNatTypeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["NatGatewayId"] = request.natGatewayId;
-    query["NatType"] = request.natType;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VSwitchId"] = request.vSwitchId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateNatGatewayNatType",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateNatGatewayNatTypeResponse>(await this.callApi(params, req, runtime), new UpdateNatGatewayNatTypeResponse({}));
+    return $tea.cast<UpdateNatGatewayNatTypeResponse>(await this.doRPCRequest("UpdateNatGatewayNatType", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateNatGatewayNatTypeResponse({}));
   }
 
   async updateNatGatewayNatType(request: UpdateNatGatewayNatTypeRequest): Promise<UpdateNatGatewayNatTypeResponse> {
@@ -47514,34 +40616,10 @@ export default class Client extends OpenApi {
 
   async updateNetworkAclEntriesWithOptions(request: UpdateNetworkAclEntriesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNetworkAclEntriesResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["EgressAclEntries"] = request.egressAclEntries;
-    query["IngressAclEntries"] = request.ingressAclEntries;
-    query["NetworkAclId"] = request.networkAclId;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["UpdateEgressAclEntries"] = request.updateEgressAclEntries;
-    query["UpdateIngressAclEntries"] = request.updateIngressAclEntries;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateNetworkAclEntries",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateNetworkAclEntriesResponse>(await this.callApi(params, req, runtime), new UpdateNetworkAclEntriesResponse({}));
+    return $tea.cast<UpdateNetworkAclEntriesResponse>(await this.doRPCRequest("UpdateNetworkAclEntries", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateNetworkAclEntriesResponse({}));
   }
 
   async updateNetworkAclEntries(request: UpdateNetworkAclEntriesRequest): Promise<UpdateNetworkAclEntriesResponse> {
@@ -47551,33 +40629,10 @@ export default class Client extends OpenApi {
 
   async updateTrafficMirrorFilterAttributeWithOptions(request: UpdateTrafficMirrorFilterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterDescription"] = request.trafficMirrorFilterDescription;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
-    query["TrafficMirrorFilterName"] = request.trafficMirrorFilterName;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTrafficMirrorFilterAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTrafficMirrorFilterAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorFilterAttributeResponse({}));
+    return $tea.cast<UpdateTrafficMirrorFilterAttributeResponse>(await this.doRPCRequest("UpdateTrafficMirrorFilterAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTrafficMirrorFilterAttributeResponse({}));
   }
 
   async updateTrafficMirrorFilterAttribute(request: UpdateTrafficMirrorFilterAttributeRequest): Promise<UpdateTrafficMirrorFilterAttributeResponse> {
@@ -47587,38 +40642,10 @@ export default class Client extends OpenApi {
 
   async updateTrafficMirrorFilterRuleAttributeWithOptions(request: UpdateTrafficMirrorFilterRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DestinationCidrBlock"] = request.destinationCidrBlock;
-    query["DestinationPortRange"] = request.destinationPortRange;
-    query["DryRun"] = request.dryRun;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Priority"] = request.priority;
-    query["Protocol"] = request.protocol;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RuleAction"] = request.ruleAction;
-    query["SourceCidrBlock"] = request.sourceCidrBlock;
-    query["SourcePortRange"] = request.sourcePortRange;
-    query["TrafficMirrorFilterRuleId"] = request.trafficMirrorFilterRuleId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTrafficMirrorFilterRuleAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTrafficMirrorFilterRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorFilterRuleAttributeResponse({}));
+    return $tea.cast<UpdateTrafficMirrorFilterRuleAttributeResponse>(await this.doRPCRequest("UpdateTrafficMirrorFilterRuleAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTrafficMirrorFilterRuleAttributeResponse({}));
   }
 
   async updateTrafficMirrorFilterRuleAttribute(request: UpdateTrafficMirrorFilterRuleAttributeRequest): Promise<UpdateTrafficMirrorFilterRuleAttributeResponse> {
@@ -47628,39 +40655,10 @@ export default class Client extends OpenApi {
 
   async updateTrafficMirrorSessionAttributeWithOptions(request: UpdateTrafficMirrorSessionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Enabled"] = request.enabled;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Priority"] = request.priority;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TrafficMirrorFilterId"] = request.trafficMirrorFilterId;
-    query["TrafficMirrorSessionDescription"] = request.trafficMirrorSessionDescription;
-    query["TrafficMirrorSessionId"] = request.trafficMirrorSessionId;
-    query["TrafficMirrorSessionName"] = request.trafficMirrorSessionName;
-    query["TrafficMirrorTargetId"] = request.trafficMirrorTargetId;
-    query["TrafficMirrorTargetType"] = request.trafficMirrorTargetType;
-    query["VirtualNetworkId"] = request.virtualNetworkId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTrafficMirrorSessionAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTrafficMirrorSessionAttributeResponse>(await this.callApi(params, req, runtime), new UpdateTrafficMirrorSessionAttributeResponse({}));
+    return $tea.cast<UpdateTrafficMirrorSessionAttributeResponse>(await this.doRPCRequest("UpdateTrafficMirrorSessionAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTrafficMirrorSessionAttributeResponse({}));
   }
 
   async updateTrafficMirrorSessionAttribute(request: UpdateTrafficMirrorSessionAttributeRequest): Promise<UpdateTrafficMirrorSessionAttributeResponse> {
@@ -47670,31 +40668,10 @@ export default class Client extends OpenApi {
 
   async updateVirtualBorderBandwidthWithOptions(request: UpdateVirtualBorderBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualBorderBandwidthResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateVirtualBorderBandwidth",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateVirtualBorderBandwidthResponse>(await this.callApi(params, req, runtime), new UpdateVirtualBorderBandwidthResponse({}));
+    return $tea.cast<UpdateVirtualBorderBandwidthResponse>(await this.doRPCRequest("UpdateVirtualBorderBandwidth", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVirtualBorderBandwidthResponse({}));
   }
 
   async updateVirtualBorderBandwidth(request: UpdateVirtualBorderBandwidthRequest): Promise<UpdateVirtualBorderBandwidthResponse> {
@@ -47704,28 +40681,10 @@ export default class Client extends OpenApi {
 
   async updateVirtualPhysicalConnectionWithOptions(request: UpdateVirtualPhysicalConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVirtualPhysicalConnectionResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["DryRun"] = request.dryRun;
-    query["InstanceId"] = request.instanceId;
-    query["RegionId"] = request.regionId;
-    query["Token"] = request.token;
-    query["VlanId"] = request.vlanId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateVirtualPhysicalConnection",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateVirtualPhysicalConnectionResponse>(await this.callApi(params, req, runtime), new UpdateVirtualPhysicalConnectionResponse({}));
+    return $tea.cast<UpdateVirtualPhysicalConnectionResponse>(await this.doRPCRequest("UpdateVirtualPhysicalConnection", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVirtualPhysicalConnectionResponse({}));
   }
 
   async updateVirtualPhysicalConnection(request: UpdateVirtualPhysicalConnectionRequest): Promise<UpdateVirtualPhysicalConnectionResponse> {
@@ -47735,34 +40694,10 @@ export default class Client extends OpenApi {
 
   async updateVpcGatewayEndpointAttributeWithOptions(request: UpdateVpcGatewayEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
     Util.validateModel(request);
-    let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointDescription"] = request.endpointDescription;
-    query["EndpointId"] = request.endpointId;
-    query["EndpointName"] = request.endpointName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PolicyDocument"] = request.policyDocument;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateVpcGatewayEndpointAttribute",
-      version: "2016-04-28",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateVpcGatewayEndpointAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcGatewayEndpointAttributeResponse({}));
+    return $tea.cast<UpdateVpcGatewayEndpointAttributeResponse>(await this.doRPCRequest("UpdateVpcGatewayEndpointAttribute", "2016-04-28", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVpcGatewayEndpointAttributeResponse({}));
   }
 
   async updateVpcGatewayEndpointAttribute(request: UpdateVpcGatewayEndpointAttributeRequest): Promise<UpdateVpcGatewayEndpointAttributeResponse> {
