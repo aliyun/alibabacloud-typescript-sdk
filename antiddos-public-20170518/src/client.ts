@@ -8,14 +8,10 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DescribeBgpPackByIpRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   ddosRegionId?: string;
   ip?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       ddosRegionId: 'DdosRegionId',
       ip: 'Ip',
     };
@@ -23,8 +19,6 @@ export class DescribeBgpPackByIpRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       ddosRegionId: 'string',
       ip: 'string',
     };
@@ -79,104 +73,26 @@ export class DescribeBgpPackByIpResponse extends $tea.Model {
   }
 }
 
-export class DescribeBgpPackElasticThresholdRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  ddosRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      ddosRegionId: 'DdosRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      ddosRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBgpPackElasticThresholdResponseBody extends $tea.Model {
-  maxThreshold?: number;
-  requestId?: string;
-  openable?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      maxThreshold: 'MaxThreshold',
-      requestId: 'RequestId',
-      openable: 'Openable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      maxThreshold: 'number',
-      requestId: 'string',
-      openable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBgpPackElasticThresholdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeBgpPackElasticThresholdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeBgpPackElasticThresholdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeCapRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  ddosRegionId?: string;
-  instanceType?: string;
-  instanceId?: string;
   begTime?: number;
+  ddosRegionId?: string;
+  instanceId?: string;
+  instanceType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      ddosRegionId: 'DdosRegionId',
-      instanceType: 'InstanceType',
-      instanceId: 'InstanceId',
       begTime: 'BegTime',
+      ddosRegionId: 'DdosRegionId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      ddosRegionId: 'string',
-      instanceType: 'string',
-      instanceId: 'string',
       begTime: 'number',
+      ddosRegionId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
     };
   }
 
@@ -229,102 +145,11 @@ export class DescribeCapResponse extends $tea.Model {
   }
 }
 
-export class DescribeCreditInfoRequest extends $tea.Model {
-  sourceIp?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCreditInfoResponseBody extends $tea.Model {
-  punishTimes?: number;
-  lastOrderTime?: number;
-  lastLoginTime?: number;
-  requestId?: string;
-  userLevel?: string;
-  blackTimes?: number;
-  newCreatetime?: string;
-  duration?: number;
-  productid?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      punishTimes: 'PunishTimes',
-      lastOrderTime: 'LastOrderTime',
-      lastLoginTime: 'LastLoginTime',
-      requestId: 'RequestId',
-      userLevel: 'UserLevel',
-      blackTimes: 'BlackTimes',
-      newCreatetime: 'NewCreatetime',
-      duration: 'Duration',
-      productid: 'Productid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      punishTimes: 'number',
-      lastOrderTime: 'number',
-      lastLoginTime: 'number',
-      requestId: 'string',
-      userLevel: 'string',
-      blackTimes: 'number',
-      newCreatetime: 'string',
-      duration: 'number',
-      productid: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCreditInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeCreditInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeCreditInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDdosCountRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   ddosRegionId?: string;
   instanceType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       ddosRegionId: 'DdosRegionId',
       instanceType: 'InstanceType',
     };
@@ -332,8 +157,6 @@ export class DescribeDdosCountRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       ddosRegionId: 'string',
       instanceType: 'string',
     };
@@ -389,21 +212,15 @@ export class DescribeDdosCountResponse extends $tea.Model {
 }
 
 export class DescribeDdosCreditRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   ddosRegionId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       ddosRegionId: 'DdosRegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       ddosRegionId: 'string',
     };
   }
@@ -414,21 +231,21 @@ export class DescribeDdosCreditRequest extends $tea.Model {
 }
 
 export class DescribeDdosCreditResponseBody extends $tea.Model {
-  requestId?: string;
   ddosCredit?: DescribeDdosCreditResponseBodyDdosCredit;
+  requestId?: string;
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ddosCredit: 'DdosCredit',
+      requestId: 'RequestId',
       success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ddosCredit: DescribeDdosCreditResponseBodyDdosCredit,
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -461,33 +278,27 @@ export class DescribeDdosCreditResponse extends $tea.Model {
 }
 
 export class DescribeDdosEventListRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  ddosRegionId?: string;
-  instanceType?: string;
-  instanceId?: string;
   currentPage?: number;
+  ddosRegionId?: string;
+  instanceId?: string;
+  instanceType?: string;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      ddosRegionId: 'DdosRegionId',
-      instanceType: 'InstanceType',
-      instanceId: 'InstanceId',
       currentPage: 'CurrentPage',
+      ddosRegionId: 'DdosRegionId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
       pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      ddosRegionId: 'string',
-      instanceType: 'string',
-      instanceId: 'string',
       currentPage: 'number',
+      ddosRegionId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
       pageSize: 'number',
     };
   }
@@ -498,7 +309,7 @@ export class DescribeDdosEventListRequest extends $tea.Model {
 }
 
 export class DescribeDdosEventListResponseBody extends $tea.Model {
-  ddosEventList?: DescribeDdosEventListResponseBodyDdosEventList[];
+  ddosEventList?: DescribeDdosEventListResponseBodyDdosEventList;
   requestId?: string;
   total?: number;
   static names(): { [key: string]: string } {
@@ -511,7 +322,7 @@ export class DescribeDdosEventListResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ddosEventList: { 'type': 'array', 'itemType': DescribeDdosEventListResponseBodyDdosEventList },
+      ddosEventList: DescribeDdosEventListResponseBodyDdosEventList,
       requestId: 'string',
       total: 'number',
     };
@@ -545,31 +356,25 @@ export class DescribeDdosEventListResponse extends $tea.Model {
 }
 
 export class DescribeDdosThresholdRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   ddosRegionId?: string;
   ddosType?: string;
-  instanceType?: string;
   instanceIds?: string[];
+  instanceType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       ddosRegionId: 'DdosRegionId',
       ddosType: 'DdosType',
-      instanceType: 'InstanceType',
       instanceIds: 'InstanceIds',
+      instanceType: 'InstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       ddosRegionId: 'string',
       ddosType: 'string',
-      instanceType: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceType: 'string',
     };
   }
 
@@ -580,7 +385,7 @@ export class DescribeDdosThresholdRequest extends $tea.Model {
 
 export class DescribeDdosThresholdResponseBody extends $tea.Model {
   requestId?: string;
-  thresholds?: DescribeDdosThresholdResponseBodyThresholds[];
+  thresholds?: DescribeDdosThresholdResponseBodyThresholds;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
@@ -591,7 +396,7 @@ export class DescribeDdosThresholdResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      thresholds: { 'type': 'array', 'itemType': DescribeDdosThresholdResponseBodyThresholds },
+      thresholds: DescribeDdosThresholdResponseBodyThresholds,
     };
   }
 
@@ -622,116 +427,38 @@ export class DescribeDdosThresholdResponse extends $tea.Model {
   }
 }
 
-export class DescribeFlexibleProtectionFlowRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  days?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      days: 'Days',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      days: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlexibleProtectionFlowResponseBody extends $tea.Model {
-  requestId?: string;
-  flows?: DescribeFlexibleProtectionFlowResponseBodyFlows[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      flows: 'Flows',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      flows: { 'type': 'array', 'itemType': DescribeFlexibleProtectionFlowResponseBodyFlows },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlexibleProtectionFlowResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFlexibleProtectionFlowResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFlexibleProtectionFlowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlowgraphRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  eagleEyeTraceId?: string;
-  eagleEyeRpcId?: string;
-  eagleEyeUserData?: string;
+export class DescribeInstanceRequest extends $tea.Model {
+  currentPage?: number;
   ddosRegionId?: string;
-  instanceType?: string;
+  ddosStatus?: string;
   instanceId?: string;
-  days?: number;
-  startTime?: number;
-  endTime?: number;
+  instanceIp?: string;
+  instanceName?: string;
+  instanceType?: string;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      eagleEyeTraceId: 'eagleEyeTraceId',
-      eagleEyeRpcId: 'eagleEyeRpcId',
-      eagleEyeUserData: 'eagleEyeUserData',
+      currentPage: 'CurrentPage',
       ddosRegionId: 'DdosRegionId',
-      instanceType: 'InstanceType',
+      ddosStatus: 'DdosStatus',
       instanceId: 'InstanceId',
-      days: 'Days',
-      startTime: 'StartTime',
-      endTime: 'EndTime',
+      instanceIp: 'InstanceIp',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      eagleEyeTraceId: 'string',
-      eagleEyeRpcId: 'string',
-      eagleEyeUserData: 'string',
+      currentPage: 'number',
       ddosRegionId: 'string',
-      instanceType: 'string',
+      ddosStatus: 'string',
       instanceId: 'string',
-      days: 'number',
-      startTime: 'number',
-      endTime: 'number',
+      instanceIp: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      pageSize: 'number',
     };
   }
 
@@ -740,20 +467,23 @@ export class DescribeFlowgraphRequest extends $tea.Model {
   }
 }
 
-export class DescribeFlowgraphResponseBody extends $tea.Model {
-  flowgraphs?: DescribeFlowgraphResponseBodyFlowgraphs[];
+export class DescribeInstanceResponseBody extends $tea.Model {
+  instanceList?: DescribeInstanceResponseBodyInstanceList;
   requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      flowgraphs: 'Flowgraphs',
+      instanceList: 'InstanceList',
       requestId: 'RequestId',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      flowgraphs: { 'type': 'array', 'itemType': DescribeFlowgraphResponseBodyFlowgraphs },
+      instanceList: DescribeInstanceResponseBodyInstanceList,
       requestId: 'string',
+      total: 'number',
     };
   }
 
@@ -762,9 +492,9 @@ export class DescribeFlowgraphResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeFlowgraphResponse extends $tea.Model {
+export class DescribeInstanceResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeFlowgraphResponseBody;
+  body: DescribeInstanceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -775,98 +505,7 @@ export class DescribeFlowgraphResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFlowgraphResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionDdosThresholdRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  ddosRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      ddosRegionId: 'DdosRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-      ddosRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionDdosThresholdResponseBody extends $tea.Model {
-  requestId?: string;
-  regionDdosThreshold?: DescribeRegionDdosThresholdResponseBodyRegionDdosThreshold;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      regionDdosThreshold: 'RegionDdosThreshold',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      regionDdosThreshold: DescribeRegionDdosThresholdResponseBodyRegionDdosThreshold,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionDdosThresholdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRegionDdosThresholdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRegionDdosThresholdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRegionsRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
+      body: DescribeInstanceResponseBody,
     };
   }
 
@@ -876,19 +515,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
+  regions?: DescribeRegionsResponseBodyRegions;
   requestId?: string;
-  regions?: DescribeRegionsResponseBodyRegions[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      regions: DescribeRegionsResponseBodyRegions,
       requestId: 'string',
-      regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
     };
   }
 
@@ -919,95 +558,23 @@ export class DescribeRegionsResponse extends $tea.Model {
   }
 }
 
-export class DescribeTrafficInfoRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrafficInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  trafficInfo?: DescribeTrafficInfoResponseBodyTrafficInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      trafficInfo: 'TrafficInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      trafficInfo: DescribeTrafficInfoResponseBodyTrafficInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeTrafficInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeTrafficInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeTrafficInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyDdosStatusRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   ddosRegionId?: string;
-  instanceType?: string;
   instanceId?: string;
+  instanceType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       ddosRegionId: 'DdosRegionId',
-      instanceType: 'InstanceType',
       instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       ddosRegionId: 'string',
-      instanceType: 'string',
       instanceId: 'string',
+      instanceType: 'string',
     };
   }
 
@@ -1058,37 +625,31 @@ export class ModifyDdosStatusResponse extends $tea.Model {
 }
 
 export class ModifyDefenseThresholdRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
-  ddosRegionId?: string;
-  instanceType?: string;
-  instanceId?: string;
   bps?: number;
-  pps?: number;
+  ddosRegionId?: string;
+  instanceId?: string;
+  instanceType?: string;
   isAuto?: boolean;
+  pps?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
-      ddosRegionId: 'DdosRegionId',
-      instanceType: 'InstanceType',
-      instanceId: 'InstanceId',
       bps: 'Bps',
-      pps: 'Pps',
+      ddosRegionId: 'DdosRegionId',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
       isAuto: 'IsAuto',
+      pps: 'Pps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
-      ddosRegionId: 'string',
-      instanceType: 'string',
-      instanceId: 'string',
       bps: 'number',
-      pps: 'number',
+      ddosRegionId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
       isAuto: 'boolean',
+      pps: 'number',
     };
   }
 
@@ -1139,28 +700,28 @@ export class ModifyDefenseThresholdResponse extends $tea.Model {
 }
 
 export class DescribeBgpPackByIpResponseBodyDdosbgpInfo extends $tea.Model {
-  expireTime?: number;
-  elasticThreshold?: number;
-  ip?: string;
   baseThreshold?: number;
   ddosbgpInstanceId?: string;
+  elasticThreshold?: number;
+  expireTime?: number;
+  ip?: string;
   static names(): { [key: string]: string } {
     return {
-      expireTime: 'ExpireTime',
-      elasticThreshold: 'ElasticThreshold',
-      ip: 'Ip',
       baseThreshold: 'BaseThreshold',
       ddosbgpInstanceId: 'DdosbgpInstanceId',
+      elasticThreshold: 'ElasticThreshold',
+      expireTime: 'ExpireTime',
+      ip: 'Ip',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      expireTime: 'number',
-      elasticThreshold: 'number',
-      ip: 'string',
       baseThreshold: 'number',
       ddosbgpInstanceId: 'string',
+      elasticThreshold: 'number',
+      expireTime: 'number',
+      ip: 'string',
     };
   }
 
@@ -1189,21 +750,21 @@ export class DescribeCapResponseBodyCapUrl extends $tea.Model {
 }
 
 export class DescribeDdosCountResponseBodyDdosCount extends $tea.Model {
-  defenseCount?: number;
   blackholeCount?: number;
+  defenseCount?: number;
   instacenCount?: number;
   static names(): { [key: string]: string } {
     return {
-      defenseCount: 'DefenseCount',
       blackholeCount: 'BlackholeCount',
+      defenseCount: 'DefenseCount',
       instacenCount: 'InstacenCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      defenseCount: 'number',
       blackholeCount: 'number',
+      defenseCount: 'number',
       instacenCount: 'number',
     };
   }
@@ -1214,22 +775,22 @@ export class DescribeDdosCountResponseBodyDdosCount extends $tea.Model {
 }
 
 export class DescribeDdosCreditResponseBodyDdosCredit extends $tea.Model {
+  blackholeTime?: number;
   score?: number;
   scoreLevel?: string;
-  blackholeTime?: number;
   static names(): { [key: string]: string } {
     return {
+      blackholeTime: 'BlackholeTime',
       score: 'Score',
       scoreLevel: 'ScoreLevel',
-      blackholeTime: 'BlackholeTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      blackholeTime: 'number',
       score: 'number',
       scoreLevel: 'string',
-      blackholeTime: 'number',
     };
   }
 
@@ -1238,31 +799,31 @@ export class DescribeDdosCreditResponseBodyDdosCredit extends $tea.Model {
   }
 }
 
-export class DescribeDdosEventListResponseBodyDdosEventList extends $tea.Model {
+export class DescribeDdosEventListResponseBodyDdosEventListDdosEvent extends $tea.Model {
+  ddosStatus?: string;
   ddosType?: string;
+  delayTime?: number;
   endTime?: number;
   startTime?: number;
-  delayTime?: number;
-  ddosStatus?: string;
   unBlackholeTime?: number;
   static names(): { [key: string]: string } {
     return {
+      ddosStatus: 'DdosStatus',
       ddosType: 'DdosType',
+      delayTime: 'DelayTime',
       endTime: 'EndTime',
       startTime: 'StartTime',
-      delayTime: 'DelayTime',
-      ddosStatus: 'DdosStatus',
       unBlackholeTime: 'UnBlackholeTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ddosStatus: 'string',
       ddosType: 'string',
+      delayTime: 'number',
       endTime: 'number',
       startTime: 'number',
-      delayTime: 'number',
-      ddosStatus: 'string',
       unBlackholeTime: 'number',
     };
   }
@@ -1272,90 +833,56 @@ export class DescribeDdosEventListResponseBodyDdosEventList extends $tea.Model {
   }
 }
 
-export class DescribeDdosThresholdResponseBodyThresholds extends $tea.Model {
+export class DescribeDdosEventListResponseBodyDdosEventList extends $tea.Model {
+  ddosEvent?: DescribeDdosEventListResponseBodyDdosEventListDdosEvent[];
+  static names(): { [key: string]: string } {
+    return {
+      ddosEvent: 'DdosEvent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ddosEvent: { 'type': 'array', 'itemType': DescribeDdosEventListResponseBodyDdosEventListDdosEvent },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDdosThresholdResponseBodyThresholdsThreshold extends $tea.Model {
+  bps?: number;
   ddosType?: string;
-  isAuto?: boolean;
-  maxBps?: number;
   elasticBps?: number;
   instanceId?: string;
-  bps?: number;
-  pps?: number;
+  isAuto?: boolean;
+  maxBps?: number;
   maxPps?: number;
+  pps?: number;
   static names(): { [key: string]: string } {
     return {
+      bps: 'Bps',
       ddosType: 'DdosType',
-      isAuto: 'IsAuto',
-      maxBps: 'MaxBps',
       elasticBps: 'ElasticBps',
       instanceId: 'InstanceId',
-      bps: 'Bps',
-      pps: 'Pps',
+      isAuto: 'IsAuto',
+      maxBps: 'MaxBps',
       maxPps: 'MaxPps',
+      pps: 'Pps',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bps: 'number',
       ddosType: 'string',
-      isAuto: 'boolean',
-      maxBps: 'number',
       elasticBps: 'number',
       instanceId: 'string',
-      bps: 'number',
-      pps: 'number',
+      isAuto: 'boolean',
+      maxBps: 'number',
       maxPps: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlexibleProtectionFlowResponseBodyFlows extends $tea.Model {
-  usedFlow?: number;
-  time?: number;
-  addFlow?: number;
-  useableFlow?: number;
-  static names(): { [key: string]: string } {
-    return {
-      usedFlow: 'UsedFlow',
-      time: 'Time',
-      addFlow: 'AddFlow',
-      useableFlow: 'UseableFlow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      usedFlow: 'number',
-      time: 'number',
-      addFlow: 'number',
-      useableFlow: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFlowgraphResponseBodyFlowgraphs extends $tea.Model {
-  time?: number;
-  bps?: number;
-  pps?: number;
-  static names(): { [key: string]: string } {
-    return {
-      time: 'Time',
-      bps: 'Bps',
-      pps: 'Pps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      time: 'number',
-      bps: 'number',
       pps: 'number',
     };
   }
@@ -1365,20 +892,17 @@ export class DescribeFlowgraphResponseBodyFlowgraphs extends $tea.Model {
   }
 }
 
-export class DescribeRegionDdosThresholdResponseBodyRegionDdosThreshold extends $tea.Model {
-  elasticThreshold?: number;
-  baseThreshold?: number;
+export class DescribeDdosThresholdResponseBodyThresholds extends $tea.Model {
+  threshold?: DescribeDdosThresholdResponseBodyThresholdsThreshold[];
   static names(): { [key: string]: string } {
     return {
-      elasticThreshold: 'ElasticThreshold',
-      baseThreshold: 'BaseThreshold',
+      threshold: 'Threshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      elasticThreshold: 'number',
-      baseThreshold: 'number',
+      threshold: { 'type': 'array', 'itemType': DescribeDdosThresholdResponseBodyThresholdsThreshold },
     };
   }
 
@@ -1387,7 +911,75 @@ export class DescribeRegionDdosThresholdResponseBodyRegionDdosThreshold extends 
   }
 }
 
-export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+export class DescribeInstanceResponseBodyInstanceListInstance extends $tea.Model {
+  blackholeThreshold?: number;
+  defenseBpsThreshold?: number;
+  defensePpsThreshold?: number;
+  elasticThreshold?: number;
+  instanceId?: string;
+  instanceIp?: string;
+  instanceName?: string;
+  instanceStatus?: string;
+  instanceType?: string;
+  ipVersion?: string;
+  isBgppack?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      blackholeThreshold: 'BlackholeThreshold',
+      defenseBpsThreshold: 'DefenseBpsThreshold',
+      defensePpsThreshold: 'DefensePpsThreshold',
+      elasticThreshold: 'ElasticThreshold',
+      instanceId: 'InstanceId',
+      instanceIp: 'InstanceIp',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      ipVersion: 'IpVersion',
+      isBgppack: 'IsBgppack',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blackholeThreshold: 'number',
+      defenseBpsThreshold: 'number',
+      defensePpsThreshold: 'number',
+      elasticThreshold: 'number',
+      instanceId: 'string',
+      instanceIp: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      ipVersion: 'string',
+      isBgppack: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyInstanceList extends $tea.Model {
+  instance?: DescribeInstanceResponseBodyInstanceListInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      instance: 'Instance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instance: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyInstanceListInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
   regionEnName?: string;
   regionName?: string;
   regionNo?: string;
@@ -1415,23 +1007,17 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class DescribeTrafficInfoResponseBodyTrafficInfo extends $tea.Model {
-  lastUsedTraffic?: number;
-  addTraffic?: number;
-  usableTraffic?: number;
+export class DescribeRegionsResponseBodyRegions extends $tea.Model {
+  region?: DescribeRegionsResponseBodyRegionsRegion[];
   static names(): { [key: string]: string } {
     return {
-      lastUsedTraffic: 'LastUsedTraffic',
-      addTraffic: 'AddTraffic',
-      usableTraffic: 'UsableTraffic',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lastUsedTraffic: 'number',
-      addTraffic: 'number',
-      usableTraffic: 'number',
+      region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
     };
   }
 
@@ -1476,19 +1062,6 @@ export default class Client extends OpenApi {
     return await this.describeBgpPackByIpWithOptions(request, runtime);
   }
 
-  async describeBgpPackElasticThresholdWithOptions(request: DescribeBgpPackElasticThresholdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBgpPackElasticThresholdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeBgpPackElasticThresholdResponse>(await this.doRPCRequest("DescribeBgpPackElasticThreshold", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBgpPackElasticThresholdResponse({}));
-  }
-
-  async describeBgpPackElasticThreshold(request: DescribeBgpPackElasticThresholdRequest): Promise<DescribeBgpPackElasticThresholdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeBgpPackElasticThresholdWithOptions(request, runtime);
-  }
-
   async describeCapWithOptions(request: DescribeCapRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCapResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
@@ -1500,19 +1073,6 @@ export default class Client extends OpenApi {
   async describeCap(request: DescribeCapRequest): Promise<DescribeCapResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCapWithOptions(request, runtime);
-  }
-
-  async describeCreditInfoWithOptions(request: DescribeCreditInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCreditInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeCreditInfoResponse>(await this.doRPCRequest("DescribeCreditInfo", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCreditInfoResponse({}));
-  }
-
-  async describeCreditInfo(request: DescribeCreditInfoRequest): Promise<DescribeCreditInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeCreditInfoWithOptions(request, runtime);
   }
 
   async describeDdosCountWithOptions(request: DescribeDdosCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDdosCountResponse> {
@@ -1567,69 +1127,27 @@ export default class Client extends OpenApi {
     return await this.describeDdosThresholdWithOptions(request, runtime);
   }
 
-  async describeFlexibleProtectionFlowWithOptions(request: DescribeFlexibleProtectionFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlexibleProtectionFlowResponse> {
+  async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeFlexibleProtectionFlowResponse>(await this.doRPCRequest("DescribeFlexibleProtectionFlow", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFlexibleProtectionFlowResponse({}));
+    return $tea.cast<DescribeInstanceResponse>(await this.doRPCRequest("DescribeInstance", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceResponse({}));
   }
 
-  async describeFlexibleProtectionFlow(request: DescribeFlexibleProtectionFlowRequest): Promise<DescribeFlexibleProtectionFlowResponse> {
+  async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFlexibleProtectionFlowWithOptions(request, runtime);
+    return await this.describeInstanceWithOptions(request, runtime);
   }
 
-  async describeFlowgraphWithOptions(request: DescribeFlowgraphRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowgraphResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeFlowgraphResponse>(await this.doRPCRequest("DescribeFlowgraph", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFlowgraphResponse({}));
-  }
-
-  async describeFlowgraph(request: DescribeFlowgraphRequest): Promise<DescribeFlowgraphResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFlowgraphWithOptions(request, runtime);
-  }
-
-  async describeRegionDdosThresholdWithOptions(request: DescribeRegionDdosThresholdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionDdosThresholdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeRegionDdosThresholdResponse>(await this.doRPCRequest("DescribeRegionDdosThreshold", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionDdosThresholdResponse({}));
-  }
-
-  async describeRegionDdosThreshold(request: DescribeRegionDdosThresholdRequest): Promise<DescribeRegionDdosThresholdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionDdosThresholdWithOptions(request, runtime);
-  }
-
-  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
+  async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
   }
 
-  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+  async describeRegions(): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(request, runtime);
-  }
-
-  async describeTrafficInfoWithOptions(request: DescribeTrafficInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeTrafficInfoResponse>(await this.doRPCRequest("DescribeTrafficInfo", "2017-05-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTrafficInfoResponse({}));
-  }
-
-  async describeTrafficInfo(request: DescribeTrafficInfoRequest): Promise<DescribeTrafficInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeTrafficInfoWithOptions(request, runtime);
+    return await this.describeRegionsWithOptions(runtime);
   }
 
   async modifyDdosStatusWithOptions(request: ModifyDdosStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDdosStatusResponse> {
