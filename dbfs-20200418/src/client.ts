@@ -1264,6 +1264,135 @@ export class ListDbfsResponse extends $tea.Model {
   }
 }
 
+export class ListDbfsAttachableEcsInstancesRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachableEcsInstancesResponseBody extends $tea.Model {
+  ecsLabelInfo?: ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsLabelInfo: 'EcsLabelInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsLabelInfo: { 'type': 'array', 'itemType': ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachableEcsInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDbfsAttachableEcsInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDbfsAttachableEcsInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachedEcsInstancesRequest extends $tea.Model {
+  fsId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fsId: 'FsId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fsId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachedEcsInstancesResponseBody extends $tea.Model {
+  ecsLabelInfo?: ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsLabelInfo: 'EcsLabelInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsLabelInfo: { 'type': 'array', 'itemType': ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachedEcsInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDbfsAttachedEcsInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDbfsAttachedEcsInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSnapshotRequest extends $tea.Model {
   filterKey?: string;
   filterValue?: string;
@@ -2434,6 +2563,56 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
   }
 }
 
+export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  label?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'label',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  mountPoint?: string;
+  mountedTime?: string;
+  label?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPoint: 'MountPoint',
+      mountedTime: 'MountedTime',
+      label: 'label',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPoint: 'string',
+      mountedTime: 'string',
+      label: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSnapshotResponseBodySnapshots extends $tea.Model {
   category?: string;
   creationTime?: string;
@@ -2840,6 +3019,32 @@ export default class Client extends OpenApi {
   async listDbfs(request: ListDbfsRequest): Promise<ListDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDbfsWithOptions(request, runtime);
+  }
+
+  async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDbfsAttachableEcsInstancesResponse>(await this.doRPCRequest("ListDbfsAttachableEcsInstances", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDbfsAttachableEcsInstancesResponse({}));
+  }
+
+  async listDbfsAttachableEcsInstances(request: ListDbfsAttachableEcsInstancesRequest): Promise<ListDbfsAttachableEcsInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDbfsAttachableEcsInstancesWithOptions(request, runtime);
+  }
+
+  async listDbfsAttachedEcsInstancesWithOptions(request: ListDbfsAttachedEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachedEcsInstancesResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    return $tea.cast<ListDbfsAttachedEcsInstancesResponse>(await this.doRPCRequest("ListDbfsAttachedEcsInstances", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDbfsAttachedEcsInstancesResponse({}));
+  }
+
+  async listDbfsAttachedEcsInstances(request: ListDbfsAttachedEcsInstancesRequest): Promise<ListDbfsAttachedEcsInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDbfsAttachedEcsInstancesWithOptions(request, runtime);
   }
 
   async listSnapshotWithOptions(request: ListSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotResponse> {
