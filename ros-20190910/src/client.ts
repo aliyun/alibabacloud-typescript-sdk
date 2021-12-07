@@ -1967,6 +1967,7 @@ export class GetChangeSetResponseBody extends $tea.Model {
   description?: string;
   disableRollback?: boolean;
   executionStatus?: string;
+  log?: GetChangeSetResponseBodyLog;
   parameters?: GetChangeSetResponseBodyParameters[];
   regionId?: string;
   requestId?: string;
@@ -1986,6 +1987,7 @@ export class GetChangeSetResponseBody extends $tea.Model {
       description: 'Description',
       disableRollback: 'DisableRollback',
       executionStatus: 'ExecutionStatus',
+      log: 'Log',
       parameters: 'Parameters',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -2008,6 +2010,7 @@ export class GetChangeSetResponseBody extends $tea.Model {
       description: 'string',
       disableRollback: 'boolean',
       executionStatus: 'string',
+      log: GetChangeSetResponseBodyLog,
       parameters: { 'type': 'array', 'itemType': GetChangeSetResponseBodyParameters },
       regionId: 'string',
       requestId: 'string',
@@ -2366,6 +2369,7 @@ export class GetStackResponseBody extends $tea.Model {
   description?: string;
   disableRollback?: boolean;
   driftDetectionTime?: string;
+  log?: GetStackResponseBodyLog;
   notificationURLs?: string[];
   outputs?: { [key: string]: any }[];
   parameters?: GetStackResponseBodyParameters[];
@@ -2393,6 +2397,7 @@ export class GetStackResponseBody extends $tea.Model {
       description: 'Description',
       disableRollback: 'DisableRollback',
       driftDetectionTime: 'DriftDetectionTime',
+      log: 'Log',
       notificationURLs: 'NotificationURLs',
       outputs: 'Outputs',
       parameters: 'Parameters',
@@ -2423,6 +2428,7 @@ export class GetStackResponseBody extends $tea.Model {
       description: 'string',
       disableRollback: 'boolean',
       driftDetectionTime: 'string',
+      log: GetStackResponseBodyLog,
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
       outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       parameters: { 'type': 'array', 'itemType': GetStackResponseBodyParameters },
@@ -6742,6 +6748,50 @@ export class GenerateTemplatePolicyResponseBodyPolicy extends $tea.Model {
   }
 }
 
+export class GetChangeSetResponseBodyLogTerraformLogs extends $tea.Model {
+  command?: string;
+  content?: string;
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChangeSetResponseBodyLog extends $tea.Model {
+  terraformLogs?: GetChangeSetResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': GetChangeSetResponseBodyLogTerraformLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetChangeSetResponseBodyParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -6972,6 +7022,50 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Mode
       serviceName: 'string',
       status: 'string',
       statusReason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLogTerraformLogs extends $tea.Model {
+  command?: string;
+  content?: string;
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStackResponseBodyLog extends $tea.Model {
+  terraformLogs?: GetStackResponseBodyLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': GetStackResponseBodyLogTerraformLogs },
     };
   }
 
@@ -8633,6 +8727,50 @@ export class PreviewStackRequestParameters extends $tea.Model {
   }
 }
 
+export class PreviewStackResponseBodyStackLogTerraformLogs extends $tea.Model {
+  command?: string;
+  content?: string;
+  stream?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      content: 'Content',
+      stream: 'Stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      content: 'string',
+      stream: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PreviewStackResponseBodyStackLog extends $tea.Model {
+  terraformLogs?: PreviewStackResponseBodyStackLogTerraformLogs[];
+  static names(): { [key: string]: string } {
+    return {
+      terraformLogs: 'TerraformLogs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      terraformLogs: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackLogTerraformLogs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewStackResponseBodyStackParameters extends $tea.Model {
   parameterKey?: string;
   parameterValue?: string;
@@ -8692,6 +8830,7 @@ export class PreviewStackResponseBodyStackResources extends $tea.Model {
 export class PreviewStackResponseBodyStack extends $tea.Model {
   description?: string;
   disableRollback?: boolean;
+  log?: PreviewStackResponseBodyStackLog;
   parameters?: PreviewStackResponseBodyStackParameters[];
   regionId?: string;
   resources?: PreviewStackResponseBodyStackResources[];
@@ -8703,6 +8842,7 @@ export class PreviewStackResponseBodyStack extends $tea.Model {
     return {
       description: 'Description',
       disableRollback: 'DisableRollback',
+      log: 'Log',
       parameters: 'Parameters',
       regionId: 'RegionId',
       resources: 'Resources',
@@ -8717,6 +8857,7 @@ export class PreviewStackResponseBodyStack extends $tea.Model {
     return {
       description: 'string',
       disableRollback: 'boolean',
+      log: PreviewStackResponseBodyStackLog,
       parameters: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackParameters },
       regionId: 'string',
       resources: { 'type': 'array', 'itemType': PreviewStackResponseBodyStackResources },
