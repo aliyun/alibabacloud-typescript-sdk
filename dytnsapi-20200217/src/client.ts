@@ -4,21 +4,271 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DescribePhoneNumberResaleRequest extends $tea.Model {
+export class DescribeEmptyNumberDetectRequest extends $tea.Model {
+  encryptType?: string;
   ownerId?: number;
+  phone?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      encryptType: 'EncryptType',
+      ownerId: 'OwnerId',
+      phone: 'Phone',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encryptType: 'string',
+      ownerId: 'number',
+      phone: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmptyNumberDetectResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeEmptyNumberDetectResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': DescribeEmptyNumberDetectResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmptyNumberDetectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeEmptyNumberDetectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeEmptyNumberDetectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisRequest extends $tea.Model {
+  authCode?: string;
+  inputNumber?: string;
+  mask?: string;
+  numberType?: number;
+  ownerId?: number;
+  rate?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      inputNumber: 'InputNumber',
+      mask: 'Mask',
+      numberType: 'NumberType',
+      ownerId: 'OwnerId',
+      rate: 'Rate',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      inputNumber: 'string',
+      mask: 'string',
+      numberType: 'number',
+      ownerId: 'number',
+      rate: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribePhoneNumberAnalysisResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': DescribePhoneNumberAnalysisResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAnalysisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribePhoneNumberAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribePhoneNumberAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAttributeRequest extends $tea.Model {
+  ownerId?: number;
   phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      phoneNumber: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAttributeResponseBody extends $tea.Model {
+  code?: string;
+  message?: string;
+  phoneNumberAttribute?: DescribePhoneNumberAttributeResponseBodyPhoneNumberAttribute;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      phoneNumberAttribute: 'PhoneNumberAttribute',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      phoneNumberAttribute: DescribePhoneNumberAttributeResponseBodyPhoneNumberAttribute,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribePhoneNumberAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribePhoneNumberAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhoneNumberResaleRequest extends $tea.Model {
+  ownerId?: number;
+  phoneNumber?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   since?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      phoneNumber: 'PhoneNumber',
       since: 'Since',
     };
   }
@@ -26,9 +276,9 @@ export class DescribePhoneNumberResaleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumber: 'string',
       since: 'string',
     };
   }
@@ -39,25 +289,25 @@ export class DescribePhoneNumberResaleRequest extends $tea.Model {
 }
 
 export class DescribePhoneNumberResaleResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   twiceTelVerify?: DescribePhoneNumberResaleResponseBodyTwiceTelVerify;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       twiceTelVerify: 'TwiceTelVerify',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       twiceTelVerify: DescribePhoneNumberResaleResponseBodyTwiceTelVerify,
-      code: 'string',
     };
   }
 
@@ -90,24 +340,24 @@ export class DescribePhoneNumberResaleResponse extends $tea.Model {
 
 export class DescribePhoneNumberStatusRequest extends $tea.Model {
   ownerId?: number;
+  phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  phoneNumber?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      phoneNumber: 'PhoneNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumber: 'string',
     };
   }
 
@@ -117,25 +367,25 @@ export class DescribePhoneNumberStatusRequest extends $tea.Model {
 }
 
 export class DescribePhoneNumberStatusResponseBody extends $tea.Model {
-  phoneStatus?: DescribePhoneNumberStatusResponseBodyPhoneStatus;
-  message?: string;
-  requestId?: string;
   code?: string;
+  message?: string;
+  phoneStatus?: DescribePhoneNumberStatusResponseBodyPhoneStatus;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      phoneStatus: 'PhoneStatus',
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
+      message: 'Message',
+      phoneStatus: 'PhoneStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      phoneStatus: DescribePhoneNumberStatusResponseBodyPhoneStatus,
-      message: 'string',
-      requestId: 'string',
       code: 'string',
+      message: 'string',
+      phoneStatus: DescribePhoneNumberStatusResponseBodyPhoneStatus,
+      requestId: 'string',
     };
   }
 
@@ -185,26 +435,20 @@ export class PvrCallbackFCUResponse extends $tea.Model {
   }
 }
 
-export class QueryPhoneNumberAttributeRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  phoneNumber?: string;
+export class DescribeEmptyNumberDetectResponseBodyData extends $tea.Model {
+  number?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      phoneNumber: 'PhoneNumber',
+      number: 'Number',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      phoneNumber: 'string',
+      number: 'string',
+      status: 'string',
     };
   }
 
@@ -213,26 +457,20 @@ export class QueryPhoneNumberAttributeRequest extends $tea.Model {
   }
 }
 
-export class QueryPhoneNumberAttributeResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  phoneNumberAttribute?: QueryPhoneNumberAttributeResponseBodyPhoneNumberAttribute;
+export class DescribePhoneNumberAnalysisResponseBodyData extends $tea.Model {
   code?: string;
+  number?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
-      phoneNumberAttribute: 'PhoneNumberAttribute',
       code: 'Code',
+      number: 'Number',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
-      phoneNumberAttribute: QueryPhoneNumberAttributeResponseBodyPhoneNumberAttribute,
       code: 'string',
+      number: 'string',
     };
   }
 
@@ -241,20 +479,32 @@ export class QueryPhoneNumberAttributeResponseBody extends $tea.Model {
   }
 }
 
-export class QueryPhoneNumberAttributeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryPhoneNumberAttributeResponseBody;
+export class DescribePhoneNumberAttributeResponseBodyPhoneNumberAttribute extends $tea.Model {
+  basicCarrier?: string;
+  carrier?: string;
+  city?: string;
+  isNumberPortability?: boolean;
+  numberSegment?: number;
+  province?: string;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      basicCarrier: 'BasicCarrier',
+      carrier: 'Carrier',
+      city: 'City',
+      isNumberPortability: 'IsNumberPortability',
+      numberSegment: 'NumberSegment',
+      province: 'Province',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryPhoneNumberAttributeResponseBody,
+      basicCarrier: 'string',
+      carrier: 'string',
+      city: 'string',
+      isNumberPortability: 'boolean',
+      numberSegment: 'number',
+      province: 'string',
     };
   }
 
@@ -286,56 +536,22 @@ export class DescribePhoneNumberResaleResponseBodyTwiceTelVerify extends $tea.Mo
 }
 
 export class DescribePhoneNumberStatusResponseBodyPhoneStatus extends $tea.Model {
-  status?: string;
+  carrier?: string;
   serialId?: string;
-  carrier?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
+      carrier: 'Carrier',
       serialId: 'SerialId',
-      carrier: 'Carrier',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
+      carrier: 'string',
       serialId: 'string',
-      carrier: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPhoneNumberAttributeResponseBodyPhoneNumberAttribute extends $tea.Model {
-  basicCarrier?: string;
-  carrier?: string;
-  isNumberPortability?: boolean;
-  numberSegment?: number;
-  city?: string;
-  province?: string;
-  static names(): { [key: string]: string } {
-    return {
-      basicCarrier: 'BasicCarrier',
-      carrier: 'Carrier',
-      isNumberPortability: 'IsNumberPortability',
-      numberSegment: 'NumberSegment',
-      city: 'City',
-      province: 'Province',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      basicCarrier: 'string',
-      carrier: 'string',
-      isNumberPortability: 'boolean',
-      numberSegment: 'number',
-      city: 'string',
-      province: 'string',
+      status: 'string',
     };
   }
 
@@ -367,12 +583,125 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async describePhoneNumberResaleWithOptions(request: DescribePhoneNumberResaleRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberResaleResponse> {
+  async describeEmptyNumberDetectWithOptions(request: DescribeEmptyNumberDetectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmptyNumberDetectResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EncryptType"] = request.encryptType;
+    query["OwnerId"] = request.ownerId;
+    query["Phone"] = request.phone;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribePhoneNumberResaleResponse>(await this.doRPCRequest("DescribePhoneNumberResale", "2020-02-17", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePhoneNumberResaleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEmptyNumberDetect",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEmptyNumberDetectResponse>(await this.callApi(params, req, runtime), new DescribeEmptyNumberDetectResponse({}));
+  }
+
+  async describeEmptyNumberDetect(request: DescribeEmptyNumberDetectRequest): Promise<DescribeEmptyNumberDetectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEmptyNumberDetectWithOptions(request, runtime);
+  }
+
+  async describePhoneNumberAnalysisWithOptions(request: DescribePhoneNumberAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAnalysisResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AuthCode"] = request.authCode;
+    query["InputNumber"] = request.inputNumber;
+    query["Mask"] = request.mask;
+    query["NumberType"] = request.numberType;
+    query["OwnerId"] = request.ownerId;
+    query["Rate"] = request.rate;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberAnalysis",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberAnalysisResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAnalysisResponse({}));
+  }
+
+  async describePhoneNumberAnalysis(request: DescribePhoneNumberAnalysisRequest): Promise<DescribePhoneNumberAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePhoneNumberAnalysisWithOptions(request, runtime);
+  }
+
+  async describePhoneNumberAttributeWithOptions(request: DescribePhoneNumberAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberAttribute",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberAttributeResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberAttributeResponse({}));
+  }
+
+  async describePhoneNumberAttribute(request: DescribePhoneNumberAttributeRequest): Promise<DescribePhoneNumberAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePhoneNumberAttributeWithOptions(request, runtime);
+  }
+
+  async describePhoneNumberResaleWithOptions(request: DescribePhoneNumberResaleRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberResaleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["Since"] = request.since;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberResale",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberResaleResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberResaleResponse({}));
   }
 
   async describePhoneNumberResale(request: DescribePhoneNumberResaleRequest): Promise<DescribePhoneNumberResaleResponse> {
@@ -382,10 +711,27 @@ export default class Client extends OpenApi {
 
   async describePhoneNumberStatusWithOptions(request: DescribePhoneNumberStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribePhoneNumberStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
+    query["PhoneNumber"] = request.phoneNumber;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribePhoneNumberStatusResponse>(await this.doRPCRequest("DescribePhoneNumberStatus", "2020-02-17", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePhoneNumberStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePhoneNumberStatus",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePhoneNumberStatusResponse>(await this.callApi(params, req, runtime), new DescribePhoneNumberStatusResponse({}));
   }
 
   async describePhoneNumberStatus(request: DescribePhoneNumberStatusRequest): Promise<DescribePhoneNumberStatusResponse> {
@@ -395,25 +741,23 @@ export default class Client extends OpenApi {
 
   async pvrCallbackFCUWithOptions(runtime: $Util.RuntimeOptions): Promise<PvrCallbackFCUResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<PvrCallbackFCUResponse>(await this.doRPCRequest("PvrCallbackFCU", "2020-02-17", "HTTPS", "POST", "AK", "none", req, runtime), new PvrCallbackFCUResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PvrCallbackFCU",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PvrCallbackFCUResponse>(await this.callApi(params, req, runtime), new PvrCallbackFCUResponse({}));
   }
 
   async pvrCallbackFCU(): Promise<PvrCallbackFCUResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pvrCallbackFCUWithOptions(runtime);
-  }
-
-  async queryPhoneNumberAttributeWithOptions(request: QueryPhoneNumberAttributeRequest, runtime: $Util.RuntimeOptions): Promise<QueryPhoneNumberAttributeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryPhoneNumberAttributeResponse>(await this.doRPCRequest("QueryPhoneNumberAttribute", "2020-02-17", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPhoneNumberAttributeResponse({}));
-  }
-
-  async queryPhoneNumberAttribute(request: QueryPhoneNumberAttributeRequest): Promise<QueryPhoneNumberAttributeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryPhoneNumberAttributeWithOptions(request, runtime);
   }
 
 }
