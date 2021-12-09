@@ -340,6 +340,119 @@ export class GetDeviceStatusInfoResponse extends $tea.Model {
   }
 }
 
+export class GetDeviceTagHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xAcsAligenieAccessToken?: string;
+  authorization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xAcsAligenieAccessToken: 'x-acs-aligenie-access-token',
+      authorization: 'Authorization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xAcsAligenieAccessToken: 'string',
+      authorization: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagRequest extends $tea.Model {
+  deviceInfo?: GetDeviceTagRequestDeviceInfo;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfo: 'DeviceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfo: GetDeviceTagRequestDeviceInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagShrinkRequest extends $tea.Model {
+  deviceInfoShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceInfoShrink: 'DeviceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceInfoShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagResponseBody extends $tea.Model {
+  code?: number;
+  message?: string;
+  requestId?: string;
+  result?: GetDeviceTagResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      message: 'string',
+      requestId: 'string',
+      result: GetDeviceTagResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDeviceTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDeviceTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserByDeviceIdHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xAcsAligenieAccessToken?: string;
@@ -633,7 +746,7 @@ export class ListDeviceByUserIdResponseBody extends $tea.Model {
   code?: number;
   message?: string;
   requestId?: string;
-  result?: { [key: string]: ResultValue };
+  result?: ListDeviceByUserIdResponseBodyResult[];
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -648,7 +761,7 @@ export class ListDeviceByUserIdResponseBody extends $tea.Model {
       code: 'number',
       message: 'string',
       requestId: 'string',
-      result: { 'type': 'map', 'keyType': 'string', 'valueType': ResultValue },
+      result: { 'type': 'array', 'itemType': ListDeviceByUserIdResponseBodyResult },
     };
   }
 
@@ -940,12 +1053,16 @@ export class ResultValue extends $tea.Model {
   deviceUnionIds?: ResultValueDeviceUnionIds[];
   name?: string;
   firmwareVersion?: string;
+  mac?: string;
+  sn?: string;
   static names(): { [key: string]: string } {
     return {
       deviceOpenId: 'DeviceOpenId',
       deviceUnionIds: 'DeviceUnionIds',
       name: 'Name',
       firmwareVersion: 'FirmwareVersion',
+      mac: 'Mac',
+      sn: 'Sn',
     };
   }
 
@@ -955,6 +1072,8 @@ export class ResultValue extends $tea.Model {
       deviceUnionIds: { 'type': 'array', 'itemType': ResultValueDeviceUnionIds },
       name: 'string',
       firmwareVersion: 'string',
+      mac: 'string',
+      sn: 'string',
     };
   }
 
@@ -996,18 +1115,24 @@ export class GetDeviceBasicInfoRequestDeviceInfo extends $tea.Model {
 
 export class GetDeviceBasicInfoResponseBodyResult extends $tea.Model {
   firmwareVersion?: string;
+  mac?: string;
   name?: string;
+  sn?: string;
   static names(): { [key: string]: string } {
     return {
       firmwareVersion: 'FirmwareVersion',
+      mac: 'Mac',
       name: 'Name',
+      sn: 'Sn',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       firmwareVersion: 'string',
+      mac: 'string',
       name: 'string',
+      sn: 'string',
     };
   }
 
@@ -1102,6 +1227,56 @@ export class GetDeviceStatusInfoResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       online: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagRequestDeviceInfo extends $tea.Model {
+  encodeKey?: string;
+  encodeType?: string;
+  id?: string;
+  idType?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodeKey: 'EncodeKey',
+      encodeType: 'EncodeType',
+      id: 'Id',
+      idType: 'IdType',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodeKey: 'string',
+      encodeType: 'string',
+      id: 'string',
+      idType: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeviceTagResponseBodyResult extends $tea.Model {
+  deviceTags?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      deviceTags: 'DeviceTags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -1239,6 +1414,50 @@ export class ListDeviceByUserIdRequestUserInfo extends $tea.Model {
       id: 'string',
       idType: 'string',
       organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceByUserIdResponseBodyResultDeviceUnionIds extends $tea.Model {
+  deviceUnionId?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceUnionId: 'DeviceUnionId',
+      organizationId: 'OrganizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceUnionId: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDeviceByUserIdResponseBodyResult extends $tea.Model {
+  deviceOpenId?: string;
+  deviceUnionIds?: ListDeviceByUserIdResponseBodyResultDeviceUnionIds[];
+  static names(): { [key: string]: string } {
+    return {
+      deviceOpenId: 'DeviceOpenId',
+      deviceUnionIds: 'DeviceUnionIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceOpenId: 'string',
+      deviceUnionIds: { 'type': 'array', 'itemType': ListDeviceByUserIdResponseBodyResultDeviceUnionIds },
     };
   }
 
@@ -1512,6 +1731,56 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetDeviceStatusInfoResponse>(await this.callApi(params, req, runtime), new GetDeviceStatusInfoResponse({}));
+  }
+
+  async getDeviceTag(request: GetDeviceTagRequest): Promise<GetDeviceTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDeviceTagHeaders({ });
+    return await this.getDeviceTagWithOptions(request, headers, runtime);
+  }
+
+  async getDeviceTagWithOptions(tmpReq: GetDeviceTagRequest, headers: GetDeviceTagHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeviceTagResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetDeviceTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.deviceInfo))) {
+      request.deviceInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.deviceInfo), "DeviceInfo", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceInfoShrink)) {
+      query["DeviceInfo"] = request.deviceInfoShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = Util.toJSONString(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!Util.isUnset(headers.authorization)) {
+      realHeaders["Authorization"] = Util.toJSONString(headers.authorization);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeviceTag",
+      version: "ssp_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/ssp/getDeviceTag`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeviceTagResponse>(await this.callApi(params, req, runtime), new GetDeviceTagResponse({}));
   }
 
   async getUserByDeviceId(request: GetUserByDeviceIdRequest): Promise<GetUserByDeviceIdResponse> {
