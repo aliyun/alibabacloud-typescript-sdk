@@ -886,18 +886,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "CommodityTitle",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CommodityTitleResponse>(await this.callApi(params, req, runtime), new CommodityTitleResponse({}));
+    return $tea.cast<CommodityTitleResponse>(await this.doRPCRequest("CommodityTitle", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new CommodityTitleResponse({}));
   }
 
   async commodityTitle(request: CommodityTitleRequest): Promise<CommodityTitleResponse> {
@@ -984,18 +973,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "GeneralRecognition",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GeneralRecognitionResponse>(await this.callApi(params, req, runtime), new GeneralRecognitionResponse({}));
+    return $tea.cast<GeneralRecognitionResponse>(await this.doRPCRequest("GeneralRecognition", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new GeneralRecognitionResponse({}));
   }
 
   async generalRecognition(request: GeneralRecognitionRequest): Promise<GeneralRecognitionResponse> {
@@ -1082,18 +1060,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ImageAmazon",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImageAmazonResponse>(await this.callApi(params, req, runtime), new ImageAmazonResponse({}));
+    return $tea.cast<ImageAmazonResponse>(await this.doRPCRequest("ImageAmazon", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImageAmazonResponse({}));
   }
 
   async imageAmazon(request: ImageAmazonRequest): Promise<ImageAmazonResponse> {
@@ -1106,18 +1073,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ImageCategory",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImageCategoryResponse>(await this.callApi(params, req, runtime), new ImageCategoryResponse({}));
+    return $tea.cast<ImageCategoryResponse>(await this.doRPCRequest("ImageCategory", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImageCategoryResponse({}));
   }
 
   async imageCategory(request: ImageCategoryRequest): Promise<ImageCategoryResponse> {
@@ -1130,18 +1086,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ImageDuplication",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImageDuplicationResponse>(await this.callApi(params, req, runtime), new ImageDuplicationResponse({}));
+    return $tea.cast<ImageDuplicationResponse>(await this.doRPCRequest("ImageDuplication", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImageDuplicationResponse({}));
   }
 
   async imageDuplication(request: ImageDuplicationRequest): Promise<ImageDuplicationResponse> {
@@ -1154,18 +1099,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ImageProperty",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImagePropertyResponse>(await this.callApi(params, req, runtime), new ImagePropertyResponse({}));
+    return $tea.cast<ImagePropertyResponse>(await this.doRPCRequest("ImageProperty", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImagePropertyResponse({}));
   }
 
   async imageProperty(request: ImagePropertyRequest): Promise<ImagePropertyResponse> {
@@ -1178,18 +1112,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    let params = new $OpenApi.Params({
-      action: "ImageSegmentation",
-      version: "2021-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ImageSegmentationResponse>(await this.callApi(params, req, runtime), new ImageSegmentationResponse({}));
+    return $tea.cast<ImageSegmentationResponse>(await this.doRPCRequest("ImageSegmentation", "2021-01-20", "HTTPS", "POST", "AK", "json", req, runtime), new ImageSegmentationResponse({}));
   }
 
   async imageSegmentation(request: ImageSegmentationRequest): Promise<ImageSegmentationResponse> {
