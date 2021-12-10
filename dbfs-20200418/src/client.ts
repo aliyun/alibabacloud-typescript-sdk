@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -143,87 +144,6 @@ export class AttachDbfsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AttachDbfsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConstantsRequest extends $tea.Model {
-  constantsData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      constantsData: 'ConstantsData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      constantsData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConstantsResponseBody extends $tea.Model {
-  data?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConstantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateConstantsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateConstantsResponseBody,
     };
   }
 
@@ -470,87 +390,6 @@ export class CreateSnapshotResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateSnapshotResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConstantsRequest extends $tea.Model {
-  constantsData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      constantsData: 'ConstantsData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      constantsData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConstantsResponseBody extends $tea.Model {
-  data?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteConstantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteConstantsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteConstantsResponseBody,
     };
   }
 
@@ -1082,87 +921,6 @@ export class GetServiceLinkedRoleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetServiceLinkedRoleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConstantsRequest extends $tea.Model {
-  constantsData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      constantsData: 'ConstantsData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      constantsData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConstantsResponseBody extends $tea.Model {
-  data?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListConstantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListConstantsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListConstantsResponseBody,
     };
   }
 
@@ -1717,108 +1475,6 @@ export class ListTaskResponse extends $tea.Model {
   }
 }
 
-export class OpreateConstantsRequest extends $tea.Model {
-  constantsData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      constantsData: 'ConstantsData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      constantsData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpreateConstantsResponseBody extends $tea.Model {
-  accessData?: string;
-  data?: string;
-  endpointData?: string;
-  masterData?: string;
-  osversionData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  productCodeData?: string;
-  regionData?: string;
-  requestId?: string;
-  totalCount?: number;
-  zoneData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accessData: 'AccessData',
-      data: 'Data',
-      endpointData: 'EndpointData',
-      masterData: 'MasterData',
-      osversionData: 'OsversionData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      productCodeData: 'ProductCodeData',
-      regionData: 'RegionData',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      zoneData: 'ZoneData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accessData: 'string',
-      data: 'string',
-      endpointData: 'string',
-      masterData: 'string',
-      osversionData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      productCodeData: 'string',
-      regionData: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-      zoneData: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpreateConstantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpreateConstantsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpreateConstantsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RenameDbfsRequest extends $tea.Model {
   fsId?: string;
   fsName?: string;
@@ -2075,87 +1731,6 @@ export class TagDbfsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TagDbfsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConstantsRequest extends $tea.Model {
-  constantsData?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      constantsData: 'ConstantsData',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      constantsData: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConstantsResponseBody extends $tea.Model {
-  data?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateConstantsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateConstantsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateConstantsResponseBody,
     };
   }
 
@@ -2802,10 +2377,27 @@ export default class Client extends OpenApi {
 
   async addTagsBatchWithOptions(request: AddTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsBatchResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DbfsList"] = request.dbfsList;
+    query["RegionId"] = request.regionId;
+    query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AddTagsBatchResponse>(await this.doRPCRequest("AddTagsBatch", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new AddTagsBatchResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddTagsBatch",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagsBatchResponse>(await this.callApi(params, req, runtime), new AddTagsBatchResponse({}));
   }
 
   async addTagsBatch(request: AddTagsBatchRequest): Promise<AddTagsBatchResponse> {
@@ -2815,10 +2407,29 @@ export default class Client extends OpenApi {
 
   async attachDbfsWithOptions(request: AttachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<AttachDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AttachMode"] = request.attachMode;
+    query["AttachPoint"] = request.attachPoint;
+    query["ECSInstanceId"] = request.ECSInstanceId;
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
+    query["ServerUrl"] = request.serverUrl;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachDbfsResponse>(await this.doRPCRequest("AttachDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new AttachDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachDbfsResponse>(await this.callApi(params, req, runtime), new AttachDbfsResponse({}));
   }
 
   async attachDbfs(request: AttachDbfsRequest): Promise<AttachDbfsResponse> {
@@ -2826,25 +2437,40 @@ export default class Client extends OpenApi {
     return await this.attachDbfsWithOptions(request, runtime);
   }
 
-  async createConstantsWithOptions(request: CreateConstantsRequest, runtime: $Util.RuntimeOptions): Promise<CreateConstantsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateConstantsResponse>(await this.doRPCRequest("CreateConstants", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new CreateConstantsResponse({}));
-  }
-
-  async createConstants(request: CreateConstantsRequest): Promise<CreateConstantsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createConstantsWithOptions(request, runtime);
-  }
-
   async createDbfsWithOptions(request: CreateDbfsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Category"] = request.category;
+    query["ClientToken"] = request.clientToken;
+    query["DeleteSnapshot"] = request.deleteSnapshot;
+    query["EnableRaid"] = request.enableRaid;
+    query["Encryption"] = request.encryption;
+    query["FsName"] = request.fsName;
+    query["InstanceType"] = request.instanceType;
+    query["KMSKeyId"] = request.KMSKeyId;
+    query["PerformanceLevel"] = request.performanceLevel;
+    query["RaidStripeUnitNumber"] = request.raidStripeUnitNumber;
+    query["RegionId"] = request.regionId;
+    query["SizeG"] = request.sizeG;
+    query["SnapshotId"] = request.snapshotId;
+    query["UsedScene"] = request.usedScene;
+    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDbfsResponse>(await this.doRPCRequest("CreateDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDbfsResponse>(await this.callApi(params, req, runtime), new CreateDbfsResponse({}));
   }
 
   async createDbfs(request: CreateDbfsRequest): Promise<CreateDbfsResponse> {
@@ -2854,10 +2480,25 @@ export default class Client extends OpenApi {
 
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.doRPCRequest("CreateServiceLinkedRole", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceLinkedRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
@@ -2867,10 +2508,29 @@ export default class Client extends OpenApi {
 
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
+    query["RetentionDays"] = request.retentionDays;
+    query["SnapshotName"] = request.snapshotName;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateSnapshotResponse>(await this.doRPCRequest("CreateSnapshot", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSnapshot",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
   }
 
   async createSnapshot(request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
@@ -2878,25 +2538,27 @@ export default class Client extends OpenApi {
     return await this.createSnapshotWithOptions(request, runtime);
   }
 
-  async deleteConstantsWithOptions(request: DeleteConstantsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConstantsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteConstantsResponse>(await this.doRPCRequest("DeleteConstants", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConstantsResponse({}));
-  }
-
-  async deleteConstants(request: DeleteConstantsRequest): Promise<DeleteConstantsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteConstantsWithOptions(request, runtime);
-  }
-
   async deleteDbfsWithOptions(request: DeleteDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDbfsResponse>(await this.doRPCRequest("DeleteDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDbfsResponse>(await this.callApi(params, req, runtime), new DeleteDbfsResponse({}));
   }
 
   async deleteDbfs(request: DeleteDbfsRequest): Promise<DeleteDbfsResponse> {
@@ -2906,10 +2568,26 @@ export default class Client extends OpenApi {
 
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Force"] = request.force;
+    query["RegionId"] = request.regionId;
+    query["SnapshotId"] = request.snapshotId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteSnapshotResponse>(await this.doRPCRequest("DeleteSnapshot", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSnapshot",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
   }
 
   async deleteSnapshot(request: DeleteSnapshotRequest): Promise<DeleteSnapshotResponse> {
@@ -2919,10 +2597,26 @@ export default class Client extends OpenApi {
 
   async deleteTagsBatchWithOptions(request: DeleteTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagsBatchResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DbfsList"] = request.dbfsList;
+    query["RegionId"] = request.regionId;
+    query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteTagsBatchResponse>(await this.doRPCRequest("DeleteTagsBatch", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTagsBatchResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTagsBatch",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTagsBatchResponse>(await this.callApi(params, req, runtime), new DeleteTagsBatchResponse({}));
   }
 
   async deleteTagsBatch(request: DeleteTagsBatchRequest): Promise<DeleteTagsBatchResponse> {
@@ -2932,10 +2626,26 @@ export default class Client extends OpenApi {
 
   async describeDbfsSpecificationsWithOptions(request: DescribeDbfsSpecificationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbfsSpecificationsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Category"] = request.category;
+    query["EcsInstanceType"] = request.ecsInstanceType;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDbfsSpecificationsResponse>(await this.doRPCRequest("DescribeDbfsSpecifications", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDbfsSpecificationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDbfsSpecifications",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDbfsSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeDbfsSpecificationsResponse({}));
   }
 
   async describeDbfsSpecifications(request: DescribeDbfsSpecificationsRequest): Promise<DescribeDbfsSpecificationsResponse> {
@@ -2945,10 +2655,24 @@ export default class Client extends OpenApi {
 
   async describeInstanceTypesWithOptions(request: DescribeInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceTypesResponse>(await this.doRPCRequest("DescribeInstanceTypes", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceTypesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceTypes",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypesResponse({}));
   }
 
   async describeInstanceTypes(request: DescribeInstanceTypesRequest): Promise<DescribeInstanceTypesResponse> {
@@ -2958,10 +2682,26 @@ export default class Client extends OpenApi {
 
   async detachDbfsWithOptions(request: DetachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DetachDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ECSInstanceId"] = request.ECSInstanceId;
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DetachDbfsResponse>(await this.doRPCRequest("DetachDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new DetachDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachDbfsResponse>(await this.callApi(params, req, runtime), new DetachDbfsResponse({}));
   }
 
   async detachDbfs(request: DetachDbfsRequest): Promise<DetachDbfsResponse> {
@@ -2971,10 +2711,25 @@ export default class Client extends OpenApi {
 
   async getDbfsWithOptions(request: GetDbfsRequest, runtime: $Util.RuntimeOptions): Promise<GetDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDbfsResponse>(await this.doRPCRequest("GetDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDbfsResponse>(await this.callApi(params, req, runtime), new GetDbfsResponse({}));
   }
 
   async getDbfs(request: GetDbfsRequest): Promise<GetDbfsResponse> {
@@ -2984,10 +2739,24 @@ export default class Client extends OpenApi {
 
   async getServiceLinkedRoleWithOptions(request: GetServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceLinkedRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<GetServiceLinkedRoleResponse>(await this.doRPCRequest("GetServiceLinkedRole", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceLinkedRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetServiceLinkedRole",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new GetServiceLinkedRoleResponse({}));
   }
 
   async getServiceLinkedRole(request: GetServiceLinkedRoleRequest): Promise<GetServiceLinkedRoleResponse> {
@@ -2995,25 +2764,33 @@ export default class Client extends OpenApi {
     return await this.getServiceLinkedRoleWithOptions(request, runtime);
   }
 
-  async listConstantsWithOptions(request: ListConstantsRequest, runtime: $Util.RuntimeOptions): Promise<ListConstantsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListConstantsResponse>(await this.doRPCRequest("ListConstants", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListConstantsResponse({}));
-  }
-
-  async listConstants(request: ListConstantsRequest): Promise<ListConstantsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listConstantsWithOptions(request, runtime);
-  }
-
   async listDbfsWithOptions(request: ListDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FilterKey"] = request.filterKey;
+    query["FilterValue"] = request.filterValue;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["SortKey"] = request.sortKey;
+    query["SortType"] = request.sortType;
+    query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDbfsResponse>(await this.doRPCRequest("ListDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDbfsResponse>(await this.callApi(params, req, runtime), new ListDbfsResponse({}));
   }
 
   async listDbfs(request: ListDbfsRequest): Promise<ListDbfsResponse> {
@@ -3023,10 +2800,24 @@ export default class Client extends OpenApi {
 
   async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDbfsAttachableEcsInstancesResponse>(await this.doRPCRequest("ListDbfsAttachableEcsInstances", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDbfsAttachableEcsInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDbfsAttachableEcsInstances",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDbfsAttachableEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachableEcsInstancesResponse({}));
   }
 
   async listDbfsAttachableEcsInstances(request: ListDbfsAttachableEcsInstancesRequest): Promise<ListDbfsAttachableEcsInstancesResponse> {
@@ -3036,10 +2827,25 @@ export default class Client extends OpenApi {
 
   async listDbfsAttachedEcsInstancesWithOptions(request: ListDbfsAttachedEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachedEcsInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListDbfsAttachedEcsInstancesResponse>(await this.doRPCRequest("ListDbfsAttachedEcsInstances", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListDbfsAttachedEcsInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDbfsAttachedEcsInstances",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDbfsAttachedEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachedEcsInstancesResponse({}));
   }
 
   async listDbfsAttachedEcsInstances(request: ListDbfsAttachedEcsInstancesRequest): Promise<ListDbfsAttachedEcsInstancesResponse> {
@@ -3049,10 +2855,35 @@ export default class Client extends OpenApi {
 
   async listSnapshotWithOptions(request: ListSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FilterKey"] = request.filterKey;
+    query["FilterValue"] = request.filterValue;
+    query["FsId"] = request.fsId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["SnapshotIds"] = request.snapshotIds;
+    query["SnapshotName"] = request.snapshotName;
+    query["SnapshotType"] = request.snapshotType;
+    query["SortKey"] = request.sortKey;
+    query["SortType"] = request.sortType;
+    query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListSnapshotResponse>(await this.doRPCRequest("ListSnapshot", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListSnapshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSnapshot",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSnapshotResponse>(await this.callApi(params, req, runtime), new ListSnapshotResponse({}));
   }
 
   async listSnapshot(request: ListSnapshotRequest): Promise<ListSnapshotResponse> {
@@ -3062,10 +2893,24 @@ export default class Client extends OpenApi {
 
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagKeysResponse>(await this.doRPCRequest("ListTagKeys", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagKeysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagKeys",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
   }
 
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
@@ -3075,10 +2920,25 @@ export default class Client extends OpenApi {
 
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTagValuesResponse>(await this.doRPCRequest("ListTagValues", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagValuesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTagValues",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
   }
 
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
@@ -3088,10 +2948,30 @@ export default class Client extends OpenApi {
 
   async listTaskWithOptions(request: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FilterKey"] = request.filterKey;
+    query["FilterValue"] = request.filterValue;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["RegionId"] = request.regionId;
+    query["SortKey"] = request.sortKey;
+    query["SortType"] = request.sortType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ListTaskResponse>(await this.doRPCRequest("ListTask", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ListTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTask",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaskResponse>(await this.callApi(params, req, runtime), new ListTaskResponse({}));
   }
 
   async listTask(request: ListTaskRequest): Promise<ListTaskResponse> {
@@ -3099,25 +2979,28 @@ export default class Client extends OpenApi {
     return await this.listTaskWithOptions(request, runtime);
   }
 
-  async opreateConstantsWithOptions(request: OpreateConstantsRequest, runtime: $Util.RuntimeOptions): Promise<OpreateConstantsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OpreateConstantsResponse>(await this.doRPCRequest("OpreateConstants", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new OpreateConstantsResponse({}));
-  }
-
-  async opreateConstants(request: OpreateConstantsRequest): Promise<OpreateConstantsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.opreateConstantsWithOptions(request, runtime);
-  }
-
   async renameDbfsWithOptions(request: RenameDbfsRequest, runtime: $Util.RuntimeOptions): Promise<RenameDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["FsName"] = request.fsName;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<RenameDbfsResponse>(await this.doRPCRequest("RenameDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new RenameDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RenameDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RenameDbfsResponse>(await this.callApi(params, req, runtime), new RenameDbfsResponse({}));
   }
 
   async renameDbfs(request: RenameDbfsRequest): Promise<RenameDbfsResponse> {
@@ -3127,10 +3010,26 @@ export default class Client extends OpenApi {
 
   async resetDbfsWithOptions(request: ResetDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ResetDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["RegionId"] = request.regionId;
+    query["SnapshotId"] = request.snapshotId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ResetDbfsResponse>(await this.doRPCRequest("ResetDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ResetDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResetDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetDbfsResponse>(await this.callApi(params, req, runtime), new ResetDbfsResponse({}));
   }
 
   async resetDbfs(request: ResetDbfsRequest): Promise<ResetDbfsResponse> {
@@ -3140,10 +3039,26 @@ export default class Client extends OpenApi {
 
   async resizeDbfsWithOptions(request: ResizeDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["FsId"] = request.fsId;
+    query["NewSizeG"] = request.newSizeG;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ResizeDbfsResponse>(await this.doRPCRequest("ResizeDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new ResizeDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResizeDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ResizeDbfsResponse>(await this.callApi(params, req, runtime), new ResizeDbfsResponse({}));
   }
 
   async resizeDbfs(request: ResizeDbfsRequest): Promise<ResizeDbfsResponse> {
@@ -3153,10 +3068,26 @@ export default class Client extends OpenApi {
 
   async tagDbfsWithOptions(request: TagDbfsRequest, runtime: $Util.RuntimeOptions): Promise<TagDbfsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DbfsId"] = request.dbfsId;
+    query["RegionId"] = request.regionId;
+    query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<TagDbfsResponse>(await this.doRPCRequest("TagDbfs", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new TagDbfsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagDbfs",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TagDbfsResponse>(await this.callApi(params, req, runtime), new TagDbfsResponse({}));
   }
 
   async tagDbfs(request: TagDbfsRequest): Promise<TagDbfsResponse> {
@@ -3164,25 +3095,28 @@ export default class Client extends OpenApi {
     return await this.tagDbfsWithOptions(request, runtime);
   }
 
-  async updateConstantsWithOptions(request: UpdateConstantsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConstantsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateConstantsResponse>(await this.doRPCRequest("UpdateConstants", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateConstantsResponse({}));
-  }
-
-  async updateConstants(request: UpdateConstantsRequest): Promise<UpdateConstantsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateConstantsWithOptions(request, runtime);
-  }
-
   async updateTaskWithOptions(request: UpdateTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["TaskIds"] = request.taskIds;
+    query["TaskProgress"] = request.taskProgress;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateTaskResponse>(await this.doRPCRequest("UpdateTask", "2020-04-18", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTask",
+      version: "2020-04-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTaskResponse>(await this.callApi(params, req, runtime), new UpdateTaskResponse({}));
   }
 
   async updateTask(request: UpdateTaskRequest): Promise<UpdateTaskResponse> {
