@@ -762,6 +762,43 @@ export class VPCConfig extends $tea.Model {
   }
 }
 
+export class CreateAliasHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAliasRequest extends $tea.Model {
   additionalVersionWeight?: { [key: string]: number };
   aliasName?: string;
@@ -838,6 +875,43 @@ export class CreateAliasResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomDomainHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -938,18 +1012,33 @@ export class CreateCustomDomainResponse extends $tea.Model {
 
 export class CreateFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
   xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      xFcCodeChecksum: 'x-fc-code-checksum',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
       xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1132,6 +1221,43 @@ export class CreateFunctionResponse extends $tea.Model {
   }
 }
 
+export class CreateLayerVersionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLayerVersionRequest extends $tea.Model {
   code?: Code;
   compatibleRuntime?: string[];
@@ -1217,6 +1343,43 @@ export class CreateLayerVersionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateLayerVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1336,6 +1499,43 @@ export class CreateServiceResponse extends $tea.Model {
   }
 }
 
+export class CreateTriggerHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTriggerRequest extends $tea.Model {
   description?: string;
   invocationRole?: string;
@@ -1444,6 +1644,43 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
+export class CreateVpcBindingHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcBindingRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -1485,10 +1722,22 @@ export class CreateVpcBindingResponse extends $tea.Model {
 export class DeleteAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -1496,6 +1745,12 @@ export class DeleteAliasHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1515,6 +1770,43 @@ export class DeleteAliasResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomDomainHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1545,10 +1837,22 @@ export class DeleteCustomDomainResponse extends $tea.Model {
 export class DeleteFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -1556,6 +1860,12 @@ export class DeleteFunctionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1575,6 +1885,43 @@ export class DeleteFunctionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionAsyncInvokeConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1624,10 +1971,22 @@ export class DeleteFunctionAsyncInvokeConfigResponse extends $tea.Model {
 export class DeleteFunctionOnDemandConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -1635,6 +1994,12 @@ export class DeleteFunctionOnDemandConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1681,6 +2046,43 @@ export class DeleteFunctionOnDemandConfigResponse extends $tea.Model {
   }
 }
 
+export class DeleteLayerVersionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteLayerVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -1703,10 +2105,22 @@ export class DeleteLayerVersionResponse extends $tea.Model {
 export class DeleteServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -1714,6 +2128,12 @@ export class DeleteServiceHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1733,6 +2153,43 @@ export class DeleteServiceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteServiceVersionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1763,10 +2220,22 @@ export class DeleteServiceVersionResponse extends $tea.Model {
 export class DeleteTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -1774,6 +2243,12 @@ export class DeleteTriggerHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1801,6 +2276,43 @@ export class DeleteTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeleteVpcBindingHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteVpcBindingResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -1812,6 +2324,43 @@ export class DeleteVpcBindingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeregisterEventSourceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1858,6 +2407,43 @@ export class DeregisterEventSourceResponse extends $tea.Model {
   }
 }
 
+export class GetAccountSettingsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccountSettingsResponseBody extends $tea.Model {
   availableAZs?: string[];
   static names(): { [key: string]: string } {
@@ -1891,6 +2477,43 @@ export class GetAccountSettingsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetAccountSettingsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAliasHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -1955,6 +2578,43 @@ export class GetAliasResponse extends $tea.Model {
   }
 }
 
+export class GetCustomDomainHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomDomainResponseBody extends $tea.Model {
   accountId?: string;
   apiVersion?: string;
@@ -2009,6 +2669,43 @@ export class GetCustomDomainResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetCustomDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2140,6 +2837,43 @@ export class GetFunctionResponse extends $tea.Model {
   }
 }
 
+export class GetFunctionAsyncInvokeConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFunctionAsyncInvokeConfigRequest extends $tea.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
@@ -2224,6 +2958,43 @@ export class GetFunctionAsyncInvokeConfigResponse extends $tea.Model {
   }
 }
 
+export class GetFunctionCodeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFunctionCodeRequest extends $tea.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
@@ -2279,6 +3050,43 @@ export class GetFunctionCodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetFunctionCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFunctionOnDemandConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2350,6 +3158,43 @@ export class GetFunctionOnDemandConfigResponse extends $tea.Model {
   }
 }
 
+export class GetLayerVersionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLayerVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
   body: Layer;
@@ -2364,6 +3209,43 @@ export class GetLayerVersionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: Layer,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetLayerVersionByArnHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2432,6 +3314,43 @@ export class GetLayerVersionByArnResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetLayerVersionByArnResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProvisionConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2515,6 +3434,43 @@ export class GetProvisionConfigResponse extends $tea.Model {
   }
 }
 
+export class GetResourceTagsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceTagsRequest extends $tea.Model {
   resourceArn?: string;
   static names(): { [key: string]: string } {
@@ -2570,6 +3526,43 @@ export class GetResourceTagsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetResourceTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2668,6 +3661,43 @@ export class GetServiceResponse extends $tea.Model {
   }
 }
 
+export class GetStatefulAsyncInvocationHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetStatefulAsyncInvocationRequest extends $tea.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
@@ -2701,6 +3731,43 @@ export class GetStatefulAsyncInvocationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StatefulAsyncInvocation,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTriggerHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2783,16 +3850,22 @@ export class GetTriggerResponse extends $tea.Model {
 export class InvokeFunctionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
   xFcInvocationType?: string;
   xFcLogType?: string;
   xFcStatefulAsyncInvocationId?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcInvocationType: 'x-fc-invocation-type',
-      xFcLogType: 'x-fc-log-type',
-      xFcStatefulAsyncInvocationId: 'x-fc-stateful-async-invocation-id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcStatefulAsyncInvocationId: 'X-Fc-Stateful-Async-Invocation-Id',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -2800,9 +3873,12 @@ export class InvokeFunctionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
       xFcInvocationType: 'string',
       xFcLogType: 'string',
       xFcStatefulAsyncInvocationId: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2847,6 +3923,43 @@ export class InvokeFunctionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: 'Buffer',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAliasesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -2927,6 +4040,43 @@ export class ListAliasesResponse extends $tea.Model {
   }
 }
 
+export class ListCustomDomainsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCustomDomainsRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
@@ -2999,6 +4149,43 @@ export class ListCustomDomainsResponse extends $tea.Model {
   }
 }
 
+export class ListEventSourcesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventSourcesRequest extends $tea.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
@@ -3051,6 +4238,43 @@ export class ListEventSourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListEventSourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionAsyncInvokeConfigsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3117,6 +4341,43 @@ export class ListFunctionAsyncInvokeConfigsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListFunctionAsyncInvokeConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3288,6 +4549,43 @@ export class ListInstancesResponse extends $tea.Model {
   }
 }
 
+export class ListLayerVersionsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListLayerVersionsRequest extends $tea.Model {
   limit?: number;
   startVersion?: number;
@@ -3346,6 +4644,43 @@ export class ListLayerVersionsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListLayerVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListLayersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3426,6 +4761,43 @@ export class ListLayersResponse extends $tea.Model {
   }
 }
 
+export class ListOnDemandConfigsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListOnDemandConfigsRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
@@ -3490,6 +4862,43 @@ export class ListOnDemandConfigsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListOnDemandConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProvisionConfigsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3570,6 +4979,43 @@ export class ListProvisionConfigsResponse extends $tea.Model {
   }
 }
 
+export class ListReservedCapacitiesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListReservedCapacitiesRequest extends $tea.Model {
   limit?: string;
   nextToken?: string;
@@ -3628,6 +5074,43 @@ export class ListReservedCapacitiesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListReservedCapacitiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceVersionsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3711,6 +5194,43 @@ export class ListServiceVersionsResponse extends $tea.Model {
   }
 }
 
+export class ListServicesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServicesRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
@@ -3775,6 +5295,43 @@ export class ListServicesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListStatefulAsyncInvocationsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -3870,6 +5427,43 @@ export class ListStatefulAsyncInvocationsResponse extends $tea.Model {
   }
 }
 
+export class ListTaggedResourcesHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTaggedResourcesRequest extends $tea.Model {
   limit?: number;
   nextToken?: string;
@@ -3928,6 +5522,43 @@ export class ListTaggedResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListTaggedResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTriggersHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4008,6 +5639,43 @@ export class ListTriggersResponse extends $tea.Model {
   }
 }
 
+export class ListVpcBindingsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVpcBindingsResponseBody extends $tea.Model {
   vpcIds?: string[];
   static names(): { [key: string]: string } {
@@ -4049,6 +5717,43 @@ export class ListVpcBindingsResponse extends $tea.Model {
   }
 }
 
+export class PermanentDeleteLayerVersionHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PermanentDeleteLayerVersionResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -4060,6 +5765,43 @@ export class PermanentDeleteLayerVersionResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PublishLayerAsPublicHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4090,10 +5832,22 @@ export class PublishLayerAsPublicResponse extends $tea.Model {
 export class PublishServiceVersionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4101,6 +5855,12 @@ export class PublishServiceVersionHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4170,6 +5930,43 @@ export class PublishServiceVersionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: PublishServiceVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutFunctionAsyncInvokeConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4277,10 +6074,22 @@ export class PutFunctionAsyncInvokeConfigResponse extends $tea.Model {
 export class PutFunctionOnDemandConfigHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4288,6 +6097,12 @@ export class PutFunctionOnDemandConfigHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4354,6 +6169,43 @@ export class PutFunctionOnDemandConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: PutFunctionOnDemandConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PutProvisionConfigHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4443,6 +6295,43 @@ export class PutProvisionConfigResponse extends $tea.Model {
   }
 }
 
+export class RegisterEventSourceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegisterEventSourceRequest extends $tea.Model {
   sourceArn?: string;
   qualifier?: string;
@@ -4509,6 +6398,43 @@ export class RegisterEventSourceResponse extends $tea.Model {
   }
 }
 
+export class StopStatefulAsyncInvocationHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopStatefulAsyncInvocationRequest extends $tea.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
@@ -4539,6 +6465,43 @@ export class StopStatefulAsyncInvocationResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4580,6 +6543,43 @@ export class TagResourceResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourceHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4635,10 +6635,22 @@ export class UntagResourceResponse extends $tea.Model {
 export class UpdateAliasHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4646,6 +6658,12 @@ export class UpdateAliasHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4727,6 +6745,43 @@ export class UpdateAliasResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateAliasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCustomDomainHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -4827,12 +6882,20 @@ export class UpdateFunctionHeaders extends $tea.Model {
   ifMatch?: string;
   xFcAccountId?: string;
   xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
-      xFcCodeChecksum: 'x-fc-code-checksum',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -4842,6 +6905,10 @@ export class UpdateFunctionHeaders extends $tea.Model {
       ifMatch: 'string',
       xFcAccountId: 'string',
       xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -5022,11 +7089,21 @@ export class UpdateServiceHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -5035,6 +7112,11 @@ export class UpdateServiceHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -5155,11 +7237,21 @@ export class UpdateTriggerHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   ifMatch?: string;
   xFcAccountId?: string;
+  xFcCodeChecksum?: string;
+  xFcDate?: string;
+  xFcInvocationType?: string;
+  xFcLogType?: string;
+  xFcTraceId?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
       ifMatch: 'If-Match',
       xFcAccountId: 'X-Fc-Account-Id',
+      xFcCodeChecksum: 'X-Fc-Code-Checksum',
+      xFcDate: 'X-Fc-Date',
+      xFcInvocationType: 'X-Fc-Invocation-Type',
+      xFcLogType: 'X-Fc-Log-Type',
+      xFcTraceId: 'X-Fc-Trace-Id',
     };
   }
 
@@ -5168,6 +7260,11 @@ export class UpdateTriggerHeaders extends $tea.Model {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       ifMatch: 'string',
       xFcAccountId: 'string',
+      xFcCodeChecksum: 'string',
+      xFcDate: 'string',
+      xFcInvocationType: 'string',
+      xFcLogType: 'string',
+      xFcTraceId: 'string',
     };
   }
 
@@ -5742,11 +7839,11 @@ export default class Client extends OpenApi {
 
   async createAlias(serviceName: string, request: CreateAliasRequest): Promise<CreateAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateAliasHeaders({ });
     return await this.createAliasWithOptions(serviceName, request, headers, runtime);
   }
 
-  async createAliasWithOptions(serviceName: string, request: CreateAliasRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
+  async createAliasWithOptions(serviceName: string, request: CreateAliasRequest, headers: CreateAliasHeaders, runtime: $Util.RuntimeOptions): Promise<CreateAliasResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
@@ -5766,20 +7863,60 @@ export default class Client extends OpenApi {
       body["versionId"] = request.versionId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateAliasResponse>(await this.doROARequest("CreateAlias", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/aliases`, "json", req, runtime), new CreateAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAlias",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/aliases`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAliasResponse>(await this.callApi(params, req, runtime), new CreateAliasResponse({}));
   }
 
   async createCustomDomain(request: CreateCustomDomainRequest): Promise<CreateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateCustomDomainHeaders({ });
     return await this.createCustomDomainWithOptions(request, headers, runtime);
   }
 
-  async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
+  async createCustomDomainWithOptions(request: CreateCustomDomainRequest, headers: CreateCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<CreateCustomDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.certConfig))) {
@@ -5798,11 +7935,51 @@ export default class Client extends OpenApi {
       body["routeConfig"] = request.routeConfig;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateCustomDomainResponse>(await this.doROARequest("CreateCustomDomain", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/custom-domains`, "json", req, runtime), new CreateCustomDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCustomDomain",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/custom-domains`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateCustomDomainResponse({}));
   }
 
   async createFunction(serviceName: string, request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
@@ -5892,24 +8069,55 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
     if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["x-fc-code-checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateFunctionResponse>(await this.doROARequest("CreateFunction", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions`, "json", req, runtime), new CreateFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFunction",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
   }
 
   async createLayerVersion(layerName: string, request: CreateLayerVersionRequest): Promise<CreateLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateLayerVersionHeaders({ });
     return await this.createLayerVersionWithOptions(layerName, request, headers, runtime);
   }
 
-  async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
+  async createLayerVersionWithOptions(layerName: string, request: CreateLayerVersionRequest, headers: CreateLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<CreateLayerVersionResponse> {
     Util.validateModel(request);
     layerName = OpenApiUtil.getEncodeParam(layerName);
     let body : {[key: string ]: any} = { };
@@ -5925,20 +8133,60 @@ export default class Client extends OpenApi {
       body["description"] = request.description;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateLayerVersionResponse>(await this.doROARequest("CreateLayerVersion", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/layers/${layerName}/versions`, "json", req, runtime), new CreateLayerVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLayerVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLayerVersionResponse>(await this.callApi(params, req, runtime), new CreateLayerVersionResponse({}));
   }
 
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateServiceHeaders({ });
     return await this.createServiceWithOptions(request, headers, runtime);
   }
 
-  async createServiceWithOptions(request: CreateServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
+  async createServiceWithOptions(request: CreateServiceRequest, headers: CreateServiceHeaders, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
@@ -5973,20 +8221,60 @@ export default class Client extends OpenApi {
       body["vpcConfig"] = request.vpcConfig;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateServiceResponse>(await this.doROARequest("CreateService", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services`, "json", req, runtime), new CreateServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateService",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
   async createTrigger(serviceName: string, functionName: string, request: CreateTriggerRequest): Promise<CreateTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateTriggerHeaders({ });
     return await this.createTriggerWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async createTriggerWithOptions(serviceName: string, functionName: string, request: CreateTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
+  async createTriggerWithOptions(serviceName: string, functionName: string, request: CreateTriggerRequest, headers: CreateTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<CreateTriggerResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6019,20 +8307,60 @@ export default class Client extends OpenApi {
       body["triggerType"] = request.triggerType;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateTriggerResponse>(await this.doROARequest("CreateTrigger", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`, "json", req, runtime), new CreateTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTrigger",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
   async createVpcBinding(serviceName: string, request: CreateVpcBindingRequest): Promise<CreateVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new CreateVpcBindingHeaders({ });
     return await this.createVpcBindingWithOptions(serviceName, request, headers, runtime);
   }
 
-  async createVpcBindingWithOptions(serviceName: string, request: CreateVpcBindingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
+  async createVpcBindingWithOptions(serviceName: string, request: CreateVpcBindingRequest, headers: CreateVpcBindingHeaders, runtime: $Util.RuntimeOptions): Promise<CreateVpcBindingResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let body : {[key: string ]: any} = { };
@@ -6040,11 +8368,51 @@ export default class Client extends OpenApi {
       body["vpcId"] = request.vpcId;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateVpcBindingResponse>(await this.doROARequest("CreateVpcBinding", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/bindings`, "none", req, runtime), new CreateVpcBindingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVpcBinding",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/bindings`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateVpcBindingResponse>(await this.callApi(params, req, runtime), new CreateVpcBindingResponse({}));
   }
 
   async deleteAlias(serviceName: string, aliasName: string): Promise<DeleteAliasResponse> {
@@ -6065,24 +8433,99 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    return $tea.cast<DeleteAliasResponse>(await this.doROARequest("DeleteAlias", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "none", req, runtime), new DeleteAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAlias",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAliasResponse>(await this.callApi(params, req, runtime), new DeleteAliasResponse({}));
   }
 
   async deleteCustomDomain(domainName: string): Promise<DeleteCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeleteCustomDomainHeaders({ });
     return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
   }
 
-  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
+  async deleteCustomDomainWithOptions(domainName: string, headers: DeleteCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteCustomDomainResponse> {
     domainName = OpenApiUtil.getEncodeParam(domainName);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<DeleteCustomDomainResponse>(await this.doROARequest("DeleteCustomDomain", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/custom-domains/${domainName}`, "none", req, runtime), new DeleteCustomDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomDomain",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteCustomDomainResponse({}));
   }
 
   async deleteFunction(serviceName: string, functionName: string): Promise<DeleteFunctionResponse> {
@@ -6103,19 +8546,54 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    return $tea.cast<DeleteFunctionResponse>(await this.doROARequest("DeleteFunction", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "none", req, runtime), new DeleteFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFunction",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
   }
 
   async deleteFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeleteFunctionAsyncInvokeConfigHeaders({ });
     return await this.deleteFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async deleteFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
+  async deleteFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: DeleteFunctionAsyncInvokeConfigRequest, headers: DeleteFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6124,11 +8602,51 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.doROARequest("DeleteFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "none", req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFunctionAsyncInvokeConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionAsyncInvokeConfigResponse({}));
   }
 
   async deleteFunctionOnDemandConfig(serviceName: string, functionName: string, request: DeleteFunctionOnDemandConfigRequest): Promise<DeleteFunctionOnDemandConfigResponse> {
@@ -6155,26 +8673,101 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.doROARequest("DeleteFunctionOnDemandConfig", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "none", req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFunctionOnDemandConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new DeleteFunctionOnDemandConfigResponse({}));
   }
 
   async deleteLayerVersion(layerName: string, version: string): Promise<DeleteLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeleteLayerVersionHeaders({ });
     return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
-  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
+  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: DeleteLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteLayerVersionResponse> {
     layerName = OpenApiUtil.getEncodeParam(layerName);
     version = OpenApiUtil.getEncodeParam(version);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<DeleteLayerVersionResponse>(await this.doROARequest("DeleteLayerVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "none", req, runtime), new DeleteLayerVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLayerVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new DeleteLayerVersionResponse({}));
   }
 
   async deleteService(serviceName: string): Promise<DeleteServiceResponse> {
@@ -6194,25 +8787,100 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    return $tea.cast<DeleteServiceResponse>(await this.doROARequest("DeleteService", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}`, "none", req, runtime), new DeleteServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteService",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
   async deleteServiceVersion(serviceName: string, versionId: string): Promise<DeleteServiceVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeleteServiceVersionHeaders({ });
     return await this.deleteServiceVersionWithOptions(serviceName, versionId, headers, runtime);
   }
 
-  async deleteServiceVersionWithOptions(serviceName: string, versionId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceVersionResponse> {
+  async deleteServiceVersionWithOptions(serviceName: string, versionId: string, headers: DeleteServiceVersionHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteServiceVersionResponse> {
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     versionId = OpenApiUtil.getEncodeParam(versionId);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<DeleteServiceVersionResponse>(await this.doROARequest("DeleteServiceVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/versions/${versionId}`, "none", req, runtime), new DeleteServiceVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteServiceVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/versions/${versionId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteServiceVersionResponse({}));
   }
 
   async deleteTrigger(serviceName: string, functionName: string, triggerName: string): Promise<DeleteTriggerResponse> {
@@ -6234,34 +8902,109 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
     });
-    return $tea.cast<DeleteTriggerResponse>(await this.doROARequest("DeleteTrigger", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "none", req, runtime), new DeleteTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTrigger",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteTriggerResponse>(await this.callApi(params, req, runtime), new DeleteTriggerResponse({}));
   }
 
   async deleteVpcBinding(serviceName: string, vpcId: string): Promise<DeleteVpcBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeleteVpcBindingHeaders({ });
     return await this.deleteVpcBindingWithOptions(serviceName, vpcId, headers, runtime);
   }
 
-  async deleteVpcBindingWithOptions(serviceName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
+  async deleteVpcBindingWithOptions(serviceName: string, vpcId: string, headers: DeleteVpcBindingHeaders, runtime: $Util.RuntimeOptions): Promise<DeleteVpcBindingResponse> {
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     vpcId = OpenApiUtil.getEncodeParam(vpcId);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<DeleteVpcBindingResponse>(await this.doROARequest("DeleteVpcBinding", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/bindings/${vpcId}`, "none", req, runtime), new DeleteVpcBindingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVpcBinding",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/bindings/${vpcId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteVpcBindingResponse>(await this.callApi(params, req, runtime), new DeleteVpcBindingResponse({}));
   }
 
   async deregisterEventSource(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest): Promise<DeregisterEventSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new DeregisterEventSourceHeaders({ });
     return await this.deregisterEventSourceWithOptions(serviceName, functionName, sourceArn, request, headers, runtime);
   }
 
-  async deregisterEventSourceWithOptions(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeregisterEventSourceResponse> {
+  async deregisterEventSourceWithOptions(serviceName: string, functionName: string, sourceArn: string, request: DeregisterEventSourceRequest, headers: DeregisterEventSourceHeaders, runtime: $Util.RuntimeOptions): Promise<DeregisterEventSourceResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6271,62 +9014,222 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeregisterEventSourceResponse>(await this.doROARequest("DeregisterEventSource", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources/${sourceArn}`, "none", req, runtime), new DeregisterEventSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeregisterEventSource",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources/${sourceArn}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeregisterEventSourceResponse>(await this.callApi(params, req, runtime), new DeregisterEventSourceResponse({}));
   }
 
   async getAccountSettings(): Promise<GetAccountSettingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetAccountSettingsHeaders({ });
     return await this.getAccountSettingsWithOptions(headers, runtime);
   }
 
-  async getAccountSettingsWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAccountSettingsResponse> {
+  async getAccountSettingsWithOptions(headers: GetAccountSettingsHeaders, runtime: $Util.RuntimeOptions): Promise<GetAccountSettingsResponse> {
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetAccountSettingsResponse>(await this.doROARequest("GetAccountSettings", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/account-settings`, "json", req, runtime), new GetAccountSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccountSettings",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/account-settings`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountSettingsResponse>(await this.callApi(params, req, runtime), new GetAccountSettingsResponse({}));
   }
 
   async getAlias(serviceName: string, aliasName: string): Promise<GetAliasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetAliasHeaders({ });
     return await this.getAliasWithOptions(serviceName, aliasName, headers, runtime);
   }
 
-  async getAliasWithOptions(serviceName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
+  async getAliasWithOptions(serviceName: string, aliasName: string, headers: GetAliasHeaders, runtime: $Util.RuntimeOptions): Promise<GetAliasResponse> {
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     aliasName = OpenApiUtil.getEncodeParam(aliasName);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetAliasResponse>(await this.doROARequest("GetAlias", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "json", req, runtime), new GetAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAlias",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAliasResponse>(await this.callApi(params, req, runtime), new GetAliasResponse({}));
   }
 
   async getCustomDomain(domainName: string): Promise<GetCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetCustomDomainHeaders({ });
     return await this.getCustomDomainWithOptions(domainName, headers, runtime);
   }
 
-  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
+  async getCustomDomainWithOptions(domainName: string, headers: GetCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<GetCustomDomainResponse> {
     domainName = OpenApiUtil.getEncodeParam(domainName);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetCustomDomainResponse>(await this.doROARequest("GetCustomDomain", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/custom-domains/${domainName}`, "json", req, runtime), new GetCustomDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCustomDomain",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCustomDomainResponse>(await this.callApi(params, req, runtime), new GetCustomDomainResponse({}));
   }
 
   async getFunction(serviceName: string, functionName: string, request: GetFunctionRequest): Promise<GetFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetFunctionHeaders({ });
     return await this.getFunctionWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async getFunctionWithOptions(serviceName: string, functionName: string, request: GetFunctionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
+  async getFunctionWithOptions(serviceName: string, functionName: string, request: GetFunctionRequest, headers: GetFunctionHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6335,20 +9238,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFunctionResponse>(await this.doROARequest("GetFunction", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "json", req, runtime), new GetFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFunction",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionResponse>(await this.callApi(params, req, runtime), new GetFunctionResponse({}));
   }
 
   async getFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest): Promise<GetFunctionAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetFunctionAsyncInvokeConfigHeaders({ });
     return await this.getFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async getFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionAsyncInvokeConfigResponse> {
+  async getFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionAsyncInvokeConfigRequest, headers: GetFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6357,20 +9300,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.doROARequest("GetFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "json", req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFunctionAsyncInvokeConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionAsyncInvokeConfigResponse({}));
   }
 
   async getFunctionCode(serviceName: string, functionName: string, request: GetFunctionCodeRequest): Promise<GetFunctionCodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetFunctionCodeHeaders({ });
     return await this.getFunctionCodeWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async getFunctionCodeWithOptions(serviceName: string, functionName: string, request: GetFunctionCodeRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
+  async getFunctionCodeWithOptions(serviceName: string, functionName: string, request: GetFunctionCodeRequest, headers: GetFunctionCodeHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionCodeResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6379,20 +9362,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFunctionCodeResponse>(await this.doROARequest("GetFunctionCode", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/code`, "json", req, runtime), new GetFunctionCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFunctionCode",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/code`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionCodeResponse>(await this.callApi(params, req, runtime), new GetFunctionCodeResponse({}));
   }
 
   async getFunctionOnDemandConfig(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest): Promise<GetFunctionOnDemandConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetFunctionOnDemandConfigHeaders({ });
     return await this.getFunctionOnDemandConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async getFunctionOnDemandConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFunctionOnDemandConfigResponse> {
+  async getFunctionOnDemandConfigWithOptions(serviceName: string, functionName: string, request: GetFunctionOnDemandConfigRequest, headers: GetFunctionOnDemandConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetFunctionOnDemandConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6401,49 +9424,169 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.doROARequest("GetFunctionOnDemandConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "json", req, runtime), new GetFunctionOnDemandConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFunctionOnDemandConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new GetFunctionOnDemandConfigResponse({}));
   }
 
   async getLayerVersion(layerName: string, version: string): Promise<GetLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetLayerVersionHeaders({ });
     return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
   }
 
-  async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
+  async getLayerVersionWithOptions(layerName: string, version: string, headers: GetLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionResponse> {
     layerName = OpenApiUtil.getEncodeParam(layerName);
     version = OpenApiUtil.getEncodeParam(version);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetLayerVersionResponse>(await this.doROARequest("GetLayerVersion", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "json", req, runtime), new GetLayerVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLayerVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLayerVersionResponse>(await this.callApi(params, req, runtime), new GetLayerVersionResponse({}));
   }
 
   async getLayerVersionByArn(arn: string): Promise<GetLayerVersionByArnResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetLayerVersionByArnHeaders({ });
     return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
   }
 
-  async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
+  async getLayerVersionByArnWithOptions(arn: string, headers: GetLayerVersionByArnHeaders, runtime: $Util.RuntimeOptions): Promise<GetLayerVersionByArnResponse> {
     arn = OpenApiUtil.getEncodeParam(arn);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetLayerVersionByArnResponse>(await this.doROARequest("GetLayerVersionByArn", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layerarn/${arn}`, "json", req, runtime), new GetLayerVersionByArnResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLayerVersionByArn",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layerarn/${arn}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLayerVersionByArnResponse>(await this.callApi(params, req, runtime), new GetLayerVersionByArnResponse({}));
   }
 
   async getProvisionConfig(serviceName: string, functionName: string, request: GetProvisionConfigRequest): Promise<GetProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetProvisionConfigHeaders({ });
     return await this.getProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async getProvisionConfigWithOptions(serviceName: string, functionName: string, request: GetProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
+  async getProvisionConfigWithOptions(serviceName: string, functionName: string, request: GetProvisionConfigRequest, headers: GetProvisionConfigHeaders, runtime: $Util.RuntimeOptions): Promise<GetProvisionConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6452,40 +9595,120 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetProvisionConfigResponse>(await this.doROARequest("GetProvisionConfig", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`, "json", req, runtime), new GetProvisionConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetProvisionConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProvisionConfigResponse>(await this.callApi(params, req, runtime), new GetProvisionConfigResponse({}));
   }
 
   async getResourceTags(request: GetResourceTagsRequest): Promise<GetResourceTagsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetResourceTagsHeaders({ });
     return await this.getResourceTagsWithOptions(request, headers, runtime);
   }
 
-  async getResourceTagsWithOptions(request: GetResourceTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceTagsResponse> {
+  async getResourceTagsWithOptions(request: GetResourceTagsRequest, headers: GetResourceTagsHeaders, runtime: $Util.RuntimeOptions): Promise<GetResourceTagsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.resourceArn)) {
       query["resourceArn"] = request.resourceArn;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetResourceTagsResponse>(await this.doROARequest("GetResourceTags", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/tag`, "json", req, runtime), new GetResourceTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourceTags",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/tag`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceTagsResponse>(await this.callApi(params, req, runtime), new GetResourceTagsResponse({}));
   }
 
   async getService(serviceName: string, request: GetServiceRequest): Promise<GetServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetServiceHeaders({ });
     return await this.getServiceWithOptions(serviceName, request, headers, runtime);
   }
 
-  async getServiceWithOptions(serviceName: string, request: GetServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
+  async getServiceWithOptions(serviceName: string, request: GetServiceRequest, headers: GetServiceHeaders, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
@@ -6493,20 +9716,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetServiceResponse>(await this.doROARequest("GetService", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}`, "json", req, runtime), new GetServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetService",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
   }
 
   async getStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest): Promise<GetStatefulAsyncInvocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetStatefulAsyncInvocationHeaders({ });
     return await this.getStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
   }
 
-  async getStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetStatefulAsyncInvocationResponse> {
+  async getStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: GetStatefulAsyncInvocationRequest, headers: GetStatefulAsyncInvocationHeaders, runtime: $Util.RuntimeOptions): Promise<GetStatefulAsyncInvocationResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6516,27 +9779,107 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.doROARequest("GetStatefulAsyncInvocation", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`, "json", req, runtime), new GetStatefulAsyncInvocationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStatefulAsyncInvocation",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new GetStatefulAsyncInvocationResponse({}));
   }
 
   async getTrigger(serviceName: string, functionName: string, triggerName: string): Promise<GetTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new GetTriggerHeaders({ });
     return await this.getTriggerWithOptions(serviceName, functionName, triggerName, headers, runtime);
   }
 
-  async getTriggerWithOptions(serviceName: string, functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
+  async getTriggerWithOptions(serviceName: string, functionName: string, triggerName: string, headers: GetTriggerHeaders, runtime: $Util.RuntimeOptions): Promise<GetTriggerResponse> {
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
     triggerName = OpenApiUtil.getEncodeParam(triggerName);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<GetTriggerResponse>(await this.doROARequest("GetTrigger", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "json", req, runtime), new GetTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetTrigger",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTriggerResponse>(await this.callApi(params, req, runtime), new GetTriggerResponse({}));
   }
 
   async invokeFunction(serviceName: string, functionName: string, request: InvokeFunctionRequest): Promise<InvokeFunctionResponse> {
@@ -6563,16 +9906,28 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
     if (!Util.isUnset(headers.xFcInvocationType)) {
-      realHeaders["x-fc-invocation-type"] = Util.toJSONString(headers.xFcInvocationType);
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
     }
 
     if (!Util.isUnset(headers.xFcLogType)) {
-      realHeaders["x-fc-log-type"] = Util.toJSONString(headers.xFcLogType);
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
     }
 
     if (!Util.isUnset(headers.xFcStatefulAsyncInvocationId)) {
-      realHeaders["x-fc-stateful-async-invocation-id"] = Util.toJSONString(headers.xFcStatefulAsyncInvocationId);
+      realHeaders["X-Fc-Stateful-Async-Invocation-Id"] = Util.toJSONString(headers.xFcStatefulAsyncInvocationId);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6580,16 +9935,27 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: request.body,
     });
-    return $tea.cast<InvokeFunctionResponse>(await this.doROARequest("InvokeFunction", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/invocations`, "byte", req, runtime), new InvokeFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InvokeFunction",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/invocations`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "byte",
+    });
+    return $tea.cast<InvokeFunctionResponse>(await this.callApi(params, req, runtime), new InvokeFunctionResponse({}));
   }
 
   async listAliases(serviceName: string, request: ListAliasesRequest): Promise<ListAliasesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListAliasesHeaders({ });
     return await this.listAliasesWithOptions(serviceName, request, headers, runtime);
   }
 
-  async listAliasesWithOptions(serviceName: string, request: ListAliasesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
+  async listAliasesWithOptions(serviceName: string, request: ListAliasesRequest, headers: ListAliasesHeaders, runtime: $Util.RuntimeOptions): Promise<ListAliasesResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
@@ -6609,20 +9975,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAliasesResponse>(await this.doROARequest("ListAliases", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/aliases`, "json", req, runtime), new ListAliasesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAliases",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/aliases`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAliasesResponse>(await this.callApi(params, req, runtime), new ListAliasesResponse({}));
   }
 
   async listCustomDomains(request: ListCustomDomainsRequest): Promise<ListCustomDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListCustomDomainsHeaders({ });
     return await this.listCustomDomainsWithOptions(request, headers, runtime);
   }
 
-  async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
+  async listCustomDomainsWithOptions(request: ListCustomDomainsRequest, headers: ListCustomDomainsHeaders, runtime: $Util.RuntimeOptions): Promise<ListCustomDomainsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6641,20 +10047,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListCustomDomainsResponse>(await this.doROARequest("ListCustomDomains", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/custom-domains`, "json", req, runtime), new ListCustomDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCustomDomains",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/custom-domains`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListCustomDomainsResponse({}));
   }
 
   async listEventSources(serviceName: string, functionName: string, request: ListEventSourcesRequest): Promise<ListEventSourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListEventSourcesHeaders({ });
     return await this.listEventSourcesWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async listEventSourcesWithOptions(serviceName: string, functionName: string, request: ListEventSourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListEventSourcesResponse> {
+  async listEventSourcesWithOptions(serviceName: string, functionName: string, request: ListEventSourcesRequest, headers: ListEventSourcesHeaders, runtime: $Util.RuntimeOptions): Promise<ListEventSourcesResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6663,20 +10109,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListEventSourcesResponse>(await this.doROARequest("ListEventSources", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`, "json", req, runtime), new ListEventSourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListEventSources",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEventSourcesResponse>(await this.callApi(params, req, runtime), new ListEventSourcesResponse({}));
   }
 
   async listFunctionAsyncInvokeConfigs(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListFunctionAsyncInvokeConfigsHeaders({ });
     return await this.listFunctionAsyncInvokeConfigsWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async listFunctionAsyncInvokeConfigsWithOptions(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionAsyncInvokeConfigsResponse> {
+  async listFunctionAsyncInvokeConfigsWithOptions(serviceName: string, functionName: string, request: ListFunctionAsyncInvokeConfigsRequest, headers: ListFunctionAsyncInvokeConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionAsyncInvokeConfigsResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -6689,20 +10175,60 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.doROARequest("ListFunctionAsyncInvokeConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-configs`, "json", req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFunctionAsyncInvokeConfigs",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionAsyncInvokeConfigsResponse>(await this.callApi(params, req, runtime), new ListFunctionAsyncInvokeConfigsResponse({}));
   }
 
   async listFunctions(serviceName: string, request: ListFunctionsRequest): Promise<ListFunctionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListFunctionsHeaders({ });
     return await this.listFunctionsWithOptions(serviceName, request, headers, runtime);
   }
 
-  async listFunctionsWithOptions(serviceName: string, request: ListFunctionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
+  async listFunctionsWithOptions(serviceName: string, request: ListFunctionsRequest, headers: ListFunctionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListFunctionsResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
@@ -6726,11 +10252,51 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListFunctionsResponse>(await this.doROARequest("ListFunctions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions`, "json", req, runtime), new ListFunctionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFunctions",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionsResponse>(await this.callApi(params, req, runtime), new ListFunctionsResponse({}));
   }
 
   async listInstances(serviceName: string, functionName: string, request: ListInstancesRequest): Promise<ListInstancesResponse> {
@@ -6769,16 +10335,27 @@ export default class Client extends OpenApi {
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListInstancesResponse>(await this.doROARequest("ListInstances", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`, "json", req, runtime), new ListInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListInstances",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListInstancesResponse>(await this.callApi(params, req, runtime), new ListInstancesResponse({}));
   }
 
   async listLayerVersions(layerName: string, request: ListLayerVersionsRequest): Promise<ListLayerVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListLayerVersionsHeaders({ });
     return await this.listLayerVersionsWithOptions(layerName, request, headers, runtime);
   }
 
-  async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
+  async listLayerVersionsWithOptions(layerName: string, request: ListLayerVersionsRequest, headers: ListLayerVersionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListLayerVersionsResponse> {
     Util.validateModel(request);
     layerName = OpenApiUtil.getEncodeParam(layerName);
     let query : {[key: string ]: any} = { };
@@ -6790,20 +10367,60 @@ export default class Client extends OpenApi {
       query["startVersion"] = request.startVersion;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListLayerVersionsResponse>(await this.doROARequest("ListLayerVersions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers/${layerName}/versions`, "json", req, runtime), new ListLayerVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListLayerVersions",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLayerVersionsResponse>(await this.callApi(params, req, runtime), new ListLayerVersionsResponse({}));
   }
 
   async listLayers(request: ListLayersRequest): Promise<ListLayersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListLayersHeaders({ });
     return await this.listLayersWithOptions(request, headers, runtime);
   }
 
-  async listLayersWithOptions(request: ListLayersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
+  async listLayersWithOptions(request: ListLayersRequest, headers: ListLayersHeaders, runtime: $Util.RuntimeOptions): Promise<ListLayersResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6822,20 +10439,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListLayersResponse>(await this.doROARequest("ListLayers", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/layers`, "json", req, runtime), new ListLayersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListLayers",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLayersResponse>(await this.callApi(params, req, runtime), new ListLayersResponse({}));
   }
 
   async listOnDemandConfigs(request: ListOnDemandConfigsRequest): Promise<ListOnDemandConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListOnDemandConfigsHeaders({ });
     return await this.listOnDemandConfigsWithOptions(request, headers, runtime);
   }
 
-  async listOnDemandConfigsWithOptions(request: ListOnDemandConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListOnDemandConfigsResponse> {
+  async listOnDemandConfigsWithOptions(request: ListOnDemandConfigsRequest, headers: ListOnDemandConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListOnDemandConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6854,20 +10511,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListOnDemandConfigsResponse>(await this.doROARequest("ListOnDemandConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/on-demand-configs`, "json", req, runtime), new ListOnDemandConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListOnDemandConfigs",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/on-demand-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOnDemandConfigsResponse>(await this.callApi(params, req, runtime), new ListOnDemandConfigsResponse({}));
   }
 
   async listProvisionConfigs(request: ListProvisionConfigsRequest): Promise<ListProvisionConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListProvisionConfigsHeaders({ });
     return await this.listProvisionConfigsWithOptions(request, headers, runtime);
   }
 
-  async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
+  async listProvisionConfigsWithOptions(request: ListProvisionConfigsRequest, headers: ListProvisionConfigsHeaders, runtime: $Util.RuntimeOptions): Promise<ListProvisionConfigsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6886,20 +10583,60 @@ export default class Client extends OpenApi {
       query["serviceName"] = request.serviceName;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListProvisionConfigsResponse>(await this.doROARequest("ListProvisionConfigs", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/provision-configs`, "json", req, runtime), new ListProvisionConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListProvisionConfigs",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/provision-configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProvisionConfigsResponse>(await this.callApi(params, req, runtime), new ListProvisionConfigsResponse({}));
   }
 
   async listReservedCapacities(request: ListReservedCapacitiesRequest): Promise<ListReservedCapacitiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListReservedCapacitiesHeaders({ });
     return await this.listReservedCapacitiesWithOptions(request, headers, runtime);
   }
 
-  async listReservedCapacitiesWithOptions(request: ListReservedCapacitiesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListReservedCapacitiesResponse> {
+  async listReservedCapacitiesWithOptions(request: ListReservedCapacitiesRequest, headers: ListReservedCapacitiesHeaders, runtime: $Util.RuntimeOptions): Promise<ListReservedCapacitiesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6910,20 +10647,60 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListReservedCapacitiesResponse>(await this.doROARequest("ListReservedCapacities", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/reserved-capacities`, "json", req, runtime), new ListReservedCapacitiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListReservedCapacities",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/reserved-capacities`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListReservedCapacitiesResponse>(await this.callApi(params, req, runtime), new ListReservedCapacitiesResponse({}));
   }
 
   async listServiceVersions(serviceName: string, request: ListServiceVersionsRequest): Promise<ListServiceVersionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListServiceVersionsHeaders({ });
     return await this.listServiceVersionsWithOptions(serviceName, request, headers, runtime);
   }
 
-  async listServiceVersionsWithOptions(serviceName: string, request: ListServiceVersionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
+  async listServiceVersionsWithOptions(serviceName: string, request: ListServiceVersionsRequest, headers: ListServiceVersionsHeaders, runtime: $Util.RuntimeOptions): Promise<ListServiceVersionsResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     let query : {[key: string ]: any} = { };
@@ -6943,20 +10720,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceVersionsResponse>(await this.doROARequest("ListServiceVersions", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/versions`, "json", req, runtime), new ListServiceVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceVersions",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceVersionsResponse>(await this.callApi(params, req, runtime), new ListServiceVersionsResponse({}));
   }
 
   async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListServicesHeaders({ });
     return await this.listServicesWithOptions(request, headers, runtime);
   }
 
-  async listServicesWithOptions(request: ListServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
+  async listServicesWithOptions(request: ListServicesRequest, headers: ListServicesHeaders, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -6975,20 +10792,60 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServicesResponse>(await this.doROARequest("ListServices", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services`, "json", req, runtime), new ListServicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServices",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
   }
 
   async listStatefulAsyncInvocations(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest): Promise<ListStatefulAsyncInvocationsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListStatefulAsyncInvocationsHeaders({ });
     return await this.listStatefulAsyncInvocationsWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async listStatefulAsyncInvocationsWithOptions(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListStatefulAsyncInvocationsResponse> {
+  async listStatefulAsyncInvocationsWithOptions(serviceName: string, functionName: string, request: ListStatefulAsyncInvocationsRequest, headers: ListStatefulAsyncInvocationsHeaders, runtime: $Util.RuntimeOptions): Promise<ListStatefulAsyncInvocationsResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7029,20 +10886,60 @@ export default class Client extends OpenApi {
       query["status"] = request.status;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.doROARequest("ListStatefulAsyncInvocations", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations`, "json", req, runtime), new ListStatefulAsyncInvocationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListStatefulAsyncInvocations",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListStatefulAsyncInvocationsResponse>(await this.callApi(params, req, runtime), new ListStatefulAsyncInvocationsResponse({}));
   }
 
   async listTaggedResources(request: ListTaggedResourcesRequest): Promise<ListTaggedResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListTaggedResourcesHeaders({ });
     return await this.listTaggedResourcesWithOptions(request, headers, runtime);
   }
 
-  async listTaggedResourcesWithOptions(request: ListTaggedResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTaggedResourcesResponse> {
+  async listTaggedResourcesWithOptions(request: ListTaggedResourcesRequest, headers: ListTaggedResourcesHeaders, runtime: $Util.RuntimeOptions): Promise<ListTaggedResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.limit)) {
@@ -7053,20 +10950,60 @@ export default class Client extends OpenApi {
       query["nextToken"] = request.nextToken;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTaggedResourcesResponse>(await this.doROARequest("ListTaggedResources", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/tags`, "json", req, runtime), new ListTaggedResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTaggedResources",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTaggedResourcesResponse>(await this.callApi(params, req, runtime), new ListTaggedResourcesResponse({}));
   }
 
   async listTriggers(serviceName: string, functionName: string, request: ListTriggersRequest): Promise<ListTriggersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListTriggersHeaders({ });
     return await this.listTriggersWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async listTriggersWithOptions(serviceName: string, functionName: string, request: ListTriggersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
+  async listTriggersWithOptions(serviceName: string, functionName: string, request: ListTriggersRequest, headers: ListTriggersHeaders, runtime: $Util.RuntimeOptions): Promise<ListTriggersResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7087,56 +11024,216 @@ export default class Client extends OpenApi {
       query["startKey"] = request.startKey;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTriggersResponse>(await this.doROARequest("ListTriggers", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`, "json", req, runtime), new ListTriggersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTriggers",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTriggersResponse>(await this.callApi(params, req, runtime), new ListTriggersResponse({}));
   }
 
   async listVpcBindings(serviceName: string): Promise<ListVpcBindingsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new ListVpcBindingsHeaders({ });
     return await this.listVpcBindingsWithOptions(serviceName, headers, runtime);
   }
 
-  async listVpcBindingsWithOptions(serviceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
+  async listVpcBindingsWithOptions(serviceName: string, headers: ListVpcBindingsHeaders, runtime: $Util.RuntimeOptions): Promise<ListVpcBindingsResponse> {
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<ListVpcBindingsResponse>(await this.doROARequest("ListVpcBindings", "2021-04-06", "HTTPS", "GET", "AK", `/2021-04-06/services/${serviceName}/bindings`, "json", req, runtime), new ListVpcBindingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcBindings",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/bindings`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcBindingsResponse>(await this.callApi(params, req, runtime), new ListVpcBindingsResponse({}));
   }
 
   async permanentDeleteLayerVersion(userID: string, layerName: string, version: string): Promise<PermanentDeleteLayerVersionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new PermanentDeleteLayerVersionHeaders({ });
     return await this.permanentDeleteLayerVersionWithOptions(userID, layerName, version, headers, runtime);
   }
 
-  async permanentDeleteLayerVersionWithOptions(userID: string, layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PermanentDeleteLayerVersionResponse> {
+  async permanentDeleteLayerVersionWithOptions(userID: string, layerName: string, version: string, headers: PermanentDeleteLayerVersionHeaders, runtime: $Util.RuntimeOptions): Promise<PermanentDeleteLayerVersionResponse> {
     userID = OpenApiUtil.getEncodeParam(userID);
     layerName = OpenApiUtil.getEncodeParam(layerName);
     version = OpenApiUtil.getEncodeParam(version);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<PermanentDeleteLayerVersionResponse>(await this.doROARequest("PermanentDeleteLayerVersion", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/adminlayers/${userID}/${layerName}/versions/${version}`, "none", req, runtime), new PermanentDeleteLayerVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PermanentDeleteLayerVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/adminlayers/${userID}/${layerName}/versions/${version}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PermanentDeleteLayerVersionResponse>(await this.callApi(params, req, runtime), new PermanentDeleteLayerVersionResponse({}));
   }
 
   async publishLayerAsPublic(layerName: string, version: string): Promise<PublishLayerAsPublicResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new PublishLayerAsPublicHeaders({ });
     return await this.publishLayerAsPublicWithOptions(layerName, version, headers, runtime);
   }
 
-  async publishLayerAsPublicWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishLayerAsPublicResponse> {
+  async publishLayerAsPublicWithOptions(layerName: string, version: string, headers: PublishLayerAsPublicHeaders, runtime: $Util.RuntimeOptions): Promise<PublishLayerAsPublicResponse> {
     layerName = OpenApiUtil.getEncodeParam(layerName);
     version = OpenApiUtil.getEncodeParam(version);
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
     });
-    return $tea.cast<PublishLayerAsPublicResponse>(await this.doROARequest("PublishLayerAsPublic", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/layers/${layerName}/versions/${version}`, "none", req, runtime), new PublishLayerAsPublicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishLayerAsPublic",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/layers/${layerName}/versions/${version}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<PublishLayerAsPublicResponse>(await this.callApi(params, req, runtime), new PublishLayerAsPublicResponse({}));
   }
 
   async publishServiceVersion(serviceName: string, request: PublishServiceVersionRequest): Promise<PublishServiceVersionResponse> {
@@ -7162,20 +11259,55 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PublishServiceVersionResponse>(await this.doROARequest("PublishServiceVersion", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/versions`, "json", req, runtime), new PublishServiceVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishServiceVersion",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishServiceVersionResponse>(await this.callApi(params, req, runtime), new PublishServiceVersionResponse({}));
   }
 
   async putFunctionAsyncInvokeConfig(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest): Promise<PutFunctionAsyncInvokeConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new PutFunctionAsyncInvokeConfigHeaders({ });
     return await this.putFunctionAsyncInvokeConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async putFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutFunctionAsyncInvokeConfigResponse> {
+  async putFunctionAsyncInvokeConfigWithOptions(serviceName: string, functionName: string, request: PutFunctionAsyncInvokeConfigRequest, headers: PutFunctionAsyncInvokeConfigHeaders, runtime: $Util.RuntimeOptions): Promise<PutFunctionAsyncInvokeConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7201,12 +11333,52 @@ export default class Client extends OpenApi {
       body["statefulInvocation"] = request.statefulInvocation;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.doROARequest("PutFunctionAsyncInvokeConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`, "json", req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PutFunctionAsyncInvokeConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/async-invoke-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutFunctionAsyncInvokeConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionAsyncInvokeConfigResponse({}));
   }
 
   async putFunctionOnDemandConfig(serviceName: string, functionName: string, request: PutFunctionOnDemandConfigRequest): Promise<PutFunctionOnDemandConfigResponse> {
@@ -7238,21 +11410,56 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.doROARequest("PutFunctionOnDemandConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`, "json", req, runtime), new PutFunctionOnDemandConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PutFunctionOnDemandConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/on-demand-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutFunctionOnDemandConfigResponse>(await this.callApi(params, req, runtime), new PutFunctionOnDemandConfigResponse({}));
   }
 
   async putProvisionConfig(serviceName: string, functionName: string, request: PutProvisionConfigRequest): Promise<PutProvisionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new PutProvisionConfigHeaders({ });
     return await this.putProvisionConfigWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async putProvisionConfigWithOptions(serviceName: string, functionName: string, request: PutProvisionConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
+  async putProvisionConfigWithOptions(serviceName: string, functionName: string, request: PutProvisionConfigRequest, headers: PutProvisionConfigHeaders, runtime: $Util.RuntimeOptions): Promise<PutProvisionConfigResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7274,21 +11481,61 @@ export default class Client extends OpenApi {
       body["targetTrackingPolicies"] = request.targetTrackingPolicies;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<PutProvisionConfigResponse>(await this.doROARequest("PutProvisionConfig", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`, "json", req, runtime), new PutProvisionConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PutProvisionConfig",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/provision-config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PutProvisionConfigResponse>(await this.callApi(params, req, runtime), new PutProvisionConfigResponse({}));
   }
 
   async registerEventSource(serviceName: string, functionName: string, request: RegisterEventSourceRequest): Promise<RegisterEventSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new RegisterEventSourceHeaders({ });
     return await this.registerEventSourceWithOptions(serviceName, functionName, request, headers, runtime);
   }
 
-  async registerEventSourceWithOptions(serviceName: string, functionName: string, request: RegisterEventSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RegisterEventSourceResponse> {
+  async registerEventSourceWithOptions(serviceName: string, functionName: string, request: RegisterEventSourceRequest, headers: RegisterEventSourceHeaders, runtime: $Util.RuntimeOptions): Promise<RegisterEventSourceResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7302,21 +11549,61 @@ export default class Client extends OpenApi {
       body["sourceArn"] = request.sourceArn;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RegisterEventSourceResponse>(await this.doROARequest("RegisterEventSource", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`, "json", req, runtime), new RegisterEventSourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegisterEventSource",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/event-sources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterEventSourceResponse>(await this.callApi(params, req, runtime), new RegisterEventSourceResponse({}));
   }
 
   async stopStatefulAsyncInvocation(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest): Promise<StopStatefulAsyncInvocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new StopStatefulAsyncInvocationHeaders({ });
     return await this.stopStatefulAsyncInvocationWithOptions(serviceName, functionName, invocationId, request, headers, runtime);
   }
 
-  async stopStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopStatefulAsyncInvocationResponse> {
+  async stopStatefulAsyncInvocationWithOptions(serviceName: string, functionName: string, invocationId: string, request: StopStatefulAsyncInvocationRequest, headers: StopStatefulAsyncInvocationHeaders, runtime: $Util.RuntimeOptions): Promise<StopStatefulAsyncInvocationResponse> {
     Util.validateModel(request);
     serviceName = OpenApiUtil.getEncodeParam(serviceName);
     functionName = OpenApiUtil.getEncodeParam(functionName);
@@ -7326,20 +11613,60 @@ export default class Client extends OpenApi {
       query["qualifier"] = request.qualifier;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.doROARequest("StopStatefulAsyncInvocation", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`, "none", req, runtime), new StopStatefulAsyncInvocationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopStatefulAsyncInvocation",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/stateful-async-invocations/${invocationId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StopStatefulAsyncInvocationResponse>(await this.callApi(params, req, runtime), new StopStatefulAsyncInvocationResponse({}));
   }
 
   async tagResource(request: TagResourceRequest): Promise<TagResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new TagResourceHeaders({ });
     return await this.tagResourceWithOptions(request, headers, runtime);
   }
 
-  async tagResourceWithOptions(request: TagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
+  async tagResourceWithOptions(request: TagResourceRequest, headers: TagResourceHeaders, runtime: $Util.RuntimeOptions): Promise<TagResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.resourceArn)) {
@@ -7350,20 +11677,60 @@ export default class Client extends OpenApi {
       body["tags"] = request.tags;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TagResourceResponse>(await this.doROARequest("TagResource", "2021-04-06", "HTTPS", "POST", "AK", `/2021-04-06/tag`, "none", req, runtime), new TagResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResource",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/tag`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<TagResourceResponse>(await this.callApi(params, req, runtime), new TagResourceResponse({}));
   }
 
   async untagResource(request: UntagResourceRequest): Promise<UntagResourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new UntagResourceHeaders({ });
     return await this.untagResourceWithOptions(request, headers, runtime);
   }
 
-  async untagResourceWithOptions(request: UntagResourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
+  async untagResourceWithOptions(request: UntagResourceRequest, headers: UntagResourceHeaders, runtime: $Util.RuntimeOptions): Promise<UntagResourceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.all)) {
@@ -7378,11 +11745,51 @@ export default class Client extends OpenApi {
       body["tagKeys"] = request.tagKeys;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UntagResourceResponse>(await this.doROARequest("UntagResource", "2021-04-06", "HTTPS", "DELETE", "AK", `/2021-04-06/tag`, "none", req, runtime), new UntagResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResource",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/tag`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UntagResourceResponse>(await this.callApi(params, req, runtime), new UntagResourceResponse({}));
   }
 
   async updateAlias(serviceName: string, aliasName: string, request: UpdateAliasRequest): Promise<UpdateAliasResponse> {
@@ -7417,20 +11824,55 @@ export default class Client extends OpenApi {
       realHeaders["If-Match"] = Util.toJSONString(headers.ifMatch);
     }
 
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateAliasResponse>(await this.doROARequest("UpdateAlias", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/aliases/${aliasName}`, "json", req, runtime), new UpdateAliasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAlias",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/aliases/${aliasName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAliasResponse>(await this.callApi(params, req, runtime), new UpdateAliasResponse({}));
   }
 
   async updateCustomDomain(domainName: string, request: UpdateCustomDomainRequest): Promise<UpdateCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
+    let headers = new UpdateCustomDomainHeaders({ });
     return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
-  async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
+  async updateCustomDomainWithOptions(domainName: string, request: UpdateCustomDomainRequest, headers: UpdateCustomDomainHeaders, runtime: $Util.RuntimeOptions): Promise<UpdateCustomDomainResponse> {
     Util.validateModel(request);
     domainName = OpenApiUtil.getEncodeParam(domainName);
     let body : {[key: string ]: any} = { };
@@ -7446,11 +11888,51 @@ export default class Client extends OpenApi {
       body["routeConfig"] = request.routeConfig;
     }
 
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.xFcAccountId)) {
+      realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
+    }
+
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
+      headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateCustomDomainResponse>(await this.doROARequest("UpdateCustomDomain", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/custom-domains/${domainName}`, "json", req, runtime), new UpdateCustomDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCustomDomain",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/custom-domains/${domainName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateCustomDomainResponse({}));
   }
 
   async updateFunction(serviceName: string, functionName: string, request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
@@ -7546,14 +12028,41 @@ export default class Client extends OpenApi {
     }
 
     if (!Util.isUnset(headers.xFcCodeChecksum)) {
-      realHeaders["x-fc-code-checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateFunctionResponse>(await this.doROARequest("UpdateFunction", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}`, "json", req, runtime), new UpdateFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateFunction",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
   }
 
   async updateService(serviceName: string, request: UpdateServiceRequest): Promise<UpdateServiceResponse> {
@@ -7607,11 +12116,42 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateServiceResponse>(await this.doROARequest("UpdateService", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}`, "json", req, runtime), new UpdateServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateService",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
   }
 
   async updateTrigger(serviceName: string, functionName: string, triggerName: string, request: UpdateTriggerRequest): Promise<UpdateTriggerResponse> {
@@ -7655,11 +12195,42 @@ export default class Client extends OpenApi {
       realHeaders["X-Fc-Account-Id"] = Util.toJSONString(headers.xFcAccountId);
     }
 
+    if (!Util.isUnset(headers.xFcCodeChecksum)) {
+      realHeaders["X-Fc-Code-Checksum"] = Util.toJSONString(headers.xFcCodeChecksum);
+    }
+
+    if (!Util.isUnset(headers.xFcDate)) {
+      realHeaders["X-Fc-Date"] = Util.toJSONString(headers.xFcDate);
+    }
+
+    if (!Util.isUnset(headers.xFcInvocationType)) {
+      realHeaders["X-Fc-Invocation-Type"] = Util.toJSONString(headers.xFcInvocationType);
+    }
+
+    if (!Util.isUnset(headers.xFcLogType)) {
+      realHeaders["X-Fc-Log-Type"] = Util.toJSONString(headers.xFcLogType);
+    }
+
+    if (!Util.isUnset(headers.xFcTraceId)) {
+      realHeaders["X-Fc-Trace-Id"] = Util.toJSONString(headers.xFcTraceId);
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: realHeaders,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateTriggerResponse>(await this.doROARequest("UpdateTrigger", "2021-04-06", "HTTPS", "PUT", "AK", `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`, "json", req, runtime), new UpdateTriggerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateTrigger",
+      version: "2021-04-06",
+      protocol: "HTTPS",
+      pathname: `/2021-04-06/services/${serviceName}/functions/${functionName}/triggers/${triggerName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateTriggerResponse>(await this.callApi(params, req, runtime), new UpdateTriggerResponse({}));
   }
 
 }
