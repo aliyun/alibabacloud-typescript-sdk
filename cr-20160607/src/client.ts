@@ -313,19 +313,19 @@ export class GetNamespaceResponse extends $tea.Model {
 }
 
 export class GetNamespaceListRequest extends $tea.Model {
-  status?: string;
   authorize?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       authorize: 'Authorize',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       authorize: 'string',
+      status: 'string',
     };
   }
 
@@ -509,22 +509,22 @@ export class GetRepoBuildStatusResponse extends $tea.Model {
 }
 
 export class GetRepoListRequest extends $tea.Model {
-  status?: string;
   page?: number;
   pageSize?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       page: 'Page',
       pageSize: 'PageSize',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       page: 'number',
       pageSize: 'number',
+      status: 'string',
     };
   }
 
@@ -553,22 +553,22 @@ export class GetRepoListResponse extends $tea.Model {
 }
 
 export class GetRepoListByNamespaceRequest extends $tea.Model {
-  status?: string;
   page?: number;
   pageSize?: number;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       page: 'Page',
       pageSize: 'PageSize',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
       page: 'number',
       pageSize: 'number',
+      status: 'string',
     };
   }
 
@@ -597,37 +597,37 @@ export class GetRepoListByNamespaceResponse extends $tea.Model {
 }
 
 export class GetRepoTagResponseBody extends $tea.Model {
-  imageUpdate?: number;
-  imageId?: string;
-  requestId?: string;
   digest?: string;
-  imageSize?: number;
-  tag?: string;
   imageCreate?: number;
+  imageId?: string;
+  imageSize?: number;
+  imageUpdate?: number;
+  requestId?: string;
   status?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUpdate: 'imageUpdate',
-      imageId: 'imageId',
-      requestId: 'requestId',
       digest: 'digest',
-      imageSize: 'imageSize',
-      tag: 'tag',
       imageCreate: 'imageCreate',
+      imageId: 'imageId',
+      imageSize: 'imageSize',
+      imageUpdate: 'imageUpdate',
+      requestId: 'requestId',
       status: 'status',
+      tag: 'tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageUpdate: 'number',
-      imageId: 'string',
-      requestId: 'string',
       digest: 'string',
-      imageSize: 'number',
-      tag: 'string',
       imageCreate: 'number',
+      imageId: 'string',
+      imageSize: 'number',
+      imageUpdate: 'number',
+      requestId: 'string',
       status: 'string',
+      tag: 'string',
     };
   }
 
@@ -650,47 +650,6 @@ export class GetRepoTagResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetRepoTagResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepoTagsRequest extends $tea.Model {
-  page?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      page: 'Page',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      page: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRepoTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -781,7 +740,67 @@ export class GetRepoTagScanSummaryResponse extends $tea.Model {
   }
 }
 
+export class GetRepoTagsRequest extends $tea.Model {
+  page?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      page: 'Page',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      page: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoWebhookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetResourceQuotaResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -963,10 +982,24 @@ export default class Client extends OpenApi {
   }
 
   async cancelRepoBuildWithOptions(RepoNamespace: string, RepoName: string, BuildId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CancelRepoBuildResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    BuildId = OpenApiUtil.getEncodeParam(BuildId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CancelRepoBuildResponse>(await this.doROARequest("CancelRepoBuild", "2016-06-07", "HTTPS", "POST", "AK", `/repos/${RepoNamespace}/{RepoName}/build/{BuildId}/cancel`, "none", req, runtime), new CancelRepoBuildResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelRepoBuild",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/build/${BuildId}/cancel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CancelRepoBuildResponse>(await this.callApi(params, req, runtime), new CancelRepoBuildResponse({}));
   }
 
   async createNamespace(): Promise<CreateNamespaceResponse> {
@@ -979,7 +1012,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.doROARequest("CreateNamespace", "2016-06-07", "HTTPS", "PUT", "AK", `/namespace`, "none", req, runtime), new CreateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateNamespace",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/namespace`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
   }
 
   async createRepo(): Promise<CreateRepoResponse> {
@@ -992,7 +1036,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateRepoResponse>(await this.doROARequest("CreateRepo", "2016-06-07", "HTTPS", "PUT", "AK", `/repos`, "none", req, runtime), new CreateRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateRepoResponse>(await this.callApi(params, req, runtime), new CreateRepoResponse({}));
   }
 
   async createRepoBuildRule(RepoNamespace: string, RepoName: string): Promise<CreateRepoBuildRuleResponse> {
@@ -1002,10 +1057,23 @@ export default class Client extends OpenApi {
   }
 
   async createRepoBuildRuleWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRepoBuildRuleResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateRepoBuildRuleResponse>(await this.doROARequest("CreateRepoBuildRule", "2016-06-07", "HTTPS", "PUT", "AK", `/repos/${RepoNamespace}/{RepoName}/rules`, "none", req, runtime), new CreateRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoBuildRule",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/rules`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoBuildRuleResponse({}));
   }
 
   async createRepoWebhook(RepoNamespace: string, RepoName: string): Promise<CreateRepoWebhookResponse> {
@@ -1015,10 +1083,23 @@ export default class Client extends OpenApi {
   }
 
   async createRepoWebhookWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRepoWebhookResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateRepoWebhookResponse>(await this.doROARequest("CreateRepoWebhook", "2016-06-07", "HTTPS", "PUT", "AK", `/repos/${RepoNamespace}/{RepoName}/webhooks`, "none", req, runtime), new CreateRepoWebhookResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRepoWebhook",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/webhooks`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateRepoWebhookResponse>(await this.callApi(params, req, runtime), new CreateRepoWebhookResponse({}));
   }
 
   async createUserInfo(): Promise<CreateUserInfoResponse> {
@@ -1031,7 +1112,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<CreateUserInfoResponse>(await this.doROARequest("CreateUserInfo", "2016-06-07", "HTTPS", "PUT", "AK", `/users`, "none", req, runtime), new CreateUserInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateUserInfo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/users`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateUserInfoResponse>(await this.callApi(params, req, runtime), new CreateUserInfoResponse({}));
   }
 
   async deleteImage(RepoNamespace: string, RepoName: string, Tag: string): Promise<DeleteImageResponse> {
@@ -1041,10 +1133,24 @@ export default class Client extends OpenApi {
   }
 
   async deleteImageWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteImageResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteImageResponse>(await this.doROARequest("DeleteImage", "2016-06-07", "HTTPS", "DELETE", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}`, "none", req, runtime), new DeleteImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteImage",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteImageResponse>(await this.callApi(params, req, runtime), new DeleteImageResponse({}));
   }
 
   async deleteNamespace(Namespace: string): Promise<DeleteNamespaceResponse> {
@@ -1054,10 +1160,22 @@ export default class Client extends OpenApi {
   }
 
   async deleteNamespaceWithOptions(Namespace: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
+    Namespace = OpenApiUtil.getEncodeParam(Namespace);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.doROARequest("DeleteNamespace", "2016-06-07", "HTTPS", "DELETE", "AK", `/namespace/${Namespace}`, "none", req, runtime), new DeleteNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteNamespace",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/namespace/${Namespace}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
   }
 
   async deleteRepo(RepoNamespace: string, RepoName: string): Promise<DeleteRepoResponse> {
@@ -1067,10 +1185,23 @@ export default class Client extends OpenApi {
   }
 
   async deleteRepoWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepoResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteRepoResponse>(await this.doROARequest("DeleteRepo", "2016-06-07", "HTTPS", "DELETE", "AK", `/repos/${RepoNamespace}/{RepoName}`, "none", req, runtime), new DeleteRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteRepoResponse>(await this.callApi(params, req, runtime), new DeleteRepoResponse({}));
   }
 
   async deleteRepoBuildRule(RepoNamespace: string, RepoName: string, BuildRuleId: string): Promise<DeleteRepoBuildRuleResponse> {
@@ -1080,10 +1211,24 @@ export default class Client extends OpenApi {
   }
 
   async deleteRepoBuildRuleWithOptions(RepoNamespace: string, RepoName: string, BuildRuleId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepoBuildRuleResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    BuildRuleId = OpenApiUtil.getEncodeParam(BuildRuleId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteRepoBuildRuleResponse>(await this.doROARequest("DeleteRepoBuildRule", "2016-06-07", "HTTPS", "DELETE", "AK", `/repos/${RepoNamespace}/{RepoName}/rules/{BuildRuleId}`, "none", req, runtime), new DeleteRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoBuildRule",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/rules/${BuildRuleId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new DeleteRepoBuildRuleResponse({}));
   }
 
   async deleteRepoWebhook(RepoNamespace: string, RepoName: string, WebhookId: string): Promise<DeleteRepoWebhookResponse> {
@@ -1093,10 +1238,24 @@ export default class Client extends OpenApi {
   }
 
   async deleteRepoWebhookWithOptions(RepoNamespace: string, RepoName: string, WebhookId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteRepoWebhookResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    WebhookId = OpenApiUtil.getEncodeParam(WebhookId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<DeleteRepoWebhookResponse>(await this.doROARequest("DeleteRepoWebhook", "2016-06-07", "HTTPS", "DELETE", "AK", `/repos/${RepoNamespace}/{RepoName}/webhooks/{WebhookId}`, "none", req, runtime), new DeleteRepoWebhookResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRepoWebhook",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/webhooks/${WebhookId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteRepoWebhookResponse>(await this.callApi(params, req, runtime), new DeleteRepoWebhookResponse({}));
   }
 
   async getAuthorizationToken(): Promise<GetAuthorizationTokenResponse> {
@@ -1109,7 +1268,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetAuthorizationTokenResponse>(await this.doROARequest("GetAuthorizationToken", "2016-06-07", "HTTPS", "GET", "AK", `/tokens`, "none", req, runtime), new GetAuthorizationTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthorizationToken",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/tokens`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetAuthorizationTokenResponse>(await this.callApi(params, req, runtime), new GetAuthorizationTokenResponse({}));
   }
 
   async getImageLayer(RepoNamespace: string, RepoName: string, Tag: string): Promise<GetImageLayerResponse> {
@@ -1119,10 +1289,24 @@ export default class Client extends OpenApi {
   }
 
   async getImageLayerWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetImageLayerResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetImageLayerResponse>(await this.doROARequest("GetImageLayer", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/layers`, "none", req, runtime), new GetImageLayerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageLayer",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/layers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetImageLayerResponse>(await this.callApi(params, req, runtime), new GetImageLayerResponse({}));
   }
 
   async getImageManifest(RepoNamespace: string, RepoName: string, Tag: string, request: GetImageManifestRequest): Promise<GetImageManifestResponse> {
@@ -1133,6 +1317,9 @@ export default class Client extends OpenApi {
 
   async getImageManifestWithOptions(RepoNamespace: string, RepoName: string, Tag: string, request: GetImageManifestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetImageManifestResponse> {
     Util.validateModel(request);
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.schemaVersion)) {
       query["SchemaVersion"] = request.schemaVersion;
@@ -1142,7 +1329,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetImageManifestResponse>(await this.doROARequest("GetImageManifest", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/manifest`, "none", req, runtime), new GetImageManifestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetImageManifest",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/manifest`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetImageManifestResponse>(await this.callApi(params, req, runtime), new GetImageManifestResponse({}));
   }
 
   async getNamespace(Namespace: string): Promise<GetNamespaceResponse> {
@@ -1152,10 +1350,22 @@ export default class Client extends OpenApi {
   }
 
   async getNamespaceWithOptions(Namespace: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNamespaceResponse> {
+    Namespace = OpenApiUtil.getEncodeParam(Namespace);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetNamespaceResponse>(await this.doROARequest("GetNamespace", "2016-06-07", "HTTPS", "GET", "AK", `/namespace/${Namespace}`, "none", req, runtime), new GetNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetNamespace",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/namespace/${Namespace}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetNamespaceResponse>(await this.callApi(params, req, runtime), new GetNamespaceResponse({}));
   }
 
   async getNamespaceList(request: GetNamespaceListRequest): Promise<GetNamespaceListResponse> {
@@ -1167,19 +1377,30 @@ export default class Client extends OpenApi {
   async getNamespaceListWithOptions(request: GetNamespaceListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNamespaceListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
     if (!Util.isUnset(request.authorize)) {
       query["Authorize"] = request.authorize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetNamespaceListResponse>(await this.doROARequest("GetNamespaceList", "2016-06-07", "HTTPS", "GET", "AK", `/namespace`, "none", req, runtime), new GetNamespaceListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetNamespaceList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/namespace`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetNamespaceListResponse>(await this.callApi(params, req, runtime), new GetNamespaceListResponse({}));
   }
 
   async getRegion(request: GetRegionRequest): Promise<GetRegionResponse> {
@@ -1199,7 +1420,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRegionResponse>(await this.doROARequest("GetRegion", "2016-06-07", "HTTPS", "GET", "AK", `/regions`, "none", req, runtime), new GetRegionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRegion",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRegionResponse>(await this.callApi(params, req, runtime), new GetRegionResponse({}));
   }
 
   async getRegionList(): Promise<GetRegionListResponse> {
@@ -1212,7 +1444,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRegionListResponse>(await this.doROARequest("GetRegionList", "2016-06-07", "HTTPS", "GET", "AK", `/regions`, "none", req, runtime), new GetRegionListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRegionList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRegionListResponse>(await this.callApi(params, req, runtime), new GetRegionListResponse({}));
   }
 
   async getRepo(RepoNamespace: string, RepoName: string): Promise<GetRepoResponse> {
@@ -1222,10 +1465,23 @@ export default class Client extends OpenApi {
   }
 
   async getRepoWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoResponse>(await this.doROARequest("GetRepo", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}`, "none", req, runtime), new GetRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoResponse>(await this.callApi(params, req, runtime), new GetRepoResponse({}));
   }
 
   async getRepoBuildList(RepoNamespace: string, RepoName: string, request: GetRepoBuildListRequest): Promise<GetRepoBuildListResponse> {
@@ -1236,6 +1492,8 @@ export default class Client extends OpenApi {
 
   async getRepoBuildListWithOptions(RepoNamespace: string, RepoName: string, request: GetRepoBuildListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildListResponse> {
     Util.validateModel(request);
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
@@ -1249,7 +1507,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRepoBuildListResponse>(await this.doROARequest("GetRepoBuildList", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/build`, "none", req, runtime), new GetRepoBuildListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoBuildList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/build`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoBuildListResponse>(await this.callApi(params, req, runtime), new GetRepoBuildListResponse({}));
   }
 
   async getRepoBuildRuleList(RepoNamespace: string, RepoName: string): Promise<GetRepoBuildRuleListResponse> {
@@ -1259,10 +1528,23 @@ export default class Client extends OpenApi {
   }
 
   async getRepoBuildRuleListWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRuleListResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoBuildRuleListResponse>(await this.doROARequest("GetRepoBuildRuleList", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/rules`, "none", req, runtime), new GetRepoBuildRuleListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoBuildRuleList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoBuildRuleListResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRuleListResponse({}));
   }
 
   async getRepoBuildStatus(RepoNamespace: string, RepoName: string, BuildId: string): Promise<GetRepoBuildStatusResponse> {
@@ -1272,10 +1554,24 @@ export default class Client extends OpenApi {
   }
 
   async getRepoBuildStatusWithOptions(RepoNamespace: string, RepoName: string, BuildId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildStatusResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    BuildId = OpenApiUtil.getEncodeParam(BuildId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoBuildStatusResponse>(await this.doROARequest("GetRepoBuildStatus", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/build/{BuildId}/status`, "none", req, runtime), new GetRepoBuildStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoBuildStatus",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/build/${BuildId}/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoBuildStatusResponse>(await this.callApi(params, req, runtime), new GetRepoBuildStatusResponse({}));
   }
 
   async getRepoList(request: GetRepoListRequest): Promise<GetRepoListResponse> {
@@ -1287,10 +1583,6 @@ export default class Client extends OpenApi {
   async getRepoListWithOptions(request: GetRepoListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoListResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
     }
@@ -1299,11 +1591,26 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRepoListResponse>(await this.doROARequest("GetRepoList", "2016-06-07", "HTTPS", "GET", "AK", `/repos`, "none", req, runtime), new GetRepoListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoListResponse>(await this.callApi(params, req, runtime), new GetRepoListResponse({}));
   }
 
   async getRepoListByNamespace(RepoNamespace: string, request: GetRepoListByNamespaceRequest): Promise<GetRepoListByNamespaceResponse> {
@@ -1314,11 +1621,8 @@ export default class Client extends OpenApi {
 
   async getRepoListByNamespaceWithOptions(RepoNamespace: string, request: GetRepoListByNamespaceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoListByNamespaceResponse> {
     Util.validateModel(request);
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
     }
@@ -1327,11 +1631,26 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRepoListByNamespaceResponse>(await this.doROARequest("GetRepoListByNamespace", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}`, "none", req, runtime), new GetRepoListByNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoListByNamespace",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoListByNamespaceResponse>(await this.callApi(params, req, runtime), new GetRepoListByNamespaceResponse({}));
   }
 
   async getRepoTag(RepoNamespace: string, RepoName: string, Tag: string): Promise<GetRepoTagResponse> {
@@ -1341,34 +1660,24 @@ export default class Client extends OpenApi {
   }
 
   async getRepoTagWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoTagResponse>(await this.doROARequest("GetRepoTag", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}`, "json", req, runtime), new GetRepoTagResponse({}));
-  }
-
-  async getRepoTags(RepoNamespace: string, RepoName: string, request: GetRepoTagsRequest): Promise<GetRepoTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getRepoTagsWithOptions(RepoNamespace, RepoName, request, headers, runtime);
-  }
-
-  async getRepoTagsWithOptions(RepoNamespace: string, RepoName: string, request: GetRepoTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.page)) {
-      query["Page"] = request.page;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
+    let params = new $OpenApi.Params({
+      action: "GetRepoTag",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<GetRepoTagsResponse>(await this.doROARequest("GetRepoTags", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags`, "none", req, runtime), new GetRepoTagsResponse({}));
+    return $tea.cast<GetRepoTagResponse>(await this.callApi(params, req, runtime), new GetRepoTagResponse({}));
   }
 
   async getRepoTagScanList(RepoNamespace: string, RepoName: string, Tag: string, request: GetRepoTagScanListRequest): Promise<GetRepoTagScanListResponse> {
@@ -1379,6 +1688,9 @@ export default class Client extends OpenApi {
 
   async getRepoTagScanListWithOptions(RepoNamespace: string, RepoName: string, Tag: string, request: GetRepoTagScanListRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanListResponse> {
     Util.validateModel(request);
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.page)) {
       query["Page"] = request.page;
@@ -1396,7 +1708,18 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRepoTagScanListResponse>(await this.doROARequest("GetRepoTagScanList", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/scanResult`, "none", req, runtime), new GetRepoTagScanListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagScanList",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/scanResult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoTagScanListResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanListResponse({}));
   }
 
   async getRepoTagScanStatus(RepoNamespace: string, RepoName: string, Tag: string): Promise<GetRepoTagScanStatusResponse> {
@@ -1406,10 +1729,24 @@ export default class Client extends OpenApi {
   }
 
   async getRepoTagScanStatusWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanStatusResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoTagScanStatusResponse>(await this.doROARequest("GetRepoTagScanStatus", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/scanStatus`, "none", req, runtime), new GetRepoTagScanStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagScanStatus",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/scanStatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoTagScanStatusResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanStatusResponse({}));
   }
 
   async getRepoTagScanSummary(RepoNamespace: string, RepoName: string, Tag: string): Promise<GetRepoTagScanSummaryResponse> {
@@ -1419,10 +1756,61 @@ export default class Client extends OpenApi {
   }
 
   async getRepoTagScanSummaryWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanSummaryResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoTagScanSummaryResponse>(await this.doROARequest("GetRepoTagScanSummary", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/scanCount`, "none", req, runtime), new GetRepoTagScanSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoTagScanSummary",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/scanCount`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoTagScanSummaryResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanSummaryResponse({}));
+  }
+
+  async getRepoTags(RepoNamespace: string, RepoName: string, request: GetRepoTagsRequest): Promise<GetRepoTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRepoTagsWithOptions(RepoNamespace, RepoName, request, headers, runtime);
+  }
+
+  async getRepoTagsWithOptions(RepoNamespace: string, RepoName: string, request: GetRepoTagsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoTagsResponse> {
+    Util.validateModel(request);
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRepoTags",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoTagsResponse>(await this.callApi(params, req, runtime), new GetRepoTagsResponse({}));
   }
 
   async getRepoWebhook(RepoNamespace: string, RepoName: string): Promise<GetRepoWebhookResponse> {
@@ -1432,10 +1820,48 @@ export default class Client extends OpenApi {
   }
 
   async getRepoWebhookWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepoWebhookResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<GetRepoWebhookResponse>(await this.doROARequest("GetRepoWebhook", "2016-06-07", "HTTPS", "GET", "AK", `/repos/${RepoNamespace}/{RepoName}/webhooks`, "none", req, runtime), new GetRepoWebhookResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRepoWebhook",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/webhooks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetRepoWebhookResponse>(await this.callApi(params, req, runtime), new GetRepoWebhookResponse({}));
+  }
+
+  async getResourceQuota(ResourceName: string): Promise<GetResourceQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getResourceQuotaWithOptions(ResourceName, headers, runtime);
+  }
+
+  async getResourceQuotaWithOptions(ResourceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceQuotaResponse> {
+    ResourceName = OpenApiUtil.getEncodeParam(ResourceName);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetResourceQuota",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/resource/${ResourceName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<GetResourceQuotaResponse>(await this.callApi(params, req, runtime), new GetResourceQuotaResponse({}));
   }
 
   async startImageScan(RepoNamespace: string, RepoName: string, Tag: string): Promise<StartImageScanResponse> {
@@ -1445,10 +1871,24 @@ export default class Client extends OpenApi {
   }
 
   async startImageScanWithOptions(RepoNamespace: string, RepoName: string, Tag: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartImageScanResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    Tag = OpenApiUtil.getEncodeParam(Tag);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StartImageScanResponse>(await this.doROARequest("StartImageScan", "2016-06-07", "HTTPS", "PUT", "AK", `/repos/${RepoNamespace}/{RepoName}/tags/{Tag}/scan`, "none", req, runtime), new StartImageScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartImageScan",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/tags/${Tag}/scan`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StartImageScanResponse>(await this.callApi(params, req, runtime), new StartImageScanResponse({}));
   }
 
   async startRepoBuildByRule(RepoNamespace: string, RepoName: string, BuildRuleId: string): Promise<StartRepoBuildByRuleResponse> {
@@ -1458,10 +1898,24 @@ export default class Client extends OpenApi {
   }
 
   async startRepoBuildByRuleWithOptions(RepoNamespace: string, RepoName: string, BuildRuleId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartRepoBuildByRuleResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    BuildRuleId = OpenApiUtil.getEncodeParam(BuildRuleId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<StartRepoBuildByRuleResponse>(await this.doROARequest("StartRepoBuildByRule", "2016-06-07", "HTTPS", "PUT", "AK", `/repos/${RepoNamespace}/{RepoName}/rules/{BuildRuleId}/build`, "none", req, runtime), new StartRepoBuildByRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartRepoBuildByRule",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/rules/${BuildRuleId}/build`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<StartRepoBuildByRuleResponse>(await this.callApi(params, req, runtime), new StartRepoBuildByRuleResponse({}));
   }
 
   async updateNamespace(Namespace: string): Promise<UpdateNamespaceResponse> {
@@ -1471,10 +1925,22 @@ export default class Client extends OpenApi {
   }
 
   async updateNamespaceWithOptions(Namespace: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
+    Namespace = OpenApiUtil.getEncodeParam(Namespace);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateNamespaceResponse>(await this.doROARequest("UpdateNamespace", "2016-06-07", "HTTPS", "POST", "AK", `/namespace/${Namespace}`, "none", req, runtime), new UpdateNamespaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateNamespace",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/namespace/${Namespace}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
   }
 
   async updateRepo(RepoNamespace: string, RepoName: string): Promise<UpdateRepoResponse> {
@@ -1484,10 +1950,23 @@ export default class Client extends OpenApi {
   }
 
   async updateRepoWithOptions(RepoNamespace: string, RepoName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepoResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateRepoResponse>(await this.doROARequest("UpdateRepo", "2016-06-07", "HTTPS", "POST", "AK", `/repos/${RepoNamespace}/{RepoName}`, "none", req, runtime), new UpdateRepoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateRepoResponse>(await this.callApi(params, req, runtime), new UpdateRepoResponse({}));
   }
 
   async updateRepoBuildRule(RepoNamespace: string, RepoName: string, BuildRuleId: string): Promise<UpdateRepoBuildRuleResponse> {
@@ -1497,10 +1976,24 @@ export default class Client extends OpenApi {
   }
 
   async updateRepoBuildRuleWithOptions(RepoNamespace: string, RepoName: string, BuildRuleId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepoBuildRuleResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    BuildRuleId = OpenApiUtil.getEncodeParam(BuildRuleId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateRepoBuildRuleResponse>(await this.doROARequest("UpdateRepoBuildRule", "2016-06-07", "HTTPS", "POST", "AK", `/repos/${RepoNamespace}/{RepoName}/rules/{BuildRuleId}`, "none", req, runtime), new UpdateRepoBuildRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepoBuildRule",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/rules/${BuildRuleId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new UpdateRepoBuildRuleResponse({}));
   }
 
   async updateRepoWebhook(RepoNamespace: string, RepoName: string, WebhookId: string): Promise<UpdateRepoWebhookResponse> {
@@ -1510,10 +2003,24 @@ export default class Client extends OpenApi {
   }
 
   async updateRepoWebhookWithOptions(RepoNamespace: string, RepoName: string, WebhookId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateRepoWebhookResponse> {
+    RepoNamespace = OpenApiUtil.getEncodeParam(RepoNamespace);
+    RepoName = OpenApiUtil.getEncodeParam(RepoName);
+    WebhookId = OpenApiUtil.getEncodeParam(WebhookId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateRepoWebhookResponse>(await this.doROARequest("UpdateRepoWebhook", "2016-06-07", "HTTPS", "POST", "AK", `/repos/${RepoNamespace}/{RepoName}/webhooks/{WebhookId}`, "none", req, runtime), new UpdateRepoWebhookResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRepoWebhook",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/repos/${RepoNamespace}/${RepoName}/webhooks/${WebhookId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateRepoWebhookResponse>(await this.callApi(params, req, runtime), new UpdateRepoWebhookResponse({}));
   }
 
   async updateUserInfo(): Promise<UpdateUserInfoResponse> {
@@ -1526,7 +2033,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    return $tea.cast<UpdateUserInfoResponse>(await this.doROARequest("UpdateUserInfo", "2016-06-07", "HTTPS", "POST", "AK", `/users`, "none", req, runtime), new UpdateUserInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateUserInfo",
+      version: "2016-06-07",
+      protocol: "HTTPS",
+      pathname: `/users`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateUserInfoResponse>(await this.callApi(params, req, runtime), new UpdateUserInfoResponse({}));
   }
 
 }
