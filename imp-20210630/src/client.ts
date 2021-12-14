@@ -11,11 +11,13 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddMemberRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
+  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
+      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -24,6 +26,7 @@ export class AddMemberRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
+      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -77,11 +80,13 @@ export class AddMemberResponse extends $tea.Model {
 export class AgreeLinkMicRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
+  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
+      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -90,6 +95,7 @@ export class AgreeLinkMicRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
+      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -142,10 +148,12 @@ export class AgreeLinkMicResponse extends $tea.Model {
 
 export class ApplyLinkMicRequest extends $tea.Model {
   conferenceId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -153,6 +161,7 @@ export class ApplyLinkMicRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -208,12 +217,14 @@ export class AttachStandardRoomHttpsCertificateRequest extends $tea.Model {
   certificatePrivateKey?: string;
   certificatePublicKey?: string;
   domainName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       certificatePrivateKey: 'CertificatePrivateKey',
       certificatePublicKey: 'CertificatePublicKey',
       domainName: 'DomainName',
+      regionId: 'RegionId',
     };
   }
 
@@ -223,6 +234,7 @@ export class AttachStandardRoomHttpsCertificateRequest extends $tea.Model {
       certificatePrivateKey: 'string',
       certificatePublicKey: 'string',
       domainName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -277,11 +289,13 @@ export class AttachStandardRoomHttpsCertificateResponse extends $tea.Model {
 
 export class BanAllCommentRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -290,6 +304,7 @@ export class BanAllCommentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -348,6 +363,7 @@ export class BanCommentRequest extends $tea.Model {
   appId?: string;
   banCommentTime?: number;
   banCommentUser?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -355,6 +371,7 @@ export class BanCommentRequest extends $tea.Model {
       appId: 'AppId',
       banCommentTime: 'BanCommentTime',
       banCommentUser: 'BanCommentUser',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -365,6 +382,7 @@ export class BanCommentRequest extends $tea.Model {
       appId: 'string',
       banCommentTime: 'number',
       banCommentUser: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -421,10 +439,12 @@ export class BanCommentResponse extends $tea.Model {
 
 export class CancelApplyLinkMicRequest extends $tea.Model {
   conferenceId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -432,6 +452,7 @@ export class CancelApplyLinkMicRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -484,11 +505,13 @@ export class CancelApplyLinkMicResponse extends $tea.Model {
 
 export class CancelBanAllCommentRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -497,6 +520,7 @@ export class CancelBanAllCommentRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -554,12 +578,14 @@ export class CancelBanAllCommentResponse extends $tea.Model {
 export class CancelBanCommentRequest extends $tea.Model {
   appId?: string;
   banCommentUser?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       banCommentUser: 'BanCommentUser',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -569,6 +595,7 @@ export class CancelBanCommentRequest extends $tea.Model {
     return {
       appId: 'string',
       banCommentUser: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -626,10 +653,12 @@ export class CancelBanCommentResponse extends $tea.Model {
 export class CreateAppRequest extends $tea.Model {
   appName?: string;
   appTemplateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       appTemplateId: 'AppTemplateId',
+      regionId: 'RegionId',
     };
   }
 
@@ -637,6 +666,7 @@ export class CreateAppRequest extends $tea.Model {
     return {
       appName: 'string',
       appTemplateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -693,12 +723,14 @@ export class CreateAppTemplateRequest extends $tea.Model {
   appTemplateName?: string;
   componentList?: string[];
   integrationMode?: string;
+  regionId?: string;
   scene?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       componentList: 'ComponentList',
       integrationMode: 'IntegrationMode',
+      regionId: 'RegionId',
       scene: 'Scene',
     };
   }
@@ -708,6 +740,7 @@ export class CreateAppTemplateRequest extends $tea.Model {
       appTemplateName: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
       integrationMode: 'string',
+      regionId: 'string',
       scene: 'string',
     };
   }
@@ -721,12 +754,14 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateName?: string;
   componentListShrink?: string;
   integrationMode?: string;
+  regionId?: string;
   scene?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateName: 'AppTemplateName',
       componentListShrink: 'ComponentList',
       integrationMode: 'IntegrationMode',
+      regionId: 'RegionId',
       scene: 'Scene',
     };
   }
@@ -736,6 +771,7 @@ export class CreateAppTemplateShrinkRequest extends $tea.Model {
       appTemplateName: 'string',
       componentListShrink: 'string',
       integrationMode: 'string',
+      regionId: 'string',
       scene: 'string',
     };
   }
@@ -793,12 +829,14 @@ export class CreateClassRequest extends $tea.Model {
   appId?: string;
   createNickname?: string;
   createUserId?: string;
+  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       createNickname: 'CreateNickname',
       createUserId: 'CreateUserId',
+      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -808,6 +846,7 @@ export class CreateClassRequest extends $tea.Model {
       appId: 'string',
       createNickname: 'string',
       createUserId: 'string',
+      regionId: 'string',
       title: 'string',
     };
   }
@@ -863,12 +902,14 @@ export class CreateClassResponse extends $tea.Model {
 
 export class CreateConferenceRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   roomId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       title: 'Title',
       userId: 'UserId',
@@ -878,6 +919,7 @@ export class CreateConferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
       roomId: 'string',
       title: 'string',
       userId: 'string',
@@ -939,6 +981,7 @@ export class CreateLiveRequest extends $tea.Model {
   codeLevel?: number;
   introduction?: string;
   liveId?: string;
+  regionId?: string;
   roomId?: string;
   title?: string;
   userId?: string;
@@ -949,6 +992,7 @@ export class CreateLiveRequest extends $tea.Model {
       codeLevel: 'CodeLevel',
       introduction: 'Introduction',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       title: 'Title',
       userId: 'UserId',
@@ -962,6 +1006,7 @@ export class CreateLiveRequest extends $tea.Model {
       codeLevel: 'number',
       introduction: 'string',
       liveId: 'string',
+      regionId: 'string',
       roomId: 'string',
       title: 'string',
       userId: 'string',
@@ -1024,6 +1069,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
   coverUrl?: string;
   extension?: { [key: string]: string };
   notice?: string;
+  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1034,6 +1080,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
       coverUrl: 'CoverUrl',
       extension: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -1047,6 +1094,7 @@ export class CreateLiveRoomRequest extends $tea.Model {
       coverUrl: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
+      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -1064,6 +1112,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
   coverUrl?: string;
   extensionShrink?: string;
   notice?: string;
+  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -1074,6 +1123,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       coverUrl: 'CoverUrl',
       extensionShrink: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -1087,6 +1137,7 @@ export class CreateLiveRoomShrinkRequest extends $tea.Model {
       coverUrl: 'string',
       extensionShrink: 'string',
       notice: 'string',
+      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -1145,6 +1196,7 @@ export class CreateRoomRequest extends $tea.Model {
   appId?: string;
   extension?: { [key: string]: string };
   notice?: string;
+  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   templateId?: string;
@@ -1154,6 +1206,7 @@ export class CreateRoomRequest extends $tea.Model {
       appId: 'AppId',
       extension: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       templateId: 'TemplateId',
@@ -1166,6 +1219,7 @@ export class CreateRoomRequest extends $tea.Model {
       appId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
+      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       templateId: 'string',
@@ -1182,6 +1236,7 @@ export class CreateRoomShrinkRequest extends $tea.Model {
   appId?: string;
   extensionShrink?: string;
   notice?: string;
+  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   templateId?: string;
@@ -1191,6 +1246,7 @@ export class CreateRoomShrinkRequest extends $tea.Model {
       appId: 'AppId',
       extensionShrink: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       templateId: 'TemplateId',
@@ -1203,6 +1259,7 @@ export class CreateRoomShrinkRequest extends $tea.Model {
       appId: 'string',
       extensionShrink: 'string',
       notice: 'string',
+      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       templateId: 'string',
@@ -1261,15 +1318,18 @@ export class CreateRoomResponse extends $tea.Model {
 
 export class DeleteAppRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1321,15 +1381,18 @@ export class DeleteAppResponse extends $tea.Model {
 
 export class DeleteAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appTemplateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1382,11 +1445,13 @@ export class DeleteAppTemplateResponse extends $tea.Model {
 export class DeleteClassRequest extends $tea.Model {
   appId?: string;
   classId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1395,6 +1460,7 @@ export class DeleteClassRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -1448,12 +1514,14 @@ export class DeleteClassResponse extends $tea.Model {
 export class DeleteCommentRequest extends $tea.Model {
   appId?: string;
   commentIdList?: string[];
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       commentIdList: 'CommentIdList',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -1463,6 +1531,7 @@ export class DeleteCommentRequest extends $tea.Model {
     return {
       appId: 'string',
       commentIdList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -1520,12 +1589,14 @@ export class DeleteCommentResponse extends $tea.Model {
 export class DeleteConferenceRequest extends $tea.Model {
   appId?: string;
   conferenceId?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       conferenceId: 'ConferenceId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -1535,6 +1606,7 @@ export class DeleteConferenceRequest extends $tea.Model {
     return {
       appId: 'string',
       conferenceId: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -1588,15 +1660,18 @@ export class DeleteConferenceResponse extends $tea.Model {
 
 export class DeleteLiveRequest extends $tea.Model {
   liveId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1649,11 +1724,13 @@ export class DeleteLiveResponse extends $tea.Model {
 export class DeleteLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1662,6 +1739,7 @@ export class DeleteLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -1714,10 +1792,12 @@ export class DeleteLiveRoomResponse extends $tea.Model {
 
 export class DeleteRoomRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -1725,6 +1805,7 @@ export class DeleteRoomRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -1777,15 +1858,18 @@ export class DeleteRoomResponse extends $tea.Model {
 
 export class GetAppRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1840,15 +1924,18 @@ export class GetAppResponse extends $tea.Model {
 
 export class GetAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appTemplateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1905,12 +1992,14 @@ export class GetAuthTokenRequest extends $tea.Model {
   appId?: string;
   appKey?: string;
   deviceId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appKey: 'AppKey',
       deviceId: 'DeviceId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1920,6 +2009,7 @@ export class GetAuthTokenRequest extends $tea.Model {
       appId: 'string',
       appKey: 'string',
       deviceId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -1976,11 +2066,13 @@ export class GetAuthTokenResponse extends $tea.Model {
 export class GetClassDetailRequest extends $tea.Model {
   appId?: string;
   classId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -1989,6 +2081,7 @@ export class GetClassDetailRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -2044,15 +2137,18 @@ export class GetClassDetailResponse extends $tea.Model {
 
 export class GetConferenceRequest extends $tea.Model {
   conferenceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2107,15 +2203,18 @@ export class GetConferenceResponse extends $tea.Model {
 
 export class GetDomainOwnerVerifyContentRequest extends $tea.Model {
   liveDomainName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveDomainName: 'LiveDomainName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveDomainName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2160,6 +2259,25 @@ export class GetDomainOwnerVerifyContentResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetDomainOwnerVerifyContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImpProductStatusRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
     };
   }
 
@@ -2214,15 +2332,18 @@ export class GetImpProductStatusResponse extends $tea.Model {
 
 export class GetLiveRequest extends $tea.Model {
   liveId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2279,11 +2400,13 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
   appId?: string;
   liveDomainList?: string[];
   liveDomainType?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainList: 'LiveDomainList',
       liveDomainType: 'LiveDomainType',
+      regionId: 'RegionId',
     };
   }
 
@@ -2292,6 +2415,7 @@ export class GetLiveDomainStatusRequest extends $tea.Model {
       appId: 'string',
       liveDomainList: { 'type': 'array', 'itemType': 'string' },
       liveDomainType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2304,11 +2428,13 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
   appId?: string;
   liveDomainListShrink?: string;
   liveDomainType?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveDomainListShrink: 'LiveDomainList',
       liveDomainType: 'LiveDomainType',
+      regionId: 'RegionId',
     };
   }
 
@@ -2317,6 +2443,7 @@ export class GetLiveDomainStatusShrinkRequest extends $tea.Model {
       appId: 'string',
       liveDomainListShrink: 'string',
       liveDomainType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2372,10 +2499,12 @@ export class GetLiveDomainStatusResponse extends $tea.Model {
 export class GetLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
     };
   }
 
@@ -2383,6 +2512,7 @@ export class GetLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2438,10 +2568,12 @@ export class GetLiveRoomResponse extends $tea.Model {
 export class GetLiveRoomStatisticsRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
     };
   }
 
@@ -2449,6 +2581,7 @@ export class GetLiveRoomStatisticsRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2506,12 +2639,14 @@ export class GetLiveRoomUserStatisticsRequest extends $tea.Model {
   liveId?: string;
   pageNumber?: string;
   pageSize?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -2521,6 +2656,7 @@ export class GetLiveRoomUserStatisticsRequest extends $tea.Model {
       liveId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2575,10 +2711,12 @@ export class GetLiveRoomUserStatisticsResponse extends $tea.Model {
 
 export class GetRoomRequest extends $tea.Model {
   appId?: string;
+  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -2586,6 +2724,7 @@ export class GetRoomRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -2641,15 +2780,18 @@ export class GetRoomResponse extends $tea.Model {
 
 export class GetStandardRoomHttpsCertificateRequest extends $tea.Model {
   certificateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       certificateId: 'CertificateId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certificateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2708,6 +2850,7 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
   bizId?: string;
   bizType?: string;
   platform?: string;
+  regionId?: string;
   userId?: string;
   userNick?: string;
   static names(): { [key: string]: string } {
@@ -2717,6 +2860,7 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
       bizId: 'BizId',
       bizType: 'BizType',
       platform: 'Platform',
+      regionId: 'RegionId',
       userId: 'UserId',
       userNick: 'UserNick',
     };
@@ -2729,6 +2873,7 @@ export class GetStandardRoomJumpUrlRequest extends $tea.Model {
       bizId: 'string',
       bizType: 'string',
       platform: 'string',
+      regionId: 'string',
       userId: 'string',
       userNick: 'string',
     };
@@ -2786,10 +2931,12 @@ export class GetStandardRoomJumpUrlResponse extends $tea.Model {
 export class ListAppTemplatesRequest extends $tea.Model {
   pageNumber?: string;
   pageSize?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -2797,6 +2944,7 @@ export class ListAppTemplatesRequest extends $tea.Model {
     return {
       pageNumber: 'string',
       pageSize: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2853,11 +3001,13 @@ export class ListApplyLinkMicUsersRequest extends $tea.Model {
   conferenceId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -2866,6 +3016,7 @@ export class ListApplyLinkMicUsersRequest extends $tea.Model {
       conferenceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -2922,12 +3073,14 @@ export class ListAppsRequest extends $tea.Model {
   integrationMode?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       integrationMode: 'IntegrationMode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -2937,6 +3090,7 @@ export class ListAppsRequest extends $tea.Model {
       integrationMode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       status: 'string',
     };
   }
@@ -2994,12 +3148,14 @@ export class ListClassesRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -3009,6 +3165,7 @@ export class ListClassesRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       status: 'number',
     };
   }
@@ -3066,6 +3223,7 @@ export class ListCommentsRequest extends $tea.Model {
   appId?: string;
   pageNum?: number;
   pageSize?: number;
+  regionId?: string;
   roomId?: string;
   sortType?: number;
   userId?: string;
@@ -3074,6 +3232,7 @@ export class ListCommentsRequest extends $tea.Model {
       appId: 'AppId',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       sortType: 'SortType',
       userId: 'UserId',
@@ -3085,6 +3244,7 @@ export class ListCommentsRequest extends $tea.Model {
       appId: 'string',
       pageNum: 'number',
       pageSize: 'number',
+      regionId: 'string',
       roomId: 'string',
       sortType: 'number',
       userId: 'string',
@@ -3143,10 +3303,12 @@ export class ListCommentsResponse extends $tea.Model {
 export class ListComponentsRequest extends $tea.Model {
   appId?: string;
   appTemplateId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appTemplateId: 'AppTemplateId',
+      regionId: 'RegionId',
     };
   }
 
@@ -3154,6 +3316,7 @@ export class ListComponentsRequest extends $tea.Model {
     return {
       appId: 'string',
       appTemplateId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3210,11 +3373,13 @@ export class ListConferenceUsersRequest extends $tea.Model {
   conferenceId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -3223,6 +3388,7 @@ export class ListConferenceUsersRequest extends $tea.Model {
       conferenceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -3279,12 +3445,14 @@ export class ListLiveRoomsRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
   status?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -3294,6 +3462,7 @@ export class ListLiveRoomsRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
       status: 'number',
     };
   }
@@ -3350,10 +3519,12 @@ export class ListLiveRoomsResponse extends $tea.Model {
 export class ListLiveRoomsByIdRequest extends $tea.Model {
   appId?: string;
   liveIdList?: string[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveIdList: 'LiveIdList',
+      regionId: 'RegionId',
     };
   }
 
@@ -3361,6 +3532,7 @@ export class ListLiveRoomsByIdRequest extends $tea.Model {
     return {
       appId: 'string',
       liveIdList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
     };
   }
 
@@ -3372,10 +3544,12 @@ export class ListLiveRoomsByIdRequest extends $tea.Model {
 export class ListLiveRoomsByIdShrinkRequest extends $tea.Model {
   appId?: string;
   liveIdListShrink?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveIdListShrink: 'LiveIdList',
+      regionId: 'RegionId',
     };
   }
 
@@ -3383,6 +3557,7 @@ export class ListLiveRoomsByIdShrinkRequest extends $tea.Model {
     return {
       appId: 'string',
       liveIdListShrink: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3438,6 +3613,7 @@ export class ListLiveRoomsByIdResponse extends $tea.Model {
 export class ListRoomLivesRequest extends $tea.Model {
   appId?: string;
   queryTimestamp?: number;
+  regionId?: string;
   roomId?: string;
   roomIdList?: string[];
   size?: number;
@@ -3446,6 +3622,7 @@ export class ListRoomLivesRequest extends $tea.Model {
     return {
       appId: 'AppId',
       queryTimestamp: 'QueryTimestamp',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomIdList: 'RoomIdList',
       size: 'Size',
@@ -3457,6 +3634,7 @@ export class ListRoomLivesRequest extends $tea.Model {
     return {
       appId: 'string',
       queryTimestamp: 'number',
+      regionId: 'string',
       roomId: 'string',
       roomIdList: { 'type': 'array', 'itemType': 'string' },
       size: 'number',
@@ -3472,6 +3650,7 @@ export class ListRoomLivesRequest extends $tea.Model {
 export class ListRoomLivesShrinkRequest extends $tea.Model {
   appId?: string;
   queryTimestamp?: number;
+  regionId?: string;
   roomId?: string;
   roomIdListShrink?: string;
   size?: number;
@@ -3480,6 +3659,7 @@ export class ListRoomLivesShrinkRequest extends $tea.Model {
     return {
       appId: 'AppId',
       queryTimestamp: 'QueryTimestamp',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomIdListShrink: 'RoomIdList',
       size: 'Size',
@@ -3491,6 +3671,7 @@ export class ListRoomLivesShrinkRequest extends $tea.Model {
     return {
       appId: 'string',
       queryTimestamp: 'number',
+      regionId: 'string',
       roomId: 'string',
       roomIdListShrink: 'string',
       size: 'number',
@@ -3547,15 +3728,19 @@ export class ListRoomLivesResponse extends $tea.Model {
   }
 }
 
-export class ListRoomsRequest extends $tea.Model {
+export class ListRoomUsersRequest extends $tea.Model {
   appId?: string;
   pageNumber?: number;
   pageSize?: number;
+  regionId?: string;
+  roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
+      roomId: 'RoomId',
     };
   }
 
@@ -3564,6 +3749,80 @@ export class ListRoomsRequest extends $tea.Model {
       appId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      regionId: 'string',
+      roomId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: ListRoomUsersResponseBodyResult;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: ListRoomUsersResponseBodyResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRoomUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRoomUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomsRequest extends $tea.Model {
+  appId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -3618,10 +3877,12 @@ export class ListRoomsResponse extends $tea.Model {
 
 export class PublishLiveRequest extends $tea.Model {
   liveId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       liveId: 'LiveId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -3629,6 +3890,7 @@ export class PublishLiveRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       liveId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -3685,11 +3947,13 @@ export class PublishLiveResponse extends $tea.Model {
 export class PublishLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -3698,6 +3962,7 @@ export class PublishLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -3754,11 +4019,13 @@ export class PublishLiveRoomResponse extends $tea.Model {
 export class RejectLinkMicRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
+  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
+      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -3767,6 +4034,7 @@ export class RejectLinkMicRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
+      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -3820,11 +4088,13 @@ export class RejectLinkMicResponse extends $tea.Model {
 export class RemoveMemberRequest extends $tea.Model {
   conferenceId?: string;
   fromUserId?: string;
+  regionId?: string;
   toUserId?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
       fromUserId: 'FromUserId',
+      regionId: 'RegionId',
       toUserId: 'ToUserId',
     };
   }
@@ -3833,6 +4103,7 @@ export class RemoveMemberRequest extends $tea.Model {
     return {
       conferenceId: 'string',
       fromUserId: 'string',
+      regionId: 'string',
       toUserId: 'string',
     };
   }
@@ -3887,6 +4158,7 @@ export class SendCommentRequest extends $tea.Model {
   appId?: string;
   content?: string;
   extension?: { [key: string]: string };
+  regionId?: string;
   roomId?: string;
   senderId?: string;
   senderNick?: string;
@@ -3895,6 +4167,7 @@ export class SendCommentRequest extends $tea.Model {
       appId: 'AppId',
       content: 'Content',
       extension: 'Extension',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
@@ -3906,6 +4179,7 @@ export class SendCommentRequest extends $tea.Model {
       appId: 'string',
       content: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      regionId: 'string',
       roomId: 'string',
       senderId: 'string',
       senderNick: 'string',
@@ -3921,6 +4195,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
   appId?: string;
   content?: string;
   extensionShrink?: string;
+  regionId?: string;
   roomId?: string;
   senderId?: string;
   senderNick?: string;
@@ -3929,6 +4204,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
       appId: 'AppId',
       content: 'Content',
       extensionShrink: 'Extension',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
@@ -3940,6 +4216,7 @@ export class SendCommentShrinkRequest extends $tea.Model {
       appId: 'string',
       content: 'string',
       extensionShrink: 'string',
+      regionId: 'string',
       roomId: 'string',
       senderId: 'string',
       senderNick: 'string',
@@ -3998,11 +4275,13 @@ export class SendCommentResponse extends $tea.Model {
 export class SendCustomMessageToAllRequest extends $tea.Model {
   appId?: string;
   body?: string;
+  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       body: 'Body',
+      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -4011,6 +4290,7 @@ export class SendCustomMessageToAllRequest extends $tea.Model {
     return {
       appId: 'string',
       body: 'string',
+      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -4068,12 +4348,14 @@ export class SendCustomMessageToUsersRequest extends $tea.Model {
   appId?: string;
   body?: string;
   receiverList?: string[];
+  regionId?: string;
   roomId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       body: 'Body',
       receiverList: 'ReceiverList',
+      regionId: 'RegionId',
       roomId: 'RoomId',
     };
   }
@@ -4083,6 +4365,7 @@ export class SendCustomMessageToUsersRequest extends $tea.Model {
       appId: 'string',
       body: 'string',
       receiverList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
       roomId: 'string',
     };
   }
@@ -4139,11 +4422,13 @@ export class SendCustomMessageToUsersResponse extends $tea.Model {
 export class StopClassRequest extends $tea.Model {
   appId?: string;
   classId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       classId: 'ClassId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -4152,6 +4437,7 @@ export class StopClassRequest extends $tea.Model {
     return {
       appId: 'string',
       classId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4205,12 +4491,14 @@ export class StopClassResponse extends $tea.Model {
 export class StopLiveRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   roomId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       userId: 'UserId',
     };
@@ -4220,6 +4508,7 @@ export class StopLiveRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
       roomId: 'string',
       userId: 'string',
     };
@@ -4274,11 +4563,13 @@ export class StopLiveResponse extends $tea.Model {
 export class StopLiveRoomRequest extends $tea.Model {
   appId?: string;
   liveId?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -4287,6 +4578,7 @@ export class StopLiveRoomRequest extends $tea.Model {
     return {
       appId: 'string',
       liveId: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4341,11 +4633,13 @@ export class UpdateAppRequest extends $tea.Model {
   appId?: string;
   appName?: string;
   appStatus?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       appName: 'AppName',
       appStatus: 'AppStatus',
+      regionId: 'RegionId',
     };
   }
 
@@ -4354,6 +4648,7 @@ export class UpdateAppRequest extends $tea.Model {
       appId: 'string',
       appName: 'string',
       appStatus: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4407,11 +4702,13 @@ export class UpdateAppTemplateRequest extends $tea.Model {
   appTemplateId?: string;
   appTemplateName?: string;
   componentList?: string[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       appTemplateName: 'AppTemplateName',
       componentList: 'ComponentList',
+      regionId: 'RegionId',
     };
   }
 
@@ -4420,6 +4717,7 @@ export class UpdateAppTemplateRequest extends $tea.Model {
       appTemplateId: 'string',
       appTemplateName: 'string',
       componentList: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
     };
   }
 
@@ -4432,11 +4730,13 @@ export class UpdateAppTemplateShrinkRequest extends $tea.Model {
   appTemplateId?: string;
   appTemplateName?: string;
   componentListShrink?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       appTemplateName: 'AppTemplateName',
       componentListShrink: 'ComponentList',
+      regionId: 'RegionId',
     };
   }
 
@@ -4445,6 +4745,7 @@ export class UpdateAppTemplateShrinkRequest extends $tea.Model {
       appTemplateId: 'string',
       appTemplateName: 'string',
       componentListShrink: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4497,10 +4798,12 @@ export class UpdateAppTemplateResponse extends $tea.Model {
 export class UpdateAppTemplateConfigRequest extends $tea.Model {
   appTemplateId?: string;
   configList?: UpdateAppTemplateConfigRequestConfigList[];
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       configList: 'ConfigList',
+      regionId: 'RegionId',
     };
   }
 
@@ -4508,6 +4811,7 @@ export class UpdateAppTemplateConfigRequest extends $tea.Model {
     return {
       appTemplateId: 'string',
       configList: { 'type': 'array', 'itemType': UpdateAppTemplateConfigRequestConfigList },
+      regionId: 'string',
     };
   }
 
@@ -4519,10 +4823,12 @@ export class UpdateAppTemplateConfigRequest extends $tea.Model {
 export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
   appTemplateId?: string;
   configListShrink?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appTemplateId: 'AppTemplateId',
       configListShrink: 'ConfigList',
+      regionId: 'RegionId',
     };
   }
 
@@ -4530,6 +4836,7 @@ export class UpdateAppTemplateConfigShrinkRequest extends $tea.Model {
     return {
       appTemplateId: 'string',
       configListShrink: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4587,6 +4894,7 @@ export class UpdateClassRequest extends $tea.Model {
   classId?: string;
   createNickname?: string;
   createUserId?: string;
+  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4594,6 +4902,7 @@ export class UpdateClassRequest extends $tea.Model {
       classId: 'ClassId',
       createNickname: 'CreateNickname',
       createUserId: 'CreateUserId',
+      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -4604,6 +4913,7 @@ export class UpdateClassRequest extends $tea.Model {
       classId: 'string',
       createNickname: 'string',
       createUserId: 'string',
+      regionId: 'string',
       title: 'string',
     };
   }
@@ -4656,10 +4966,12 @@ export class UpdateClassResponse extends $tea.Model {
 
 export class UpdateConferenceRequest extends $tea.Model {
   conferenceId?: string;
+  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       conferenceId: 'ConferenceId',
+      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -4667,6 +4979,7 @@ export class UpdateConferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       conferenceId: 'string',
+      regionId: 'string',
       title: 'string',
     };
   }
@@ -4720,11 +5033,13 @@ export class UpdateConferenceResponse extends $tea.Model {
 export class UpdateLiveRequest extends $tea.Model {
   introduction?: string;
   liveId?: string;
+  regionId?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       introduction: 'Introduction',
       liveId: 'LiveId',
+      regionId: 'RegionId',
       title: 'Title',
     };
   }
@@ -4733,6 +5048,7 @@ export class UpdateLiveRequest extends $tea.Model {
     return {
       introduction: 'string',
       liveId: 'string',
+      regionId: 'string',
       title: 'string',
     };
   }
@@ -4791,6 +5107,7 @@ export class UpdateLiveRoomRequest extends $tea.Model {
   extension?: { [key: string]: string };
   liveId?: string;
   notice?: string;
+  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -4802,6 +5119,7 @@ export class UpdateLiveRoomRequest extends $tea.Model {
       extension: 'Extension',
       liveId: 'LiveId',
       notice: 'Notice',
+      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -4816,6 +5134,7 @@ export class UpdateLiveRoomRequest extends $tea.Model {
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       liveId: 'string',
       notice: 'string',
+      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -4834,6 +5153,7 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
   extensionShrink?: string;
   liveId?: string;
   notice?: string;
+  regionId?: string;
   title?: string;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -4845,6 +5165,7 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
       extensionShrink: 'Extension',
       liveId: 'LiveId',
       notice: 'Notice',
+      regionId: 'RegionId',
       title: 'Title',
       userId: 'UserId',
     };
@@ -4859,6 +5180,7 @@ export class UpdateLiveRoomShrinkRequest extends $tea.Model {
       extensionShrink: 'string',
       liveId: 'string',
       notice: 'string',
+      regionId: 'string',
       title: 'string',
       userId: 'string',
     };
@@ -4914,6 +5236,7 @@ export class UpdateRoomRequest extends $tea.Model {
   appId?: string;
   extension?: { [key: string]: string };
   notice?: string;
+  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   title?: string;
@@ -4922,6 +5245,7 @@ export class UpdateRoomRequest extends $tea.Model {
       appId: 'AppId',
       extension: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       title: 'Title',
@@ -4933,6 +5257,7 @@ export class UpdateRoomRequest extends $tea.Model {
       appId: 'string',
       extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notice: 'string',
+      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       title: 'string',
@@ -4948,6 +5273,7 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
   appId?: string;
   extensionShrink?: string;
   notice?: string;
+  regionId?: string;
   roomId?: string;
   roomOwnerId?: string;
   title?: string;
@@ -4956,6 +5282,7 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
       appId: 'AppId',
       extensionShrink: 'Extension',
       notice: 'Notice',
+      regionId: 'RegionId',
       roomId: 'RoomId',
       roomOwnerId: 'RoomOwnerId',
       title: 'Title',
@@ -4967,6 +5294,7 @@ export class UpdateRoomShrinkRequest extends $tea.Model {
       appId: 'string',
       extensionShrink: 'string',
       notice: 'string',
+      regionId: 'string',
       roomId: 'string',
       roomOwnerId: 'string',
       title: 'string',
@@ -5021,15 +5349,18 @@ export class UpdateRoomResponse extends $tea.Model {
 
 export class VerifyDomainOwnerRequest extends $tea.Model {
   liveDomainName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       liveDomainName: 'LiveDomainName',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       liveDomainName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6974,6 +7305,59 @@ export class ListRoomLivesResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ListRoomUsersResponseBodyResultRoomUserList extends $tea.Model {
+  extension?: { [key: string]: string };
+  nick?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      nick: 'Nick',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      nick: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRoomUsersResponseBodyResult extends $tea.Model {
+  hasMore?: boolean;
+  pageTotal?: number;
+  roomUserList?: ListRoomUsersResponseBodyResultRoomUserList[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'HasMore',
+      pageTotal: 'PageTotal',
+      roomUserList: 'RoomUserList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      pageTotal: 'number',
+      roomUserList: { 'type': 'array', 'itemType': ListRoomUsersResponseBodyResultRoomUserList },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRoomsResponseBodyResultRoomInfoListPluginInstanceInfoList extends $tea.Model {
   createTime?: number;
   extension?: { [key: string]: string };
@@ -7317,7 +7701,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<AddMemberResponse>(await this.doRPCRequest("AddMember", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new AddMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddMember",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddMemberResponse>(await this.callApi(params, req, runtime), new AddMemberResponse({}));
   }
 
   async addMember(request: AddMemberRequest): Promise<AddMemberResponse> {
@@ -7330,7 +7725,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<AgreeLinkMicResponse>(await this.doRPCRequest("AgreeLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new AgreeLinkMicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AgreeLinkMic",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AgreeLinkMicResponse>(await this.callApi(params, req, runtime), new AgreeLinkMicResponse({}));
   }
 
   async agreeLinkMic(request: AgreeLinkMicRequest): Promise<AgreeLinkMicResponse> {
@@ -7343,7 +7749,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ApplyLinkMicResponse>(await this.doRPCRequest("ApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ApplyLinkMicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ApplyLinkMic",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ApplyLinkMicResponse>(await this.callApi(params, req, runtime), new ApplyLinkMicResponse({}));
   }
 
   async applyLinkMic(request: ApplyLinkMicRequest): Promise<ApplyLinkMicResponse> {
@@ -7356,7 +7773,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<AttachStandardRoomHttpsCertificateResponse>(await this.doRPCRequest("AttachStandardRoomHttpsCertificate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new AttachStandardRoomHttpsCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachStandardRoomHttpsCertificate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachStandardRoomHttpsCertificateResponse>(await this.callApi(params, req, runtime), new AttachStandardRoomHttpsCertificateResponse({}));
   }
 
   async attachStandardRoomHttpsCertificate(request: AttachStandardRoomHttpsCertificateRequest): Promise<AttachStandardRoomHttpsCertificateResponse> {
@@ -7369,7 +7797,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<BanAllCommentResponse>(await this.doRPCRequest("BanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanAllCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BanAllComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BanAllCommentResponse>(await this.callApi(params, req, runtime), new BanAllCommentResponse({}));
   }
 
   async banAllComment(request: BanAllCommentRequest): Promise<BanAllCommentResponse> {
@@ -7382,7 +7821,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<BanCommentResponse>(await this.doRPCRequest("BanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new BanCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BanComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BanCommentResponse>(await this.callApi(params, req, runtime), new BanCommentResponse({}));
   }
 
   async banComment(request: BanCommentRequest): Promise<BanCommentResponse> {
@@ -7395,7 +7845,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelApplyLinkMicResponse>(await this.doRPCRequest("CancelApplyLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelApplyLinkMicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelApplyLinkMic",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelApplyLinkMicResponse>(await this.callApi(params, req, runtime), new CancelApplyLinkMicResponse({}));
   }
 
   async cancelApplyLinkMic(request: CancelApplyLinkMicRequest): Promise<CancelApplyLinkMicResponse> {
@@ -7408,7 +7869,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelBanAllCommentResponse>(await this.doRPCRequest("CancelBanAllComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanAllCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelBanAllComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelBanAllCommentResponse>(await this.callApi(params, req, runtime), new CancelBanAllCommentResponse({}));
   }
 
   async cancelBanAllComment(request: CancelBanAllCommentRequest): Promise<CancelBanAllCommentResponse> {
@@ -7421,7 +7893,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CancelBanCommentResponse>(await this.doRPCRequest("CancelBanComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CancelBanCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelBanComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelBanCommentResponse>(await this.callApi(params, req, runtime), new CancelBanCommentResponse({}));
   }
 
   async cancelBanComment(request: CancelBanCommentRequest): Promise<CancelBanCommentResponse> {
@@ -7434,7 +7917,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAppResponse>(await this.doRPCRequest("CreateApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateApp",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
   }
 
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
@@ -7453,7 +7947,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateAppTemplateResponse>(await this.doRPCRequest("CreateAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAppTemplate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppTemplateResponse>(await this.callApi(params, req, runtime), new CreateAppTemplateResponse({}));
   }
 
   async createAppTemplate(request: CreateAppTemplateRequest): Promise<CreateAppTemplateResponse> {
@@ -7466,7 +7971,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateClassResponse>(await this.doRPCRequest("CreateClass", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateClassResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateClass",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClassResponse>(await this.callApi(params, req, runtime), new CreateClassResponse({}));
   }
 
   async createClass(request: CreateClassRequest): Promise<CreateClassResponse> {
@@ -7479,7 +7995,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateConferenceResponse>(await this.doRPCRequest("CreateConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateConferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateConference",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConferenceResponse>(await this.callApi(params, req, runtime), new CreateConferenceResponse({}));
   }
 
   async createConference(request: CreateConferenceRequest): Promise<CreateConferenceResponse> {
@@ -7492,7 +8019,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateLiveResponse>(await this.doRPCRequest("CreateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLiveResponse>(await this.callApi(params, req, runtime), new CreateLiveResponse({}));
   }
 
   async createLive(request: CreateLiveRequest): Promise<CreateLiveResponse> {
@@ -7511,7 +8049,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateLiveRoomResponse>(await this.doRPCRequest("CreateLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLiveRoomResponse>(await this.callApi(params, req, runtime), new CreateLiveRoomResponse({}));
   }
 
   async createLiveRoom(request: CreateLiveRoomRequest): Promise<CreateLiveRoomResponse> {
@@ -7530,7 +8079,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateRoomResponse>(await this.doRPCRequest("CreateRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoomResponse>(await this.callApi(params, req, runtime), new CreateRoomResponse({}));
   }
 
   async createRoom(request: CreateRoomRequest): Promise<CreateRoomResponse> {
@@ -7543,7 +8103,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAppResponse>(await this.doRPCRequest("DeleteApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAppResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteApp",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
   }
 
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
@@ -7556,7 +8127,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteAppTemplateResponse>(await this.doRPCRequest("DeleteAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAppTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAppTemplate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppTemplateResponse>(await this.callApi(params, req, runtime), new DeleteAppTemplateResponse({}));
   }
 
   async deleteAppTemplate(request: DeleteAppTemplateRequest): Promise<DeleteAppTemplateResponse> {
@@ -7569,7 +8151,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteClassResponse>(await this.doRPCRequest("DeleteClass", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteClassResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteClass",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClassResponse>(await this.callApi(params, req, runtime), new DeleteClassResponse({}));
   }
 
   async deleteClass(request: DeleteClassRequest): Promise<DeleteClassResponse> {
@@ -7582,7 +8175,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteCommentResponse>(await this.doRPCRequest("DeleteComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCommentResponse>(await this.callApi(params, req, runtime), new DeleteCommentResponse({}));
   }
 
   async deleteComment(request: DeleteCommentRequest): Promise<DeleteCommentResponse> {
@@ -7595,7 +8199,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteConferenceResponse>(await this.doRPCRequest("DeleteConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteConference",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConferenceResponse>(await this.callApi(params, req, runtime), new DeleteConferenceResponse({}));
   }
 
   async deleteConference(request: DeleteConferenceRequest): Promise<DeleteConferenceResponse> {
@@ -7608,7 +8223,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteLiveResponse>(await this.doRPCRequest("DeleteLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLiveResponse>(await this.callApi(params, req, runtime), new DeleteLiveResponse({}));
   }
 
   async deleteLive(request: DeleteLiveRequest): Promise<DeleteLiveResponse> {
@@ -7621,7 +8247,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteLiveRoomResponse>(await this.doRPCRequest("DeleteLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLiveRoomResponse>(await this.callApi(params, req, runtime), new DeleteLiveRoomResponse({}));
   }
 
   async deleteLiveRoom(request: DeleteLiveRoomRequest): Promise<DeleteLiveRoomResponse> {
@@ -7634,7 +8271,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteRoomResponse>(await this.doRPCRequest("DeleteRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoomResponse>(await this.callApi(params, req, runtime), new DeleteRoomResponse({}));
   }
 
   async deleteRoom(request: DeleteRoomRequest): Promise<DeleteRoomResponse> {
@@ -7647,7 +8295,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAppResponse>(await this.doRPCRequest("GetApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetApp",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppResponse>(await this.callApi(params, req, runtime), new GetAppResponse({}));
   }
 
   async getApp(request: GetAppRequest): Promise<GetAppResponse> {
@@ -7660,7 +8319,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAppTemplateResponse>(await this.doRPCRequest("GetAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAppTemplate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppTemplateResponse>(await this.callApi(params, req, runtime), new GetAppTemplateResponse({}));
   }
 
   async getAppTemplate(request: GetAppTemplateRequest): Promise<GetAppTemplateResponse> {
@@ -7673,7 +8343,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetAuthTokenResponse>(await this.doRPCRequest("GetAuthToken", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAuthTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthToken",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthTokenResponse>(await this.callApi(params, req, runtime), new GetAuthTokenResponse({}));
   }
 
   async getAuthToken(request: GetAuthTokenRequest): Promise<GetAuthTokenResponse> {
@@ -7686,7 +8367,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetClassDetailResponse>(await this.doRPCRequest("GetClassDetail", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetClassDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetClassDetail",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClassDetailResponse>(await this.callApi(params, req, runtime), new GetClassDetailResponse({}));
   }
 
   async getClassDetail(request: GetClassDetailRequest): Promise<GetClassDetailResponse> {
@@ -7699,7 +8391,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetConferenceResponse>(await this.doRPCRequest("GetConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetConferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetConference",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConferenceResponse>(await this.callApi(params, req, runtime), new GetConferenceResponse({}));
   }
 
   async getConference(request: GetConferenceRequest): Promise<GetConferenceResponse> {
@@ -7712,7 +8415,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetDomainOwnerVerifyContentResponse>(await this.doRPCRequest("GetDomainOwnerVerifyContent", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetDomainOwnerVerifyContentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDomainOwnerVerifyContent",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDomainOwnerVerifyContentResponse>(await this.callApi(params, req, runtime), new GetDomainOwnerVerifyContentResponse({}));
   }
 
   async getDomainOwnerVerifyContent(request: GetDomainOwnerVerifyContentRequest): Promise<GetDomainOwnerVerifyContentResponse> {
@@ -7720,14 +8434,28 @@ export default class Client extends OpenApi {
     return await this.getDomainOwnerVerifyContentWithOptions(request, runtime);
   }
 
-  async getImpProductStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetImpProductStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetImpProductStatusResponse>(await this.doRPCRequest("GetImpProductStatus", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetImpProductStatusResponse({}));
+  async getImpProductStatusWithOptions(request: GetImpProductStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetImpProductStatusResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetImpProductStatus",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImpProductStatusResponse>(await this.callApi(params, req, runtime), new GetImpProductStatusResponse({}));
   }
 
-  async getImpProductStatus(): Promise<GetImpProductStatusResponse> {
+  async getImpProductStatus(request: GetImpProductStatusRequest): Promise<GetImpProductStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getImpProductStatusWithOptions(runtime);
+    return await this.getImpProductStatusWithOptions(request, runtime);
   }
 
   async getLiveWithOptions(request: GetLiveRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveResponse> {
@@ -7735,7 +8463,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveResponse>(await this.doRPCRequest("GetLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveResponse>(await this.callApi(params, req, runtime), new GetLiveResponse({}));
   }
 
   async getLive(request: GetLiveRequest): Promise<GetLiveResponse> {
@@ -7754,7 +8493,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveDomainStatusResponse>(await this.doRPCRequest("GetLiveDomainStatus", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveDomainStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveDomainStatus",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveDomainStatusResponse>(await this.callApi(params, req, runtime), new GetLiveDomainStatusResponse({}));
   }
 
   async getLiveDomainStatus(request: GetLiveDomainStatusRequest): Promise<GetLiveDomainStatusResponse> {
@@ -7767,7 +8517,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveRoomResponse>(await this.doRPCRequest("GetLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveRoomResponse>(await this.callApi(params, req, runtime), new GetLiveRoomResponse({}));
   }
 
   async getLiveRoom(request: GetLiveRoomRequest): Promise<GetLiveRoomResponse> {
@@ -7780,7 +8541,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveRoomStatisticsResponse>(await this.doRPCRequest("GetLiveRoomStatistics", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveRoomStatistics",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveRoomStatisticsResponse>(await this.callApi(params, req, runtime), new GetLiveRoomStatisticsResponse({}));
   }
 
   async getLiveRoomStatistics(request: GetLiveRoomStatisticsRequest): Promise<GetLiveRoomStatisticsResponse> {
@@ -7793,7 +8565,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetLiveRoomUserStatisticsResponse>(await this.doRPCRequest("GetLiveRoomUserStatistics", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetLiveRoomUserStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLiveRoomUserStatistics",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLiveRoomUserStatisticsResponse>(await this.callApi(params, req, runtime), new GetLiveRoomUserStatisticsResponse({}));
   }
 
   async getLiveRoomUserStatistics(request: GetLiveRoomUserStatisticsRequest): Promise<GetLiveRoomUserStatisticsResponse> {
@@ -7806,7 +8589,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetRoomResponse>(await this.doRPCRequest("GetRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoomResponse>(await this.callApi(params, req, runtime), new GetRoomResponse({}));
   }
 
   async getRoom(request: GetRoomRequest): Promise<GetRoomResponse> {
@@ -7819,7 +8613,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStandardRoomHttpsCertificateResponse>(await this.doRPCRequest("GetStandardRoomHttpsCertificate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetStandardRoomHttpsCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStandardRoomHttpsCertificate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStandardRoomHttpsCertificateResponse>(await this.callApi(params, req, runtime), new GetStandardRoomHttpsCertificateResponse({}));
   }
 
   async getStandardRoomHttpsCertificate(request: GetStandardRoomHttpsCertificateRequest): Promise<GetStandardRoomHttpsCertificateResponse> {
@@ -7832,7 +8637,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<GetStandardRoomJumpUrlResponse>(await this.doRPCRequest("GetStandardRoomJumpUrl", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetStandardRoomJumpUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStandardRoomJumpUrl",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStandardRoomJumpUrlResponse>(await this.callApi(params, req, runtime), new GetStandardRoomJumpUrlResponse({}));
   }
 
   async getStandardRoomJumpUrl(request: GetStandardRoomJumpUrlRequest): Promise<GetStandardRoomJumpUrlResponse> {
@@ -7845,7 +8661,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAppTemplatesResponse>(await this.doRPCRequest("ListAppTemplates", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppTemplatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAppTemplates",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAppTemplatesResponse>(await this.callApi(params, req, runtime), new ListAppTemplatesResponse({}));
   }
 
   async listAppTemplates(request: ListAppTemplatesRequest): Promise<ListAppTemplatesResponse> {
@@ -7858,7 +8685,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListApplyLinkMicUsersResponse>(await this.doRPCRequest("ListApplyLinkMicUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplyLinkMicUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListApplyLinkMicUsers",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplyLinkMicUsersResponse>(await this.callApi(params, req, runtime), new ListApplyLinkMicUsersResponse({}));
   }
 
   async listApplyLinkMicUsers(request: ListApplyLinkMicUsersRequest): Promise<ListApplyLinkMicUsersResponse> {
@@ -7871,7 +8709,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListAppsResponse>(await this.doRPCRequest("ListApps", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListApps",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAppsResponse>(await this.callApi(params, req, runtime), new ListAppsResponse({}));
   }
 
   async listApps(request: ListAppsRequest): Promise<ListAppsResponse> {
@@ -7884,7 +8733,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListClassesResponse>(await this.doRPCRequest("ListClasses", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListClassesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListClasses",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClassesResponse>(await this.callApi(params, req, runtime), new ListClassesResponse({}));
   }
 
   async listClasses(request: ListClassesRequest): Promise<ListClassesResponse> {
@@ -7897,7 +8757,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListCommentsResponse>(await this.doRPCRequest("ListComments", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListCommentsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListComments",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCommentsResponse>(await this.callApi(params, req, runtime), new ListCommentsResponse({}));
   }
 
   async listComments(request: ListCommentsRequest): Promise<ListCommentsResponse> {
@@ -7910,7 +8781,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListComponentsResponse>(await this.doRPCRequest("ListComponents", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListComponentsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListComponents",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListComponentsResponse>(await this.callApi(params, req, runtime), new ListComponentsResponse({}));
   }
 
   async listComponents(request: ListComponentsRequest): Promise<ListComponentsResponse> {
@@ -7923,7 +8805,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListConferenceUsersResponse>(await this.doRPCRequest("ListConferenceUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListConferenceUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListConferenceUsers",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConferenceUsersResponse>(await this.callApi(params, req, runtime), new ListConferenceUsersResponse({}));
   }
 
   async listConferenceUsers(request: ListConferenceUsersRequest): Promise<ListConferenceUsersResponse> {
@@ -7936,7 +8829,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListLiveRoomsResponse>(await this.doRPCRequest("ListLiveRooms", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListLiveRoomsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListLiveRooms",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLiveRoomsResponse>(await this.callApi(params, req, runtime), new ListLiveRoomsResponse({}));
   }
 
   async listLiveRooms(request: ListLiveRoomsRequest): Promise<ListLiveRoomsResponse> {
@@ -7955,7 +8859,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListLiveRoomsByIdResponse>(await this.doRPCRequest("ListLiveRoomsById", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListLiveRoomsByIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListLiveRoomsById",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListLiveRoomsByIdResponse>(await this.callApi(params, req, runtime), new ListLiveRoomsByIdResponse({}));
   }
 
   async listLiveRoomsById(request: ListLiveRoomsByIdRequest): Promise<ListLiveRoomsByIdResponse> {
@@ -7974,7 +8889,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRoomLivesResponse>(await this.doRPCRequest("ListRoomLives", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListRoomLivesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRoomLives",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoomLivesResponse>(await this.callApi(params, req, runtime), new ListRoomLivesResponse({}));
   }
 
   async listRoomLives(request: ListRoomLivesRequest): Promise<ListRoomLivesResponse> {
@@ -7982,12 +8908,47 @@ export default class Client extends OpenApi {
     return await this.listRoomLivesWithOptions(request, runtime);
   }
 
+  async listRoomUsersWithOptions(request: ListRoomUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomUsersResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRoomUsers",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoomUsersResponse>(await this.callApi(params, req, runtime), new ListRoomUsersResponse({}));
+  }
+
+  async listRoomUsers(request: ListRoomUsersRequest): Promise<ListRoomUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRoomUsersWithOptions(request, runtime);
+  }
+
   async listRoomsWithOptions(request: ListRoomsRequest, runtime: $Util.RuntimeOptions): Promise<ListRoomsResponse> {
     Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<ListRoomsResponse>(await this.doRPCRequest("ListRooms", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new ListRoomsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRooms",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRoomsResponse>(await this.callApi(params, req, runtime), new ListRoomsResponse({}));
   }
 
   async listRooms(request: ListRoomsRequest): Promise<ListRoomsResponse> {
@@ -8000,7 +8961,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<PublishLiveResponse>(await this.doRPCRequest("PublishLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new PublishLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishLiveResponse>(await this.callApi(params, req, runtime), new PublishLiveResponse({}));
   }
 
   async publishLive(request: PublishLiveRequest): Promise<PublishLiveResponse> {
@@ -8013,7 +8985,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<PublishLiveRoomResponse>(await this.doRPCRequest("PublishLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new PublishLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishLiveRoomResponse>(await this.callApi(params, req, runtime), new PublishLiveRoomResponse({}));
   }
 
   async publishLiveRoom(request: PublishLiveRoomRequest): Promise<PublishLiveRoomResponse> {
@@ -8026,7 +9009,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RejectLinkMicResponse>(await this.doRPCRequest("RejectLinkMic", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new RejectLinkMicResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RejectLinkMic",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RejectLinkMicResponse>(await this.callApi(params, req, runtime), new RejectLinkMicResponse({}));
   }
 
   async rejectLinkMic(request: RejectLinkMicRequest): Promise<RejectLinkMicResponse> {
@@ -8039,7 +9033,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<RemoveMemberResponse>(await this.doRPCRequest("RemoveMember", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveMember",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveMemberResponse>(await this.callApi(params, req, runtime), new RemoveMemberResponse({}));
   }
 
   async removeMember(request: RemoveMemberRequest): Promise<RemoveMemberResponse> {
@@ -8058,7 +9063,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SendCommentResponse>(await this.doRPCRequest("SendComment", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCommentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendComment",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCommentResponse>(await this.callApi(params, req, runtime), new SendCommentResponse({}));
   }
 
   async sendComment(request: SendCommentRequest): Promise<SendCommentResponse> {
@@ -8071,7 +9087,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SendCustomMessageToAllResponse>(await this.doRPCRequest("SendCustomMessageToAll", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCustomMessageToAllResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendCustomMessageToAll",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCustomMessageToAllResponse>(await this.callApi(params, req, runtime), new SendCustomMessageToAllResponse({}));
   }
 
   async sendCustomMessageToAll(request: SendCustomMessageToAllRequest): Promise<SendCustomMessageToAllResponse> {
@@ -8084,7 +9111,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<SendCustomMessageToUsersResponse>(await this.doRPCRequest("SendCustomMessageToUsers", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new SendCustomMessageToUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendCustomMessageToUsers",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendCustomMessageToUsersResponse>(await this.callApi(params, req, runtime), new SendCustomMessageToUsersResponse({}));
   }
 
   async sendCustomMessageToUsers(request: SendCustomMessageToUsersRequest): Promise<SendCustomMessageToUsersResponse> {
@@ -8097,7 +9135,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<StopClassResponse>(await this.doRPCRequest("StopClass", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopClassResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopClass",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopClassResponse>(await this.callApi(params, req, runtime), new StopClassResponse({}));
   }
 
   async stopClass(request: StopClassRequest): Promise<StopClassResponse> {
@@ -8110,7 +9159,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<StopLiveResponse>(await this.doRPCRequest("StopLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopLiveResponse>(await this.callApi(params, req, runtime), new StopLiveResponse({}));
   }
 
   async stopLive(request: StopLiveRequest): Promise<StopLiveResponse> {
@@ -8123,7 +9183,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<StopLiveRoomResponse>(await this.doRPCRequest("StopLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new StopLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopLiveRoomResponse>(await this.callApi(params, req, runtime), new StopLiveRoomResponse({}));
   }
 
   async stopLiveRoom(request: StopLiveRoomRequest): Promise<StopLiveRoomResponse> {
@@ -8136,7 +9207,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAppResponse>(await this.doRPCRequest("UpdateApp", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateApp",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppResponse>(await this.callApi(params, req, runtime), new UpdateAppResponse({}));
   }
 
   async updateApp(request: UpdateAppRequest): Promise<UpdateAppResponse> {
@@ -8155,7 +9237,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAppTemplateResponse>(await this.doRPCRequest("UpdateAppTemplate", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAppTemplate",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppTemplateResponse>(await this.callApi(params, req, runtime), new UpdateAppTemplateResponse({}));
   }
 
   async updateAppTemplate(request: UpdateAppTemplateRequest): Promise<UpdateAppTemplateResponse> {
@@ -8174,7 +9267,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateAppTemplateConfigResponse>(await this.doRPCRequest("UpdateAppTemplateConfig", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppTemplateConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAppTemplateConfig",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppTemplateConfigResponse>(await this.callApi(params, req, runtime), new UpdateAppTemplateConfigResponse({}));
   }
 
   async updateAppTemplateConfig(request: UpdateAppTemplateConfigRequest): Promise<UpdateAppTemplateConfigResponse> {
@@ -8187,7 +9291,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateClassResponse>(await this.doRPCRequest("UpdateClass", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateClassResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateClass",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClassResponse>(await this.callApi(params, req, runtime), new UpdateClassResponse({}));
   }
 
   async updateClass(request: UpdateClassRequest): Promise<UpdateClassResponse> {
@@ -8200,7 +9315,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateConferenceResponse>(await this.doRPCRequest("UpdateConference", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateConferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateConference",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateConferenceResponse>(await this.callApi(params, req, runtime), new UpdateConferenceResponse({}));
   }
 
   async updateConference(request: UpdateConferenceRequest): Promise<UpdateConferenceResponse> {
@@ -8213,7 +9339,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateLiveResponse>(await this.doRPCRequest("UpdateLive", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateLive",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLiveResponse>(await this.callApi(params, req, runtime), new UpdateLiveResponse({}));
   }
 
   async updateLive(request: UpdateLiveRequest): Promise<UpdateLiveResponse> {
@@ -8232,7 +9369,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateLiveRoomResponse>(await this.doRPCRequest("UpdateLiveRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLiveRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateLiveRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLiveRoomResponse>(await this.callApi(params, req, runtime), new UpdateLiveRoomResponse({}));
   }
 
   async updateLiveRoom(request: UpdateLiveRoomRequest): Promise<UpdateLiveRoomResponse> {
@@ -8251,7 +9399,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<UpdateRoomResponse>(await this.doRPCRequest("UpdateRoom", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRoomResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRoom",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRoomResponse>(await this.callApi(params, req, runtime), new UpdateRoomResponse({}));
   }
 
   async updateRoom(request: UpdateRoomRequest): Promise<UpdateRoomResponse> {
@@ -8264,7 +9423,18 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       body: Util.toMap(request),
     });
-    return $tea.cast<VerifyDomainOwnerResponse>(await this.doRPCRequest("VerifyDomainOwner", "2021-06-30", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyDomainOwnerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyDomainOwner",
+      version: "2021-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyDomainOwnerResponse({}));
   }
 
   async verifyDomainOwner(request: VerifyDomainOwnerRequest): Promise<VerifyDomainOwnerResponse> {
