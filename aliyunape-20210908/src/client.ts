@@ -56,7 +56,7 @@ export class ApeInnerCommonApiRequest extends $tea.Model {
 
 export class ApeInnerCommonApiResponseBody extends $tea.Model {
   code?: string;
-  data?: string;
+  data?: { [key: string]: any }[];
   message?: string;
   requestId?: string;
   rt?: number;
@@ -75,7 +75,7 @@ export class ApeInnerCommonApiResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: 'string',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       message: 'string',
       requestId: 'string',
       rt: 'number',
