@@ -2141,6 +2141,7 @@ export class GetResourceTypeResponseBody extends $tea.Model {
   requestId?: string;
   resourceType?: string;
   supportDriftDetection?: boolean;
+  supportScratchDetection?: boolean;
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
@@ -2148,6 +2149,7 @@ export class GetResourceTypeResponseBody extends $tea.Model {
       requestId: 'RequestId',
       resourceType: 'ResourceType',
       supportDriftDetection: 'SupportDriftDetection',
+      supportScratchDetection: 'SupportScratchDetection',
     };
   }
 
@@ -2158,6 +2160,7 @@ export class GetResourceTypeResponseBody extends $tea.Model {
       requestId: 'string',
       resourceType: 'string',
       supportDriftDetection: 'boolean',
+      supportScratchDetection: 'boolean',
     };
   }
 
@@ -3085,6 +3088,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
   regionId?: string;
   templateBody?: string;
   templateId?: string;
+  templateScratchId?: string;
   templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
@@ -3094,6 +3098,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       regionId: 'RegionId',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
       templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
     };
@@ -3106,6 +3111,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       regionId: 'string',
       templateBody: 'string',
       templateId: 'string',
+      templateScratchId: 'string',
       templateURL: 'string',
       templateVersion: 'string',
     };
@@ -4890,6 +4896,7 @@ export class PreviewStackRequest extends $tea.Model {
   stackPolicyURL?: string;
   templateBody?: string;
   templateId?: string;
+  templateScratchId?: string;
   templateURL?: string;
   templateVersion?: string;
   timeoutInMinutes?: number;
@@ -4905,6 +4912,7 @@ export class PreviewStackRequest extends $tea.Model {
       stackPolicyURL: 'StackPolicyURL',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
       templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
       timeoutInMinutes: 'TimeoutInMinutes',
@@ -4923,6 +4931,7 @@ export class PreviewStackRequest extends $tea.Model {
       stackPolicyURL: 'string',
       templateBody: 'string',
       templateId: 'string',
+      templateScratchId: 'string',
       templateURL: 'string',
       templateVersion: 'string',
       timeoutInMinutes: 'number',
@@ -6817,11 +6826,13 @@ export class GetChangeSetResponseBodyParameters extends $tea.Model {
 export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extends $tea.Model {
   customTag?: string[];
   estimateCost?: string[];
+  resourceGroup?: string[];
   systemTag?: string[];
   static names(): { [key: string]: string } {
     return {
       customTag: 'CustomTag',
       estimateCost: 'EstimateCost',
+      resourceGroup: 'ResourceGroup',
       systemTag: 'SystemTag',
     };
   }
@@ -6830,6 +6841,7 @@ export class GetFeatureDetailsResponseBodyTerraformSupportedResourceTypes extend
     return {
       customTag: { 'type': 'array', 'itemType': 'string' },
       estimateCost: { 'type': 'array', 'itemType': 'string' },
+      resourceGroup: { 'type': 'array', 'itemType': 'string' },
       systemTag: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -9234,7 +9246,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelUpdateStack",
@@ -9244,7 +9255,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelUpdateStackResponse>(await this.callApi(params, req, runtime), new CancelUpdateStackResponse({}));
@@ -9272,7 +9283,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ContinueCreateStack",
@@ -9282,7 +9292,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ContinueCreateStackResponse>(await this.callApi(params, req, runtime), new ContinueCreateStackResponse({}));
@@ -9323,7 +9333,6 @@ export default class Client extends OpenApi {
     query["UsePreviousParameters"] = request.usePreviousParameters;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateChangeSet",
@@ -9333,7 +9342,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateChangeSetResponse>(await this.callApi(params, req, runtime), new CreateChangeSetResponse({}));
@@ -9369,7 +9378,6 @@ export default class Client extends OpenApi {
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateStack",
@@ -9379,7 +9387,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateStackResponse>(await this.callApi(params, req, runtime), new CreateStackResponse({}));
@@ -9415,7 +9423,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateStackGroup",
@@ -9425,7 +9432,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateStackGroupResponse>(await this.callApi(params, req, runtime), new CreateStackGroupResponse({}));
@@ -9470,7 +9477,6 @@ export default class Client extends OpenApi {
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateStackInstances",
@@ -9480,7 +9486,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateStackInstancesResponse>(await this.callApi(params, req, runtime), new CreateStackInstancesResponse({}));
@@ -9501,7 +9507,6 @@ export default class Client extends OpenApi {
     query["TemplateURL"] = request.templateURL;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateTemplate",
@@ -9511,7 +9516,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
@@ -9555,7 +9560,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchType"] = request.templateScratchType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateTemplateScratch",
@@ -9565,7 +9569,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateTemplateScratchResponse>(await this.callApi(params, req, runtime), new CreateTemplateScratchResponse({}));
@@ -9583,7 +9587,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChangeSet",
@@ -9593,7 +9596,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChangeSetResponse>(await this.callApi(params, req, runtime), new DeleteChangeSetResponse({}));
@@ -9614,7 +9617,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteStack",
@@ -9624,7 +9626,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteStackResponse>(await this.callApi(params, req, runtime), new DeleteStackResponse({}));
@@ -9642,7 +9644,6 @@ export default class Client extends OpenApi {
     query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteStackGroup",
@@ -9652,7 +9653,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteStackGroupResponse>(await this.callApi(params, req, runtime), new DeleteStackGroupResponse({}));
@@ -9695,7 +9696,6 @@ export default class Client extends OpenApi {
     query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteStackInstances",
@@ -9705,7 +9705,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteStackInstancesResponse>(await this.callApi(params, req, runtime), new DeleteStackInstancesResponse({}));
@@ -9722,7 +9722,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTemplate",
@@ -9732,7 +9731,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
@@ -9750,7 +9749,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTemplateScratch",
@@ -9760,7 +9758,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTemplateScratchResponse>(await this.callApi(params, req, runtime), new DeleteTemplateScratchResponse({}));
@@ -9777,7 +9775,6 @@ export default class Client extends OpenApi {
     query["AcceptLanguage"] = request.acceptLanguage;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
@@ -9787,7 +9784,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
@@ -9807,7 +9804,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetectStackDrift",
@@ -9817,7 +9813,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetectStackDriftResponse>(await this.callApi(params, req, runtime), new DetectStackDriftResponse({}));
@@ -9843,7 +9839,6 @@ export default class Client extends OpenApi {
     query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetectStackGroupDrift",
@@ -9853,7 +9848,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetectStackGroupDriftResponse>(await this.callApi(params, req, runtime), new DetectStackGroupDriftResponse({}));
@@ -9873,7 +9868,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetectStackResourceDrift",
@@ -9883,7 +9877,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetectStackResourceDriftResponse>(await this.callApi(params, req, runtime), new DetectStackResourceDriftResponse({}));
@@ -9902,7 +9896,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ExecuteChangeSet",
@@ -9912,7 +9905,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ExecuteChangeSetResponse>(await this.callApi(params, req, runtime), new ExecuteChangeSetResponse({}));
@@ -9931,7 +9924,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GenerateTemplateByScratch",
@@ -9941,7 +9933,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GenerateTemplateByScratchResponse>(await this.callApi(params, req, runtime), new GenerateTemplateByScratchResponse({}));
@@ -9961,7 +9953,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GenerateTemplatePolicy",
@@ -9971,7 +9962,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GenerateTemplatePolicyResponse>(await this.callApi(params, req, runtime), new GenerateTemplatePolicyResponse({}));
@@ -9990,7 +9981,6 @@ export default class Client extends OpenApi {
     query["ShowTemplate"] = request.showTemplate;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetChangeSet",
@@ -10000,7 +9990,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetChangeSetResponse>(await this.callApi(params, req, runtime), new GetChangeSetResponse({}));
@@ -10018,7 +10008,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetFeatureDetails",
@@ -10028,7 +10017,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetFeatureDetailsResponse>(await this.callApi(params, req, runtime), new GetFeatureDetailsResponse({}));
@@ -10045,7 +10034,6 @@ export default class Client extends OpenApi {
     query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetResourceType",
@@ -10055,7 +10043,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetResourceTypeResponse>(await this.callApi(params, req, runtime), new GetResourceTypeResponse({}));
@@ -10072,7 +10060,6 @@ export default class Client extends OpenApi {
     query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetResourceTypeTemplate",
@@ -10082,7 +10069,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetResourceTypeTemplateResponse>(await this.callApi(params, req, runtime), new GetResourceTypeTemplateResponse({}));
@@ -10105,7 +10092,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetServiceProvisions",
@@ -10115,7 +10101,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetServiceProvisionsResponse>(await this.callApi(params, req, runtime), new GetServiceProvisionsResponse({}));
@@ -10136,7 +10122,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStack",
@@ -10146,7 +10131,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackResponse>(await this.callApi(params, req, runtime), new GetStackResponse({}));
@@ -10164,7 +10149,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackDriftDetectionStatus",
@@ -10174,7 +10158,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackDriftDetectionStatusResponse>(await this.callApi(params, req, runtime), new GetStackDriftDetectionStatusResponse({}));
@@ -10193,7 +10177,6 @@ export default class Client extends OpenApi {
     query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackGroup",
@@ -10203,7 +10186,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackGroupResponse>(await this.callApi(params, req, runtime), new GetStackGroupResponse({}));
@@ -10221,7 +10204,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackGroupOperation",
@@ -10231,7 +10213,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackGroupOperationResponse>(await this.callApi(params, req, runtime), new GetStackGroupOperationResponse({}));
@@ -10251,7 +10233,6 @@ export default class Client extends OpenApi {
     query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackInstance",
@@ -10261,7 +10242,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackInstanceResponse>(await this.callApi(params, req, runtime), new GetStackInstanceResponse({}));
@@ -10279,7 +10260,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackPolicy",
@@ -10289,7 +10269,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackPolicyResponse>(await this.callApi(params, req, runtime), new GetStackPolicyResponse({}));
@@ -10310,7 +10290,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetStackResource",
@@ -10320,7 +10299,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetStackResourceResponse>(await this.callApi(params, req, runtime), new GetStackResourceResponse({}));
@@ -10344,7 +10323,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplate",
@@ -10354,7 +10332,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
@@ -10373,11 +10351,11 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     query["TemplateBody"] = request.templateBody;
     query["TemplateId"] = request.templateId;
+    query["TemplateScratchId"] = request.templateScratchId;
     query["TemplateURL"] = request.templateURL;
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateEstimateCost",
@@ -10387,7 +10365,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateEstimateCostResponse>(await this.callApi(params, req, runtime), new GetTemplateEstimateCostResponse({}));
@@ -10417,7 +10395,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateParameterConstraints",
@@ -10427,7 +10404,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
@@ -10446,7 +10423,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateScratch",
@@ -10456,7 +10432,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateScratchResponse>(await this.callApi(params, req, runtime), new GetTemplateScratchResponse({}));
@@ -10480,7 +10456,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTemplateSummary",
@@ -10490,7 +10465,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateSummaryResponse>(await this.callApi(params, req, runtime), new GetTemplateSummaryResponse({}));
@@ -10514,7 +10489,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChangeSets",
@@ -10524,7 +10498,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChangeSetsResponse>(await this.callApi(params, req, runtime), new ListChangeSetsResponse({}));
@@ -10545,7 +10519,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
@@ -10568,7 +10542,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackEvents",
@@ -10578,7 +10551,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackEventsResponse>(await this.callApi(params, req, runtime), new ListStackEventsResponse({}));
@@ -10598,7 +10571,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackGroupOperationResults",
@@ -10608,7 +10580,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackGroupOperationResultsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationResultsResponse({}));
@@ -10628,7 +10600,6 @@ export default class Client extends OpenApi {
     query["StackGroupName"] = request.stackGroupName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackGroupOperations",
@@ -10638,7 +10609,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackGroupOperationsResponse>(await this.callApi(params, req, runtime), new ListStackGroupOperationsResponse({}));
@@ -10659,7 +10630,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackGroups",
@@ -10669,7 +10639,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackGroupsResponse>(await this.callApi(params, req, runtime), new ListStackGroupsResponse({}));
@@ -10691,7 +10661,6 @@ export default class Client extends OpenApi {
     query["StackInstanceRegionId"] = request.stackInstanceRegionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackInstances",
@@ -10701,7 +10670,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackInstancesResponse>(await this.callApi(params, req, runtime), new ListStackInstancesResponse({}));
@@ -10724,7 +10693,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackOperationRisks",
@@ -10734,7 +10702,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackOperationRisksResponse>(await this.callApi(params, req, runtime), new ListStackOperationRisksResponse({}));
@@ -10755,7 +10723,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackResourceDrifts",
@@ -10765,7 +10732,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackResourceDriftsResponse>(await this.callApi(params, req, runtime), new ListStackResourceDriftsResponse({}));
@@ -10783,7 +10750,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStackResources",
@@ -10793,7 +10759,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStackResourcesResponse>(await this.callApi(params, req, runtime), new ListStackResourcesResponse({}));
@@ -10820,7 +10786,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListStacks",
@@ -10830,7 +10795,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListStacksResponse>(await this.callApi(params, req, runtime), new ListStacksResponse({}));
@@ -10849,7 +10814,6 @@ export default class Client extends OpenApi {
     query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagKeys",
@@ -10859,7 +10823,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
@@ -10880,7 +10844,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagResources",
@@ -10890,7 +10853,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
@@ -10910,7 +10873,6 @@ export default class Client extends OpenApi {
     query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagValues",
@@ -10920,7 +10882,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
@@ -10942,7 +10904,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchType"] = request.templateScratchType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTemplateScratches",
@@ -10952,7 +10913,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTemplateScratchesResponse>(await this.callApi(params, req, runtime), new ListTemplateScratchesResponse({}));
@@ -10971,7 +10932,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTemplateVersions",
@@ -10981,7 +10941,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTemplateVersionsResponse>(await this.callApi(params, req, runtime), new ListTemplateVersionsResponse({}));
@@ -11003,7 +10963,6 @@ export default class Client extends OpenApi {
     query["TemplateName"] = request.templateName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTemplates",
@@ -11013,7 +10972,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
@@ -11033,7 +10992,6 @@ export default class Client extends OpenApi {
     query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "MoveResourceGroup",
@@ -11043,7 +11001,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
@@ -11067,12 +11025,12 @@ export default class Client extends OpenApi {
     query["StackPolicyURL"] = request.stackPolicyURL;
     query["TemplateBody"] = request.templateBody;
     query["TemplateId"] = request.templateId;
+    query["TemplateScratchId"] = request.templateScratchId;
     query["TemplateURL"] = request.templateURL;
     query["TemplateVersion"] = request.templateVersion;
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PreviewStack",
@@ -11082,7 +11040,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PreviewStackResponse>(await this.callApi(params, req, runtime), new PreviewStackResponse({}));
@@ -11101,7 +11059,6 @@ export default class Client extends OpenApi {
     query["StackId"] = request.stackId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDeletionProtection",
@@ -11111,7 +11068,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetDeletionProtectionResponse({}));
@@ -11131,7 +11088,6 @@ export default class Client extends OpenApi {
     query["StackPolicyURL"] = request.stackPolicyURL;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetStackPolicy",
@@ -11141,7 +11097,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetStackPolicyResponse>(await this.callApi(params, req, runtime), new SetStackPolicyResponse({}));
@@ -11162,7 +11118,6 @@ export default class Client extends OpenApi {
     query["VersionOption"] = request.versionOption;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetTemplatePermission",
@@ -11172,7 +11127,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetTemplatePermissionResponse>(await this.callApi(params, req, runtime), new SetTemplatePermissionResponse({}));
@@ -11194,7 +11149,6 @@ export default class Client extends OpenApi {
     query["UniqueId"] = request.uniqueId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SignalResource",
@@ -11204,7 +11158,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SignalResourceResponse>(await this.callApi(params, req, runtime), new SignalResourceResponse({}));
@@ -11222,7 +11176,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopStackGroupOperation",
@@ -11232,7 +11185,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopStackGroupOperationResponse>(await this.callApi(params, req, runtime), new StopStackGroupOperationResponse({}));
@@ -11252,7 +11205,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TagResources",
@@ -11262,7 +11214,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
@@ -11283,7 +11235,6 @@ export default class Client extends OpenApi {
     query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UntagResources",
@@ -11293,7 +11244,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
@@ -11328,7 +11279,6 @@ export default class Client extends OpenApi {
     query["UsePreviousParameters"] = request.usePreviousParameters;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateStack",
@@ -11338,7 +11288,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateStackResponse>(await this.callApi(params, req, runtime), new UpdateStackResponse({}));
@@ -11394,7 +11344,6 @@ export default class Client extends OpenApi {
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateStackGroup",
@@ -11404,7 +11353,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateStackGroupResponse>(await this.callApi(params, req, runtime), new UpdateStackGroupResponse({}));
@@ -11448,7 +11397,6 @@ export default class Client extends OpenApi {
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateStackInstances",
@@ -11458,7 +11406,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateStackInstancesResponse>(await this.callApi(params, req, runtime), new UpdateStackInstancesResponse({}));
@@ -11480,7 +11428,6 @@ export default class Client extends OpenApi {
     query["TemplateFormat"] = request.templateFormat;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateStackTemplateByResources",
@@ -11490,7 +11437,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateStackTemplateByResourcesResponse>(await this.callApi(params, req, runtime), new UpdateStackTemplateByResourcesResponse({}));
@@ -11511,7 +11458,6 @@ export default class Client extends OpenApi {
     query["TemplateURL"] = request.templateURL;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
@@ -11521,7 +11467,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
@@ -11565,7 +11511,6 @@ export default class Client extends OpenApi {
     query["TemplateScratchId"] = request.templateScratchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplateScratch",
@@ -11575,7 +11520,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTemplateScratchResponse>(await this.callApi(params, req, runtime), new UpdateTemplateScratchResponse({}));
@@ -11596,7 +11541,6 @@ export default class Client extends OpenApi {
     query["ValidationOption"] = request.validationOption;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ValidateTemplate",
@@ -11606,7 +11550,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ValidateTemplateResponse>(await this.callApi(params, req, runtime), new ValidateTemplateResponse({}));
