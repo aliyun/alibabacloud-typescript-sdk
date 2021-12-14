@@ -4,8 +4,111 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class ApeInnerCommonApiRequest extends $tea.Model {
+  appName?: string;
+  channel?: string;
+  endTime?: string;
+  lat?: string;
+  lon?: string;
+  pageNum?: number;
+  pageSize?: number;
+  spCode?: string;
+  startTime?: string;
+  station?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      channel: 'Channel',
+      endTime: 'EndTime',
+      lat: 'Lat',
+      lon: 'Lon',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      spCode: 'SpCode',
+      startTime: 'StartTime',
+      station: 'Station',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      channel: 'string',
+      endTime: 'string',
+      lat: 'string',
+      lon: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      spCode: 'string',
+      startTime: 'string',
+      station: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApeInnerCommonApiResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  rt?: number;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      rt: 'Rt',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      rt: 'number',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApeInnerCommonApiResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ApeInnerCommonApiResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ApeInnerCommonApiResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class HistoricalRequest extends $tea.Model {
   endTime?: string;
@@ -453,12 +556,56 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async apeInnerCommonApiWithOptions(request: ApeInnerCommonApiRequest, runtime: $Util.RuntimeOptions): Promise<ApeInnerCommonApiResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ApeInnerCommonApi",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ApeInnerCommonApiResponse>(await this.callApi(params, req, runtime), new ApeInnerCommonApiResponse({}));
+  }
+
+  async apeInnerCommonApi(request: ApeInnerCommonApiRequest): Promise<ApeInnerCommonApiResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.apeInnerCommonApiWithOptions(request, runtime);
+  }
+
   async historicalWithOptions(request: HistoricalRequest, runtime: $Util.RuntimeOptions): Promise<HistoricalResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndTime"] = request.endTime;
+    query["OrderId"] = request.orderId;
+    query["PageNum"] = request.pageNum;
+    query["PageSize"] = request.pageSize;
+    query["StartTime"] = request.startTime;
+    query["Station"] = request.station;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<HistoricalResponse>(await this.doRPCRequest("Historical", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new HistoricalResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Historical",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<HistoricalResponse>(await this.callApi(params, req, runtime), new HistoricalResponse({}));
   }
 
   async historical(request: HistoricalRequest): Promise<HistoricalResponse> {
@@ -468,10 +615,26 @@ export default class Client extends OpenApi {
 
   async stationDayWithOptions(request: StationDayRequest, runtime: $Util.RuntimeOptions): Promise<StationDayResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
+    query["StartForecast"] = request.startForecast;
+    query["Station"] = request.station;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<StationDayResponse>(await this.doRPCRequest("StationDay", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new StationDayResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StationDay",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StationDayResponse>(await this.callApi(params, req, runtime), new StationDayResponse({}));
   }
 
   async stationDay(request: StationDayRequest): Promise<StationDayResponse> {
@@ -481,10 +644,27 @@ export default class Client extends OpenApi {
 
   async weatherforecastWithOptions(request: WeatherforecastRequest, runtime: $Util.RuntimeOptions): Promise<WeatherforecastResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lat"] = request.lat;
+    query["Lon"] = request.lon;
+    query["OrderId"] = request.orderId;
+    query["StartForecast"] = request.startForecast;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<WeatherforecastResponse>(await this.doRPCRequest("Weatherforecast", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeatherforecastResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Weatherforecast",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WeatherforecastResponse>(await this.callApi(params, req, runtime), new WeatherforecastResponse({}));
   }
 
   async weatherforecast(request: WeatherforecastRequest): Promise<WeatherforecastResponse> {
@@ -494,10 +674,27 @@ export default class Client extends OpenApi {
 
   async weatherforecastTimeWithOptions(request: WeatherforecastTimeRequest, runtime: $Util.RuntimeOptions): Promise<WeatherforecastTimeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurHour"] = request.curHour;
+    query["Lat"] = request.lat;
+    query["Lon"] = request.lon;
+    query["OrderId"] = request.orderId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<WeatherforecastTimeResponse>(await this.doRPCRequest("WeatherforecastTime", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeatherforecastTimeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "WeatherforecastTime",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WeatherforecastTimeResponse>(await this.callApi(params, req, runtime), new WeatherforecastTimeResponse({}));
   }
 
   async weatherforecastTime(request: WeatherforecastTimeRequest): Promise<WeatherforecastTimeResponse> {
@@ -507,10 +704,27 @@ export default class Client extends OpenApi {
 
   async weathermonitorWithOptions(request: WeathermonitorRequest, runtime: $Util.RuntimeOptions): Promise<WeathermonitorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurHour"] = request.curHour;
+    query["OrderId"] = request.orderId;
+    query["PageNum"] = request.pageNum;
+    query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<WeathermonitorResponse>(await this.doRPCRequest("Weathermonitor", "2021-09-08", "HTTPS", "POST", "AK", "json", req, runtime), new WeathermonitorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Weathermonitor",
+      version: "2021-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<WeathermonitorResponse>(await this.callApi(params, req, runtime), new WeathermonitorResponse({}));
   }
 
   async weathermonitor(request: WeathermonitorRequest): Promise<WeathermonitorResponse> {
