@@ -4,35 +4,180 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class DescribeRegionsRequest extends $tea.Model {
-  securityToken?: string;
+export class CreateLindormInstanceRequest extends $tea.Model {
+  coldStorage?: number;
+  coreSpec?: string;
+  diskCategory?: string;
+  duration?: string;
+  filestoreNum?: number;
+  filestoreSpec?: string;
+  instanceAlias?: string;
+  instanceStorage?: string;
+  lindormNum?: number;
+  lindormSpec?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  payType?: string;
+  pricingCycle?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  acceptLanguage?: string;
+  securityToken?: string;
+  solrNum?: number;
+  solrSpec?: string;
+  tsdbNum?: number;
+  tsdbSpec?: string;
+  VPCId?: string;
+  vSwitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
+      coldStorage: 'ColdStorage',
+      coreSpec: 'CoreSpec',
+      diskCategory: 'DiskCategory',
+      duration: 'Duration',
+      filestoreNum: 'FilestoreNum',
+      filestoreSpec: 'FilestoreSpec',
+      instanceAlias: 'InstanceAlias',
+      instanceStorage: 'InstanceStorage',
+      lindormNum: 'LindormNum',
+      lindormSpec: 'LindormSpec',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      payType: 'PayType',
+      pricingCycle: 'PricingCycle',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      acceptLanguage: 'AcceptLanguage',
+      securityToken: 'SecurityToken',
+      solrNum: 'SolrNum',
+      solrSpec: 'SolrSpec',
+      tsdbNum: 'TsdbNum',
+      tsdbSpec: 'TsdbSpec',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
+      coldStorage: 'number',
+      coreSpec: 'string',
+      diskCategory: 'string',
+      duration: 'string',
+      filestoreNum: 'number',
+      filestoreSpec: 'string',
+      instanceAlias: 'string',
+      instanceStorage: 'string',
+      lindormNum: 'number',
+      lindormSpec: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      payType: 'string',
+      pricingCycle: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
+      securityToken: 'string',
+      solrNum: 'number',
+      solrSpec: 'string',
+      tsdbNum: 'number',
+      tsdbSpec: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLindormInstanceResponseBody extends $tea.Model {
+  instanceId?: string;
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLindormInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateLindormInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateLindormInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       acceptLanguage: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -42,19 +187,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegions },
+      requestId: 'string',
     };
   }
 
@@ -86,34 +231,37 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class GetInstanceIpWhiteListRequest extends $tea.Model {
-  securityToken?: string;
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  instanceId?: string;
-  groupName?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      instanceId: 'InstanceId',
-      groupName: 'GroupName',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
+      groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      instanceId: 'string',
-      groupName: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -123,22 +271,22 @@ export class GetInstanceIpWhiteListRequest extends $tea.Model {
 }
 
 export class GetInstanceIpWhiteListResponseBody extends $tea.Model {
-  requestId?: string;
   instanceId?: string;
   ipList?: string[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
       ipList: 'IpList',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceId: 'string',
       ipList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
@@ -170,34 +318,34 @@ export class GetInstanceIpWhiteListResponse extends $tea.Model {
 }
 
 export class GetLindormInstanceRequest extends $tea.Model {
-  securityToken?: string;
+  instanceId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  instanceId?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      instanceId: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -207,79 +355,94 @@ export class GetLindormInstanceRequest extends $tea.Model {
 }
 
 export class GetLindormInstanceResponseBody extends $tea.Model {
-  engineList?: GetLindormInstanceResponseBodyEngineList[];
-  autoRenew?: boolean;
-  diskUsage?: string;
-  networkType?: string;
-  serviceType?: string;
-  instanceAlias?: string;
-  instanceStatus?: string;
-  engineType?: number;
-  instanceStorage?: string;
-  requestId?: string;
-  zoneId?: string;
-  instanceId?: string;
-  createTime?: string;
-  coldStorage?: number;
-  diskCategory?: string;
-  payType?: string;
-  deletionProtection?: string;
-  vswitchId?: string;
-  vpcId?: string;
-  regionId?: string;
-  expireTime?: string;
   aliUid?: number;
+  autoRenew?: boolean;
+  coldStorage?: number;
+  createMilliseconds?: number;
+  createTime?: string;
+  deletionProtection?: string;
+  diskCategory?: string;
+  diskThreshold?: string;
+  diskUsage?: string;
+  enableCompute?: boolean;
+  enableKms?: boolean;
+  engineList?: GetLindormInstanceResponseBodyEngineList[];
+  engineType?: number;
+  expireTime?: string;
+  expiredMilliseconds?: number;
+  instanceAlias?: string;
+  instanceId?: string;
+  instanceStatus?: string;
+  instanceStorage?: string;
+  networkType?: string;
+  payType?: string;
+  regionId?: string;
+  requestId?: string;
+  serviceType?: string;
+  vpcId?: string;
+  vswitchId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      engineList: 'EngineList',
-      autoRenew: 'AutoRenew',
-      diskUsage: 'DiskUsage',
-      networkType: 'NetworkType',
-      serviceType: 'ServiceType',
-      instanceAlias: 'InstanceAlias',
-      instanceStatus: 'InstanceStatus',
-      engineType: 'EngineType',
-      instanceStorage: 'InstanceStorage',
-      requestId: 'RequestId',
-      zoneId: 'ZoneId',
-      instanceId: 'InstanceId',
-      createTime: 'CreateTime',
-      coldStorage: 'ColdStorage',
-      diskCategory: 'DiskCategory',
-      payType: 'PayType',
-      deletionProtection: 'DeletionProtection',
-      vswitchId: 'VswitchId',
-      vpcId: 'VpcId',
-      regionId: 'RegionId',
-      expireTime: 'ExpireTime',
       aliUid: 'AliUid',
+      autoRenew: 'AutoRenew',
+      coldStorage: 'ColdStorage',
+      createMilliseconds: 'CreateMilliseconds',
+      createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
+      diskCategory: 'DiskCategory',
+      diskThreshold: 'DiskThreshold',
+      diskUsage: 'DiskUsage',
+      enableCompute: 'EnableCompute',
+      enableKms: 'EnableKms',
+      engineList: 'EngineList',
+      engineType: 'EngineType',
+      expireTime: 'ExpireTime',
+      expiredMilliseconds: 'ExpiredMilliseconds',
+      instanceAlias: 'InstanceAlias',
+      instanceId: 'InstanceId',
+      instanceStatus: 'InstanceStatus',
+      instanceStorage: 'InstanceStorage',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      serviceType: 'ServiceType',
+      vpcId: 'VpcId',
+      vswitchId: 'VswitchId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      engineList: { 'type': 'array', 'itemType': GetLindormInstanceResponseBodyEngineList },
-      autoRenew: 'boolean',
-      diskUsage: 'string',
-      networkType: 'string',
-      serviceType: 'string',
-      instanceAlias: 'string',
-      instanceStatus: 'string',
-      engineType: 'number',
-      instanceStorage: 'string',
-      requestId: 'string',
-      zoneId: 'string',
-      instanceId: 'string',
-      createTime: 'string',
-      coldStorage: 'number',
-      diskCategory: 'string',
-      payType: 'string',
-      deletionProtection: 'string',
-      vswitchId: 'string',
-      vpcId: 'string',
-      regionId: 'string',
-      expireTime: 'string',
       aliUid: 'number',
+      autoRenew: 'boolean',
+      coldStorage: 'number',
+      createMilliseconds: 'number',
+      createTime: 'string',
+      deletionProtection: 'string',
+      diskCategory: 'string',
+      diskThreshold: 'string',
+      diskUsage: 'string',
+      enableCompute: 'boolean',
+      enableKms: 'boolean',
+      engineList: { 'type': 'array', 'itemType': GetLindormInstanceResponseBodyEngineList },
+      engineType: 'number',
+      expireTime: 'string',
+      expiredMilliseconds: 'number',
+      instanceAlias: 'string',
+      instanceId: 'string',
+      instanceStatus: 'string',
+      instanceStorage: 'string',
+      networkType: 'string',
+      payType: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      serviceType: 'string',
+      vpcId: 'string',
+      vswitchId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -311,34 +474,34 @@ export class GetLindormInstanceResponse extends $tea.Model {
 }
 
 export class GetLindormInstanceEngineListRequest extends $tea.Model {
-  securityToken?: string;
+  instanceId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  instanceId?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      instanceId: 'InstanceId',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      instanceId: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -349,21 +512,21 @@ export class GetLindormInstanceEngineListRequest extends $tea.Model {
 
 export class GetLindormInstanceEngineListResponseBody extends $tea.Model {
   engineList?: GetLindormInstanceEngineListResponseBodyEngineList[];
-  requestId?: string;
   instanceId?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       engineList: 'EngineList',
-      requestId: 'RequestId',
       instanceId: 'InstanceId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       engineList: { 'type': 'array', 'itemType': GetLindormInstanceEngineListResponseBodyEngineList },
-      requestId: 'string',
       instanceId: 'string',
+      requestId: 'string',
     };
   }
 
@@ -395,28 +558,28 @@ export class GetLindormInstanceEngineListResponse extends $tea.Model {
 }
 
 export class GetLindormInstanceListRequest extends $tea.Model {
-  securityToken?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   ownerAccount?: string;
-  regionId?: string;
-  queryStr?: string;
+  ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
+  queryStr?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
   serviceType?: string;
   supportEngine?: number;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      queryStr: 'QueryStr',
+      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      queryStr: 'QueryStr',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
       serviceType: 'ServiceType',
       supportEngine: 'SupportEngine',
     };
@@ -424,15 +587,15 @@ export class GetLindormInstanceListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       ownerAccount: 'string',
-      regionId: 'string',
-      queryStr: 'string',
+      ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
+      queryStr: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
       serviceType: 'string',
       supportEngine: 'number',
     };
@@ -444,28 +607,28 @@ export class GetLindormInstanceListRequest extends $tea.Model {
 }
 
 export class GetLindormInstanceListResponseBody extends $tea.Model {
-  requestId?: string;
-  pageSize?: number;
-  pageNumber?: number;
-  total?: number;
   instanceList?: GetLindormInstanceListResponseBodyInstanceList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  total?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      total: 'Total',
       instanceList: 'InstanceList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      pageSize: 'number',
-      pageNumber: 'number',
-      total: 'number',
       instanceList: { 'type': 'array', 'itemType': GetLindormInstanceListResponseBodyInstanceList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
     };
   }
 
@@ -496,38 +659,119 @@ export class GetLindormInstanceListResponse extends $tea.Model {
   }
 }
 
-export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
-  securityToken?: string;
+export class ReleaseLindormInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  instanceId?: string;
-  securityIpList?: string;
-  groupName?: string;
+  securityToken?: string;
   static names(): { [key: string]: string } {
     return {
-      securityToken: 'SecurityToken',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      instanceId: 'InstanceId',
-      securityIpList: 'SecurityIpList',
-      groupName: 'GroupName',
+      securityToken: 'SecurityToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      securityToken: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      instanceId: 'string',
-      securityIpList: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseLindormInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseLindormInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReleaseLindormInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReleaseLindormInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateInstanceIpWhiteListRequest extends $tea.Model {
+  groupName?: string;
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityIpList?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupName: 'GroupName',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityIpList: 'SecurityIpList',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       groupName: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityIpList: 'string',
+      securityToken: 'string',
     };
   }
 
@@ -577,6 +821,141 @@ export class UpdateInstanceIpWhiteListResponse extends $tea.Model {
   }
 }
 
+export class UpgradeLindormInstanceRequest extends $tea.Model {
+  clusterStorage?: number;
+  coldStorage?: number;
+  coreNum?: number;
+  coreSpec?: string;
+  filestoreNum?: number;
+  filestoreSpec?: string;
+  instanceId?: string;
+  lindormNum?: number;
+  lindormSpec?: string;
+  ltsCoreNum?: number;
+  ltsCoreSpec?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  phoenixCoreNum?: number;
+  phoenixCoreSpec?: string;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  solrNum?: number;
+  solrSpec?: string;
+  tsdbNum?: number;
+  tsdbSpec?: string;
+  upgradeType?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterStorage: 'ClusterStorage',
+      coldStorage: 'ColdStorage',
+      coreNum: 'CoreNum',
+      coreSpec: 'CoreSpec',
+      filestoreNum: 'FilestoreNum',
+      filestoreSpec: 'FilestoreSpec',
+      instanceId: 'InstanceId',
+      lindormNum: 'LindormNum',
+      lindormSpec: 'LindormSpec',
+      ltsCoreNum: 'LtsCoreNum',
+      ltsCoreSpec: 'LtsCoreSpec',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      phoenixCoreNum: 'PhoenixCoreNum',
+      phoenixCoreSpec: 'PhoenixCoreSpec',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      solrNum: 'SolrNum',
+      solrSpec: 'SolrSpec',
+      tsdbNum: 'TsdbNum',
+      tsdbSpec: 'TsdbSpec',
+      upgradeType: 'UpgradeType',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterStorage: 'number',
+      coldStorage: 'number',
+      coreNum: 'number',
+      coreSpec: 'string',
+      filestoreNum: 'number',
+      filestoreSpec: 'string',
+      instanceId: 'string',
+      lindormNum: 'number',
+      lindormSpec: 'string',
+      ltsCoreNum: 'number',
+      ltsCoreSpec: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      phoenixCoreNum: 'number',
+      phoenixCoreSpec: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      solrNum: 'number',
+      solrSpec: 'string',
+      tsdbNum: 'number',
+      tsdbSpec: 'string',
+      upgradeType: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeLindormInstanceResponseBody extends $tea.Model {
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpgradeLindormInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpgradeLindormInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpgradeLindormInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   localName?: string;
   regionEndpoint?: string;
@@ -603,31 +982,34 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class GetLindormInstanceResponseBodyEngineList extends $tea.Model {
-  version?: string;
-  cpuCount?: string;
   coreCount?: string;
+  cpuCount?: string;
   engine?: string;
-  memorySize?: string;
   isLastVersion?: boolean;
+  latestVersion?: string;
+  memorySize?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
-      version: 'Version',
-      cpuCount: 'CpuCount',
       coreCount: 'CoreCount',
+      cpuCount: 'CpuCount',
       engine: 'Engine',
-      memorySize: 'MemorySize',
       isLastVersion: 'IsLastVersion',
+      latestVersion: 'LatestVersion',
+      memorySize: 'MemorySize',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      version: 'string',
-      cpuCount: 'string',
       coreCount: 'string',
+      cpuCount: 'string',
       engine: 'string',
-      memorySize: 'string',
       isLastVersion: 'boolean',
+      latestVersion: 'string',
+      memorySize: 'string',
+      version: 'string',
     };
   }
 
@@ -687,55 +1069,61 @@ export class GetLindormInstanceEngineListResponseBodyEngineList extends $tea.Mod
 }
 
 export class GetLindormInstanceListResponseBodyInstanceList extends $tea.Model {
-  vpcId?: string;
+  aliUid?: number;
+  createMilliseconds?: number;
+  createTime?: string;
   engineType?: string;
   expireTime?: string;
-  createTime?: string;
-  payType?: string;
-  instanceStorage?: string;
-  aliUid?: number;
-  serviceType?: string;
-  networkType?: string;
-  instanceId?: string;
-  regionId?: string;
+  expiredMilliseconds?: number;
   instanceAlias?: string;
-  zoneId?: string;
+  instanceId?: string;
   instanceStatus?: string;
+  instanceStorage?: string;
+  networkType?: string;
+  payType?: string;
+  regionId?: string;
+  serviceType?: string;
+  vpcId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
+      aliUid: 'AliUid',
+      createMilliseconds: 'CreateMilliseconds',
+      createTime: 'CreateTime',
       engineType: 'EngineType',
       expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
-      payType: 'PayType',
-      instanceStorage: 'InstanceStorage',
-      aliUid: 'AliUid',
-      serviceType: 'ServiceType',
-      networkType: 'NetworkType',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
+      expiredMilliseconds: 'ExpiredMilliseconds',
       instanceAlias: 'InstanceAlias',
-      zoneId: 'ZoneId',
+      instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
+      instanceStorage: 'InstanceStorage',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
+      aliUid: 'number',
+      createMilliseconds: 'number',
+      createTime: 'string',
       engineType: 'string',
       expireTime: 'string',
-      createTime: 'string',
-      payType: 'string',
-      instanceStorage: 'string',
-      aliUid: 'number',
-      serviceType: 'string',
-      networkType: 'string',
-      instanceId: 'string',
-      regionId: 'string',
+      expiredMilliseconds: 'number',
       instanceAlias: 'string',
-      zoneId: 'string',
+      instanceId: 'string',
       instanceStatus: 'string',
+      instanceStorage: 'string',
+      networkType: 'string',
+      payType: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -816,12 +1204,80 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createLindormInstanceWithOptions(request: CreateLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateLindormInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ColdStorage"] = request.coldStorage;
+    query["CoreSpec"] = request.coreSpec;
+    query["DiskCategory"] = request.diskCategory;
+    query["Duration"] = request.duration;
+    query["FilestoreNum"] = request.filestoreNum;
+    query["FilestoreSpec"] = request.filestoreSpec;
+    query["InstanceAlias"] = request.instanceAlias;
+    query["InstanceStorage"] = request.instanceStorage;
+    query["LindormNum"] = request.lindormNum;
+    query["LindormSpec"] = request.lindormSpec;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["PayType"] = request.payType;
+    query["PricingCycle"] = request.pricingCycle;
+    query["RegionId"] = request.regionId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
+    query["SolrNum"] = request.solrNum;
+    query["SolrSpec"] = request.solrSpec;
+    query["TsdbNum"] = request.tsdbNum;
+    query["TsdbSpec"] = request.tsdbSpec;
+    query["VPCId"] = request.VPCId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["ZoneId"] = request.zoneId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLindormInstance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLindormInstanceResponse>(await this.callApi(params, req, runtime), new CreateLindormInstanceResponse({}));
+  }
+
+  async createLindormInstance(request: CreateLindormInstanceRequest): Promise<CreateLindormInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLindormInstanceWithOptions(request, runtime);
+  }
+
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceptLanguage"] = request.acceptLanguage;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -831,10 +1287,29 @@ export default class Client extends OpenApi {
 
   async getInstanceIpWhiteListWithOptions(request: GetInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceIpWhiteListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["GroupName"] = request.groupName;
+    query["InstanceId"] = request.instanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetInstanceIpWhiteListResponse>(await this.doRPCRequest("GetInstanceIpWhiteList", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetInstanceIpWhiteListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetInstanceIpWhiteList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new GetInstanceIpWhiteListResponse({}));
   }
 
   async getInstanceIpWhiteList(request: GetInstanceIpWhiteListRequest): Promise<GetInstanceIpWhiteListResponse> {
@@ -844,10 +1319,29 @@ export default class Client extends OpenApi {
 
   async getLindormInstanceWithOptions(request: GetLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["RegionId"] = request.regionId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLindormInstanceResponse>(await this.doRPCRequest("GetLindormInstance", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetLindormInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLindormInstance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLindormInstanceResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceResponse({}));
   }
 
   async getLindormInstance(request: GetLindormInstanceRequest): Promise<GetLindormInstanceResponse> {
@@ -857,10 +1351,29 @@ export default class Client extends OpenApi {
 
   async getLindormInstanceEngineListWithOptions(request: GetLindormInstanceEngineListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceEngineListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["RegionId"] = request.regionId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLindormInstanceEngineListResponse>(await this.doRPCRequest("GetLindormInstanceEngineList", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetLindormInstanceEngineListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLindormInstanceEngineList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLindormInstanceEngineListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceEngineListResponse({}));
   }
 
   async getLindormInstanceEngineList(request: GetLindormInstanceEngineListRequest): Promise<GetLindormInstanceEngineListResponse> {
@@ -870,10 +1383,33 @@ export default class Client extends OpenApi {
 
   async getLindormInstanceListWithOptions(request: GetLindormInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetLindormInstanceListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["QueryStr"] = request.queryStr;
+    query["RegionId"] = request.regionId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
+    query["ServiceType"] = request.serviceType;
+    query["SupportEngine"] = request.supportEngine;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLindormInstanceListResponse>(await this.doRPCRequest("GetLindormInstanceList", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetLindormInstanceListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLindormInstanceList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLindormInstanceListResponse>(await this.callApi(params, req, runtime), new GetLindormInstanceListResponse({}));
   }
 
   async getLindormInstanceList(request: GetLindormInstanceListRequest): Promise<GetLindormInstanceListResponse> {
@@ -881,17 +1417,118 @@ export default class Client extends OpenApi {
     return await this.getLindormInstanceListWithOptions(request, runtime);
   }
 
+  async releaseLindormInstanceWithOptions(request: ReleaseLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseLindormInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseLindormInstance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseLindormInstanceResponse>(await this.callApi(params, req, runtime), new ReleaseLindormInstanceResponse({}));
+  }
+
+  async releaseLindormInstance(request: ReleaseLindormInstanceRequest): Promise<ReleaseLindormInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseLindormInstanceWithOptions(request, runtime);
+  }
+
   async updateInstanceIpWhiteListWithOptions(request: UpdateInstanceIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceIpWhiteListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["GroupName"] = request.groupName;
+    query["InstanceId"] = request.instanceId;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityIpList"] = request.securityIpList;
+    query["SecurityToken"] = request.securityToken;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.doRPCRequest("UpdateInstanceIpWhiteList", "2020-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateInstanceIpWhiteListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateInstanceIpWhiteList",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateInstanceIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateInstanceIpWhiteListResponse({}));
   }
 
   async updateInstanceIpWhiteList(request: UpdateInstanceIpWhiteListRequest): Promise<UpdateInstanceIpWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateInstanceIpWhiteListWithOptions(request, runtime);
+  }
+
+  async upgradeLindormInstanceWithOptions(request: UpgradeLindormInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeLindormInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClusterStorage"] = request.clusterStorage;
+    query["ColdStorage"] = request.coldStorage;
+    query["CoreNum"] = request.coreNum;
+    query["CoreSpec"] = request.coreSpec;
+    query["FilestoreNum"] = request.filestoreNum;
+    query["FilestoreSpec"] = request.filestoreSpec;
+    query["InstanceId"] = request.instanceId;
+    query["LindormNum"] = request.lindormNum;
+    query["LindormSpec"] = request.lindormSpec;
+    query["LtsCoreNum"] = request.ltsCoreNum;
+    query["LtsCoreSpec"] = request.ltsCoreSpec;
+    query["OwnerAccount"] = request.ownerAccount;
+    query["OwnerId"] = request.ownerId;
+    query["PhoenixCoreNum"] = request.phoenixCoreNum;
+    query["PhoenixCoreSpec"] = request.phoenixCoreSpec;
+    query["RegionId"] = request.regionId;
+    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    query["ResourceOwnerId"] = request.resourceOwnerId;
+    query["SecurityToken"] = request.securityToken;
+    query["SolrNum"] = request.solrNum;
+    query["SolrSpec"] = request.solrSpec;
+    query["TsdbNum"] = request.tsdbNum;
+    query["TsdbSpec"] = request.tsdbSpec;
+    query["UpgradeType"] = request.upgradeType;
+    query["ZoneId"] = request.zoneId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpgradeLindormInstance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpgradeLindormInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeLindormInstanceResponse({}));
+  }
+
+  async upgradeLindormInstance(request: UpgradeLindormInstanceRequest): Promise<UpgradeLindormInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.upgradeLindormInstanceWithOptions(request, runtime);
   }
 
 }
