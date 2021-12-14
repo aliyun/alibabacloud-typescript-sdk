@@ -4,32 +4,33 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateCertificateRequest extends $tea.Model {
-  domain?: string;
   certificate?: string;
-  privateKey?: string;
   certificateName?: string;
+  domain?: string;
   instanceId?: string;
+  privateKey?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       certificate: 'Certificate',
-      privateKey: 'PrivateKey',
       certificateName: 'CertificateName',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      privateKey: 'PrivateKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       certificate: 'string',
-      privateKey: 'string',
       certificateName: 'string',
+      domain: 'string',
       instanceId: 'string',
+      privateKey: 'string',
     };
   }
 
@@ -39,19 +40,19 @@ export class CreateCertificateRequest extends $tea.Model {
 }
 
 export class CreateCertificateResponseBody extends $tea.Model {
-  requestId?: string;
   certificateId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateId: 'CertificateId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -83,21 +84,21 @@ export class CreateCertificateResponse extends $tea.Model {
 }
 
 export class CreateCertificateByCertificateIdRequest extends $tea.Model {
-  domain?: string;
   certificateId?: number;
+  domain?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       certificateId: 'CertificateId',
+      domain: 'Domain',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       certificateId: 'number',
+      domain: 'string',
       instanceId: 'string',
     };
   }
@@ -108,19 +109,19 @@ export class CreateCertificateByCertificateIdRequest extends $tea.Model {
 }
 
 export class CreateCertificateByCertificateIdResponseBody extends $tea.Model {
-  requestId?: string;
   certificateId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       certificateId: 'CertificateId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       certificateId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -152,76 +153,82 @@ export class CreateCertificateByCertificateIdResponse extends $tea.Model {
 }
 
 export class CreateDomainRequest extends $tea.Model {
-  instanceId?: string;
-  domain?: string;
-  sourceIps?: string;
-  isAccessProduct?: number;
   accessHeaderMode?: number;
   accessHeaders?: string;
-  loadBalancing?: number;
-  logHeaders?: string;
-  httpPort?: string;
-  httpsPort?: string;
-  http2Port?: string;
-  httpToUserIp?: number;
-  httpsRedirect?: number;
-  clusterType?: number;
-  resourceGroupId?: string;
-  connectionTime?: number;
-  readTime?: number;
-  writeTime?: number;
   accessType?: string;
   cloudNativeInstances?: string;
+  clusterType?: number;
+  connectionTime?: number;
+  domain?: string;
+  http2Port?: string;
+  httpPort?: string;
+  httpToUserIp?: number;
+  httpsPort?: string;
+  httpsRedirect?: number;
+  instanceId?: string;
   ipFollowStatus?: number;
+  isAccessProduct?: number;
+  loadBalancing?: number;
+  logHeaders?: string;
+  readTime?: number;
+  resourceGroupId?: string;
+  sniHost?: string;
+  sniStatus?: number;
+  sourceIps?: string;
+  writeTime?: number;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      domain: 'Domain',
-      sourceIps: 'SourceIps',
-      isAccessProduct: 'IsAccessProduct',
       accessHeaderMode: 'AccessHeaderMode',
       accessHeaders: 'AccessHeaders',
-      loadBalancing: 'LoadBalancing',
-      logHeaders: 'LogHeaders',
-      httpPort: 'HttpPort',
-      httpsPort: 'HttpsPort',
-      http2Port: 'Http2Port',
-      httpToUserIp: 'HttpToUserIp',
-      httpsRedirect: 'HttpsRedirect',
-      clusterType: 'ClusterType',
-      resourceGroupId: 'ResourceGroupId',
-      connectionTime: 'ConnectionTime',
-      readTime: 'ReadTime',
-      writeTime: 'WriteTime',
       accessType: 'AccessType',
       cloudNativeInstances: 'CloudNativeInstances',
+      clusterType: 'ClusterType',
+      connectionTime: 'ConnectionTime',
+      domain: 'Domain',
+      http2Port: 'Http2Port',
+      httpPort: 'HttpPort',
+      httpToUserIp: 'HttpToUserIp',
+      httpsPort: 'HttpsPort',
+      httpsRedirect: 'HttpsRedirect',
+      instanceId: 'InstanceId',
       ipFollowStatus: 'IpFollowStatus',
+      isAccessProduct: 'IsAccessProduct',
+      loadBalancing: 'LoadBalancing',
+      logHeaders: 'LogHeaders',
+      readTime: 'ReadTime',
+      resourceGroupId: 'ResourceGroupId',
+      sniHost: 'SniHost',
+      sniStatus: 'SniStatus',
+      sourceIps: 'SourceIps',
+      writeTime: 'WriteTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      domain: 'string',
-      sourceIps: 'string',
-      isAccessProduct: 'number',
       accessHeaderMode: 'number',
       accessHeaders: 'string',
-      loadBalancing: 'number',
-      logHeaders: 'string',
-      httpPort: 'string',
-      httpsPort: 'string',
-      http2Port: 'string',
-      httpToUserIp: 'number',
-      httpsRedirect: 'number',
-      clusterType: 'number',
-      resourceGroupId: 'string',
-      connectionTime: 'number',
-      readTime: 'number',
-      writeTime: 'number',
       accessType: 'string',
       cloudNativeInstances: 'string',
+      clusterType: 'number',
+      connectionTime: 'number',
+      domain: 'string',
+      http2Port: 'string',
+      httpPort: 'string',
+      httpToUserIp: 'number',
+      httpsPort: 'string',
+      httpsRedirect: 'number',
+      instanceId: 'string',
       ipFollowStatus: 'number',
+      isAccessProduct: 'number',
+      loadBalancing: 'number',
+      logHeaders: 'string',
+      readTime: 'number',
+      resourceGroupId: 'string',
+      sniHost: 'string',
+      sniStatus: 'number',
+      sourceIps: 'string',
+      writeTime: 'number',
     };
   }
 
@@ -231,19 +238,19 @@ export class CreateDomainRequest extends $tea.Model {
 }
 
 export class CreateDomainResponseBody extends $tea.Model {
-  requestId?: string;
   cname?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       cname: 'Cname',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       cname: 'string',
+      requestId: 'string',
     };
   }
 
@@ -275,25 +282,25 @@ export class CreateDomainResponse extends $tea.Model {
 }
 
 export class CreateProtectionModuleRuleRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
-  rule?: string;
+  domain?: string;
   instanceId?: string;
+  rule?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
-      rule: 'Rule',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      rule: 'Rule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
-      rule: 'string',
+      domain: 'string',
       instanceId: 'string',
+      rule: 'string',
     };
   }
 
@@ -344,19 +351,19 @@ export class CreateProtectionModuleRuleResponse extends $tea.Model {
 }
 
 export class DeleteDomainRequest extends $tea.Model {
-  instanceId?: string;
   domain?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domain: 'Domain',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domain: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -470,25 +477,25 @@ export class DeleteInstanceResponse extends $tea.Model {
 }
 
 export class DeleteProtectionModuleRuleRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
-  ruleId?: number;
+  domain?: string;
   instanceId?: string;
+  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
-      ruleId: 'RuleId',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
-      ruleId: 'number',
+      domain: 'string',
       instanceId: 'string',
+      ruleId: 'number',
     };
   }
 
@@ -538,92 +545,26 @@ export class DeleteProtectionModuleRuleResponse extends $tea.Model {
   }
 }
 
-export class DescribeCertificatesRequest extends $tea.Model {
-  instanceId?: string;
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificatesResponseBody extends $tea.Model {
-  requestId?: string;
-  certificates?: DescribeCertificatesResponseBodyCertificates[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      certificates: 'Certificates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      certificates: { 'type': 'array', 'itemType': DescribeCertificatesResponseBodyCertificates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeCertificatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeCertificatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeCertMatchStatusRequest extends $tea.Model {
-  domain?: string;
   certificate?: string;
-  privateKey?: string;
+  domain?: string;
   instanceId?: string;
+  privateKey?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       certificate: 'Certificate',
-      privateKey: 'PrivateKey',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      privateKey: 'PrivateKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       certificate: 'string',
-      privateKey: 'string',
+      domain: 'string',
       instanceId: 'string',
+      privateKey: 'string',
     };
   }
 
@@ -633,19 +574,19 @@ export class DescribeCertMatchStatusRequest extends $tea.Model {
 }
 
 export class DescribeCertMatchStatusResponseBody extends $tea.Model {
-  requestId?: string;
   matchStatus?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       matchStatus: 'MatchStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       matchStatus: 'boolean',
+      requestId: 'string',
     };
   }
 
@@ -676,20 +617,86 @@ export class DescribeCertMatchStatusResponse extends $tea.Model {
   }
 }
 
-export class DescribeDomainRequest extends $tea.Model {
-  instanceId?: string;
+export class DescribeCertificatesRequest extends $tea.Model {
   domain?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domain: 'Domain',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domain: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertificatesResponseBody extends $tea.Model {
+  certificates?: DescribeCertificatesResponseBodyCertificates[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificates: 'Certificates',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificates: { 'type': 'array', 'itemType': DescribeCertificatesResponseBodyCertificates },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCertificatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCertificatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDomainRequest extends $tea.Model {
+  domain?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -699,19 +706,19 @@ export class DescribeDomainRequest extends $tea.Model {
 }
 
 export class DescribeDomainResponseBody extends $tea.Model {
-  requestId?: string;
   domain?: DescribeDomainResponseBodyDomain;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domain: 'Domain',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domain: DescribeDomainResponseBodyDomain,
+      requestId: 'string',
     };
   }
 
@@ -743,21 +750,21 @@ export class DescribeDomainResponse extends $tea.Model {
 }
 
 export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
-  instanceId?: string;
   domainList?: string;
+  instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domainList: 'DomainList',
+      instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domainList: 'string',
+      instanceId: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -768,19 +775,19 @@ export class DescribeDomainAdvanceConfigsRequest extends $tea.Model {
 }
 
 export class DescribeDomainAdvanceConfigsResponseBody extends $tea.Model {
-  requestId?: string;
   domainConfigs?: DescribeDomainAdvanceConfigsResponseBodyDomainConfigs[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domainConfigs: 'DomainConfigs',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domainConfigs: { 'type': 'array', 'itemType': DescribeDomainAdvanceConfigsResponseBodyDomainConfigs },
+      requestId: 'string',
     };
   }
 
@@ -812,19 +819,19 @@ export class DescribeDomainAdvanceConfigsResponse extends $tea.Model {
 }
 
 export class DescribeDomainBasicConfigsRequest extends $tea.Model {
-  instanceId?: string;
-  domainKey?: string;
   accessType?: string;
   cloudNativeProductId?: number;
+  domainKey?: string;
+  instanceId?: string;
   pageNumber?: number;
   pageSize?: number;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      domainKey: 'DomainKey',
       accessType: 'AccessType',
       cloudNativeProductId: 'CloudNativeProductId',
+      domainKey: 'DomainKey',
+      instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
@@ -833,10 +840,10 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      domainKey: 'string',
       accessType: 'string',
       cloudNativeProductId: 'number',
+      domainKey: 'string',
+      instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
@@ -849,22 +856,22 @@ export class DescribeDomainBasicConfigsRequest extends $tea.Model {
 }
 
 export class DescribeDomainBasicConfigsResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
   domainConfigs?: DescribeDomainBasicConfigsResponseBodyDomainConfigs[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
       domainConfigs: 'DomainConfigs',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
       domainConfigs: { 'type': 'array', 'itemType': DescribeDomainBasicConfigsResponseBodyDomainConfigs },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -896,34 +903,34 @@ export class DescribeDomainBasicConfigsResponse extends $tea.Model {
 }
 
 export class DescribeDomainListRequest extends $tea.Model {
-  resourceGroupId?: string;
-  instanceId?: string;
   domainName?: string;
+  domainNames?: string[];
+  instanceId?: string;
+  isSub?: number;
   pageNumber?: number;
   pageSize?: number;
-  isSub?: number;
-  domainNames?: string[];
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      resourceGroupId: 'ResourceGroupId',
-      instanceId: 'InstanceId',
       domainName: 'DomainName',
+      domainNames: 'DomainNames',
+      instanceId: 'InstanceId',
+      isSub: 'IsSub',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      isSub: 'IsSub',
-      domainNames: 'DomainNames',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      resourceGroupId: 'string',
-      instanceId: 'string',
       domainName: 'string',
+      domainNames: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      isSub: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      isSub: 'number',
-      domainNames: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
     };
   }
 
@@ -933,22 +940,22 @@ export class DescribeDomainListRequest extends $tea.Model {
 }
 
 export class DescribeDomainListResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
   domainNames?: string[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
       domainNames: 'DomainNames',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
       domainNames: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1002,19 +1009,19 @@ export class DescribeDomainNamesRequest extends $tea.Model {
 }
 
 export class DescribeDomainNamesResponseBody extends $tea.Model {
-  requestId?: string;
   domainNames?: string[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domainNames: 'DomainNames',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domainNames: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
     };
   }
 
@@ -1068,19 +1075,19 @@ export class DescribeDomainRuleGroupRequest extends $tea.Model {
 }
 
 export class DescribeDomainRuleGroupResponseBody extends $tea.Model {
-  ruleGroupId?: number;
   requestId?: string;
+  ruleGroupId?: number;
   static names(): { [key: string]: string } {
     return {
-      ruleGroupId: 'RuleGroupId',
       requestId: 'RequestId',
+      ruleGroupId: 'RuleGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ruleGroupId: 'number',
       requestId: 'string',
+      ruleGroupId: 'number',
     };
   }
 
@@ -1134,19 +1141,19 @@ export class DescribeInstanceInfoRequest extends $tea.Model {
 }
 
 export class DescribeInstanceInfoResponseBody extends $tea.Model {
-  requestId?: string;
   instanceInfo?: DescribeInstanceInfoResponseBodyInstanceInfo;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       instanceInfo: 'InstanceInfo',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       instanceInfo: DescribeInstanceInfoResponseBodyInstanceInfo,
+      requestId: 'string',
     };
   }
 
@@ -1169,75 +1176,6 @@ export class DescribeInstanceInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeInstanceInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceInfosRequest extends $tea.Model {
-  instanceSource?: string;
-  instanceId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceSource: 'InstanceSource',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceSource: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceInfosResponseBody extends $tea.Model {
-  requestId?: string;
-  instanceInfos?: DescribeInstanceInfosResponseBodyInstanceInfos[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      instanceInfos: 'InstanceInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      instanceInfos: { 'type': 'array', 'itemType': DescribeInstanceInfosResponseBodyInstanceInfos },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceInfosResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeInstanceInfosResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeInstanceInfosResponseBody,
     };
   }
 
@@ -1269,28 +1207,28 @@ export class DescribeInstanceSpecInfoRequest extends $tea.Model {
 }
 
 export class DescribeInstanceSpecInfoResponseBody extends $tea.Model {
+  expireTime?: number;
+  instanceId?: string;
   instanceSpecInfos?: DescribeInstanceSpecInfoResponseBodyInstanceSpecInfos[];
   requestId?: string;
-  instanceId?: string;
   version?: string;
-  expireTime?: number;
   static names(): { [key: string]: string } {
     return {
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
       instanceSpecInfos: 'InstanceSpecInfos',
       requestId: 'RequestId',
-      instanceId: 'InstanceId',
       version: 'Version',
-      expireTime: 'ExpireTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      expireTime: 'number',
+      instanceId: 'string',
       instanceSpecInfos: { 'type': 'array', 'itemType': DescribeInstanceSpecInfoResponseBodyInstanceSpecInfos },
       requestId: 'string',
-      instanceId: 'string',
       version: 'string',
-      expireTime: 'number',
     };
   }
 
@@ -1322,31 +1260,31 @@ export class DescribeInstanceSpecInfoResponse extends $tea.Model {
 }
 
 export class DescribeLogServiceStatusRequest extends $tea.Model {
+  domainNames?: string[];
   instanceId?: string;
-  region?: string;
-  resourceGroupId?: string;
   pageNumber?: number;
   pageSize?: number;
-  domainNames?: string[];
+  region?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainNames: 'DomainNames',
       instanceId: 'InstanceId',
-      region: 'Region',
-      resourceGroupId: 'ResourceGroupId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      domainNames: 'DomainNames',
+      region: 'Region',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainNames: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
-      region: 'string',
-      resourceGroupId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      domainNames: { 'type': 'array', 'itemType': 'string' },
+      region: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1356,22 +1294,22 @@ export class DescribeLogServiceStatusRequest extends $tea.Model {
 }
 
 export class DescribeLogServiceStatusResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
   domainStatus?: DescribeLogServiceStatusResponseBodyDomainStatus[];
+  requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
       domainStatus: 'DomainStatus',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
       domainStatus: { 'type': 'array', 'itemType': DescribeLogServiceStatusResponseBodyDomainStatus },
+      requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -1403,16 +1341,12 @@ export class DescribeLogServiceStatusResponse extends $tea.Model {
 }
 
 export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
-  sourceIp?: string;
-  lang?: string;
   codeType?: number;
   codeValue?: number;
   instanceId?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
-      lang: 'Lang',
       codeType: 'CodeType',
       codeValue: 'CodeValue',
       instanceId: 'InstanceId',
@@ -1422,8 +1356,6 @@ export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
-      lang: 'string',
       codeType: 'number',
       codeValue: 'number',
       instanceId: 'string',
@@ -1437,19 +1369,19 @@ export class DescribeProtectionModuleCodeConfigRequest extends $tea.Model {
 }
 
 export class DescribeProtectionModuleCodeConfigResponseBody extends $tea.Model {
-  requestId?: string;
   codeConfigs?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       codeConfigs: 'CodeConfigs',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       codeConfigs: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1480,112 +1412,37 @@ export class DescribeProtectionModuleCodeConfigResponse extends $tea.Model {
   }
 }
 
-export class DescribeProtectionModuleModeRequest extends $tea.Model {
-  domain?: string;
-  defenseType?: string;
-  instanceId?: string;
-  resourceGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      defenseType: 'DefenseType',
-      instanceId: 'InstanceId',
-      resourceGroupId: 'ResourceGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      defenseType: 'string',
-      instanceId: 'string',
-      resourceGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProtectionModuleModeResponseBody extends $tea.Model {
-  learnStatus?: number;
-  requestId?: string;
-  mode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      learnStatus: 'LearnStatus',
-      requestId: 'RequestId',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      learnStatus: 'number',
-      requestId: 'string',
-      mode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProtectionModuleModeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeProtectionModuleModeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeProtectionModuleModeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeProtectionModuleRulesRequest extends $tea.Model {
-  pageSize?: number;
-  pageNumber?: number;
-  domain?: string;
   defenseType?: string;
-  query?: string;
-  lang?: string;
+  domain?: string;
   instanceId?: string;
+  lang?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  query?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
-      domain: 'Domain',
       defenseType: 'DefenseType',
-      query: 'Query',
-      lang: 'Lang',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      query: 'Query',
       resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageSize: 'number',
-      pageNumber: 'number',
-      domain: 'string',
       defenseType: 'string',
-      query: 'string',
-      lang: 'string',
+      domain: 'string',
       instanceId: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      query: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -1596,22 +1453,22 @@ export class DescribeProtectionModuleRulesRequest extends $tea.Model {
 }
 
 export class DescribeProtectionModuleRulesResponseBody extends $tea.Model {
-  totalCount?: number;
   requestId?: string;
   rules?: DescribeProtectionModuleRulesResponseBodyRules[];
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
       requestId: 'RequestId',
       rules: 'Rules',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
       requestId: 'string',
       rules: { 'type': 'array', 'itemType': DescribeProtectionModuleRulesResponseBodyRules },
+      totalCount: 'number',
     };
   }
 
@@ -1643,21 +1500,21 @@ export class DescribeProtectionModuleRulesResponse extends $tea.Model {
 }
 
 export class DescribeProtectionModuleStatusRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
+  domain?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
+      domain: 'Domain',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
+      domain: 'string',
       instanceId: 'string',
     };
   }
@@ -1668,19 +1525,19 @@ export class DescribeProtectionModuleStatusRequest extends $tea.Model {
 }
 
 export class DescribeProtectionModuleStatusResponseBody extends $tea.Model {
-  requestId?: string;
   moduleStatus?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       moduleStatus: 'ModuleStatus',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       moduleStatus: 'number',
+      requestId: 'string',
     };
   }
 
@@ -1734,22 +1591,22 @@ export class DescribeWafSourceIpSegmentRequest extends $tea.Model {
 }
 
 export class DescribeWafSourceIpSegmentResponseBody extends $tea.Model {
-  requestId?: string;
   ipV6s?: string;
   ips?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       ipV6s: 'IpV6s',
       ips: 'Ips',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       ipV6s: 'string',
       ips: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1781,67 +1638,79 @@ export class DescribeWafSourceIpSegmentResponse extends $tea.Model {
 }
 
 export class ModifyDomainRequest extends $tea.Model {
-  instanceId?: string;
-  domain?: string;
-  sourceIps?: string;
-  loadBalancing?: number;
-  httpPort?: string;
-  httpsPort?: string;
-  http2Port?: string;
-  httpsRedirect?: number;
-  httpToUserIp?: number;
-  isAccessProduct?: number;
-  logHeaders?: string;
-  clusterType?: number;
-  connectionTime?: number;
-  readTime?: number;
-  writeTime?: number;
+  accessHeaderMode?: number;
+  accessHeaders?: string;
   accessType?: string;
   cloudNativeInstances?: string;
+  clusterType?: number;
+  connectionTime?: number;
+  domain?: string;
+  http2Port?: string;
+  httpPort?: string;
+  httpToUserIp?: number;
+  httpsPort?: string;
+  httpsRedirect?: number;
+  instanceId?: string;
   ipFollowStatus?: number;
+  isAccessProduct?: number;
+  loadBalancing?: number;
+  logHeaders?: string;
+  readTime?: number;
+  sniHost?: string;
+  sniStatus?: number;
+  sourceIps?: string;
+  writeTime?: number;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
-      domain: 'Domain',
-      sourceIps: 'SourceIps',
-      loadBalancing: 'LoadBalancing',
-      httpPort: 'HttpPort',
-      httpsPort: 'HttpsPort',
-      http2Port: 'Http2Port',
-      httpsRedirect: 'HttpsRedirect',
-      httpToUserIp: 'HttpToUserIp',
-      isAccessProduct: 'IsAccessProduct',
-      logHeaders: 'LogHeaders',
-      clusterType: 'ClusterType',
-      connectionTime: 'ConnectionTime',
-      readTime: 'ReadTime',
-      writeTime: 'WriteTime',
+      accessHeaderMode: 'AccessHeaderMode',
+      accessHeaders: 'AccessHeaders',
       accessType: 'AccessType',
       cloudNativeInstances: 'CloudNativeInstances',
+      clusterType: 'ClusterType',
+      connectionTime: 'ConnectionTime',
+      domain: 'Domain',
+      http2Port: 'Http2Port',
+      httpPort: 'HttpPort',
+      httpToUserIp: 'HttpToUserIp',
+      httpsPort: 'HttpsPort',
+      httpsRedirect: 'HttpsRedirect',
+      instanceId: 'InstanceId',
       ipFollowStatus: 'IpFollowStatus',
+      isAccessProduct: 'IsAccessProduct',
+      loadBalancing: 'LoadBalancing',
+      logHeaders: 'LogHeaders',
+      readTime: 'ReadTime',
+      sniHost: 'SniHost',
+      sniStatus: 'SniStatus',
+      sourceIps: 'SourceIps',
+      writeTime: 'WriteTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
-      domain: 'string',
-      sourceIps: 'string',
-      loadBalancing: 'number',
-      httpPort: 'string',
-      httpsPort: 'string',
-      http2Port: 'string',
-      httpsRedirect: 'number',
-      httpToUserIp: 'number',
-      isAccessProduct: 'number',
-      logHeaders: 'string',
-      clusterType: 'number',
-      connectionTime: 'number',
-      readTime: 'number',
-      writeTime: 'number',
+      accessHeaderMode: 'number',
+      accessHeaders: 'string',
       accessType: 'string',
       cloudNativeInstances: 'string',
+      clusterType: 'number',
+      connectionTime: 'number',
+      domain: 'string',
+      http2Port: 'string',
+      httpPort: 'string',
+      httpToUserIp: 'number',
+      httpsPort: 'string',
+      httpsRedirect: 'number',
+      instanceId: 'string',
       ipFollowStatus: 'number',
+      isAccessProduct: 'number',
+      loadBalancing: 'number',
+      logHeaders: 'string',
+      readTime: 'number',
+      sniHost: 'string',
+      sniStatus: 'number',
+      sourceIps: 'string',
+      writeTime: 'number',
     };
   }
 
@@ -1892,22 +1761,22 @@ export class ModifyDomainResponse extends $tea.Model {
 }
 
 export class ModifyDomainIpv6StatusRequest extends $tea.Model {
-  instanceId?: string;
   domain?: string;
   enabled?: string;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domain: 'string',
       enabled: 'string',
+      instanceId: 'string',
     };
   }
 
@@ -1958,22 +1827,22 @@ export class ModifyDomainIpv6StatusResponse extends $tea.Model {
 }
 
 export class ModifyLogRetrievalStatusRequest extends $tea.Model {
-  instanceId?: string;
   domain?: string;
   enabled?: number;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domain: 'string',
       enabled: 'number',
+      instanceId: 'string',
     };
   }
 
@@ -2024,22 +1893,22 @@ export class ModifyLogRetrievalStatusResponse extends $tea.Model {
 }
 
 export class ModifyLogServiceStatusRequest extends $tea.Model {
-  instanceId?: string;
   domain?: string;
   enabled?: number;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
       domain: 'Domain',
       enabled: 'Enabled',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
       domain: 'string',
       enabled: 'number',
+      instanceId: 'string',
     };
   }
 
@@ -2090,25 +1959,25 @@ export class ModifyLogServiceStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleModeRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
-  mode?: number;
+  domain?: string;
   instanceId?: string;
+  mode?: number;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
-      mode: 'Mode',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      mode: 'Mode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
-      mode: 'number',
+      domain: 'string',
       instanceId: 'string',
+      mode: 'number',
     };
   }
 
@@ -2159,31 +2028,31 @@ export class ModifyProtectionModuleModeResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleRuleRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
+  domain?: string;
+  instanceId?: string;
+  lockVersion?: number;
   rule?: string;
   ruleId?: number;
-  lockVersion?: number;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      lockVersion: 'LockVersion',
       rule: 'Rule',
       ruleId: 'RuleId',
-      lockVersion: 'LockVersion',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
+      domain: 'string',
+      instanceId: 'string',
+      lockVersion: 'number',
       rule: 'string',
       ruleId: 'number',
-      lockVersion: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -2234,25 +2103,25 @@ export class ModifyProtectionModuleRuleResponse extends $tea.Model {
 }
 
 export class ModifyProtectionModuleStatusRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
-  moduleStatus?: number;
+  domain?: string;
   instanceId?: string;
+  moduleStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
-      moduleStatus: 'ModuleStatus',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      moduleStatus: 'ModuleStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
-      moduleStatus: 'number',
+      domain: 'string',
       instanceId: 'string',
+      moduleStatus: 'number',
     };
   }
 
@@ -2303,25 +2172,25 @@ export class ModifyProtectionModuleStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionRuleCacheStatusRequest extends $tea.Model {
-  domain?: string;
-  ruleId?: number;
   defenseType?: string;
+  domain?: string;
   instanceId?: string;
+  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
-      ruleId: 'RuleId',
       defenseType: 'DefenseType',
+      domain: 'Domain',
       instanceId: 'InstanceId',
+      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
-      ruleId: 'number',
       defenseType: 'string',
+      domain: 'string',
       instanceId: 'string',
+      ruleId: 'number',
     };
   }
 
@@ -2372,31 +2241,31 @@ export class ModifyProtectionRuleCacheStatusResponse extends $tea.Model {
 }
 
 export class ModifyProtectionRuleStatusRequest extends $tea.Model {
-  domain?: string;
   defenseType?: string;
+  domain?: string;
+  instanceId?: string;
+  lockVersion?: number;
   ruleId?: number;
   ruleStatus?: number;
-  lockVersion?: number;
-  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      domain: 'Domain',
       defenseType: 'DefenseType',
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      lockVersion: 'LockVersion',
       ruleId: 'RuleId',
       ruleStatus: 'RuleStatus',
-      lockVersion: 'LockVersion',
-      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      domain: 'string',
       defenseType: 'string',
+      domain: 'string',
+      instanceId: 'string',
+      lockVersion: 'number',
       ruleId: 'number',
       ruleStatus: 'number',
-      lockVersion: 'number',
-      instanceId: 'string',
     };
   }
 
@@ -2446,29 +2315,98 @@ export class ModifyProtectionRuleStatusResponse extends $tea.Model {
   }
 }
 
+export class MoveResourceGroupRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MoveResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MoveResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetDomainRuleGroupRequest extends $tea.Model {
   domains?: string;
-  ruleGroupId?: number;
-  wafVersion?: number;
   instanceId?: string;
   resourceGroupId?: string;
+  ruleGroupId?: number;
+  wafVersion?: number;
   static names(): { [key: string]: string } {
     return {
       domains: 'Domains',
-      ruleGroupId: 'RuleGroupId',
-      wafVersion: 'WafVersion',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
+      ruleGroupId: 'RuleGroupId',
+      wafVersion: 'WafVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domains: 'string',
-      ruleGroupId: 'number',
-      wafVersion: 'number',
       instanceId: 'string',
       resourceGroupId: 'string',
+      ruleGroupId: 'number',
+      wafVersion: 'number',
     };
   }
 
@@ -2519,28 +2457,28 @@ export class SetDomainRuleGroupResponse extends $tea.Model {
 }
 
 export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
+  certificateId?: number;
   certificateName?: string;
   commonName?: string;
-  sans?: string[];
   isUsing?: boolean;
-  certificateId?: number;
+  sans?: string[];
   static names(): { [key: string]: string } {
     return {
+      certificateId: 'CertificateId',
       certificateName: 'CertificateName',
       commonName: 'CommonName',
-      sans: 'Sans',
       isUsing: 'IsUsing',
-      certificateId: 'CertificateId',
+      sans: 'Sans',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      certificateId: 'number',
       certificateName: 'string',
       commonName: 'string',
-      sans: { 'type': 'array', 'itemType': 'string' },
       isUsing: 'boolean',
-      certificateId: 'number',
+      sans: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2550,19 +2488,19 @@ export class DescribeCertificatesResponseBodyCertificates extends $tea.Model {
 }
 
 export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs extends $tea.Model {
-  protocol?: string;
   ports?: string;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      protocol: 'Protocol',
       ports: 'Ports',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      protocol: 'string',
       ports: 'string',
+      protocol: 'string',
     };
   }
 
@@ -2572,28 +2510,28 @@ export class DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortCon
 }
 
 export class DescribeDomainResponseBodyDomainCloudNativeInstances extends $tea.Model {
+  cloudNativeProductName?: string;
+  IPAddressList?: string;
+  instanceId?: string;
   protocolPortConfigs?: DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs[];
   redirectionTypeName?: string;
-  cloudNativeProductName?: string;
-  instanceId?: string;
-  IPAddressList?: string;
   static names(): { [key: string]: string } {
     return {
+      cloudNativeProductName: 'CloudNativeProductName',
+      IPAddressList: 'IPAddressList',
+      instanceId: 'InstanceId',
       protocolPortConfigs: 'ProtocolPortConfigs',
       redirectionTypeName: 'RedirectionTypeName',
-      cloudNativeProductName: 'CloudNativeProductName',
-      instanceId: 'InstanceId',
-      IPAddressList: 'IPAddressList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cloudNativeProductName: 'string',
+      IPAddressList: 'string',
+      instanceId: 'string',
       protocolPortConfigs: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainCloudNativeInstancesProtocolPortConfigs },
       redirectionTypeName: 'string',
-      cloudNativeProductName: 'string',
-      instanceId: 'string',
-      IPAddressList: 'string',
     };
   }
 
@@ -2625,76 +2563,82 @@ export class DescribeDomainResponseBodyDomainLogHeaders extends $tea.Model {
 }
 
 export class DescribeDomainResponseBodyDomain extends $tea.Model {
-  http2Port?: string[];
-  cloudNativeInstances?: DescribeDomainResponseBodyDomainCloudNativeInstances[];
-  httpToUserIp?: number;
-  httpPort?: string[];
-  logHeaders?: DescribeDomainResponseBodyDomainLogHeaders[];
-  isAccessProduct?: number;
-  accessHeaders?: string[];
   accessHeaderMode?: number;
-  httpsRedirect?: number;
-  loadBalancing?: number;
-  ipFollowStatus?: number;
+  accessHeaders?: string[];
   accessType?: string;
-  version?: number;
+  cloudNativeInstances?: DescribeDomainResponseBodyDomainCloudNativeInstances[];
   clusterType?: number;
-  readTime?: number;
-  writeTime?: number;
-  resourceGroupId?: string;
   cname?: string;
-  sourceIps?: string[];
   connectionTime?: number;
+  http2Port?: string[];
+  httpPort?: string[];
+  httpToUserIp?: number;
   httpsPort?: string[];
+  httpsRedirect?: number;
+  ipFollowStatus?: number;
+  isAccessProduct?: number;
+  loadBalancing?: number;
+  logHeaders?: DescribeDomainResponseBodyDomainLogHeaders[];
+  readTime?: number;
+  resourceGroupId?: string;
+  sniHost?: string;
+  sniStatus?: number;
+  sourceIps?: string[];
+  version?: number;
+  writeTime?: number;
   static names(): { [key: string]: string } {
     return {
-      http2Port: 'Http2Port',
-      cloudNativeInstances: 'CloudNativeInstances',
-      httpToUserIp: 'HttpToUserIp',
-      httpPort: 'HttpPort',
-      logHeaders: 'LogHeaders',
-      isAccessProduct: 'IsAccessProduct',
-      accessHeaders: 'AccessHeaders',
       accessHeaderMode: 'AccessHeaderMode',
-      httpsRedirect: 'HttpsRedirect',
-      loadBalancing: 'LoadBalancing',
-      ipFollowStatus: 'IpFollowStatus',
+      accessHeaders: 'AccessHeaders',
       accessType: 'AccessType',
-      version: 'Version',
+      cloudNativeInstances: 'CloudNativeInstances',
       clusterType: 'ClusterType',
-      readTime: 'ReadTime',
-      writeTime: 'WriteTime',
-      resourceGroupId: 'ResourceGroupId',
       cname: 'Cname',
-      sourceIps: 'SourceIps',
       connectionTime: 'ConnectionTime',
+      http2Port: 'Http2Port',
+      httpPort: 'HttpPort',
+      httpToUserIp: 'HttpToUserIp',
       httpsPort: 'HttpsPort',
+      httpsRedirect: 'HttpsRedirect',
+      ipFollowStatus: 'IpFollowStatus',
+      isAccessProduct: 'IsAccessProduct',
+      loadBalancing: 'LoadBalancing',
+      logHeaders: 'LogHeaders',
+      readTime: 'ReadTime',
+      resourceGroupId: 'ResourceGroupId',
+      sniHost: 'SniHost',
+      sniStatus: 'SniStatus',
+      sourceIps: 'SourceIps',
+      version: 'Version',
+      writeTime: 'WriteTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      http2Port: { 'type': 'array', 'itemType': 'string' },
-      cloudNativeInstances: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainCloudNativeInstances },
-      httpToUserIp: 'number',
-      httpPort: { 'type': 'array', 'itemType': 'string' },
-      logHeaders: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainLogHeaders },
-      isAccessProduct: 'number',
-      accessHeaders: { 'type': 'array', 'itemType': 'string' },
       accessHeaderMode: 'number',
-      httpsRedirect: 'number',
-      loadBalancing: 'number',
-      ipFollowStatus: 'number',
+      accessHeaders: { 'type': 'array', 'itemType': 'string' },
       accessType: 'string',
-      version: 'number',
+      cloudNativeInstances: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainCloudNativeInstances },
       clusterType: 'number',
-      readTime: 'number',
-      writeTime: 'number',
-      resourceGroupId: 'string',
       cname: 'string',
-      sourceIps: { 'type': 'array', 'itemType': 'string' },
       connectionTime: 'number',
+      http2Port: { 'type': 'array', 'itemType': 'string' },
+      httpPort: { 'type': 'array', 'itemType': 'string' },
+      httpToUserIp: 'number',
       httpsPort: { 'type': 'array', 'itemType': 'string' },
+      httpsRedirect: 'number',
+      ipFollowStatus: 'number',
+      isAccessProduct: 'number',
+      loadBalancing: 'number',
+      logHeaders: { 'type': 'array', 'itemType': DescribeDomainResponseBodyDomainLogHeaders },
+      readTime: 'number',
+      resourceGroupId: 'string',
+      sniHost: 'string',
+      sniStatus: 'number',
+      sourceIps: { 'type': 'array', 'itemType': 'string' },
+      version: 'number',
+      writeTime: 'number',
     };
   }
 
@@ -2704,49 +2648,49 @@ export class DescribeDomainResponseBodyDomain extends $tea.Model {
 }
 
 export class DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile extends $tea.Model {
-  http2Port?: string;
-  ipv6Status?: number;
-  httpPort?: string;
-  GSLBStatus?: string;
-  rs?: string;
-  vipServiceStatus?: number;
-  clusterType?: number;
-  exclusiveVipStatus?: number;
-  cname?: string;
   certStatus?: number;
-  httpsPort?: string;
+  clusterType?: number;
+  cname?: string;
+  exclusiveVipStatus?: number;
+  GSLBStatus?: string;
+  http2Port?: number[];
+  httpPort?: number[];
+  httpsPort?: number[];
+  ipv6Status?: number;
   resolvedType?: number;
+  rs?: string[];
+  vipServiceStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      http2Port: 'Http2Port',
-      ipv6Status: 'Ipv6Status',
-      httpPort: 'HttpPort',
+      certStatus: 'CertStatus',
+      clusterType: 'ClusterType',
+      cname: 'Cname',
+      exclusiveVipStatus: 'ExclusiveVipStatus',
       GSLBStatus: 'GSLBStatus',
+      http2Port: 'Http2Port',
+      httpPort: 'HttpPort',
+      httpsPort: 'HttpsPort',
+      ipv6Status: 'Ipv6Status',
+      resolvedType: 'ResolvedType',
       rs: 'Rs',
       vipServiceStatus: 'VipServiceStatus',
-      clusterType: 'ClusterType',
-      exclusiveVipStatus: 'ExclusiveVipStatus',
-      cname: 'Cname',
-      certStatus: 'CertStatus',
-      httpsPort: 'HttpsPort',
-      resolvedType: 'ResolvedType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      http2Port: 'string',
-      ipv6Status: 'number',
-      httpPort: 'string',
-      GSLBStatus: 'string',
-      rs: 'string',
-      vipServiceStatus: 'number',
-      clusterType: 'number',
-      exclusiveVipStatus: 'number',
-      cname: 'string',
       certStatus: 'number',
-      httpsPort: 'string',
+      clusterType: 'number',
+      cname: 'string',
+      exclusiveVipStatus: 'number',
+      GSLBStatus: 'string',
+      http2Port: { 'type': 'array', 'itemType': 'number' },
+      httpPort: { 'type': 'array', 'itemType': 'number' },
+      httpsPort: { 'type': 'array', 'itemType': 'number' },
+      ipv6Status: 'number',
       resolvedType: 'number',
+      rs: { 'type': 'array', 'itemType': 'string' },
+      vipServiceStatus: 'number',
     };
   }
 
@@ -2756,19 +2700,19 @@ export class DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile extend
 }
 
 export class DescribeDomainAdvanceConfigsResponseBodyDomainConfigs extends $tea.Model {
-  profile?: DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile;
   domain?: string;
+  profile?: DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile;
   static names(): { [key: string]: string } {
     return {
-      profile: 'Profile',
       domain: 'Domain',
+      profile: 'Profile',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      profile: DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile,
       domain: 'string',
+      profile: DescribeDomainAdvanceConfigsResponseBodyDomainConfigsProfile,
     };
   }
 
@@ -2778,43 +2722,43 @@ export class DescribeDomainAdvanceConfigsResponseBodyDomainConfigs extends $tea.
 }
 
 export class DescribeDomainBasicConfigsResponseBodyDomainConfigs extends $tea.Model {
-  status?: number;
-  domain?: string;
-  owner?: string;
+  accessType?: string;
+  aclStatus?: number;
   ccMode?: number;
   ccStatus?: number;
-  accessType?: string;
+  domain?: string;
+  owner?: string;
+  status?: number;
   version?: number;
-  aclStatus?: number;
-  wafStatus?: number;
   wafMode?: number;
+  wafStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      domain: 'Domain',
-      owner: 'Owner',
+      accessType: 'AccessType',
+      aclStatus: 'AclStatus',
       ccMode: 'CcMode',
       ccStatus: 'CcStatus',
-      accessType: 'AccessType',
+      domain: 'Domain',
+      owner: 'Owner',
+      status: 'Status',
       version: 'Version',
-      aclStatus: 'AclStatus',
-      wafStatus: 'WafStatus',
       wafMode: 'WafMode',
+      wafStatus: 'WafStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
-      domain: 'string',
-      owner: 'string',
+      accessType: 'string',
+      aclStatus: 'number',
       ccMode: 'number',
       ccStatus: 'number',
-      accessType: 'string',
+      domain: 'string',
+      owner: 'string',
+      status: 'number',
       version: 'number',
-      aclStatus: 'number',
-      wafStatus: 'number',
       wafMode: 'number',
+      wafStatus: 'number',
     };
   }
 
@@ -2824,86 +2768,43 @@ export class DescribeDomainBasicConfigsResponseBodyDomainConfigs extends $tea.Mo
 }
 
 export class DescribeInstanceInfoResponseBodyInstanceInfo extends $tea.Model {
-  status?: number;
   endDate?: number;
+  inDebt?: number;
+  instanceId?: string;
+  payType?: number;
+  region?: string;
+  remainDay?: number;
+  status?: number;
+  subscriptionType?: string;
+  trial?: number;
   version?: string;
-  remainDay?: number;
-  region?: string;
-  payType?: number;
-  inDebt?: number;
-  instanceId?: string;
-  subscriptionType?: string;
-  trial?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
       endDate: 'EndDate',
+      inDebt: 'InDebt',
+      instanceId: 'InstanceId',
+      payType: 'PayType',
+      region: 'Region',
+      remainDay: 'RemainDay',
+      status: 'Status',
+      subscriptionType: 'SubscriptionType',
+      trial: 'Trial',
       version: 'Version',
-      remainDay: 'RemainDay',
-      region: 'Region',
-      payType: 'PayType',
-      inDebt: 'InDebt',
-      instanceId: 'InstanceId',
-      subscriptionType: 'SubscriptionType',
-      trial: 'Trial',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'number',
       endDate: 'number',
+      inDebt: 'number',
+      instanceId: 'string',
+      payType: 'number',
+      region: 'string',
+      remainDay: 'number',
+      status: 'number',
+      subscriptionType: 'string',
+      trial: 'number',
       version: 'string',
-      remainDay: 'number',
-      region: 'string',
-      payType: 'number',
-      inDebt: 'number',
-      instanceId: 'string',
-      subscriptionType: 'string',
-      trial: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeInstanceInfosResponseBodyInstanceInfos extends $tea.Model {
-  status?: number;
-  endDate?: number;
-  remainDay?: number;
-  region?: string;
-  payType?: number;
-  inDebt?: number;
-  instanceId?: string;
-  subscriptionType?: string;
-  trial?: number;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      endDate: 'EndDate',
-      remainDay: 'RemainDay',
-      region: 'Region',
-      payType: 'PayType',
-      inDebt: 'InDebt',
-      instanceId: 'InstanceId',
-      subscriptionType: 'SubscriptionType',
-      trial: 'Trial',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'number',
-      endDate: 'number',
-      remainDay: 'number',
-      region: 'string',
-      payType: 'number',
-      inDebt: 'number',
-      instanceId: 'string',
-      subscriptionType: 'string',
-      trial: 'number',
     };
   }
 
@@ -2913,19 +2814,19 @@ export class DescribeInstanceInfosResponseBodyInstanceInfos extends $tea.Model {
 }
 
 export class DescribeInstanceSpecInfoResponseBodyInstanceSpecInfos extends $tea.Model {
-  value?: string;
   code?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       code: 'Code',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       code: 'string',
+      value: 'string',
     };
   }
 
@@ -2957,28 +2858,28 @@ export class DescribeLogServiceStatusResponseBodyDomainStatus extends $tea.Model
 }
 
 export class DescribeProtectionModuleRulesResponseBodyRules extends $tea.Model {
+  content?: { [key: string]: any };
+  ruleId?: number;
   status?: number;
   time?: number;
   version?: number;
-  content?: { [key: string]: any };
-  ruleId?: number;
   static names(): { [key: string]: string } {
     return {
+      content: 'Content',
+      ruleId: 'RuleId',
       status: 'Status',
       time: 'Time',
       version: 'Version',
-      content: 'Content',
-      ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      ruleId: 'number',
       status: 'number',
       time: 'number',
       version: 'number',
-      content: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      ruleId: 'number',
     };
   }
 
@@ -3038,10 +2939,28 @@ export default class Client extends OpenApi {
 
   async createCertificateWithOptions(request: CreateCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Certificate"] = request.certificate;
+    query["CertificateName"] = request.certificateName;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["PrivateKey"] = request.privateKey;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateCertificateResponse>(await this.doRPCRequest("CreateCertificate", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCertificate",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateResponse>(await this.callApi(params, req, runtime), new CreateCertificateResponse({}));
   }
 
   async createCertificate(request: CreateCertificateRequest): Promise<CreateCertificateResponse> {
@@ -3051,10 +2970,26 @@ export default class Client extends OpenApi {
 
   async createCertificateByCertificateIdWithOptions(request: CreateCertificateByCertificateIdRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateByCertificateIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CertificateId"] = request.certificateId;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateCertificateByCertificateIdResponse>(await this.doRPCRequest("CreateCertificateByCertificateId", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateByCertificateIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCertificateByCertificateId",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateByCertificateIdResponse>(await this.callApi(params, req, runtime), new CreateCertificateByCertificateIdResponse({}));
   }
 
   async createCertificateByCertificateId(request: CreateCertificateByCertificateIdRequest): Promise<CreateCertificateByCertificateIdResponse> {
@@ -3064,10 +2999,46 @@ export default class Client extends OpenApi {
 
   async createDomainWithOptions(request: CreateDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccessHeaderMode"] = request.accessHeaderMode;
+    query["AccessHeaders"] = request.accessHeaders;
+    query["AccessType"] = request.accessType;
+    query["CloudNativeInstances"] = request.cloudNativeInstances;
+    query["ClusterType"] = request.clusterType;
+    query["ConnectionTime"] = request.connectionTime;
+    query["Domain"] = request.domain;
+    query["Http2Port"] = request.http2Port;
+    query["HttpPort"] = request.httpPort;
+    query["HttpToUserIp"] = request.httpToUserIp;
+    query["HttpsPort"] = request.httpsPort;
+    query["HttpsRedirect"] = request.httpsRedirect;
+    query["InstanceId"] = request.instanceId;
+    query["IpFollowStatus"] = request.ipFollowStatus;
+    query["IsAccessProduct"] = request.isAccessProduct;
+    query["LoadBalancing"] = request.loadBalancing;
+    query["LogHeaders"] = request.logHeaders;
+    query["ReadTime"] = request.readTime;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["SniHost"] = request.sniHost;
+    query["SniStatus"] = request.sniStatus;
+    query["SourceIps"] = request.sourceIps;
+    query["WriteTime"] = request.writeTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateDomainResponse>(await this.doRPCRequest("CreateDomain", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDomain",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainResponse>(await this.callApi(params, req, runtime), new CreateDomainResponse({}));
   }
 
   async createDomain(request: CreateDomainRequest): Promise<CreateDomainResponse> {
@@ -3077,10 +3048,27 @@ export default class Client extends OpenApi {
 
   async createProtectionModuleRuleWithOptions(request: CreateProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateProtectionModuleRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["Rule"] = request.rule;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<CreateProtectionModuleRuleResponse>(await this.doRPCRequest("CreateProtectionModuleRule", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new CreateProtectionModuleRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateProtectionModuleRule",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new CreateProtectionModuleRuleResponse({}));
   }
 
   async createProtectionModuleRule(request: CreateProtectionModuleRuleRequest): Promise<CreateProtectionModuleRuleResponse> {
@@ -3090,10 +3078,25 @@ export default class Client extends OpenApi {
 
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteDomainResponse>(await this.doRPCRequest("DeleteDomain", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomain",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
   }
 
   async deleteDomain(request: DeleteDomainRequest): Promise<DeleteDomainResponse> {
@@ -3103,10 +3106,25 @@ export default class Client extends OpenApi {
 
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteInstanceResponse>(await this.doRPCRequest("DeleteInstance", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteInstanceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteInstance",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
   }
 
   async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
@@ -3116,10 +3134,27 @@ export default class Client extends OpenApi {
 
   async deleteProtectionModuleRuleWithOptions(request: DeleteProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProtectionModuleRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["RuleId"] = request.ruleId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DeleteProtectionModuleRuleResponse>(await this.doRPCRequest("DeleteProtectionModuleRule", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteProtectionModuleRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteProtectionModuleRule",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new DeleteProtectionModuleRuleResponse({}));
   }
 
   async deleteProtectionModuleRule(request: DeleteProtectionModuleRuleRequest): Promise<DeleteProtectionModuleRuleResponse> {
@@ -3127,25 +3162,29 @@ export default class Client extends OpenApi {
     return await this.deleteProtectionModuleRuleWithOptions(request, runtime);
   }
 
-  async describeCertificatesWithOptions(request: DescribeCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeCertificatesResponse>(await this.doRPCRequest("DescribeCertificates", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCertificatesResponse({}));
-  }
-
-  async describeCertificates(request: DescribeCertificatesRequest): Promise<DescribeCertificatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeCertificatesWithOptions(request, runtime);
-  }
-
   async describeCertMatchStatusWithOptions(request: DescribeCertMatchStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertMatchStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Certificate"] = request.certificate;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["PrivateKey"] = request.privateKey;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeCertMatchStatusResponse>(await this.doRPCRequest("DescribeCertMatchStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCertMatchStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCertMatchStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertMatchStatusResponse>(await this.callApi(params, req, runtime), new DescribeCertMatchStatusResponse({}));
   }
 
   async describeCertMatchStatus(request: DescribeCertMatchStatusRequest): Promise<DescribeCertMatchStatusResponse> {
@@ -3153,12 +3192,55 @@ export default class Client extends OpenApi {
     return await this.describeCertMatchStatusWithOptions(request, runtime);
   }
 
-  async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
+  async describeCertificatesWithOptions(request: DescribeCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainResponse>(await this.doRPCRequest("DescribeDomain", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCertificates",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertificatesResponse>(await this.callApi(params, req, runtime), new DescribeCertificatesResponse({}));
+  }
+
+  async describeCertificates(request: DescribeCertificatesRequest): Promise<DescribeCertificatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCertificatesWithOptions(request, runtime);
+  }
+
+  async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDomain",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainResponse>(await this.callApi(params, req, runtime), new DescribeDomainResponse({}));
   }
 
   async describeDomain(request: DescribeDomainRequest): Promise<DescribeDomainResponse> {
@@ -3168,10 +3250,26 @@ export default class Client extends OpenApi {
 
   async describeDomainAdvanceConfigsWithOptions(request: DescribeDomainAdvanceConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAdvanceConfigsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DomainList"] = request.domainList;
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainAdvanceConfigsResponse>(await this.doRPCRequest("DescribeDomainAdvanceConfigs", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainAdvanceConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainAdvanceConfigs",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainAdvanceConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDomainAdvanceConfigsResponse({}));
   }
 
   async describeDomainAdvanceConfigs(request: DescribeDomainAdvanceConfigsRequest): Promise<DescribeDomainAdvanceConfigsResponse> {
@@ -3181,10 +3279,30 @@ export default class Client extends OpenApi {
 
   async describeDomainBasicConfigsWithOptions(request: DescribeDomainBasicConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBasicConfigsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccessType"] = request.accessType;
+    query["CloudNativeProductId"] = request.cloudNativeProductId;
+    query["DomainKey"] = request.domainKey;
+    query["InstanceId"] = request.instanceId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainBasicConfigsResponse>(await this.doRPCRequest("DescribeDomainBasicConfigs", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainBasicConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainBasicConfigs",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainBasicConfigsResponse>(await this.callApi(params, req, runtime), new DescribeDomainBasicConfigsResponse({}));
   }
 
   async describeDomainBasicConfigs(request: DescribeDomainBasicConfigsRequest): Promise<DescribeDomainBasicConfigsResponse> {
@@ -3194,10 +3312,30 @@ export default class Client extends OpenApi {
 
   async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DomainName"] = request.domainName;
+    query["DomainNames"] = request.domainNames;
+    query["InstanceId"] = request.instanceId;
+    query["IsSub"] = request.isSub;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainListResponse>(await this.doRPCRequest("DescribeDomainList", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainList",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainListResponse>(await this.callApi(params, req, runtime), new DescribeDomainListResponse({}));
   }
 
   async describeDomainList(request: DescribeDomainListRequest): Promise<DescribeDomainListResponse> {
@@ -3207,10 +3345,25 @@ export default class Client extends OpenApi {
 
   async describeDomainNamesWithOptions(request: DescribeDomainNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainNamesResponse>(await this.doRPCRequest("DescribeDomainNames", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainNamesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainNames",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainNamesResponse>(await this.callApi(params, req, runtime), new DescribeDomainNamesResponse({}));
   }
 
   async describeDomainNames(request: DescribeDomainNamesRequest): Promise<DescribeDomainNamesResponse> {
@@ -3220,10 +3373,25 @@ export default class Client extends OpenApi {
 
   async describeDomainRuleGroupWithOptions(request: DescribeDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRuleGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeDomainRuleGroupResponse>(await this.doRPCRequest("DescribeDomainRuleGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainRuleGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainRuleGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainRuleGroupResponse>(await this.callApi(params, req, runtime), new DescribeDomainRuleGroupResponse({}));
   }
 
   async describeDomainRuleGroup(request: DescribeDomainRuleGroupRequest): Promise<DescribeDomainRuleGroupResponse> {
@@ -3233,10 +3401,25 @@ export default class Client extends OpenApi {
 
   async describeInstanceInfoWithOptions(request: DescribeInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceInfoResponse>(await this.doRPCRequest("DescribeInstanceInfo", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceInfo",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceInfoResponse({}));
   }
 
   async describeInstanceInfo(request: DescribeInstanceInfoRequest): Promise<DescribeInstanceInfoResponse> {
@@ -3244,25 +3427,27 @@ export default class Client extends OpenApi {
     return await this.describeInstanceInfoWithOptions(request, runtime);
   }
 
-  async describeInstanceInfosWithOptions(request: DescribeInstanceInfosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceInfosResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeInstanceInfosResponse>(await this.doRPCRequest("DescribeInstanceInfos", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceInfosResponse({}));
-  }
-
-  async describeInstanceInfos(request: DescribeInstanceInfosRequest): Promise<DescribeInstanceInfosResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeInstanceInfosWithOptions(request, runtime);
-  }
-
   async describeInstanceSpecInfoWithOptions(request: DescribeInstanceSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSpecInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeInstanceSpecInfoResponse>(await this.doRPCRequest("DescribeInstanceSpecInfo", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceSpecInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSpecInfo",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSpecInfoResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecInfoResponse({}));
   }
 
   async describeInstanceSpecInfo(request: DescribeInstanceSpecInfoRequest): Promise<DescribeInstanceSpecInfoResponse> {
@@ -3272,10 +3457,29 @@ export default class Client extends OpenApi {
 
   async describeLogServiceStatusWithOptions(request: DescribeLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogServiceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DomainNames"] = request.domainNames;
+    query["InstanceId"] = request.instanceId;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["Region"] = request.region;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeLogServiceStatusResponse>(await this.doRPCRequest("DescribeLogServiceStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLogServiceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLogServiceStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogServiceStatusResponse>(await this.callApi(params, req, runtime), new DescribeLogServiceStatusResponse({}));
   }
 
   async describeLogServiceStatus(request: DescribeLogServiceStatusRequest): Promise<DescribeLogServiceStatusResponse> {
@@ -3285,10 +3489,27 @@ export default class Client extends OpenApi {
 
   async describeProtectionModuleCodeConfigWithOptions(request: DescribeProtectionModuleCodeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleCodeConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CodeType"] = request.codeType;
+    query["CodeValue"] = request.codeValue;
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeProtectionModuleCodeConfigResponse>(await this.doRPCRequest("DescribeProtectionModuleCodeConfig", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProtectionModuleCodeConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeProtectionModuleCodeConfig",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtectionModuleCodeConfigResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleCodeConfigResponse({}));
   }
 
   async describeProtectionModuleCodeConfig(request: DescribeProtectionModuleCodeConfigRequest): Promise<DescribeProtectionModuleCodeConfigResponse> {
@@ -3296,25 +3517,33 @@ export default class Client extends OpenApi {
     return await this.describeProtectionModuleCodeConfigWithOptions(request, runtime);
   }
 
-  async describeProtectionModuleModeWithOptions(request: DescribeProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleModeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeProtectionModuleModeResponse>(await this.doRPCRequest("DescribeProtectionModuleMode", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProtectionModuleModeResponse({}));
-  }
-
-  async describeProtectionModuleMode(request: DescribeProtectionModuleModeRequest): Promise<DescribeProtectionModuleModeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeProtectionModuleModeWithOptions(request, runtime);
-  }
-
   async describeProtectionModuleRulesWithOptions(request: DescribeProtectionModuleRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["Lang"] = request.lang;
+    query["PageNumber"] = request.pageNumber;
+    query["PageSize"] = request.pageSize;
+    query["Query"] = request.query;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeProtectionModuleRulesResponse>(await this.doRPCRequest("DescribeProtectionModuleRules", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProtectionModuleRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeProtectionModuleRules",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtectionModuleRulesResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleRulesResponse({}));
   }
 
   async describeProtectionModuleRules(request: DescribeProtectionModuleRulesRequest): Promise<DescribeProtectionModuleRulesResponse> {
@@ -3324,10 +3553,26 @@ export default class Client extends OpenApi {
 
   async describeProtectionModuleStatusWithOptions(request: DescribeProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProtectionModuleStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeProtectionModuleStatusResponse>(await this.doRPCRequest("DescribeProtectionModuleStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProtectionModuleStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeProtectionModuleStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProtectionModuleStatusResponse>(await this.callApi(params, req, runtime), new DescribeProtectionModuleStatusResponse({}));
   }
 
   async describeProtectionModuleStatus(request: DescribeProtectionModuleStatusRequest): Promise<DescribeProtectionModuleStatusResponse> {
@@ -3337,10 +3582,25 @@ export default class Client extends OpenApi {
 
   async describeWafSourceIpSegmentWithOptions(request: DescribeWafSourceIpSegmentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWafSourceIpSegmentResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<DescribeWafSourceIpSegmentResponse>(await this.doRPCRequest("DescribeWafSourceIpSegment", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWafSourceIpSegmentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWafSourceIpSegment",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWafSourceIpSegmentResponse>(await this.callApi(params, req, runtime), new DescribeWafSourceIpSegmentResponse({}));
   }
 
   async describeWafSourceIpSegment(request: DescribeWafSourceIpSegmentRequest): Promise<DescribeWafSourceIpSegmentResponse> {
@@ -3350,10 +3610,46 @@ export default class Client extends OpenApi {
 
   async modifyDomainWithOptions(request: ModifyDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccessHeaderMode"] = request.accessHeaderMode;
+    query["AccessHeaders"] = request.accessHeaders;
+    query["AccessType"] = request.accessType;
+    query["CloudNativeInstances"] = request.cloudNativeInstances;
+    query["ClusterType"] = request.clusterType;
+    query["ConnectionTime"] = request.connectionTime;
+    query["Domain"] = request.domain;
+    query["Http2Port"] = request.http2Port;
+    query["HttpPort"] = request.httpPort;
+    query["HttpToUserIp"] = request.httpToUserIp;
+    query["HttpsPort"] = request.httpsPort;
+    query["HttpsRedirect"] = request.httpsRedirect;
+    query["InstanceId"] = request.instanceId;
+    query["InstanceId"] = request.instanceId;
+    query["IpFollowStatus"] = request.ipFollowStatus;
+    query["IsAccessProduct"] = request.isAccessProduct;
+    query["LoadBalancing"] = request.loadBalancing;
+    query["LogHeaders"] = request.logHeaders;
+    query["ReadTime"] = request.readTime;
+    query["SniHost"] = request.sniHost;
+    query["SniStatus"] = request.sniStatus;
+    query["SourceIps"] = request.sourceIps;
+    query["WriteTime"] = request.writeTime;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDomainResponse>(await this.doRPCRequest("ModifyDomain", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDomain",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDomainResponse>(await this.callApi(params, req, runtime), new ModifyDomainResponse({}));
   }
 
   async modifyDomain(request: ModifyDomainRequest): Promise<ModifyDomainResponse> {
@@ -3363,10 +3659,26 @@ export default class Client extends OpenApi {
 
   async modifyDomainIpv6StatusWithOptions(request: ModifyDomainIpv6StatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDomainIpv6StatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["Enabled"] = request.enabled;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyDomainIpv6StatusResponse>(await this.doRPCRequest("ModifyDomainIpv6Status", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDomainIpv6StatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDomainIpv6Status",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDomainIpv6StatusResponse>(await this.callApi(params, req, runtime), new ModifyDomainIpv6StatusResponse({}));
   }
 
   async modifyDomainIpv6Status(request: ModifyDomainIpv6StatusRequest): Promise<ModifyDomainIpv6StatusResponse> {
@@ -3376,10 +3688,26 @@ export default class Client extends OpenApi {
 
   async modifyLogRetrievalStatusWithOptions(request: ModifyLogRetrievalStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogRetrievalStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["Enabled"] = request.enabled;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyLogRetrievalStatusResponse>(await this.doRPCRequest("ModifyLogRetrievalStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLogRetrievalStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLogRetrievalStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLogRetrievalStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogRetrievalStatusResponse({}));
   }
 
   async modifyLogRetrievalStatus(request: ModifyLogRetrievalStatusRequest): Promise<ModifyLogRetrievalStatusResponse> {
@@ -3389,10 +3717,26 @@ export default class Client extends OpenApi {
 
   async modifyLogServiceStatusWithOptions(request: ModifyLogServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogServiceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["Enabled"] = request.enabled;
+    query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyLogServiceStatusResponse>(await this.doRPCRequest("ModifyLogServiceStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLogServiceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLogServiceStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLogServiceStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogServiceStatusResponse({}));
   }
 
   async modifyLogServiceStatus(request: ModifyLogServiceStatusRequest): Promise<ModifyLogServiceStatusResponse> {
@@ -3402,10 +3746,27 @@ export default class Client extends OpenApi {
 
   async modifyProtectionModuleModeWithOptions(request: ModifyProtectionModuleModeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleModeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["Mode"] = request.mode;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyProtectionModuleModeResponse>(await this.doRPCRequest("ModifyProtectionModuleMode", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyProtectionModuleModeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyProtectionModuleMode",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtectionModuleModeResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleModeResponse({}));
   }
 
   async modifyProtectionModuleMode(request: ModifyProtectionModuleModeRequest): Promise<ModifyProtectionModuleModeResponse> {
@@ -3415,10 +3776,29 @@ export default class Client extends OpenApi {
 
   async modifyProtectionModuleRuleWithOptions(request: ModifyProtectionModuleRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["LockVersion"] = request.lockVersion;
+    query["Rule"] = request.rule;
+    query["RuleId"] = request.ruleId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyProtectionModuleRuleResponse>(await this.doRPCRequest("ModifyProtectionModuleRule", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyProtectionModuleRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyProtectionModuleRule",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtectionModuleRuleResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleRuleResponse({}));
   }
 
   async modifyProtectionModuleRule(request: ModifyProtectionModuleRuleRequest): Promise<ModifyProtectionModuleRuleResponse> {
@@ -3428,10 +3808,27 @@ export default class Client extends OpenApi {
 
   async modifyProtectionModuleStatusWithOptions(request: ModifyProtectionModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionModuleStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["ModuleStatus"] = request.moduleStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyProtectionModuleStatusResponse>(await this.doRPCRequest("ModifyProtectionModuleStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyProtectionModuleStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyProtectionModuleStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtectionModuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionModuleStatusResponse({}));
   }
 
   async modifyProtectionModuleStatus(request: ModifyProtectionModuleStatusRequest): Promise<ModifyProtectionModuleStatusResponse> {
@@ -3441,10 +3838,27 @@ export default class Client extends OpenApi {
 
   async modifyProtectionRuleCacheStatusWithOptions(request: ModifyProtectionRuleCacheStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleCacheStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["RuleId"] = request.ruleId;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyProtectionRuleCacheStatusResponse>(await this.doRPCRequest("ModifyProtectionRuleCacheStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyProtectionRuleCacheStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyProtectionRuleCacheStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtectionRuleCacheStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionRuleCacheStatusResponse({}));
   }
 
   async modifyProtectionRuleCacheStatus(request: ModifyProtectionRuleCacheStatusRequest): Promise<ModifyProtectionRuleCacheStatusResponse> {
@@ -3454,10 +3868,29 @@ export default class Client extends OpenApi {
 
   async modifyProtectionRuleStatusWithOptions(request: ModifyProtectionRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyProtectionRuleStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["DefenseType"] = request.defenseType;
+    query["Domain"] = request.domain;
+    query["InstanceId"] = request.instanceId;
+    query["LockVersion"] = request.lockVersion;
+    query["RuleId"] = request.ruleId;
+    query["RuleStatus"] = request.ruleStatus;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<ModifyProtectionRuleStatusResponse>(await this.doRPCRequest("ModifyProtectionRuleStatus", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyProtectionRuleStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyProtectionRuleStatus",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyProtectionRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyProtectionRuleStatusResponse({}));
   }
 
   async modifyProtectionRuleStatus(request: ModifyProtectionRuleStatusRequest): Promise<ModifyProtectionRuleStatusResponse> {
@@ -3465,12 +3898,59 @@ export default class Client extends OpenApi {
     return await this.modifyProtectionRuleStatusWithOptions(request, runtime);
   }
 
-  async setDomainRuleGroupWithOptions(request: SetDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRuleGroupResponse> {
+  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
     let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: Util.toMap(request),
     });
-    return $tea.cast<SetDomainRuleGroupResponse>(await this.doRPCRequest("SetDomainRuleGroup", "2019-09-10", "HTTPS", "POST", "AK", "json", req, runtime), new SetDomainRuleGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveResourceGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+  }
+
+  async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveResourceGroupWithOptions(request, runtime);
+  }
+
+  async setDomainRuleGroupWithOptions(request: SetDomainRuleGroupRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainRuleGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Domains"] = request.domains;
+    query["InstanceId"] = request.instanceId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    query["RuleGroupId"] = request.ruleGroupId;
+    query["WafVersion"] = request.wafVersion;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: Util.toMap(request),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetDomainRuleGroup",
+      version: "2019-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDomainRuleGroupResponse>(await this.callApi(params, req, runtime), new SetDomainRuleGroupResponse({}));
   }
 
   async setDomainRuleGroup(request: SetDomainRuleGroupRequest): Promise<SetDomainRuleGroupResponse> {
