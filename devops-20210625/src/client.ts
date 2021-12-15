@@ -8,6 +8,156 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CreateFlowTagRequest extends $tea.Model {
+  color?: string;
+  flowTagGroupId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      flowTagGroupId: 'flowTagGroupId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      flowTagGroupId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowTagResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  id?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      id: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFlowTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFlowTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowTagGroupRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowTagGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  id?: number;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      id: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowTagGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFlowTagGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFlowTagGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateHostGroupRequest extends $tea.Model {
   aliyunRegion?: string;
   ecsLabelKey?: string;
@@ -403,6 +553,106 @@ export class CreateWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class DeleteFlowTagResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFlowTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFlowTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowTagGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFlowTagGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFlowTagGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFlowTagGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteHostGroupResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -653,6 +903,59 @@ export class FrozenWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class GetFlowTagGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  flowTagGroup?: GetFlowTagGroupResponseBodyFlowTagGroup;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      flowTagGroup: 'flowTagGroup',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      flowTagGroup: GetFlowTagGroupResponseBodyFlowTagGroup,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowTagGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFlowTagGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFlowTagGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHostGroupResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -865,6 +1168,59 @@ export class GetPipelineRunResponse extends $tea.Model {
   }
 }
 
+export class GetProjectInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  project?: GetProjectInfoResponseBodyProject;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      project: 'project',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      project: GetProjectInfoResponseBodyProject,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetProjectInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetProjectInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVMDeployOrderResponseBody extends $tea.Model {
   deployOrder?: GetVMDeployOrderResponseBodyDeployOrder;
   errorCode?: string;
@@ -1016,6 +1372,59 @@ export class GetWorkspaceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetWorkspaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowTagGroupsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  flowTagGroups?: ListFlowTagGroupsResponseBodyFlowTagGroups[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      flowTagGroups: 'flowTagGroups',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      flowTagGroups: { 'type': 'array', 'itemType': ListFlowTagGroupsResponseBodyFlowTagGroups },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFlowTagGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListFlowTagGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListFlowTagGroupsResponseBody,
     };
   }
 
@@ -1415,6 +1824,78 @@ export class ListPipelinesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListPipelinesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersRequest extends $tea.Model {
+  targetType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      targetType: 'targetType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      targetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  members?: ListProjectMembersResponseBodyMembers[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      members: 'members',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      members: { 'type': 'array', 'itemType': ListProjectMembersResponseBodyMembers },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectMembersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectMembersResponseBody,
     };
   }
 
@@ -2534,6 +3015,150 @@ export class StopVMDeployOrderResponse extends $tea.Model {
   }
 }
 
+export class UpdateFlowTagRequest extends $tea.Model {
+  color?: string;
+  flowTagGroupId?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      flowTagGroupId: 'flowTagGroupId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      flowTagGroupId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowTagResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateFlowTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateFlowTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowTagGroupRequest extends $tea.Model {
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowTagGroupResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFlowTagGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateFlowTagGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateFlowTagGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateHostGroupRequest extends $tea.Model {
   aliyunRegion?: string;
   ecsLabelKey?: string;
@@ -2622,6 +3247,81 @@ export class UpdateHostGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateHostGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineBaseInfoRequest extends $tea.Model {
+  envId?: number;
+  pipelineName?: string;
+  tagList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      envId: 'envId',
+      pipelineName: 'pipelineName',
+      tagList: 'tagList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      envId: 'number',
+      pipelineName: 'string',
+      tagList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineBaseInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePipelineBaseInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdatePipelineBaseInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdatePipelineBaseInfoResponseBody,
     };
   }
 
@@ -2822,6 +3522,68 @@ export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
       name: 'string',
       status: 'string',
       template: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowTagGroupResponseBodyFlowTagGroupFlowTagList extends $tea.Model {
+  color?: string;
+  creatorAccountId?: string;
+  id?: number;
+  modiferAccountId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      color: 'color',
+      creatorAccountId: 'creatorAccountId',
+      id: 'id',
+      modiferAccountId: 'modiferAccountId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      color: 'string',
+      creatorAccountId: 'string',
+      id: 'number',
+      modiferAccountId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFlowTagGroupResponseBodyFlowTagGroup extends $tea.Model {
+  creatorAccountId?: string;
+  flowTagList?: GetFlowTagGroupResponseBodyFlowTagGroupFlowTagList[];
+  id?: number;
+  modiferAccountId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorAccountId: 'creatorAccountId',
+      flowTagList: 'flowTagList',
+      id: 'id',
+      modiferAccountId: 'modiferAccountId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorAccountId: 'string',
+      flowTagList: { 'type': 'array', 'itemType': GetFlowTagGroupResponseBodyFlowTagGroupFlowTagList },
+      id: 'number',
+      modiferAccountId: 'string',
+      name: 'string',
     };
   }
 
@@ -3407,6 +4169,94 @@ export class GetPipelineRunResponseBodyPipelineRun extends $tea.Model {
   }
 }
 
+export class GetProjectInfoResponseBodyProject extends $tea.Model {
+  category?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  customCode?: string;
+  description?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  icon?: string;
+  iconBig?: string;
+  iconGroup?: string;
+  iconSmall?: string;
+  id?: string;
+  identifier?: string;
+  identifierPath?: string;
+  logicalStatus?: string;
+  modifier?: string;
+  name?: string;
+  organizationIdentifier?: string;
+  parentIdentifier?: string;
+  scope?: string;
+  statusIdentifier?: string;
+  statusStageIdentifier?: string;
+  subType?: string;
+  typeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      customCode: 'customCode',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      icon: 'icon',
+      iconBig: 'iconBig',
+      iconGroup: 'iconGroup',
+      iconSmall: 'iconSmall',
+      id: 'id',
+      identifier: 'identifier',
+      identifierPath: 'identifierPath',
+      logicalStatus: 'logicalStatus',
+      modifier: 'modifier',
+      name: 'name',
+      organizationIdentifier: 'organizationIdentifier',
+      parentIdentifier: 'parentIdentifier',
+      scope: 'scope',
+      statusIdentifier: 'statusIdentifier',
+      statusStageIdentifier: 'statusStageIdentifier',
+      subType: 'subType',
+      typeIdentifier: 'typeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      customCode: 'string',
+      description: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      icon: 'string',
+      iconBig: 'string',
+      iconGroup: 'string',
+      iconSmall: 'string',
+      id: 'string',
+      identifier: 'string',
+      identifierPath: 'string',
+      logicalStatus: 'string',
+      modifier: 'string',
+      name: 'string',
+      organizationIdentifier: 'string',
+      parentIdentifier: 'string',
+      scope: 'string',
+      statusIdentifier: 'string',
+      statusStageIdentifier: 'string',
+      subType: 'string',
+      typeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetVMDeployOrderResponseBodyDeployOrderActions extends $tea.Model {
   disable?: boolean;
   params?: { [key: string]: any };
@@ -3701,6 +4551,34 @@ export class GetWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class ListFlowTagGroupsResponseBodyFlowTagGroups extends $tea.Model {
+  creatorAccountId?: string;
+  id?: number;
+  modiferAccountId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creatorAccountId: 'creatorAccountId',
+      id: 'id',
+      modiferAccountId: 'modiferAccountId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatorAccountId: 'string',
+      id: 'number',
+      modiferAccountId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHostGroupsResponseBodyHostGroups extends $tea.Model {
   aliyunRegion?: string;
   createTime?: number;
@@ -3893,6 +4771,117 @@ export class ListPipelinesResponseBodyPipelines extends $tea.Model {
       creatorAccountId: 'string',
       pipelineId: 'number',
       pipelineName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBodyMembersDivision extends $tea.Model {
+  identifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifier: 'identifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBodyMembersOrganizationUserInfo extends $tea.Model {
+  organizationIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      organizationIdentifier: 'organizationIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      organizationIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectMembersResponseBodyMembers extends $tea.Model {
+  account?: string;
+  avatar?: string;
+  dingTalkId?: string;
+  displayName?: string;
+  displayNickName?: string;
+  displayRealName?: string;
+  division?: ListProjectMembersResponseBodyMembersDivision;
+  email?: string;
+  gender?: string;
+  identifier?: string;
+  mobile?: string;
+  nameEn?: string;
+  nickName?: string;
+  nickNamePinyin?: string;
+  organizationUserInfo?: ListProjectMembersResponseBodyMembersOrganizationUserInfo;
+  realName?: string;
+  realNamePinyin?: string;
+  stamp?: string;
+  tbRoleId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      account: 'account',
+      avatar: 'avatar',
+      dingTalkId: 'dingTalkId',
+      displayName: 'displayName',
+      displayNickName: 'displayNickName',
+      displayRealName: 'displayRealName',
+      division: 'division',
+      email: 'email',
+      gender: 'gender',
+      identifier: 'identifier',
+      mobile: 'mobile',
+      nameEn: 'nameEn',
+      nickName: 'nickName',
+      nickNamePinyin: 'nickNamePinyin',
+      organizationUserInfo: 'organizationUserInfo',
+      realName: 'realName',
+      realNamePinyin: 'realNamePinyin',
+      stamp: 'stamp',
+      tbRoleId: 'tbRoleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      account: 'string',
+      avatar: 'string',
+      dingTalkId: 'string',
+      displayName: 'string',
+      displayNickName: 'string',
+      displayRealName: 'string',
+      division: ListProjectMembersResponseBodyMembersDivision,
+      email: 'string',
+      gender: 'string',
+      identifier: 'string',
+      mobile: 'string',
+      nameEn: 'string',
+      nickName: 'string',
+      nickNamePinyin: 'string',
+      organizationUserInfo: ListProjectMembersResponseBodyMembersOrganizationUserInfo,
+      realName: 'string',
+      realNamePinyin: 'string',
+      stamp: 'string',
+      tbRoleId: 'string',
     };
   }
 
@@ -4188,6 +5177,78 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async createFlowTag(organizationId: string, request: CreateFlowTagRequest): Promise<CreateFlowTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFlowTagWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createFlowTagWithOptions(organizationId: string, request: CreateFlowTagRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFlowTagResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.color)) {
+      query["color"] = request.color;
+    }
+
+    if (!Util.isUnset(request.flowTagGroupId)) {
+      query["flowTagGroupId"] = request.flowTagGroupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlowTag",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tags`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowTagResponse>(await this.callApi(params, req, runtime), new CreateFlowTagResponse({}));
+  }
+
+  async createFlowTagGroup(organizationId: string, request: CreateFlowTagGroupRequest): Promise<CreateFlowTagGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFlowTagGroupWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createFlowTagGroupWithOptions(organizationId: string, request: CreateFlowTagGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateFlowTagGroupResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlowTagGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tagGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowTagGroupResponse>(await this.callApi(params, req, runtime), new CreateFlowTagGroupResponse({}));
+  }
+
   async createHostGroup(organizationId: string, request: CreateHostGroupRequest): Promise<CreateHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4418,6 +5479,58 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new CreateWorkspaceResponse({}));
   }
 
+  async deleteFlowTag(organizationId: string, id: string): Promise<DeleteFlowTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFlowTagWithOptions(organizationId, id, headers, runtime);
+  }
+
+  async deleteFlowTagWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFlowTagResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFlowTag",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tags/${id}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowTagResponse>(await this.callApi(params, req, runtime), new DeleteFlowTagResponse({}));
+  }
+
+  async deleteFlowTagGroup(organizationId: string, id: string): Promise<DeleteFlowTagGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFlowTagGroupWithOptions(organizationId, id, headers, runtime);
+  }
+
+  async deleteFlowTagGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteFlowTagGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFlowTagGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFlowTagGroupResponse>(await this.callApi(params, req, runtime), new DeleteFlowTagGroupResponse({}));
+  }
+
   async deleteHostGroup(organizationId: string, id: string): Promise<DeleteHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4549,6 +5662,32 @@ export default class Client extends OpenApi {
     return $tea.cast<FrozenWorkspaceResponse>(await this.callApi(params, req, runtime), new FrozenWorkspaceResponse({}));
   }
 
+  async getFlowTagGroup(organizationId: string, id: string): Promise<GetFlowTagGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFlowTagGroupWithOptions(organizationId, id, headers, runtime);
+  }
+
+  async getFlowTagGroupWithOptions(organizationId: string, id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFlowTagGroupResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFlowTagGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFlowTagGroupResponse>(await this.callApi(params, req, runtime), new GetFlowTagGroupResponse({}));
+  }
+
   async getHostGroup(organizationId: string, id: string): Promise<GetHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4654,6 +5793,32 @@ export default class Client extends OpenApi {
     return $tea.cast<GetPipelineRunResponse>(await this.callApi(params, req, runtime), new GetPipelineRunResponse({}));
   }
 
+  async getProjectInfo(organizationId: string, projectId: string): Promise<GetProjectInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProjectInfoWithOptions(organizationId, projectId, headers, runtime);
+  }
+
+  async getProjectInfoWithOptions(organizationId: string, projectId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectInfoResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    projectId = OpenApiUtil.getEncodeParam(projectId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProjectInfo",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/project/${projectId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectInfoResponse>(await this.callApi(params, req, runtime), new GetProjectInfoResponse({}));
+  }
+
   async getVMDeployOrder(organizationId: string, pipelineId: string, deployOrderId: string): Promise<GetVMDeployOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4730,6 +5895,31 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetWorkspaceResponse>(await this.callApi(params, req, runtime), new GetWorkspaceResponse({}));
+  }
+
+  async listFlowTagGroups(organizationId: string): Promise<ListFlowTagGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFlowTagGroupsWithOptions(organizationId, headers, runtime);
+  }
+
+  async listFlowTagGroupsWithOptions(organizationId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListFlowTagGroupsResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListFlowTagGroups",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tagGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFlowTagGroupsResponse>(await this.callApi(params, req, runtime), new ListFlowTagGroupsResponse({}));
   }
 
   async listHostGroups(organizationId: string, request: ListHostGroupsRequest): Promise<ListHostGroupsResponse> {
@@ -4975,6 +6165,39 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListPipelinesResponse>(await this.callApi(params, req, runtime), new ListPipelinesResponse({}));
+  }
+
+  async listProjectMembers(organizationId: string, projectId: string, request: ListProjectMembersRequest): Promise<ListProjectMembersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectMembersWithOptions(organizationId, projectId, request, headers, runtime);
+  }
+
+  async listProjectMembersWithOptions(organizationId: string, projectId: string, request: ListProjectMembersRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    projectId = OpenApiUtil.getEncodeParam(projectId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.targetType)) {
+      query["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectMembers",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/projects/${projectId}/listMembers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
   }
 
   async listResourceMembers(organizationId: string, resourceType: string, resourceId: string): Promise<ListResourceMembersResponse> {
@@ -5549,6 +6772,80 @@ export default class Client extends OpenApi {
     return $tea.cast<StopVMDeployOrderResponse>(await this.callApi(params, req, runtime), new StopVMDeployOrderResponse({}));
   }
 
+  async updateFlowTag(organizationId: string, id: string, request: UpdateFlowTagRequest): Promise<UpdateFlowTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFlowTagWithOptions(organizationId, id, request, headers, runtime);
+  }
+
+  async updateFlowTagWithOptions(organizationId: string, id: string, request: UpdateFlowTagRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFlowTagResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.color)) {
+      query["color"] = request.color;
+    }
+
+    if (!Util.isUnset(request.flowTagGroupId)) {
+      query["flowTagGroupId"] = request.flowTagGroupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFlowTag",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tags/${id}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowTagResponse>(await this.callApi(params, req, runtime), new UpdateFlowTagResponse({}));
+  }
+
+  async updateFlowTagGroup(organizationId: string, id: string, request: UpdateFlowTagGroupRequest): Promise<UpdateFlowTagGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFlowTagGroupWithOptions(organizationId, id, request, headers, runtime);
+  }
+
+  async updateFlowTagGroupWithOptions(organizationId: string, id: string, request: UpdateFlowTagGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateFlowTagGroupResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    id = OpenApiUtil.getEncodeParam(id);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFlowTagGroup",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/flow/tagGroups/${id}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFlowTagGroupResponse>(await this.callApi(params, req, runtime), new UpdateFlowTagGroupResponse({}));
+  }
+
   async updateHostGroup(organizationId: string, id: string, request: UpdateHostGroupRequest): Promise<UpdateHostGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -5616,6 +6913,47 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UpdateHostGroupResponse>(await this.callApi(params, req, runtime), new UpdateHostGroupResponse({}));
+  }
+
+  async updatePipelineBaseInfo(organizationId: string, pipelineId: string, request: UpdatePipelineBaseInfoRequest): Promise<UpdatePipelineBaseInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePipelineBaseInfoWithOptions(organizationId, pipelineId, request, headers, runtime);
+  }
+
+  async updatePipelineBaseInfoWithOptions(organizationId: string, pipelineId: string, request: UpdatePipelineBaseInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdatePipelineBaseInfoResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    pipelineId = OpenApiUtil.getEncodeParam(pipelineId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.envId)) {
+      query["envId"] = request.envId;
+    }
+
+    if (!Util.isUnset(request.pipelineName)) {
+      query["pipelineName"] = request.pipelineName;
+    }
+
+    if (!Util.isUnset(request.tagList)) {
+      query["tagList"] = request.tagList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePipelineBaseInfo",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/pipelines/${pipelineId}/baseInfo`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePipelineBaseInfoResponse>(await this.callApi(params, req, runtime), new UpdatePipelineBaseInfoResponse({}));
   }
 
   async updateResourceMember(organizationId: string, resourceType: string, resourceId: string, accountId: string, request: UpdateResourceMemberRequest): Promise<UpdateResourceMemberResponse> {
