@@ -8,12 +8,11 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class QueryTraceMuRequest extends $tea.Model {
+export class QueryCopyrightRequest extends $tea.Model {
   createTimeEnd?: number;
   createTimeStart?: number;
   jobId?: string;
   level?: number;
-  messageId?: number;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
@@ -22,7 +21,6 @@ export class QueryTraceMuRequest extends $tea.Model {
       createTimeStart: 'CreateTimeStart',
       jobId: 'JobId',
       level: 'Level',
-      messageId: 'MessageId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -34,7 +32,6 @@ export class QueryTraceMuRequest extends $tea.Model {
       createTimeStart: 'number',
       jobId: 'string',
       level: 'number',
-      messageId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -45,8 +42,74 @@ export class QueryTraceMuRequest extends $tea.Model {
   }
 }
 
-export class QueryTraceMuResponseBody extends $tea.Model {
-  data?: QueryTraceMuResponseBodyData[];
+export class QueryCopyrightResponseBody extends $tea.Model {
+  data?: QueryCopyrightResponseBodyData[];
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryCopyrightResponseBodyData },
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryCopyrightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryCopyrightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractResponseBody extends $tea.Model {
+  data?: QueryCopyrightExtractResponseBodyData;
   message?: string;
   requestID?: string;
   statusCode?: number;
@@ -61,7 +124,7 @@ export class QueryTraceMuResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': QueryTraceMuResponseBodyData },
+      data: QueryCopyrightExtractResponseBodyData,
       message: 'string',
       requestID: 'string',
       statusCode: 'number',
@@ -73,9 +136,9 @@ export class QueryTraceMuResponseBody extends $tea.Model {
   }
 }
 
-export class QueryTraceMuResponse extends $tea.Model {
+export class QueryCopyrightExtractResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: QueryTraceMuResponseBody;
+  body: QueryCopyrightExtractResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -86,88 +149,7 @@ export class QueryTraceMuResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryTraceMuResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitImageCopyrightRequest extends $tea.Model {
-  input?: string;
-  level?: number;
-  message?: string;
-  output?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      input: 'Input',
-      level: 'Level',
-      message: 'Message',
-      output: 'Output',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      input: 'string',
-      level: 'number',
-      message: 'string',
-      output: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitImageCopyrightResponseBody extends $tea.Model {
-  data?: SubmitImageCopyrightResponseBodyData;
-  message?: string;
-  requestID?: string;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestID: 'RequestID',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SubmitImageCopyrightResponseBodyData,
-      message: 'string',
-      requestID: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitImageCopyrightResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitImageCopyrightResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitImageCopyrightResponseBody,
+      body: QueryCopyrightExtractResponseBody,
     };
   }
 
@@ -257,11 +239,153 @@ export class QueryImageCopyrightResponse extends $tea.Model {
   }
 }
 
-export class QueryCopyrightRequest extends $tea.Model {
+export class QueryTraceAbRequest extends $tea.Model {
+  jobId?: string;
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbResponseBody extends $tea.Model {
+  data?: QueryTraceAbResponseBodyData[];
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryTraceAbResponseBodyData },
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryTraceAbResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryTraceAbResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractRequest extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractResponseBody extends $tea.Model {
+  data?: QueryTraceExtractResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryTraceExtractResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryTraceExtractResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryTraceExtractResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceMuRequest extends $tea.Model {
   createTimeEnd?: number;
   createTimeStart?: number;
   jobId?: string;
   level?: number;
+  messageId?: number;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
@@ -270,6 +394,7 @@ export class QueryCopyrightRequest extends $tea.Model {
       createTimeStart: 'CreateTimeStart',
       jobId: 'JobId',
       level: 'Level',
+      messageId: 'MessageId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -281,6 +406,7 @@ export class QueryCopyrightRequest extends $tea.Model {
       createTimeStart: 'number',
       jobId: 'string',
       level: 'number',
+      messageId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -291,22 +417,25 @@ export class QueryCopyrightRequest extends $tea.Model {
   }
 }
 
-export class QueryCopyrightResponseBody extends $tea.Model {
+export class QueryTraceMuResponseBody extends $tea.Model {
+  data?: QueryTraceMuResponseBodyData[];
+  message?: string;
   requestID?: string;
-  data?: QueryCopyrightResponseBodyData[];
   statusCode?: number;
   static names(): { [key: string]: string } {
     return {
-      requestID: 'RequestID',
       data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
       statusCode: 'StatusCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      data: { 'type': 'array', 'itemType': QueryTraceMuResponseBodyData },
+      message: 'string',
       requestID: 'string',
-      data: { 'type': 'array', 'itemType': QueryCopyrightResponseBodyData },
       statusCode: 'number',
     };
   }
@@ -316,9 +445,9 @@ export class QueryCopyrightResponseBody extends $tea.Model {
   }
 }
 
-export class QueryCopyrightResponse extends $tea.Model {
+export class QueryTraceMuResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: QueryCopyrightResponseBody;
+  body: QueryTraceMuResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -329,7 +458,418 @@ export class QueryCopyrightResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryCopyrightResponseBody,
+      body: QueryTraceMuResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractRequest extends $tea.Model {
+  callBack?: string;
+  input?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      input: 'Input',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      input: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractResponseBody extends $tea.Model {
+  data?: SubmitCopyrightExtractResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightExtractResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitCopyrightExtractResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitCopyrightExtractResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobRequest extends $tea.Model {
+  callBack?: string;
+  description?: string;
+  input?: string;
+  level?: number;
+  message?: string;
+  output?: string;
+  startTime?: number;
+  totalTime?: number;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      description: 'Description',
+      input: 'Input',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      description: 'string',
+      input: 'string',
+      level: 'number',
+      message: 'string',
+      output: 'string',
+      startTime: 'number',
+      totalTime: 'number',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBody extends $tea.Model {
+  data?: SubmitCopyrightJobResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightJobResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitCopyrightJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitCopyrightJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightRequest extends $tea.Model {
+  input?: string;
+  level?: number;
+  message?: string;
+  output?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: 'string',
+      level: 'number',
+      message: 'string',
+      output: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightResponseBody extends $tea.Model {
+  data?: SubmitImageCopyrightResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitImageCopyrightResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitImageCopyrightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitImageCopyrightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbRequest extends $tea.Model {
+  callBack?: string;
+  input?: string;
+  level?: number;
+  output?: string;
+  url?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      input: 'Input',
+      level: 'Level',
+      output: 'Output',
+      url: 'Url',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      input: 'string',
+      level: 'number',
+      output: 'string',
+      url: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbResponseBody extends $tea.Model {
+  data?: SubmitTraceAbResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceAbResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitTraceAbResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitTraceAbResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractRequest extends $tea.Model {
+  callBack?: string;
+  input?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callBack: 'CallBack',
+      input: 'Input',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callBack: 'string',
+      input: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractResponseBody extends $tea.Model {
+  data?: SubmitTraceExtractResponseBodyData;
+  message?: string;
+  requestID?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestID: 'RequestID',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceExtractResponseBodyData,
+      message: 'string',
+      requestID: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitTraceExtractResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitTraceExtractResponseBody,
     };
   }
 
@@ -413,279 +953,31 @@ export class SubmitTracemuResponse extends $tea.Model {
   }
 }
 
-export class QueryTraceAbRequest extends $tea.Model {
-  jobId?: string;
-  mediaId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      mediaId: 'MediaId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      mediaId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTraceAbResponseBody extends $tea.Model {
-  data?: QueryTraceAbResponseBodyData[];
-  message?: string;
-  requestID?: string;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestID: 'RequestID',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryTraceAbResponseBodyData },
-      message: 'string',
-      requestID: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTraceAbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryTraceAbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryTraceAbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTraceAbRequest extends $tea.Model {
-  callBack?: string;
-  input?: string;
-  level?: number;
-  output?: string;
-  userData?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callBack: 'CallBack',
-      input: 'Input',
-      level: 'Level',
-      output: 'Output',
-      userData: 'UserData',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callBack: 'string',
-      input: 'string',
-      level: 'number',
-      output: 'string',
-      userData: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTraceAbResponseBody extends $tea.Model {
-  data?: SubmitTraceAbResponseBodyData;
-  message?: string;
-  requestID?: string;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestID: 'RequestID',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SubmitTraceAbResponseBodyData,
-      message: 'string',
-      requestID: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTraceAbResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitTraceAbResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitTraceAbResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCopyrightJobRequest extends $tea.Model {
-  callBack?: string;
-  description?: string;
-  input?: string;
-  level?: number;
-  message?: string;
-  startTime?: number;
-  totalTime?: number;
-  output?: string;
-  userData?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      callBack: 'CallBack',
-      description: 'Description',
-      input: 'Input',
-      level: 'Level',
-      message: 'Message',
-      startTime: 'StartTime',
-      totalTime: 'TotalTime',
-      output: 'Output',
-      userData: 'UserData',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callBack: 'string',
-      description: 'string',
-      input: 'string',
-      level: 'number',
-      message: 'string',
-      startTime: 'number',
-      totalTime: 'number',
-      output: 'string',
-      userData: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCopyrightJobResponseBody extends $tea.Model {
-  requestID?: string;
-  message?: string;
-  data?: SubmitCopyrightJobResponseBodyData;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestID: 'RequestID',
-      message: 'Message',
-      data: 'Data',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestID: 'string',
-      message: 'string',
-      data: SubmitCopyrightJobResponseBodyData,
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitCopyrightJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SubmitCopyrightJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SubmitCopyrightJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryTraceMuResponseBodyData extends $tea.Model {
+export class QueryCopyrightResponseBodyData extends $tea.Model {
+  callback?: string;
   gmtCreate?: number;
   gmtModified?: number;
+  input?: string;
   jobId?: string;
-  mediaId?: string;
+  level?: number;
+  message?: string;
+  messageId?: number;
   output?: string;
   status?: string;
-  trace?: string;
-  traceId?: number;
   userData?: string;
   userId?: number;
   static names(): { [key: string]: string } {
     return {
+      callback: 'Callback',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
+      input: 'Input',
       jobId: 'JobId',
-      mediaId: 'MediaId',
+      level: 'Level',
+      message: 'Message',
+      messageId: 'MessageId',
       output: 'Output',
       status: 'Status',
-      trace: 'Trace',
-      traceId: 'TraceId',
       userData: 'UserData',
       userId: 'UserId',
     };
@@ -693,14 +985,16 @@ export class QueryTraceMuResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      callback: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
+      input: 'string',
       jobId: 'string',
-      mediaId: 'string',
+      level: 'number',
+      message: 'string',
+      messageId: 'number',
       output: 'string',
       status: 'string',
-      trace: 'string',
-      traceId: 'number',
       userData: 'string',
       userId: 'number',
     };
@@ -711,17 +1005,17 @@ export class QueryTraceMuResponseBodyData extends $tea.Model {
   }
 }
 
-export class SubmitImageCopyrightResponseBodyData extends $tea.Model {
-  jobId?: string;
+export class QueryCopyrightExtractResponseBodyData extends $tea.Model {
+  message?: string;
   static names(): { [key: string]: string } {
     return {
-      jobId: 'JobId',
+      message: 'Message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      jobId: 'string',
+      message: 'string',
     };
   }
 
@@ -779,77 +1073,6 @@ export class QueryImageCopyrightResponseBodyData extends $tea.Model {
   }
 }
 
-export class QueryCopyrightResponseBodyData extends $tea.Model {
-  callback?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  input?: string;
-  jobId?: string;
-  level?: number;
-  message?: string;
-  messageId?: number;
-  output?: string;
-  status?: string;
-  userData?: string;
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      callback: 'Callback',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      input: 'Input',
-      jobId: 'JobId',
-      level: 'Level',
-      message: 'Message',
-      messageId: 'MessageId',
-      output: 'Output',
-      status: 'Status',
-      userData: 'UserData',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      callback: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      input: 'string',
-      jobId: 'string',
-      level: 'number',
-      message: 'string',
-      messageId: 'number',
-      output: 'string',
-      status: 'string',
-      userData: 'string',
-      userId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SubmitTracemuResponseBodyData extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryTraceAbResponseBodyData extends $tea.Model {
   callback?: string;
   gmtCreate?: number;
@@ -899,6 +1122,128 @@ export class QueryTraceAbResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryTraceExtractResponseBodyData extends $tea.Model {
+  trace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trace: 'Trace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceMuResponseBodyData extends $tea.Model {
+  gmtCreate?: number;
+  gmtModified?: number;
+  jobId?: string;
+  mediaId?: string;
+  output?: string;
+  status?: string;
+  trace?: string;
+  traceId?: number;
+  userData?: string;
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      jobId: 'JobId',
+      mediaId: 'MediaId',
+      output: 'Output',
+      status: 'Status',
+      trace: 'Trace',
+      traceId: 'TraceId',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      jobId: 'string',
+      mediaId: 'string',
+      output: 'string',
+      status: 'string',
+      trace: 'string',
+      traceId: 'number',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageCopyrightResponseBodyData extends $tea.Model {
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTraceAbResponseBodyData extends $tea.Model {
   jobId?: string;
   mediaId?: string;
@@ -921,7 +1266,7 @@ export class SubmitTraceAbResponseBodyData extends $tea.Model {
   }
 }
 
-export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
+export class SubmitTraceExtractResponseBodyData extends $tea.Model {
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -931,6 +1276,28 @@ export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTracemuResponseBodyData extends $tea.Model {
+  code?: string;
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
       jobId: 'string',
     };
   }
@@ -1007,6 +1374,201 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async queryCopyright(request: QueryCopyrightRequest): Promise<QueryCopyrightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryCopyrightWithOptions(request, headers, runtime);
+  }
+
+  async queryCopyrightWithOptions(request: QueryCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyright",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryCopyrightJob`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightResponse>(await this.callApi(params, req, runtime), new QueryCopyrightResponse({}));
+  }
+
+  async queryCopyrightExtract(request: QueryCopyrightExtractRequest): Promise<QueryCopyrightExtractResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryCopyrightExtractWithOptions(request, headers, runtime);
+  }
+
+  async queryCopyrightExtractWithOptions(request: QueryCopyrightExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightExtractResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyrightExtract",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryCopyrightExtract`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightExtractResponse>(await this.callApi(params, req, runtime), new QueryCopyrightExtractResponse({}));
+  }
+
+  async queryImageCopyright(request: QueryImageCopyrightRequest): Promise<QueryImageCopyrightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryImageCopyrightWithOptions(request, headers, runtime);
+  }
+
+  async queryImageCopyrightWithOptions(request: QueryImageCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryImageCopyrightResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryImageCopyright",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryImageCopyright`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryImageCopyrightResponse>(await this.callApi(params, req, runtime), new QueryImageCopyrightResponse({}));
+  }
+
+  async queryTraceAb(request: QueryTraceAbRequest): Promise<QueryTraceAbResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTraceAbWithOptions(request, headers, runtime);
+  }
+
+  async queryTraceAbWithOptions(request: QueryTraceAbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      body["MediaId"] = request.mediaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceAb",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryTraceAb`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceAbResponse>(await this.callApi(params, req, runtime), new QueryTraceAbResponse({}));
+  }
+
+  async queryTraceExtract(request: QueryTraceExtractRequest): Promise<QueryTraceExtractResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTraceExtractWithOptions(request, headers, runtime);
+  }
+
+  async queryTraceExtractWithOptions(request: QueryTraceExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceExtractResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceExtract",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryTraceExtract`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceExtractResponse>(await this.callApi(params, req, runtime), new QueryTraceExtractResponse({}));
+  }
+
   async queryTraceMu(request: QueryTraceMuRequest): Promise<QueryTraceMuResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1048,7 +1610,124 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<QueryTraceMuResponse>(await this.doROARequest("QueryTraceMu", "2021-07-28", "HTTPS", "POST", "AK", `/queryTraceM3u8`, "json", req, runtime), new QueryTraceMuResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryTraceMu",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/queryTraceM3u8`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceMuResponse>(await this.callApi(params, req, runtime), new QueryTraceMuResponse({}));
+  }
+
+  async submitCopyrightExtract(request: SubmitCopyrightExtractRequest): Promise<SubmitCopyrightExtractResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitCopyrightExtractWithOptions(request, headers, runtime);
+  }
+
+  async submitCopyrightExtractWithOptions(request: SubmitCopyrightExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightExtractResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callBack)) {
+      body["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightExtract",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitCopyrightExtract`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightExtractResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightExtractResponse({}));
+  }
+
+  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitCopyrightJobWithOptions(request, headers, runtime);
+  }
+
+  async submitCopyrightJobWithOptions(request: SubmitCopyrightJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.callBack)) {
+      body["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      body["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      body["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      body["TotalTime"] = request.totalTime;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightJob",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitCopyrightJob`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightJobResponse({}));
   }
 
   async submitImageCopyright(request: SubmitImageCopyrightRequest): Promise<SubmitImageCopyrightResponse> {
@@ -1084,135 +1763,18 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SubmitImageCopyrightResponse>(await this.doROARequest("SubmitImageCopyright", "2021-07-28", "HTTPS", "POST", "AK", `/submitImageCopyright`, "json", req, runtime), new SubmitImageCopyrightResponse({}));
-  }
-
-  async queryImageCopyright(request: QueryImageCopyrightRequest): Promise<QueryImageCopyrightResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryImageCopyrightWithOptions(request, headers, runtime);
-  }
-
-  async queryImageCopyrightWithOptions(request: QueryImageCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryImageCopyrightResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createTimeEnd)) {
-      body["CreateTimeEnd"] = request.createTimeEnd;
-    }
-
-    if (!Util.isUnset(request.createTimeStart)) {
-      body["CreateTimeStart"] = request.createTimeStart;
-    }
-
-    if (!Util.isUnset(request.jobId)) {
-      body["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+    let params = new $OpenApi.Params({
+      action: "SubmitImageCopyright",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitImageCopyright`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
     });
-    return $tea.cast<QueryImageCopyrightResponse>(await this.doROARequest("QueryImageCopyright", "2021-07-28", "HTTPS", "POST", "AK", `/queryImageCopyright`, "json", req, runtime), new QueryImageCopyrightResponse({}));
-  }
-
-  async queryCopyright(request: QueryCopyrightRequest): Promise<QueryCopyrightResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryCopyrightWithOptions(request, headers, runtime);
-  }
-
-  async queryCopyrightWithOptions(request: QueryCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createTimeEnd)) {
-      body["CreateTimeEnd"] = request.createTimeEnd;
-    }
-
-    if (!Util.isUnset(request.createTimeStart)) {
-      body["CreateTimeStart"] = request.createTimeStart;
-    }
-
-    if (!Util.isUnset(request.jobId)) {
-      body["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.level)) {
-      body["Level"] = request.level;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<QueryCopyrightResponse>(await this.doROARequest("QueryCopyright", "2021-07-28", "HTTPS", "POST", "AK", `/queryCopyrightJob`, "json", req, runtime), new QueryCopyrightResponse({}));
-  }
-
-  async submitTracemu(request: SubmitTracemuRequest): Promise<SubmitTracemuResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.submitTracemuWithOptions(request, headers, runtime);
-  }
-
-  async submitTracemuWithOptions(request: SubmitTracemuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTracemuResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.mediaId)) {
-      body["MediaId"] = request.mediaId;
-    }
-
-    if (!Util.isUnset(request.output)) {
-      body["Output"] = request.output;
-    }
-
-    if (!Util.isUnset(request.trace)) {
-      body["Trace"] = request.trace;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<SubmitTracemuResponse>(await this.doROARequest("SubmitTracemu", "2021-07-28", "HTTPS", "POST", "AK", `/submitTraceM3u8`, "json", req, runtime), new SubmitTracemuResponse({}));
-  }
-
-  async queryTraceAb(request: QueryTraceAbRequest): Promise<QueryTraceAbResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryTraceAbWithOptions(request, headers, runtime);
-  }
-
-  async queryTraceAbWithOptions(request: QueryTraceAbRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.jobId)) {
-      body["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.mediaId)) {
-      body["MediaId"] = request.mediaId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    return $tea.cast<QueryTraceAbResponse>(await this.doROARequest("QueryTraceAb", "2021-07-28", "HTTPS", "POST", "AK", `/queryTraceAb`, "json", req, runtime), new QueryTraceAbResponse({}));
+    return $tea.cast<SubmitImageCopyrightResponse>(await this.callApi(params, req, runtime), new SubmitImageCopyrightResponse({}));
   }
 
   async submitTraceAb(request: SubmitTraceAbRequest): Promise<SubmitTraceAbResponse> {
@@ -1240,75 +1802,108 @@ export default class Client extends OpenApi {
       body["Output"] = request.output;
     }
 
-    if (!Util.isUnset(request.userData)) {
-      body["UserData"] = request.userData;
-    }
-
     if (!Util.isUnset(request.url)) {
       body["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      body["UserData"] = request.userData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SubmitTraceAbResponse>(await this.doROARequest("SubmitTraceAb", "2021-07-28", "HTTPS", "POST", "AK", `/submitTraceAb`, "json", req, runtime), new SubmitTraceAbResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceAb",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitTraceAb`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceAbResponse>(await this.callApi(params, req, runtime), new SubmitTraceAbResponse({}));
   }
 
-  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
+  async submitTraceExtract(request: SubmitTraceExtractRequest): Promise<SubmitTraceExtractResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.submitCopyrightJobWithOptions(request, headers, runtime);
+    return await this.submitTraceExtractWithOptions(request, headers, runtime);
   }
 
-  async submitCopyrightJobWithOptions(request: SubmitCopyrightJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
+  async submitTraceExtractWithOptions(request: SubmitTraceExtractRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTraceExtractResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.callBack)) {
       body["CallBack"] = request.callBack;
     }
 
-    if (!Util.isUnset(request.description)) {
-      body["Description"] = request.description;
-    }
-
     if (!Util.isUnset(request.input)) {
       body["Input"] = request.input;
-    }
-
-    if (!Util.isUnset(request.level)) {
-      body["Level"] = request.level;
-    }
-
-    if (!Util.isUnset(request.message)) {
-      body["Message"] = request.message;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      body["StartTime"] = request.startTime;
-    }
-
-    if (!Util.isUnset(request.totalTime)) {
-      body["TotalTime"] = request.totalTime;
-    }
-
-    if (!Util.isUnset(request.output)) {
-      body["Output"] = request.output;
     }
 
     if (!Util.isUnset(request.userData)) {
       body["UserData"] = request.userData;
     }
 
-    if (!Util.isUnset(request.url)) {
-      body["Url"] = request.url;
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceExtract",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitTraceExtract`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceExtractResponse>(await this.callApi(params, req, runtime), new SubmitTraceExtractResponse({}));
+  }
+
+  async submitTracemu(request: SubmitTracemuRequest): Promise<SubmitTracemuResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitTracemuWithOptions(request, headers, runtime);
+  }
+
+  async submitTracemuWithOptions(request: SubmitTracemuRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitTracemuResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.mediaId)) {
+      body["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.output)) {
+      body["Output"] = request.output;
+    }
+
+    if (!Util.isUnset(request.trace)) {
+      body["Trace"] = request.trace;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SubmitCopyrightJobResponse>(await this.doROARequest("SubmitCopyrightJob", "2021-07-28", "HTTPS", "POST", "AK", `/submitCopyrightJob`, "json", req, runtime), new SubmitCopyrightJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SubmitTracemu",
+      version: "2021-07-28",
+      protocol: "HTTPS",
+      pathname: `/submitTraceM3u8`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTracemuResponse>(await this.callApi(params, req, runtime), new SubmitTracemuResponse({}));
   }
 
 }
