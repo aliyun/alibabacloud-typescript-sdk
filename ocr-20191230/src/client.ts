@@ -4919,11 +4919,13 @@ export class RecognizeVideoCharacterResponseBodyDataFrames extends $tea.Model {
 export class RecognizeVideoCharacterResponseBodyData extends $tea.Model {
   frames?: RecognizeVideoCharacterResponseBodyDataFrames[];
   height?: number;
+  inputFile?: string;
   width?: number;
   static names(): { [key: string]: string } {
     return {
       frames: 'Frames',
       height: 'Height',
+      inputFile: 'InputFile',
       width: 'Width',
     };
   }
@@ -4932,6 +4934,7 @@ export class RecognizeVideoCharacterResponseBodyData extends $tea.Model {
     return {
       frames: { 'type': 'array', 'itemType': RecognizeVideoCharacterResponseBodyDataFrames },
       height: 'number',
+      inputFile: 'string',
       width: 'number',
     };
   }
@@ -4985,10 +4988,26 @@ export default class Client extends OpenApi {
 
   async detectCardScreenshotWithOptions(request: DetectCardScreenshotRequest, runtime: $Util.RuntimeOptions): Promise<DetectCardScreenshotResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectCardScreenshotResponse>(await this.doRPCRequest("DetectCardScreenshot", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new DetectCardScreenshotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectCardScreenshot",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectCardScreenshotResponse>(await this.callApi(params, req, runtime), new DetectCardScreenshotResponse({}));
   }
 
   async detectCardScreenshot(request: DetectCardScreenshotRequest): Promise<DetectCardScreenshotResponse> {
@@ -5072,10 +5091,26 @@ export default class Client extends OpenApi {
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncJobResult",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.callApi(params, req, runtime), new GetAsyncJobResultResponse({}));
   }
 
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
@@ -5085,10 +5120,26 @@ export default class Client extends OpenApi {
 
   async recognizeAccountPageWithOptions(request: RecognizeAccountPageRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAccountPageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeAccountPageResponse>(await this.doRPCRequest("RecognizeAccountPage", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeAccountPageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeAccountPage",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeAccountPageResponse>(await this.callApi(params, req, runtime), new RecognizeAccountPageResponse({}));
   }
 
   async recognizeAccountPage(request: RecognizeAccountPageRequest): Promise<RecognizeAccountPageResponse> {
@@ -5172,10 +5223,26 @@ export default class Client extends OpenApi {
 
   async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeBankCardResponse>(await this.doRPCRequest("RecognizeBankCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBankCardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBankCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBankCardResponse>(await this.callApi(params, req, runtime), new RecognizeBankCardResponse({}));
   }
 
   async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
@@ -5259,10 +5326,26 @@ export default class Client extends OpenApi {
 
   async recognizeBusinessCardWithOptions(request: RecognizeBusinessCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeBusinessCardResponse>(await this.doRPCRequest("RecognizeBusinessCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessCardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBusinessCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBusinessCardResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessCardResponse({}));
   }
 
   async recognizeBusinessCard(request: RecognizeBusinessCardRequest): Promise<RecognizeBusinessCardResponse> {
@@ -5346,10 +5429,26 @@ export default class Client extends OpenApi {
 
   async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.doRPCRequest("RecognizeBusinessLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeBusinessLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeBusinessLicense",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBusinessLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessLicenseResponse({}));
   }
 
   async recognizeBusinessLicense(request: RecognizeBusinessLicenseRequest): Promise<RecognizeBusinessLicenseResponse> {
@@ -5433,10 +5532,34 @@ export default class Client extends OpenApi {
 
   async recognizeCharacterWithOptions(request: RecognizeCharacterRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCharacterResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.minHeight)) {
+      body["MinHeight"] = request.minHeight;
+    }
+
+    if (!Util.isUnset(request.outputProbability)) {
+      body["OutputProbability"] = request.outputProbability;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeCharacterResponse>(await this.doRPCRequest("RecognizeCharacter", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeCharacterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeCharacter",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCharacterResponse>(await this.callApi(params, req, runtime), new RecognizeCharacterResponse({}));
   }
 
   async recognizeCharacter(request: RecognizeCharacterRequest): Promise<RecognizeCharacterResponse> {
@@ -5520,10 +5643,26 @@ export default class Client extends OpenApi {
 
   async recognizeChinapassportWithOptions(request: RecognizeChinapassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinapassportResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeChinapassportResponse>(await this.doRPCRequest("RecognizeChinapassport", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeChinapassportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeChinapassport",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeChinapassportResponse>(await this.callApi(params, req, runtime), new RecognizeChinapassportResponse({}));
   }
 
   async recognizeChinapassport(request: RecognizeChinapassportRequest): Promise<RecognizeChinapassportResponse> {
@@ -5607,10 +5746,30 @@ export default class Client extends OpenApi {
 
   async recognizeDriverLicenseWithOptions(request: RecognizeDriverLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDriverLicenseResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.side)) {
+      body["Side"] = request.side;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeDriverLicenseResponse>(await this.doRPCRequest("RecognizeDriverLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeDriverLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeDriverLicense",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeDriverLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeDriverLicenseResponse({}));
   }
 
   async recognizeDriverLicense(request: RecognizeDriverLicenseRequest): Promise<RecognizeDriverLicenseResponse> {
@@ -5694,10 +5853,30 @@ export default class Client extends OpenApi {
 
   async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.side)) {
+      body["Side"] = request.side;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.doRPCRequest("RecognizeDrivingLicense", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeDrivingLicenseResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeDrivingLicense",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeDrivingLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeDrivingLicenseResponse({}));
   }
 
   async recognizeDrivingLicense(request: RecognizeDrivingLicenseRequest): Promise<RecognizeDrivingLicenseResponse> {
@@ -5781,10 +5960,30 @@ export default class Client extends OpenApi {
 
   async recognizeIdentityCardWithOptions(request: RecognizeIdentityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdentityCardResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.side)) {
+      body["Side"] = request.side;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeIdentityCardResponse>(await this.doRPCRequest("RecognizeIdentityCard", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeIdentityCardResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeIdentityCard",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeIdentityCardResponse>(await this.callApi(params, req, runtime), new RecognizeIdentityCardResponse({}));
   }
 
   async recognizeIdentityCard(request: RecognizeIdentityCardRequest): Promise<RecognizeIdentityCardResponse> {
@@ -5868,10 +6067,26 @@ export default class Client extends OpenApi {
 
   async recognizeLicensePlateWithOptions(request: RecognizeLicensePlateRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLicensePlateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeLicensePlateResponse>(await this.doRPCRequest("RecognizeLicensePlate", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeLicensePlateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeLicensePlate",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeLicensePlateResponse>(await this.callApi(params, req, runtime), new RecognizeLicensePlateResponse({}));
   }
 
   async recognizeLicensePlate(request: RecognizeLicensePlateRequest): Promise<RecognizeLicensePlateResponse> {
@@ -5955,10 +6170,26 @@ export default class Client extends OpenApi {
 
   async recognizePassportMRZWithOptions(request: RecognizePassportMRZRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportMRZResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizePassportMRZResponse>(await this.doRPCRequest("RecognizePassportMRZ", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizePassportMRZResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizePassportMRZ",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePassportMRZResponse>(await this.callApi(params, req, runtime), new RecognizePassportMRZResponse({}));
   }
 
   async recognizePassportMRZ(request: RecognizePassportMRZRequest): Promise<RecognizePassportMRZResponse> {
@@ -6042,10 +6273,26 @@ export default class Client extends OpenApi {
 
   async recognizePdfWithOptions(request: RecognizePdfRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePdfResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileURL)) {
+      body["FileURL"] = request.fileURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizePdfResponse>(await this.doRPCRequest("RecognizePdf", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizePdfResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizePdf",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePdfResponse>(await this.callApi(params, req, runtime), new RecognizePdfResponse({}));
   }
 
   async recognizePdf(request: RecognizePdfRequest): Promise<RecognizePdfResponse> {
@@ -6129,10 +6376,26 @@ export default class Client extends OpenApi {
 
   async recognizePoiNameWithOptions(request: RecognizePoiNameRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePoiNameResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizePoiNameResponse>(await this.doRPCRequest("RecognizePoiName", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizePoiNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizePoiName",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePoiNameResponse>(await this.callApi(params, req, runtime), new RecognizePoiNameResponse({}));
   }
 
   async recognizePoiName(request: RecognizePoiNameRequest): Promise<RecognizePoiNameResponse> {
@@ -6216,10 +6479,26 @@ export default class Client extends OpenApi {
 
   async recognizeQrCodeWithOptions(request: RecognizeQrCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQrCodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tasks)) {
+      body["Tasks"] = request.tasks;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeQrCodeResponse>(await this.doRPCRequest("RecognizeQrCode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeQrCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeQrCode",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeQrCodeResponse>(await this.callApi(params, req, runtime), new RecognizeQrCodeResponse({}));
   }
 
   async recognizeQrCode(request: RecognizeQrCodeRequest): Promise<RecognizeQrCodeResponse> {
@@ -6229,10 +6508,26 @@ export default class Client extends OpenApi {
 
   async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.doRPCRequest("RecognizeQuotaInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeQuotaInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeQuotaInvoice",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeQuotaInvoiceResponse({}));
   }
 
   async recognizeQuotaInvoice(request: RecognizeQuotaInvoiceRequest): Promise<RecognizeQuotaInvoiceResponse> {
@@ -6316,10 +6611,26 @@ export default class Client extends OpenApi {
 
   async recognizeStampWithOptions(request: RecognizeStampRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStampResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeStampResponse>(await this.doRPCRequest("RecognizeStamp", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeStampResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeStamp",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeStampResponse>(await this.callApi(params, req, runtime), new RecognizeStampResponse({}));
   }
 
   async recognizeStamp(request: RecognizeStampRequest): Promise<RecognizeStampResponse> {
@@ -6403,10 +6714,46 @@ export default class Client extends OpenApi {
 
   async recognizeTableWithOptions(request: RecognizeTableRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.assureDirection)) {
+      body["AssureDirection"] = request.assureDirection;
+    }
+
+    if (!Util.isUnset(request.hasLine)) {
+      body["HasLine"] = request.hasLine;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.outputFormat)) {
+      body["OutputFormat"] = request.outputFormat;
+    }
+
+    if (!Util.isUnset(request.skipDetection)) {
+      body["SkipDetection"] = request.skipDetection;
+    }
+
+    if (!Util.isUnset(request.useFinanceModel)) {
+      body["UseFinanceModel"] = request.useFinanceModel;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeTableResponse>(await this.doRPCRequest("RecognizeTable", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTableResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTable",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTableResponse>(await this.callApi(params, req, runtime), new RecognizeTableResponse({}));
   }
 
   async recognizeTable(request: RecognizeTableRequest): Promise<RecognizeTableResponse> {
@@ -6490,10 +6837,26 @@ export default class Client extends OpenApi {
 
   async recognizeTakeoutOrderWithOptions(request: RecognizeTakeoutOrderRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTakeoutOrderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeTakeoutOrderResponse>(await this.doRPCRequest("RecognizeTakeoutOrder", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTakeoutOrderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTakeoutOrder",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTakeoutOrderResponse>(await this.callApi(params, req, runtime), new RecognizeTakeoutOrderResponse({}));
   }
 
   async recognizeTakeoutOrder(request: RecognizeTakeoutOrderRequest): Promise<RecognizeTakeoutOrderResponse> {
@@ -6577,10 +6940,26 @@ export default class Client extends OpenApi {
 
   async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.doRPCRequest("RecognizeTaxiInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTaxiInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTaxiInvoice",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTaxiInvoiceResponse({}));
   }
 
   async recognizeTaxiInvoice(request: RecognizeTaxiInvoiceRequest): Promise<RecognizeTaxiInvoiceResponse> {
@@ -6664,10 +7043,26 @@ export default class Client extends OpenApi {
 
   async recognizeTicketInvoiceWithOptions(request: RecognizeTicketInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTicketInvoiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeTicketInvoiceResponse>(await this.doRPCRequest("RecognizeTicketInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTicketInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTicketInvoice",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTicketInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTicketInvoiceResponse({}));
   }
 
   async recognizeTicketInvoice(request: RecognizeTicketInvoiceRequest): Promise<RecognizeTicketInvoiceResponse> {
@@ -6751,10 +7146,26 @@ export default class Client extends OpenApi {
 
   async recognizeTrainTicketWithOptions(request: RecognizeTrainTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTrainTicketResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeTrainTicketResponse>(await this.doRPCRequest("RecognizeTrainTicket", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeTrainTicketResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeTrainTicket",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTrainTicketResponse>(await this.callApi(params, req, runtime), new RecognizeTrainTicketResponse({}));
   }
 
   async recognizeTrainTicket(request: RecognizeTrainTicketRequest): Promise<RecognizeTrainTicketResponse> {
@@ -6838,10 +7249,30 @@ export default class Client extends OpenApi {
 
   async recognizeVATInvoiceWithOptions(request: RecognizeVATInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVATInvoiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.fileURL)) {
+      body["FileURL"] = request.fileURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVATInvoiceResponse>(await this.doRPCRequest("RecognizeVATInvoice", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVATInvoiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVATInvoice",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVATInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeVATInvoiceResponse({}));
   }
 
   async recognizeVATInvoice(request: RecognizeVATInvoiceRequest): Promise<RecognizeVATInvoiceResponse> {
@@ -6925,10 +7356,23 @@ export default class Client extends OpenApi {
 
   async recognizeVINCodeWithOptions(request: RecognizeVINCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ImageURL"] = request.imageURL;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RecognizeVINCodeResponse>(await this.doRPCRequest("RecognizeVINCode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVINCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVINCode",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVINCodeResponse>(await this.callApi(params, req, runtime), new RecognizeVINCodeResponse({}));
   }
 
   async recognizeVINCode(request: RecognizeVINCodeRequest): Promise<RecognizeVINCodeResponse> {
@@ -7012,10 +7456,26 @@ export default class Client extends OpenApi {
 
   async recognizeVerificationcodeWithOptions(request: RecognizeVerificationcodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVerificationcodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVerificationcodeResponse>(await this.doRPCRequest("RecognizeVerificationcode", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVerificationcodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVerificationcode",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVerificationcodeResponse>(await this.callApi(params, req, runtime), new RecognizeVerificationcodeResponse({}));
   }
 
   async recognizeVerificationcode(request: RecognizeVerificationcodeRequest): Promise<RecognizeVerificationcodeResponse> {
@@ -7099,10 +7559,26 @@ export default class Client extends OpenApi {
 
   async recognizeVideoCharacterWithOptions(request: RecognizeVideoCharacterRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVideoCharacterResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.videoURL)) {
+      body["VideoURL"] = request.videoURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeVideoCharacterResponse>(await this.doRPCRequest("RecognizeVideoCharacter", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeVideoCharacterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeVideoCharacter",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVideoCharacterResponse>(await this.callApi(params, req, runtime), new RecognizeVideoCharacterResponse({}));
   }
 
   async recognizeVideoCharacter(request: RecognizeVideoCharacterRequest): Promise<RecognizeVideoCharacterResponse> {
@@ -7112,10 +7588,34 @@ export default class Client extends OpenApi {
 
   async trimDocumentWithOptions(request: TrimDocumentRequest, runtime: $Util.RuntimeOptions): Promise<TrimDocumentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.fileURL)) {
+      body["FileURL"] = request.fileURL;
+    }
+
+    if (!Util.isUnset(request.outputType)) {
+      body["OutputType"] = request.outputType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<TrimDocumentResponse>(await this.doRPCRequest("TrimDocument", "2019-12-30", "HTTPS", "POST", "AK", "json", req, runtime), new TrimDocumentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TrimDocument",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TrimDocumentResponse>(await this.callApi(params, req, runtime), new TrimDocumentResponse({}));
   }
 
   async trimDocument(request: TrimDocumentRequest): Promise<TrimDocumentResponse> {
