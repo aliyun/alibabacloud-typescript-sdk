@@ -11,10 +11,12 @@ import * as $tea from '@alicloud/tea-typescript';
 export class CancelArtifactBuildTaskRequest extends $tea.Model {
   buildTaskId?: string;
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -22,6 +24,7 @@ export class CancelArtifactBuildTaskRequest extends $tea.Model {
     return {
       buildTaskId: 'string',
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -80,11 +83,13 @@ export class CancelArtifactBuildTaskResponse extends $tea.Model {
 export class CancelRepoBuildRecordRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -93,6 +98,7 @@ export class CancelRepoBuildRecordRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -152,11 +158,13 @@ export class CancelRepoBuildRecordResponse extends $tea.Model {
 export class CreateBuildRecordByRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -165,6 +173,7 @@ export class CreateBuildRecordByRuleRequest extends $tea.Model {
     return {
       buildRuleId: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -229,6 +238,7 @@ export class CreateChainRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
   name?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -237,6 +247,7 @@ export class CreateChainRequest extends $tea.Model {
       description: 'Description',
       instanceId: 'InstanceId',
       name: 'Name',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -248,6 +259,7 @@ export class CreateChainRequest extends $tea.Model {
       description: 'string',
       instanceId: 'string',
       name: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -313,12 +325,14 @@ export class CreateChartNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -328,6 +342,7 @@ export class CreateChartNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -385,6 +400,7 @@ export class CreateChartNamespaceResponse extends $tea.Model {
 
 export class CreateChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -392,6 +408,7 @@ export class CreateChartRepositoryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -402,6 +419,7 @@ export class CreateChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -470,6 +488,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
   entry?: string;
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
@@ -477,6 +496,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -487,6 +507,7 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -545,12 +566,14 @@ export class CreateInstanceEndpointAclPolicyResponse extends $tea.Model {
 export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   vpcId?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
     };
@@ -560,6 +583,7 @@ export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
     };
@@ -622,12 +646,14 @@ export class CreateNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -637,6 +663,7 @@ export class CreateNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -699,6 +726,7 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
   instanceId?: string;
   pushName?: string;
   pushType?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -708,6 +736,7 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pushName: 'PushName',
       pushType: 'PushType',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -720,6 +749,7 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'string',
       pushName: 'string',
       pushType: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -787,6 +817,7 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
   disableCacheBuild?: boolean;
   instanceId?: string;
   overseaBuild?: boolean;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -797,6 +828,7 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'DisableCacheBuild',
       instanceId: 'InstanceId',
       overseaBuild: 'OverseaBuild',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -810,6 +842,7 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'boolean',
       instanceId: 'string',
       overseaBuild: 'boolean',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -869,6 +902,7 @@ export class CreateRepoSourceCodeRepoResponse extends $tea.Model {
 export class CreateRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   repoName?: string;
   syncRuleName?: string;
   syncScope?: string;
@@ -883,6 +917,7 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       syncRuleName: 'SyncRuleName',
       syncScope: 'SyncScope',
@@ -900,6 +935,7 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
       repoName: 'string',
       syncRuleName: 'string',
       syncScope: 'string',
@@ -971,6 +1007,7 @@ export class CreateRepoSyncRuleResponse extends $tea.Model {
 export class CreateRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
   override?: boolean;
+  regionId?: string;
   repoId?: string;
   tag?: string;
   targetInstanceId?: string;
@@ -983,6 +1020,7 @@ export class CreateRepoSyncTaskRequest extends $tea.Model {
     return {
       instanceId: 'InstanceId',
       override: 'Override',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
       targetInstanceId: 'TargetInstanceId',
@@ -998,6 +1036,7 @@ export class CreateRepoSyncTaskRequest extends $tea.Model {
     return {
       instanceId: 'string',
       override: 'boolean',
+      regionId: 'string',
       repoId: 'string',
       tag: 'string',
       targetInstanceId: 'string',
@@ -1066,12 +1105,14 @@ export class CreateRepoSyncTaskResponse extends $tea.Model {
 
 export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   syncRuleId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       syncRuleId: 'SyncRuleId',
       tag: 'Tag',
@@ -1081,6 +1122,7 @@ export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       syncRuleId: 'string',
       tag: 'string',
@@ -1146,6 +1188,7 @@ export class CreateRepoTagRequest extends $tea.Model {
   fromTag?: string;
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   repoName?: string;
   toTag?: string;
   static names(): { [key: string]: string } {
@@ -1153,6 +1196,7 @@ export class CreateRepoTagRequest extends $tea.Model {
       fromTag: 'FromTag',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       toTag: 'ToTag',
     };
@@ -1163,6 +1207,7 @@ export class CreateRepoTagRequest extends $tea.Model {
       fromTag: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
       repoName: 'string',
       toTag: 'string',
     };
@@ -1223,6 +1268,7 @@ export class CreateRepoTagResponse extends $tea.Model {
 export class CreateRepoTagScanTaskRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   scanService?: string;
   tag?: string;
@@ -1230,6 +1276,7 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       scanService: 'ScanService',
       tag: 'Tag',
@@ -1240,6 +1287,7 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       scanService: 'string',
       tag: 'string',
@@ -1300,6 +1348,7 @@ export class CreateRepoTagScanTaskResponse extends $tea.Model {
 
 export class CreateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   triggerName?: string;
   triggerTag?: string;
@@ -1308,6 +1357,7 @@ export class CreateRepoTriggerRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerName: 'TriggerName',
       triggerTag: 'TriggerTag',
@@ -1319,6 +1369,7 @@ export class CreateRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       triggerName: 'string',
       triggerTag: 'string',
@@ -1385,6 +1436,7 @@ export class CreateRepoTriggerResponse extends $tea.Model {
 export class CreateRepositoryRequest extends $tea.Model {
   detail?: string;
   instanceId?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -1394,6 +1446,7 @@ export class CreateRepositoryRequest extends $tea.Model {
     return {
       detail: 'Detail',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -1406,6 +1459,7 @@ export class CreateRepositoryRequest extends $tea.Model {
     return {
       detail: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -1472,10 +1526,12 @@ export class CreateRepositoryResponse extends $tea.Model {
 export class DeleteChainRequest extends $tea.Model {
   chainId?: string;
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainId: 'ChainId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -1483,6 +1539,7 @@ export class DeleteChainRequest extends $tea.Model {
     return {
       chainId: 'string',
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1541,10 +1598,12 @@ export class DeleteChainResponse extends $tea.Model {
 export class DeleteChartNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -1552,6 +1611,7 @@ export class DeleteChartNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1610,6 +1670,7 @@ export class DeleteChartNamespaceResponse extends $tea.Model {
 export class DeleteChartReleaseRequest extends $tea.Model {
   chart?: string;
   instanceId?: string;
+  regionId?: string;
   release?: string;
   repoName?: string;
   repoNamespaceName?: string;
@@ -1617,6 +1678,7 @@ export class DeleteChartReleaseRequest extends $tea.Model {
     return {
       chart: 'Chart',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       release: 'Release',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
@@ -1627,6 +1689,7 @@ export class DeleteChartReleaseRequest extends $tea.Model {
     return {
       chart: 'string',
       instanceId: 'string',
+      regionId: 'string',
       release: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
@@ -1687,11 +1750,13 @@ export class DeleteChartReleaseResponse extends $tea.Model {
 
 export class DeleteChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -1700,6 +1765,7 @@ export class DeleteChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -1759,10 +1825,12 @@ export class DeleteChartRepositoryResponse extends $tea.Model {
 
 export class DeleteEventCenterRuleRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       ruleId: 'RuleId',
     };
   }
@@ -1770,6 +1838,7 @@ export class DeleteEventCenterRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       ruleId: 'string',
     };
   }
@@ -1828,12 +1897,14 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
   entry?: string;
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       endpointType: 'EndpointType',
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -1843,6 +1914,7 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1901,12 +1973,14 @@ export class DeleteInstanceEndpointAclPolicyResponse extends $tea.Model {
 export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   vpcId?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
     };
@@ -1916,6 +1990,7 @@ export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
     };
@@ -1976,10 +2051,12 @@ export class DeleteInstanceVpcEndpointLinkedVpcResponse extends $tea.Model {
 export class DeleteNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -1987,6 +2064,7 @@ export class DeleteNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2045,11 +2123,13 @@ export class DeleteNamespaceResponse extends $tea.Model {
 export class DeleteRepoBuildRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -2058,6 +2138,7 @@ export class DeleteRepoBuildRuleRequest extends $tea.Model {
     return {
       buildRuleId: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -2116,10 +2197,12 @@ export class DeleteRepoBuildRuleResponse extends $tea.Model {
 
 export class DeleteRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   syncRuleId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       syncRuleId: 'SyncRuleId',
     };
   }
@@ -2127,6 +2210,7 @@ export class DeleteRepoSyncRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       syncRuleId: 'string',
     };
   }
@@ -2185,11 +2269,13 @@ export class DeleteRepoSyncRuleResponse extends $tea.Model {
 
 export class DeleteRepoTagRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
     };
@@ -2198,6 +2284,7 @@ export class DeleteRepoTagRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       tag: 'string',
     };
@@ -2257,11 +2344,13 @@ export class DeleteRepoTagResponse extends $tea.Model {
 
 export class DeleteRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   triggerId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerId: 'TriggerId',
     };
@@ -2270,6 +2359,7 @@ export class DeleteRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       triggerId: 'string',
     };
@@ -2329,10 +2419,12 @@ export class DeleteRepoTriggerResponse extends $tea.Model {
 
 export class DeleteRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -2340,6 +2432,7 @@ export class DeleteRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -2399,10 +2492,12 @@ export class DeleteRepositoryResponse extends $tea.Model {
 export class GetArtifactBuildTaskRequest extends $tea.Model {
   buildTaskId?: string;
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -2410,6 +2505,7 @@ export class GetArtifactBuildTaskRequest extends $tea.Model {
     return {
       buildTaskId: 'string',
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2491,15 +2587,18 @@ export class GetArtifactBuildTaskResponse extends $tea.Model {
 
 export class GetAuthorizationTokenRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2567,10 +2666,12 @@ export class GetAuthorizationTokenResponse extends $tea.Model {
 export class GetChainRequest extends $tea.Model {
   chainId?: string;
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainId: 'ChainId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -2578,6 +2679,7 @@ export class GetChainRequest extends $tea.Model {
     return {
       chainId: 'string',
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2663,10 +2765,12 @@ export class GetChainResponse extends $tea.Model {
 export class GetChartNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -2674,6 +2778,7 @@ export class GetChartNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2749,11 +2854,13 @@ export class GetChartNamespaceResponse extends $tea.Model {
 
 export class GetChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -2762,6 +2869,7 @@ export class GetChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -2848,15 +2956,18 @@ export class GetChartRepositoryResponse extends $tea.Model {
 
 export class GetInstanceRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2930,6 +3041,25 @@ export class GetInstanceResponse extends $tea.Model {
   }
 }
 
+export class GetInstanceCountRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceCountResponseBody extends $tea.Model {
   code?: string;
   count?: number;
@@ -2984,11 +3114,13 @@ export class GetInstanceEndpointRequest extends $tea.Model {
   endpointType?: string;
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       endpointType: 'EndpointType',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -2997,6 +3129,7 @@ export class GetInstanceEndpointRequest extends $tea.Model {
       endpointType: 'string',
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3069,15 +3202,18 @@ export class GetInstanceEndpointResponse extends $tea.Model {
 
 export class GetInstanceUsageRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3160,10 +3296,12 @@ export class GetInstanceUsageResponse extends $tea.Model {
 export class GetInstanceVpcEndpointRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -3171,6 +3309,7 @@ export class GetInstanceVpcEndpointRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3239,11 +3378,13 @@ export class GetNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -3252,6 +3393,7 @@ export class GetNamespaceRequest extends $tea.Model {
       instanceId: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3328,10 +3470,12 @@ export class GetNamespaceResponse extends $tea.Model {
 export class GetRepoBuildRecordRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
     };
   }
 
@@ -3339,6 +3483,7 @@ export class GetRepoBuildRecordRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3412,11 +3557,13 @@ export class GetRepoBuildRecordResponse extends $tea.Model {
 export class GetRepoBuildRecordStatusRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -3425,6 +3572,7 @@ export class GetRepoBuildRecordStatusRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -3486,10 +3634,12 @@ export class GetRepoBuildRecordStatusResponse extends $tea.Model {
 
 export class GetRepoSourceCodeRepoRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -3497,6 +3647,7 @@ export class GetRepoSourceCodeRepoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -3579,10 +3730,12 @@ export class GetRepoSourceCodeRepoResponse extends $tea.Model {
 
 export class GetRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   syncTaskId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       syncTaskId: 'SyncTaskId',
     };
   }
@@ -3590,6 +3743,7 @@ export class GetRepoSyncTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       syncTaskId: 'string',
     };
   }
@@ -3676,15 +3830,113 @@ export class GetRepoSyncTaskResponse extends $tea.Model {
   }
 }
 
+export class GetRepoTagRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  repoId?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      repoId: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoTagResponseBody extends $tea.Model {
+  code?: string;
+  digest?: string;
+  imageCreate?: number;
+  imageId?: string;
+  imageSize?: number;
+  imageUpdate?: number;
+  isSuccess?: boolean;
+  requestId?: string;
+  status?: string;
+  tag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      digest: 'Digest',
+      imageCreate: 'ImageCreate',
+      imageId: 'ImageId',
+      imageSize: 'ImageSize',
+      imageUpdate: 'ImageUpdate',
+      isSuccess: 'IsSuccess',
+      requestId: 'RequestId',
+      status: 'Status',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      digest: 'string',
+      imageCreate: 'number',
+      imageId: 'string',
+      imageSize: 'number',
+      imageUpdate: 'number',
+      isSuccess: 'boolean',
+      requestId: 'string',
+      status: 'string',
+      tag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepoTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRepoTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRepoTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoTagLayersRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
     };
@@ -3694,6 +3946,7 @@ export class GetRepoTagLayersRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       tag: 'string',
     };
@@ -3756,12 +4009,14 @@ export class GetRepoTagLayersResponse extends $tea.Model {
 
 export class GetRepoTagManifestRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   schemaVersion?: number;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       schemaVersion: 'SchemaVersion',
       tag: 'Tag',
@@ -3771,6 +4026,7 @@ export class GetRepoTagManifestRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       schemaVersion: 'number',
       tag: 'string',
@@ -3835,6 +4091,7 @@ export class GetRepoTagManifestResponse extends $tea.Model {
 export class GetRepoTagScanStatusRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   tag?: string;
@@ -3842,6 +4099,7 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       tag: 'Tag',
@@ -3852,6 +4110,7 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       tag: 'string',
@@ -3919,6 +4178,7 @@ export class GetRepoTagScanStatusResponse extends $tea.Model {
 export class GetRepoTagScanSummaryRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   tag?: string;
@@ -3926,6 +4186,7 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       tag: 'Tag',
@@ -3936,6 +4197,7 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       tag: 'string',
@@ -4011,12 +4273,14 @@ export class GetRepoTagScanSummaryResponse extends $tea.Model {
 
 export class GetRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
@@ -4026,6 +4290,7 @@ export class GetRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
@@ -4125,12 +4390,14 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
   instanceId?: string;
   page?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
       page: 'Page',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -4140,6 +4407,7 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
       instanceId: 'string',
       page: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -4205,6 +4473,7 @@ export class ListChainRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4212,6 +4481,7 @@ export class ListChainRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4222,6 +4492,7 @@ export class ListChainRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4295,6 +4566,7 @@ export class ListChainInstanceRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4302,6 +4574,7 @@ export class ListChainInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4312,6 +4585,7 @@ export class ListChainInstanceRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4390,6 +4664,7 @@ export class ListChartNamespaceRequest extends $tea.Model {
   namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -4397,6 +4672,7 @@ export class ListChartNamespaceRequest extends $tea.Model {
       namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -4407,6 +4683,7 @@ export class ListChartNamespaceRequest extends $tea.Model {
       namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -4479,6 +4756,7 @@ export class ListChartReleaseRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4487,6 +4765,7 @@ export class ListChartReleaseRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4498,6 +4777,7 @@ export class ListChartReleaseRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4571,6 +4851,7 @@ export class ListChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoStatus?: string;
@@ -4579,6 +4860,7 @@ export class ListChartRepositoryRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
@@ -4590,6 +4872,7 @@ export class ListChartRepositoryRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoStatus: 'string',
@@ -4665,6 +4948,7 @@ export class ListEventCenterRecordRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4672,6 +4956,7 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       ruleId: 'RuleId',
     };
   }
@@ -4682,6 +4967,7 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       ruleId: 'string',
     };
   }
@@ -4824,12 +5110,14 @@ export class ListInstanceRequest extends $tea.Model {
   instanceStatus?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
       instanceStatus: 'InstanceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -4839,6 +5127,7 @@ export class ListInstanceRequest extends $tea.Model {
       instanceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -4909,10 +5198,12 @@ export class ListInstanceResponse extends $tea.Model {
 export class ListInstanceEndpointRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -4920,6 +5211,7 @@ export class ListInstanceEndpointRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -4980,15 +5272,18 @@ export class ListInstanceEndpointResponse extends $tea.Model {
 
 export class ListInstanceRegionRequest extends $tea.Model {
   lang?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5053,6 +5348,7 @@ export class ListNamespaceRequest extends $tea.Model {
   namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -5060,6 +5356,7 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
     };
   }
 
@@ -5070,6 +5367,7 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
     };
   }
 
@@ -5141,12 +5439,14 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5156,6 +5456,7 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5228,12 +5529,14 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
   offset?: number;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
       offset: 'Offset',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5243,6 +5546,7 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
       buildRecordId: 'string',
       instanceId: 'string',
       offset: 'number',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5315,12 +5619,14 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5330,6 +5636,7 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5403,6 +5710,7 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
   namespaceName?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   targetInstanceId?: string;
   targetRegionId?: string;
@@ -5412,6 +5720,7 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
       namespaceName: 'NamespaceName',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       targetInstanceId: 'TargetInstanceId',
       targetRegionId: 'TargetRegionId',
@@ -5424,6 +5733,7 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
       namespaceName: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       targetInstanceId: 'string',
       targetRegionId: 'string',
@@ -5498,6 +5808,7 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   syncRecordId?: string;
@@ -5507,6 +5818,7 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       syncRecordId: 'SyncRecordId',
@@ -5519,6 +5831,7 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       syncRecordId: 'string',
@@ -5594,12 +5907,14 @@ export class ListRepoTagRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5609,6 +5924,7 @@ export class ListRepoTagRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5682,6 +5998,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   severity?: string;
@@ -5692,6 +6009,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       severity: 'Severity',
@@ -5705,6 +6023,7 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       severity: 'string',
@@ -5778,10 +6097,12 @@ export class ListRepoTagScanResultResponse extends $tea.Model {
 
 export class ListRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5789,6 +6110,7 @@ export class ListRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5852,6 +6174,7 @@ export class ListRepositoryRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoStatus?: string;
@@ -5860,6 +6183,7 @@ export class ListRepositoryRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
@@ -5871,6 +6195,7 @@ export class ListRepositoryRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoStatus: 'string',
@@ -5944,10 +6269,12 @@ export class ListRepositoryResponse extends $tea.Model {
 export class ResetLoginPasswordRequest extends $tea.Model {
   instanceId?: string;
   password?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       password: 'Password',
+      regionId: 'RegionId',
     };
   }
 
@@ -5955,6 +6282,7 @@ export class ResetLoginPasswordRequest extends $tea.Model {
     return {
       instanceId: 'string',
       password: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6016,6 +6344,7 @@ export class UpdateChainRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
   name?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainConfig: 'ChainConfig',
@@ -6023,6 +6352,7 @@ export class UpdateChainRequest extends $tea.Model {
       description: 'Description',
       instanceId: 'InstanceId',
       name: 'Name',
+      regionId: 'RegionId',
     };
   }
 
@@ -6033,6 +6363,7 @@ export class UpdateChainRequest extends $tea.Model {
       description: 'string',
       instanceId: 'string',
       name: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6093,12 +6424,14 @@ export class UpdateChartNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -6108,6 +6441,7 @@ export class UpdateChartNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6165,6 +6499,7 @@ export class UpdateChartNamespaceResponse extends $tea.Model {
 
 export class UpdateChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -6172,6 +6507,7 @@ export class UpdateChartRepositoryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -6182,6 +6518,7 @@ export class UpdateChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -6248,6 +6585,7 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
   eventType?: string;
   instanceId?: string;
   namespaces?: string[];
+  regionId?: string;
   repoNames?: string[];
   repoTagFilterPattern?: string;
   ruleId?: string;
@@ -6260,6 +6598,7 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
       eventType: 'EventType',
       instanceId: 'InstanceId',
       namespaces: 'Namespaces',
+      regionId: 'RegionId',
       repoNames: 'RepoNames',
       repoTagFilterPattern: 'RepoTagFilterPattern',
       ruleId: 'RuleId',
@@ -6275,6 +6614,7 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
       eventType: 'string',
       instanceId: 'string',
       namespaces: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
       repoNames: { 'type': 'array', 'itemType': 'string' },
       repoTagFilterPattern: 'string',
       ruleId: 'string',
@@ -6294,6 +6634,7 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
   eventType?: string;
   instanceId?: string;
   namespacesShrink?: string;
+  regionId?: string;
   repoNamesShrink?: string;
   repoTagFilterPattern?: string;
   ruleId?: string;
@@ -6306,6 +6647,7 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
       eventType: 'EventType',
       instanceId: 'InstanceId',
       namespacesShrink: 'Namespaces',
+      regionId: 'RegionId',
       repoNamesShrink: 'RepoNames',
       repoTagFilterPattern: 'RepoTagFilterPattern',
       ruleId: 'RuleId',
@@ -6321,6 +6663,7 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
       eventType: 'string',
       instanceId: 'string',
       namespacesShrink: 'string',
+      regionId: 'string',
       repoNamesShrink: 'string',
       repoTagFilterPattern: 'string',
       ruleId: 'string',
@@ -6385,12 +6728,14 @@ export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
   endpointType?: string;
   instanceId?: string;
   moduleName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
       endpointType: 'EndpointType',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
+      regionId: 'RegionId',
     };
   }
 
@@ -6400,6 +6745,7 @@ export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
       endpointType: 'string',
       instanceId: 'string',
       moduleName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6460,12 +6806,14 @@ export class UpdateNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      regionId: 'RegionId',
     };
   }
 
@@ -6475,6 +6823,7 @@ export class UpdateNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6539,6 +6888,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
   platforms?: string[];
   pushName?: string;
   pushType?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6550,6 +6900,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       platforms: 'Platforms',
       pushName: 'PushName',
       pushType: 'PushType',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -6564,6 +6915,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       platforms: { 'type': 'array', 'itemType': 'string' },
       pushName: 'string',
       pushType: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -6632,6 +6984,7 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
   disableCacheBuild?: string;
   instanceId?: string;
   overseaBuild?: string;
+  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6643,6 +6996,7 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'DisableCacheBuild',
       instanceId: 'InstanceId',
       overseaBuild: 'OverseaBuild',
+      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -6657,6 +7011,7 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'string',
       instanceId: 'string',
       overseaBuild: 'string',
+      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -6715,6 +7070,7 @@ export class UpdateRepoSourceCodeRepoResponse extends $tea.Model {
 
 export class UpdateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   triggerId?: string;
   triggerName?: string;
@@ -6724,6 +7080,7 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerId: 'TriggerId',
       triggerName: 'TriggerName',
@@ -6736,6 +7093,7 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       triggerId: 'string',
       triggerName: 'string',
@@ -6800,6 +7158,7 @@ export class UpdateRepoTriggerResponse extends $tea.Model {
 export class UpdateRepositoryRequest extends $tea.Model {
   detail?: string;
   instanceId?: string;
+  regionId?: string;
   repoId?: string;
   repoType?: string;
   summary?: string;
@@ -6808,6 +7167,7 @@ export class UpdateRepositoryRequest extends $tea.Model {
     return {
       detail: 'Detail',
       instanceId: 'InstanceId',
+      regionId: 'RegionId',
       repoId: 'RepoId',
       repoType: 'RepoType',
       summary: 'Summary',
@@ -6819,6 +7179,7 @@ export class UpdateRepositoryRequest extends $tea.Model {
     return {
       detail: 'string',
       instanceId: 'string',
+      regionId: 'string',
       repoId: 'string',
       repoType: 'string',
       summary: 'string',
@@ -8489,7 +8850,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelArtifactBuildTask",
@@ -8499,7 +8859,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelArtifactBuildTaskResponse>(await this.callApi(params, req, runtime), new CancelArtifactBuildTaskResponse({}));
@@ -8518,7 +8878,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelRepoBuildRecord",
@@ -8528,7 +8887,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new CancelRepoBuildRecordResponse({}));
@@ -8547,7 +8906,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateBuildRecordByRule",
@@ -8557,7 +8915,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateBuildRecordByRuleResponse>(await this.callApi(params, req, runtime), new CreateBuildRecordByRuleResponse({}));
@@ -8579,7 +8937,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateChain",
@@ -8589,7 +8946,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateChainResponse>(await this.callApi(params, req, runtime), new CreateChainResponse({}));
@@ -8609,7 +8966,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateChartNamespace",
@@ -8619,7 +8975,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateChartNamespaceResponse>(await this.callApi(params, req, runtime), new CreateChartNamespaceResponse({}));
@@ -8640,7 +8996,6 @@ export default class Client extends OpenApi {
     query["Summary"] = request.summary;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateChartRepository",
@@ -8650,7 +9005,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateChartRepositoryResponse>(await this.callApi(params, req, runtime), new CreateChartRepositoryResponse({}));
@@ -8671,7 +9026,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateInstanceEndpointAclPolicy",
@@ -8681,7 +9035,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateInstanceEndpointAclPolicyResponse>(await this.callApi(params, req, runtime), new CreateInstanceEndpointAclPolicyResponse({}));
@@ -8701,7 +9055,6 @@ export default class Client extends OpenApi {
     query["VswitchId"] = request.vswitchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateInstanceVpcEndpointLinkedVpc",
@@ -8711,7 +9064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateInstanceVpcEndpointLinkedVpcResponse>(await this.callApi(params, req, runtime), new CreateInstanceVpcEndpointLinkedVpcResponse({}));
@@ -8731,7 +9084,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateNamespace",
@@ -8741,7 +9093,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
@@ -8764,7 +9116,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoBuildRule",
@@ -8774,7 +9125,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoBuildRuleResponse({}));
@@ -8798,7 +9149,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoSourceCodeRepo",
@@ -8808,7 +9158,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new CreateRepoSourceCodeRepoResponse({}));
@@ -8836,7 +9186,6 @@ export default class Client extends OpenApi {
     query["TargetUserId"] = request.targetUserId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoSyncRule",
@@ -8846,7 +9195,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncRuleResponse({}));
@@ -8872,7 +9221,6 @@ export default class Client extends OpenApi {
     query["TargetUserId"] = request.targetUserId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoSyncTask",
@@ -8882,7 +9230,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncTaskResponse({}));
@@ -8902,7 +9250,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoSyncTaskByRule",
@@ -8912,7 +9259,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoSyncTaskByRuleResponse>(await this.callApi(params, req, runtime), new CreateRepoSyncTaskByRuleResponse({}));
@@ -8933,7 +9280,6 @@ export default class Client extends OpenApi {
     query["ToTag"] = request.toTag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoTag",
@@ -8943,7 +9289,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoTagResponse>(await this.callApi(params, req, runtime), new CreateRepoTagResponse({}));
@@ -8964,7 +9310,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoTagScanTask",
@@ -8974,7 +9319,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoTagScanTaskResponse>(await this.callApi(params, req, runtime), new CreateRepoTagScanTaskResponse({}));
@@ -8996,7 +9341,6 @@ export default class Client extends OpenApi {
     query["TriggerUrl"] = request.triggerUrl;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepoTrigger",
@@ -9006,7 +9350,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepoTriggerResponse>(await this.callApi(params, req, runtime), new CreateRepoTriggerResponse({}));
@@ -9029,7 +9373,6 @@ export default class Client extends OpenApi {
     query["TagImmutability"] = request.tagImmutability;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRepository",
@@ -9039,7 +9382,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRepositoryResponse>(await this.callApi(params, req, runtime), new CreateRepositoryResponse({}));
@@ -9057,7 +9400,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChain",
@@ -9067,7 +9409,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChainResponse>(await this.callApi(params, req, runtime), new DeleteChainResponse({}));
@@ -9085,7 +9427,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChartNamespace",
@@ -9095,7 +9436,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChartNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteChartNamespaceResponse({}));
@@ -9116,7 +9457,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChartRelease",
@@ -9126,7 +9466,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChartReleaseResponse>(await this.callApi(params, req, runtime), new DeleteChartReleaseResponse({}));
@@ -9145,7 +9485,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChartRepository",
@@ -9155,7 +9494,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChartRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteChartRepositoryResponse({}));
@@ -9173,7 +9512,6 @@ export default class Client extends OpenApi {
     query["RuleId"] = request.ruleId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteEventCenterRule",
@@ -9183,7 +9521,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteEventCenterRuleResponse>(await this.callApi(params, req, runtime), new DeleteEventCenterRuleResponse({}));
@@ -9203,7 +9541,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteInstanceEndpointAclPolicy",
@@ -9213,7 +9550,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteInstanceEndpointAclPolicyResponse>(await this.callApi(params, req, runtime), new DeleteInstanceEndpointAclPolicyResponse({}));
@@ -9233,7 +9570,6 @@ export default class Client extends OpenApi {
     query["VswitchId"] = request.vswitchId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteInstanceVpcEndpointLinkedVpc",
@@ -9243,7 +9579,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteInstanceVpcEndpointLinkedVpcResponse>(await this.callApi(params, req, runtime), new DeleteInstanceVpcEndpointLinkedVpcResponse({}));
@@ -9261,7 +9597,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteNamespace",
@@ -9271,7 +9606,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
@@ -9290,7 +9625,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRepoBuildRule",
@@ -9300,7 +9634,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new DeleteRepoBuildRuleResponse({}));
@@ -9318,7 +9652,6 @@ export default class Client extends OpenApi {
     query["SyncRuleId"] = request.syncRuleId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRepoSyncRule",
@@ -9328,7 +9661,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new DeleteRepoSyncRuleResponse({}));
@@ -9347,7 +9680,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRepoTag",
@@ -9357,7 +9689,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRepoTagResponse>(await this.callApi(params, req, runtime), new DeleteRepoTagResponse({}));
@@ -9376,7 +9708,6 @@ export default class Client extends OpenApi {
     query["TriggerId"] = request.triggerId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRepoTrigger",
@@ -9386,7 +9717,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRepoTriggerResponse>(await this.callApi(params, req, runtime), new DeleteRepoTriggerResponse({}));
@@ -9404,7 +9735,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRepository",
@@ -9414,7 +9744,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRepositoryResponse>(await this.callApi(params, req, runtime), new DeleteRepositoryResponse({}));
@@ -9439,7 +9769,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetArtifactBuildTaskResponse>(await this.callApi(params, req, runtime), new GetArtifactBuildTaskResponse({}));
@@ -9456,7 +9786,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetAuthorizationToken",
@@ -9466,7 +9795,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAuthorizationTokenResponse>(await this.callApi(params, req, runtime), new GetAuthorizationTokenResponse({}));
@@ -9484,7 +9813,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetChain",
@@ -9494,7 +9822,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetChainResponse>(await this.callApi(params, req, runtime), new GetChainResponse({}));
@@ -9512,7 +9840,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetChartNamespace",
@@ -9522,7 +9849,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetChartNamespaceResponse>(await this.callApi(params, req, runtime), new GetChartNamespaceResponse({}));
@@ -9541,7 +9868,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetChartRepository",
@@ -9551,7 +9877,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetChartRepositoryResponse>(await this.callApi(params, req, runtime), new GetChartRepositoryResponse({}));
@@ -9568,7 +9894,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetInstance",
@@ -9578,7 +9903,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
@@ -9589,7 +9914,8 @@ export default class Client extends OpenApi {
     return await this.getInstanceWithOptions(request, runtime);
   }
 
-  async getInstanceCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetInstanceCountResponse> {
+  async getInstanceCountWithOptions(request: GetInstanceCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountResponse> {
+    Util.validateModel(request);
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetInstanceCount",
@@ -9599,15 +9925,15 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetInstanceCountResponse>(await this.callApi(params, req, runtime), new GetInstanceCountResponse({}));
   }
 
-  async getInstanceCount(): Promise<GetInstanceCountResponse> {
+  async getInstanceCount(request: GetInstanceCountRequest): Promise<GetInstanceCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceCountWithOptions(runtime);
+    return await this.getInstanceCountWithOptions(request, runtime);
   }
 
   async getInstanceEndpointWithOptions(request: GetInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceEndpointResponse> {
@@ -9618,7 +9944,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceEndpoint",
@@ -9628,7 +9953,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetInstanceEndpointResponse>(await this.callApi(params, req, runtime), new GetInstanceEndpointResponse({}));
@@ -9645,7 +9970,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceUsage",
@@ -9655,7 +9979,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetInstanceUsageResponse>(await this.callApi(params, req, runtime), new GetInstanceUsageResponse({}));
@@ -9673,7 +9997,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceVpcEndpoint",
@@ -9683,7 +10006,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetInstanceVpcEndpointResponse>(await this.callApi(params, req, runtime), new GetInstanceVpcEndpointResponse({}));
@@ -9702,7 +10025,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetNamespace",
@@ -9712,7 +10034,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetNamespaceResponse>(await this.callApi(params, req, runtime), new GetNamespaceResponse({}));
@@ -9730,7 +10052,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoBuildRecord",
@@ -9740,7 +10061,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRecordResponse({}));
@@ -9759,7 +10080,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoBuildRecordStatus",
@@ -9769,7 +10089,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoBuildRecordStatusResponse>(await this.callApi(params, req, runtime), new GetRepoBuildRecordStatusResponse({}));
@@ -9787,7 +10107,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoSourceCodeRepo",
@@ -9797,7 +10116,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new GetRepoSourceCodeRepoResponse({}));
@@ -9815,7 +10134,6 @@ export default class Client extends OpenApi {
     query["SyncTaskId"] = request.syncTaskId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoSyncTask",
@@ -9825,7 +10143,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new GetRepoSyncTaskResponse({}));
@@ -9834,6 +10152,31 @@ export default class Client extends OpenApi {
   async getRepoSyncTask(request: GetRepoSyncTaskRequest): Promise<GetRepoSyncTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRepoSyncTaskWithOptions(request, runtime);
+  }
+
+  async getRepoTagWithOptions(request: GetRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRepoTag",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepoTagResponse>(await this.callApi(params, req, runtime), new GetRepoTagResponse({}));
+  }
+
+  async getRepoTag(request: GetRepoTagRequest): Promise<GetRepoTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRepoTagWithOptions(request, runtime);
   }
 
   async getRepoTagLayersWithOptions(request: GetRepoTagLayersRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagLayersResponse> {
@@ -9845,7 +10188,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoTagLayers",
@@ -9855,7 +10197,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoTagLayersResponse>(await this.callApi(params, req, runtime), new GetRepoTagLayersResponse({}));
@@ -9875,7 +10217,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoTagManifest",
@@ -9885,7 +10226,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoTagManifestResponse>(await this.callApi(params, req, runtime), new GetRepoTagManifestResponse({}));
@@ -9906,7 +10247,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoTagScanStatus",
@@ -9916,7 +10256,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoTagScanStatusResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanStatusResponse({}));
@@ -9937,7 +10277,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepoTagScanSummary",
@@ -9947,7 +10286,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepoTagScanSummaryResponse>(await this.callApi(params, req, runtime), new GetRepoTagScanSummaryResponse({}));
@@ -9967,7 +10306,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRepository",
@@ -9977,7 +10315,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRepositoryResponse>(await this.callApi(params, req, runtime), new GetRepositoryResponse({}));
@@ -10002,7 +10340,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListArtifactBuildTaskLogResponse>(await this.callApi(params, req, runtime), new ListArtifactBuildTaskLogResponse({}));
@@ -10023,7 +10361,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChain",
@@ -10033,7 +10370,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChainResponse>(await this.callApi(params, req, runtime), new ListChainResponse({}));
@@ -10054,7 +10391,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChainInstance",
@@ -10064,7 +10400,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChainInstanceResponse>(await this.callApi(params, req, runtime), new ListChainInstanceResponse({}));
@@ -10085,7 +10421,6 @@ export default class Client extends OpenApi {
     query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChartNamespace",
@@ -10095,7 +10430,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChartNamespaceResponse>(await this.callApi(params, req, runtime), new ListChartNamespaceResponse({}));
@@ -10117,7 +10452,6 @@ export default class Client extends OpenApi {
     query["RepoNamespaceName"] = request.repoNamespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChartRelease",
@@ -10127,7 +10461,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChartReleaseResponse>(await this.callApi(params, req, runtime), new ListChartReleaseResponse({}));
@@ -10149,7 +10483,6 @@ export default class Client extends OpenApi {
     query["RepoStatus"] = request.repoStatus;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListChartRepository",
@@ -10159,7 +10492,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListChartRepositoryResponse>(await this.callApi(params, req, runtime), new ListChartRepositoryResponse({}));
@@ -10184,7 +10517,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListEventCenterRecordResponse>(await this.callApi(params, req, runtime), new ListEventCenterRecordResponse({}));
@@ -10209,7 +10542,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListEventCenterRuleNameResponse>(await this.callApi(params, req, runtime), new ListEventCenterRuleNameResponse({}));
@@ -10229,7 +10562,6 @@ export default class Client extends OpenApi {
     query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListInstance",
@@ -10239,7 +10571,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
@@ -10257,7 +10589,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListInstanceEndpoint",
@@ -10267,7 +10598,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInstanceEndpointResponse>(await this.callApi(params, req, runtime), new ListInstanceEndpointResponse({}));
@@ -10284,7 +10615,6 @@ export default class Client extends OpenApi {
     query["Lang"] = request.lang;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListInstanceRegion",
@@ -10294,7 +10624,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInstanceRegionResponse>(await this.callApi(params, req, runtime), new ListInstanceRegionResponse({}));
@@ -10315,7 +10645,6 @@ export default class Client extends OpenApi {
     query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListNamespace",
@@ -10325,7 +10654,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListNamespaceResponse>(await this.callApi(params, req, runtime), new ListNamespaceResponse({}));
@@ -10345,7 +10674,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoBuildRecord",
@@ -10355,7 +10683,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoBuildRecordResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRecordResponse({}));
@@ -10375,7 +10703,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoBuildRecordLog",
@@ -10385,7 +10712,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoBuildRecordLogResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRecordLogResponse({}));
@@ -10405,7 +10732,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoBuildRule",
@@ -10415,7 +10741,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new ListRepoBuildRuleResponse({}));
@@ -10438,7 +10764,6 @@ export default class Client extends OpenApi {
     query["TargetRegionId"] = request.targetRegionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoSyncRule",
@@ -10448,7 +10773,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoSyncRuleResponse>(await this.callApi(params, req, runtime), new ListRepoSyncRuleResponse({}));
@@ -10471,7 +10796,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoSyncTask",
@@ -10481,7 +10805,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoSyncTaskResponse>(await this.callApi(params, req, runtime), new ListRepoSyncTaskResponse({}));
@@ -10501,7 +10825,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoTag",
@@ -10511,7 +10834,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoTagResponse>(await this.callApi(params, req, runtime), new ListRepoTagResponse({}));
@@ -10535,7 +10858,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoTagScanResult",
@@ -10545,7 +10867,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoTagScanResultResponse>(await this.callApi(params, req, runtime), new ListRepoTagScanResultResponse({}));
@@ -10563,7 +10885,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepoTrigger",
@@ -10573,7 +10894,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepoTriggerResponse>(await this.callApi(params, req, runtime), new ListRepoTriggerResponse({}));
@@ -10595,7 +10916,6 @@ export default class Client extends OpenApi {
     query["RepoStatus"] = request.repoStatus;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRepository",
@@ -10605,7 +10925,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRepositoryResponse>(await this.callApi(params, req, runtime), new ListRepositoryResponse({}));
@@ -10623,7 +10943,6 @@ export default class Client extends OpenApi {
     query["Password"] = request.password;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResetLoginPassword",
@@ -10633,7 +10952,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetLoginPasswordResponse>(await this.callApi(params, req, runtime), new ResetLoginPasswordResponse({}));
@@ -10654,7 +10973,6 @@ export default class Client extends OpenApi {
     query["Name"] = request.name;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateChain",
@@ -10664,7 +10982,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateChainResponse>(await this.callApi(params, req, runtime), new UpdateChainResponse({}));
@@ -10684,7 +11002,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateChartNamespace",
@@ -10694,7 +11011,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateChartNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateChartNamespaceResponse({}));
@@ -10715,7 +11032,6 @@ export default class Client extends OpenApi {
     query["Summary"] = request.summary;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateChartRepository",
@@ -10725,7 +11041,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateChartRepositoryResponse>(await this.callApi(params, req, runtime), new UpdateChartRepositoryResponse({}));
@@ -10761,7 +11077,6 @@ export default class Client extends OpenApi {
     query["RuleName"] = request.ruleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateEventCenterRule",
@@ -10771,7 +11086,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateEventCenterRuleResponse>(await this.callApi(params, req, runtime), new UpdateEventCenterRuleResponse({}));
@@ -10791,7 +11106,6 @@ export default class Client extends OpenApi {
     query["ModuleName"] = request.moduleName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateInstanceEndpointStatus",
@@ -10801,7 +11115,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateInstanceEndpointStatusResponse>(await this.callApi(params, req, runtime), new UpdateInstanceEndpointStatusResponse({}));
@@ -10821,7 +11135,6 @@ export default class Client extends OpenApi {
     query["NamespaceName"] = request.namespaceName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateNamespace",
@@ -10831,7 +11144,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
@@ -10856,7 +11169,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRepoBuildRule",
@@ -10866,7 +11178,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRepoBuildRuleResponse>(await this.callApi(params, req, runtime), new UpdateRepoBuildRuleResponse({}));
@@ -10891,7 +11203,6 @@ export default class Client extends OpenApi {
     query["RepoId"] = request.repoId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRepoSourceCodeRepo",
@@ -10901,7 +11212,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRepoSourceCodeRepoResponse>(await this.callApi(params, req, runtime), new UpdateRepoSourceCodeRepoResponse({}));
@@ -10924,7 +11235,6 @@ export default class Client extends OpenApi {
     query["TriggerUrl"] = request.triggerUrl;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRepoTrigger",
@@ -10934,7 +11244,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRepoTriggerResponse>(await this.callApi(params, req, runtime), new UpdateRepoTriggerResponse({}));
@@ -10956,7 +11266,6 @@ export default class Client extends OpenApi {
     query["TagImmutability"] = request.tagImmutability;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRepository",
@@ -10966,7 +11275,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRepositoryResponse>(await this.callApi(params, req, runtime), new UpdateRepositoryResponse({}));
