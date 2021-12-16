@@ -179,10 +179,12 @@ export class AssociateAnycastEipAddressResponse extends $tea.Model {
 export class DescribeAnycastEipAddressRequest extends $tea.Model {
   anycastId?: string;
   bindInstanceId?: string;
+  ip?: string;
   static names(): { [key: string]: string } {
     return {
       anycastId: 'AnycastId',
       bindInstanceId: 'BindInstanceId',
+      ip: 'Ip',
     };
   }
 
@@ -190,6 +192,7 @@ export class DescribeAnycastEipAddressRequest extends $tea.Model {
     return {
       anycastId: 'string',
       bindInstanceId: 'string',
+      ip: 'string',
     };
   }
 
@@ -1141,7 +1144,6 @@ export default class Client extends OpenApi {
     query["ServiceLocation"] = request.serviceLocation;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AllocateAnycastEipAddress",
@@ -1151,7 +1153,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AllocateAnycastEipAddressResponse>(await this.callApi(params, req, runtime), new AllocateAnycastEipAddressResponse({}));
@@ -1176,7 +1178,6 @@ export default class Client extends OpenApi {
     query["PrivateIpAddress"] = request.privateIpAddress;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AssociateAnycastEipAddress",
@@ -1186,7 +1187,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AssociateAnycastEipAddressResponse>(await this.callApi(params, req, runtime), new AssociateAnycastEipAddressResponse({}));
@@ -1202,9 +1203,9 @@ export default class Client extends OpenApi {
     let query = { };
     query["AnycastId"] = request.anycastId;
     query["BindInstanceId"] = request.bindInstanceId;
+    query["Ip"] = request.ip;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAnycastEipAddress",
@@ -1214,7 +1215,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAnycastEipAddressResponse>(await this.callApi(params, req, runtime), new DescribeAnycastEipAddressResponse({}));
@@ -1231,7 +1232,6 @@ export default class Client extends OpenApi {
     query["ServiceLocation"] = request.serviceLocation;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAnycastPopLocations",
@@ -1241,7 +1241,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAnycastPopLocationsResponse>(await this.callApi(params, req, runtime), new DescribeAnycastPopLocationsResponse({}));
@@ -1258,7 +1258,6 @@ export default class Client extends OpenApi {
     query["ServiceLocation"] = request.serviceLocation;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAnycastServerRegions",
@@ -1268,7 +1267,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAnycastServerRegionsResponse>(await this.callApi(params, req, runtime), new DescribeAnycastServerRegionsResponse({}));
@@ -1295,7 +1294,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListAnycastEipAddresses",
@@ -1305,7 +1303,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAnycastEipAddressesResponse>(await this.callApi(params, req, runtime), new ListAnycastEipAddressesResponse({}));
@@ -1324,7 +1322,6 @@ export default class Client extends OpenApi {
     query["Name"] = request.name;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyAnycastEipAddressAttribute",
@@ -1334,7 +1331,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyAnycastEipAddressAttributeResponse>(await this.callApi(params, req, runtime), new ModifyAnycastEipAddressAttributeResponse({}));
@@ -1352,7 +1349,6 @@ export default class Client extends OpenApi {
     query["Bandwidth"] = request.bandwidth;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyAnycastEipAddressSpec",
@@ -1362,7 +1358,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyAnycastEipAddressSpecResponse>(await this.callApi(params, req, runtime), new ModifyAnycastEipAddressSpecResponse({}));
@@ -1380,7 +1376,6 @@ export default class Client extends OpenApi {
     query["ClientToken"] = request.clientToken;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ReleaseAnycastEipAddress",
@@ -1390,7 +1385,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ReleaseAnycastEipAddressResponse>(await this.callApi(params, req, runtime), new ReleaseAnycastEipAddressResponse({}));
@@ -1413,7 +1408,6 @@ export default class Client extends OpenApi {
     query["PrivateIpAddress"] = request.privateIpAddress;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UnassociateAnycastEipAddress",
@@ -1423,7 +1417,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UnassociateAnycastEipAddressResponse>(await this.callApi(params, req, runtime), new UnassociateAnycastEipAddressResponse({}));
@@ -1446,7 +1440,6 @@ export default class Client extends OpenApi {
     query["PopLocationDeleteList"] = request.popLocationDeleteList;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAnycastEipAddressAssociations",
@@ -1456,7 +1449,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateAnycastEipAddressAssociationsResponse>(await this.callApi(params, req, runtime), new UpdateAnycastEipAddressAssociationsResponse({}));
