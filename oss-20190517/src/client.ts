@@ -183,28 +183,6 @@ export class CompleteMultipartUpload extends $tea.Model {
   }
 }
 
-export class CopyPartResult extends $tea.Model {
-  ETag?: string;
-  lastModified?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ETag: 'ETag',
-      lastModified: 'LastModified',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ETag: 'string',
-      lastModified: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateBucketConfiguration extends $tea.Model {
   dataRedundancyType?: string;
   storageClass?: string;
@@ -352,7 +330,7 @@ export class InventoryConfiguration extends $tea.Model {
   id?: string;
   includedObjectVersions?: string;
   isEnabled?: boolean;
-  optionalFields?: string[];
+  optionalFields?: InventoryConfigurationOptionalFields;
   schedule?: InventorySchedule;
   static names(): { [key: string]: string } {
     return {
@@ -373,7 +351,7 @@ export class InventoryConfiguration extends $tea.Model {
       id: 'string',
       includedObjectVersions: 'string',
       isEnabled: 'boolean',
-      optionalFields: { 'type': 'array', 'itemType': 'string' },
+      optionalFields: InventoryConfigurationOptionalFields,
       schedule: InventorySchedule,
     };
   }
@@ -394,6 +372,28 @@ export class InventoryDestination extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       OSSBucketDestination: InventoryOSSBucketDestination,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InventoryEncryption extends $tea.Model {
+  SSEKMS?: SSEKMS;
+  SSEOSS?: SSEOSS;
+  static names(): { [key: string]: string } {
+    return {
+      SSEKMS: 'SSE-KMS',
+      SSEOSS: 'SSE-OSS',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      SSEKMS: SSEKMS,
+      SSEOSS: SSEOSS,
     };
   }
 
@@ -424,6 +424,7 @@ export class InventoryFilter extends $tea.Model {
 export class InventoryOSSBucketDestination extends $tea.Model {
   accountId?: string;
   bucket?: string;
+  encryption?: InventoryEncryption;
   format?: string;
   prefix?: string;
   roleArn?: string;
@@ -431,6 +432,7 @@ export class InventoryOSSBucketDestination extends $tea.Model {
     return {
       accountId: 'AccountId',
       bucket: 'Bucket',
+      encryption: 'Encryption',
       format: 'Format',
       prefix: 'Prefix',
       roleArn: 'RoleArn',
@@ -441,6 +443,7 @@ export class InventoryOSSBucketDestination extends $tea.Model {
     return {
       accountId: 'string',
       bucket: 'string',
+      encryption: InventoryEncryption,
       format: 'string',
       prefix: 'string',
       roleArn: 'string',
@@ -689,11 +692,13 @@ export class LiveChannelSnapshot extends $tea.Model {
 export class LiveChannelTarget extends $tea.Model {
   fragCount?: number;
   fragDuration?: number;
+  playlistName?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       fragCount: 'FragCount',
       fragDuration: 'FragDuration',
+      playlistName: 'PlaylistName',
       type: 'Type',
     };
   }
@@ -702,6 +707,7 @@ export class LiveChannelTarget extends $tea.Model {
     return {
       fragCount: 'number',
       fragDuration: 'number',
+      playlistName: 'string',
       type: 'string',
     };
   }
@@ -1045,6 +1051,43 @@ export class ReplicationPrefixSet extends $tea.Model {
   }
 }
 
+export class ReplicationProgressRule extends $tea.Model {
+  action?: string;
+  destination?: ReplicationDestination;
+  historicalObjectReplication?: string;
+  ID?: string;
+  prefixSet?: ReplicationPrefixSet;
+  progress?: ReplicationProgressRuleProgress;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      destination: 'Destination',
+      historicalObjectReplication: 'HistoricalObjectReplication',
+      ID: 'ID',
+      prefixSet: 'PrefixSet',
+      progress: 'Progress',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      destination: ReplicationDestination,
+      historicalObjectReplication: 'string',
+      ID: 'string',
+      prefixSet: ReplicationPrefixSet,
+      progress: ReplicationProgressRuleProgress,
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReplicationRule extends $tea.Model {
   action?: string;
   destination?: ReplicationDestination;
@@ -1053,6 +1096,7 @@ export class ReplicationRule extends $tea.Model {
   ID?: string;
   prefixSet?: ReplicationPrefixSet;
   sourceSelectionCriteria?: ReplicationSourceSelectionCriteria;
+  status?: string;
   syncRole?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1063,6 +1107,7 @@ export class ReplicationRule extends $tea.Model {
       ID: 'ID',
       prefixSet: 'PrefixSet',
       sourceSelectionCriteria: 'SourceSelectionCriteria',
+      status: 'Status',
       syncRole: 'SyncRole',
     };
   }
@@ -1076,6 +1121,7 @@ export class ReplicationRule extends $tea.Model {
       ID: 'string',
       prefixSet: ReplicationPrefixSet,
       sourceSelectionCriteria: ReplicationSourceSelectionCriteria,
+      status: 'string',
       syncRole: 'string',
     };
   }
@@ -1085,23 +1131,17 @@ export class ReplicationRule extends $tea.Model {
   }
 }
 
-export class ReplicationRuleProgress extends $tea.Model {
-  action?: string;
-  ID?: string;
-  prefixSet?: ReplicationPrefixSet;
+export class ReplicationRules extends $tea.Model {
+  ids?: string[];
   static names(): { [key: string]: string } {
     return {
-      action: 'Action',
-      ID: 'ID',
-      prefixSet: 'PrefixSet',
+      ids: 'ID',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      action: 'string',
-      ID: 'string',
-      prefixSet: ReplicationPrefixSet,
+      ids: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -1170,6 +1210,146 @@ export class RestoreRequest extends $tea.Model {
   }
 }
 
+export class RoutingRule extends $tea.Model {
+  condition?: RoutingRuleCondition;
+  redirect?: RoutingRuleRedirect;
+  ruleNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      redirect: 'Redirect',
+      ruleNumber: 'RuleNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: RoutingRuleCondition,
+      redirect: RoutingRuleRedirect,
+      ruleNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RoutingRuleCondition extends $tea.Model {
+  httpErrorCodeReturnedEquals?: number;
+  keyPrefixEquals?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpErrorCodeReturnedEquals: 'HttpErrorCodeReturnedEquals',
+      keyPrefixEquals: 'KeyPrefixEquals',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpErrorCodeReturnedEquals: 'number',
+      keyPrefixEquals: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RoutingRuleRedirect extends $tea.Model {
+  enableReplacePrefix?: boolean;
+  hostName?: string;
+  httpRedirectCode?: number;
+  mirrorCheckMd5?: boolean;
+  mirrorFollowRedirect?: boolean;
+  mirrorHeaders?: RoutingRuleRedirectMirrorHeaders;
+  mirrorPassQueryString?: boolean;
+  mirrorURL?: string;
+  passQueryString?: string;
+  protocol?: string;
+  redirectType?: string;
+  replaceKeyPrefixWith?: string;
+  replaceKeyWith?: string;
+  transparentMirrorResponseCodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableReplacePrefix: 'EnableReplacePrefix',
+      hostName: 'HostName',
+      httpRedirectCode: 'HttpRedirectCode',
+      mirrorCheckMd5: 'MirrorCheckMd5',
+      mirrorFollowRedirect: 'MirrorFollowRedirect',
+      mirrorHeaders: 'MirrorHeaders',
+      mirrorPassQueryString: 'MirrorPassQueryString',
+      mirrorURL: 'MirrorURL',
+      passQueryString: 'PassQueryString',
+      protocol: 'Protocol',
+      redirectType: 'RedirectType',
+      replaceKeyPrefixWith: 'ReplaceKeyPrefixWith',
+      replaceKeyWith: 'ReplaceKeyWith',
+      transparentMirrorResponseCodes: 'TransparentMirrorResponseCodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableReplacePrefix: 'boolean',
+      hostName: 'string',
+      httpRedirectCode: 'number',
+      mirrorCheckMd5: 'boolean',
+      mirrorFollowRedirect: 'boolean',
+      mirrorHeaders: RoutingRuleRedirectMirrorHeaders,
+      mirrorPassQueryString: 'boolean',
+      mirrorURL: 'string',
+      passQueryString: 'string',
+      protocol: 'string',
+      redirectType: 'string',
+      replaceKeyPrefixWith: 'string',
+      replaceKeyWith: 'string',
+      transparentMirrorResponseCodes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SSEKMS extends $tea.Model {
+  keyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyId: 'KeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SSEOSS extends $tea.Model {
+  static names(): { [key: string]: string } {
+    return {
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SelectRequest extends $tea.Model {
   expression?: string;
   static names(): { [key: string]: string } {
@@ -1230,8 +1410,27 @@ export class Tag extends $tea.Model {
   }
 }
 
+export class TagSet extends $tea.Model {
+  tags?: Tag[];
+  static names(): { [key: string]: string } {
+    return {
+      tags: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tags: { 'type': 'array', 'itemType': Tag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Tagging extends $tea.Model {
-  tagSet?: Tag[];
+  tagSet?: TagSet;
   static names(): { [key: string]: string } {
     return {
       tagSet: 'TagSet',
@@ -1240,7 +1439,7 @@ export class Tagging extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      tagSet: { 'type': 'array', 'itemType': Tag },
+      tagSet: TagSet,
     };
   }
 
@@ -1315,10 +1514,12 @@ export class VersioningConfiguration extends $tea.Model {
 export class WebsiteConfiguration extends $tea.Model {
   errorDocument?: WebsiteConfigurationErrorDocument;
   indexDocument?: WebsiteConfigurationIndexDocument;
+  routingRules?: WebsiteConfigurationRoutingRules;
   static names(): { [key: string]: string } {
     return {
       errorDocument: 'ErrorDocument',
       indexDocument: 'IndexDocument',
+      routingRules: 'RoutingRules',
     };
   }
 
@@ -1326,6 +1527,7 @@ export class WebsiteConfiguration extends $tea.Model {
     return {
       errorDocument: WebsiteConfigurationErrorDocument,
       indexDocument: WebsiteConfigurationIndexDocument,
+      routingRules: WebsiteConfigurationRoutingRules,
     };
   }
 
@@ -1393,12 +1595,26 @@ export class AbortMultipartUploadResponse extends $tea.Model {
 
 export class AppendObjectHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
+  cacheControl?: string;
+  contentDisposition?: string;
+  contentEncoding?: string;
+  contentMD5?: string;
+  expires?: string;
+  metaData?: { [key: string]: string };
   acl?: string;
+  serverSideEncryption?: string;
   storageClass?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
+      cacheControl: 'Cache-Control',
+      contentDisposition: 'Content-Disposition',
+      contentEncoding: 'Content-Encoding',
+      contentMD5: 'Content-MD5',
+      expires: 'Expires',
+      metaData: 'x-oss-meta-*',
       acl: 'x-oss-object-acl',
+      serverSideEncryption: 'x-oss-server-side-encryption',
       storageClass: 'x-oss-storage-class',
     };
   }
@@ -1406,7 +1622,14 @@ export class AppendObjectHeaders extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      cacheControl: 'string',
+      contentDisposition: 'string',
+      contentEncoding: 'string',
+      contentMD5: 'string',
+      expires: 'string',
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       acl: 'string',
+      serverSideEncryption: 'string',
       storageClass: 'string',
     };
   }
@@ -1497,21 +1720,21 @@ export class CompleteBucketWormResponse extends $tea.Model {
 
 export class CompleteMultipartUploadHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
-  xOssCompleteAll?: string;
-  xOssForbidOverwrite?: string;
+  completeAll?: string;
+  forbidOverwrite?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      xOssCompleteAll: 'x-oss-complete-all',
-      xOssForbidOverwrite: 'x-oss-forbid-overwrite',
+      completeAll: 'x-oss-complete-all',
+      forbidOverwrite: 'x-oss-forbid-overwrite',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xOssCompleteAll: 'string',
-      xOssForbidOverwrite: 'string',
+      completeAll: 'string',
+      forbidOverwrite: 'string',
     };
   }
 
@@ -1600,54 +1823,57 @@ export class CompleteMultipartUploadResponse extends $tea.Model {
 
 export class CopyObjectHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
-  sourceBucket?: string;
-  sourceKey?: string;
+  copySource?: string;
   copySourceIfMatch?: string;
   copySourceIfModifiedSince?: string;
   copySourceIfNoneMatch?: string;
   copySourceIfUnmodifiedSince?: string;
   forbidOverwrite?: string;
+  metaData?: { [key: string]: string };
   metadataDirective?: string;
   acl?: string;
   sse?: string;
   sseKeyId?: string;
   storageClass?: string;
   tagging?: string;
+  xOssTaggingDirective?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      sourceBucket: 'source-bucket',
-      sourceKey: 'source-key',
+      copySource: 'x-oss-copy-source',
       copySourceIfMatch: 'x-oss-copy-source-if-match',
       copySourceIfModifiedSince: 'x-oss-copy-source-if-modified-since',
       copySourceIfNoneMatch: 'x-oss-copy-source-if-none-match',
       copySourceIfUnmodifiedSince: 'x-oss-copy-source-if-unmodified-since',
       forbidOverwrite: 'x-oss-forbid-overwrite',
+      metaData: 'x-oss-meta-*',
       metadataDirective: 'x-oss-metadata-directive',
       acl: 'x-oss-object-acl',
       sse: 'x-oss-server-side-encryption',
       sseKeyId: 'x-oss-server-side-encryption-key-id',
       storageClass: 'x-oss-storage-class',
       tagging: 'x-oss-tagging',
+      xOssTaggingDirective: 'x-oss-tagging-directive',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      sourceBucket: 'string',
-      sourceKey: 'string',
+      copySource: 'string',
       copySourceIfMatch: 'string',
       copySourceIfModifiedSince: 'string',
       copySourceIfNoneMatch: 'string',
       copySourceIfUnmodifiedSince: 'string',
       forbidOverwrite: 'string',
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       metadataDirective: 'string',
       acl: 'string',
       sse: 'string',
       sseKeyId: 'string',
       storageClass: 'string',
       tagging: 'string',
+      xOssTaggingDirective: 'string',
     };
   }
 
@@ -1852,17 +2078,17 @@ export class DeleteBucketPolicyResponse extends $tea.Model {
   }
 }
 
-export class DeleteBucketReplicationResponseBody extends $tea.Model {
-  ID?: string;
+export class DeleteBucketReplicationRequest extends $tea.Model {
+  body?: ReplicationRules;
   static names(): { [key: string]: string } {
     return {
-      ID: 'ID',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ID: 'string',
+      body: ReplicationRules,
     };
   }
 
@@ -1873,18 +2099,15 @@ export class DeleteBucketReplicationResponseBody extends $tea.Model {
 
 export class DeleteBucketReplicationResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteBucketReplicationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
-      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteBucketReplicationResponseBody,
     };
   }
 
@@ -1951,10 +2174,12 @@ export class DeleteLiveChannelResponse extends $tea.Model {
 }
 
 export class DeleteMultipleObjectsRequest extends $tea.Model {
+  body?: Delete;
   delete?: Delete;
   encodingType?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       delete: 'delete',
       encodingType: 'encoding-type',
     };
@@ -1962,6 +2187,7 @@ export class DeleteMultipleObjectsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: Delete,
       delete: Delete,
       encodingType: 'string',
     };
@@ -2043,6 +2269,25 @@ export class DeleteObjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteObjectTaggingRequest extends $tea.Model {
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionId: 'string',
     };
   }
 
@@ -2642,16 +2887,16 @@ export class GetBucketRefererResponse extends $tea.Model {
 }
 
 export class GetBucketReplicationResponseBody extends $tea.Model {
-  rule?: ReplicationRule[];
+  rules?: ReplicationRule[];
   static names(): { [key: string]: string } {
     return {
-      rule: 'Rule',
+      rules: 'Rule',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rule: { 'type': 'array', 'itemType': ReplicationRule },
+      rules: { 'type': 'array', 'itemType': ReplicationRule },
     };
   }
 
@@ -2746,7 +2991,7 @@ export class GetBucketReplicationProgressRequest extends $tea.Model {
 }
 
 export class GetBucketReplicationProgressResponseBody extends $tea.Model {
-  rule?: ReplicationRuleProgress;
+  rule?: ReplicationProgressRule;
   static names(): { [key: string]: string } {
     return {
       rule: 'Rule',
@@ -2755,7 +3000,7 @@ export class GetBucketReplicationProgressResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      rule: ReplicationRuleProgress,
+      rule: ReplicationProgressRule,
     };
   }
 
@@ -2828,7 +3073,7 @@ export class GetBucketRequestPaymentResponse extends $tea.Model {
 }
 
 export class GetBucketTagsResponseBody extends $tea.Model {
-  tagSet?: Tag[];
+  tagSet?: TagSet;
   static names(): { [key: string]: string } {
     return {
       tagSet: 'TagSet',
@@ -2837,7 +3082,7 @@ export class GetBucketTagsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      tagSet: { 'type': 'array', 'itemType': Tag },
+      tagSet: TagSet,
     };
   }
 
@@ -2953,10 +3198,12 @@ export class GetBucketVersioningResponse extends $tea.Model {
 export class GetBucketWebsiteResponseBody extends $tea.Model {
   errorDocument?: GetBucketWebsiteResponseBodyErrorDocument;
   indexDocument?: GetBucketWebsiteResponseBodyIndexDocument;
+  routingRules?: GetBucketWebsiteResponseBodyRoutingRules;
   static names(): { [key: string]: string } {
     return {
       errorDocument: 'ErrorDocument',
       indexDocument: 'IndexDocument',
+      routingRules: 'RoutingRules',
     };
   }
 
@@ -2964,6 +3211,7 @@ export class GetBucketWebsiteResponseBody extends $tea.Model {
     return {
       errorDocument: GetBucketWebsiteResponseBodyErrorDocument,
       indexDocument: GetBucketWebsiteResponseBodyIndexDocument,
+      routingRules: GetBucketWebsiteResponseBodyRoutingRules,
     };
   }
 
@@ -3341,6 +3589,25 @@ export class GetObjectAclResponse extends $tea.Model {
   }
 }
 
+export class GetObjectMetaRequest extends $tea.Model {
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetObjectMetaResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -3360,8 +3627,27 @@ export class GetObjectMetaResponse extends $tea.Model {
   }
 }
 
+export class GetObjectTaggingRequest extends $tea.Model {
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetObjectTaggingResponseBody extends $tea.Model {
-  tagSet?: GetObjectTaggingResponseBodyTagSet;
+  tagSet?: TagSet;
   static names(): { [key: string]: string } {
     return {
       tagSet: 'TagSet',
@@ -3370,7 +3656,7 @@ export class GetObjectTaggingResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      tagSet: GetObjectTaggingResponseBodyTagSet,
+      tagSet: TagSet,
     };
   }
 
@@ -3462,6 +3748,25 @@ export class GetServiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSymlinkRequest extends $tea.Model {
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionId: 'string',
     };
   }
 
@@ -3564,6 +3869,25 @@ export class HeadObjectHeaders extends $tea.Model {
   }
 }
 
+export class HeadObjectRequest extends $tea.Model {
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      versionId: 'versionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      versionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HeadObjectResponse extends $tea.Model {
   headers: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -3623,33 +3947,45 @@ export class InitiateBucketWormResponse extends $tea.Model {
 
 export class InitiateMultipartUploadHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
-  xOssForbidOverwrite?: string;
-  xOssServerSideDataEncryption?: string;
-  xOssServerSideEncryption?: string;
-  xOssServerSideEncryptionKeyId?: string;
-  xOssStorageClass?: string;
-  xOssTagging?: string;
+  cacheControl?: string;
+  contentDisposition?: string;
+  contentEncoding?: string;
+  expires?: string;
+  forbidOverwrite?: string;
+  sseDataEncryption?: string;
+  serverSideEncryption?: string;
+  sseKeyId?: string;
+  storageClass?: string;
+  tagging?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      xOssForbidOverwrite: 'x-oss-forbid-overwrite',
-      xOssServerSideDataEncryption: 'x-oss-server-side-data-encryption',
-      xOssServerSideEncryption: 'x-oss-server-side-encryption',
-      xOssServerSideEncryptionKeyId: 'x-oss-server-side-encryption-key-id',
-      xOssStorageClass: 'x-oss-storage-class',
-      xOssTagging: 'x-oss-tagging',
+      cacheControl: 'Cache-Control',
+      contentDisposition: 'Content-Disposition',
+      contentEncoding: 'Content-Encoding',
+      expires: 'Expires',
+      forbidOverwrite: 'x-oss-forbid-overwrite',
+      sseDataEncryption: 'x-oss-server-side-data-encryption',
+      serverSideEncryption: 'x-oss-server-side-encryption',
+      sseKeyId: 'x-oss-server-side-encryption-key-id',
+      storageClass: 'x-oss-storage-class',
+      tagging: 'x-oss-tagging',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xOssForbidOverwrite: 'string',
-      xOssServerSideDataEncryption: 'string',
-      xOssServerSideEncryption: 'string',
-      xOssServerSideEncryptionKeyId: 'string',
-      xOssStorageClass: 'string',
-      xOssTagging: 'string',
+      cacheControl: 'string',
+      contentDisposition: 'string',
+      contentEncoding: 'string',
+      expires: 'string',
+      forbidOverwrite: 'string',
+      sseDataEncryption: 'string',
+      serverSideEncryption: 'string',
+      sseKeyId: 'string',
+      storageClass: 'string',
+      tagging: 'string',
     };
   }
 
@@ -3985,7 +4321,7 @@ export class ListMultipartUploadsResponseBody extends $tea.Model {
   maxUploads?: number;
   nextKeyMarker?: string;
   nextUploadMarker?: string;
-  upload?: Upload[];
+  uploads?: Upload[];
   uploadIdMarker?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3996,7 +4332,7 @@ export class ListMultipartUploadsResponseBody extends $tea.Model {
       maxUploads: 'MaxUploads',
       nextKeyMarker: 'NextKeyMarker',
       nextUploadMarker: 'NextUploadMarker',
-      upload: 'Upload',
+      uploads: 'Upload',
       uploadIdMarker: 'UploadIdMarker',
     };
   }
@@ -4010,7 +4346,7 @@ export class ListMultipartUploadsResponseBody extends $tea.Model {
       maxUploads: 'number',
       nextKeyMarker: 'string',
       nextUploadMarker: 'string',
-      upload: { 'type': 'array', 'itemType': Upload },
+      uploads: { 'type': 'array', 'itemType': Upload },
       uploadIdMarker: 'string',
     };
   }
@@ -4079,11 +4415,14 @@ export class ListObjectVersionsRequest extends $tea.Model {
 export class ListObjectVersionsResponseBody extends $tea.Model {
   commonPrefixes?: CommonPrefix[];
   deleteMarkers?: DeleteMarkerEntry[];
+  delimiter?: string;
   encodingType?: string;
   isTruncated?: boolean;
   keyMarker?: string;
   maxKeys?: number;
   name?: string;
+  nextKeyMarker?: string;
+  nextVersionIdMarker?: string;
   prefix?: string;
   versions?: ObjectVersion[];
   versionIdMarker?: string;
@@ -4091,11 +4430,14 @@ export class ListObjectVersionsResponseBody extends $tea.Model {
     return {
       commonPrefixes: 'CommonPrefixes',
       deleteMarkers: 'DeleteMarker',
+      delimiter: 'Delimiter',
       encodingType: 'EncodingType',
       isTruncated: 'IsTruncated',
       keyMarker: 'KeyMarker',
       maxKeys: 'MaxKeys',
       name: 'Name',
+      nextKeyMarker: 'NextKeyMarker',
+      nextVersionIdMarker: 'NextVersionIdMarker',
       prefix: 'Prefix',
       versions: 'Version',
       versionIdMarker: 'VersionIdMarker',
@@ -4106,11 +4448,14 @@ export class ListObjectVersionsResponseBody extends $tea.Model {
     return {
       commonPrefixes: { 'type': 'array', 'itemType': CommonPrefix },
       deleteMarkers: { 'type': 'array', 'itemType': DeleteMarkerEntry },
+      delimiter: 'string',
       encodingType: 'string',
       isTruncated: 'boolean',
       keyMarker: 'string',
       maxKeys: 'number',
       name: 'string',
+      nextKeyMarker: 'string',
+      nextVersionIdMarker: 'string',
       prefix: 'string',
       versions: { 'type': 'array', 'itemType': ObjectVersion },
       versionIdMarker: 'string',
@@ -4382,6 +4727,34 @@ export class ListPartsRequest extends $tea.Model {
   }
 }
 
+export class ListPartsShrinkRequest extends $tea.Model {
+  encodingTypeShrink?: string;
+  maxParts?: number;
+  partNumberMarker?: number;
+  uploadId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      encodingTypeShrink: 'encoding-type',
+      maxParts: 'max-parts',
+      partNumberMarker: 'part-number-marker',
+      uploadId: 'uploadId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      encodingTypeShrink: 'string',
+      maxParts: 'number',
+      partNumberMarker: 'number',
+      uploadId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListPartsResponseBody extends $tea.Model {
   bucket?: string;
   isTruncated?: boolean;
@@ -4389,6 +4762,7 @@ export class ListPartsResponseBody extends $tea.Model {
   maxParts?: number;
   nextPartNumberMarker?: number;
   part?: Part[];
+  partNumberMarker?: number;
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4398,6 +4772,7 @@ export class ListPartsResponseBody extends $tea.Model {
       maxParts: 'MaxParts',
       nextPartNumberMarker: 'NextPartNumberMarker',
       part: 'Part',
+      partNumberMarker: 'PartNumberMarker',
       uploadId: 'UploadId',
     };
   }
@@ -4410,6 +4785,7 @@ export class ListPartsResponseBody extends $tea.Model {
       maxParts: 'number',
       nextPartNumberMarker: 'number',
       part: { 'type': 'array', 'itemType': Part },
+      partNumberMarker: 'number',
       uploadId: 'string',
     };
   }
@@ -5250,10 +5626,10 @@ export class PutLiveChannelStatusResponse extends $tea.Model {
 export class PutObjectHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   forbidOverwrite?: boolean;
-  userMetadata?: { [key: string]: string };
+  metaData?: { [key: string]: string };
   acl?: string;
   sseDataEncryption?: string;
-  sse?: string;
+  serverSideEncryption?: string;
   sseKeyId?: string;
   storageClass?: string;
   tagging?: string;
@@ -5261,10 +5637,10 @@ export class PutObjectHeaders extends $tea.Model {
     return {
       commonHeaders: 'commonHeaders',
       forbidOverwrite: 'x-oss-forbid-overwrite',
-      userMetadata: 'x-oss-meta-*',
+      metaData: 'x-oss-meta-*',
       acl: 'x-oss-object-acl',
       sseDataEncryption: 'x-oss-server-side-data-encryption',
-      sse: 'x-oss-server-side-encryption',
+      serverSideEncryption: 'x-oss-server-side-encryption',
       sseKeyId: 'x-oss-server-side-encryption-key-id',
       storageClass: 'x-oss-storage-class',
       tagging: 'x-oss-tagging',
@@ -5275,10 +5651,10 @@ export class PutObjectHeaders extends $tea.Model {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       forbidOverwrite: 'boolean',
-      userMetadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       acl: 'string',
       sseDataEncryption: 'string',
-      sse: 'string',
+      serverSideEncryption: 'string',
       sseKeyId: 'string',
       storageClass: 'string',
       tagging: 'string',
@@ -5431,14 +5807,14 @@ export class PutObjectTaggingResponse extends $tea.Model {
 
 export class PutSymlinkHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
-  xOssForbidOverwrite?: string;
+  forbidOverwrite?: string;
   acl?: string;
   storageClass?: string;
   symlinkTargetKey?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      xOssForbidOverwrite: 'x-oss-forbid-overwrite',
+      forbidOverwrite: 'x-oss-forbid-overwrite',
       acl: 'x-oss-object-acl',
       storageClass: 'x-oss-storage-class',
       symlinkTargetKey: 'x-oss-symlink-target',
@@ -5448,7 +5824,7 @@ export class PutSymlinkHeaders extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      xOssForbidOverwrite: 'string',
+      forbidOverwrite: 'string',
       acl: 'string',
       storageClass: 'string',
       symlinkTargetKey: 'string',
@@ -5481,15 +5857,18 @@ export class PutSymlinkResponse extends $tea.Model {
 
 export class RestoreObjectRequest extends $tea.Model {
   body?: RestoreRequest;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
       body: 'body',
+      versionId: 'versionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       body: RestoreRequest,
+      versionId: 'string',
     };
   }
 
@@ -5560,7 +5939,7 @@ export class SelectObjectResponse extends $tea.Model {
 
 export class UploadPartRequest extends $tea.Model {
   body?: Readable;
-  partNumber?: string;
+  partNumber?: number;
   uploadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5573,7 +5952,7 @@ export class UploadPartRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       body: 'Readable',
-      partNumber: 'string',
+      partNumber: 'number',
       uploadId: 'string',
     };
   }
@@ -5604,36 +5983,33 @@ export class UploadPartResponse extends $tea.Model {
 
 export class UploadPartCopyHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
-  sourceBucket?: string;
-  sourceKey?: string;
-  xOssCopySourceIfMatch?: string;
-  xOssCopySourceIfModifiedSince?: string;
-  xOssCopySourceIfNoneMatch?: string;
-  xOssCopySourceIfUnmodifiedSince?: string;
-  xOssCopySourceRange?: string;
+  copySource?: string;
+  copySourceIfMatch?: string;
+  copySourceIfModifiedSince?: string;
+  copySourceIfNoneMatch?: string;
+  copySourceIfUnmodifiedSince?: string;
+  copySourceRange?: string;
   static names(): { [key: string]: string } {
     return {
       commonHeaders: 'commonHeaders',
-      sourceBucket: 'source-bucket',
-      sourceKey: 'source-key',
-      xOssCopySourceIfMatch: 'x-oss-copy-source-if-match',
-      xOssCopySourceIfModifiedSince: 'x-oss-copy-source-if-modified-since',
-      xOssCopySourceIfNoneMatch: 'x-oss-copy-source-if-none-match',
-      xOssCopySourceIfUnmodifiedSince: 'x-oss-copy-source-if-unmodified-since',
-      xOssCopySourceRange: 'x-oss-copy-source-range',
+      copySource: 'x-oss-copy-source',
+      copySourceIfMatch: 'x-oss-copy-source-if-match',
+      copySourceIfModifiedSince: 'x-oss-copy-source-if-modified-since',
+      copySourceIfNoneMatch: 'x-oss-copy-source-if-none-match',
+      copySourceIfUnmodifiedSince: 'x-oss-copy-source-if-unmodified-since',
+      copySourceRange: 'x-oss-copy-source-range',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      sourceBucket: 'string',
-      sourceKey: 'string',
-      xOssCopySourceIfMatch: 'string',
-      xOssCopySourceIfModifiedSince: 'string',
-      xOssCopySourceIfNoneMatch: 'string',
-      xOssCopySourceIfUnmodifiedSince: 'string',
-      xOssCopySourceRange: 'string',
+      copySource: 'string',
+      copySourceIfMatch: 'string',
+      copySourceIfModifiedSince: 'string',
+      copySourceIfNoneMatch: 'string',
+      copySourceIfUnmodifiedSince: 'string',
+      copySourceRange: 'string',
     };
   }
 
@@ -5664,9 +6040,31 @@ export class UploadPartCopyRequest extends $tea.Model {
   }
 }
 
+export class UploadPartCopyResponseBody extends $tea.Model {
+  ETag?: string;
+  lastModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ETag: 'ETag',
+      lastModified: 'LastModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ETag: 'string',
+      lastModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadPartCopyResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CopyPartResult;
+  body: UploadPartCopyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5677,7 +6075,26 @@ export class UploadPartCopyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CopyPartResult,
+      body: UploadPartCopyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InventoryConfigurationOptionalFields extends $tea.Model {
+  fields?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fields: 'Field',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fields: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -5859,6 +6276,28 @@ export class RefererConfigurationRefererList extends $tea.Model {
   }
 }
 
+export class ReplicationProgressRuleProgress extends $tea.Model {
+  historicalObject?: string;
+  newObject?: string;
+  static names(): { [key: string]: string } {
+    return {
+      historicalObject: 'HistoricalObject',
+      newObject: 'NewObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historicalObject: 'string',
+      newObject: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReplicationRuleEncryptionConfiguration extends $tea.Model {
   replicaKmsKeyID?: string;
   static names(): { [key: string]: string } {
@@ -5916,6 +6355,56 @@ export class RestoreRequestJobParameters extends $tea.Model {
   }
 }
 
+export class RoutingRuleRedirectMirrorHeadersSet extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RoutingRuleRedirectMirrorHeaders extends $tea.Model {
+  pass?: string[];
+  passAll?: boolean;
+  remove?: string[];
+  set?: RoutingRuleRedirectMirrorHeadersSet[];
+  static names(): { [key: string]: string } {
+    return {
+      pass: 'Pass',
+      passAll: 'PassAll',
+      remove: 'Remove',
+      set: 'Set',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pass: { 'type': 'array', 'itemType': 'string' },
+      passAll: 'boolean',
+      remove: { 'type': 'array', 'itemType': 'string' },
+      set: { 'type': 'array', 'itemType': RoutingRuleRedirectMirrorHeadersSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WebsiteConfigurationErrorDocument extends $tea.Model {
   httpStatus?: string;
   key?: string;
@@ -5940,15 +6429,40 @@ export class WebsiteConfigurationErrorDocument extends $tea.Model {
 
 export class WebsiteConfigurationIndexDocument extends $tea.Model {
   suffix?: string;
+  supportSubDir?: boolean;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       suffix: 'Suffix',
+      supportSubDir: 'SupportSubDir',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       suffix: 'string',
+      supportSubDir: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WebsiteConfigurationRoutingRules extends $tea.Model {
+  routingRules?: RoutingRule[];
+  static names(): { [key: string]: string } {
+    return {
+      routingRules: 'RoutingRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routingRules: { 'type': 'array', 'itemType': RoutingRule },
     };
   }
 
@@ -6142,6 +6656,25 @@ export class GetBucketWebsiteResponseBodyIndexDocument extends $tea.Model {
   }
 }
 
+export class GetBucketWebsiteResponseBodyRoutingRules extends $tea.Model {
+  routingRules?: RoutingRule[];
+  static names(): { [key: string]: string } {
+    return {
+      routingRules: 'RoutingRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routingRules: { 'type': 'array', 'itemType': RoutingRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetObjectAclResponseBodyAccessControlList extends $tea.Model {
   ACL?: string;
   static names(): { [key: string]: string } {
@@ -6153,25 +6686,6 @@ export class GetObjectAclResponseBodyAccessControlList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ACL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetObjectTaggingResponseBodyTagSet extends $tea.Model {
-  tag?: Tag[];
-  static names(): { [key: string]: string } {
-    return {
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tag: { 'type': 'array', 'itemType': Tag },
     };
   }
 
@@ -6313,8 +6827,36 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
+    if (!Util.isUnset(headers.cacheControl)) {
+      realHeaders["Cache-Control"] = Util.toJSONString(headers.cacheControl);
+    }
+
+    if (!Util.isUnset(headers.contentDisposition)) {
+      realHeaders["Content-Disposition"] = Util.toJSONString(headers.contentDisposition);
+    }
+
+    if (!Util.isUnset(headers.contentEncoding)) {
+      realHeaders["Content-Encoding"] = Util.toJSONString(headers.contentEncoding);
+    }
+
+    if (!Util.isUnset(headers.contentMD5)) {
+      realHeaders["Content-MD5"] = Util.toJSONString(headers.contentMD5);
+    }
+
+    if (!Util.isUnset(headers.expires)) {
+      realHeaders["Expires"] = Util.toJSONString(headers.expires);
+    }
+
+    if (!Util.isUnset(headers.metaData)) {
+      realHeaders["x-oss-meta-*"] = Util.toJSONString(headers.metaData);
+    }
+
     if (!Util.isUnset(headers.acl)) {
       realHeaders["x-oss-object-acl"] = Util.toJSONString(headers.acl);
+    }
+
+    if (!Util.isUnset(headers.serverSideEncryption)) {
+      realHeaders["x-oss-server-side-encryption"] = Util.toJSONString(headers.serverSideEncryption);
     }
 
     if (!Util.isUnset(headers.storageClass)) {
@@ -6406,12 +6948,12 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xOssCompleteAll)) {
-      realHeaders["x-oss-complete-all"] = Util.toJSONString(headers.xOssCompleteAll);
+    if (!Util.isUnset(headers.completeAll)) {
+      realHeaders["x-oss-complete-all"] = Util.toJSONString(headers.completeAll);
     }
 
-    if (!Util.isUnset(headers.xOssForbidOverwrite)) {
-      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.xOssForbidOverwrite);
+    if (!Util.isUnset(headers.forbidOverwrite)) {
+      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.forbidOverwrite);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6449,12 +6991,8 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.sourceBucket)) {
-      realHeaders["source-bucket"] = Util.toJSONString(headers.sourceBucket);
-    }
-
-    if (!Util.isUnset(headers.sourceKey)) {
-      realHeaders["source-key"] = Util.toJSONString(headers.sourceKey);
+    if (!Util.isUnset(headers.copySource)) {
+      realHeaders["x-oss-copy-source"] = Util.toJSONString(headers.copySource);
     }
 
     if (!Util.isUnset(headers.copySourceIfMatch)) {
@@ -6475,6 +7013,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.forbidOverwrite)) {
       realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.forbidOverwrite);
+    }
+
+    if (!Util.isUnset(headers.metaData)) {
+      realHeaders["x-oss-meta-*"] = Util.toJSONString(headers.metaData);
     }
 
     if (!Util.isUnset(headers.metadataDirective)) {
@@ -6499,6 +7041,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(headers.tagging)) {
       realHeaders["x-oss-tagging"] = Util.toJSONString(headers.tagging);
+    }
+
+    if (!Util.isUnset(headers.xOssTaggingDirective)) {
+      realHeaders["x-oss-tagging-directive"] = Util.toJSONString(headers.xOssTaggingDirective);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6715,18 +7261,25 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteBucketPolicyResponse>(await this.execute(params, req, runtime), new DeleteBucketPolicyResponse({}));
   }
 
-  async deleteBucketReplication(bucket: string): Promise<DeleteBucketReplicationResponse> {
+  async deleteBucketReplication(bucket: string, request: DeleteBucketReplicationRequest): Promise<DeleteBucketReplicationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBucketReplicationWithOptions(bucket, headers, runtime);
+    return await this.deleteBucketReplicationWithOptions(bucket, request, headers, runtime);
   }
 
-  async deleteBucketReplicationWithOptions(bucket: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketReplicationResponse> {
+  async deleteBucketReplicationWithOptions(bucket: string, request: DeleteBucketReplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteBucketReplicationResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.body))) {
+      body["body"] = request.body;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBucketReplication",
@@ -6896,19 +7449,26 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteObjectResponse>(await this.execute(params, req, runtime), new DeleteObjectResponse({}));
   }
 
-  async deleteObjectTagging(bucket: string, key: string): Promise<DeleteObjectTaggingResponse> {
+  async deleteObjectTagging(bucket: string, key: string, request: DeleteObjectTaggingRequest): Promise<DeleteObjectTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteObjectTaggingWithOptions(bucket, key, headers, runtime);
+    return await this.deleteObjectTaggingWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async deleteObjectTaggingWithOptions(bucket: string, key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteObjectTaggingResponse> {
+  async deleteObjectTaggingWithOptions(bucket: string, key: string, request: DeleteObjectTaggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteObjectTaggingResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteObjectTagging",
@@ -7173,7 +7733,7 @@ export default class Client extends OpenApi {
       action: "GetBucketLifecycle",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/?lifecycle `,
+      pathname: `/?lifecycle`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -7450,7 +8010,7 @@ export default class Client extends OpenApi {
       action: "GetBucketTransferAcceleration",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/?transferAcceleration `,
+      pathname: `/?transferAcceleration`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -7505,7 +8065,7 @@ export default class Client extends OpenApi {
       version: "2019-05-17",
       protocol: "HTTPS",
       pathname: `/?website`,
-      method: "POST",
+      method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
@@ -7744,19 +8304,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectAclResponse>(await this.execute(params, req, runtime), new GetObjectAclResponse({}));
   }
 
-  async getObjectMeta(bucket: string, key: string): Promise<GetObjectMetaResponse> {
+  async getObjectMeta(bucket: string, key: string, request: GetObjectMetaRequest): Promise<GetObjectMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getObjectMetaWithOptions(bucket, key, headers, runtime);
+    return await this.getObjectMetaWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async getObjectMetaWithOptions(bucket: string, key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectMetaResponse> {
+  async getObjectMetaWithOptions(bucket: string, key: string, request: GetObjectMetaRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectMetaResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetObjectMeta",
@@ -7772,19 +8339,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetObjectMetaResponse>(await this.execute(params, req, runtime), new GetObjectMetaResponse({}));
   }
 
-  async getObjectTagging(bucket: string, key: string): Promise<GetObjectTaggingResponse> {
+  async getObjectTagging(bucket: string, key: string, request: GetObjectTaggingRequest): Promise<GetObjectTaggingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getObjectTaggingWithOptions(bucket, key, headers, runtime);
+    return await this.getObjectTaggingWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async getObjectTaggingWithOptions(bucket: string, key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectTaggingResponse> {
+  async getObjectTaggingWithOptions(bucket: string, key: string, request: GetObjectTaggingRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetObjectTaggingResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetObjectTagging",
@@ -7829,7 +8403,7 @@ export default class Client extends OpenApi {
       action: "GetService",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/ `,
+      pathname: `/`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -7839,19 +8413,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
   }
 
-  async getSymlink(bucket: string, key: string): Promise<GetSymlinkResponse> {
+  async getSymlink(bucket: string, key: string, request: GetSymlinkRequest): Promise<GetSymlinkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getSymlinkWithOptions(bucket, key, headers, runtime);
+    return await this.getSymlinkWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async getSymlinkWithOptions(bucket: string, key: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSymlinkResponse> {
+  async getSymlinkWithOptions(bucket: string, key: string, request: GetSymlinkRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSymlinkResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetSymlink",
@@ -7906,16 +8487,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetVodPlaylistResponse>(await this.execute(params, req, runtime), new GetVodPlaylistResponse({}));
   }
 
-  async headObject(bucket: string, key: string): Promise<HeadObjectResponse> {
+  async headObject(bucket: string, key: string, request: HeadObjectRequest): Promise<HeadObjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new HeadObjectHeaders({ });
-    return await this.headObjectWithOptions(bucket, key, headers, runtime);
+    return await this.headObjectWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async headObjectWithOptions(bucket: string, key: string, headers: HeadObjectHeaders, runtime: $Util.RuntimeOptions): Promise<HeadObjectResponse> {
+  async headObjectWithOptions(bucket: string, key: string, request: HeadObjectRequest, headers: HeadObjectHeaders, runtime: $Util.RuntimeOptions): Promise<HeadObjectResponse> {
+    Util.validateModel(request);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!Util.isUnset(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -7940,6 +8527,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: realHeaders,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "HeadObject",
@@ -8010,28 +8598,44 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xOssForbidOverwrite)) {
-      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.xOssForbidOverwrite);
+    if (!Util.isUnset(headers.cacheControl)) {
+      realHeaders["Cache-Control"] = Util.toJSONString(headers.cacheControl);
     }
 
-    if (!Util.isUnset(headers.xOssServerSideDataEncryption)) {
-      realHeaders["x-oss-server-side-data-encryption"] = Util.toJSONString(headers.xOssServerSideDataEncryption);
+    if (!Util.isUnset(headers.contentDisposition)) {
+      realHeaders["Content-Disposition"] = Util.toJSONString(headers.contentDisposition);
     }
 
-    if (!Util.isUnset(headers.xOssServerSideEncryption)) {
-      realHeaders["x-oss-server-side-encryption"] = Util.toJSONString(headers.xOssServerSideEncryption);
+    if (!Util.isUnset(headers.contentEncoding)) {
+      realHeaders["Content-Encoding"] = Util.toJSONString(headers.contentEncoding);
     }
 
-    if (!Util.isUnset(headers.xOssServerSideEncryptionKeyId)) {
-      realHeaders["x-oss-server-side-encryption-key-id"] = Util.toJSONString(headers.xOssServerSideEncryptionKeyId);
+    if (!Util.isUnset(headers.expires)) {
+      realHeaders["Expires"] = Util.toJSONString(headers.expires);
     }
 
-    if (!Util.isUnset(headers.xOssStorageClass)) {
-      realHeaders["x-oss-storage-class"] = Util.toJSONString(headers.xOssStorageClass);
+    if (!Util.isUnset(headers.forbidOverwrite)) {
+      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.forbidOverwrite);
     }
 
-    if (!Util.isUnset(headers.xOssTagging)) {
-      realHeaders["x-oss-tagging"] = Util.toJSONString(headers.xOssTagging);
+    if (!Util.isUnset(headers.sseDataEncryption)) {
+      realHeaders["x-oss-server-side-data-encryption"] = Util.toJSONString(headers.sseDataEncryption);
+    }
+
+    if (!Util.isUnset(headers.serverSideEncryption)) {
+      realHeaders["x-oss-server-side-encryption"] = Util.toJSONString(headers.serverSideEncryption);
+    }
+
+    if (!Util.isUnset(headers.sseKeyId)) {
+      realHeaders["x-oss-server-side-encryption-key-id"] = Util.toJSONString(headers.sseKeyId);
+    }
+
+    if (!Util.isUnset(headers.storageClass)) {
+      realHeaders["x-oss-storage-class"] = Util.toJSONString(headers.storageClass);
+    }
+
+    if (!Util.isUnset(headers.tagging)) {
+      realHeaders["x-oss-tagging"] = Util.toJSONString(headers.tagging);
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8116,7 +8720,7 @@ export default class Client extends OpenApi {
       action: "ListBuckets",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/ `,
+      pathname: `/`,
       method: "GET",
       authType: "AK",
       style: "ROA",
@@ -8168,14 +8772,16 @@ export default class Client extends OpenApi {
     return $tea.cast<ListLiveChannelResponse>(await this.execute(params, req, runtime), new ListLiveChannelResponse({}));
   }
 
-  async listMultipartUploads(request: ListMultipartUploadsRequest): Promise<ListMultipartUploadsResponse> {
+  async listMultipartUploads(bucket: string, request: ListMultipartUploadsRequest): Promise<ListMultipartUploadsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listMultipartUploadsWithOptions(request, headers, runtime);
+    return await this.listMultipartUploadsWithOptions(bucket, request, headers, runtime);
   }
 
-  async listMultipartUploadsWithOptions(request: ListMultipartUploadsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMultipartUploadsResponse> {
+  async listMultipartUploadsWithOptions(bucket: string, request: ListMultipartUploadsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMultipartUploadsResponse> {
     Util.validateModel(request);
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["bucket"] = bucket;
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.delimiter)) {
       query["delimiter"] = request.delimiter;
@@ -8202,6 +8808,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
       headers: headers,
       query: OpenApiUtil.query(query),
     });
@@ -8387,14 +8994,20 @@ export default class Client extends OpenApi {
     return await this.listPartsWithOptions(bucket, key, request, headers, runtime);
   }
 
-  async listPartsWithOptions(bucket: string, key: string, request: ListPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPartsResponse> {
-    Util.validateModel(request);
+  async listPartsWithOptions(bucket: string, key: string, tmpReq: ListPartsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListPartsResponse> {
+    Util.validateModel(tmpReq);
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let request = new ListPartsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.encodingType)) {
+      request.encodingTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.encodingType, "encoding-type", "json");
+    }
+
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.encodingType)) {
-      query["encoding-type"] = request.encodingType;
+    if (!Util.isUnset(request.encodingTypeShrink)) {
+      query["encoding-type"] = request.encodingTypeShrink;
     }
 
     if (!Util.isUnset(request.maxParts)) {
@@ -8751,7 +9364,7 @@ export default class Client extends OpenApi {
       action: "PutBucketLifecycle",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/?lifecycle `,
+      pathname: `/?lifecycle`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -8984,7 +9597,7 @@ export default class Client extends OpenApi {
       action: "PutBucketTransferAcceleration",
       version: "2019-05-17",
       protocol: "HTTPS",
-      pathname: `/?transferAcceleration `,
+      pathname: `/?transferAcceleration`,
       method: "PUT",
       authType: "AK",
       style: "ROA",
@@ -9152,8 +9765,8 @@ export default class Client extends OpenApi {
       realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.forbidOverwrite);
     }
 
-    if (!Util.isUnset(headers.userMetadata)) {
-      realHeaders["x-oss-meta-*"] = Util.toJSONString(headers.userMetadata);
+    if (!Util.isUnset(headers.metaData)) {
+      realHeaders["x-oss-meta-*"] = Util.toJSONString(headers.metaData);
     }
 
     if (!Util.isUnset(headers.acl)) {
@@ -9164,8 +9777,8 @@ export default class Client extends OpenApi {
       realHeaders["x-oss-server-side-data-encryption"] = Util.toJSONString(headers.sseDataEncryption);
     }
 
-    if (!Util.isUnset(headers.sse)) {
-      realHeaders["x-oss-server-side-encryption"] = Util.toJSONString(headers.sse);
+    if (!Util.isUnset(headers.serverSideEncryption)) {
+      realHeaders["x-oss-server-side-encryption"] = Util.toJSONString(headers.serverSideEncryption);
     }
 
     if (!Util.isUnset(headers.sseKeyId)) {
@@ -9300,8 +9913,8 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.xOssForbidOverwrite)) {
-      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.xOssForbidOverwrite);
+    if (!Util.isUnset(headers.forbidOverwrite)) {
+      realHeaders["x-oss-forbid-overwrite"] = Util.toJSONString(headers.forbidOverwrite);
     }
 
     if (!Util.isUnset(headers.acl)) {
@@ -9345,6 +9958,11 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["bucket"] = bucket;
     key = OpenApiUtil.getEncodeParam(key);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.versionId)) {
+      query["versionId"] = request.versionId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset($tea.toMap(request.body))) {
       body["body"] = request.body;
@@ -9353,6 +9971,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       hostMap: hostMap,
       headers: headers,
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
@@ -9470,32 +10089,28 @@ export default class Client extends OpenApi {
       realHeaders = headers.commonHeaders;
     }
 
-    if (!Util.isUnset(headers.sourceBucket)) {
-      realHeaders["source-bucket"] = Util.toJSONString(headers.sourceBucket);
+    if (!Util.isUnset(headers.copySource)) {
+      realHeaders["x-oss-copy-source"] = Util.toJSONString(headers.copySource);
     }
 
-    if (!Util.isUnset(headers.sourceKey)) {
-      realHeaders["source-key"] = Util.toJSONString(headers.sourceKey);
+    if (!Util.isUnset(headers.copySourceIfMatch)) {
+      realHeaders["x-oss-copy-source-if-match"] = Util.toJSONString(headers.copySourceIfMatch);
     }
 
-    if (!Util.isUnset(headers.xOssCopySourceIfMatch)) {
-      realHeaders["x-oss-copy-source-if-match"] = Util.toJSONString(headers.xOssCopySourceIfMatch);
+    if (!Util.isUnset(headers.copySourceIfModifiedSince)) {
+      realHeaders["x-oss-copy-source-if-modified-since"] = Util.toJSONString(headers.copySourceIfModifiedSince);
     }
 
-    if (!Util.isUnset(headers.xOssCopySourceIfModifiedSince)) {
-      realHeaders["x-oss-copy-source-if-modified-since"] = Util.toJSONString(headers.xOssCopySourceIfModifiedSince);
+    if (!Util.isUnset(headers.copySourceIfNoneMatch)) {
+      realHeaders["x-oss-copy-source-if-none-match"] = Util.toJSONString(headers.copySourceIfNoneMatch);
     }
 
-    if (!Util.isUnset(headers.xOssCopySourceIfNoneMatch)) {
-      realHeaders["x-oss-copy-source-if-none-match"] = Util.toJSONString(headers.xOssCopySourceIfNoneMatch);
+    if (!Util.isUnset(headers.copySourceIfUnmodifiedSince)) {
+      realHeaders["x-oss-copy-source-if-unmodified-since"] = Util.toJSONString(headers.copySourceIfUnmodifiedSince);
     }
 
-    if (!Util.isUnset(headers.xOssCopySourceIfUnmodifiedSince)) {
-      realHeaders["x-oss-copy-source-if-unmodified-since"] = Util.toJSONString(headers.xOssCopySourceIfUnmodifiedSince);
-    }
-
-    if (!Util.isUnset(headers.xOssCopySourceRange)) {
-      realHeaders["x-oss-copy-source-range"] = Util.toJSONString(headers.xOssCopySourceRange);
+    if (!Util.isUnset(headers.copySourceRange)) {
+      realHeaders["x-oss-copy-source-range"] = Util.toJSONString(headers.copySourceRange);
     }
 
     let req = new $OpenApi.OpenApiRequest({
