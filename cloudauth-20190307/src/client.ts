@@ -18,6 +18,7 @@ export class CompareFaceVerifyRequest extends $tea.Model {
   crop?: string;
   outerOrderNo?: string;
   productCode?: string;
+  regionId?: string;
   sceneId?: number;
   sourceCertifyId?: string;
   sourceFaceContrastPicture?: string;
@@ -34,6 +35,7 @@ export class CompareFaceVerifyRequest extends $tea.Model {
       crop: 'Crop',
       outerOrderNo: 'OuterOrderNo',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       sceneId: 'SceneId',
       sourceCertifyId: 'SourceCertifyId',
       sourceFaceContrastPicture: 'SourceFaceContrastPicture',
@@ -53,6 +55,7 @@ export class CompareFaceVerifyRequest extends $tea.Model {
       crop: 'string',
       outerOrderNo: 'string',
       productCode: 'string',
+      regionId: 'string',
       sceneId: 'number',
       sourceCertifyId: 'string',
       sourceFaceContrastPicture: 'string',
@@ -220,6 +223,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
   ossObjectName?: string;
   outerOrderNo?: string;
   productCode?: string;
+  regionId?: string;
   sceneId?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -240,6 +244,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       sceneId: 'SceneId',
       userId: 'UserId',
     };
@@ -263,6 +268,7 @@ export class ContrastFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'string',
       outerOrderNo: 'string',
       productCode: 'string',
+      regionId: 'string',
       sceneId: 'number',
       userId: 'string',
     };
@@ -290,6 +296,7 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
   ossObjectName?: string;
   outerOrderNo?: string;
   productCode?: string;
+  regionId?: string;
   sceneId?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -310,6 +317,7 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       sceneId: 'SceneId',
       userId: 'UserId',
     };
@@ -333,6 +341,7 @@ export class ContrastFaceVerifyAdvanceRequest extends $tea.Model {
       ossObjectName: 'string',
       outerOrderNo: 'string',
       productCode: 'string',
+      regionId: 'string',
       sceneId: 'number',
       userId: 'string',
     };
@@ -630,10 +639,12 @@ export class CreateVerifySDKRequest extends $tea.Model {
 
 export class CreateVerifySDKResponseBody extends $tea.Model {
   requestId?: string;
+  sdkUrl?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      sdkUrl: 'SdkUrl',
       taskId: 'TaskId',
     };
   }
@@ -641,6 +652,7 @@ export class CreateVerifySDKResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      sdkUrl: 'string',
       taskId: 'string',
     };
   }
@@ -1359,11 +1371,13 @@ export class DescribeFaceUsageResponse extends $tea.Model {
 export class DescribeFaceVerifyRequest extends $tea.Model {
   certifyId?: string;
   pictureReturnType?: string;
+  regionId?: string;
   sceneId?: number;
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
       pictureReturnType: 'PictureReturnType',
+      regionId: 'RegionId',
       sceneId: 'SceneId',
     };
   }
@@ -1372,6 +1386,7 @@ export class DescribeFaceVerifyRequest extends $tea.Model {
     return {
       certifyId: 'string',
       pictureReturnType: 'string',
+      regionId: 'string',
       sceneId: 'number',
     };
   }
@@ -2469,10 +2484,12 @@ export class DescribeWhitelistSettingResponse extends $tea.Model {
 export class DetectFaceAttributesRequest extends $tea.Model {
   bizType?: string;
   materialValue?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
       materialValue: 'MaterialValue',
+      regionId: 'RegionId',
     };
   }
 
@@ -2480,6 +2497,7 @@ export class DetectFaceAttributesRequest extends $tea.Model {
     return {
       bizType: 'string',
       materialValue: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2553,6 +2571,7 @@ export class InitDeviceRequest extends $tea.Model {
   outerOrderNo?: string;
   produceNode?: string;
   productName?: string;
+  regionId?: string;
   uaToken?: string;
   webUmidToken?: string;
   static names(): { [key: string]: string } {
@@ -2568,6 +2587,7 @@ export class InitDeviceRequest extends $tea.Model {
       outerOrderNo: 'OuterOrderNo',
       produceNode: 'ProduceNode',
       productName: 'ProductName',
+      regionId: 'RegionId',
       uaToken: 'UaToken',
       webUmidToken: 'WebUmidToken',
     };
@@ -2586,6 +2606,7 @@ export class InitDeviceRequest extends $tea.Model {
       outerOrderNo: 'string',
       produceNode: 'string',
       productName: 'string',
+      regionId: 'string',
       uaToken: 'string',
       webUmidToken: 'string',
     };
@@ -2665,6 +2686,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
   ossObjectName?: string;
   outerOrderNo?: string;
   productCode?: string;
+  regionId?: string;
   returnUrl?: string;
   sceneId?: number;
   userId?: string;
@@ -2688,6 +2710,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       returnUrl: 'ReturnUrl',
       sceneId: 'SceneId',
       userId: 'UserId',
@@ -2714,6 +2737,7 @@ export class InitFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'string',
       outerOrderNo: 'string',
       productCode: 'string',
+      regionId: 'string',
       returnUrl: 'string',
       sceneId: 'number',
       userId: 'string',
@@ -2788,6 +2812,7 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
   ossObjectName?: string;
   outerOrderNo?: string;
   productCode?: string;
+  regionId?: string;
   sceneId?: number;
   userId?: string;
   static names(): { [key: string]: string } {
@@ -2804,6 +2829,7 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'OssObjectName',
       outerOrderNo: 'OuterOrderNo',
       productCode: 'ProductCode',
+      regionId: 'RegionId',
       sceneId: 'SceneId',
       userId: 'UserId',
     };
@@ -2823,6 +2849,7 @@ export class LivenessFaceVerifyRequest extends $tea.Model {
       ossObjectName: 'string',
       outerOrderNo: 'string',
       productCode: 'string',
+      regionId: 'string',
       sceneId: 'number',
       userId: 'string',
     };
@@ -3204,6 +3231,7 @@ export class VerifyDeviceRequest extends $tea.Model {
   certifyId?: string;
   deviceToken?: string;
   extInfo?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       appVersion: 'AppVersion',
@@ -3211,6 +3239,7 @@ export class VerifyDeviceRequest extends $tea.Model {
       certifyId: 'CertifyId',
       deviceToken: 'DeviceToken',
       extInfo: 'ExtInfo',
+      regionId: 'RegionId',
     };
   }
 
@@ -3221,6 +3250,7 @@ export class VerifyDeviceRequest extends $tea.Model {
       certifyId: 'string',
       deviceToken: 'string',
       extInfo: 'string',
+      regionId: 'string',
     };
   }
 
@@ -3287,6 +3317,7 @@ export class VerifyMaterialRequest extends $tea.Model {
   idCardFrontImageUrl?: string;
   idCardNumber?: string;
   name?: string;
+  regionId?: string;
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3297,6 +3328,7 @@ export class VerifyMaterialRequest extends $tea.Model {
       idCardFrontImageUrl: 'IdCardFrontImageUrl',
       idCardNumber: 'IdCardNumber',
       name: 'Name',
+      regionId: 'RegionId',
       userId: 'UserId',
     };
   }
@@ -3310,6 +3342,7 @@ export class VerifyMaterialRequest extends $tea.Model {
       idCardFrontImageUrl: 'string',
       idCardNumber: 'string',
       name: 'string',
+      regionId: 'string',
       userId: 'string',
     };
   }
@@ -4605,10 +4638,78 @@ export default class Client extends OpenApi {
 
   async compareFaceVerifyWithOptions(request: CompareFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceVerifyResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      body["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.sourceCertifyId)) {
+      body["SourceCertifyId"] = request.sourceCertifyId;
+    }
+
+    if (!Util.isUnset(request.sourceFaceContrastPicture)) {
+      body["SourceFaceContrastPicture"] = request.sourceFaceContrastPicture;
+    }
+
+    if (!Util.isUnset(request.sourceFaceContrastPictureUrl)) {
+      body["SourceFaceContrastPictureUrl"] = request.sourceFaceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.sourceOssBucketName)) {
+      body["SourceOssBucketName"] = request.sourceOssBucketName;
+    }
+
+    if (!Util.isUnset(request.sourceOssObjectName)) {
+      body["SourceOssObjectName"] = request.sourceOssObjectName;
+    }
+
+    if (!Util.isUnset(request.targetCertifyId)) {
+      body["TargetCertifyId"] = request.targetCertifyId;
+    }
+
+    if (!Util.isUnset(request.targetFaceContrastPicture)) {
+      body["TargetFaceContrastPicture"] = request.targetFaceContrastPicture;
+    }
+
+    if (!Util.isUnset(request.targetFaceContrastPictureUrl)) {
+      body["TargetFaceContrastPictureUrl"] = request.targetFaceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.targetOssBucketName)) {
+      body["TargetOssBucketName"] = request.targetOssBucketName;
+    }
+
+    if (!Util.isUnset(request.targetOssObjectName)) {
+      body["TargetOssObjectName"] = request.targetOssObjectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CompareFaceVerifyResponse>(await this.doRPCRequest("CompareFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CompareFaceVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CompareFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompareFaceVerifyResponse>(await this.callApi(params, req, runtime), new CompareFaceVerifyResponse({}));
   }
 
   async compareFaceVerify(request: CompareFaceVerifyRequest): Promise<CompareFaceVerifyResponse> {
@@ -4618,10 +4719,38 @@ export default class Client extends OpenApi {
 
   async compareFacesWithOptions(request: CompareFacesRequest, runtime: $Util.RuntimeOptions): Promise<CompareFacesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sourceImageType)) {
+      body["SourceImageType"] = request.sourceImageType;
+    }
+
+    if (!Util.isUnset(request.sourceImageValue)) {
+      body["SourceImageValue"] = request.sourceImageValue;
+    }
+
+    if (!Util.isUnset(request.targetImageType)) {
+      body["TargetImageType"] = request.targetImageType;
+    }
+
+    if (!Util.isUnset(request.targetImageValue)) {
+      body["TargetImageValue"] = request.targetImageValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CompareFacesResponse>(await this.doRPCRequest("CompareFaces", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CompareFacesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CompareFaces",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CompareFacesResponse>(await this.callApi(params, req, runtime), new CompareFacesResponse({}));
   }
 
   async compareFaces(request: CompareFacesRequest): Promise<CompareFacesResponse> {
@@ -4631,10 +4760,93 @@ export default class Client extends OpenApi {
 
   async contrastFaceVerifyWithOptions(request: ContrastFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastFaceVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Model"] = request.model;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certName)) {
+      body["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certNo)) {
+      body["CertNo"] = request.certNo;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      body["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.certifyId)) {
+      body["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.deviceToken)) {
+      body["DeviceToken"] = request.deviceToken;
+    }
+
+    if (!Util.isUnset(request.faceContrastFile)) {
+      body["FaceContrastFile"] = request.faceContrastFile;
+    }
+
+    if (!Util.isUnset(request.faceContrastPicture)) {
+      body["FaceContrastPicture"] = request.faceContrastPicture;
+    }
+
+    if (!Util.isUnset(request.faceContrastPictureUrl)) {
+      body["FaceContrastPictureUrl"] = request.faceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      body["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      body["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.ossBucketName)) {
+      body["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!Util.isUnset(request.ossObjectName)) {
+      body["OssObjectName"] = request.ossObjectName;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      body["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ContrastFaceVerifyResponse>(await this.doRPCRequest("ContrastFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new ContrastFaceVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ContrastFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ContrastFaceVerifyResponse>(await this.callApi(params, req, runtime), new ContrastFaceVerifyResponse({}));
   }
 
   async contrastFaceVerify(request: ContrastFaceVerifyRequest): Promise<ContrastFaceVerifyResponse> {
@@ -4718,10 +4930,26 @@ export default class Client extends OpenApi {
 
   async createAuthKeyWithOptions(request: CreateAuthKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuthYears"] = request.authYears;
+    query["BizType"] = request.bizType;
+    query["Test"] = request.test;
+    query["UserDeviceId"] = request.userDeviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAuthKeyResponse>(await this.doRPCRequest("CreateAuthKey", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAuthKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAuthKey",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAuthKeyResponse>(await this.callApi(params, req, runtime), new CreateAuthKeyResponse({}));
   }
 
   async createAuthKey(request: CreateAuthKeyRequest): Promise<CreateAuthKeyResponse> {
@@ -4731,10 +4959,26 @@ export default class Client extends OpenApi {
 
   async createFaceConfigWithOptions(request: CreateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizName"] = request.bizName;
+    query["BizType"] = request.bizType;
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateFaceConfigResponse>(await this.doRPCRequest("CreateFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFaceConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFaceConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFaceConfigResponse>(await this.callApi(params, req, runtime), new CreateFaceConfigResponse({}));
   }
 
   async createFaceConfig(request: CreateFaceConfigRequest): Promise<CreateFaceConfigResponse> {
@@ -4744,10 +4988,26 @@ export default class Client extends OpenApi {
 
   async createRPSDKWithOptions(request: CreateRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateRPSDKResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AppUrl"] = request.appUrl;
+    query["Lang"] = request.lang;
+    query["Platform"] = request.platform;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRPSDKResponse>(await this.doRPCRequest("CreateRPSDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRPSDKResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRPSDK",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRPSDKResponse>(await this.callApi(params, req, runtime), new CreateRPSDKResponse({}));
   }
 
   async createRPSDK(request: CreateRPSDKRequest): Promise<CreateRPSDKResponse> {
@@ -4757,10 +5017,24 @@ export default class Client extends OpenApi {
 
   async createVerifySDKWithOptions(request: CreateVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySDKResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AppUrl"] = request.appUrl;
+    query["Platform"] = request.platform;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVerifySDKResponse>(await this.doRPCRequest("CreateVerifySDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVerifySDKResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVerifySDK",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVerifySDKResponse>(await this.callApi(params, req, runtime), new CreateVerifySDKResponse({}));
   }
 
   async createVerifySDK(request: CreateVerifySDKRequest): Promise<CreateVerifySDKResponse> {
@@ -4770,10 +5044,28 @@ export default class Client extends OpenApi {
 
   async createVerifySettingWithOptions(request: CreateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySettingResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizName"] = request.bizName;
+    query["BizType"] = request.bizType;
+    query["GuideStep"] = request.guideStep;
+    query["PrivacyStep"] = request.privacyStep;
+    query["ResultStep"] = request.resultStep;
+    query["Solution"] = request.solution;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVerifySettingResponse>(await this.doRPCRequest("CreateVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVerifySettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVerifySetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVerifySettingResponse>(await this.callApi(params, req, runtime), new CreateVerifySettingResponse({}));
   }
 
   async createVerifySetting(request: CreateVerifySettingRequest): Promise<CreateVerifySettingResponse> {
@@ -4783,10 +5075,28 @@ export default class Client extends OpenApi {
 
   async createWhitelistWithOptions(request: CreateWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhitelistResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
+    query["IdCardNum"] = request.idCardNum;
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
+    query["ValidDay"] = request.validDay;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateWhitelistResponse>(await this.doRPCRequest("CreateWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhitelistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateWhitelist",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWhitelistResponse>(await this.callApi(params, req, runtime), new CreateWhitelistResponse({}));
   }
 
   async createWhitelist(request: CreateWhitelistRequest): Promise<CreateWhitelistResponse> {
@@ -4796,10 +5106,29 @@ export default class Client extends OpenApi {
 
   async createWhitelistSettingWithOptions(request: CreateWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateWhitelistSettingResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CertNo"] = request.certNo;
+    query["CertifyId"] = request.certifyId;
+    query["Lang"] = request.lang;
+    query["SceneId"] = request.sceneId;
+    query["ServiceCode"] = request.serviceCode;
+    query["SourceIp"] = request.sourceIp;
+    query["ValidDay"] = request.validDay;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateWhitelistSettingResponse>(await this.doRPCRequest("CreateWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateWhitelistSettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWhitelistSettingResponse>(await this.callApi(params, req, runtime), new CreateWhitelistSettingResponse({}));
   }
 
   async createWhitelistSetting(request: CreateWhitelistSettingRequest): Promise<CreateWhitelistSettingResponse> {
@@ -4809,10 +5138,25 @@ export default class Client extends OpenApi {
 
   async deleteWhitelistWithOptions(request: DeleteWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWhitelistResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Ids"] = request.ids;
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteWhitelistResponse>(await this.doRPCRequest("DeleteWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWhitelistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteWhitelist",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWhitelistResponse>(await this.callApi(params, req, runtime), new DeleteWhitelistResponse({}));
   }
 
   async deleteWhitelist(request: DeleteWhitelistRequest): Promise<DeleteWhitelistResponse> {
@@ -4822,10 +5166,26 @@ export default class Client extends OpenApi {
 
   async deleteWhitelistSettingWithOptions(request: DeleteWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWhitelistSettingResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Ids"] = request.ids;
+    query["Lang"] = request.lang;
+    query["ServiceCode"] = request.serviceCode;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteWhitelistSettingResponse>(await this.doRPCRequest("DeleteWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWhitelistSettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWhitelistSettingResponse>(await this.callApi(params, req, runtime), new DeleteWhitelistSettingResponse({}));
   }
 
   async deleteWhitelistSetting(request: DeleteWhitelistSettingRequest): Promise<DeleteWhitelistSettingResponse> {
@@ -4835,10 +5195,25 @@ export default class Client extends OpenApi {
 
   async describeAppInfoWithOptions(request: DescribeAppInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CurrentPage"] = request.currentPage;
+    query["PageSize"] = request.pageSize;
+    query["Platform"] = request.platform;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAppInfoResponse>(await this.doRPCRequest("DescribeAppInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAppInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAppInfo",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAppInfoResponse>(await this.callApi(params, req, runtime), new DescribeAppInfoResponse({}));
   }
 
   async describeAppInfo(request: DescribeAppInfoRequest): Promise<DescribeAppInfoResponse> {
@@ -4848,10 +5223,29 @@ export default class Client extends OpenApi {
 
   async describeDeviceInfoWithOptions(request: DescribeDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeviceInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["CurrentPage"] = request.currentPage;
+    query["DeviceId"] = request.deviceId;
+    query["ExpiredEndDay"] = request.expiredEndDay;
+    query["ExpiredStartDay"] = request.expiredStartDay;
+    query["PageSize"] = request.pageSize;
+    query["UserDeviceId"] = request.userDeviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDeviceInfoResponse>(await this.doRPCRequest("DescribeDeviceInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDeviceInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDeviceInfo",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDeviceInfoResponse>(await this.callApi(params, req, runtime), new DescribeDeviceInfoResponse({}));
   }
 
   async describeDeviceInfo(request: DescribeDeviceInfoRequest): Promise<DescribeDeviceInfoResponse> {
@@ -4861,10 +5255,24 @@ export default class Client extends OpenApi {
 
   async describeFaceConfigWithOptions(request: DescribeFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFaceConfigResponse>(await this.doRPCRequest("DescribeFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFaceConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaceConfigResponse>(await this.callApi(params, req, runtime), new DescribeFaceConfigResponse({}));
   }
 
   async describeFaceConfig(request: DescribeFaceConfigRequest): Promise<DescribeFaceConfigResponse> {
@@ -4874,10 +5282,24 @@ export default class Client extends OpenApi {
 
   async describeFaceUsageWithOptions(request: DescribeFaceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceUsageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndDate"] = request.endDate;
+    query["StartDate"] = request.startDate;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFaceUsageResponse>(await this.doRPCRequest("DescribeFaceUsage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceUsageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFaceUsage",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaceUsageResponse>(await this.callApi(params, req, runtime), new DescribeFaceUsageResponse({}));
   }
 
   async describeFaceUsage(request: DescribeFaceUsageRequest): Promise<DescribeFaceUsageResponse> {
@@ -4887,10 +5309,25 @@ export default class Client extends OpenApi {
 
   async describeFaceVerifyWithOptions(request: DescribeFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CertifyId"] = request.certifyId;
+    query["PictureReturnType"] = request.pictureReturnType;
+    query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFaceVerifyResponse>(await this.doRPCRequest("DescribeFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFaceVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaceVerifyResponse>(await this.callApi(params, req, runtime), new DescribeFaceVerifyResponse({}));
   }
 
   async describeFaceVerify(request: DescribeFaceVerifyRequest): Promise<DescribeFaceVerifyResponse> {
@@ -4900,7 +5337,18 @@ export default class Client extends OpenApi {
 
   async describeOssUploadTokenWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeOssUploadTokenResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeOssUploadTokenResponse>(await this.doRPCRequest("DescribeOssUploadToken", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssUploadTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeOssUploadToken",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssUploadTokenResponse>(await this.callApi(params, req, runtime), new DescribeOssUploadTokenResponse({}));
   }
 
   async describeOssUploadToken(): Promise<DescribeOssUploadTokenResponse> {
@@ -4910,10 +5358,25 @@ export default class Client extends OpenApi {
 
   async describeRPSDKWithOptions(request: DescribeRPSDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRPSDKResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRPSDKResponse>(await this.doRPCRequest("DescribeRPSDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRPSDKResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRPSDK",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRPSDKResponse>(await this.callApi(params, req, runtime), new DescribeRPSDKResponse({}));
   }
 
   async describeRPSDK(request: DescribeRPSDKRequest): Promise<DescribeRPSDKResponse> {
@@ -4923,10 +5386,24 @@ export default class Client extends OpenApi {
 
   async describeSdkUrlWithOptions(request: DescribeSdkUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSdkUrlResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Debug"] = request.debug;
+    query["Id"] = request.id;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSdkUrlResponse>(await this.doRPCRequest("DescribeSdkUrl", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSdkUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSdkUrl",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSdkUrlResponse>(await this.callApi(params, req, runtime), new DescribeSdkUrlResponse({}));
   }
 
   async describeSdkUrl(request: DescribeSdkUrlRequest): Promise<DescribeSdkUrlResponse> {
@@ -4936,10 +5413,23 @@ export default class Client extends OpenApi {
 
   async describeUpdatePackageResultWithOptions(request: DescribeUpdatePackageResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdatePackageResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUpdatePackageResultResponse>(await this.doRPCRequest("DescribeUpdatePackageResult", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUpdatePackageResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUpdatePackageResult",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUpdatePackageResultResponse>(await this.callApi(params, req, runtime), new DescribeUpdatePackageResultResponse({}));
   }
 
   async describeUpdatePackageResult(request: DescribeUpdatePackageResultRequest): Promise<DescribeUpdatePackageResultResponse> {
@@ -4949,10 +5439,23 @@ export default class Client extends OpenApi {
 
   async describeUploadInfoWithOptions(request: DescribeUploadInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUploadInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Biz"] = request.biz;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUploadInfoResponse>(await this.doRPCRequest("DescribeUploadInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUploadInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUploadInfo",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUploadInfoResponse>(await this.callApi(params, req, runtime), new DescribeUploadInfoResponse({}));
   }
 
   async describeUploadInfo(request: DescribeUploadInfoRequest): Promise<DescribeUploadInfoResponse> {
@@ -4962,7 +5465,18 @@ export default class Client extends OpenApi {
 
   async describeUserStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeUserStatusResponse>(await this.doRPCRequest("DescribeUserStatus", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserStatus",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserStatusResponse({}));
   }
 
   async describeUserStatus(): Promise<DescribeUserStatusResponse> {
@@ -4972,10 +5486,32 @@ export default class Client extends OpenApi {
 
   async describeVerifyRecordsWithOptions(request: DescribeVerifyRecordsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyRecordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
+    query["CurrentPage"] = request.currentPage;
+    query["EndDate"] = request.endDate;
+    query["IdCardNum"] = request.idCardNum;
+    query["PageSize"] = request.pageSize;
+    query["QueryId"] = request.queryId;
+    query["StartDate"] = request.startDate;
+    query["StatusList"] = request.statusList;
+    query["TotalCount"] = request.totalCount;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifyRecordsResponse>(await this.doRPCRequest("DescribeVerifyRecords", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyRecordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifyRecords",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifyRecordsResponse>(await this.callApi(params, req, runtime), new DescribeVerifyRecordsResponse({}));
   }
 
   async describeVerifyRecords(request: DescribeVerifyRecordsRequest): Promise<DescribeVerifyRecordsResponse> {
@@ -4985,10 +5521,24 @@ export default class Client extends OpenApi {
 
   async describeVerifyResultWithOptions(request: DescribeVerifyResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifyResultResponse>(await this.doRPCRequest("DescribeVerifyResult", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifyResult",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifyResultResponse>(await this.callApi(params, req, runtime), new DescribeVerifyResultResponse({}));
   }
 
   async describeVerifyResult(request: DescribeVerifyResultRequest): Promise<DescribeVerifyResultResponse> {
@@ -4998,10 +5548,23 @@ export default class Client extends OpenApi {
 
   async describeVerifySDKWithOptions(request: DescribeVerifySDKRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySDKResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifySDKResponse>(await this.doRPCRequest("DescribeVerifySDK", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifySDKResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifySDK",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifySDKResponse>(await this.callApi(params, req, runtime), new DescribeVerifySDKResponse({}));
   }
 
   async describeVerifySDK(request: DescribeVerifySDKRequest): Promise<DescribeVerifySDKResponse> {
@@ -5011,7 +5574,18 @@ export default class Client extends OpenApi {
 
   async describeVerifySettingWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVerifySettingResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeVerifySettingResponse>(await this.doRPCRequest("DescribeVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifySettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifySetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifySettingResponse>(await this.callApi(params, req, runtime), new DescribeVerifySettingResponse({}));
   }
 
   async describeVerifySetting(): Promise<DescribeVerifySettingResponse> {
@@ -5021,10 +5595,37 @@ export default class Client extends OpenApi {
 
   async describeVerifyTokenWithOptions(request: DescribeVerifyTokenRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
+    query["CallbackSeed"] = request.callbackSeed;
+    query["CallbackUrl"] = request.callbackUrl;
+    query["FaceRetainedImageUrl"] = request.faceRetainedImageUrl;
+    query["FailedRedirectUrl"] = request.failedRedirectUrl;
+    query["IdCardBackImageUrl"] = request.idCardBackImageUrl;
+    query["IdCardFrontImageUrl"] = request.idCardFrontImageUrl;
+    query["IdCardNumber"] = request.idCardNumber;
+    query["Name"] = request.name;
+    query["PassedRedirectUrl"] = request.passedRedirectUrl;
+    query["UserId"] = request.userId;
+    query["UserIp"] = request.userIp;
+    query["UserPhoneNumber"] = request.userPhoneNumber;
+    query["UserRegistTime"] = request.userRegistTime;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifyTokenResponse>(await this.doRPCRequest("DescribeVerifyToken", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifyToken",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifyTokenResponse>(await this.callApi(params, req, runtime), new DescribeVerifyTokenResponse({}));
   }
 
   async describeVerifyToken(request: DescribeVerifyTokenRequest): Promise<DescribeVerifyTokenResponse> {
@@ -5034,10 +5635,25 @@ export default class Client extends OpenApi {
 
   async describeVerifyUsageWithOptions(request: DescribeVerifyUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyUsageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["EndDate"] = request.endDate;
+    query["StartDate"] = request.startDate;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifyUsageResponse>(await this.doRPCRequest("DescribeVerifyUsage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifyUsageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifyUsage",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifyUsageResponse>(await this.callApi(params, req, runtime), new DescribeVerifyUsageResponse({}));
   }
 
   async describeVerifyUsage(request: DescribeVerifyUsageRequest): Promise<DescribeVerifyUsageResponse> {
@@ -5047,10 +5663,32 @@ export default class Client extends OpenApi {
 
   async describeWhitelistWithOptions(request: DescribeWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
+    query["CurrentPage"] = request.currentPage;
+    query["IdCardNum"] = request.idCardNum;
+    query["Lang"] = request.lang;
+    query["PageSize"] = request.pageSize;
+    query["SourceIp"] = request.sourceIp;
+    query["Valid"] = request.valid;
+    query["ValidEndDate"] = request.validEndDate;
+    query["ValidStartDate"] = request.validStartDate;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeWhitelistResponse>(await this.doRPCRequest("DescribeWhitelist", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhitelistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWhitelist",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeWhitelistResponse({}));
   }
 
   async describeWhitelist(request: DescribeWhitelistRequest): Promise<DescribeWhitelistResponse> {
@@ -5060,10 +5698,33 @@ export default class Client extends OpenApi {
 
   async describeWhitelistSettingWithOptions(request: DescribeWhitelistSettingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWhitelistSettingResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CertNo"] = request.certNo;
+    query["CertifyId"] = request.certifyId;
+    query["CurrentPage"] = request.currentPage;
+    query["Lang"] = request.lang;
+    query["PageSize"] = request.pageSize;
+    query["SceneId"] = request.sceneId;
+    query["ServiceCode"] = request.serviceCode;
+    query["SourceIp"] = request.sourceIp;
+    query["Status"] = request.status;
+    query["ValidEndDate"] = request.validEndDate;
+    query["ValidStartDate"] = request.validStartDate;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeWhitelistSettingResponse>(await this.doRPCRequest("DescribeWhitelistSetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWhitelistSettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWhitelistSetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWhitelistSettingResponse>(await this.callApi(params, req, runtime), new DescribeWhitelistSettingResponse({}));
   }
 
   async describeWhitelistSetting(request: DescribeWhitelistSettingRequest): Promise<DescribeWhitelistSettingResponse> {
@@ -5073,10 +5734,30 @@ export default class Client extends OpenApi {
 
   async detectFaceAttributesWithOptions(request: DetectFaceAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceAttributesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.materialValue)) {
+      body["MaterialValue"] = request.materialValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectFaceAttributesResponse>(await this.doRPCRequest("DetectFaceAttributes", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new DetectFaceAttributesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectFaceAttributes",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectFaceAttributesResponse>(await this.callApi(params, req, runtime), new DetectFaceAttributesResponse({}));
   }
 
   async detectFaceAttributes(request: DetectFaceAttributesRequest): Promise<DetectFaceAttributesResponse> {
@@ -5086,10 +5767,43 @@ export default class Client extends OpenApi {
 
   async initDeviceWithOptions(request: InitDeviceRequest, runtime: $Util.RuntimeOptions): Promise<InitDeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AppVersion"] = request.appVersion;
+    query["BizData"] = request.bizData;
+    query["CertifyId"] = request.certifyId;
+    query["CertifyPrincipal"] = request.certifyPrincipal;
+    query["Channel"] = request.channel;
+    query["DeviceToken"] = request.deviceToken;
+    query["Merchant"] = request.merchant;
+    query["MetaInfo"] = request.metaInfo;
+    query["OuterOrderNo"] = request.outerOrderNo;
+    query["ProduceNode"] = request.produceNode;
+    query["ProductName"] = request.productName;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.uaToken)) {
+      body["UaToken"] = request.uaToken;
+    }
+
+    if (!Util.isUnset(request.webUmidToken)) {
+      body["WebUmidToken"] = request.webUmidToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<InitDeviceResponse>(await this.doRPCRequest("InitDevice", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new InitDeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InitDevice",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitDeviceResponse>(await this.callApi(params, req, runtime), new InitDeviceResponse({}));
   }
 
   async initDevice(request: InitDeviceRequest): Promise<InitDeviceResponse> {
@@ -5099,10 +5813,54 @@ export default class Client extends OpenApi {
 
   async initFaceVerifyWithOptions(request: InitFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitFaceVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["CallbackToken"] = request.callbackToken;
+    query["CallbackUrl"] = request.callbackUrl;
+    query["CertName"] = request.certName;
+    query["CertNo"] = request.certNo;
+    query["CertType"] = request.certType;
+    query["CertifyId"] = request.certifyId;
+    query["CertifyUrlType"] = request.certifyUrlType;
+    query["FaceContrastPictureUrl"] = request.faceContrastPictureUrl;
+    query["Ip"] = request.ip;
+    query["MetaInfo"] = request.metaInfo;
+    query["Mobile"] = request.mobile;
+    query["OssBucketName"] = request.ossBucketName;
+    query["OssObjectName"] = request.ossObjectName;
+    query["OuterOrderNo"] = request.outerOrderNo;
+    query["ProductCode"] = request.productCode;
+    query["ReturnUrl"] = request.returnUrl;
+    query["SceneId"] = request.sceneId;
+    query["UserId"] = request.userId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.faceContrastPicture)) {
+      body["FaceContrastPicture"] = request.faceContrastPicture;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      body["Model"] = request.model;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<InitFaceVerifyResponse>(await this.doRPCRequest("InitFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new InitFaceVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InitFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitFaceVerifyResponse>(await this.callApi(params, req, runtime), new InitFaceVerifyResponse({}));
   }
 
   async initFaceVerify(request: InitFaceVerifyRequest): Promise<InitFaceVerifyResponse> {
@@ -5112,10 +5870,77 @@ export default class Client extends OpenApi {
 
   async livenessFaceVerifyWithOptions(request: LivenessFaceVerifyRequest, runtime: $Util.RuntimeOptions): Promise<LivenessFaceVerifyResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Model"] = request.model;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certifyId)) {
+      body["CertifyId"] = request.certifyId;
+    }
+
+    if (!Util.isUnset(request.crop)) {
+      body["Crop"] = request.crop;
+    }
+
+    if (!Util.isUnset(request.deviceToken)) {
+      body["DeviceToken"] = request.deviceToken;
+    }
+
+    if (!Util.isUnset(request.faceContrastPicture)) {
+      body["FaceContrastPicture"] = request.faceContrastPicture;
+    }
+
+    if (!Util.isUnset(request.faceContrastPictureUrl)) {
+      body["FaceContrastPictureUrl"] = request.faceContrastPictureUrl;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      body["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      body["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.ossBucketName)) {
+      body["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!Util.isUnset(request.ossObjectName)) {
+      body["OssObjectName"] = request.ossObjectName;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      body["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<LivenessFaceVerifyResponse>(await this.doRPCRequest("LivenessFaceVerify", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new LivenessFaceVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "LivenessFaceVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LivenessFaceVerifyResponse>(await this.callApi(params, req, runtime), new LivenessFaceVerifyResponse({}));
   }
 
   async livenessFaceVerify(request: LivenessFaceVerifyRequest): Promise<LivenessFaceVerifyResponse> {
@@ -5125,10 +5950,27 @@ export default class Client extends OpenApi {
 
   async modifyDeviceInfoWithOptions(request: ModifyDeviceInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDeviceInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizType"] = request.bizType;
+    query["DeviceId"] = request.deviceId;
+    query["Duration"] = request.duration;
+    query["ExpiredDay"] = request.expiredDay;
+    query["UserDeviceId"] = request.userDeviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDeviceInfoResponse>(await this.doRPCRequest("ModifyDeviceInfo", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDeviceInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDeviceInfo",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDeviceInfoResponse>(await this.callApi(params, req, runtime), new ModifyDeviceInfoResponse({}));
   }
 
   async modifyDeviceInfo(request: ModifyDeviceInfoRequest): Promise<ModifyDeviceInfoResponse> {
@@ -5138,10 +5980,26 @@ export default class Client extends OpenApi {
 
   async updateAppPackageWithOptions(request: UpdateAppPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAppPackageResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Debug"] = request.debug;
+    query["Id"] = request.id;
+    query["PackageUrl"] = request.packageUrl;
+    query["Platform"] = request.platform;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAppPackageResponse>(await this.doRPCRequest("UpdateAppPackage", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAppPackageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAppPackage",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAppPackageResponse>(await this.callApi(params, req, runtime), new UpdateAppPackageResponse({}));
   }
 
   async updateAppPackage(request: UpdateAppPackageRequest): Promise<UpdateAppPackageResponse> {
@@ -5151,10 +6009,26 @@ export default class Client extends OpenApi {
 
   async updateFaceConfigWithOptions(request: UpdateFaceConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizName"] = request.bizName;
+    query["BizType"] = request.bizType;
+    query["Lang"] = request.lang;
+    query["SourceIp"] = request.sourceIp;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateFaceConfigResponse>(await this.doRPCRequest("UpdateFaceConfig", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFaceConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateFaceConfig",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFaceConfigResponse>(await this.callApi(params, req, runtime), new UpdateFaceConfigResponse({}));
   }
 
   async updateFaceConfig(request: UpdateFaceConfigRequest): Promise<UpdateFaceConfigResponse> {
@@ -5164,10 +6038,28 @@ export default class Client extends OpenApi {
 
   async updateVerifySettingWithOptions(request: UpdateVerifySettingRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVerifySettingResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizName"] = request.bizName;
+    query["BizType"] = request.bizType;
+    query["GuideStep"] = request.guideStep;
+    query["PrivacyStep"] = request.privacyStep;
+    query["ResultStep"] = request.resultStep;
+    query["Solution"] = request.solution;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateVerifySettingResponse>(await this.doRPCRequest("UpdateVerifySetting", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVerifySettingResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateVerifySetting",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVerifySettingResponse>(await this.callApi(params, req, runtime), new UpdateVerifySettingResponse({}));
   }
 
   async updateVerifySetting(request: UpdateVerifySettingRequest): Promise<UpdateVerifySettingResponse> {
@@ -5177,10 +6069,35 @@ export default class Client extends OpenApi {
 
   async verifyDeviceWithOptions(request: VerifyDeviceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AppVersion"] = request.appVersion;
+    query["CertifyData"] = request.certifyData;
+    query["CertifyId"] = request.certifyId;
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceToken)) {
+      body["DeviceToken"] = request.deviceToken;
+    }
+
+    if (!Util.isUnset(request.extInfo)) {
+      body["ExtInfo"] = request.extInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<VerifyDeviceResponse>(await this.doRPCRequest("VerifyDevice", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyDeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyDevice",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyDeviceResponse>(await this.callApi(params, req, runtime), new VerifyDeviceResponse({}));
   }
 
   async verifyDevice(request: VerifyDeviceRequest): Promise<VerifyDeviceResponse> {
@@ -5190,10 +6107,30 @@ export default class Client extends OpenApi {
 
   async verifyMaterialWithOptions(request: VerifyMaterialRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMaterialResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["BizId"] = request.bizId;
+    query["BizType"] = request.bizType;
+    query["FaceImageUrl"] = request.faceImageUrl;
+    query["IdCardBackImageUrl"] = request.idCardBackImageUrl;
+    query["IdCardFrontImageUrl"] = request.idCardFrontImageUrl;
+    query["IdCardNumber"] = request.idCardNumber;
+    query["Name"] = request.name;
+    query["UserId"] = request.userId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyMaterialResponse>(await this.doRPCRequest("VerifyMaterial", "2019-03-07", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyMaterialResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyMaterial",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyMaterialResponse>(await this.callApi(params, req, runtime), new VerifyMaterialResponse({}));
   }
 
   async verifyMaterial(request: VerifyMaterialRequest): Promise<VerifyMaterialResponse> {
