@@ -1088,44 +1088,6 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
-export class DeleteAlertContactResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAlertContactGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteClusterRequest extends $tea.Model {
   keepSlb?: boolean;
   retainAllResources?: boolean;
@@ -2864,12 +2826,14 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
   kubernetesVersion?: string;
   profile?: string;
   region?: string;
+  runtime?: string;
   static names(): { [key: string]: string } {
     return {
       clusterType: 'ClusterType',
       kubernetesVersion: 'KubernetesVersion',
       profile: 'Profile',
       region: 'Region',
+      runtime: 'runtime',
     };
   }
 
@@ -2879,6 +2843,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $tea.Model {
       kubernetesVersion: 'string',
       profile: 'string',
       region: 'string',
+      runtime: 'string',
     };
   }
 
@@ -4704,25 +4669,6 @@ export class ScaleOutClusterResponse extends $tea.Model {
   }
 }
 
-export class StartAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartWorkflowRequest extends $tea.Model {
   mappingBamOutFilename?: string;
   mappingBamOutPath?: string;
@@ -4829,25 +4775,6 @@ export class StartWorkflowResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartWorkflowResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -5027,25 +4954,6 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UntagResourcesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateContactGroupForAlertResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -5361,6 +5269,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   cmsEnabled?: boolean;
   cpuPolicy?: string;
   labels?: Tag[];
+  nodeNameMode?: string;
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
@@ -5370,6 +5279,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cmsEnabled: 'cms_enabled',
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
+      nodeNameMode: 'node_name_mode',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -5382,6 +5292,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
       cmsEnabled: 'boolean',
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
+      nodeNameMode: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -5521,6 +5432,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenewPeriod?: number;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
+  deploymentsetId?: string;
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
@@ -5554,6 +5466,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       autoRenewPeriod: 'auto_renew_period',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
+      deploymentsetId: 'deploymentset_id',
       imageId: 'image_id',
       imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
@@ -5590,6 +5503,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       autoRenewPeriod: 'number',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
+      deploymentsetId: 'string',
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
@@ -5791,6 +5705,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   cmsEnabled?: boolean;
   cpuPolicy?: string;
   labels?: Tag[];
+  nodeNameMode?: string;
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
@@ -5800,6 +5715,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       cmsEnabled: 'cms_enabled',
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
+      nodeNameMode: 'node_name_mode',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -5812,6 +5728,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
       cmsEnabled: 'boolean',
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
+      nodeNameMode: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -5944,6 +5861,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   autoRenewPeriod?: number;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
+  deploymentsetId?: string;
   imageId?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
@@ -5978,6 +5896,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       autoRenewPeriod: 'auto_renew_period',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
+      deploymentsetId: 'deploymentset_id',
       imageId: 'image_id',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
@@ -6015,6 +5934,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       autoRenewPeriod: 'number',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
+      deploymentsetId: 'string',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -6182,6 +6102,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
   cmsEnabled?: boolean;
   cpuPolicy?: string;
   labels?: Tag[];
+  nodeNameMode?: string;
   runtime?: string;
   runtimeVersion?: string;
   taints?: Taint[];
@@ -6191,6 +6112,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       cmsEnabled: 'cms_enabled',
       cpuPolicy: 'cpu_policy',
       labels: 'labels',
+      nodeNameMode: 'node_name_mode',
       runtime: 'runtime',
       runtimeVersion: 'runtime_version',
       taints: 'taints',
@@ -6203,6 +6125,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig exten
       cmsEnabled: 'boolean',
       cpuPolicy: 'string',
       labels: { 'type': 'array', 'itemType': Tag },
+      nodeNameMode: 'string',
       runtime: 'string',
       runtimeVersion: 'string',
       taints: { 'type': 'array', 'itemType': Taint },
@@ -6335,6 +6258,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   autoRenewPeriod?: number;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
+  deploymentsetId?: string;
   imageId?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
@@ -6369,6 +6293,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       autoRenewPeriod: 'auto_renew_period',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
+      deploymentsetId: 'deploymentset_id',
       imageId: 'image_id',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
@@ -6406,6 +6331,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       autoRenewPeriod: 'number',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
+      deploymentsetId: 'string',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -9255,54 +9181,6 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
-  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactWithOptions(headers, runtime);
-  }
-
-  async deleteAlertContactWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteAlertContact",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/alert/contacts`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
-  }
-
-  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
-  }
-
-  async deleteAlertContactGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteAlertContactGroup",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/alert/contact_groups`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
-  }
-
   async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10401,6 +10279,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.region)) {
       query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.runtime)) {
+      query["runtime"] = request.runtime;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11720,31 +11602,6 @@ export default class Client extends OpenApi {
     return $tea.cast<ScaleOutClusterResponse>(await this.callApi(params, req, runtime), new ScaleOutClusterResponse({}));
   }
 
-  async startAlert(ClusterId: string): Promise<StartAlertResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.startAlertWithOptions(ClusterId, headers, runtime);
-  }
-
-  async startAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartAlertResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StartAlert",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/alert/${ClusterId}/alert_rule/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<StartAlertResponse>(await this.callApi(params, req, runtime), new StartAlertResponse({}));
-  }
-
   async startWorkflow(request: StartWorkflowRequest): Promise<StartWorkflowResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11846,31 +11703,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<StartWorkflowResponse>(await this.callApi(params, req, runtime), new StartWorkflowResponse({}));
-  }
-
-  async stopAlert(ClusterId: string): Promise<StopAlertResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.stopAlertWithOptions(ClusterId, headers, runtime);
-  }
-
-  async stopAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StopAlertResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "StopAlert",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/alert/${ClusterId}/alert_rule/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<StopAlertResponse>(await this.callApi(params, req, runtime), new StopAlertResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -11988,31 +11820,6 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
-  }
-
-  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
-  }
-
-  async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
-    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateContactGroupForAlert",
-      version: "2015-12-15",
-      protocol: "HTTPS",
-      pathname: `/alert/${ClusterId}/alert_rule/contact_groups`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "none",
-    });
-    return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
   }
 
   async updateK8sClusterUserConfigExpire(ClusterId: string): Promise<UpdateK8sClusterUserConfigExpireResponse> {
