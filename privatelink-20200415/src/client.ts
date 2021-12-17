@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -353,24 +354,30 @@ export class CreateVpcEndpointRequest extends $tea.Model {
   dryRun?: boolean;
   endpointDescription?: string;
   endpointName?: string;
+  endpointType?: string;
+  protectedEnabled?: boolean;
   regionId?: string;
   securityGroupId?: string[];
   serviceId?: string;
   serviceName?: string;
   vpcId?: string;
   zone?: CreateVpcEndpointRequestZone[];
+  zonePrivateIpAddressCount?: number;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       endpointDescription: 'EndpointDescription',
       endpointName: 'EndpointName',
+      endpointType: 'EndpointType',
+      protectedEnabled: 'ProtectedEnabled',
       regionId: 'RegionId',
       securityGroupId: 'SecurityGroupId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
       vpcId: 'VpcId',
       zone: 'Zone',
+      zonePrivateIpAddressCount: 'ZonePrivateIpAddressCount',
     };
   }
 
@@ -380,12 +387,15 @@ export class CreateVpcEndpointRequest extends $tea.Model {
       dryRun: 'boolean',
       endpointDescription: 'string',
       endpointName: 'string',
+      endpointType: 'string',
+      protectedEnabled: 'boolean',
       regionId: 'string',
       securityGroupId: { 'type': 'array', 'itemType': 'string' },
       serviceId: 'string',
       serviceName: 'string',
       vpcId: 'string',
       zone: { 'type': 'array', 'itemType': CreateVpcEndpointRequestZone },
+      zonePrivateIpAddressCount: 'number',
     };
   }
 
@@ -479,6 +489,7 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
   regionId?: string;
   resource?: CreateVpcEndpointServiceRequestResource[];
   serviceDescription?: string;
+  serviceResourceType?: string;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -489,6 +500,7 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
       regionId: 'RegionId',
       resource: 'Resource',
       serviceDescription: 'ServiceDescription',
+      serviceResourceType: 'ServiceResourceType',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -502,6 +514,7 @@ export class CreateVpcEndpointServiceRequest extends $tea.Model {
       regionId: 'string',
       resource: { 'type': 'array', 'itemType': CreateVpcEndpointServiceRequestResource },
       serviceDescription: 'string',
+      serviceResourceType: 'string',
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -1169,6 +1182,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
   endpointId?: string;
   endpointName?: string;
   endpointStatus?: string;
+  endpointType?: string;
   payer?: string;
   regionId?: string;
   requestId?: string;
@@ -1177,6 +1191,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
   serviceName?: string;
   vpcId?: string;
   zoneAffinityEnabled?: boolean;
+  zonePrivateIpAddressCount?: number;
   static names(): { [key: string]: string } {
     return {
       bandwidth: 'Bandwidth',
@@ -1188,6 +1203,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       endpointId: 'EndpointId',
       endpointName: 'EndpointName',
       endpointStatus: 'EndpointStatus',
+      endpointType: 'EndpointType',
       payer: 'Payer',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -1196,6 +1212,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       serviceName: 'ServiceName',
       vpcId: 'VpcId',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
+      zonePrivateIpAddressCount: 'ZonePrivateIpAddressCount',
     };
   }
 
@@ -1210,6 +1227,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       endpointId: 'string',
       endpointName: 'string',
       endpointStatus: 'string',
+      endpointType: 'string',
       payer: 'string',
       regionId: 'string',
       requestId: 'string',
@@ -1218,6 +1236,7 @@ export class GetVpcEndpointAttributeResponseBody extends $tea.Model {
       serviceName: 'string',
       vpcId: 'string',
       zoneAffinityEnabled: 'boolean',
+      zonePrivateIpAddressCount: 'number',
     };
   }
 
@@ -1284,7 +1303,9 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
   serviceDomain?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceResourceType?: string;
   serviceStatus?: string;
+  serviceType?: string;
   zoneAffinityEnabled?: boolean;
   zones?: string[];
   static names(): { [key: string]: string } {
@@ -1302,7 +1323,9 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       serviceDomain: 'ServiceDomain',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
+      serviceType: 'ServiceType',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
       zones: 'Zones',
     };
@@ -1323,7 +1346,9 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $tea.Model {
       serviceDomain: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceResourceType: 'string',
       serviceStatus: 'string',
+      serviceType: 'string',
       zoneAffinityEnabled: 'boolean',
       zones: { 'type': 'array', 'itemType': 'string' },
     };
@@ -1360,6 +1385,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
   connectionStatus?: string;
   endpointId?: string;
   endpointOwnerId?: number;
+  eniId?: string;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
@@ -1369,6 +1395,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       connectionStatus: 'ConnectionStatus',
       endpointId: 'EndpointId',
       endpointOwnerId: 'EndpointOwnerId',
+      eniId: 'EniId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -1381,6 +1408,7 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       connectionStatus: 'string',
       endpointId: 'string',
       endpointOwnerId: 'number',
+      eniId: 'string',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -1688,6 +1716,7 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
   serviceBusinessStatus?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceResourceType?: string;
   serviceStatus?: string;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
@@ -1699,6 +1728,7 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
       serviceBusinessStatus: 'ServiceBusinessStatus',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
@@ -1713,6 +1743,7 @@ export class ListVpcEndpointServicesRequest extends $tea.Model {
       serviceBusinessStatus: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceResourceType: 'string',
       serviceStatus: 'string',
       zoneAffinityEnabled: 'boolean',
     };
@@ -1779,6 +1810,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
   regionId?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceType?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -1786,6 +1818,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
       regionId: 'RegionId',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceType: 'ServiceType',
     };
   }
 
@@ -1796,6 +1829,7 @@ export class ListVpcEndpointServicesByEndUserRequest extends $tea.Model {
       regionId: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceType: 'string',
     };
   }
 
@@ -1937,6 +1971,7 @@ export class ListVpcEndpointsRequest extends $tea.Model {
   endpointId?: string;
   endpointName?: string;
   endpointStatus?: string;
+  endpointType?: string;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
@@ -1948,6 +1983,7 @@ export class ListVpcEndpointsRequest extends $tea.Model {
       endpointId: 'EndpointId',
       endpointName: 'EndpointName',
       endpointStatus: 'EndpointStatus',
+      endpointType: 'EndpointType',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -1962,6 +1998,7 @@ export class ListVpcEndpointsRequest extends $tea.Model {
       endpointId: 'string',
       endpointName: 'string',
       endpointStatus: 'string',
+      endpointType: 'string',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -2757,7 +2794,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
   serviceDomain?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceResourceType?: string;
   serviceStatus?: string;
+  serviceType?: string;
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2773,7 +2812,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       serviceDomain: 'ServiceDomain',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceResourceType: 'ServiceResourceType',
       serviceStatus: 'ServiceStatus',
+      serviceType: 'ServiceType',
       zoneAffinityEnabled: 'ZoneAffinityEnabled',
     };
   }
@@ -2792,7 +2833,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $tea.Model {
       serviceDomain: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceResourceType: 'string',
       serviceStatus: 'string',
+      serviceType: 'string',
       zoneAffinityEnabled: 'boolean',
     };
   }
@@ -2807,6 +2850,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.M
   serviceDomain?: string;
   serviceId?: string;
   serviceName?: string;
+  serviceType?: string;
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -2814,6 +2858,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.M
       serviceDomain: 'ServiceDomain',
       serviceId: 'ServiceId',
       serviceName: 'ServiceName',
+      serviceType: 'ServiceType',
       zones: 'Zones',
     };
   }
@@ -2824,6 +2869,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $tea.M
       serviceDomain: 'string',
       serviceId: 'string',
       serviceName: 'string',
+      serviceType: 'string',
       zones: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -2883,6 +2929,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
   endpointId?: string;
   endpointName?: string;
   endpointStatus?: string;
+  endpointType?: string;
   regionId?: string;
   resourceOwner?: boolean;
   serviceId?: string;
@@ -2900,6 +2947,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointId: 'EndpointId',
       endpointName: 'EndpointName',
       endpointStatus: 'EndpointStatus',
+      endpointType: 'EndpointType',
       regionId: 'RegionId',
       resourceOwner: 'ResourceOwner',
       serviceId: 'ServiceId',
@@ -2920,6 +2968,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $tea.Model {
       endpointId: 'string',
       endpointName: 'string',
       endpointStatus: 'string',
+      endpointType: 'string',
       regionId: 'string',
       resourceOwner: 'boolean',
       serviceId: 'string',
@@ -2959,10 +3008,28 @@ export default class Client extends OpenApi {
 
   async addUserToVpcEndpointServiceWithOptions(request: AddUserToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
+    query["UserId"] = request.userId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddUserToVpcEndpointServiceResponse>(await this.doRPCRequest("AddUserToVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddUserToVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddUserToVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddUserToVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new AddUserToVpcEndpointServiceResponse({}));
   }
 
   async addUserToVpcEndpointService(request: AddUserToVpcEndpointServiceRequest): Promise<AddUserToVpcEndpointServiceResponse> {
@@ -2972,10 +3039,30 @@ export default class Client extends OpenApi {
 
   async addZoneToVpcEndpointWithOptions(request: AddZoneToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneToVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["VSwitchId"] = request.vSwitchId;
+    query["ZoneId"] = request.zoneId;
+    query["ip"] = request.ip;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddZoneToVpcEndpointResponse>(await this.doRPCRequest("AddZoneToVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddZoneToVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddZoneToVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddZoneToVpcEndpointResponse>(await this.callApi(params, req, runtime), new AddZoneToVpcEndpointResponse({}));
   }
 
   async addZoneToVpcEndpoint(request: AddZoneToVpcEndpointRequest): Promise<AddZoneToVpcEndpointResponse> {
@@ -2985,10 +3072,29 @@ export default class Client extends OpenApi {
 
   async attachResourceToVpcEndpointServiceWithOptions(request: AttachResourceToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AttachResourceToVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachResourceToVpcEndpointServiceResponse>(await this.doRPCRequest("AttachResourceToVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new AttachResourceToVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachResourceToVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachResourceToVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new AttachResourceToVpcEndpointServiceResponse({}));
   }
 
   async attachResourceToVpcEndpointService(request: AttachResourceToVpcEndpointServiceRequest): Promise<AttachResourceToVpcEndpointServiceResponse> {
@@ -2998,10 +3104,28 @@ export default class Client extends OpenApi {
 
   async attachSecurityGroupToVpcEndpointWithOptions(request: AttachSecurityGroupToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["SecurityGroupId"] = request.securityGroupId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachSecurityGroupToVpcEndpointResponse>(await this.doRPCRequest("AttachSecurityGroupToVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new AttachSecurityGroupToVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachSecurityGroupToVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachSecurityGroupToVpcEndpointResponse>(await this.callApi(params, req, runtime), new AttachSecurityGroupToVpcEndpointResponse({}));
   }
 
   async attachSecurityGroupToVpcEndpoint(request: AttachSecurityGroupToVpcEndpointRequest): Promise<AttachSecurityGroupToVpcEndpointResponse> {
@@ -3011,7 +3135,18 @@ export default class Client extends OpenApi {
 
   async checkProductOpenWithOptions(runtime: $Util.RuntimeOptions): Promise<CheckProductOpenResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<CheckProductOpenResponse>(await this.doRPCRequest("CheckProductOpen", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckProductOpenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckProductOpen",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckProductOpenResponse>(await this.callApi(params, req, runtime), new CheckProductOpenResponse({}));
   }
 
   async checkProductOpen(): Promise<CheckProductOpenResponse> {
@@ -3021,10 +3156,36 @@ export default class Client extends OpenApi {
 
   async createVpcEndpointWithOptions(request: CreateVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointDescription"] = request.endpointDescription;
+    query["EndpointName"] = request.endpointName;
+    query["EndpointType"] = request.endpointType;
+    query["ProtectedEnabled"] = request.protectedEnabled;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["SecurityGroupId"] = request.securityGroupId;
+    query["ServiceId"] = request.serviceId;
+    query["ServiceName"] = request.serviceName;
+    query["VpcId"] = request.vpcId;
+    query["Zone"] = request.zone;
+    query["ZonePrivateIpAddressCount"] = request.zonePrivateIpAddressCount;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVpcEndpointResponse>(await this.doRPCRequest("CreateVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVpcEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointResponse({}));
   }
 
   async createVpcEndpoint(request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
@@ -3034,10 +3195,32 @@ export default class Client extends OpenApi {
 
   async createVpcEndpointServiceWithOptions(request: CreateVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["Payer"] = request.payer;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["Resource"] = request.resource;
+    query["ServiceDescription"] = request.serviceDescription;
+    query["ServiceResourceType"] = request.serviceResourceType;
+    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVpcEndpointServiceResponse>(await this.doRPCRequest("CreateVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointServiceResponse({}));
   }
 
   async createVpcEndpointService(request: CreateVpcEndpointServiceRequest): Promise<CreateVpcEndpointServiceResponse> {
@@ -3047,10 +3230,27 @@ export default class Client extends OpenApi {
 
   async deleteVpcEndpointWithOptions(request: DeleteVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVpcEndpointResponse>(await this.doRPCRequest("DeleteVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
   async deleteVpcEndpoint(request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
@@ -3060,10 +3260,27 @@ export default class Client extends OpenApi {
 
   async deleteVpcEndpointServiceWithOptions(request: DeleteVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVpcEndpointServiceResponse>(await this.doRPCRequest("DeleteVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointServiceResponse({}));
   }
 
   async deleteVpcEndpointService(request: DeleteVpcEndpointServiceRequest): Promise<DeleteVpcEndpointServiceResponse> {
@@ -3073,10 +3290,24 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -3086,10 +3317,24 @@ export default class Client extends OpenApi {
 
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeZones",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
@@ -3099,10 +3344,29 @@ export default class Client extends OpenApi {
 
   async detachResourceFromVpcEndpointServiceWithOptions(request: DetachResourceFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DetachResourceFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ResourceId"] = request.resourceId;
+    query["ResourceType"] = request.resourceType;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachResourceFromVpcEndpointServiceResponse>(await this.doRPCRequest("DetachResourceFromVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DetachResourceFromVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachResourceFromVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachResourceFromVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new DetachResourceFromVpcEndpointServiceResponse({}));
   }
 
   async detachResourceFromVpcEndpointService(request: DetachResourceFromVpcEndpointServiceRequest): Promise<DetachResourceFromVpcEndpointServiceResponse> {
@@ -3112,10 +3376,28 @@ export default class Client extends OpenApi {
 
   async detachSecurityGroupFromVpcEndpointWithOptions(request: DetachSecurityGroupFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["SecurityGroupId"] = request.securityGroupId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachSecurityGroupFromVpcEndpointResponse>(await this.doRPCRequest("DetachSecurityGroupFromVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DetachSecurityGroupFromVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachSecurityGroupFromVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachSecurityGroupFromVpcEndpointResponse>(await this.callApi(params, req, runtime), new DetachSecurityGroupFromVpcEndpointResponse({}));
   }
 
   async detachSecurityGroupFromVpcEndpoint(request: DetachSecurityGroupFromVpcEndpointRequest): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
@@ -3125,10 +3407,28 @@ export default class Client extends OpenApi {
 
   async disableVpcEndpointConnectionWithOptions(request: DisableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableVpcEndpointConnectionResponse>(await this.doRPCRequest("DisableVpcEndpointConnection", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new DisableVpcEndpointConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableVpcEndpointConnection",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableVpcEndpointConnectionResponse>(await this.callApi(params, req, runtime), new DisableVpcEndpointConnectionResponse({}));
   }
 
   async disableVpcEndpointConnection(request: DisableVpcEndpointConnectionRequest): Promise<DisableVpcEndpointConnectionResponse> {
@@ -3138,10 +3438,29 @@ export default class Client extends OpenApi {
 
   async enableVpcEndpointConnectionWithOptions(request: EnableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Bandwidth"] = request.bandwidth;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableVpcEndpointConnectionResponse>(await this.doRPCRequest("EnableVpcEndpointConnection", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new EnableVpcEndpointConnectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableVpcEndpointConnection",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableVpcEndpointConnectionResponse>(await this.callApi(params, req, runtime), new EnableVpcEndpointConnectionResponse({}));
   }
 
   async enableVpcEndpointConnection(request: EnableVpcEndpointConnectionRequest): Promise<EnableVpcEndpointConnectionResponse> {
@@ -3151,10 +3470,25 @@ export default class Client extends OpenApi {
 
   async getVpcEndpointAttributeWithOptions(request: GetVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetVpcEndpointAttributeResponse>(await this.doRPCRequest("GetVpcEndpointAttribute", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetVpcEndpointAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVpcEndpointAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpcEndpointAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcEndpointAttributeResponse({}));
   }
 
   async getVpcEndpointAttribute(request: GetVpcEndpointAttributeRequest): Promise<GetVpcEndpointAttributeResponse> {
@@ -3164,10 +3498,25 @@ export default class Client extends OpenApi {
 
   async getVpcEndpointServiceAttributeWithOptions(request: GetVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetVpcEndpointServiceAttributeResponse>(await this.doRPCRequest("GetVpcEndpointServiceAttribute", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetVpcEndpointServiceAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVpcEndpointServiceAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVpcEndpointServiceAttributeResponse>(await this.callApi(params, req, runtime), new GetVpcEndpointServiceAttributeResponse({}));
   }
 
   async getVpcEndpointServiceAttribute(request: GetVpcEndpointServiceAttributeRequest): Promise<GetVpcEndpointServiceAttributeResponse> {
@@ -3177,10 +3526,31 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointConnectionsWithOptions(request: ListVpcEndpointConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointConnectionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ConnectionStatus"] = request.connectionStatus;
+    query["EndpointId"] = request.endpointId;
+    query["EndpointOwnerId"] = request.endpointOwnerId;
+    query["EniId"] = request.eniId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointConnectionsResponse>(await this.doRPCRequest("ListVpcEndpointConnections", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointConnectionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointConnections",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointConnectionsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointConnectionsResponse({}));
   }
 
   async listVpcEndpointConnections(request: ListVpcEndpointConnectionsRequest): Promise<ListVpcEndpointConnectionsResponse> {
@@ -3190,10 +3560,27 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointSecurityGroupsWithOptions(request: ListVpcEndpointSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointSecurityGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndpointId"] = request.endpointId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointSecurityGroupsResponse>(await this.doRPCRequest("ListVpcEndpointSecurityGroups", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointSecurityGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointSecurityGroups",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointSecurityGroupsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointSecurityGroupsResponse({}));
   }
 
   async listVpcEndpointSecurityGroups(request: ListVpcEndpointSecurityGroupsRequest): Promise<ListVpcEndpointSecurityGroupsResponse> {
@@ -3203,10 +3590,27 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointServiceResourcesWithOptions(request: ListVpcEndpointServiceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointServiceResourcesResponse>(await this.doRPCRequest("ListVpcEndpointServiceResources", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointServiceResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointServiceResources",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointServiceResourcesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServiceResourcesResponse({}));
   }
 
   async listVpcEndpointServiceResources(request: ListVpcEndpointServiceResourcesRequest): Promise<ListVpcEndpointServiceResourcesResponse> {
@@ -3216,10 +3620,28 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointServiceUsersWithOptions(request: ListVpcEndpointServiceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
+    query["UserId"] = request.userId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointServiceUsersResponse>(await this.doRPCRequest("ListVpcEndpointServiceUsers", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointServiceUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointServiceUsers",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointServiceUsersResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServiceUsersResponse({}));
   }
 
   async listVpcEndpointServiceUsers(request: ListVpcEndpointServiceUsersRequest): Promise<ListVpcEndpointServiceUsersResponse> {
@@ -3229,10 +3651,33 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointServicesWithOptions(request: ListVpcEndpointServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceBusinessStatus"] = request.serviceBusinessStatus;
+    query["ServiceId"] = request.serviceId;
+    query["ServiceName"] = request.serviceName;
+    query["ServiceResourceType"] = request.serviceResourceType;
+    query["ServiceStatus"] = request.serviceStatus;
+    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointServicesResponse>(await this.doRPCRequest("ListVpcEndpointServices", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointServicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointServices",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointServicesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesResponse({}));
   }
 
   async listVpcEndpointServices(request: ListVpcEndpointServicesRequest): Promise<ListVpcEndpointServicesResponse> {
@@ -3242,10 +3687,29 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointServicesByEndUserWithOptions(request: ListVpcEndpointServicesByEndUserRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesByEndUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
+    query["ServiceName"] = request.serviceName;
+    query["ServiceType"] = request.serviceType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.doRPCRequest("ListVpcEndpointServicesByEndUser", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointServicesByEndUser",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointServicesByEndUserResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointServicesByEndUserResponse({}));
   }
 
   async listVpcEndpointServicesByEndUser(request: ListVpcEndpointServicesByEndUserRequest): Promise<ListVpcEndpointServicesByEndUserResponse> {
@@ -3255,10 +3719,27 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointZonesWithOptions(request: ListVpcEndpointZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["EndpointId"] = request.endpointId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointZonesResponse>(await this.doRPCRequest("ListVpcEndpointZones", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpointZones",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointZonesResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointZonesResponse({}));
   }
 
   async listVpcEndpointZones(request: ListVpcEndpointZonesRequest): Promise<ListVpcEndpointZonesResponse> {
@@ -3268,10 +3749,33 @@ export default class Client extends OpenApi {
 
   async listVpcEndpointsWithOptions(request: ListVpcEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ConnectionStatus"] = request.connectionStatus;
+    query["EndpointId"] = request.endpointId;
+    query["EndpointName"] = request.endpointName;
+    query["EndpointStatus"] = request.endpointStatus;
+    query["EndpointType"] = request.endpointType;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceName"] = request.serviceName;
+    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVpcEndpointsResponse>(await this.doRPCRequest("ListVpcEndpoints", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVpcEndpointsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVpcEndpoints",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
   }
 
   async listVpcEndpoints(request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
@@ -3281,10 +3785,23 @@ export default class Client extends OpenApi {
 
   async openPrivateLinkServiceWithOptions(request: OpenPrivateLinkServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPrivateLinkServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OwnerId"] = request.ownerId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OpenPrivateLinkServiceResponse>(await this.doRPCRequest("OpenPrivateLinkService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new OpenPrivateLinkServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenPrivateLinkService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenPrivateLinkServiceResponse>(await this.callApi(params, req, runtime), new OpenPrivateLinkServiceResponse({}));
   }
 
   async openPrivateLinkService(request: OpenPrivateLinkServiceRequest): Promise<OpenPrivateLinkServiceResponse> {
@@ -3294,10 +3811,28 @@ export default class Client extends OpenApi {
 
   async removeUserFromVpcEndpointServiceWithOptions(request: RemoveUserFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
+    query["UserId"] = request.userId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveUserFromVpcEndpointServiceResponse>(await this.doRPCRequest("RemoveUserFromVpcEndpointService", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveUserFromVpcEndpointServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveUserFromVpcEndpointService",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveUserFromVpcEndpointServiceResponse>(await this.callApi(params, req, runtime), new RemoveUserFromVpcEndpointServiceResponse({}));
   }
 
   async removeUserFromVpcEndpointService(request: RemoveUserFromVpcEndpointServiceRequest): Promise<RemoveUserFromVpcEndpointServiceResponse> {
@@ -3307,10 +3842,28 @@ export default class Client extends OpenApi {
 
   async removeZoneFromVpcEndpointWithOptions(request: RemoveZoneFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<RemoveZoneFromVpcEndpointResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveZoneFromVpcEndpointResponse>(await this.doRPCRequest("RemoveZoneFromVpcEndpoint", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveZoneFromVpcEndpointResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveZoneFromVpcEndpoint",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveZoneFromVpcEndpointResponse>(await this.callApi(params, req, runtime), new RemoveZoneFromVpcEndpointResponse({}));
   }
 
   async removeZoneFromVpcEndpoint(request: RemoveZoneFromVpcEndpointRequest): Promise<RemoveZoneFromVpcEndpointResponse> {
@@ -3320,10 +3873,29 @@ export default class Client extends OpenApi {
 
   async updateVpcEndpointAttributeWithOptions(request: UpdateVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointDescription"] = request.endpointDescription;
+    query["EndpointId"] = request.endpointId;
+    query["EndpointName"] = request.endpointName;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateVpcEndpointAttributeResponse>(await this.doRPCRequest("UpdateVpcEndpointAttribute", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVpcEndpointAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateVpcEndpointAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVpcEndpointAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointAttributeResponse({}));
   }
 
   async updateVpcEndpointAttribute(request: UpdateVpcEndpointAttributeRequest): Promise<UpdateVpcEndpointAttributeResponse> {
@@ -3333,10 +3905,29 @@ export default class Client extends OpenApi {
 
   async updateVpcEndpointConnectionAttributeWithOptions(request: UpdateVpcEndpointConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Bandwidth"] = request.bandwidth;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["EndpointId"] = request.endpointId;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateVpcEndpointConnectionAttributeResponse>(await this.doRPCRequest("UpdateVpcEndpointConnectionAttribute", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVpcEndpointConnectionAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateVpcEndpointConnectionAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVpcEndpointConnectionAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointConnectionAttributeResponse({}));
   }
 
   async updateVpcEndpointConnectionAttribute(request: UpdateVpcEndpointConnectionAttributeRequest): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
@@ -3346,10 +3937,31 @@ export default class Client extends OpenApi {
 
   async updateVpcEndpointServiceAttributeWithOptions(request: UpdateVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    query["ClientToken"] = request.clientToken;
+    query["ConnectBandwidth"] = request.connectBandwidth;
+    query["DryRun"] = request.dryRun;
+    query["RegionId"] = request.regionId;
+    query["RegionId"] = request.regionId;
+    query["ServiceDescription"] = request.serviceDescription;
+    query["ServiceId"] = request.serviceId;
+    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateVpcEndpointServiceAttributeResponse>(await this.doRPCRequest("UpdateVpcEndpointServiceAttribute", "2020-04-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateVpcEndpointServiceAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateVpcEndpointServiceAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVpcEndpointServiceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointServiceAttributeResponse({}));
   }
 
   async updateVpcEndpointServiceAttribute(request: UpdateVpcEndpointServiceAttributeRequest): Promise<UpdateVpcEndpointServiceAttributeResponse> {
