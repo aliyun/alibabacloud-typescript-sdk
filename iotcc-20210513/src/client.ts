@@ -4,8 +4,156 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class AddCidrToConnectionPoolRequest extends $tea.Model {
+  cidrs?: string[];
+  clientToken?: string;
+  connectionPoolId?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrs: 'Cidrs',
+      clientToken: 'ClientToken',
+      connectionPoolId: 'ConnectionPoolId',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrs: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
+      connectionPoolId: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCidrToConnectionPoolResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddCidrToConnectionPoolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddCidrToConnectionPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddCidrToConnectionPoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIoTCloudConnectorToGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  ioTCloudConnectorId?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      ioTCloudConnectorId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIoTCloudConnectorToGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddIoTCloudConnectorToGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddIoTCloudConnectorToGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddIoTCloudConnectorToGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class AssociateIpWithConnectionPoolRequest extends $tea.Model {
   clientToken?: string;
@@ -334,6 +482,99 @@ export class CreateConnectionPoolResponse extends $tea.Model {
   }
 }
 
+export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
+  authorizationRuleDescription?: string;
+  authorizationRuleName?: string;
+  clientToken?: string;
+  destination?: string;
+  destinationType?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  policy?: string;
+  regionId?: string;
+  sourceCidrs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleDescription: 'AuthorizationRuleDescription',
+      authorizationRuleName: 'AuthorizationRuleName',
+      clientToken: 'ClientToken',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      policy: 'Policy',
+      regionId: 'RegionId',
+      sourceCidrs: 'SourceCidrs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleDescription: 'string',
+      authorizationRuleName: 'string',
+      clientToken: 'string',
+      destination: 'string',
+      destinationType: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      policy: 'string',
+      regionId: 'string',
+      sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupAuthorizationRuleResponseBody extends $tea.Model {
+  authorizationRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateGroupAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIoTCloudConnectorRequest extends $tea.Model {
   APN?: string;
   clientToken?: string;
@@ -413,6 +654,81 @@ export class CreateIoTCloudConnectorResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateIoTCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorGroupRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorGroupResponseBody extends $tea.Model {
+  ioTCloudConnectorGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIoTCloudConnectorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateIoTCloudConnectorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateIoTCloudConnectorGroupResponseBody,
     };
   }
 
@@ -730,6 +1046,78 @@ export class DeleteConnectionPoolResponse extends $tea.Model {
   }
 }
 
+export class DeleteGroupAuthorizationRuleRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupAuthorizationRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteGroupAuthorizationRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteIoTCloudConnectorRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -791,6 +1179,75 @@ export class DeleteIoTCloudConnectorResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteIoTCloudConnectorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIoTCloudConnectorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteIoTCloudConnectorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteIoTCloudConnectorGroupResponseBody,
     };
   }
 
@@ -1723,6 +2180,96 @@ export class ListAuthorizationRulesResponse extends $tea.Model {
   }
 }
 
+export class ListConnectionPoolAllIpsRequest extends $tea.Model {
+  connectionPoolId?: string;
+  ioTCloudConnectorId?: string;
+  ip?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionPoolId: 'ConnectionPoolId',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ip: 'Ip',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionPoolId: 'string',
+      ioTCloudConnectorId: 'string',
+      ip: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionPoolAllIpsResponseBody extends $tea.Model {
+  connectionPoolIps?: ListConnectionPoolAllIpsResponseBodyConnectionPoolIps[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      connectionPoolIps: 'ConnectionPoolIps',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionPoolIps: { 'type': 'array', 'itemType': ListConnectionPoolAllIpsResponseBodyConnectionPoolIps },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListConnectionPoolAllIpsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListConnectionPoolAllIpsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListConnectionPoolAllIpsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConnectionPoolIpsRequest extends $tea.Model {
   connectionPoolId?: string;
   ioTCloudConnectorId?: string;
@@ -1900,6 +2447,105 @@ export class ListConnectionPoolsResponse extends $tea.Model {
   }
 }
 
+export class ListGroupAuthorizationRulesRequest extends $tea.Model {
+  authorizationRuleIds?: string[];
+  authorizationRuleName?: string[];
+  authorizationRuleStatus?: string[];
+  destination?: string[];
+  destinationType?: string[];
+  ioTCloudConnectorGroupId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  policy?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleIds: 'AuthorizationRuleIds',
+      authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleStatus: 'AuthorizationRuleStatus',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      policy: 'Policy',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleIds: { 'type': 'array', 'itemType': 'string' },
+      authorizationRuleName: { 'type': 'array', 'itemType': 'string' },
+      authorizationRuleStatus: { 'type': 'array', 'itemType': 'string' },
+      destination: { 'type': 'array', 'itemType': 'string' },
+      destinationType: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      policy: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupAuthorizationRulesResponseBody extends $tea.Model {
+  groupAuthorizationRules?: ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupAuthorizationRules: 'GroupAuthorizationRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupAuthorizationRules: { 'type': 'array', 'itemType': ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupAuthorizationRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListGroupAuthorizationRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListGroupAuthorizationRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorAvailableZonesRequest extends $tea.Model {
   ioTCloudConnectorId?: string;
   regionId?: string;
@@ -1969,12 +2615,100 @@ export class ListIoTCloudConnectorAvailableZonesResponse extends $tea.Model {
   }
 }
 
+export class ListIoTCloudConnectorGroupsRequest extends $tea.Model {
+  ioTCloudConnectorGroupIds?: string[];
+  ioTCloudConnectorGroupName?: string[];
+  ioTCloudConnectorGroupStatus?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorGroupIds: 'IoTCloudConnectorGroupIds',
+      ioTCloudConnectorGroupName: 'IoTCloudConnectorGroupName',
+      ioTCloudConnectorGroupStatus: 'IoTCloudConnectorGroupStatus',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorGroupIds: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupName: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupStatus: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorGroupsResponseBody extends $tea.Model {
+  ioTCloudConnectorGroups?: ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorGroups: 'IoTCloudConnectorGroups',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorGroups: { 'type': 'array', 'itemType': ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorGroupsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListIoTCloudConnectorGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListIoTCloudConnectorGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorsRequest extends $tea.Model {
   APN?: string[];
   ISP?: string[];
   ioTCloudConnectorIds?: string[];
   ioTCloudConnectorName?: string[];
   ioTCloudConnectorStatus?: string[];
+  isInGroup?: boolean;
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
@@ -1986,6 +2720,7 @@ export class ListIoTCloudConnectorsRequest extends $tea.Model {
       ioTCloudConnectorIds: 'IoTCloudConnectorIds',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
+      isInGroup: 'IsInGroup',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
@@ -2000,6 +2735,7 @@ export class ListIoTCloudConnectorsRequest extends $tea.Model {
       ioTCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorName: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorStatus: { 'type': 'array', 'itemType': 'string' },
+      isInGroup: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
@@ -2380,6 +3116,78 @@ export class OpenIoTCloudConnectorServiceResponse extends $tea.Model {
   }
 }
 
+export class RemoveIoTCloudConnectorFromGroupRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  ioTCloudConnectorId?: string[];
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      ioTCloudConnectorId: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveIoTCloudConnectorFromGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveIoTCloudConnectorFromGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveIoTCloudConnectorFromGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveIoTCloudConnectorFromGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAuthorizationRuleAttributeRequest extends $tea.Model {
   authorizationRuleDescription?: string;
   authorizationRuleId?: string;
@@ -2554,6 +3362,102 @@ export class UpdateConnectionPoolAttributeResponse extends $tea.Model {
   }
 }
 
+export class UpdateGroupAuthorizationRuleAttributeRequest extends $tea.Model {
+  authorizationRuleDescription?: string;
+  authorizationRuleId?: string;
+  authorizationRuleName?: string;
+  clientToken?: string;
+  destination?: string;
+  destinationType?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  policy?: string;
+  regionId?: string;
+  sourceCidrs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleDescription: 'AuthorizationRuleDescription',
+      authorizationRuleId: 'AuthorizationRuleId',
+      authorizationRuleName: 'AuthorizationRuleName',
+      clientToken: 'ClientToken',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      policy: 'Policy',
+      regionId: 'RegionId',
+      sourceCidrs: 'SourceCidrs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleDescription: 'string',
+      authorizationRuleId: 'string',
+      authorizationRuleName: 'string',
+      clientToken: 'string',
+      destination: 'string',
+      destinationType: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      policy: 'string',
+      regionId: 'string',
+      sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupAuthorizationRuleAttributeResponseBody extends $tea.Model {
+  authorizationRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupAuthorizationRuleAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateGroupAuthorizationRuleAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateGroupAuthorizationRuleAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIoTCloudConnectorAttributeRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -2627,6 +3531,81 @@ export class UpdateIoTCloudConnectorAttributeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateIoTCloudConnectorAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIoTCloudConnectorGroupAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  name?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      name: 'Name',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      name: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIoTCloudConnectorGroupAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIoTCloudConnectorGroupAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateIoTCloudConnectorGroupAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateIoTCloudConnectorGroupAttributeResponseBody,
     };
   }
 
@@ -2871,6 +3850,37 @@ export class ListAuthorizationRulesResponseBodyAuthorizationRules extends $tea.M
   }
 }
 
+export class ListConnectionPoolAllIpsResponseBodyConnectionPoolIps extends $tea.Model {
+  connectionPoolId?: string;
+  ip?: string;
+  ipNum?: number;
+  status?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionPoolId: 'ConnectionPoolId',
+      ip: 'Ip',
+      ipNum: 'IpNum',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionPoolId: 'string',
+      ip: 'string',
+      ipNum: 'number',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConnectionPoolIpsResponseBodyConnectionPoolIps extends $tea.Model {
   connectionPoolId?: string;
   ip?: string;
@@ -2930,12 +3940,121 @@ export class ListConnectionPoolsResponseBodyConnectionPools extends $tea.Model {
   }
 }
 
+export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules extends $tea.Model {
+  authorizationRuleDescription?: string;
+  authorizationRuleId?: string;
+  authorizationRuleName?: string;
+  authorizationRuleStatus?: string;
+  destination?: string;
+  destinationType?: string;
+  ioTCloudConnectorGroupId?: string;
+  policy?: string;
+  sourceCidrs?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleDescription: 'AuthorizationRuleDescription',
+      authorizationRuleId: 'AuthorizationRuleId',
+      authorizationRuleName: 'AuthorizationRuleName',
+      authorizationRuleStatus: 'AuthorizationRuleStatus',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      policy: 'Policy',
+      sourceCidrs: 'SourceCidrs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleDescription: 'string',
+      authorizationRuleId: 'string',
+      authorizationRuleName: 'string',
+      authorizationRuleStatus: 'string',
+      destination: 'string',
+      destinationType: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      policy: 'string',
+      sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors extends $tea.Model {
+  createTime?: number;
+  ioTCloudConnectorDescription?: string;
+  ioTCloudConnectorId?: string;
+  ioTCloudConnectorName?: string;
+  ioTCloudConnectorStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      ioTCloudConnectorDescription: 'IoTCloudConnectorDescription',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      ioTCloudConnectorName: 'IoTCloudConnectorName',
+      ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      ioTCloudConnectorDescription: 'string',
+      ioTCloudConnectorId: 'string',
+      ioTCloudConnectorName: 'string',
+      ioTCloudConnectorStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroups extends $tea.Model {
+  createTime?: number;
+  description?: string;
+  ioTCloudConnectorGroupId?: string;
+  ioTCloudConnectorGroupStatus?: string;
+  ioTCloudConnectors?: ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors[];
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      description: 'Description',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      ioTCloudConnectorGroupStatus: 'IoTCloudConnectorGroupStatus',
+      ioTCloudConnectors: 'IoTCloudConnectors',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      description: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      ioTCloudConnectorGroupStatus: 'string',
+      ioTCloudConnectors: { 'type': 'array', 'itemType': ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors },
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.Model {
   APN?: string;
   createTime?: number;
   ISP?: string;
   ioTCloudConnectorBusinessStatus?: string;
   ioTCloudConnectorDescription?: string;
+  ioTCloudConnectorGroupId?: string;
   ioTCloudConnectorId?: string;
   ioTCloudConnectorName?: string;
   ioTCloudConnectorStatus?: string;
@@ -2951,6 +4070,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       ISP: 'ISP',
       ioTCloudConnectorBusinessStatus: 'IoTCloudConnectorBusinessStatus',
       ioTCloudConnectorDescription: 'IoTCloudConnectorDescription',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
@@ -2969,6 +4089,7 @@ export class ListIoTCloudConnectorsResponseBodyIoTCloudConnectors extends $tea.M
       ISP: 'string',
       ioTCloudConnectorBusinessStatus: 'string',
       ioTCloudConnectorDescription: 'string',
+      ioTCloudConnectorGroupId: 'string',
       ioTCloudConnectorId: 'string',
       ioTCloudConnectorName: 'string',
       ioTCloudConnectorStatus: 'string',
@@ -3101,12 +4222,92 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async addCidrToConnectionPoolWithOptions(request: AddCidrToConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddCidrToConnectionPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Cidrs"] = request.cidrs;
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddCidrToConnectionPool",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCidrToConnectionPoolResponse>(await this.callApi(params, req, runtime), new AddCidrToConnectionPoolResponse({}));
+  }
+
+  async addCidrToConnectionPool(request: AddCidrToConnectionPoolRequest): Promise<AddCidrToConnectionPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addCidrToConnectionPoolWithOptions(request, runtime);
+  }
+
+  async addIoTCloudConnectorToGroupWithOptions(request: AddIoTCloudConnectorToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddIoTCloudConnectorToGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddIoTCloudConnectorToGroup",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddIoTCloudConnectorToGroupResponse>(await this.callApi(params, req, runtime), new AddIoTCloudConnectorToGroupResponse({}));
+  }
+
+  async addIoTCloudConnectorToGroup(request: AddIoTCloudConnectorToGroupRequest): Promise<AddIoTCloudConnectorToGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addIoTCloudConnectorToGroupWithOptions(request, runtime);
+  }
+
   async associateIpWithConnectionPoolWithOptions(request: AssociateIpWithConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<AssociateIpWithConnectionPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Ips"] = request.ips;
+    query["IpsFilePath"] = request.ipsFilePath;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssociateIpWithConnectionPoolResponse>(await this.doRPCRequest("AssociateIpWithConnectionPool", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateIpWithConnectionPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateIpWithConnectionPool",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateIpWithConnectionPoolResponse>(await this.callApi(params, req, runtime), new AssociateIpWithConnectionPoolResponse({}));
   }
 
   async associateIpWithConnectionPool(request: AssociateIpWithConnectionPoolRequest): Promise<AssociateIpWithConnectionPoolResponse> {
@@ -3116,10 +4317,28 @@ export default class Client extends OpenApi {
 
   async associateVSwitchWithIoTCloudConnectorWithOptions(request: AssociateVSwitchWithIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVSwitchWithIoTCloudConnectorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["VSwitchList"] = request.vSwitchList;
+    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssociateVSwitchWithIoTCloudConnectorResponse>(await this.doRPCRequest("AssociateVSwitchWithIoTCloudConnector", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateVSwitchWithIoTCloudConnectorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AssociateVSwitchWithIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateVSwitchWithIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new AssociateVSwitchWithIoTCloudConnectorResponse({}));
   }
 
   async associateVSwitchWithIoTCloudConnector(request: AssociateVSwitchWithIoTCloudConnectorRequest): Promise<AssociateVSwitchWithIoTCloudConnectorResponse> {
@@ -3129,10 +4348,32 @@ export default class Client extends OpenApi {
 
   async createAuthorizationRuleWithOptions(request: CreateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorizationRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["ClientToken"] = request.clientToken;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
+    query["SourceCidrs"] = request.sourceCidrs;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAuthorizationRuleResponse>(await this.doRPCRequest("CreateAuthorizationRule", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAuthorizationRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAuthorizationRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new CreateAuthorizationRuleResponse({}));
   }
 
   async createAuthorizationRule(request: CreateAuthorizationRuleRequest): Promise<CreateAuthorizationRuleResponse> {
@@ -3142,10 +4383,30 @@ export default class Client extends OpenApi {
 
   async createConnectionPoolWithOptions(request: CreateConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Cidrs"] = request.cidrs;
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolDescription"] = request.connectionPoolDescription;
+    query["ConnectionPoolName"] = request.connectionPoolName;
+    query["Count"] = request.count;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateConnectionPoolResponse>(await this.doRPCRequest("CreateConnectionPool", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new CreateConnectionPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateConnectionPool",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConnectionPoolResponse>(await this.callApi(params, req, runtime), new CreateConnectionPoolResponse({}));
   }
 
   async createConnectionPool(request: CreateConnectionPoolRequest): Promise<CreateConnectionPoolResponse> {
@@ -3153,12 +4414,68 @@ export default class Client extends OpenApi {
     return await this.createConnectionPoolWithOptions(request, runtime);
   }
 
+  async createGroupAuthorizationRuleWithOptions(request: CreateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["ClientToken"] = request.clientToken;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
+    query["SourceCidrs"] = request.sourceCidrs;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGroupAuthorizationRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new CreateGroupAuthorizationRuleResponse({}));
+  }
+
+  async createGroupAuthorizationRule(request: CreateGroupAuthorizationRuleRequest): Promise<CreateGroupAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
   async createIoTCloudConnectorWithOptions(request: CreateIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["APN"] = request.APN;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["ISP"] = request.ISP;
+    query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
+    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    query["RegionId"] = request.regionId;
+    query["ResourceUid"] = request.resourceUid;
+    query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateIoTCloudConnectorResponse>(await this.doRPCRequest("CreateIoTCloudConnector", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIoTCloudConnectorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new CreateIoTCloudConnectorResponse({}));
   }
 
   async createIoTCloudConnector(request: CreateIoTCloudConnectorRequest): Promise<CreateIoTCloudConnectorResponse> {
@@ -3166,12 +4483,60 @@ export default class Client extends OpenApi {
     return await this.createIoTCloudConnectorWithOptions(request, runtime);
   }
 
+  async createIoTCloudConnectorGroupWithOptions(request: CreateIoTCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["DryRun"] = request.dryRun;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIoTCloudConnectorGroup",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIoTCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new CreateIoTCloudConnectorGroupResponse({}));
+  }
+
+  async createIoTCloudConnectorGroup(request: CreateIoTCloudConnectorGroupRequest): Promise<CreateIoTCloudConnectorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIoTCloudConnectorGroupWithOptions(request, runtime);
+  }
+
   async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceDescription"] = request.serviceDescription;
+    query["ServiceName"] = request.serviceName;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateServiceResponse>(await this.doRPCRequest("CreateService", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
   }
 
   async createService(request: CreateServiceRequest): Promise<CreateServiceResponse> {
@@ -3181,10 +4546,31 @@ export default class Client extends OpenApi {
 
   async createServiceEntryWithOptions(request: CreateServiceEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceEntryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceEntryDescription"] = request.serviceEntryDescription;
+    query["ServiceEntryName"] = request.serviceEntryName;
+    query["ServiceId"] = request.serviceId;
+    query["Target"] = request.target;
+    query["TargetType"] = request.targetType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateServiceEntryResponse>(await this.doRPCRequest("CreateServiceEntry", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceEntryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServiceEntry",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceEntryResponse>(await this.callApi(params, req, runtime), new CreateServiceEntryResponse({}));
   }
 
   async createServiceEntry(request: CreateServiceEntryRequest): Promise<CreateServiceEntryResponse> {
@@ -3194,10 +4580,27 @@ export default class Client extends OpenApi {
 
   async deleteAuthorizationRuleWithOptions(request: DeleteAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthorizationRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleId"] = request.authorizationRuleId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAuthorizationRuleResponse>(await this.doRPCRequest("DeleteAuthorizationRule", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAuthorizationRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAuthorizationRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new DeleteAuthorizationRuleResponse({}));
   }
 
   async deleteAuthorizationRule(request: DeleteAuthorizationRuleRequest): Promise<DeleteAuthorizationRuleResponse> {
@@ -3207,10 +4610,27 @@ export default class Client extends OpenApi {
 
   async deleteConnectionPoolWithOptions(request: DeleteConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteConnectionPoolResponse>(await this.doRPCRequest("DeleteConnectionPool", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteConnectionPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteConnectionPool",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteConnectionPoolResponse>(await this.callApi(params, req, runtime), new DeleteConnectionPoolResponse({}));
   }
 
   async deleteConnectionPool(request: DeleteConnectionPoolRequest): Promise<DeleteConnectionPoolResponse> {
@@ -3218,12 +4638,58 @@ export default class Client extends OpenApi {
     return await this.deleteConnectionPoolWithOptions(request, runtime);
   }
 
+  async deleteGroupAuthorizationRuleWithOptions(request: DeleteGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupAuthorizationRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleId"] = request.authorizationRuleId;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGroupAuthorizationRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupAuthorizationRuleResponse>(await this.callApi(params, req, runtime), new DeleteGroupAuthorizationRuleResponse({}));
+  }
+
+  async deleteGroupAuthorizationRule(request: DeleteGroupAuthorizationRuleRequest): Promise<DeleteGroupAuthorizationRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
   async deleteIoTCloudConnectorWithOptions(request: DeleteIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteIoTCloudConnectorResponse>(await this.doRPCRequest("DeleteIoTCloudConnector", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIoTCloudConnectorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new DeleteIoTCloudConnectorResponse({}));
   }
 
   async deleteIoTCloudConnector(request: DeleteIoTCloudConnectorRequest): Promise<DeleteIoTCloudConnectorResponse> {
@@ -3231,12 +4697,58 @@ export default class Client extends OpenApi {
     return await this.deleteIoTCloudConnectorWithOptions(request, runtime);
   }
 
+  async deleteIoTCloudConnectorGroupWithOptions(request: DeleteIoTCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIoTCloudConnectorGroup",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIoTCloudConnectorGroupResponse>(await this.callApi(params, req, runtime), new DeleteIoTCloudConnectorGroupResponse({}));
+  }
+
+  async deleteIoTCloudConnectorGroup(request: DeleteIoTCloudConnectorGroupRequest): Promise<DeleteIoTCloudConnectorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIoTCloudConnectorGroupWithOptions(request, runtime);
+  }
+
   async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteServiceResponse>(await this.doRPCRequest("DeleteService", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
   }
 
   async deleteService(request: DeleteServiceRequest): Promise<DeleteServiceResponse> {
@@ -3246,10 +4758,28 @@ export default class Client extends OpenApi {
 
   async deleteServiceEntryWithOptions(request: DeleteServiceEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceEntryResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceEntryId"] = request.serviceEntryId;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteServiceEntryResponse>(await this.doRPCRequest("DeleteServiceEntry", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceEntryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteServiceEntry",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceEntryResponse>(await this.callApi(params, req, runtime), new DeleteServiceEntryResponse({}));
   }
 
   async deleteServiceEntry(request: DeleteServiceEntryRequest): Promise<DeleteServiceEntryResponse> {
@@ -3259,10 +4789,26 @@ export default class Client extends OpenApi {
 
   async disableIoTCloudConnectorAccessLogWithOptions(request: DisableIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<DisableIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableIoTCloudConnectorAccessLogResponse>(await this.doRPCRequest("DisableIoTCloudConnectorAccessLog", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DisableIoTCloudConnectorAccessLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableIoTCloudConnectorAccessLog",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableIoTCloudConnectorAccessLogResponse>(await this.callApi(params, req, runtime), new DisableIoTCloudConnectorAccessLogResponse({}));
   }
 
   async disableIoTCloudConnectorAccessLog(request: DisableIoTCloudConnectorAccessLogRequest): Promise<DisableIoTCloudConnectorAccessLogResponse> {
@@ -3272,10 +4818,29 @@ export default class Client extends OpenApi {
 
   async dissociateIpFromConnectionPoolWithOptions(request: DissociateIpFromConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<DissociateIpFromConnectionPoolResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Ips"] = request.ips;
+    query["IpsFilePath"] = request.ipsFilePath;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DissociateIpFromConnectionPoolResponse>(await this.doRPCRequest("DissociateIpFromConnectionPool", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateIpFromConnectionPoolResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateIpFromConnectionPool",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateIpFromConnectionPoolResponse>(await this.callApi(params, req, runtime), new DissociateIpFromConnectionPoolResponse({}));
   }
 
   async dissociateIpFromConnectionPool(request: DissociateIpFromConnectionPoolRequest): Promise<DissociateIpFromConnectionPoolResponse> {
@@ -3285,10 +4850,26 @@ export default class Client extends OpenApi {
 
   async dissociateVSwitchFromIoTCloudConnectorWithOptions(request: DissociateVSwitchFromIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DissociateVSwitchFromIoTCloudConnectorResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DissociateVSwitchFromIoTCloudConnectorResponse>(await this.doRPCRequest("DissociateVSwitchFromIoTCloudConnector", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new DissociateVSwitchFromIoTCloudConnectorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DissociateVSwitchFromIoTCloudConnector",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DissociateVSwitchFromIoTCloudConnectorResponse>(await this.callApi(params, req, runtime), new DissociateVSwitchFromIoTCloudConnectorResponse({}));
   }
 
   async dissociateVSwitchFromIoTCloudConnector(request: DissociateVSwitchFromIoTCloudConnectorRequest): Promise<DissociateVSwitchFromIoTCloudConnectorResponse> {
@@ -3298,10 +4879,28 @@ export default class Client extends OpenApi {
 
   async enableIoTCloudConnectorAccessLogWithOptions(request: EnableIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<EnableIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AccessLogSlsLogStore"] = request.accessLogSlsLogStore;
+    query["AccessLogSlsProject"] = request.accessLogSlsProject;
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<EnableIoTCloudConnectorAccessLogResponse>(await this.doRPCRequest("EnableIoTCloudConnectorAccessLog", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new EnableIoTCloudConnectorAccessLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableIoTCloudConnectorAccessLog",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableIoTCloudConnectorAccessLogResponse>(await this.callApi(params, req, runtime), new EnableIoTCloudConnectorAccessLogResponse({}));
   }
 
   async enableIoTCloudConnectorAccessLog(request: EnableIoTCloudConnectorAccessLogRequest): Promise<EnableIoTCloudConnectorAccessLogResponse> {
@@ -3311,10 +4910,26 @@ export default class Client extends OpenApi {
 
   async getConnectionPoolIpOperationResultWithOptions(request: GetConnectionPoolIpOperationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionPoolIpOperationResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["QueryRequestId"] = request.queryRequestId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetConnectionPoolIpOperationResultResponse>(await this.doRPCRequest("GetConnectionPoolIpOperationResult", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new GetConnectionPoolIpOperationResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetConnectionPoolIpOperationResult",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConnectionPoolIpOperationResultResponse>(await this.callApi(params, req, runtime), new GetConnectionPoolIpOperationResultResponse({}));
   }
 
   async getConnectionPoolIpOperationResult(request: GetConnectionPoolIpOperationResultRequest): Promise<GetConnectionPoolIpOperationResultResponse> {
@@ -3324,10 +4939,26 @@ export default class Client extends OpenApi {
 
   async getIoTCloudConnectorAccessLogWithOptions(request: GetIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<GetIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetIoTCloudConnectorAccessLogResponse>(await this.doRPCRequest("GetIoTCloudConnectorAccessLog", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new GetIoTCloudConnectorAccessLogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetIoTCloudConnectorAccessLog",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIoTCloudConnectorAccessLogResponse>(await this.callApi(params, req, runtime), new GetIoTCloudConnectorAccessLogResponse({}));
   }
 
   async getIoTCloudConnectorAccessLog(request: GetIoTCloudConnectorAccessLogRequest): Promise<GetIoTCloudConnectorAccessLogResponse> {
@@ -3337,10 +4968,28 @@ export default class Client extends OpenApi {
 
   async getStsInfoAndOssPathWithOptions(request: GetStsInfoAndOssPathRequest, runtime: $Util.RuntimeOptions): Promise<GetStsInfoAndOssPathResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["DryRun"] = request.dryRun;
+    query["FileName"] = request.fileName;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetStsInfoAndOssPathResponse>(await this.doRPCRequest("GetStsInfoAndOssPath", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new GetStsInfoAndOssPathResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetStsInfoAndOssPath",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStsInfoAndOssPathResponse>(await this.callApi(params, req, runtime), new GetStsInfoAndOssPathResponse({}));
   }
 
   async getStsInfoAndOssPath(request: GetStsInfoAndOssPathRequest): Promise<GetStsInfoAndOssPathResponse> {
@@ -3350,10 +4999,24 @@ export default class Client extends OpenApi {
 
   async grantVirtualBorderRouterWithOptions(request: GrantVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<GrantVirtualBorderRouterResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
+    query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GrantVirtualBorderRouterResponse>(await this.doRPCRequest("GrantVirtualBorderRouter", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new GrantVirtualBorderRouterResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GrantVirtualBorderRouter",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantVirtualBorderRouterResponse>(await this.callApi(params, req, runtime), new GrantVirtualBorderRouterResponse({}));
   }
 
   async grantVirtualBorderRouter(request: GrantVirtualBorderRouterRequest): Promise<GrantVirtualBorderRouterResponse> {
@@ -3363,10 +5026,27 @@ export default class Client extends OpenApi {
 
   async listAPNsWithOptions(request: ListAPNsRequest, runtime: $Util.RuntimeOptions): Promise<ListAPNsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["APN"] = request.APN;
+    query["ISP"] = request.ISP;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAPNsResponse>(await this.doRPCRequest("ListAPNs", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListAPNsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAPNs",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAPNsResponse>(await this.callApi(params, req, runtime), new ListAPNsResponse({}));
   }
 
   async listAPNs(request: ListAPNsRequest): Promise<ListAPNsResponse> {
@@ -3376,10 +5056,32 @@ export default class Client extends OpenApi {
 
   async listAuthorizationRulesWithOptions(request: ListAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizationRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleIds"] = request.authorizationRuleIds;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAuthorizationRulesResponse>(await this.doRPCRequest("ListAuthorizationRules", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListAuthorizationRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAuthorizationRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new ListAuthorizationRulesResponse({}));
   }
 
   async listAuthorizationRules(request: ListAuthorizationRulesRequest): Promise<ListAuthorizationRulesResponse> {
@@ -3387,12 +5089,62 @@ export default class Client extends OpenApi {
     return await this.listAuthorizationRulesWithOptions(request, runtime);
   }
 
+  async listConnectionPoolAllIpsWithOptions(request: ListConnectionPoolAllIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolAllIpsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Ip"] = request.ip;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["Type"] = request.type;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListConnectionPoolAllIps",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConnectionPoolAllIpsResponse>(await this.callApi(params, req, runtime), new ListConnectionPoolAllIpsResponse({}));
+  }
+
+  async listConnectionPoolAllIps(request: ListConnectionPoolAllIpsRequest): Promise<ListConnectionPoolAllIpsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listConnectionPoolAllIpsWithOptions(request, runtime);
+  }
+
   async listConnectionPoolIpsWithOptions(request: ListConnectionPoolIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolIpsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Ip"] = request.ip;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListConnectionPoolIpsResponse>(await this.doRPCRequest("ListConnectionPoolIps", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListConnectionPoolIpsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListConnectionPoolIps",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConnectionPoolIpsResponse>(await this.callApi(params, req, runtime), new ListConnectionPoolIpsResponse({}));
   }
 
   async listConnectionPoolIps(request: ListConnectionPoolIpsRequest): Promise<ListConnectionPoolIpsResponse> {
@@ -3402,10 +5154,29 @@ export default class Client extends OpenApi {
 
   async listConnectionPoolsWithOptions(request: ListConnectionPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ConnectionPoolIds"] = request.connectionPoolIds;
+    query["ConnectionPoolName"] = request.connectionPoolName;
+    query["ConnectionPoolStatus"] = request.connectionPoolStatus;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListConnectionPoolsResponse>(await this.doRPCRequest("ListConnectionPools", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListConnectionPoolsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListConnectionPools",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConnectionPoolsResponse>(await this.callApi(params, req, runtime), new ListConnectionPoolsResponse({}));
   }
 
   async listConnectionPools(request: ListConnectionPoolsRequest): Promise<ListConnectionPoolsResponse> {
@@ -3413,12 +5184,61 @@ export default class Client extends OpenApi {
     return await this.listConnectionPoolsWithOptions(request, runtime);
   }
 
+  async listGroupAuthorizationRulesWithOptions(request: ListGroupAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupAuthorizationRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleIds"] = request.authorizationRuleIds;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupAuthorizationRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupAuthorizationRulesResponse>(await this.callApi(params, req, runtime), new ListGroupAuthorizationRulesResponse({}));
+  }
+
+  async listGroupAuthorizationRules(request: ListGroupAuthorizationRulesRequest): Promise<ListGroupAuthorizationRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupAuthorizationRulesWithOptions(request, runtime);
+  }
+
   async listIoTCloudConnectorAvailableZonesWithOptions(request: ListIoTCloudConnectorAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListIoTCloudConnectorAvailableZonesResponse>(await this.doRPCRequest("ListIoTCloudConnectorAvailableZones", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListIoTCloudConnectorAvailableZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectorAvailableZones",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorAvailableZonesResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorAvailableZonesResponse({}));
   }
 
   async listIoTCloudConnectorAvailableZones(request: ListIoTCloudConnectorAvailableZonesRequest): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
@@ -3426,12 +5246,65 @@ export default class Client extends OpenApi {
     return await this.listIoTCloudConnectorAvailableZonesWithOptions(request, runtime);
   }
 
+  async listIoTCloudConnectorGroupsWithOptions(request: ListIoTCloudConnectorGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["IoTCloudConnectorGroupIds"] = request.ioTCloudConnectorGroupIds;
+    query["IoTCloudConnectorGroupName"] = request.ioTCloudConnectorGroupName;
+    query["IoTCloudConnectorGroupStatus"] = request.ioTCloudConnectorGroupStatus;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectorGroups",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorGroupsResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorGroupsResponse({}));
+  }
+
+  async listIoTCloudConnectorGroups(request: ListIoTCloudConnectorGroupsRequest): Promise<ListIoTCloudConnectorGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIoTCloudConnectorGroupsWithOptions(request, runtime);
+  }
+
   async listIoTCloudConnectorsWithOptions(request: ListIoTCloudConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["APN"] = request.APN;
+    query["ISP"] = request.ISP;
+    query["IoTCloudConnectorIds"] = request.ioTCloudConnectorIds;
+    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    query["IoTCloudConnectorStatus"] = request.ioTCloudConnectorStatus;
+    query["IsInGroup"] = request.isInGroup;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["VpcId"] = request.vpcId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListIoTCloudConnectorsResponse>(await this.doRPCRequest("ListIoTCloudConnectors", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListIoTCloudConnectorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListIoTCloudConnectors",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIoTCloudConnectorsResponse>(await this.callApi(params, req, runtime), new ListIoTCloudConnectorsResponse({}));
   }
 
   async listIoTCloudConnectors(request: ListIoTCloudConnectorsRequest): Promise<ListIoTCloudConnectorsResponse> {
@@ -3441,10 +5314,24 @@ export default class Client extends OpenApi {
 
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AcceptLanguage"] = request.acceptLanguage;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRegionsResponse>(await this.doRPCRequest("ListRegions", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRegions",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
   }
 
   async listRegions(request: ListRegionsRequest): Promise<ListRegionsResponse> {
@@ -3454,10 +5341,29 @@ export default class Client extends OpenApi {
 
   async listServiceWithOptions(request: ListServiceRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ResourceStatuses"] = request.resourceStatuses;
+    query["ServiceIds"] = request.serviceIds;
+    query["ServiceNames"] = request.serviceNames;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceResponse>(await this.doRPCRequest("ListService", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceResponse>(await this.callApi(params, req, runtime), new ListServiceResponse({}));
   }
 
   async listService(request: ListServiceRequest): Promise<ListServiceResponse> {
@@ -3467,10 +5373,32 @@ export default class Client extends OpenApi {
 
   async listServiceEntriesWithOptions(request: ListServiceEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceEntriesResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["RegionId"] = request.regionId;
+    query["ServiceEntryIds"] = request.serviceEntryIds;
+    query["ServiceEntryName"] = request.serviceEntryName;
+    query["ServiceEntryStatus"] = request.serviceEntryStatus;
+    query["ServiceId"] = request.serviceId;
+    query["Target"] = request.target;
+    query["TargetType"] = request.targetType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListServiceEntriesResponse>(await this.doRPCRequest("ListServiceEntries", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new ListServiceEntriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListServiceEntries",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServiceEntriesResponse>(await this.callApi(params, req, runtime), new ListServiceEntriesResponse({}));
   }
 
   async listServiceEntries(request: ListServiceEntriesRequest): Promise<ListServiceEntriesResponse> {
@@ -3480,10 +5408,23 @@ export default class Client extends OpenApi {
 
   async openIoTCloudConnectorServiceWithOptions(request: OpenIoTCloudConnectorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenIoTCloudConnectorServiceResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OpenIoTCloudConnectorServiceResponse>(await this.doRPCRequest("OpenIoTCloudConnectorService", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new OpenIoTCloudConnectorServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OpenIoTCloudConnectorService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenIoTCloudConnectorServiceResponse>(await this.callApi(params, req, runtime), new OpenIoTCloudConnectorServiceResponse({}));
   }
 
   async openIoTCloudConnectorService(request: OpenIoTCloudConnectorServiceRequest): Promise<OpenIoTCloudConnectorServiceResponse> {
@@ -3491,12 +5432,65 @@ export default class Client extends OpenApi {
     return await this.openIoTCloudConnectorServiceWithOptions(request, runtime);
   }
 
+  async removeIoTCloudConnectorFromGroupWithOptions(request: RemoveIoTCloudConnectorFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIoTCloudConnectorFromGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveIoTCloudConnectorFromGroup",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveIoTCloudConnectorFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveIoTCloudConnectorFromGroupResponse({}));
+  }
+
+  async removeIoTCloudConnectorFromGroup(request: RemoveIoTCloudConnectorFromGroupRequest): Promise<RemoveIoTCloudConnectorFromGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeIoTCloudConnectorFromGroupWithOptions(request, runtime);
+  }
+
   async updateAuthorizationRuleAttributeWithOptions(request: UpdateAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorizationRuleAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    query["AuthorizationRuleId"] = request.authorizationRuleId;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["ClientToken"] = request.clientToken;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
+    query["SourceCidrs"] = request.sourceCidrs;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAuthorizationRuleAttributeResponse>(await this.doRPCRequest("UpdateAuthorizationRuleAttribute", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAuthorizationRuleAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAuthorizationRuleAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAuthorizationRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateAuthorizationRuleAttributeResponse({}));
   }
 
   async updateAuthorizationRuleAttribute(request: UpdateAuthorizationRuleAttributeRequest): Promise<UpdateAuthorizationRuleAttributeResponse> {
@@ -3506,10 +5500,31 @@ export default class Client extends OpenApi {
 
   async updateConnectionPoolAttributeWithOptions(request: UpdateConnectionPoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionPoolAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Cidrs"] = request.cidrs;
+    query["ClientToken"] = request.clientToken;
+    query["ConnectionPoolDescription"] = request.connectionPoolDescription;
+    query["ConnectionPoolId"] = request.connectionPoolId;
+    query["ConnectionPoolName"] = request.connectionPoolName;
+    query["Count"] = request.count;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateConnectionPoolAttributeResponse>(await this.doRPCRequest("UpdateConnectionPoolAttribute", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateConnectionPoolAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateConnectionPoolAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateConnectionPoolAttributeResponse>(await this.callApi(params, req, runtime), new UpdateConnectionPoolAttributeResponse({}));
   }
 
   async updateConnectionPoolAttribute(request: UpdateConnectionPoolAttributeRequest): Promise<UpdateConnectionPoolAttributeResponse> {
@@ -3517,12 +5532,67 @@ export default class Client extends OpenApi {
     return await this.updateConnectionPoolAttributeWithOptions(request, runtime);
   }
 
+  async updateGroupAuthorizationRuleAttributeWithOptions(request: UpdateGroupAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupAuthorizationRuleAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    query["AuthorizationRuleId"] = request.authorizationRuleId;
+    query["AuthorizationRuleName"] = request.authorizationRuleName;
+    query["ClientToken"] = request.clientToken;
+    query["Destination"] = request.destination;
+    query["DestinationType"] = request.destinationType;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["Policy"] = request.policy;
+    query["RegionId"] = request.regionId;
+    query["SourceCidrs"] = request.sourceCidrs;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroupAuthorizationRuleAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupAuthorizationRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateGroupAuthorizationRuleAttributeResponse({}));
+  }
+
+  async updateGroupAuthorizationRuleAttribute(request: UpdateGroupAuthorizationRuleAttributeRequest): Promise<UpdateGroupAuthorizationRuleAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGroupAuthorizationRuleAttributeWithOptions(request, runtime);
+  }
+
   async updateIoTCloudConnectorAttributeWithOptions(request: UpdateIoTCloudConnectorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    query["RegionId"] = request.regionId;
+    query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateIoTCloudConnectorAttributeResponse>(await this.doRPCRequest("UpdateIoTCloudConnectorAttribute", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIoTCloudConnectorAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIoTCloudConnectorAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIoTCloudConnectorAttributeResponse>(await this.callApi(params, req, runtime), new UpdateIoTCloudConnectorAttributeResponse({}));
   }
 
   async updateIoTCloudConnectorAttribute(request: UpdateIoTCloudConnectorAttributeRequest): Promise<UpdateIoTCloudConnectorAttributeResponse> {
@@ -3530,12 +5600,62 @@ export default class Client extends OpenApi {
     return await this.updateIoTCloudConnectorAttributeWithOptions(request, runtime);
   }
 
+  async updateIoTCloudConnectorGroupAttributeWithOptions(request: UpdateIoTCloudConnectorGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorGroupAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    query["Name"] = request.name;
+    query["RegionId"] = request.regionId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIoTCloudConnectorGroupAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIoTCloudConnectorGroupAttributeResponse>(await this.callApi(params, req, runtime), new UpdateIoTCloudConnectorGroupAttributeResponse({}));
+  }
+
+  async updateIoTCloudConnectorGroupAttribute(request: UpdateIoTCloudConnectorGroupAttributeRequest): Promise<UpdateIoTCloudConnectorGroupAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateIoTCloudConnectorGroupAttributeWithOptions(request, runtime);
+  }
+
   async updateServiceAttributeWithOptions(request: UpdateServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceDescription"] = request.serviceDescription;
+    query["ServiceId"] = request.serviceId;
+    query["ServiceName"] = request.serviceName;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateServiceAttributeResponse>(await this.doRPCRequest("UpdateServiceAttribute", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateServiceAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceAttributeResponse({}));
   }
 
   async updateServiceAttribute(request: UpdateServiceAttributeRequest): Promise<UpdateServiceAttributeResponse> {
@@ -3545,10 +5665,30 @@ export default class Client extends OpenApi {
 
   async updateServiceEntryAttributeWithOptions(request: UpdateServiceEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceEntryAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["DryRun"] = request.dryRun;
+    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    query["RegionId"] = request.regionId;
+    query["ServiceEntryDescription"] = request.serviceEntryDescription;
+    query["ServiceEntryId"] = request.serviceEntryId;
+    query["ServiceEntryName"] = request.serviceEntryName;
+    query["ServiceId"] = request.serviceId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateServiceEntryAttributeResponse>(await this.doRPCRequest("UpdateServiceEntryAttribute", "2021-05-13", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateServiceEntryAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateServiceEntryAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServiceEntryAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceEntryAttributeResponse({}));
   }
 
   async updateServiceEntryAttribute(request: UpdateServiceEntryAttributeRequest): Promise<UpdateServiceEntryAttributeResponse> {
