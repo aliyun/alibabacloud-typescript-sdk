@@ -326,6 +326,7 @@ export class CreateStackRequest extends $tea.Model {
   templateBody?: string;
   templateId?: string;
   templateScratchId?: string;
+  templateScratchRegionId?: string;
   templateURL?: string;
   templateVersion?: string;
   timeoutInMinutes?: number;
@@ -348,6 +349,7 @@ export class CreateStackRequest extends $tea.Model {
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
+      templateScratchRegionId: 'TemplateScratchRegionId',
       templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
       timeoutInMinutes: 'TimeoutInMinutes',
@@ -373,6 +375,7 @@ export class CreateStackRequest extends $tea.Model {
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
+      templateScratchRegionId: 'string',
       templateURL: 'string',
       templateVersion: 'string',
       timeoutInMinutes: 'number',
@@ -3089,6 +3092,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
   templateBody?: string;
   templateId?: string;
   templateScratchId?: string;
+  templateScratchRegionId?: string;
   templateURL?: string;
   templateVersion?: string;
   static names(): { [key: string]: string } {
@@ -3099,6 +3103,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
+      templateScratchRegionId: 'TemplateScratchRegionId',
       templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
     };
@@ -3112,6 +3117,7 @@ export class GetTemplateEstimateCostRequest extends $tea.Model {
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
+      templateScratchRegionId: 'string',
       templateURL: 'string',
       templateVersion: 'string',
     };
@@ -4897,6 +4903,7 @@ export class PreviewStackRequest extends $tea.Model {
   templateBody?: string;
   templateId?: string;
   templateScratchId?: string;
+  templateScratchRegionId?: string;
   templateURL?: string;
   templateVersion?: string;
   timeoutInMinutes?: number;
@@ -4913,6 +4920,7 @@ export class PreviewStackRequest extends $tea.Model {
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateScratchId: 'TemplateScratchId',
+      templateScratchRegionId: 'TemplateScratchRegionId',
       templateURL: 'TemplateURL',
       templateVersion: 'TemplateVersion',
       timeoutInMinutes: 'TimeoutInMinutes',
@@ -4932,6 +4940,7 @@ export class PreviewStackRequest extends $tea.Model {
       templateBody: 'string',
       templateId: 'string',
       templateScratchId: 'string',
+      templateScratchRegionId: 'string',
       templateURL: 'string',
       templateVersion: 'string',
       timeoutInMinutes: 'number',
@@ -7562,12 +7571,14 @@ export class GetStackInstanceResponseBodyStackInstance extends $tea.Model {
 export class GetTemplateResponseBodyPermissions extends $tea.Model {
   accountId?: string;
   shareOption?: string;
+  shareSource?: string;
   templateVersion?: string;
   versionOption?: string;
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
       shareOption: 'ShareOption',
+      shareSource: 'ShareSource',
       templateVersion: 'TemplateVersion',
       versionOption: 'VersionOption',
     };
@@ -7577,6 +7588,7 @@ export class GetTemplateResponseBodyPermissions extends $tea.Model {
     return {
       accountId: 'string',
       shareOption: 'string',
+      shareSource: 'string',
       templateVersion: 'string',
       versionOption: 'string',
     };
@@ -7775,13 +7787,37 @@ export class GetTemplateScratchResponseBodyTemplateScratchSourceTag extends $tea
   }
 }
 
+export class GetTemplateScratchResponseBodyTemplateScratchStackProvision extends $tea.Model {
+  creatable?: boolean;
+  importable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      creatable: 'Creatable',
+      importable: 'Importable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creatable: 'boolean',
+      importable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $tea.Model {
   regionId?: string;
   stackId?: string;
+  usageType?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
       stackId: 'StackId',
+      usageType: 'UsageType',
     };
   }
 
@@ -7789,6 +7825,7 @@ export class GetTemplateScratchResponseBodyTemplateScratchStacks extends $tea.Mo
     return {
       regionId: 'string',
       stackId: 'string',
+      usageType: 'string',
     };
   }
 
@@ -7806,6 +7843,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
   sourceResourceGroup?: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup;
   sourceResources?: GetTemplateScratchResponseBodyTemplateScratchSourceResources[];
   sourceTag?: GetTemplateScratchResponseBodyTemplateScratchSourceTag;
+  stackProvision?: GetTemplateScratchResponseBodyTemplateScratchStackProvision;
   stacks?: GetTemplateScratchResponseBodyTemplateScratchStacks[];
   status?: string;
   statusReason?: string;
@@ -7823,6 +7861,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
       sourceResourceGroup: 'SourceResourceGroup',
       sourceResources: 'SourceResources',
       sourceTag: 'SourceTag',
+      stackProvision: 'StackProvision',
       stacks: 'Stacks',
       status: 'Status',
       statusReason: 'StatusReason',
@@ -7843,6 +7882,7 @@ export class GetTemplateScratchResponseBodyTemplateScratch extends $tea.Model {
       sourceResourceGroup: GetTemplateScratchResponseBodyTemplateScratchSourceResourceGroup,
       sourceResources: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchSourceResources },
       sourceTag: GetTemplateScratchResponseBodyTemplateScratchSourceTag,
+      stackProvision: GetTemplateScratchResponseBodyTemplateScratchStackProvision,
       stacks: { 'type': 'array', 'itemType': GetTemplateScratchResponseBodyTemplateScratchStacks },
       status: 'string',
       statusReason: 'string',
@@ -9373,6 +9413,7 @@ export default class Client extends OpenApi {
     query["TemplateBody"] = request.templateBody;
     query["TemplateId"] = request.templateId;
     query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     query["TemplateURL"] = request.templateURL;
     query["TemplateVersion"] = request.templateVersion;
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
@@ -10352,6 +10393,7 @@ export default class Client extends OpenApi {
     query["TemplateBody"] = request.templateBody;
     query["TemplateId"] = request.templateId;
     query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     query["TemplateURL"] = request.templateURL;
     query["TemplateVersion"] = request.templateVersion;
     let req = new $OpenApi.OpenApiRequest({
@@ -11026,6 +11068,7 @@ export default class Client extends OpenApi {
     query["TemplateBody"] = request.templateBody;
     query["TemplateId"] = request.templateId;
     query["TemplateScratchId"] = request.templateScratchId;
+    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
     query["TemplateURL"] = request.templateURL;
     query["TemplateVersion"] = request.templateVersion;
     query["TimeoutInMinutes"] = request.timeoutInMinutes;
