@@ -4619,12 +4619,14 @@ export class SaveEnvRequestEnv extends $tea.Model {
   envId?: string;
   envName?: string;
   files?: SaveEnvRequestEnvFiles[];
+  jmeterPluginLabel?: string;
   properties?: SaveEnvRequestEnvProperties[];
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       envName: 'EnvName',
       files: 'Files',
+      jmeterPluginLabel: 'JmeterPluginLabel',
       properties: 'Properties',
     };
   }
@@ -4634,6 +4636,7 @@ export class SaveEnvRequestEnv extends $tea.Model {
       envId: 'string',
       envName: 'string',
       files: { 'type': 'array', 'itemType': SaveEnvRequestEnvFiles },
+      jmeterPluginLabel: 'string',
       properties: { 'type': 'array', 'itemType': SaveEnvRequestEnvProperties },
     };
   }
@@ -4737,6 +4740,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   fileList?: SaveOpenJMeterSceneRequestOpenJMeterSceneFileList[];
   isVpcTest?: boolean;
   JMeterProperties?: SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties[];
+  jmeterPluginLabel?: string;
   rampUp?: number;
   regionId?: string;
   sceneId?: string;
@@ -4758,6 +4762,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       fileList: 'FileList',
       isVpcTest: 'IsVpcTest',
       JMeterProperties: 'JMeterProperties',
+      jmeterPluginLabel: 'JmeterPluginLabel',
       rampUp: 'RampUp',
       regionId: 'RegionId',
       sceneId: 'SceneId',
@@ -4782,6 +4787,7 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       fileList: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneFileList },
       isVpcTest: 'boolean',
       JMeterProperties: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties },
+      jmeterPluginLabel: 'string',
       rampUp: 'number',
       regionId: 'string',
       sceneId: 'string',
