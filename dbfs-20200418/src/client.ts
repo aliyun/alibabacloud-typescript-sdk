@@ -1385,96 +1385,6 @@ export class ListTagValuesResponse extends $tea.Model {
   }
 }
 
-export class ListTaskRequest extends $tea.Model {
-  filterKey?: string;
-  filterValue?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  sortKey?: string;
-  sortType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filterKey: 'FilterKey',
-      filterValue: 'FilterValue',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-      sortKey: 'SortKey',
-      sortType: 'SortType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filterKey: 'string',
-      filterValue: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-      sortKey: 'string',
-      sortType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskResponseBody extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  tasks?: ListTaskResponseBodyTasks[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      tasks: 'Tasks',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      tasks: { 'type': 'array', 'itemType': ListTaskResponseBodyTasks },
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RenameDbfsRequest extends $tea.Model {
   fsId?: string;
   fsName?: string;
@@ -1731,72 +1641,6 @@ export class TagDbfsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TagDbfsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTaskRequest extends $tea.Model {
-  regionId?: string;
-  taskIds?: string;
-  taskProgress?: number;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-      taskIds: 'TaskIds',
-      taskProgress: 'TaskProgress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-      taskIds: 'string',
-      taskProgress: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateTaskResponseBody,
     };
   }
 
@@ -2243,76 +2087,6 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
   }
 }
 
-export class ListTaskResponseBodyTasks extends $tea.Model {
-  clientToken?: string;
-  completionTime?: string;
-  createdTime?: string;
-  id?: number;
-  maxRetry?: number;
-  nextExecutionTime?: string;
-  priority?: string;
-  taskAdder?: string;
-  taskErrorReason?: string;
-  taskExecutionCounts?: number;
-  taskName?: string;
-  taskOwner?: string;
-  taskProgress?: number;
-  taskProgressDescription?: string;
-  taskRunner?: string;
-  taskStatus?: string;
-  taskStatusCode?: number;
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientToken: 'ClientToken',
-      completionTime: 'CompletionTime',
-      createdTime: 'CreatedTime',
-      id: 'Id',
-      maxRetry: 'MaxRetry',
-      nextExecutionTime: 'NextExecutionTime',
-      priority: 'Priority',
-      taskAdder: 'TaskAdder',
-      taskErrorReason: 'TaskErrorReason',
-      taskExecutionCounts: 'TaskExecutionCounts',
-      taskName: 'TaskName',
-      taskOwner: 'TaskOwner',
-      taskProgress: 'TaskProgress',
-      taskProgressDescription: 'TaskProgressDescription',
-      taskRunner: 'TaskRunner',
-      taskStatus: 'TaskStatus',
-      taskStatusCode: 'TaskStatusCode',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientToken: 'string',
-      completionTime: 'string',
-      createdTime: 'string',
-      id: 'number',
-      maxRetry: 'number',
-      nextExecutionTime: 'string',
-      priority: 'string',
-      taskAdder: 'string',
-      taskErrorReason: 'string',
-      taskExecutionCounts: 'number',
-      taskName: 'string',
-      taskOwner: 'string',
-      taskProgress: 'number',
-      taskProgressDescription: 'string',
-      taskRunner: 'string',
-      taskStatus: 'string',
-      taskStatusCode: 'number',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 
 export default class Client extends OpenApi {
 
@@ -2384,7 +2158,6 @@ export default class Client extends OpenApi {
     query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddTagsBatch",
@@ -2394,7 +2167,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddTagsBatchResponse>(await this.callApi(params, req, runtime), new AddTagsBatchResponse({}));
@@ -2416,7 +2189,6 @@ export default class Client extends OpenApi {
     query["ServerUrl"] = request.serverUrl;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AttachDbfs",
@@ -2426,7 +2198,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AttachDbfsResponse>(await this.callApi(params, req, runtime), new AttachDbfsResponse({}));
@@ -2457,7 +2229,6 @@ export default class Client extends OpenApi {
     query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDbfs",
@@ -2467,7 +2238,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDbfsResponse>(await this.callApi(params, req, runtime), new CreateDbfsResponse({}));
@@ -2485,7 +2256,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateServiceLinkedRole",
@@ -2495,7 +2265,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
@@ -2517,7 +2287,6 @@ export default class Client extends OpenApi {
     query["SnapshotName"] = request.snapshotName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSnapshot",
@@ -2527,7 +2296,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
@@ -2545,7 +2314,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDbfs",
@@ -2555,7 +2323,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDbfsResponse>(await this.callApi(params, req, runtime), new DeleteDbfsResponse({}));
@@ -2574,7 +2342,6 @@ export default class Client extends OpenApi {
     query["SnapshotId"] = request.snapshotId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSnapshot",
@@ -2584,7 +2351,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotResponse({}));
@@ -2603,7 +2370,6 @@ export default class Client extends OpenApi {
     query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTagsBatch",
@@ -2613,7 +2379,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTagsBatchResponse>(await this.callApi(params, req, runtime), new DeleteTagsBatchResponse({}));
@@ -2632,7 +2398,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDbfsSpecifications",
@@ -2642,7 +2407,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDbfsSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeDbfsSpecificationsResponse({}));
@@ -2659,7 +2424,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeInstanceTypes",
@@ -2669,7 +2433,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeInstanceTypesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceTypesResponse({}));
@@ -2688,7 +2452,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetachDbfs",
@@ -2698,7 +2461,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetachDbfsResponse>(await this.callApi(params, req, runtime), new DetachDbfsResponse({}));
@@ -2716,7 +2479,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDbfs",
@@ -2726,7 +2488,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDbfsResponse>(await this.callApi(params, req, runtime), new GetDbfsResponse({}));
@@ -2743,7 +2505,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetServiceLinkedRole",
@@ -2753,7 +2514,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new GetServiceLinkedRoleResponse({}));
@@ -2777,7 +2538,6 @@ export default class Client extends OpenApi {
     query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDbfs",
@@ -2787,7 +2547,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDbfsResponse>(await this.callApi(params, req, runtime), new ListDbfsResponse({}));
@@ -2804,7 +2564,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDbfsAttachableEcsInstances",
@@ -2814,7 +2573,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDbfsAttachableEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachableEcsInstancesResponse({}));
@@ -2832,7 +2591,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDbfsAttachedEcsInstances",
@@ -2842,7 +2600,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDbfsAttachedEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListDbfsAttachedEcsInstancesResponse({}));
@@ -2870,7 +2628,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListSnapshot",
@@ -2880,7 +2637,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSnapshotResponse>(await this.callApi(params, req, runtime), new ListSnapshotResponse({}));
@@ -2897,7 +2654,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagKeys",
@@ -2907,7 +2663,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
@@ -2925,7 +2681,6 @@ export default class Client extends OpenApi {
     query["TagKey"] = request.tagKey;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagValues",
@@ -2935,7 +2690,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
@@ -2946,39 +2701,6 @@ export default class Client extends OpenApi {
     return await this.listTagValuesWithOptions(request, runtime);
   }
 
-  async listTaskWithOptions(request: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["FilterKey"] = request.filterKey;
-    query["FilterValue"] = request.filterValue;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["SortKey"] = request.sortKey;
-    query["SortType"] = request.sortType;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListTask",
-      version: "2020-04-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTaskResponse>(await this.callApi(params, req, runtime), new ListTaskResponse({}));
-  }
-
-  async listTask(request: ListTaskRequest): Promise<ListTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTaskWithOptions(request, runtime);
-  }
-
   async renameDbfsWithOptions(request: RenameDbfsRequest, runtime: $Util.RuntimeOptions): Promise<RenameDbfsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -2987,7 +2709,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RenameDbfs",
@@ -2997,7 +2718,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RenameDbfsResponse>(await this.callApi(params, req, runtime), new RenameDbfsResponse({}));
@@ -3016,7 +2737,6 @@ export default class Client extends OpenApi {
     query["SnapshotId"] = request.snapshotId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResetDbfs",
@@ -3026,7 +2746,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetDbfsResponse>(await this.callApi(params, req, runtime), new ResetDbfsResponse({}));
@@ -3045,7 +2765,6 @@ export default class Client extends OpenApi {
     query["RegionId"] = request.regionId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResizeDbfs",
@@ -3055,7 +2774,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResizeDbfsResponse>(await this.callApi(params, req, runtime), new ResizeDbfsResponse({}));
@@ -3074,7 +2793,6 @@ export default class Client extends OpenApi {
     query["Tags"] = request.tags;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TagDbfs",
@@ -3084,7 +2802,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TagDbfsResponse>(await this.callApi(params, req, runtime), new TagDbfsResponse({}));
@@ -3093,35 +2811,6 @@ export default class Client extends OpenApi {
   async tagDbfs(request: TagDbfsRequest): Promise<TagDbfsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.tagDbfsWithOptions(request, runtime);
-  }
-
-  async updateTaskWithOptions(request: UpdateTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["RegionId"] = request.regionId;
-    query["TaskIds"] = request.taskIds;
-    query["TaskProgress"] = request.taskProgress;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateTask",
-      version: "2020-04-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTaskResponse>(await this.callApi(params, req, runtime), new UpdateTaskResponse({}));
-  }
-
-  async updateTask(request: UpdateTaskRequest): Promise<UpdateTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateTaskWithOptions(request, runtime);
   }
 
 }
