@@ -2865,11 +2865,13 @@ export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model
   allSampleStat?: { [key: string]: any };
   concurrency?: number;
   hasReport?: boolean;
+  holdFor?: number;
   isDebugging?: boolean;
   sampleStatList?: { [key: string]: any }[];
   sceneId?: string;
   sceneName?: string;
   stageName?: string;
+  startTimeTS?: number;
   status?: string;
   vum?: number;
   static names(): { [key: string]: string } {
@@ -2879,11 +2881,13 @@ export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model
       allSampleStat: 'AllSampleStat',
       concurrency: 'Concurrency',
       hasReport: 'HasReport',
+      holdFor: 'HoldFor',
       isDebugging: 'IsDebugging',
       sampleStatList: 'SampleStatList',
       sceneId: 'SceneId',
       sceneName: 'SceneName',
       stageName: 'StageName',
+      startTimeTS: 'StartTimeTS',
       status: 'Status',
       vum: 'Vum',
     };
@@ -2896,11 +2900,13 @@ export class GetJMeterSceneRunningDataResponseBodyRunningData extends $tea.Model
       allSampleStat: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       concurrency: 'number',
       hasReport: 'boolean',
+      holdFor: 'number',
       isDebugging: 'boolean',
       sampleStatList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       sceneId: 'string',
       sceneName: 'string',
       stageName: 'string',
+      startTimeTS: 'number',
       status: 'string',
       vum: 'number',
     };
@@ -4613,14 +4619,12 @@ export class SaveEnvRequestEnv extends $tea.Model {
   envId?: string;
   envName?: string;
   files?: SaveEnvRequestEnvFiles[];
-  jmeterPluginLabel?: string;
   properties?: SaveEnvRequestEnvProperties[];
   static names(): { [key: string]: string } {
     return {
       envId: 'EnvId',
       envName: 'EnvName',
       files: 'Files',
-      jmeterPluginLabel: 'JmeterPluginLabel',
       properties: 'Properties',
     };
   }
@@ -4630,7 +4634,6 @@ export class SaveEnvRequestEnv extends $tea.Model {
       envId: 'string',
       envName: 'string',
       files: { 'type': 'array', 'itemType': SaveEnvRequestEnvFiles },
-      jmeterPluginLabel: 'string',
       properties: { 'type': 'array', 'itemType': SaveEnvRequestEnvProperties },
     };
   }
@@ -4734,7 +4737,6 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
   fileList?: SaveOpenJMeterSceneRequestOpenJMeterSceneFileList[];
   isVpcTest?: boolean;
   JMeterProperties?: SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties[];
-  jmeterPluginLabel?: string;
   rampUp?: number;
   regionId?: string;
   sceneId?: string;
@@ -4756,7 +4758,6 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       fileList: 'FileList',
       isVpcTest: 'IsVpcTest',
       JMeterProperties: 'JMeterProperties',
-      jmeterPluginLabel: 'JmeterPluginLabel',
       rampUp: 'RampUp',
       regionId: 'RegionId',
       sceneId: 'SceneId',
@@ -4781,7 +4782,6 @@ export class SaveOpenJMeterSceneRequestOpenJMeterScene extends $tea.Model {
       fileList: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneFileList },
       isVpcTest: 'boolean',
       JMeterProperties: { 'type': 'array', 'itemType': SaveOpenJMeterSceneRequestOpenJMeterSceneJMeterProperties },
-      jmeterPluginLabel: 'string',
       rampUp: 'number',
       regionId: 'string',
       sceneId: 'string',
@@ -4829,7 +4829,6 @@ export default class Client extends OpenApi {
     query["Scene"] = request.scene;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreatePtsScene",
@@ -4839,7 +4838,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreatePtsSceneResponse>(await this.callApi(params, req, runtime), new CreatePtsSceneResponse({}));
@@ -4857,7 +4856,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreatePtsSceneBaseLineFromReport",
@@ -4867,7 +4865,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreatePtsSceneBaseLineFromReportResponse>(await this.callApi(params, req, runtime), new CreatePtsSceneBaseLineFromReportResponse({}));
@@ -4884,7 +4882,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeletePtsScene",
@@ -4894,7 +4891,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeletePtsSceneResponse>(await this.callApi(params, req, runtime), new DeletePtsSceneResponse({}));
@@ -4911,7 +4908,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeletePtsSceneBaseLine",
@@ -4921,7 +4917,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeletePtsSceneBaseLineResponse>(await this.callApi(params, req, runtime), new DeletePtsSceneBaseLineResponse({}));
@@ -4944,7 +4940,6 @@ export default class Client extends OpenApi {
     query["SceneIds"] = request.sceneIdsShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeletePtsScenes",
@@ -4954,7 +4949,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeletePtsScenesResponse>(await this.callApi(params, req, runtime), new DeletePtsScenesResponse({}));
@@ -4979,7 +4974,6 @@ export default class Client extends OpenApi {
     query["Thread"] = request.thread;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetJMeterLogs",
@@ -4989,7 +4983,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetJMeterLogsResponse>(await this.callApi(params, req, runtime), new GetJMeterLogsResponse({}));
@@ -5009,7 +5003,6 @@ export default class Client extends OpenApi {
     query["SamplerId"] = request.samplerId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetJMeterSampleMetrics",
@@ -5019,7 +5012,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetJMeterSampleMetricsResponse>(await this.callApi(params, req, runtime), new GetJMeterSampleMetricsResponse({}));
@@ -5048,7 +5041,6 @@ export default class Client extends OpenApi {
     query["Thread"] = request.thread;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetJMeterSamplingLogs",
@@ -5058,7 +5050,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetJMeterSamplingLogsResponse>(await this.callApi(params, req, runtime), new GetJMeterSamplingLogsResponse({}));
@@ -5075,7 +5067,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetJMeterSceneRunningData",
@@ -5085,7 +5076,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetJMeterSceneRunningDataResponse>(await this.callApi(params, req, runtime), new GetJMeterSceneRunningDataResponse({}));
@@ -5102,7 +5093,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetOpenJMeterScene",
@@ -5112,7 +5102,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetOpenJMeterSceneResponse>(await this.callApi(params, req, runtime), new GetOpenJMeterSceneResponse({}));
@@ -5130,7 +5120,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsReportDetails",
@@ -5140,7 +5129,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsReportDetailsResponse>(await this.callApi(params, req, runtime), new GetPtsReportDetailsResponse({}));
@@ -5159,7 +5148,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsReportsBySceneId",
@@ -5169,7 +5157,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsReportsBySceneIdResponse>(await this.callApi(params, req, runtime), new GetPtsReportsBySceneIdResponse({}));
@@ -5186,7 +5174,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsScene",
@@ -5196,7 +5183,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsSceneResponse>(await this.callApi(params, req, runtime), new GetPtsSceneResponse({}));
@@ -5213,7 +5200,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsSceneBaseLine",
@@ -5223,7 +5209,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsSceneBaseLineResponse>(await this.callApi(params, req, runtime), new GetPtsSceneBaseLineResponse({}));
@@ -5241,7 +5227,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsSceneRunningData",
@@ -5251,7 +5236,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsSceneRunningDataResponse>(await this.callApi(params, req, runtime), new GetPtsSceneRunningDataResponse({}));
@@ -5268,7 +5253,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPtsSceneRunningStatus",
@@ -5278,7 +5262,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPtsSceneRunningStatusResponse>(await this.callApi(params, req, runtime), new GetPtsSceneRunningStatusResponse({}));
@@ -5298,7 +5282,6 @@ export default class Client extends OpenApi {
     query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListEnvs",
@@ -5308,7 +5291,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListEnvsResponse>(await this.callApi(params, req, runtime), new ListEnvsResponse({}));
@@ -5331,7 +5314,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListJMeterReports",
@@ -5341,7 +5323,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListJMeterReportsResponse>(await this.callApi(params, req, runtime), new ListJMeterReportsResponse({}));
@@ -5361,7 +5343,6 @@ export default class Client extends OpenApi {
     query["SceneName"] = request.sceneName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListOpenJMeterScenes",
@@ -5371,7 +5352,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListOpenJMeterScenesResponse>(await this.callApi(params, req, runtime), new ListOpenJMeterScenesResponse({}));
@@ -5390,7 +5371,6 @@ export default class Client extends OpenApi {
     query["PageSize"] = request.pageSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListPtsScene",
@@ -5400,7 +5380,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPtsSceneResponse>(await this.callApi(params, req, runtime), new ListPtsSceneResponse({}));
@@ -5417,7 +5397,6 @@ export default class Client extends OpenApi {
     query["Scene"] = request.scene;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyPtsScene",
@@ -5427,7 +5406,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyPtsSceneResponse>(await this.callApi(params, req, runtime), new ModifyPtsSceneResponse({}));
@@ -5444,7 +5423,6 @@ export default class Client extends OpenApi {
     query["EnvId"] = request.envId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveEnv",
@@ -5454,7 +5432,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveEnvResponse>(await this.callApi(params, req, runtime), new RemoveEnvResponse({}));
@@ -5471,7 +5449,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveOpenJMeterScene",
@@ -5481,7 +5458,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveOpenJMeterSceneResponse>(await this.callApi(params, req, runtime), new RemoveOpenJMeterSceneResponse({}));
@@ -5504,7 +5481,6 @@ export default class Client extends OpenApi {
     query["Env"] = request.envShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SaveEnv",
@@ -5514,7 +5490,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SaveEnvResponse>(await this.callApi(params, req, runtime), new SaveEnvResponse({}));
@@ -5537,7 +5513,6 @@ export default class Client extends OpenApi {
     query["OpenJMeterScene"] = request.openJMeterSceneShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SaveOpenJMeterScene",
@@ -5547,7 +5522,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SaveOpenJMeterSceneResponse>(await this.callApi(params, req, runtime), new SaveOpenJMeterSceneResponse({}));
@@ -5564,7 +5539,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartDebugPtsScene",
@@ -5574,7 +5548,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartDebugPtsSceneResponse>(await this.callApi(params, req, runtime), new StartDebugPtsSceneResponse({}));
@@ -5591,7 +5565,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartDebuggingJMeterScene",
@@ -5601,7 +5574,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartDebuggingJMeterSceneResponse>(await this.callApi(params, req, runtime), new StartDebuggingJMeterSceneResponse({}));
@@ -5618,7 +5591,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartPtsScene",
@@ -5628,7 +5600,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartPtsSceneResponse>(await this.callApi(params, req, runtime), new StartPtsSceneResponse({}));
@@ -5645,7 +5617,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartTestingJMeterScene",
@@ -5655,7 +5626,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartTestingJMeterSceneResponse>(await this.callApi(params, req, runtime), new StartTestingJMeterSceneResponse({}));
@@ -5673,7 +5644,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopDebugPtsScene",
@@ -5683,7 +5653,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopDebugPtsSceneResponse>(await this.callApi(params, req, runtime), new StopDebugPtsSceneResponse({}));
@@ -5700,7 +5670,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopDebuggingJMeterScene",
@@ -5710,7 +5679,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopDebuggingJMeterSceneResponse>(await this.callApi(params, req, runtime), new StopDebuggingJMeterSceneResponse({}));
@@ -5727,7 +5696,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopPtsScene",
@@ -5737,7 +5705,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopPtsSceneResponse>(await this.callApi(params, req, runtime), new StopPtsSceneResponse({}));
@@ -5754,7 +5722,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopTestingJMeterScene",
@@ -5764,7 +5731,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopTestingJMeterSceneResponse>(await this.callApi(params, req, runtime), new StopTestingJMeterSceneResponse({}));
@@ -5793,7 +5760,6 @@ export default class Client extends OpenApi {
     query["SceneId"] = request.sceneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdatePtsSceneBaseLine",
@@ -5803,7 +5769,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdatePtsSceneBaseLineResponse>(await this.callApi(params, req, runtime), new UpdatePtsSceneBaseLineResponse({}));
