@@ -218,6 +218,204 @@ export class CreateClusterV2Response extends $tea.Model {
   }
 }
 
+export class CreateFlowJobRequest extends $tea.Model {
+  adhoc?: boolean;
+  alertConf?: string;
+  clientToken?: string;
+  clusterId?: string;
+  customVariables?: string;
+  description?: string;
+  envConf?: string;
+  failAct?: string;
+  mode?: string;
+  monitorConf?: string;
+  name?: string;
+  paramConf?: string;
+  params?: string;
+  parentCategory?: string;
+  projectId?: string;
+  regionId?: string;
+  resourceList?: CreateFlowJobRequestResourceList[];
+  retryPolicy?: string;
+  runConf?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adhoc: 'Adhoc',
+      alertConf: 'AlertConf',
+      clientToken: 'ClientToken',
+      clusterId: 'ClusterId',
+      customVariables: 'CustomVariables',
+      description: 'Description',
+      envConf: 'EnvConf',
+      failAct: 'FailAct',
+      mode: 'Mode',
+      monitorConf: 'MonitorConf',
+      name: 'Name',
+      paramConf: 'ParamConf',
+      params: 'Params',
+      parentCategory: 'ParentCategory',
+      projectId: 'ProjectId',
+      regionId: 'RegionId',
+      resourceList: 'ResourceList',
+      retryPolicy: 'RetryPolicy',
+      runConf: 'RunConf',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adhoc: 'boolean',
+      alertConf: 'string',
+      clientToken: 'string',
+      clusterId: 'string',
+      customVariables: 'string',
+      description: 'string',
+      envConf: 'string',
+      failAct: 'string',
+      mode: 'string',
+      monitorConf: 'string',
+      name: 'string',
+      paramConf: 'string',
+      params: 'string',
+      parentCategory: 'string',
+      projectId: 'string',
+      regionId: 'string',
+      resourceList: { 'type': 'array', 'itemType': CreateFlowJobRequestResourceList },
+      retryPolicy: 'string',
+      runConf: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowJobResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFlowJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFlowJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowProjectRequest extends $tea.Model {
+  clientToken?: string;
+  description?: string;
+  name?: string;
+  productType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      name: 'Name',
+      productType: 'ProductType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      name: 'string',
+      productType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowProjectResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFlowProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFlowProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterV2Request extends $tea.Model {
   id?: string;
   regionId?: string;
@@ -393,6 +591,75 @@ export class ListClustersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainVersionsRequest extends $tea.Model {
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainVersionsResponseBody extends $tea.Model {
+  mainVersionList?: ListMainVersionsResponseBodyMainVersionList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mainVersionList: 'MainVersionList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mainVersionList: { 'type': 'array', 'itemType': ListMainVersionsResponseBodyMainVersionList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainVersionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListMainVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListMainVersionsResponseBody,
     };
   }
 
@@ -710,6 +977,28 @@ export class CreateClusterV2RequestUserInfo extends $tea.Model {
       password: 'string',
       userId: 'string',
       userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFlowJobRequestResourceList extends $tea.Model {
+  alias?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      path: 'string',
     };
   }
 
@@ -1659,6 +1948,53 @@ export class ListClustersResponseBodyClusters extends $tea.Model {
   }
 }
 
+export class ListMainVersionsResponseBodyMainVersionListClusterTypeInfoList extends $tea.Model {
+  clusterType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterType: 'ClusterType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListMainVersionsResponseBodyMainVersionList extends $tea.Model {
+  clusterTypeInfoList?: ListMainVersionsResponseBodyMainVersionListClusterTypeInfoList[];
+  extraInfo?: string;
+  mainVersionName?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterTypeInfoList: 'ClusterTypeInfoList',
+      extraInfo: 'ExtraInfo',
+      mainVersionName: 'MainVersionName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterTypeInfoList: { 'type': 'array', 'itemType': ListMainVersionsResponseBodyMainVersionListClusterTypeInfoList },
+      extraInfo: 'string',
+      mainVersionName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1750,7 +2086,6 @@ export default class Client extends OpenApi {
     query["ZoneId"] = request.zoneId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateClusterV2",
@@ -1760,7 +2095,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateClusterV2Response>(await this.callApi(params, req, runtime), new CreateClusterV2Response({}));
@@ -1771,6 +2106,82 @@ export default class Client extends OpenApi {
     return await this.createClusterV2WithOptions(request, runtime);
   }
 
+  async createFlowJobWithOptions(request: CreateFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Adhoc"] = request.adhoc;
+    query["AlertConf"] = request.alertConf;
+    query["ClientToken"] = request.clientToken;
+    query["ClusterId"] = request.clusterId;
+    query["CustomVariables"] = request.customVariables;
+    query["Description"] = request.description;
+    query["EnvConf"] = request.envConf;
+    query["FailAct"] = request.failAct;
+    query["Mode"] = request.mode;
+    query["MonitorConf"] = request.monitorConf;
+    query["Name"] = request.name;
+    query["ParamConf"] = request.paramConf;
+    query["Params"] = request.params;
+    query["ParentCategory"] = request.parentCategory;
+    query["ProjectId"] = request.projectId;
+    query["RegionId"] = request.regionId;
+    query["ResourceList"] = request.resourceList;
+    query["RetryPolicy"] = request.retryPolicy;
+    query["RunConf"] = request.runConf;
+    query["Type"] = request.type;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlowJob",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowJobResponse>(await this.callApi(params, req, runtime), new CreateFlowJobResponse({}));
+  }
+
+  async createFlowJob(request: CreateFlowJobRequest): Promise<CreateFlowJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFlowJobWithOptions(request, runtime);
+  }
+
+  async createFlowProjectWithOptions(request: CreateFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClientToken"] = request.clientToken;
+    query["Description"] = request.description;
+    query["Name"] = request.name;
+    query["ProductType"] = request.productType;
+    query["RegionId"] = request.regionId;
+    query["ResourceGroupId"] = request.resourceGroupId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFlowProject",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFlowProjectResponse>(await this.callApi(params, req, runtime), new CreateFlowProjectResponse({}));
+  }
+
+  async createFlowProject(request: CreateFlowProjectRequest): Promise<CreateFlowProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFlowProjectWithOptions(request, runtime);
+  }
+
   async describeClusterV2WithOptions(request: DescribeClusterV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2Response> {
     Util.validateModel(request);
     let query = { };
@@ -1779,7 +2190,6 @@ export default class Client extends OpenApi {
     query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClusterV2",
@@ -1789,7 +2199,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClusterV2Response>(await this.callApi(params, req, runtime), new DescribeClusterV2Response({}));
@@ -1820,7 +2230,6 @@ export default class Client extends OpenApi {
     query["Tag"] = request.tag;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListClusters",
@@ -1830,7 +2239,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
@@ -1839,6 +2248,31 @@ export default class Client extends OpenApi {
   async listClusters(request: ListClustersRequest): Promise<ListClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listClustersWithOptions(request, runtime);
+  }
+
+  async listMainVersionsWithOptions(request: ListMainVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMainVersionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListMainVersions",
+      version: "2020-06-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListMainVersionsResponse>(await this.callApi(params, req, runtime), new ListMainVersionsResponse({}));
+  }
+
+  async listMainVersions(request: ListMainVersionsRequest): Promise<ListMainVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listMainVersionsWithOptions(request, runtime);
   }
 
   async releaseClusterWithOptions(request: ReleaseClusterRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseClusterResponse> {
@@ -1850,7 +2284,6 @@ export default class Client extends OpenApi {
     query["ResourceOwnerId"] = request.resourceOwnerId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ReleaseCluster",
@@ -1860,7 +2293,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ReleaseClusterResponse>(await this.callApi(params, req, runtime), new ReleaseClusterResponse({}));
