@@ -4,37 +4,239 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CreateCertificateRequestRequest extends $tea.Model {
-  sourceIp?: string;
+export class CancelCertificateForPackageRequestRequest extends $tea.Model {
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCertificateForPackageRequestResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCertificateForPackageRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelCertificateForPackageRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelCertificateForPackageRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderRequestRequest extends $tea.Model {
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderRequestResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelOrderRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CancelOrderRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CancelOrderRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateForPackageRequestRequest extends $tea.Model {
+  companyName?: string;
+  csr?: string;
+  domain?: string;
+  email?: string;
+  phone?: string;
   productCode?: string;
   username?: string;
-  phone?: string;
-  email?: string;
-  domain?: string;
   validateType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
+      companyName: 'CompanyName',
+      csr: 'Csr',
+      domain: 'Domain',
+      email: 'Email',
+      phone: 'Phone',
       productCode: 'ProductCode',
       username: 'Username',
-      phone: 'Phone',
-      email: 'Email',
-      domain: 'Domain',
       validateType: 'ValidateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
+      companyName: 'string',
+      csr: 'string',
+      domain: 'string',
+      email: 'string',
+      phone: 'string',
       productCode: 'string',
       username: 'string',
-      phone: 'string',
-      email: 'string',
+      validateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateForPackageRequestResponseBody extends $tea.Model {
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateForPackageRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCertificateForPackageRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCertificateForPackageRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateRequestRequest extends $tea.Model {
+  domain?: string;
+  email?: string;
+  phone?: string;
+  productCode?: string;
+  username?: string;
+  validateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      email: 'Email',
+      phone: 'Phone',
+      productCode: 'ProductCode',
+      username: 'Username',
+      validateType: 'ValidateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       domain: 'string',
+      email: 'string',
+      phone: 'string',
+      productCode: 'string',
+      username: 'string',
       validateType: 'string',
     };
   }
@@ -45,19 +247,19 @@ export class CreateCertificateRequestRequest extends $tea.Model {
 }
 
 export class CreateCertificateRequestResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -89,33 +291,30 @@ export class CreateCertificateRequestResponse extends $tea.Model {
 }
 
 export class CreateCertificateWithCsrRequestRequest extends $tea.Model {
-  sourceIp?: string;
   csr?: string;
+  email?: string;
+  phone?: string;
   productCode?: string;
   username?: string;
-  phone?: string;
-  email?: string;
   validateType?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       csr: 'Csr',
+      email: 'Email',
+      phone: 'Phone',
       productCode: 'ProductCode',
       username: 'Username',
-      phone: 'Phone',
-      email: 'Email',
       validateType: 'ValidateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       csr: 'string',
+      email: 'string',
+      phone: 'string',
       productCode: 'string',
       username: 'string',
-      phone: 'string',
-      email: 'string',
       validateType: 'string',
     };
   }
@@ -126,19 +325,19 @@ export class CreateCertificateWithCsrRequestRequest extends $tea.Model {
 }
 
 export class CreateCertificateWithCsrRequestResponseBody extends $tea.Model {
-  requestId?: string;
   orderId?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       orderId: 'OrderId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       orderId: 'number',
+      requestId: 'string',
     };
   }
 
@@ -170,18 +369,15 @@ export class CreateCertificateWithCsrRequestResponse extends $tea.Model {
 }
 
 export class DeleteCertificateRequestRequest extends $tea.Model {
-  sourceIp?: string;
   orderId?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       orderId: 'number',
     };
   }
@@ -233,18 +429,15 @@ export class DeleteCertificateRequestResponse extends $tea.Model {
 }
 
 export class DescribeCertificateStateRequest extends $tea.Model {
-  sourceIp?: string;
   orderId?: number;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       orderId: 'OrderId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       orderId: 'number',
     };
   }
@@ -255,46 +448,46 @@ export class DescribeCertificateStateRequest extends $tea.Model {
 }
 
 export class DescribeCertificateStateResponseBody extends $tea.Model {
-  type?: string;
-  privateKey?: string;
-  recordType?: string;
-  requestId?: string;
-  content?: string;
-  recordDomain?: string;
-  recordValue?: string;
-  domain?: string;
-  validateType?: string;
-  uri?: string;
   certificate?: string;
+  content?: string;
+  domain?: string;
+  privateKey?: string;
+  recordDomain?: string;
+  recordType?: string;
+  recordValue?: string;
+  requestId?: string;
+  type?: string;
+  uri?: string;
+  validateType?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      privateKey: 'PrivateKey',
-      recordType: 'RecordType',
-      requestId: 'RequestId',
-      content: 'Content',
-      recordDomain: 'RecordDomain',
-      recordValue: 'RecordValue',
-      domain: 'Domain',
-      validateType: 'ValidateType',
-      uri: 'Uri',
       certificate: 'Certificate',
+      content: 'Content',
+      domain: 'Domain',
+      privateKey: 'PrivateKey',
+      recordDomain: 'RecordDomain',
+      recordType: 'RecordType',
+      recordValue: 'RecordValue',
+      requestId: 'RequestId',
+      type: 'Type',
+      uri: 'Uri',
+      validateType: 'ValidateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      privateKey: 'string',
-      recordType: 'string',
-      requestId: 'string',
-      content: 'string',
-      recordDomain: 'string',
-      recordValue: 'string',
-      domain: 'string',
-      validateType: 'string',
-      uri: 'string',
       certificate: 'string',
+      content: 'string',
+      domain: 'string',
+      privateKey: 'string',
+      recordDomain: 'string',
+      recordType: 'string',
+      recordValue: 'string',
+      requestId: 'string',
+      type: 'string',
+      uri: 'string',
+      validateType: 'string',
     };
   }
 
@@ -326,18 +519,15 @@ export class DescribeCertificateStateResponse extends $tea.Model {
 }
 
 export class DescribePackageStateRequest extends $tea.Model {
-  sourceIp?: string;
   productCode?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceIp: 'SourceIp',
       productCode: 'ProductCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceIp: 'string',
       productCode: 'string',
     };
   }
@@ -348,28 +538,28 @@ export class DescribePackageStateRequest extends $tea.Model {
 }
 
 export class DescribePackageStateResponseBody extends $tea.Model {
-  totalCount?: number;
-  requestId?: string;
-  productCode?: string;
-  usedCount?: number;
   issuedCount?: number;
+  productCode?: string;
+  requestId?: string;
+  totalCount?: number;
+  usedCount?: number;
   static names(): { [key: string]: string } {
     return {
-      totalCount: 'TotalCount',
-      requestId: 'RequestId',
-      productCode: 'ProductCode',
-      usedCount: 'UsedCount',
       issuedCount: 'IssuedCount',
+      productCode: 'ProductCode',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      usedCount: 'UsedCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      totalCount: 'number',
-      requestId: 'string',
-      productCode: 'string',
-      usedCount: 'number',
       issuedCount: 'number',
+      productCode: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      usedCount: 'number',
     };
   }
 
@@ -392,6 +582,72 @@ export class DescribePackageStateResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribePackageStateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCertificateOrderForPackageRequestRequest extends $tea.Model {
+  csr?: string;
+  orderId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      csr: 'Csr',
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      csr: 'string',
+      orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCertificateOrderForPackageRequestResponseBody extends $tea.Model {
+  orderId?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RenewCertificateOrderForPackageRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RenewCertificateOrderForPackageRequestResponseBody,
     };
   }
 
@@ -474,12 +730,115 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  async cancelCertificateForPackageRequestWithOptions(request: CancelCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelCertificateForPackageRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelCertificateForPackageRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelCertificateForPackageRequestResponse>(await this.callApi(params, req, runtime), new CancelCertificateForPackageRequestResponse({}));
+  }
+
+  async cancelCertificateForPackageRequest(request: CancelCertificateForPackageRequestRequest): Promise<CancelCertificateForPackageRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelCertificateForPackageRequestWithOptions(request, runtime);
+  }
+
+  async cancelOrderRequestWithOptions(request: CancelOrderRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelOrderRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelOrderRequestResponse>(await this.callApi(params, req, runtime), new CancelOrderRequestResponse({}));
+  }
+
+  async cancelOrderRequest(request: CancelOrderRequestRequest): Promise<CancelOrderRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelOrderRequestWithOptions(request, runtime);
+  }
+
+  async createCertificateForPackageRequestWithOptions(request: CreateCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateForPackageRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["CompanyName"] = request.companyName;
+    query["Csr"] = request.csr;
+    query["Domain"] = request.domain;
+    query["Email"] = request.email;
+    query["Phone"] = request.phone;
+    query["ProductCode"] = request.productCode;
+    query["Username"] = request.username;
+    query["ValidateType"] = request.validateType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCertificateForPackageRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateForPackageRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateForPackageRequestResponse({}));
+  }
+
+  async createCertificateForPackageRequest(request: CreateCertificateForPackageRequestRequest): Promise<CreateCertificateForPackageRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCertificateForPackageRequestWithOptions(request, runtime);
+  }
+
   async createCertificateRequestWithOptions(request: CreateCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateRequestResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Domain"] = request.domain;
+    query["Email"] = request.email;
+    query["Phone"] = request.phone;
+    query["ProductCode"] = request.productCode;
+    query["Username"] = request.username;
+    query["ValidateType"] = request.validateType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCertificateRequestResponse>(await this.doRPCRequest("CreateCertificateRequest", "2020-04-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateRequestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCertificateRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateRequestResponse({}));
   }
 
   async createCertificateRequest(request: CreateCertificateRequestRequest): Promise<CreateCertificateRequestResponse> {
@@ -489,10 +848,28 @@ export default class Client extends OpenApi {
 
   async createCertificateWithCsrRequestWithOptions(request: CreateCertificateWithCsrRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateWithCsrRequestResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["Csr"] = request.csr;
+    query["Email"] = request.email;
+    query["Phone"] = request.phone;
+    query["ProductCode"] = request.productCode;
+    query["Username"] = request.username;
+    query["ValidateType"] = request.validateType;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCertificateWithCsrRequestResponse>(await this.doRPCRequest("CreateCertificateWithCsrRequest", "2020-04-07", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCertificateWithCsrRequestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCertificateWithCsrRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCertificateWithCsrRequestResponse>(await this.callApi(params, req, runtime), new CreateCertificateWithCsrRequestResponse({}));
   }
 
   async createCertificateWithCsrRequest(request: CreateCertificateWithCsrRequestRequest): Promise<CreateCertificateWithCsrRequestResponse> {
@@ -502,10 +879,23 @@ export default class Client extends OpenApi {
 
   async deleteCertificateRequestWithOptions(request: DeleteCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateRequestResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCertificateRequestResponse>(await this.doRPCRequest("DeleteCertificateRequest", "2020-04-07", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCertificateRequestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCertificateRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCertificateRequestResponse>(await this.callApi(params, req, runtime), new DeleteCertificateRequestResponse({}));
   }
 
   async deleteCertificateRequest(request: DeleteCertificateRequestRequest): Promise<DeleteCertificateRequestResponse> {
@@ -515,10 +905,23 @@ export default class Client extends OpenApi {
 
   async describeCertificateStateWithOptions(request: DescribeCertificateStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateStateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["OrderId"] = request.orderId;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCertificateStateResponse>(await this.doRPCRequest("DescribeCertificateState", "2020-04-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCertificateStateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCertificateState",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCertificateStateResponse>(await this.callApi(params, req, runtime), new DescribeCertificateStateResponse({}));
   }
 
   async describeCertificateState(request: DescribeCertificateStateRequest): Promise<DescribeCertificateStateResponse> {
@@ -528,15 +931,55 @@ export default class Client extends OpenApi {
 
   async describePackageStateWithOptions(request: DescribePackageStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackageStateResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["ProductCode"] = request.productCode;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePackageStateResponse>(await this.doRPCRequest("DescribePackageState", "2020-04-07", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePackageStateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePackageState",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePackageStateResponse>(await this.callApi(params, req, runtime), new DescribePackageStateResponse({}));
   }
 
   async describePackageState(request: DescribePackageStateRequest): Promise<DescribePackageStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describePackageStateWithOptions(request, runtime);
+  }
+
+  async renewCertificateOrderForPackageRequestWithOptions(request: RenewCertificateOrderForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<RenewCertificateOrderForPackageRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["Csr"] = request.csr;
+    query["OrderId"] = request.orderId;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewCertificateOrderForPackageRequest",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewCertificateOrderForPackageRequestResponse>(await this.callApi(params, req, runtime), new RenewCertificateOrderForPackageRequestResponse({}));
+  }
+
+  async renewCertificateOrderForPackageRequest(request: RenewCertificateOrderForPackageRequestRequest): Promise<RenewCertificateOrderForPackageRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewCertificateOrderForPackageRequestWithOptions(request, runtime);
   }
 
 }
