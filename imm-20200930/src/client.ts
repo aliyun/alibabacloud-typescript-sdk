@@ -224,6 +224,37 @@ export class Boundary extends $tea.Model {
   }
 }
 
+export class ClusterForReq extends $tea.Model {
+  cover?: ClusterForReqCover;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  name?: string;
+  objectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cover: 'Cover',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      name: 'Name',
+      objectId: 'ObjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cover: ClusterForReqCover,
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+      objectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CroppingSuggestion extends $tea.Model {
   aspectRatio?: string;
   boundary?: Boundary;
@@ -407,6 +438,170 @@ export class Face extends $tea.Model {
   }
 }
 
+export class Figure extends $tea.Model {
+  age?: number;
+  ageSD?: number;
+  attractive?: number;
+  beard?: string;
+  beardConfidence?: number;
+  boundary?: Boundary;
+  emotion?: string;
+  emotionConfidence?: number;
+  faceQuality?: number;
+  figureClusterConfidence?: number;
+  figureClusterId?: string;
+  figureConfidence?: number;
+  figureId?: string;
+  figureType?: string;
+  gender?: string;
+  genderConfidence?: number;
+  glasses?: string;
+  glassesConfidence?: number;
+  hat?: string;
+  hatConfidence?: number;
+  headPose?: HeadPose;
+  mask?: string;
+  maskConfidence?: number;
+  mouth?: string;
+  mouthConfidence?: number;
+  sharpness?: number;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      ageSD: 'AgeSD',
+      attractive: 'Attractive',
+      beard: 'Beard',
+      beardConfidence: 'BeardConfidence',
+      boundary: 'Boundary',
+      emotion: 'Emotion',
+      emotionConfidence: 'EmotionConfidence',
+      faceQuality: 'FaceQuality',
+      figureClusterConfidence: 'FigureClusterConfidence',
+      figureClusterId: 'FigureClusterId',
+      figureConfidence: 'FigureConfidence',
+      figureId: 'FigureId',
+      figureType: 'FigureType',
+      gender: 'Gender',
+      genderConfidence: 'GenderConfidence',
+      glasses: 'Glasses',
+      glassesConfidence: 'GlassesConfidence',
+      hat: 'Hat',
+      hatConfidence: 'HatConfidence',
+      headPose: 'HeadPose',
+      mask: 'Mask',
+      maskConfidence: 'MaskConfidence',
+      mouth: 'Mouth',
+      mouthConfidence: 'MouthConfidence',
+      sharpness: 'Sharpness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'number',
+      ageSD: 'number',
+      attractive: 'number',
+      beard: 'string',
+      beardConfidence: 'number',
+      boundary: Boundary,
+      emotion: 'string',
+      emotionConfidence: 'number',
+      faceQuality: 'number',
+      figureClusterConfidence: 'number',
+      figureClusterId: 'string',
+      figureConfidence: 'number',
+      figureId: 'string',
+      figureType: 'string',
+      gender: 'string',
+      genderConfidence: 'number',
+      glasses: 'string',
+      glassesConfidence: 'number',
+      hat: 'string',
+      hatConfidence: 'number',
+      headPose: HeadPose,
+      mask: 'string',
+      maskConfidence: 'number',
+      mouth: 'string',
+      mouthConfidence: 'number',
+      sharpness: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FigureCluster extends $tea.Model {
+  averageAge?: number;
+  cover?: File;
+  createTime?: string;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  datasetName?: string;
+  faceCount?: number;
+  gender?: string;
+  imageCount?: number;
+  maxAge?: number;
+  minAge?: number;
+  name?: string;
+  objectId?: string;
+  objectType?: string;
+  ownerId?: string;
+  projectName?: string;
+  updateTime?: string;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      averageAge: 'AverageAge',
+      cover: 'Cover',
+      createTime: 'CreateTime',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      faceCount: 'FaceCount',
+      gender: 'Gender',
+      imageCount: 'ImageCount',
+      maxAge: 'MaxAge',
+      minAge: 'MinAge',
+      name: 'Name',
+      objectId: 'ObjectId',
+      objectType: 'ObjectType',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      updateTime: 'UpdateTime',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageAge: 'number',
+      cover: File,
+      createTime: 'string',
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      datasetName: 'string',
+      faceCount: 'number',
+      gender: 'string',
+      imageCount: 'number',
+      maxAge: 'number',
+      minAge: 'number',
+      name: 'string',
+      objectId: 'string',
+      objectType: 'string',
+      ownerId: 'string',
+      projectName: 'string',
+      updateTime: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class File extends $tea.Model {
   accessControlAllowOrigin?: string;
   accessControlRequestMethod?: string;
@@ -417,8 +612,6 @@ export class File extends $tea.Model {
   audioBitrate?: number;
   audioCovers?: Image[];
   audioDuration?: number;
-  audioEmbeddingsFloat32?: number[];
-  audioEmbeddingsInt8?: number[];
   audioLanguage?: string;
   audioStreams?: AudioStream[];
   audioTakenTime?: string;
@@ -435,20 +628,16 @@ export class File extends $tea.Model {
   customLabels?: { [key: string]: any };
   datasetName?: string;
   documentContent?: string;
-  documentEmbeddingsFloat32?: number[];
-  documentEmbeddingsInt8?: number[];
   documentLanguage?: string;
   ETag?: string;
   EXIF?: string;
-  faceCount?: number;
-  faces?: Face[];
+  figureCount?: number;
+  figures?: Figure[];
   fileAccessTime?: string;
   fileCreateTime?: string;
   fileHash?: string;
   fileModifiedTime?: string;
   filename?: string;
-  imageEmbeddingsFloat32?: number[];
-  imageEmbeddingsInt8?: number[];
   imageHeight?: number;
   imageScore?: ImageScore;
   imageWidth?: number;
@@ -456,11 +645,14 @@ export class File extends $tea.Model {
   latLong?: string;
   mediaType?: string;
   OCRContents?: OCRContents[];
+  OSSCRC64?: string;
   OSSDeleteMarker?: string;
   OSSExpiration?: string;
   OSSObjectType?: string;
+  OSSStorageClass?: string;
   OSSTagging?: { [key: string]: any };
   OSSTaggingCount?: number;
+  OSSURI?: string;
   OSSUserMeta?: { [key: string]: any };
   OSSVersionId?: string;
   objectACL?: string;
@@ -477,7 +669,6 @@ export class File extends $tea.Model {
   serverSideEncryptionCustomerAlgorithm?: string;
   serverSideEncryptionKeyId?: string;
   size?: number;
-  storageClass?: string;
   subtitles?: SubtitleStream[];
   timezone?: string;
   title?: string;
@@ -486,8 +677,6 @@ export class File extends $tea.Model {
   updateTime?: string;
   videoBitrate?: number;
   videoDuration?: number;
-  videoEmbeddingsFloat32?: number[];
-  videoEmbeddingsInt8?: number[];
   videoHeight?: number;
   videoStartTime?: number;
   videoStreams?: VideoStream[];
@@ -504,8 +693,6 @@ export class File extends $tea.Model {
       audioBitrate: 'AudioBitrate',
       audioCovers: 'AudioCovers',
       audioDuration: 'AudioDuration',
-      audioEmbeddingsFloat32: 'AudioEmbeddingsFloat32',
-      audioEmbeddingsInt8: 'AudioEmbeddingsInt8',
       audioLanguage: 'AudioLanguage',
       audioStreams: 'AudioStreams',
       audioTakenTime: 'AudioTakenTime',
@@ -522,20 +709,16 @@ export class File extends $tea.Model {
       customLabels: 'CustomLabels',
       datasetName: 'DatasetName',
       documentContent: 'DocumentContent',
-      documentEmbeddingsFloat32: 'DocumentEmbeddingsFloat32',
-      documentEmbeddingsInt8: 'DocumentEmbeddingsInt8',
       documentLanguage: 'DocumentLanguage',
       ETag: 'ETag',
       EXIF: 'EXIF',
-      faceCount: 'FaceCount',
-      faces: 'Faces',
+      figureCount: 'FigureCount',
+      figures: 'Figures',
       fileAccessTime: 'FileAccessTime',
       fileCreateTime: 'FileCreateTime',
       fileHash: 'FileHash',
       fileModifiedTime: 'FileModifiedTime',
       filename: 'Filename',
-      imageEmbeddingsFloat32: 'ImageEmbeddingsFloat32',
-      imageEmbeddingsInt8: 'ImageEmbeddingsInt8',
       imageHeight: 'ImageHeight',
       imageScore: 'ImageScore',
       imageWidth: 'ImageWidth',
@@ -543,11 +726,14 @@ export class File extends $tea.Model {
       latLong: 'LatLong',
       mediaType: 'MediaType',
       OCRContents: 'OCRContents',
+      OSSCRC64: 'OSSCRC64',
       OSSDeleteMarker: 'OSSDeleteMarker',
       OSSExpiration: 'OSSExpiration',
       OSSObjectType: 'OSSObjectType',
+      OSSStorageClass: 'OSSStorageClass',
       OSSTagging: 'OSSTagging',
       OSSTaggingCount: 'OSSTaggingCount',
+      OSSURI: 'OSSURI',
       OSSUserMeta: 'OSSUserMeta',
       OSSVersionId: 'OSSVersionId',
       objectACL: 'ObjectACL',
@@ -564,7 +750,6 @@ export class File extends $tea.Model {
       serverSideEncryptionCustomerAlgorithm: 'ServerSideEncryptionCustomerAlgorithm',
       serverSideEncryptionKeyId: 'ServerSideEncryptionKeyId',
       size: 'Size',
-      storageClass: 'StorageClass',
       subtitles: 'Subtitles',
       timezone: 'Timezone',
       title: 'Title',
@@ -573,8 +758,6 @@ export class File extends $tea.Model {
       updateTime: 'UpdateTime',
       videoBitrate: 'VideoBitrate',
       videoDuration: 'VideoDuration',
-      videoEmbeddingsFloat32: 'VideoEmbeddingsFloat32',
-      videoEmbeddingsInt8: 'VideoEmbeddingsInt8',
       videoHeight: 'VideoHeight',
       videoStartTime: 'VideoStartTime',
       videoStreams: 'VideoStreams',
@@ -594,8 +777,6 @@ export class File extends $tea.Model {
       audioBitrate: 'number',
       audioCovers: { 'type': 'array', 'itemType': Image },
       audioDuration: 'number',
-      audioEmbeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
-      audioEmbeddingsInt8: { 'type': 'array', 'itemType': 'number' },
       audioLanguage: 'string',
       audioStreams: { 'type': 'array', 'itemType': AudioStream },
       audioTakenTime: 'string',
@@ -612,20 +793,16 @@ export class File extends $tea.Model {
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       datasetName: 'string',
       documentContent: 'string',
-      documentEmbeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
-      documentEmbeddingsInt8: { 'type': 'array', 'itemType': 'number' },
       documentLanguage: 'string',
       ETag: 'string',
       EXIF: 'string',
-      faceCount: 'number',
-      faces: { 'type': 'array', 'itemType': Face },
+      figureCount: 'number',
+      figures: { 'type': 'array', 'itemType': Figure },
       fileAccessTime: 'string',
       fileCreateTime: 'string',
       fileHash: 'string',
       fileModifiedTime: 'string',
       filename: 'string',
-      imageEmbeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
-      imageEmbeddingsInt8: { 'type': 'array', 'itemType': 'number' },
       imageHeight: 'number',
       imageScore: ImageScore,
       imageWidth: 'number',
@@ -633,11 +810,14 @@ export class File extends $tea.Model {
       latLong: 'string',
       mediaType: 'string',
       OCRContents: { 'type': 'array', 'itemType': OCRContents },
+      OSSCRC64: 'string',
       OSSDeleteMarker: 'string',
       OSSExpiration: 'string',
       OSSObjectType: 'string',
+      OSSStorageClass: 'string',
       OSSTagging: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       OSSTaggingCount: 'number',
+      OSSURI: 'string',
       OSSUserMeta: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       OSSVersionId: 'string',
       objectACL: 'string',
@@ -654,7 +834,6 @@ export class File extends $tea.Model {
       serverSideEncryptionCustomerAlgorithm: 'string',
       serverSideEncryptionKeyId: 'string',
       size: 'number',
-      storageClass: 'string',
       subtitles: { 'type': 'array', 'itemType': SubtitleStream },
       timezone: 'string',
       title: 'string',
@@ -663,8 +842,6 @@ export class File extends $tea.Model {
       updateTime: 'string',
       videoBitrate: 'number',
       videoDuration: 'number',
-      videoEmbeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
-      videoEmbeddingsInt8: { 'type': 'array', 'itemType': 'number' },
       videoHeight: 'number',
       videoStartTime: 'number',
       videoStreams: { 'type': 'array', 'itemType': VideoStream },
@@ -679,16 +856,22 @@ export class File extends $tea.Model {
 }
 
 export class FileForReq extends $tea.Model {
+  contentType?: string;
   customId?: string;
   customLabels?: { [key: string]: any };
+  figures?: FileForReqFigures[];
   fileHash?: string;
+  mediaType?: string;
   OSSURI?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
+      contentType: 'ContentType',
       customId: 'CustomId',
       customLabels: 'CustomLabels',
+      figures: 'Figures',
       fileHash: 'FileHash',
+      mediaType: 'MediaType',
       OSSURI: 'OSSURI',
       URI: 'URI',
     };
@@ -696,9 +879,12 @@ export class FileForReq extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      contentType: 'string',
       customId: 'string',
       customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      figures: { 'type': 'array', 'itemType': FileForReqFigures },
       fileHash: 'string',
+      mediaType: 'string',
       OSSURI: 'string',
       URI: 'string',
     };
@@ -810,25 +996,31 @@ export class KeyValuePair extends $tea.Model {
 }
 
 export class Label extends $tea.Model {
+  centricScore?: number;
   labelConfidence?: number;
   labelLevel?: number;
   labelName?: string;
   language?: string;
+  parentLabelName?: string;
   static names(): { [key: string]: string } {
     return {
+      centricScore: 'CentricScore',
       labelConfidence: 'LabelConfidence',
       labelLevel: 'LabelLevel',
       labelName: 'LabelName',
       language: 'Language',
+      parentLabelName: 'ParentLabelName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      centricScore: 'number',
       labelConfidence: 'number',
       labelLevel: 'number',
       labelName: 'string',
       language: 'string',
+      parentLabelName: 'string',
     };
   }
 
@@ -857,46 +1049,6 @@ export class OCRContents extends $tea.Model {
       confidence: 'number',
       contents: 'string',
       language: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OfficeConversionTask extends $tea.Model {
-  createTime?: string;
-  endTime?: string;
-  reason?: string;
-  startTime?: string;
-  status?: string;
-  taskId?: string;
-  totalPages?: number;
-  userData?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      endTime: 'EndTime',
-      reason: 'Reason',
-      startTime: 'StartTime',
-      status: 'Status',
-      taskId: 'TaskId',
-      totalPages: 'TotalPages',
-      userData: 'UserData',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      endTime: 'string',
-      reason: 'string',
-      startTime: 'string',
-      status: 'string',
-      taskId: 'string',
-      totalPages: 'number',
-      userData: 'string',
     };
   }
 
@@ -1036,6 +1188,46 @@ export class SubtitleStream extends $tea.Model {
       content: 'string',
       index: 'number',
       language: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskInfo extends $tea.Model {
+  code?: string;
+  endTime?: string;
+  message?: string;
+  startTime?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      endTime: 'EndTime',
+      message: 'Message',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      endTime: 'string',
+      message: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
     };
   }
 
@@ -1224,15 +1416,11 @@ export class WebofficeWatermark extends $tea.Model {
 
 export class BatchDeleteFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   URIs?: string[];
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       URIs: 'URIs',
     };
@@ -1241,8 +1429,6 @@ export class BatchDeleteFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
       URIs: { 'type': 'array', 'itemType': 'string' },
     };
@@ -1255,15 +1441,11 @@ export class BatchDeleteFileMetaRequest extends $tea.Model {
 
 export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   URIsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       URIsShrink: 'URIs',
     };
@@ -1272,8 +1454,6 @@ export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
       URIsShrink: 'string',
     };
@@ -1285,18 +1465,15 @@ export class BatchDeleteFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchDeleteFileMetaResponseBody extends $tea.Model {
-  eventId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      eventId: 'EventId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventId: 'string',
       requestId: 'string',
     };
   }
@@ -1531,15 +1708,11 @@ export class BatchIndexFileMetaResponse extends $tea.Model {
 export class BatchUpdateFileMetaRequest extends $tea.Model {
   datasetName?: string;
   files?: FileForReq[];
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       files: 'Files',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
   }
@@ -1548,8 +1721,6 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
     return {
       datasetName: 'string',
       files: { 'type': 'array', 'itemType': FileForReq },
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
     };
   }
@@ -1562,15 +1733,11 @@ export class BatchUpdateFileMetaRequest extends $tea.Model {
 export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   filesShrink?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       filesShrink: 'Files',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
   }
@@ -1579,8 +1746,6 @@ export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       filesShrink: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
     };
   }
@@ -1591,18 +1756,18 @@ export class BatchUpdateFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class BatchUpdateFileMetaResponseBody extends $tea.Model {
-  eventId?: string;
+  files?: BatchUpdateFileMetaResponseBodyFiles[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      eventId: 'EventId',
+      files: 'Files',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventId: 'string',
+      files: { 'type': 'array', 'itemType': BatchUpdateFileMetaResponseBodyFiles },
       requestId: 'string',
     };
   }
@@ -1626,6 +1791,84 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: BatchUpdateFileMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClusterFiguresRequest extends $tea.Model {
+  customMessage?: string;
+  datasetName?: string;
+  figureType?: string;
+  notifyTopicEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customMessage: 'CustomMessage',
+      datasetName: 'DatasetName',
+      figureType: 'FigureType',
+      notifyTopicEndpoint: 'NotifyTopicEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customMessage: 'string',
+      datasetName: 'string',
+      figureType: 'string',
+      notifyTopicEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClusterFiguresResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClusterFiguresResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ClusterFiguresResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ClusterFiguresResponseBody,
     };
   }
 
@@ -1790,79 +2033,22 @@ export class CreateDatasetResponse extends $tea.Model {
   }
 }
 
-export class CreateOfficeConversionTaskRequest extends $tea.Model {
-  endPage?: string;
-  firstPage?: boolean;
-  fitToHeight?: boolean;
-  fitToWidth?: boolean;
-  isHorizontal?: boolean;
-  longPic?: boolean;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
-  paperSize?: string;
-  password?: string;
+export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
   projectName?: string;
-  quality?: number;
-  scale?: number;
-  sheetCount?: string;
-  sheetIndex?: number;
-  showComments?: boolean;
-  sourceType?: string;
-  sourceUri?: string;
-  startPage?: string;
-  targetType?: string;
-  targetUri?: string;
+  sourceURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
-      endPage: 'EndPage',
-      firstPage: 'FirstPage',
-      fitToHeight: 'FitToHeight',
-      fitToWidth: 'FitToWidth',
-      isHorizontal: 'IsHorizontal',
-      longPic: 'LongPic',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      paperSize: 'PaperSize',
-      password: 'Password',
       projectName: 'ProjectName',
-      quality: 'Quality',
-      scale: 'Scale',
-      sheetCount: 'SheetCount',
-      sheetIndex: 'SheetIndex',
-      showComments: 'ShowComments',
-      sourceType: 'SourceType',
-      sourceUri: 'SourceUri',
-      startPage: 'StartPage',
-      targetType: 'TargetType',
-      targetUri: 'TargetUri',
+      sourceURI: 'SourceURI',
       userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endPage: 'string',
-      firstPage: 'boolean',
-      fitToHeight: 'boolean',
-      fitToWidth: 'boolean',
-      isHorizontal: 'boolean',
-      longPic: 'boolean',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
-      paperSize: 'string',
-      password: 'string',
       projectName: 'string',
-      quality: 'number',
-      scale: 'number',
-      sheetCount: 'string',
-      sheetIndex: 'number',
-      showComments: 'boolean',
-      sourceType: 'string',
-      sourceUri: 'string',
-      startPage: 'string',
-      targetType: 'string',
-      targetUri: 'string',
+      sourceURI: 'string',
       userData: 'string',
     };
   }
@@ -1872,20 +2058,47 @@ export class CreateOfficeConversionTaskRequest extends $tea.Model {
   }
 }
 
-export class CreateOfficeConversionTaskResponseBody extends $tea.Model {
+export class CreateDetectVideoLabelsTaskResponseBody extends $tea.Model {
+  code?: string;
+  endTime?: string;
+  eventId?: string;
+  message?: string;
+  projectName?: string;
   requestId?: string;
+  startTime?: string;
+  status?: string;
   taskId?: string;
+  taskType?: string;
+  userData?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      message: 'Message',
+      projectName: 'ProjectName',
       requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
       taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      endTime: 'string',
+      eventId: 'string',
+      message: 'string',
+      projectName: 'string',
       requestId: 'string',
+      startTime: 'string',
+      status: 'string',
       taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
     };
   }
 
@@ -1894,9 +2107,9 @@ export class CreateOfficeConversionTaskResponseBody extends $tea.Model {
   }
 }
 
-export class CreateOfficeConversionTaskResponse extends $tea.Model {
+export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateOfficeConversionTaskResponseBody;
+  body: CreateDetectVideoLabelsTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1907,7 +2120,7 @@ export class CreateOfficeConversionTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateOfficeConversionTaskResponseBody,
+      body: CreateDetectVideoLabelsTaskResponseBody,
     };
   }
 
@@ -2143,15 +2356,11 @@ export class DeleteDatasetResponse extends $tea.Model {
 
 export class DeleteFileMetaRequest extends $tea.Model {
   datasetName?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       URI: 'URI',
     };
@@ -2160,8 +2369,6 @@ export class DeleteFileMetaRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
       URI: 'string',
     };
@@ -2173,18 +2380,15 @@ export class DeleteFileMetaRequest extends $tea.Model {
 }
 
 export class DeleteFileMetaResponseBody extends $tea.Model {
-  eventId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      eventId: 'EventId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventId: 'string',
       requestId: 'string',
     };
   }
@@ -2561,6 +2765,174 @@ export class GetDatasetResponse extends $tea.Model {
   }
 }
 
+export class GetDetectVideoLabelsResultRequest extends $tea.Model {
+  projectName?: string;
+  taskId?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      taskId: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDetectVideoLabelsResultResponseBody extends $tea.Model {
+  code?: string;
+  endTime?: string;
+  eventId?: string;
+  labels?: Label[];
+  message?: string;
+  projectName?: string;
+  requestId?: string;
+  startTime?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      labels: 'Labels',
+      message: 'Message',
+      projectName: 'ProjectName',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      endTime: 'string',
+      eventId: 'string',
+      labels: { 'type': 'array', 'itemType': Label },
+      message: 'string',
+      projectName: 'string',
+      requestId: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDetectVideoLabelsResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDetectVideoLabelsResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDetectVideoLabelsResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFigureClusterRequest extends $tea.Model {
+  datasetName?: string;
+  figureClusterId?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      figureClusterId: 'FigureClusterId',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      figureClusterId: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFigureClusterResponseBody extends $tea.Model {
+  figureCluster?: FigureCluster;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureCluster: 'FigureCluster',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureCluster: FigureCluster,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFigureClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFigureClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFigureClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFileMetaRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -2696,72 +3068,6 @@ export class GetFileSignedURIResponse extends $tea.Model {
   }
 }
 
-export class GetOfficeConversionTaskRequest extends $tea.Model {
-  projectName?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOfficeConversionTaskResponseBody extends $tea.Model {
-  officeConversionTask?: OfficeConversionTask;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      officeConversionTask: 'OfficeConversionTask',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      officeConversionTask: OfficeConversionTask,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetOfficeConversionTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetOfficeConversionTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetOfficeConversionTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetProjectRequest extends $tea.Model {
   projectName?: string;
   withStatistics?: boolean;
@@ -2820,6 +3126,102 @@ export class GetProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskRequest extends $tea.Model {
+  projectName?: string;
+  taskId?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectName: 'ProjectName',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectName: 'string',
+      taskId: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBody extends $tea.Model {
+  code?: string;
+  endTime?: string;
+  eventId?: string;
+  message?: string;
+  projectName?: string;
+  requestId?: string;
+  startTime?: string;
+  status?: string;
+  taskId?: string;
+  taskType?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      endTime: 'EndTime',
+      eventId: 'EventId',
+      message: 'Message',
+      projectName: 'ProjectName',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskType: 'TaskType',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      endTime: 'string',
+      eventId: 'string',
+      message: 'string',
+      projectName: 'string',
+      requestId: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskType: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTaskResponseBody,
     };
   }
 
@@ -3262,23 +3664,35 @@ export class ListDatasetsResponse extends $tea.Model {
   }
 }
 
-export class ListOfficeConversionTaskRequest extends $tea.Model {
+export class ListFigureClustersRequest extends $tea.Model {
+  datasetName?: string;
+  labels?: string;
   maxResults?: number;
   nextToken?: string;
+  order?: string;
   projectName?: string;
+  sort?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetName: 'DatasetName',
+      labels: 'Labels',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      order: 'Order',
       projectName: 'ProjectName',
+      sort: 'Sort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      datasetName: 'string',
+      labels: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      order: 'string',
       projectName: 'string',
+      sort: 'string',
     };
   }
 
@@ -3287,22 +3701,22 @@ export class ListOfficeConversionTaskRequest extends $tea.Model {
   }
 }
 
-export class ListOfficeConversionTaskResponseBody extends $tea.Model {
+export class ListFigureClustersResponseBody extends $tea.Model {
+  figureClusters?: FigureCluster[];
   nextToken?: string;
-  officeConversionTasks?: OfficeConversionTask[];
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      figureClusters: 'FigureClusters',
       nextToken: 'NextToken',
-      officeConversionTasks: 'OfficeConversionTasks',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      figureClusters: { 'type': 'array', 'itemType': FigureCluster },
       nextToken: 'string',
-      officeConversionTasks: { 'type': 'array', 'itemType': OfficeConversionTask },
       requestId: 'string',
     };
   }
@@ -3312,9 +3726,9 @@ export class ListOfficeConversionTaskResponseBody extends $tea.Model {
   }
 }
 
-export class ListOfficeConversionTaskResponse extends $tea.Model {
+export class ListFigureClustersResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListOfficeConversionTaskResponseBody;
+  body: ListFigureClustersResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3325,7 +3739,7 @@ export class ListOfficeConversionTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListOfficeConversionTaskResponseBody,
+      body: ListFigureClustersResponseBody,
     };
   }
 
@@ -3398,6 +3812,171 @@ export class ListProjectsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  projectName?: string;
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectName: 'ProjectName',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      projectName: 'string',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponseBody extends $tea.Model {
+  maxResults?: string;
+  nextToken?: string;
+  projectName?: string;
+  requestId?: string;
+  tasks?: TaskInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectName: 'ProjectName',
+      requestId: 'RequestId',
+      tasks: 'Tasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'string',
+      nextToken: 'string',
+      projectName: 'string',
+      requestId: 'string',
+      tasks: { 'type': 'array', 'itemType': TaskInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTasksResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeFigureClustersRequest extends $tea.Model {
+  clusterIdFrom?: string;
+  clusterIdTo?: string;
+  customMessage?: string;
+  datasetName?: string;
+  figureType?: string;
+  notifyTopicEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterIdFrom: 'ClusterIdFrom',
+      clusterIdTo: 'ClusterIdTo',
+      customMessage: 'CustomMessage',
+      datasetName: 'DatasetName',
+      figureType: 'FigureType',
+      notifyTopicEndpoint: 'NotifyTopicEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIdFrom: 'string',
+      clusterIdTo: 'string',
+      customMessage: 'string',
+      datasetName: 'string',
+      figureType: 'string',
+      notifyTopicEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeFigureClustersResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MergeFigureClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MergeFigureClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MergeFigureClustersResponseBody,
     };
   }
 
@@ -3573,6 +4152,87 @@ export class ResumeBindingResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ResumeBindingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryRequest extends $tea.Model {
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  projectName?: string;
+  query?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      projectName: 'ProjectName',
+      query: 'Query',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      projectName: 'string',
+      query: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryResponseBody extends $tea.Model {
+  aggregations?: SemanticQueryResponseBodyAggregations[];
+  files?: File[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aggregations: 'Aggregations',
+      files: 'Files',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aggregations: { 'type': 'array', 'itemType': SemanticQueryResponseBodyAggregations },
+      files: { 'type': 'array', 'itemType': File },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SemanticQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SemanticQueryResponseBody,
     };
   }
 
@@ -3867,18 +4527,105 @@ export class UpdateDatasetResponse extends $tea.Model {
   }
 }
 
+export class UpdateFigureClusterRequest extends $tea.Model {
+  datasetName?: string;
+  figureCluster?: FigureCluster;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      figureCluster: 'FigureCluster',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      figureCluster: FigureCluster,
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFigureClusterShrinkRequest extends $tea.Model {
+  datasetName?: string;
+  figureClusterShrink?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      figureClusterShrink: 'FigureCluster',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      figureClusterShrink: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFigureClusterResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateFigureClusterResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateFigureClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateFigureClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFileMetaRequest extends $tea.Model {
   datasetName?: string;
   file?: FileForReq;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       file: 'File',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
   }
@@ -3887,8 +4634,6 @@ export class UpdateFileMetaRequest extends $tea.Model {
     return {
       datasetName: 'string',
       file: FileForReq,
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
     };
   }
@@ -3901,15 +4646,11 @@ export class UpdateFileMetaRequest extends $tea.Model {
 export class UpdateFileMetaShrinkRequest extends $tea.Model {
   datasetName?: string;
   fileShrink?: string;
-  notifyEndpoint?: string;
-  notifyTopicName?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
       fileShrink: 'File',
-      notifyEndpoint: 'NotifyEndpoint',
-      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
     };
   }
@@ -3918,8 +4659,6 @@ export class UpdateFileMetaShrinkRequest extends $tea.Model {
     return {
       datasetName: 'string',
       fileShrink: 'string',
-      notifyEndpoint: 'string',
-      notifyTopicName: 'string',
       projectName: 'string',
     };
   }
@@ -3930,18 +4669,15 @@ export class UpdateFileMetaShrinkRequest extends $tea.Model {
 }
 
 export class UpdateFileMetaResponseBody extends $tea.Model {
-  eventId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      eventId: 'EventId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      eventId: 'string',
       requestId: 'string',
     };
   }
@@ -4069,6 +4805,144 @@ export class UpdateProjectResponse extends $tea.Model {
   }
 }
 
+export class ClusterForReqCoverFigures extends $tea.Model {
+  figureId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureId: 'FigureId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ClusterForReqCover extends $tea.Model {
+  figures?: ClusterForReqCoverFigures[];
+  static names(): { [key: string]: string } {
+    return {
+      figures: 'Figures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figures: { 'type': 'array', 'itemType': ClusterForReqCoverFigures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FileForReqFigures extends $tea.Model {
+  figureClusterId?: string;
+  figureId?: string;
+  figureType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureClusterId: 'FigureClusterId',
+      figureId: 'FigureId',
+      figureType: 'FigureType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureClusterId: 'string',
+      figureId: 'string',
+      figureType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchUpdateFileMetaResponseBodyFiles extends $tea.Model {
+  message?: string;
+  success?: boolean;
+  URI?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      success: 'Success',
+      URI: 'URI',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      success: 'boolean',
+      URI: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryResponseBodyAggregationsGroups extends $tea.Model {
+  count?: number;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SemanticQueryResponseBodyAggregations extends $tea.Model {
+  field?: string;
+  groups?: SemanticQueryResponseBodyAggregationsGroups[];
+  operation?: string;
+  value?: number;
+  static names(): { [key: string]: string } {
+    return {
+      field: 'Field',
+      groups: 'Groups',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      field: 'string',
+      groups: { 'type': 'array', 'itemType': SemanticQueryResponseBodyAggregationsGroups },
+      operation: 'string',
+      value: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SimpleQueryRequestAggregations extends $tea.Model {
   field?: string;
   operation?: string;
@@ -4092,19 +4966,19 @@ export class SimpleQueryRequestAggregations extends $tea.Model {
 }
 
 export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
-  value?: string;
   count?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
       count: 'Count',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
       count: 'number',
+      value: 'string',
     };
   }
 
@@ -4115,24 +4989,24 @@ export class SimpleQueryResponseBodyAggregationsGroups extends $tea.Model {
 
 export class SimpleQueryResponseBodyAggregations extends $tea.Model {
   field?: string;
+  groups?: SimpleQueryResponseBodyAggregationsGroups[];
   operation?: string;
   value?: number;
-  groups?: SimpleQueryResponseBodyAggregationsGroups[];
   static names(): { [key: string]: string } {
     return {
       field: 'Field',
+      groups: 'Groups',
       operation: 'Operation',
       value: 'Value',
-      groups: 'Groups',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       field: 'string',
+      groups: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregationsGroups },
       operation: 'string',
       value: 'number',
-      groups: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregationsGroups },
     };
   }
 
@@ -4177,13 +5051,10 @@ export default class Client extends OpenApi {
 
     let query = { };
     query["DatasetName"] = request.datasetName;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
     query["ProjectName"] = request.projectName;
     query["URIs"] = request.URIsShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchDeleteFileMeta",
@@ -4193,7 +5064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchDeleteFileMetaResponse>(await this.callApi(params, req, runtime), new BatchDeleteFileMetaResponse({}));
@@ -4218,7 +5089,6 @@ export default class Client extends OpenApi {
     query["URIs"] = request.URIsShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchGetFileMeta",
@@ -4228,7 +5098,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchGetFileMetaResponse>(await this.callApi(params, req, runtime), new BatchGetFileMetaResponse({}));
@@ -4255,7 +5125,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchIndexFileMeta",
@@ -4265,7 +5134,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchIndexFileMetaResponse>(await this.callApi(params, req, runtime), new BatchIndexFileMetaResponse({}));
@@ -4287,12 +5156,9 @@ export default class Client extends OpenApi {
     let query = { };
     query["DatasetName"] = request.datasetName;
     query["Files"] = request.filesShrink;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchUpdateFileMeta",
@@ -4302,7 +5168,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchUpdateFileMetaResponse>(await this.callApi(params, req, runtime), new BatchUpdateFileMetaResponse({}));
@@ -4313,6 +5179,37 @@ export default class Client extends OpenApi {
     return await this.batchUpdateFileMetaWithOptions(request, runtime);
   }
 
+  async clusterFiguresWithOptions(request: ClusterFiguresRequest, runtime: $Util.RuntimeOptions): Promise<ClusterFiguresResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["CustomMessage"] = request.customMessage;
+    query["DatasetName"] = request.datasetName;
+    query["FigureType"] = request.figureType;
+    query["NotifyTopicEndpoint"] = request.notifyTopicEndpoint;
+    query["NotifyTopicName"] = request.notifyTopicName;
+    query["ProjectName"] = request.projectName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ClusterFigures",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ClusterFiguresResponse>(await this.callApi(params, req, runtime), new ClusterFiguresResponse({}));
+  }
+
+  async clusterFigures(request: ClusterFiguresRequest): Promise<ClusterFiguresResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.clusterFiguresWithOptions(request, runtime);
+  }
+
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4321,7 +5218,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateBinding",
@@ -4331,7 +5227,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateBindingResponse>(await this.callApi(params, req, runtime), new CreateBindingResponse({}));
@@ -4356,7 +5252,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataset",
@@ -4366,7 +5261,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
@@ -4377,52 +5272,32 @@ export default class Client extends OpenApi {
     return await this.createDatasetWithOptions(request, runtime);
   }
 
-  async createOfficeConversionTaskWithOptions(request: CreateOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOfficeConversionTaskResponse> {
+  async createDetectVideoLabelsTaskWithOptions(request: CreateDetectVideoLabelsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDetectVideoLabelsTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndPage"] = request.endPage;
-    query["FirstPage"] = request.firstPage;
-    query["FitToHeight"] = request.fitToHeight;
-    query["FitToWidth"] = request.fitToWidth;
-    query["IsHorizontal"] = request.isHorizontal;
-    query["LongPic"] = request.longPic;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["PaperSize"] = request.paperSize;
-    query["Password"] = request.password;
     query["ProjectName"] = request.projectName;
-    query["Quality"] = request.quality;
-    query["Scale"] = request.scale;
-    query["SheetCount"] = request.sheetCount;
-    query["SheetIndex"] = request.sheetIndex;
-    query["ShowComments"] = request.showComments;
-    query["SourceType"] = request.sourceType;
-    query["SourceUri"] = request.sourceUri;
-    query["StartPage"] = request.startPage;
-    query["TargetType"] = request.targetType;
-    query["TargetUri"] = request.targetUri;
+    query["SourceURI"] = request.sourceURI;
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
-      action: "CreateOfficeConversionTask",
+      action: "CreateDetectVideoLabelsTask",
       version: "2020-09-30",
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateOfficeConversionTaskResponse>(await this.callApi(params, req, runtime), new CreateOfficeConversionTaskResponse({}));
+    return $tea.cast<CreateDetectVideoLabelsTaskResponse>(await this.callApi(params, req, runtime), new CreateDetectVideoLabelsTaskResponse({}));
   }
 
-  async createOfficeConversionTask(request: CreateOfficeConversionTaskRequest): Promise<CreateOfficeConversionTaskResponse> {
+  async createDetectVideoLabelsTask(request: CreateDetectVideoLabelsTaskRequest): Promise<CreateDetectVideoLabelsTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createOfficeConversionTaskWithOptions(request, runtime);
+    return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
   }
 
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
@@ -4442,7 +5317,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateProject",
@@ -4452,7 +5326,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
@@ -4471,7 +5345,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBinding",
@@ -4481,7 +5354,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteBindingResponse>(await this.callApi(params, req, runtime), new DeleteBindingResponse({}));
@@ -4499,7 +5372,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataset",
@@ -4509,7 +5381,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
@@ -4524,13 +5396,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     let query = { };
     query["DatasetName"] = request.datasetName;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
     query["ProjectName"] = request.projectName;
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFileMeta",
@@ -4540,7 +5409,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteFileMetaResponse>(await this.callApi(params, req, runtime), new DeleteFileMetaResponse({}));
@@ -4557,7 +5426,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProject",
@@ -4567,7 +5435,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
@@ -4586,7 +5454,6 @@ export default class Client extends OpenApi {
     query["Threshold"] = request.threshold;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetectImageLabels",
@@ -4596,7 +5463,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetectImageLabelsResponse>(await this.callApi(params, req, runtime), new DetectImageLabelsResponse({}));
@@ -4617,7 +5484,6 @@ export default class Client extends OpenApi {
     query["Query"] = request.query;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "FuzzyQuery",
@@ -4627,7 +5493,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<FuzzyQueryResponse>(await this.callApi(params, req, runtime), new FuzzyQueryResponse({}));
@@ -4646,7 +5512,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetBinding",
@@ -4656,7 +5521,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetBindingResponse>(await this.callApi(params, req, runtime), new GetBindingResponse({}));
@@ -4675,7 +5540,6 @@ export default class Client extends OpenApi {
     query["WithStatistics"] = request.withStatistics;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDataset",
@@ -4685,7 +5549,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDatasetResponse>(await this.callApi(params, req, runtime), new GetDatasetResponse({}));
@@ -4696,6 +5560,62 @@ export default class Client extends OpenApi {
     return await this.getDatasetWithOptions(request, runtime);
   }
 
+  async getDetectVideoLabelsResultWithOptions(request: GetDetectVideoLabelsResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectVideoLabelsResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ProjectName"] = request.projectName;
+    query["TaskId"] = request.taskId;
+    query["TaskType"] = request.taskType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDetectVideoLabelsResult",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDetectVideoLabelsResultResponse>(await this.callApi(params, req, runtime), new GetDetectVideoLabelsResultResponse({}));
+  }
+
+  async getDetectVideoLabelsResult(request: GetDetectVideoLabelsResultRequest): Promise<GetDetectVideoLabelsResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDetectVideoLabelsResultWithOptions(request, runtime);
+  }
+
+  async getFigureClusterWithOptions(request: GetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetFigureClusterResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["DatasetName"] = request.datasetName;
+    query["FigureClusterId"] = request.figureClusterId;
+    query["ProjectName"] = request.projectName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFigureCluster",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFigureClusterResponse>(await this.callApi(params, req, runtime), new GetFigureClusterResponse({}));
+  }
+
+  async getFigureCluster(request: GetFigureClusterRequest): Promise<GetFigureClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getFigureClusterWithOptions(request, runtime);
+  }
+
   async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4704,7 +5624,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetFileMeta",
@@ -4714,7 +5633,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetFileMetaResponse>(await this.callApi(params, req, runtime), new GetFileMetaResponse({}));
@@ -4732,7 +5651,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetFileSignedURI",
@@ -4742,7 +5660,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetFileSignedURIResponse>(await this.callApi(params, req, runtime), new GetFileSignedURIResponse({}));
@@ -4753,34 +5671,6 @@ export default class Client extends OpenApi {
     return await this.getFileSignedURIWithOptions(request, runtime);
   }
 
-  async getOfficeConversionTaskWithOptions(request: GetOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetOfficeConversionTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["ProjectName"] = request.projectName;
-    query["TaskId"] = request.taskId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetOfficeConversionTask",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetOfficeConversionTaskResponse>(await this.callApi(params, req, runtime), new GetOfficeConversionTaskResponse({}));
-  }
-
-  async getOfficeConversionTask(request: GetOfficeConversionTaskRequest): Promise<GetOfficeConversionTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getOfficeConversionTaskWithOptions(request, runtime);
-  }
-
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4788,7 +5678,6 @@ export default class Client extends OpenApi {
     query["WithStatistics"] = request.withStatistics;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetProject",
@@ -4798,7 +5687,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
@@ -4807,6 +5696,34 @@ export default class Client extends OpenApi {
   async getProject(request: GetProjectRequest): Promise<GetProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getProjectWithOptions(request, runtime);
+  }
+
+  async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ProjectName"] = request.projectName;
+    query["TaskId"] = request.taskId;
+    query["TaskType"] = request.taskType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+  }
+
+  async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskWithOptions(request, runtime);
   }
 
   async getWebofficeURLWithOptions(tmpReq: GetWebofficeURLRequest, runtime: $Util.RuntimeOptions): Promise<GetWebofficeURLResponse> {
@@ -4847,7 +5764,6 @@ export default class Client extends OpenApi {
     query["Watermark"] = request.watermarkShrink;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetWebofficeURL",
@@ -4857,7 +5773,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetWebofficeURLResponse>(await this.callApi(params, req, runtime), new GetWebofficeURLResponse({}));
@@ -4884,7 +5800,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "IndexFileMeta",
@@ -4894,7 +5809,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<IndexFileMetaResponse>(await this.callApi(params, req, runtime), new IndexFileMetaResponse({}));
@@ -4914,7 +5829,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListBindings",
@@ -4924,7 +5838,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListBindingsResponse>(await this.callApi(params, req, runtime), new ListBindingsResponse({}));
@@ -4944,7 +5858,6 @@ export default class Client extends OpenApi {
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDatasets",
@@ -4954,7 +5867,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDatasetsResponse>(await this.callApi(params, req, runtime), new ListDatasetsResponse({}));
@@ -4965,33 +5878,36 @@ export default class Client extends OpenApi {
     return await this.listDatasetsWithOptions(request, runtime);
   }
 
-  async listOfficeConversionTaskWithOptions(request: ListOfficeConversionTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListOfficeConversionTaskResponse> {
+  async listFigureClustersWithOptions(request: ListFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListFigureClustersResponse> {
     Util.validateModel(request);
     let query = { };
+    query["DatasetName"] = request.datasetName;
+    query["Labels"] = request.labels;
     query["MaxResults"] = request.maxResults;
     query["NextToken"] = request.nextToken;
+    query["Order"] = request.order;
     query["ProjectName"] = request.projectName;
+    query["Sort"] = request.sort;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
-      action: "ListOfficeConversionTask",
+      action: "ListFigureClusters",
       version: "2020-09-30",
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListOfficeConversionTaskResponse>(await this.callApi(params, req, runtime), new ListOfficeConversionTaskResponse({}));
+    return $tea.cast<ListFigureClustersResponse>(await this.callApi(params, req, runtime), new ListFigureClustersResponse({}));
   }
 
-  async listOfficeConversionTask(request: ListOfficeConversionTaskRequest): Promise<ListOfficeConversionTaskResponse> {
+  async listFigureClusters(request: ListFigureClustersRequest): Promise<ListFigureClustersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOfficeConversionTaskWithOptions(request, runtime);
+    return await this.listFigureClustersWithOptions(request, runtime);
   }
 
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
@@ -5002,7 +5918,6 @@ export default class Client extends OpenApi {
     query["Prefix"] = request.prefix;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProjects",
@@ -5012,7 +5927,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
@@ -5021,6 +5936,68 @@ export default class Client extends OpenApi {
   async listProjects(request: ListProjectsRequest): Promise<ListProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listProjectsWithOptions(request, runtime);
+  }
+
+  async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["ProjectName"] = request.projectName;
+    query["TaskType"] = request.taskType;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTasks",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
+  }
+
+  async listTasks(request: ListTasksRequest): Promise<ListTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTasksWithOptions(request, runtime);
+  }
+
+  async mergeFigureClustersWithOptions(request: MergeFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<MergeFigureClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["ClusterIdFrom"] = request.clusterIdFrom;
+    query["ClusterIdTo"] = request.clusterIdTo;
+    query["CustomMessage"] = request.customMessage;
+    query["DatasetName"] = request.datasetName;
+    query["FigureType"] = request.figureType;
+    query["NotifyTopicEndpoint"] = request.notifyTopicEndpoint;
+    query["NotifyTopicName"] = request.notifyTopicName;
+    query["ProjectName"] = request.projectName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MergeFigureClusters",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MergeFigureClustersResponse>(await this.callApi(params, req, runtime), new MergeFigureClustersResponse({}));
+  }
+
+  async mergeFigureClusters(request: MergeFigureClustersRequest): Promise<MergeFigureClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mergeFigureClustersWithOptions(request, runtime);
   }
 
   async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
@@ -5038,7 +6015,6 @@ export default class Client extends OpenApi {
     query["RefreshToken"] = request.refreshToken;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RefreshWebofficeToken",
@@ -5048,7 +6024,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RefreshWebofficeTokenResponse>(await this.callApi(params, req, runtime), new RefreshWebofficeTokenResponse({}));
@@ -5067,7 +6043,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResumeBinding",
@@ -5077,7 +6052,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResumeBindingResponse>(await this.callApi(params, req, runtime), new ResumeBindingResponse({}));
@@ -5086,6 +6061,36 @@ export default class Client extends OpenApi {
   async resumeBinding(request: ResumeBindingRequest): Promise<ResumeBindingResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resumeBindingWithOptions(request, runtime);
+  }
+
+  async semanticQueryWithOptions(request: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["DatasetName"] = request.datasetName;
+    query["MaxResults"] = request.maxResults;
+    query["NextToken"] = request.nextToken;
+    query["ProjectName"] = request.projectName;
+    query["Query"] = request.query;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SemanticQuery",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SemanticQueryResponse>(await this.callApi(params, req, runtime), new SemanticQueryResponse({}));
+  }
+
+  async semanticQuery(request: SemanticQueryRequest): Promise<SemanticQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.semanticQueryWithOptions(request, runtime);
   }
 
   async simpleQueryWithOptions(tmpReq: SimpleQueryRequest, runtime: $Util.RuntimeOptions): Promise<SimpleQueryResponse> {
@@ -5111,7 +6116,6 @@ export default class Client extends OpenApi {
     query["Sort"] = request.sort;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SimpleQuery",
@@ -5121,7 +6125,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SimpleQueryResponse>(await this.callApi(params, req, runtime), new SimpleQueryResponse({}));
@@ -5141,7 +6145,6 @@ export default class Client extends OpenApi {
     query["URI"] = request.URI;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopBinding",
@@ -5151,7 +6154,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopBindingResponse>(await this.callApi(params, req, runtime), new StopBindingResponse({}));
@@ -5176,7 +6179,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDataset",
@@ -5186,7 +6188,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDatasetResponse>(await this.callApi(params, req, runtime), new UpdateDatasetResponse({}));
@@ -5195,6 +6197,40 @@ export default class Client extends OpenApi {
   async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDatasetWithOptions(request, runtime);
+  }
+
+  async updateFigureClusterWithOptions(tmpReq: UpdateFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFigureClusterResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateFigureClusterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.figureCluster))) {
+      request.figureClusterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.figureCluster), "FigureCluster", "json");
+    }
+
+    let query = { };
+    query["DatasetName"] = request.datasetName;
+    query["FigureCluster"] = request.figureClusterShrink;
+    query["ProjectName"] = request.projectName;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFigureCluster",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFigureClusterResponse>(await this.callApi(params, req, runtime), new UpdateFigureClusterResponse({}));
+  }
+
+  async updateFigureCluster(request: UpdateFigureClusterRequest): Promise<UpdateFigureClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFigureClusterWithOptions(request, runtime);
   }
 
   async updateFileMetaWithOptions(tmpReq: UpdateFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileMetaResponse> {
@@ -5208,12 +6244,9 @@ export default class Client extends OpenApi {
     let query = { };
     query["DatasetName"] = request.datasetName;
     query["File"] = request.fileShrink;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
     query["ProjectName"] = request.projectName;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFileMeta",
@@ -5223,7 +6256,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateFileMetaResponse>(await this.callApi(params, req, runtime), new UpdateFileMetaResponse({}));
@@ -5251,7 +6284,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateProject",
@@ -5261,7 +6293,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
