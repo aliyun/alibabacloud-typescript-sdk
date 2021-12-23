@@ -73,10 +73,14 @@ export class CreateCertificateWithExtensionRequest extends $tea.Model {
 }
 
 export class CreateCertificateWithExtensionResponseBody extends $tea.Model {
+  certificate?: string;
+  certificateChain?: string;
   identifier?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificate: 'Certificate',
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       requestId: 'RequestId',
     };
@@ -84,6 +88,8 @@ export class CreateCertificateWithExtensionResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificate: 'string',
+      certificateChain: 'string',
       identifier: 'string',
       requestId: 'string',
     };
@@ -157,6 +163,7 @@ export class CreateClientCertificateRequest extends $tea.Model {
 }
 
 export class CreateClientCertificateResponseBody extends $tea.Model {
+  certificateChain?: string;
   identifier?: string;
   parentX509Certificate?: string;
   requestId?: string;
@@ -164,6 +171,7 @@ export class CreateClientCertificateResponseBody extends $tea.Model {
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
@@ -174,6 +182,7 @@ export class CreateClientCertificateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificateChain: 'string',
       identifier: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
@@ -247,6 +256,7 @@ export class CreateClientCertificateWithCsrRequest extends $tea.Model {
 }
 
 export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
+  certificateChain?: string;
   identifier?: string;
   parentX509Certificate?: string;
   requestId?: string;
@@ -254,6 +264,7 @@ export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
@@ -264,6 +275,7 @@ export class CreateClientCertificateWithCsrResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificateChain: 'string',
       identifier: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
@@ -400,10 +412,14 @@ export class CreateRootCACertificateRequest extends $tea.Model {
 }
 
 export class CreateRootCACertificateResponseBody extends $tea.Model {
+  certificate?: string;
+  certificateChain?: string;
   identifier?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificate: 'Certificate',
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       requestId: 'RequestId',
     };
@@ -411,6 +427,8 @@ export class CreateRootCACertificateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificate: 'string',
+      certificateChain: 'string',
       identifier: 'string',
       requestId: 'string',
     };
@@ -481,6 +499,7 @@ export class CreateServerCertificateRequest extends $tea.Model {
 }
 
 export class CreateServerCertificateResponseBody extends $tea.Model {
+  certificateChain?: string;
   identifier?: string;
   parentX509Certificate?: string;
   requestId?: string;
@@ -488,6 +507,7 @@ export class CreateServerCertificateResponseBody extends $tea.Model {
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
@@ -498,6 +518,7 @@ export class CreateServerCertificateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificateChain: 'string',
       identifier: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
@@ -568,6 +589,7 @@ export class CreateServerCertificateWithCsrRequest extends $tea.Model {
 }
 
 export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
+  certificateChain?: string;
   identifier?: string;
   parentX509Certificate?: string;
   requestId?: string;
@@ -575,6 +597,7 @@ export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
   x509Certificate?: string;
   static names(): { [key: string]: string } {
     return {
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       parentX509Certificate: 'ParentX509Certificate',
       requestId: 'RequestId',
@@ -585,6 +608,7 @@ export class CreateServerCertificateWithCsrResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificateChain: 'string',
       identifier: 'string',
       parentX509Certificate: 'string',
       requestId: 'string',
@@ -664,10 +688,14 @@ export class CreateSubCACertificateRequest extends $tea.Model {
 }
 
 export class CreateSubCACertificateResponseBody extends $tea.Model {
+  certificate?: string;
+  certificateChain?: string;
   identifier?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      certificate: 'Certificate',
+      certificateChain: 'CertificateChain',
       identifier: 'Identifier',
       requestId: 'RequestId',
     };
@@ -675,6 +703,8 @@ export class CreateSubCACertificateResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      certificate: 'string',
+      certificateChain: 'string',
       identifier: 'string',
       requestId: 'string',
     };
@@ -2305,7 +2335,6 @@ export default class Client extends OpenApi {
     query["State"] = request.state;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateCertificateWithExtension",
@@ -2315,7 +2344,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateCertificateWithExtensionResponse>(await this.callApi(params, req, runtime), new CreateCertificateWithExtensionResponse({}));
@@ -2339,7 +2368,6 @@ export default class Client extends OpenApi {
     query["SanValue"] = request.sanValue;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateClientCertificate",
@@ -2349,7 +2377,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateClientCertificateResponse({}));
@@ -2372,7 +2400,6 @@ export default class Client extends OpenApi {
     query["SanValue"] = request.sanValue;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateClientCertificateWithCsr",
@@ -2382,7 +2409,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateClientCertificateWithCsrResponse>(await this.callApi(params, req, runtime), new CreateClientCertificateWithCsrResponse({}));
@@ -2399,7 +2426,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRevokeClientCertificate",
@@ -2409,7 +2435,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRevokeClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateRevokeClientCertificateResponse({}));
@@ -2433,7 +2459,6 @@ export default class Client extends OpenApi {
     query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRootCACertificate",
@@ -2443,7 +2468,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRootCACertificateResponse>(await this.callApi(params, req, runtime), new CreateRootCACertificateResponse({}));
@@ -2466,7 +2491,6 @@ export default class Client extends OpenApi {
     query["ParentIdentifier"] = request.parentIdentifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateServerCertificate",
@@ -2476,7 +2500,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateServerCertificateResponse>(await this.callApi(params, req, runtime), new CreateServerCertificateResponse({}));
@@ -2498,7 +2522,6 @@ export default class Client extends OpenApi {
     query["ParentIdentifier"] = request.parentIdentifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateServerCertificateWithCsr",
@@ -2508,7 +2531,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateServerCertificateWithCsrResponse>(await this.callApi(params, req, runtime), new CreateServerCertificateWithCsrResponse({}));
@@ -2533,7 +2556,6 @@ export default class Client extends OpenApi {
     query["Years"] = request.years;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSubCACertificate",
@@ -2543,7 +2565,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSubCACertificateResponse>(await this.callApi(params, req, runtime), new CreateSubCACertificateResponse({}));
@@ -2560,7 +2582,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteClientCertificate",
@@ -2570,7 +2591,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteClientCertificateResponse({}));
@@ -2587,7 +2608,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCACertificate",
@@ -2597,7 +2617,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCACertificateResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateResponse({}));
@@ -2618,7 +2638,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCACertificateCountResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateCountResponse({}));
@@ -2636,7 +2656,6 @@ export default class Client extends OpenApi {
     query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCACertificateList",
@@ -2646,7 +2665,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCACertificateListResponse>(await this.callApi(params, req, runtime), new DescribeCACertificateListResponse({}));
@@ -2664,7 +2683,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCertificatePrivateKey",
@@ -2674,7 +2692,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCertificatePrivateKeyResponse>(await this.callApi(params, req, runtime), new DescribeCertificatePrivateKeyResponse({}));
@@ -2691,7 +2709,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClientCertificate",
@@ -2701,7 +2718,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClientCertificateResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateResponse({}));
@@ -2718,7 +2735,6 @@ export default class Client extends OpenApi {
     query["SerialNumber"] = request.serialNumber;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClientCertificateForSerialNumber",
@@ -2728,7 +2744,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClientCertificateForSerialNumberResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateForSerialNumberResponse({}));
@@ -2745,7 +2761,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClientCertificateStatus",
@@ -2755,7 +2770,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClientCertificateStatusResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateStatusResponse({}));
@@ -2772,7 +2787,6 @@ export default class Client extends OpenApi {
     query["SerialNumber"] = request.serialNumber;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeClientCertificateStatusForSerialNumber",
@@ -2782,7 +2796,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClientCertificateStatusForSerialNumberResponse>(await this.callApi(params, req, runtime), new DescribeClientCertificateStatusForSerialNumberResponse({}));
@@ -2799,7 +2813,6 @@ export default class Client extends OpenApi {
     query["InstanceId"] = request.instanceId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetCAInstanceStatus",
@@ -2809,7 +2822,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetCAInstanceStatusResponse>(await this.callApi(params, req, runtime), new GetCAInstanceStatusResponse({}));
@@ -2826,7 +2839,6 @@ export default class Client extends OpenApi {
     query["Identifier"] = request.identifier;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListCACertificateLog",
@@ -2836,7 +2848,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCACertificateLogResponse>(await this.callApi(params, req, runtime), new ListCACertificateLogResponse({}));
@@ -2854,7 +2866,6 @@ export default class Client extends OpenApi {
     query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListClientCertificate",
@@ -2864,7 +2875,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListClientCertificateResponse>(await this.callApi(params, req, runtime), new ListClientCertificateResponse({}));
@@ -2882,7 +2893,6 @@ export default class Client extends OpenApi {
     query["ShowSize"] = request.showSize;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRevokeCertificate",
@@ -2892,7 +2902,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRevokeCertificateResponse>(await this.callApi(params, req, runtime), new ListRevokeCertificateResponse({}));
@@ -2910,7 +2920,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateCACertificateStatus",
@@ -2920,7 +2929,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateCACertificateStatusResponse>(await this.callApi(params, req, runtime), new UpdateCACertificateStatusResponse({}));
