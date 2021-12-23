@@ -11,10 +11,12 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddEditingProjectMaterialsRequest extends $tea.Model {
   materialMaps?: string;
   projectId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       materialMaps: 'MaterialMaps',
       projectId: 'ProjectId',
+      regionId: 'RegionId',
     };
   }
 
@@ -22,6 +24,7 @@ export class AddEditingProjectMaterialsRequest extends $tea.Model {
     return {
       materialMaps: 'string',
       projectId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -85,15 +88,18 @@ export class AddEditingProjectMaterialsResponse extends $tea.Model {
 
 export class AddFavoritePublicMediaRequest extends $tea.Model {
   mediaIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -233,10 +239,12 @@ export class AddTemplateResponse extends $tea.Model {
 export class BatchGetMediaInfosRequest extends $tea.Model {
   additionType?: string;
   mediaIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       additionType: 'AdditionType',
       mediaIds: 'MediaIds',
+      regionId: 'RegionId',
     };
   }
 
@@ -244,6 +252,7 @@ export class BatchGetMediaInfosRequest extends $tea.Model {
     return {
       additionType: 'string',
       mediaIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -298,15 +307,18 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
 
 export class CancelFavoritePublicMediaRequest extends $tea.Model {
   mediaIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -450,11 +462,13 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   materialIds?: string;
   materialType?: string;
   projectId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       materialIds: 'MaterialIds',
       materialType: 'MaterialType',
       projectId: 'ProjectId',
+      regionId: 'RegionId',
     };
   }
 
@@ -463,6 +477,7 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
       materialIds: 'string',
       materialType: 'string',
       projectId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -514,15 +529,18 @@ export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
 
 export class DeleteEditingProjectsRequest extends $tea.Model {
   projectIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectIds: 'ProjectIds',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -575,10 +593,12 @@ export class DeleteEditingProjectsResponse extends $tea.Model {
 export class DeleteMediaInfosRequest extends $tea.Model {
   inputURLs?: string;
   mediaIds?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       inputURLs: 'InputURLs',
       mediaIds: 'MediaIds',
+      regionId: 'RegionId',
     };
   }
 
@@ -586,6 +606,7 @@ export class DeleteMediaInfosRequest extends $tea.Model {
     return {
       inputURLs: 'string',
       mediaIds: 'string',
+      regionId: 'string',
     };
   }
 
@@ -640,15 +661,18 @@ export class DeleteMediaInfosResponse extends $tea.Model {
 
 export class DeleteSmartJobRequest extends $tea.Model {
   jobId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -766,15 +790,18 @@ export class DeleteTemplateResponse extends $tea.Model {
 
 export class DescribeIceProductStatusRequest extends $tea.Model {
   commodityCode?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
+      regionId: 'string',
     };
   }
 
@@ -830,11 +857,13 @@ export class DescribeIceProductStatusResponse extends $tea.Model {
 export class DescribeMaterialPackageInfoRequest extends $tea.Model {
   materialPackageId?: string;
   materialPackageType?: string;
+  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       materialPackageId: 'MaterialPackageId',
       materialPackageType: 'MaterialPackageType',
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -843,6 +872,7 @@ export class DescribeMaterialPackageInfoRequest extends $tea.Model {
     return {
       materialPackageId: 'string',
       materialPackageType: 'string',
+      regionId: 'string',
       status: 'string',
     };
   }
@@ -896,6 +926,25 @@ export class DescribeMaterialPackageInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeRelatedAuthorizationStatusRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRelatedAuthorizationStatusResponseBody extends $tea.Model {
   authorized?: boolean;
   MNSAuthorized?: boolean;
@@ -941,6 +990,25 @@ export class DescribeRelatedAuthorizationStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRelatedAuthorizationStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDefaultStorageLocationRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
     };
   }
 
@@ -1004,15 +1072,18 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
 
 export class GetEditingProjectRequest extends $tea.Model {
   projectId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1067,15 +1138,18 @@ export class GetEditingProjectResponse extends $tea.Model {
 
 export class GetEditingProjectMaterialsRequest extends $tea.Model {
   projectId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1137,6 +1211,25 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
   }
 }
 
+export class GetEventCallbackRequest extends $tea.Model {
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventCallbackResponseBody extends $tea.Model {
   callbackQueueName?: string;
   eventTypeList?: string;
@@ -1188,12 +1281,14 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
   appName?: string;
   domainName?: string;
   projectId?: string;
+  regionId?: string;
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       domainName: 'DomainName',
       projectId: 'ProjectId',
+      regionId: 'RegionId',
       streamName: 'StreamName',
     };
   }
@@ -1203,6 +1298,7 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
       appName: 'string',
       domainName: 'string',
       projectId: 'string',
+      regionId: 'string',
       streamName: 'string',
     };
   }
@@ -1323,11 +1419,13 @@ export class GetMediaInfoRequest extends $tea.Model {
   inputURL?: string;
   mediaId?: string;
   outputType?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       outputType: 'OutputType',
+      regionId: 'RegionId',
     };
   }
 
@@ -1336,6 +1434,7 @@ export class GetMediaInfoRequest extends $tea.Model {
       inputURL: 'string',
       mediaId: 'string',
       outputType: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1390,15 +1489,18 @@ export class GetMediaInfoResponse extends $tea.Model {
 
 export class GetMediaProducingJobRequest extends $tea.Model {
   jobId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1453,15 +1555,18 @@ export class GetMediaProducingJobResponse extends $tea.Model {
 
 export class GetPublicMediaInfoRequest extends $tea.Model {
   mediaId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaId: 'MediaId',
+      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1724,10 +1829,12 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
   businessType?: string;
   entityId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
       entityId: 'EntityId',
+      regionId: 'RegionId',
     };
   }
 
@@ -1735,6 +1842,7 @@ export class ListAllPublicMediaTagsRequest extends $tea.Model {
     return {
       businessType: 'string',
       entityId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -1795,6 +1903,7 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
   maxResults?: number;
   mediaType?: string;
   nextToken?: string;
+  regionId?: string;
   sortBy?: string;
   source?: string;
   startTime?: string;
@@ -1808,6 +1917,7 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'MaxResults',
       mediaType: 'MediaType',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       sortBy: 'SortBy',
       source: 'Source',
       startTime: 'StartTime',
@@ -1824,6 +1934,7 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'number',
       mediaType: 'string',
       nextToken: 'string',
+      regionId: 'string',
       sortBy: 'string',
       source: 'string',
       startTime: 'string',
@@ -1890,15 +2001,18 @@ export class ListMediaBasicInfosResponse extends $tea.Model {
 }
 
 export class ListMediaProducingJobsRequest extends $tea.Model {
+  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      regionId: 'RegionId',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      regionId: 'string',
       status: 'string',
     };
   }
@@ -1957,12 +2071,14 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
   maxResults?: number;
   mediaTagId?: string;
   nextToken?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       includeFileBasicInfo: 'IncludeFileBasicInfo',
       maxResults: 'MaxResults',
       mediaTagId: 'MediaTagId',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
     };
   }
 
@@ -1972,6 +2088,7 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'number',
       mediaTagId: 'string',
       nextToken: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2040,6 +2157,7 @@ export class ListSmartJobsRequest extends $tea.Model {
   nextToken?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   sortBy?: string;
   status?: number;
   static names(): { [key: string]: string } {
@@ -2050,6 +2168,7 @@ export class ListSmartJobsRequest extends $tea.Model {
       nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       sortBy: 'SortBy',
       status: 'Status',
     };
@@ -2063,6 +2182,7 @@ export class ListSmartJobsRequest extends $tea.Model {
       nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       sortBy: 'string',
       status: 'number',
     };
@@ -2129,11 +2249,13 @@ export class ListSmartJobsResponse extends $tea.Model {
 export class ListSysTemplatesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
+  regionId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       type: 'Type',
     };
   }
@@ -2142,6 +2264,7 @@ export class ListSysTemplatesRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       type: 'string',
     };
   }
@@ -2293,6 +2416,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
   mediaTags?: string;
   mediaType?: string;
   overwrite?: boolean;
+  regionId?: string;
   registerConfig?: string;
   title?: string;
   userData?: string;
@@ -2308,6 +2432,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       mediaTags: 'MediaTags',
       mediaType: 'MediaType',
       overwrite: 'Overwrite',
+      regionId: 'RegionId',
       registerConfig: 'RegisterConfig',
       title: 'Title',
       userData: 'UserData',
@@ -2326,6 +2451,7 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       mediaTags: 'string',
       mediaType: 'string',
       overwrite: 'boolean',
+      regionId: 'string',
       registerConfig: 'string',
       title: 'string',
       userData: 'string',
@@ -2387,6 +2513,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   projectType?: string;
+  regionId?: string;
   sortBy?: string;
   startTime?: string;
   status?: string;
@@ -2398,6 +2525,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       projectType: 'ProjectType',
+      regionId: 'RegionId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
       status: 'Status',
@@ -2412,6 +2540,7 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       projectType: 'string',
+      regionId: 'string',
       sortBy: 'string',
       startTime: 'string',
       status: 'string',
@@ -2485,6 +2614,7 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
   mediaIds?: string;
   pageNo?: number;
   pageSize?: number;
+  regionId?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2495,6 +2625,7 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
       mediaIds: 'MediaIds',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      regionId: 'RegionId',
       sortBy: 'SortBy',
     };
   }
@@ -2508,6 +2639,7 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
       mediaIds: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      regionId: 'string',
       sortBy: 'string',
     };
   }
@@ -2567,11 +2699,13 @@ export class SearchPublicMediaInfoResponse extends $tea.Model {
 export class SetDefaultStorageLocationRequest extends $tea.Model {
   bucket?: string;
   path?: string;
+  regionId?: string;
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
       bucket: 'Bucket',
       path: 'Path',
+      regionId: 'RegionId',
       storageType: 'StorageType',
     };
   }
@@ -2580,6 +2714,7 @@ export class SetDefaultStorageLocationRequest extends $tea.Model {
     return {
       bucket: 'string',
       path: 'string',
+      regionId: 'string',
       storageType: 'string',
     };
   }
@@ -2636,10 +2771,12 @@ export class SetDefaultStorageLocationResponse extends $tea.Model {
 export class SetEventCallbackRequest extends $tea.Model {
   callbackQueueName?: string;
   eventTypeList?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       callbackQueueName: 'CallbackQueueName',
       eventTypeList: 'EventTypeList',
+      regionId: 'RegionId',
     };
   }
 
@@ -2647,6 +2784,7 @@ export class SetEventCallbackRequest extends $tea.Model {
     return {
       callbackQueueName: 'string',
       eventTypeList: 'string',
+      regionId: 'string',
     };
   }
 
@@ -2871,6 +3009,7 @@ export class SubmitDelogoJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: boolean;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -2881,6 +3020,7 @@ export class SubmitDelogoJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -2894,6 +3034,7 @@ export class SubmitDelogoJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'boolean',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -2957,6 +3098,108 @@ export class SubmitDelogoJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitDynamicChartJobRequest extends $tea.Model {
+  axisParams?: string;
+  background?: string;
+  chartConfig?: string;
+  chartTitle?: string;
+  chartType?: string;
+  dataSource?: string;
+  description?: string;
+  input?: string;
+  outputConfig?: string;
+  regionId?: string;
+  subtitle?: string;
+  title?: string;
+  unit?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      axisParams: 'AxisParams',
+      background: 'Background',
+      chartConfig: 'ChartConfig',
+      chartTitle: 'ChartTitle',
+      chartType: 'ChartType',
+      dataSource: 'DataSource',
+      description: 'Description',
+      input: 'Input',
+      outputConfig: 'OutputConfig',
+      regionId: 'RegionId',
+      subtitle: 'Subtitle',
+      title: 'Title',
+      unit: 'Unit',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      axisParams: 'string',
+      background: 'string',
+      chartConfig: 'string',
+      chartTitle: 'string',
+      chartType: 'string',
+      dataSource: 'string',
+      description: 'string',
+      input: 'string',
+      outputConfig: 'string',
+      regionId: 'string',
+      subtitle: 'string',
+      title: 'string',
+      unit: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDynamicChartJobResponseBody extends $tea.Model {
+  jobId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDynamicChartJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitDynamicChartJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitDynamicChartJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitH2VJobRequest extends $tea.Model {
   description?: string;
   inputFile?: string;
@@ -2964,6 +3207,7 @@ export class SubmitH2VJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: boolean;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -2974,6 +3218,7 @@ export class SubmitH2VJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -2987,6 +3232,7 @@ export class SubmitH2VJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'boolean',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3054,6 +3300,7 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
   description?: string;
   inputFile?: string;
   keyword?: string;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3061,6 +3308,7 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
       description: 'Description',
       inputFile: 'InputFile',
       keyword: 'Keyword',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3071,6 +3319,7 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
       description: 'string',
       inputFile: 'string',
       keyword: 'string',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3141,6 +3390,7 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
   outputMediaConfig?: string;
   outputMediaTarget?: string;
   projectId?: string;
+  regionId?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3150,6 +3400,7 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
       outputMediaConfig: 'OutputMediaConfig',
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
+      regionId: 'RegionId',
       userData: 'UserData',
     };
   }
@@ -3162,6 +3413,7 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
       outputMediaConfig: 'string',
       outputMediaTarget: 'string',
       projectId: 'string',
+      regionId: 'string',
       userData: 'string',
     };
   }
@@ -3231,6 +3483,7 @@ export class SubmitMattingJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: string;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3241,6 +3494,7 @@ export class SubmitMattingJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3254,6 +3508,7 @@ export class SubmitMattingJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'string',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3325,6 +3580,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   outputMediaTarget?: string;
   projectId?: string;
   projectMetadata?: string;
+  regionId?: string;
   source?: string;
   templateId?: string;
   timeline?: string;
@@ -3338,6 +3594,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
       projectMetadata: 'ProjectMetadata',
+      regionId: 'RegionId',
       source: 'Source',
       templateId: 'TemplateId',
       timeline: 'Timeline',
@@ -3354,6 +3611,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       outputMediaTarget: 'string',
       projectId: 'string',
       projectMetadata: 'string',
+      regionId: 'string',
       source: 'string',
       templateId: 'string',
       timeline: 'string',
@@ -3422,12 +3680,14 @@ export class SubmitMediaProducingJobResponse extends $tea.Model {
 export class SubmitPPTCutJobRequest extends $tea.Model {
   description?: string;
   inputFile?: string;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       inputFile: 'InputFile',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3437,6 +3697,7 @@ export class SubmitPPTCutJobRequest extends $tea.Model {
     return {
       description: 'string',
       inputFile: 'string',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3506,6 +3767,7 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
   inputConfig?: string;
   isAsync?: number;
   outputConfig?: string;
+  regionId?: string;
   title?: string;
   type?: string;
   userData?: string;
@@ -3516,6 +3778,7 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
       inputConfig: 'InputConfig',
       isAsync: 'IsAsync',
       outputConfig: 'OutputConfig',
+      regionId: 'RegionId',
       title: 'Title',
       type: 'Type',
       userData: 'UserData',
@@ -3529,6 +3792,7 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
       inputConfig: 'string',
       isAsync: 'number',
       outputConfig: 'string',
+      regionId: 'string',
       title: 'string',
       type: 'string',
       userData: 'string',
@@ -3590,6 +3854,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   coverURL?: string;
   description?: string;
   projectId?: string;
+  regionId?: string;
   templateId?: string;
   timeline?: string;
   title?: string;
@@ -3600,6 +3865,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       coverURL: 'CoverURL',
       description: 'Description',
       projectId: 'ProjectId',
+      regionId: 'RegionId',
       templateId: 'TemplateId',
       timeline: 'Timeline',
       title: 'Title',
@@ -3613,6 +3879,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       coverURL: 'string',
       description: 'string',
       projectId: 'string',
+      regionId: 'string',
       templateId: 'string',
       timeline: 'string',
       title: 'string',
@@ -3676,6 +3943,7 @@ export class UpdateMediaInfoRequest extends $tea.Model {
   inputURL?: string;
   mediaId?: string;
   mediaTags?: string;
+  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3690,6 +3958,7 @@ export class UpdateMediaInfoRequest extends $tea.Model {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       mediaTags: 'MediaTags',
+      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3707,6 +3976,7 @@ export class UpdateMediaInfoRequest extends $tea.Model {
       inputURL: 'string',
       mediaId: 'string',
       mediaTags: 'string',
+      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3764,10 +4034,12 @@ export class UpdateMediaInfoResponse extends $tea.Model {
 export class UpdateSmartJobRequest extends $tea.Model {
   FEExtend?: string;
   jobId?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       FEExtend: 'FEExtend',
       jobId: 'JobId',
+      regionId: 'RegionId',
     };
   }
 
@@ -3775,6 +4047,7 @@ export class UpdateSmartJobRequest extends $tea.Model {
     return {
       FEExtend: 'string',
       jobId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -6762,7 +7035,6 @@ export default class Client extends OpenApi {
     query["ProjectId"] = request.projectId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddEditingProjectMaterials",
@@ -6772,7 +7044,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new AddEditingProjectMaterialsResponse({}));
@@ -6789,7 +7061,6 @@ export default class Client extends OpenApi {
     query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddFavoritePublicMedia",
@@ -6799,7 +7070,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddFavoritePublicMediaResponse>(await this.callApi(params, req, runtime), new AddFavoritePublicMediaResponse({}));
@@ -6823,7 +7094,6 @@ export default class Client extends OpenApi {
     query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddTemplate",
@@ -6833,7 +7103,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddTemplateResponse>(await this.callApi(params, req, runtime), new AddTemplateResponse({}));
@@ -6851,7 +7121,6 @@ export default class Client extends OpenApi {
     query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchGetMediaInfos",
@@ -6861,7 +7130,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchGetMediaInfosResponse>(await this.callApi(params, req, runtime), new BatchGetMediaInfosResponse({}));
@@ -6878,7 +7147,6 @@ export default class Client extends OpenApi {
     query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelFavoritePublicMedia",
@@ -6888,7 +7156,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelFavoritePublicMediaResponse>(await this.callApi(params, req, runtime), new CancelFavoritePublicMediaResponse({}));
@@ -6913,7 +7181,6 @@ export default class Client extends OpenApi {
     query["Title"] = request.title;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateEditingProject",
@@ -6923,7 +7190,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateEditingProjectResponse>(await this.callApi(params, req, runtime), new CreateEditingProjectResponse({}));
@@ -6936,7 +7203,10 @@ export default class Client extends OpenApi {
 
   async deleteEditingProjectMaterialsWithOptions(request: DeleteEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectMaterialsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["MaterialIds"] = request.materialIds;
+    query["MaterialType"] = request.materialType;
+    query["ProjectId"] = request.projectId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6945,10 +7215,10 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new DeleteEditingProjectMaterialsResponse({}));
@@ -6965,7 +7235,6 @@ export default class Client extends OpenApi {
     query["ProjectIds"] = request.projectIds;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteEditingProjects",
@@ -6975,7 +7244,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteEditingProjectsResponse>(await this.callApi(params, req, runtime), new DeleteEditingProjectsResponse({}));
@@ -6993,7 +7262,6 @@ export default class Client extends OpenApi {
     query["MediaIds"] = request.mediaIds;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteMediaInfos",
@@ -7003,7 +7271,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteMediaInfosResponse>(await this.callApi(params, req, runtime), new DeleteMediaInfosResponse({}));
@@ -7020,7 +7288,6 @@ export default class Client extends OpenApi {
     query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSmartJob",
@@ -7030,7 +7297,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSmartJobResponse>(await this.callApi(params, req, runtime), new DeleteSmartJobResponse({}));
@@ -7055,7 +7322,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
@@ -7072,7 +7339,6 @@ export default class Client extends OpenApi {
     query["CommodityCode"] = request.commodityCode;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeIceProductStatus",
@@ -7082,7 +7348,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeIceProductStatusResponse>(await this.callApi(params, req, runtime), new DescribeIceProductStatusResponse({}));
@@ -7101,7 +7367,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeMaterialPackageInfo",
@@ -7111,7 +7376,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeMaterialPackageInfoResponse>(await this.callApi(params, req, runtime), new DescribeMaterialPackageInfoResponse({}));
@@ -7122,8 +7387,12 @@ export default class Client extends OpenApi {
     return await this.describeMaterialPackageInfoWithOptions(request, runtime);
   }
 
-  async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeRelatedAuthorizationStatusWithOptions(request: DescribeRelatedAuthorizationStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeRelatedAuthorizationStatus",
       version: "2020-11-09",
@@ -7132,18 +7401,20 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.callApi(params, req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
   }
 
-  async describeRelatedAuthorizationStatus(): Promise<DescribeRelatedAuthorizationStatusResponse> {
+  async describeRelatedAuthorizationStatus(request: DescribeRelatedAuthorizationStatusRequest): Promise<DescribeRelatedAuthorizationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRelatedAuthorizationStatusWithOptions(runtime);
+    return await this.describeRelatedAuthorizationStatusWithOptions(request, runtime);
   }
 
-  async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
+  async getDefaultStorageLocationWithOptions(request: GetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
+    Util.validateModel(request);
+    let query = { };
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetDefaultStorageLocation",
@@ -7153,20 +7424,21 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDefaultStorageLocationResponse>(await this.callApi(params, req, runtime), new GetDefaultStorageLocationResponse({}));
   }
 
-  async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
+  async getDefaultStorageLocation(request: GetDefaultStorageLocationRequest): Promise<GetDefaultStorageLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDefaultStorageLocationWithOptions(runtime);
+    return await this.getDefaultStorageLocationWithOptions(request, runtime);
   }
 
   async getEditingProjectWithOptions(request: GetEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["ProjectId"] = request.projectId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7175,10 +7447,10 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetEditingProjectResponse>(await this.callApi(params, req, runtime), new GetEditingProjectResponse({}));
@@ -7191,7 +7463,8 @@ export default class Client extends OpenApi {
 
   async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    query["ProjectId"] = request.projectId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7200,10 +7473,10 @@ export default class Client extends OpenApi {
       version: "2020-11-09",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetEditingProjectMaterialsResponse>(await this.callApi(params, req, runtime), new GetEditingProjectMaterialsResponse({}));
@@ -7214,7 +7487,9 @@ export default class Client extends OpenApi {
     return await this.getEditingProjectMaterialsWithOptions(request, runtime);
   }
 
-  async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
+  async getEventCallbackWithOptions(request: GetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetEventCallback",
@@ -7224,15 +7499,15 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetEventCallbackResponse>(await this.callApi(params, req, runtime), new GetEventCallbackResponse({}));
   }
 
-  async getEventCallback(): Promise<GetEventCallbackResponse> {
+  async getEventCallback(request: GetEventCallbackRequest): Promise<GetEventCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEventCallbackWithOptions(runtime);
+    return await this.getEventCallbackWithOptions(request, runtime);
   }
 
   async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
@@ -7249,7 +7524,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetLiveEditingIndexFileResponse>(await this.callApi(params, req, runtime), new GetLiveEditingIndexFileResponse({}));
@@ -7266,7 +7541,6 @@ export default class Client extends OpenApi {
     query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetLiveEditingJob",
@@ -7276,7 +7550,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetLiveEditingJobResponse>(await this.callApi(params, req, runtime), new GetLiveEditingJobResponse({}));
@@ -7295,7 +7569,6 @@ export default class Client extends OpenApi {
     query["OutputType"] = request.outputType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMediaInfo",
@@ -7305,7 +7578,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMediaInfoResponse>(await this.callApi(params, req, runtime), new GetMediaInfoResponse({}));
@@ -7330,7 +7603,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMediaProducingJobResponse>(await this.callApi(params, req, runtime), new GetMediaProducingJobResponse({}));
@@ -7347,7 +7620,6 @@ export default class Client extends OpenApi {
     query["MediaId"] = request.mediaId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPublicMediaInfo",
@@ -7357,7 +7629,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPublicMediaInfoResponse>(await this.callApi(params, req, runtime), new GetPublicMediaInfoResponse({}));
@@ -7382,7 +7654,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSmartHandleJobResponse>(await this.callApi(params, req, runtime), new GetSmartHandleJobResponse({}));
@@ -7407,7 +7679,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
@@ -7432,7 +7704,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTemplateMaterialsResponse>(await this.callApi(params, req, runtime), new GetTemplateMaterialsResponse({}));
@@ -7450,7 +7722,6 @@ export default class Client extends OpenApi {
     query["EntityId"] = request.entityId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListAllPublicMediaTags",
@@ -7460,7 +7731,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAllPublicMediaTagsResponse>(await this.callApi(params, req, runtime), new ListAllPublicMediaTagsResponse({}));
@@ -7487,7 +7758,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListMediaBasicInfos",
@@ -7497,7 +7767,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListMediaBasicInfosResponse>(await this.callApi(params, req, runtime), new ListMediaBasicInfosResponse({}));
@@ -7514,7 +7784,6 @@ export default class Client extends OpenApi {
     query["Status"] = request.status;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListMediaProducingJobs",
@@ -7524,7 +7793,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListMediaProducingJobsResponse>(await this.callApi(params, req, runtime), new ListMediaProducingJobsResponse({}));
@@ -7544,7 +7813,6 @@ export default class Client extends OpenApi {
     query["NextToken"] = request.nextToken;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListPublicMediaBasicInfos",
@@ -7554,7 +7822,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPublicMediaBasicInfosResponse>(await this.callApi(params, req, runtime), new ListPublicMediaBasicInfosResponse({}));
@@ -7579,7 +7847,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSmartJobsResponse>(await this.callApi(params, req, runtime), new ListSmartJobsResponse({}));
@@ -7604,7 +7872,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSysTemplatesResponse>(await this.callApi(params, req, runtime), new ListSysTemplatesResponse({}));
@@ -7625,7 +7893,6 @@ export default class Client extends OpenApi {
     query["Type"] = request.type;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTemplates",
@@ -7635,7 +7902,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
@@ -7664,7 +7931,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RegisterMediaInfo",
@@ -7674,7 +7940,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RegisterMediaInfoResponse>(await this.callApi(params, req, runtime), new RegisterMediaInfoResponse({}));
@@ -7699,7 +7965,6 @@ export default class Client extends OpenApi {
     query["TemplateType"] = request.templateType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SearchEditingProject",
@@ -7709,7 +7974,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SearchEditingProjectResponse>(await this.callApi(params, req, runtime), new SearchEditingProjectResponse({}));
@@ -7733,7 +7998,6 @@ export default class Client extends OpenApi {
     query["SortBy"] = request.sortBy;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SearchPublicMediaInfo",
@@ -7743,7 +8007,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SearchPublicMediaInfoResponse>(await this.callApi(params, req, runtime), new SearchPublicMediaInfoResponse({}));
@@ -7762,7 +8026,6 @@ export default class Client extends OpenApi {
     query["StorageType"] = request.storageType;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDefaultStorageLocation",
@@ -7772,7 +8035,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDefaultStorageLocationResponse>(await this.callApi(params, req, runtime), new SetDefaultStorageLocationResponse({}));
@@ -7790,7 +8053,6 @@ export default class Client extends OpenApi {
     query["EventTypeList"] = request.eventTypeList;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetEventCallback",
@@ -7800,7 +8062,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetEventCallbackResponse>(await this.callApi(params, req, runtime), new SetEventCallbackResponse({}));
@@ -7822,7 +8084,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitASRJob",
@@ -7832,7 +8093,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitASRJobResponse>(await this.callApi(params, req, runtime), new SubmitASRJobResponse({}));
@@ -7855,7 +8116,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitAudioProduceJob",
@@ -7865,7 +8125,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitAudioProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitAudioProduceJobResponse({}));
@@ -7889,7 +8149,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitDelogoJob",
@@ -7899,7 +8158,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitDelogoJobResponse>(await this.callApi(params, req, runtime), new SubmitDelogoJobResponse({}));
@@ -7908,6 +8167,44 @@ export default class Client extends OpenApi {
   async submitDelogoJob(request: SubmitDelogoJobRequest): Promise<SubmitDelogoJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitDelogoJobWithOptions(request, runtime);
+  }
+
+  async submitDynamicChartJobWithOptions(request: SubmitDynamicChartJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicChartJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    query["AxisParams"] = request.axisParams;
+    query["Background"] = request.background;
+    query["ChartConfig"] = request.chartConfig;
+    query["ChartTitle"] = request.chartTitle;
+    query["ChartType"] = request.chartType;
+    query["DataSource"] = request.dataSource;
+    query["Description"] = request.description;
+    query["Input"] = request.input;
+    query["OutputConfig"] = request.outputConfig;
+    query["Subtitle"] = request.subtitle;
+    query["Title"] = request.title;
+    query["Unit"] = request.unit;
+    query["UserData"] = request.userData;
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDynamicChartJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDynamicChartJobResponse>(await this.callApi(params, req, runtime), new SubmitDynamicChartJobResponse({}));
+  }
+
+  async submitDynamicChartJob(request: SubmitDynamicChartJobRequest): Promise<SubmitDynamicChartJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDynamicChartJobWithOptions(request, runtime);
   }
 
   async submitH2VJobWithOptions(request: SubmitH2VJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitH2VJobResponse> {
@@ -7923,7 +8220,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitH2VJob",
@@ -7933,7 +8229,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitH2VJobResponse>(await this.callApi(params, req, runtime), new SubmitH2VJobResponse({}));
@@ -7958,7 +8254,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitKeyWordCutJobResponse>(await this.callApi(params, req, runtime), new SubmitKeyWordCutJobResponse({}));
@@ -7981,7 +8277,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitLiveEditingJob",
@@ -7991,7 +8286,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitLiveEditingJobResponse>(await this.callApi(params, req, runtime), new SubmitLiveEditingJobResponse({}));
@@ -8015,7 +8310,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitMattingJob",
@@ -8025,7 +8319,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitMattingJobResponse>(await this.callApi(params, req, runtime), new SubmitMattingJobResponse({}));
@@ -8052,7 +8346,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitMediaProducingJob",
@@ -8062,7 +8355,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitMediaProducingJobResponse>(await this.callApi(params, req, runtime), new SubmitMediaProducingJobResponse({}));
@@ -8087,7 +8380,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitPPTCutJobResponse>(await this.callApi(params, req, runtime), new SubmitPPTCutJobResponse({}));
@@ -8111,7 +8404,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitSubtitleProduceJob",
@@ -8121,7 +8413,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitSubtitleProduceJobResponse>(await this.callApi(params, req, runtime), new SubmitSubtitleProduceJobResponse({}));
@@ -8145,7 +8437,6 @@ export default class Client extends OpenApi {
     query["Title"] = request.title;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateEditingProject",
@@ -8155,7 +8446,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateEditingProjectResponse>(await this.callApi(params, req, runtime), new UpdateEditingProjectResponse({}));
@@ -8183,7 +8474,6 @@ export default class Client extends OpenApi {
     query["UserData"] = request.userData;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateMediaInfo",
@@ -8193,7 +8483,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateMediaInfoResponse>(await this.callApi(params, req, runtime), new UpdateMediaInfoResponse({}));
@@ -8211,7 +8501,6 @@ export default class Client extends OpenApi {
     query["JobId"] = request.jobId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateSmartJob",
@@ -8221,7 +8510,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateSmartJobResponse>(await this.callApi(params, req, runtime), new UpdateSmartJobResponse({}));
@@ -8245,7 +8534,6 @@ export default class Client extends OpenApi {
     query["TemplateId"] = request.templateId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTemplate",
@@ -8255,7 +8543,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
