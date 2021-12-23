@@ -238,6 +238,7 @@ export class AddNodesRequest extends $tea.Model {
   computeSpotStrategy?: string;
   count?: number;
   createMode?: string;
+  dataDisks?: AddNodesRequestDataDisks[];
   ecsChargeType?: string;
   hostNamePrefix?: string;
   hostNameSuffix?: string;
@@ -269,6 +270,7 @@ export class AddNodesRequest extends $tea.Model {
       computeSpotStrategy: 'ComputeSpotStrategy',
       count: 'Count',
       createMode: 'CreateMode',
+      dataDisks: 'DataDisks',
       ecsChargeType: 'EcsChargeType',
       hostNamePrefix: 'HostNamePrefix',
       hostNameSuffix: 'HostNameSuffix',
@@ -303,6 +305,7 @@ export class AddNodesRequest extends $tea.Model {
       computeSpotStrategy: 'string',
       count: 'number',
       createMode: 'string',
+      dataDisks: { 'type': 'array', 'itemType': AddNodesRequestDataDisks },
       ecsChargeType: 'string',
       hostNamePrefix: 'string',
       hostNameSuffix: 'string',
@@ -747,6 +750,8 @@ export class CreateClusterRequest extends $tea.Model {
   periodUnit?: string;
   plugin?: string;
   postInstallScript?: CreateClusterRequestPostInstallScript[];
+  ramNodeTypes?: string[];
+  ramRoleName?: string;
   remoteDirectory?: string;
   remoteVisEnable?: string;
   resourceGroupId?: string;
@@ -798,6 +803,8 @@ export class CreateClusterRequest extends $tea.Model {
       periodUnit: 'PeriodUnit',
       plugin: 'Plugin',
       postInstallScript: 'PostInstallScript',
+      ramNodeTypes: 'RamNodeTypes',
+      ramRoleName: 'RamRoleName',
       remoteDirectory: 'RemoteDirectory',
       remoteVisEnable: 'RemoteVisEnable',
       resourceGroupId: 'ResourceGroupId',
@@ -852,6 +859,8 @@ export class CreateClusterRequest extends $tea.Model {
       periodUnit: 'string',
       plugin: 'string',
       postInstallScript: { 'type': 'array', 'itemType': CreateClusterRequestPostInstallScript },
+      ramNodeTypes: { 'type': 'array', 'itemType': 'string' },
+      ramRoleName: 'string',
       remoteDirectory: 'string',
       remoteVisEnable: 'string',
       resourceGroupId: 'string',
@@ -1788,12 +1797,14 @@ export class DeleteImageRequest extends $tea.Model {
   clusterId?: string;
   containerType?: string;
   imageTag?: string;
+  regionId?: string;
   repository?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       containerType: 'ContainerType',
       imageTag: 'ImageTag',
+      regionId: 'RegionId',
       repository: 'Repository',
     };
   }
@@ -1803,6 +1814,7 @@ export class DeleteImageRequest extends $tea.Model {
       clusterId: 'string',
       containerType: 'string',
       imageTag: 'string',
+      regionId: 'string',
       repository: 'string',
     };
   }
@@ -2793,12 +2805,14 @@ export class DescribeImageRequest extends $tea.Model {
   clusterId?: string;
   containerType?: string;
   imageTag?: string;
+  regionId?: string;
   repository?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       containerType: 'ContainerType',
       imageTag: 'ImageTag',
+      regionId: 'RegionId',
       repository: 'Repository',
     };
   }
@@ -2808,6 +2822,7 @@ export class DescribeImageRequest extends $tea.Model {
       clusterId: 'string',
       containerType: 'string',
       imageTag: 'string',
+      regionId: 'string',
       repository: 'string',
     };
   }
@@ -6828,6 +6843,7 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
   defaultRepoLocation?: string;
   imageExpirationTimeout?: string;
   pullUpdateTimeout?: number;
+  regionId?: string;
   repo?: ModifyImageGatewayConfigRequestRepo[];
   static names(): { [key: string]: string } {
     return {
@@ -6839,6 +6855,7 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
       defaultRepoLocation: 'DefaultRepoLocation',
       imageExpirationTimeout: 'ImageExpirationTimeout',
       pullUpdateTimeout: 'PullUpdateTimeout',
+      regionId: 'RegionId',
       repo: 'Repo',
     };
   }
@@ -6853,6 +6870,7 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
       defaultRepoLocation: 'string',
       imageExpirationTimeout: 'string',
       pullUpdateTimeout: 'number',
+      regionId: 'string',
       repo: { 'type': 'array', 'itemType': ModifyImageGatewayConfigRequestRepo },
     };
   }
@@ -8759,6 +8777,69 @@ export class SubmitJobResponse extends $tea.Model {
   }
 }
 
+export class SyncUsersRequest extends $tea.Model {
+  clusterId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncUsersResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncUsersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SyncUsersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SyncUsersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UninstallSoftwareRequest extends $tea.Model {
   application?: string;
   clusterId?: string;
@@ -9066,6 +9147,40 @@ export class AddLocalNodesResponseBodyInstanceIds extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddNodesRequestDataDisks extends $tea.Model {
+  dataDiskCategory?: string;
+  dataDiskDeleteWithInstance?: boolean;
+  dataDiskEncrypted?: boolean;
+  dataDiskKMSKeyId?: string;
+  dataDiskPerformanceLevel?: string;
+  dataDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskDeleteWithInstance: 'DataDiskDeleteWithInstance',
+      dataDiskEncrypted: 'DataDiskEncrypted',
+      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
+      dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
+      dataDiskSize: 'DataDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskCategory: 'string',
+      dataDiskDeleteWithInstance: 'boolean',
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
+      dataDiskPerformanceLevel: 'string',
+      dataDiskSize: 'number',
     };
   }
 
@@ -9677,15 +9792,39 @@ export class DescribeClusterResponseBodyClusterInfoEcsInfoManager extends $tea.M
   }
 }
 
+export class DescribeClusterResponseBodyClusterInfoEcsInfoProxyMgr extends $tea.Model {
+  count?: number;
+  instanceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      instanceType: 'InstanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      instanceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterResponseBodyClusterInfoEcsInfo extends $tea.Model {
   compute?: DescribeClusterResponseBodyClusterInfoEcsInfoCompute;
   login?: DescribeClusterResponseBodyClusterInfoEcsInfoLogin;
   manager?: DescribeClusterResponseBodyClusterInfoEcsInfoManager;
+  proxyMgr?: DescribeClusterResponseBodyClusterInfoEcsInfoProxyMgr;
   static names(): { [key: string]: string } {
     return {
       compute: 'Compute',
       login: 'Login',
       manager: 'Manager',
+      proxyMgr: 'ProxyMgr',
     };
   }
 
@@ -9694,6 +9833,51 @@ export class DescribeClusterResponseBodyClusterInfoEcsInfo extends $tea.Model {
       compute: DescribeClusterResponseBodyClusterInfoEcsInfoCompute,
       login: DescribeClusterResponseBodyClusterInfoEcsInfoLogin,
       manager: DescribeClusterResponseBodyClusterInfoEcsInfoManager,
+      proxyMgr: DescribeClusterResponseBodyClusterInfoEcsInfoProxyMgr,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponseBodyClusterInfoOnPremiseInfoOnPremiseInfo extends $tea.Model {
+  hostName?: string;
+  IP?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostName: 'HostName',
+      IP: 'IP',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostName: 'string',
+      IP: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterResponseBodyClusterInfoOnPremiseInfo extends $tea.Model {
+  onPremiseInfo?: DescribeClusterResponseBodyClusterInfoOnPremiseInfoOnPremiseInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      onPremiseInfo: 'OnPremiseInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      onPremiseInfo: { 'type': 'array', 'itemType': DescribeClusterResponseBodyClusterInfoOnPremiseInfoOnPremiseInfo },
     };
   }
 
@@ -9761,6 +9945,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
   keyPairName?: string;
   location?: string;
   name?: string;
+  onPremiseInfo?: DescribeClusterResponseBodyClusterInfoOnPremiseInfo;
   osTag?: string;
   postInstallScripts?: DescribeClusterResponseBodyClusterInfoPostInstallScripts;
   regionId?: string;
@@ -9794,6 +9979,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       keyPairName: 'KeyPairName',
       location: 'Location',
       name: 'Name',
+      onPremiseInfo: 'OnPremiseInfo',
       osTag: 'OsTag',
       postInstallScripts: 'PostInstallScripts',
       regionId: 'RegionId',
@@ -9830,6 +10016,7 @@ export class DescribeClusterResponseBodyClusterInfo extends $tea.Model {
       keyPairName: 'string',
       location: 'string',
       name: 'string',
+      onPremiseInfo: DescribeClusterResponseBodyClusterInfoOnPremiseInfo,
       osTag: 'string',
       postInstallScripts: DescribeClusterResponseBodyClusterInfoPostInstallScripts,
       regionId: 'string',
@@ -10266,8 +10453,40 @@ export class DescribeNFSClientStatusResponseBodyResult extends $tea.Model {
   }
 }
 
+export class DescribePriceRequestCommoditiesDataDisks extends $tea.Model {
+  category?: string;
+  deleteWithInstance?: boolean;
+  encrypted?: boolean;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      deleteWithInstance: 'deleteWithInstance',
+      encrypted: 'encrypted',
+      performanceLevel: 'performanceLevel',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      encrypted: 'boolean',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePriceRequestCommodities extends $tea.Model {
   amount?: number;
+  dataDisks?: DescribePriceRequestCommoditiesDataDisks[];
   instanceType?: string;
   internetChargeType?: string;
   internetMaxBandWidthOut?: number;
@@ -10280,6 +10499,7 @@ export class DescribePriceRequestCommodities extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      dataDisks: 'DataDisks',
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
       internetMaxBandWidthOut: 'InternetMaxBandWidthOut',
@@ -10295,6 +10515,7 @@ export class DescribePriceRequestCommodities extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      dataDisks: { 'type': 'array', 'itemType': DescribePriceRequestCommoditiesDataDisks },
       instanceType: 'string',
       internetChargeType: 'string',
       internetMaxBandWidthOut: 'number',
@@ -10378,6 +10599,59 @@ export class GetAccountingReportResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisksDataDisksInfo extends $tea.Model {
+  dataDiskCategory?: string;
+  dataDiskDeleteWithInstance?: boolean;
+  dataDiskEncrypted?: boolean;
+  dataDiskKMSKeyId?: string;
+  dataDiskPerformanceLevel?: string;
+  dataDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskDeleteWithInstance: 'DataDiskDeleteWithInstance',
+      dataDiskEncrypted: 'DataDiskEncrypted',
+      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
+      dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
+      dataDiskSize: 'DataDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskCategory: 'string',
+      dataDiskDeleteWithInstance: 'boolean',
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
+      dataDiskPerformanceLevel: 'string',
+      dataDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks extends $tea.Model {
+  dataDisksInfo?: GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisksDataDisksInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      dataDisksInfo: 'DataDisksInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDisksInfo: { 'type': 'array', 'itemType': GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisksDataDisksInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypesInstanceTypeInfo extends $tea.Model {
   hostNamePrefix?: string;
   instanceType?: string;
@@ -10432,6 +10706,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfoInstanceTypes extends 
 }
 
 export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
+  dataDisks?: GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks;
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
   hostNamePrefix?: string;
@@ -10450,6 +10725,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
+      dataDisks: 'DataDisks',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
       hostNamePrefix: 'HostNamePrefix',
@@ -10471,6 +10747,7 @@ export class GetAutoScaleConfigResponseBodyQueuesQueueInfo extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDisks: GetAutoScaleConfigResponseBodyQueuesQueueInfoDataDisks,
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
       hostNamePrefix: 'string',
@@ -11322,6 +11599,7 @@ export class ListClustersResponseBodyClustersClusterInfoSimple extends $tea.Mode
   deployMode?: string;
   description?: string;
   ehpcVersion?: string;
+  hasPlugin?: boolean;
   id?: string;
   imageId?: string;
   imageOwnerAlias?: string;
@@ -11356,6 +11634,7 @@ export class ListClustersResponseBodyClustersClusterInfoSimple extends $tea.Mode
       deployMode: 'DeployMode',
       description: 'Description',
       ehpcVersion: 'EhpcVersion',
+      hasPlugin: 'HasPlugin',
       id: 'Id',
       imageId: 'ImageId',
       imageOwnerAlias: 'ImageOwnerAlias',
@@ -11393,6 +11672,7 @@ export class ListClustersResponseBodyClustersClusterInfoSimple extends $tea.Mode
       deployMode: 'string',
       description: 'string',
       ehpcVersion: 'string',
+      hasPlugin: 'boolean',
       id: 'string',
       imageId: 'string',
       imageOwnerAlias: 'string',
@@ -11446,6 +11726,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
   clientVersion?: string;
   deployMode?: string;
   description?: string;
+  hasPlugin?: boolean;
   id?: string;
   isComputeEss?: boolean;
   location?: string;
@@ -11460,6 +11741,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
       clientVersion: 'ClientVersion',
       deployMode: 'DeployMode',
       description: 'Description',
+      hasPlugin: 'HasPlugin',
       id: 'Id',
       isComputeEss: 'IsComputeEss',
       location: 'Location',
@@ -11477,6 +11759,7 @@ export class ListClustersMetaResponseBodyClustersClusterInfoSimple extends $tea.
       clientVersion: 'string',
       deployMode: 'string',
       description: 'string',
+      hasPlugin: 'boolean',
       id: 'string',
       isComputeEss: 'boolean',
       location: 'string',
@@ -12585,6 +12868,7 @@ export class ListNodesResponseBodyNodesNodeInfo extends $tea.Model {
   regionId?: string;
   roles?: ListNodesResponseBodyNodesNodeInfoRoles;
   spotStrategy?: string;
+  stateInSched?: string;
   status?: string;
   totalResources?: ListNodesResponseBodyNodesNodeInfoTotalResources;
   usedResources?: ListNodesResponseBodyNodesNodeInfoUsedResources;
@@ -12612,6 +12896,7 @@ export class ListNodesResponseBodyNodesNodeInfo extends $tea.Model {
       regionId: 'RegionId',
       roles: 'Roles',
       spotStrategy: 'SpotStrategy',
+      stateInSched: 'StateInSched',
       status: 'Status',
       totalResources: 'TotalResources',
       usedResources: 'UsedResources',
@@ -12642,6 +12927,7 @@ export class ListNodesResponseBodyNodesNodeInfo extends $tea.Model {
       regionId: 'string',
       roles: ListNodesResponseBodyNodesNodeInfoRoles,
       spotStrategy: 'string',
+      stateInSched: 'string',
       status: 'string',
       totalResources: ListNodesResponseBodyNodesNodeInfoTotalResources,
       usedResources: ListNodesResponseBodyNodesNodeInfoUsedResources,
@@ -12743,6 +13029,7 @@ export class ListNodesByQueueResponseBodyNodesNodeInfo extends $tea.Model {
   publicIpAddress?: string;
   regionId?: string;
   spotStrategy?: string;
+  stateInSched?: string;
   status?: string;
   totalResources?: ListNodesByQueueResponseBodyNodesNodeInfoTotalResources;
   usedResources?: ListNodesByQueueResponseBodyNodesNodeInfoUsedResources;
@@ -12768,6 +13055,7 @@ export class ListNodesByQueueResponseBodyNodesNodeInfo extends $tea.Model {
       publicIpAddress: 'PublicIpAddress',
       regionId: 'RegionId',
       spotStrategy: 'SpotStrategy',
+      stateInSched: 'StateInSched',
       status: 'Status',
       totalResources: 'TotalResources',
       usedResources: 'UsedResources',
@@ -12796,6 +13084,7 @@ export class ListNodesByQueueResponseBodyNodesNodeInfo extends $tea.Model {
       publicIpAddress: 'string',
       regionId: 'string',
       spotStrategy: 'string',
+      stateInSched: 'string',
       status: 'string',
       totalResources: ListNodesByQueueResponseBodyNodesNodeInfoTotalResources,
       usedResources: ListNodesByQueueResponseBodyNodesNodeInfoUsedResources,
@@ -13640,6 +13929,40 @@ export class ResetNodesRequestInstance extends $tea.Model {
   }
 }
 
+export class SetAutoScaleConfigRequestQueuesDataDisks extends $tea.Model {
+  dataDiskCategory?: string;
+  dataDiskDeleteWithInstance?: boolean;
+  dataDiskEncrypted?: boolean;
+  dataDiskKMSKeyId?: string;
+  dataDiskPerformanceLevel?: string;
+  dataDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskDeleteWithInstance: 'DataDiskDeleteWithInstance',
+      dataDiskEncrypted: 'DataDiskEncrypted',
+      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
+      dataDiskPerformanceLevel: 'DataDiskPerformanceLevel',
+      dataDiskSize: 'DataDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskCategory: 'string',
+      dataDiskDeleteWithInstance: 'boolean',
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
+      dataDiskPerformanceLevel: 'string',
+      dataDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
   instanceType?: string;
   spotPriceLimit?: number;
@@ -13672,6 +13995,7 @@ export class SetAutoScaleConfigRequestQueuesInstanceTypes extends $tea.Model {
 }
 
 export class SetAutoScaleConfigRequestQueues extends $tea.Model {
+  dataDisks?: SetAutoScaleConfigRequestQueuesDataDisks[];
   enableAutoGrow?: boolean;
   enableAutoShrink?: boolean;
   hostNamePrefix?: string;
@@ -13689,6 +14013,7 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
+      dataDisks: 'DataDisks',
       enableAutoGrow: 'EnableAutoGrow',
       enableAutoShrink: 'EnableAutoShrink',
       hostNamePrefix: 'HostNamePrefix',
@@ -13709,6 +14034,7 @@ export class SetAutoScaleConfigRequestQueues extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDisks: { 'type': 'array', 'itemType': SetAutoScaleConfigRequestQueuesDataDisks },
       enableAutoGrow: 'boolean',
       enableAutoShrink: 'boolean',
       hostNamePrefix: 'string',
@@ -14010,7 +14336,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddContainerAppResponse>(await this.callApi(params, req, runtime), new AddContainerAppResponse({}));
@@ -14035,7 +14361,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddExistedNodesResponse>(await this.callApi(params, req, runtime), new AddExistedNodesResponse({}));
@@ -14060,7 +14386,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddLocalNodesResponse>(await this.callApi(params, req, runtime), new AddLocalNodesResponse({}));
@@ -14085,7 +14411,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddNodesResponse>(await this.callApi(params, req, runtime), new AddNodesResponse({}));
@@ -14110,7 +14436,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddQueueResponse>(await this.callApi(params, req, runtime), new AddQueueResponse({}));
@@ -14135,7 +14461,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddSecurityGroupResponse>(await this.callApi(params, req, runtime), new AddSecurityGroupResponse({}));
@@ -14160,7 +14486,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddUsersResponse>(await this.callApi(params, req, runtime), new AddUsersResponse({}));
@@ -14185,7 +14511,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ApplyNodesResponse>(await this.callApi(params, req, runtime), new ApplyNodesResponse({}));
@@ -14210,7 +14536,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
@@ -14235,7 +14561,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateGWSClusterResponse>(await this.callApi(params, req, runtime), new CreateGWSClusterResponse({}));
@@ -14260,7 +14586,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateGWSImageResponse>(await this.callApi(params, req, runtime), new CreateGWSImageResponse({}));
@@ -14285,7 +14611,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateGWSInstanceResponse>(await this.callApi(params, req, runtime), new CreateGWSInstanceResponse({}));
@@ -14310,7 +14636,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateHybridClusterResponse>(await this.callApi(params, req, runtime), new CreateHybridClusterResponse({}));
@@ -14335,7 +14661,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateJobFileResponse>(await this.callApi(params, req, runtime), new CreateJobFileResponse({}));
@@ -14360,7 +14686,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateJobTemplateResponse>(await this.callApi(params, req, runtime), new CreateJobTemplateResponse({}));
@@ -14385,7 +14711,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
@@ -14410,7 +14736,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteContainerAppsResponse>(await this.callApi(params, req, runtime), new DeleteContainerAppsResponse({}));
@@ -14435,7 +14761,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteGWSClusterResponse>(await this.callApi(params, req, runtime), new DeleteGWSClusterResponse({}));
@@ -14460,7 +14786,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteGWSInstanceResponse>(await this.callApi(params, req, runtime), new DeleteGWSInstanceResponse({}));
@@ -14485,7 +14811,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteImageResponse>(await this.callApi(params, req, runtime), new DeleteImageResponse({}));
@@ -14510,7 +14836,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteJobTemplatesResponse>(await this.callApi(params, req, runtime), new DeleteJobTemplatesResponse({}));
@@ -14535,7 +14861,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteJobsResponse>(await this.callApi(params, req, runtime), new DeleteJobsResponse({}));
@@ -14560,7 +14886,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteNodesResponse>(await this.callApi(params, req, runtime), new DeleteNodesResponse({}));
@@ -14585,7 +14911,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteQueueResponse>(await this.callApi(params, req, runtime), new DeleteQueueResponse({}));
@@ -14610,7 +14936,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSecurityGroupResponse>(await this.callApi(params, req, runtime), new DeleteSecurityGroupResponse({}));
@@ -14635,7 +14961,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteUsersResponse>(await this.callApi(params, req, runtime), new DeleteUsersResponse({}));
@@ -14660,7 +14986,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAutoScaleConfigResponse>(await this.callApi(params, req, runtime), new DescribeAutoScaleConfigResponse({}));
@@ -14685,7 +15011,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
@@ -14710,7 +15036,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeContainerAppResponse>(await this.callApi(params, req, runtime), new DescribeContainerAppResponse({}));
@@ -14729,7 +15055,6 @@ export default class Client extends OpenApi {
     query["TaskId"] = request.taskId;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeGWSClusterPolicy",
@@ -14739,7 +15064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeGWSClusterPolicyResponse>(await this.callApi(params, req, runtime), new DescribeGWSClusterPolicyResponse({}));
@@ -14764,7 +15089,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeGWSClustersResponse>(await this.callApi(params, req, runtime), new DescribeGWSClustersResponse({}));
@@ -14789,7 +15114,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeGWSImagesResponse>(await this.callApi(params, req, runtime), new DescribeGWSImagesResponse({}));
@@ -14814,7 +15139,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeGWSInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGWSInstancesResponse({}));
@@ -14839,7 +15164,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeImageResponse>(await this.callApi(params, req, runtime), new DescribeImageResponse({}));
@@ -14864,7 +15189,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeImageGatewayConfigResponse>(await this.callApi(params, req, runtime), new DescribeImageGatewayConfigResponse({}));
@@ -14889,7 +15214,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeImagePriceResponse>(await this.callApi(params, req, runtime), new DescribeImagePriceResponse({}));
@@ -14914,7 +15239,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeJobResponse>(await this.callApi(params, req, runtime), new DescribeJobResponse({}));
@@ -14939,7 +15264,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeNFSClientStatusResponse>(await this.callApi(params, req, runtime), new DescribeNFSClientStatusResponse({}));
@@ -14964,7 +15289,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
@@ -14989,7 +15314,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<EcdDeleteDesktopsResponse>(await this.callApi(params, req, runtime), new EcdDeleteDesktopsResponse({}));
@@ -15014,7 +15339,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<EditJobTemplateResponse>(await this.callApi(params, req, runtime), new EditJobTemplateResponse({}));
@@ -15039,7 +15364,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAccountingReportResponse>(await this.callApi(params, req, runtime), new GetAccountingReportResponse({}));
@@ -15064,7 +15389,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetAutoScaleConfigResponse>(await this.callApi(params, req, runtime), new GetAutoScaleConfigResponse({}));
@@ -15089,7 +15414,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetCloudMetricLogsResponse>(await this.callApi(params, req, runtime), new GetCloudMetricLogsResponse({}));
@@ -15114,7 +15439,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetCloudMetricProfilingResponse>(await this.callApi(params, req, runtime), new GetCloudMetricProfilingResponse({}));
@@ -15139,7 +15464,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetClusterVolumesResponse>(await this.callApi(params, req, runtime), new GetClusterVolumesResponse({}));
@@ -15164,7 +15489,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetGWSConnectTicketResponse>(await this.callApi(params, req, runtime), new GetGWSConnectTicketResponse({}));
@@ -15189,7 +15514,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHealthMonitorLogsResponse>(await this.callApi(params, req, runtime), new GetHealthMonitorLogsResponse({}));
@@ -15214,7 +15539,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHybridClusterConfigResponse>(await this.callApi(params, req, runtime), new GetHybridClusterConfigResponse({}));
@@ -15239,7 +15564,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetIfEcsTypeSupportHtConfigResponse>(await this.callApi(params, req, runtime), new GetIfEcsTypeSupportHtConfigResponse({}));
@@ -15264,7 +15589,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSchedulerInfoResponse>(await this.callApi(params, req, runtime), new GetSchedulerInfoResponse({}));
@@ -15289,7 +15614,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetVisualServiceStatusResponse>(await this.callApi(params, req, runtime), new GetVisualServiceStatusResponse({}));
@@ -15314,7 +15639,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetWorkbenchTokenResponse>(await this.callApi(params, req, runtime), new GetWorkbenchTokenResponse({}));
@@ -15339,7 +15664,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<InitializeEHPCResponse>(await this.callApi(params, req, runtime), new InitializeEHPCResponse({}));
@@ -15364,7 +15689,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<InstallSoftwareResponse>(await this.callApi(params, req, runtime), new InstallSoftwareResponse({}));
@@ -15389,7 +15714,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<InvokeShellCommandResponse>(await this.callApi(params, req, runtime), new InvokeShellCommandResponse({}));
@@ -15414,7 +15739,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListAvailableEcsTypesResponse>(await this.callApi(params, req, runtime), new ListAvailableEcsTypesResponse({}));
@@ -15439,7 +15764,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCloudMetricProfilingsResponse>(await this.callApi(params, req, runtime), new ListCloudMetricProfilingsResponse({}));
@@ -15464,7 +15789,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListClusterLogsResponse>(await this.callApi(params, req, runtime), new ListClusterLogsResponse({}));
@@ -15489,7 +15814,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListClustersResponse>(await this.callApi(params, req, runtime), new ListClustersResponse({}));
@@ -15514,7 +15839,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListClustersMetaResponse>(await this.callApi(params, req, runtime), new ListClustersMetaResponse({}));
@@ -15539,7 +15864,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCommandsResponse>(await this.callApi(params, req, runtime), new ListCommandsResponse({}));
@@ -15564,7 +15889,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListContainerAppsResponse>(await this.callApi(params, req, runtime), new ListContainerAppsResponse({}));
@@ -15589,7 +15914,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListContainerImagesResponse>(await this.callApi(params, req, runtime), new ListContainerImagesResponse({}));
@@ -15614,7 +15939,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCpfsFileSystemsResponse>(await this.callApi(params, req, runtime), new ListCpfsFileSystemsResponse({}));
@@ -15635,7 +15960,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCurrentClientVersionResponse>(await this.callApi(params, req, runtime), new ListCurrentClientVersionResponse({}));
@@ -15660,7 +15985,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCustomImagesResponse>(await this.callApi(params, req, runtime), new ListCustomImagesResponse({}));
@@ -15685,7 +16010,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListFileSystemWithMountTargetsResponse>(await this.callApi(params, req, runtime), new ListFileSystemWithMountTargetsResponse({}));
@@ -15710,7 +16035,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListImagesResponse>(await this.callApi(params, req, runtime), new ListImagesResponse({}));
@@ -15735,7 +16060,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInstalledSoftwareResponse>(await this.callApi(params, req, runtime), new ListInstalledSoftwareResponse({}));
@@ -15760,7 +16085,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInvocationResultsResponse>(await this.callApi(params, req, runtime), new ListInvocationResultsResponse({}));
@@ -15785,7 +16110,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListInvocationStatusResponse>(await this.callApi(params, req, runtime), new ListInvocationStatusResponse({}));
@@ -15810,7 +16135,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListJobTemplatesResponse>(await this.callApi(params, req, runtime), new ListJobTemplatesResponse({}));
@@ -15835,7 +16160,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
@@ -15860,7 +16185,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
@@ -15885,7 +16210,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListNodesByQueueResponse>(await this.callApi(params, req, runtime), new ListNodesByQueueResponse({}));
@@ -15910,7 +16235,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListNodesNoPagingResponse>(await this.callApi(params, req, runtime), new ListNodesNoPagingResponse({}));
@@ -15935,7 +16260,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPreferredEcsTypesResponse>(await this.callApi(params, req, runtime), new ListPreferredEcsTypesResponse({}));
@@ -15960,7 +16285,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListQueuesResponse>(await this.callApi(params, req, runtime), new ListQueuesResponse({}));
@@ -15981,7 +16306,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRegionsResponse>(await this.callApi(params, req, runtime), new ListRegionsResponse({}));
@@ -16006,7 +16331,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSecurityGroupsResponse>(await this.callApi(params, req, runtime), new ListSecurityGroupsResponse({}));
@@ -16031,7 +16356,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSoftwaresResponse>(await this.callApi(params, req, runtime), new ListSoftwaresResponse({}));
@@ -16056,7 +16381,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTasksResponse>(await this.callApi(params, req, runtime), new ListTasksResponse({}));
@@ -16081,7 +16406,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
@@ -16106,7 +16431,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListVolumesResponse>(await this.callApi(params, req, runtime), new ListVolumesResponse({}));
@@ -16131,7 +16456,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyClusterAttributesResponse>(await this.callApi(params, req, runtime), new ModifyClusterAttributesResponse({}));
@@ -16156,7 +16481,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyContainerAppAttributesResponse>(await this.callApi(params, req, runtime), new ModifyContainerAppAttributesResponse({}));
@@ -16181,7 +16506,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyImageGatewayConfigResponse>(await this.callApi(params, req, runtime), new ModifyImageGatewayConfigResponse({}));
@@ -16206,7 +16531,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyUserGroupsResponse>(await this.callApi(params, req, runtime), new ModifyUserGroupsResponse({}));
@@ -16231,7 +16556,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyUserPasswordsResponse>(await this.callApi(params, req, runtime), new ModifyUserPasswordsResponse({}));
@@ -16256,7 +16581,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyVisualServicePasswdResponse>(await this.callApi(params, req, runtime), new ModifyVisualServicePasswdResponse({}));
@@ -16281,7 +16606,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<MountNFSResponse>(await this.callApi(params, req, runtime), new MountNFSResponse({}));
@@ -16306,7 +16631,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PullImageResponse>(await this.callApi(params, req, runtime), new PullImageResponse({}));
@@ -16327,7 +16652,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryServicePackAndPriceResponse>(await this.callApi(params, req, runtime), new QueryServicePackAndPriceResponse({}));
@@ -16352,7 +16677,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecoverClusterResponse>(await this.callApi(params, req, runtime), new RecoverClusterResponse({}));
@@ -16377,7 +16702,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RerunJobsResponse>(await this.callApi(params, req, runtime), new RerunJobsResponse({}));
@@ -16402,7 +16727,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetNodesResponse>(await this.callApi(params, req, runtime), new ResetNodesResponse({}));
@@ -16427,7 +16752,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RunCloudMetricProfilingResponse>(await this.callApi(params, req, runtime), new RunCloudMetricProfilingResponse({}));
@@ -16452,7 +16777,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetAutoScaleConfigResponse>(await this.callApi(params, req, runtime), new SetAutoScaleConfigResponse({}));
@@ -16475,7 +16800,6 @@ export default class Client extends OpenApi {
     query["Watermark"] = request.watermark;
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetGWSClusterPolicy",
@@ -16485,7 +16809,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetGWSClusterPolicyResponse>(await this.callApi(params, req, runtime), new SetGWSClusterPolicyResponse({}));
@@ -16510,7 +16834,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetGWSInstanceNameResponse>(await this.callApi(params, req, runtime), new SetGWSInstanceNameResponse({}));
@@ -16535,7 +16859,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetGWSInstanceUserResponse>(await this.callApi(params, req, runtime), new SetGWSInstanceUserResponse({}));
@@ -16560,7 +16884,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetQueueResponse>(await this.callApi(params, req, runtime), new SetQueueResponse({}));
@@ -16585,7 +16909,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetSchedulerInfoResponse>(await this.callApi(params, req, runtime), new SetSchedulerInfoResponse({}));
@@ -16610,7 +16934,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartClusterResponse>(await this.callApi(params, req, runtime), new StartClusterResponse({}));
@@ -16635,7 +16959,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartGWSInstanceResponse>(await this.callApi(params, req, runtime), new StartGWSInstanceResponse({}));
@@ -16660,7 +16984,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartNodesResponse>(await this.callApi(params, req, runtime), new StartNodesResponse({}));
@@ -16685,7 +17009,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartVisualServiceResponse>(await this.callApi(params, req, runtime), new StartVisualServiceResponse({}));
@@ -16710,7 +17034,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopClusterResponse>(await this.callApi(params, req, runtime), new StopClusterResponse({}));
@@ -16735,7 +17059,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopGWSInstanceResponse>(await this.callApi(params, req, runtime), new StopGWSInstanceResponse({}));
@@ -16760,7 +17084,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopJobsResponse>(await this.callApi(params, req, runtime), new StopJobsResponse({}));
@@ -16785,7 +17109,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopNodesResponse>(await this.callApi(params, req, runtime), new StopNodesResponse({}));
@@ -16810,7 +17134,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopVisualServiceResponse>(await this.callApi(params, req, runtime), new StopVisualServiceResponse({}));
@@ -16835,7 +17159,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitJobResponse>(await this.callApi(params, req, runtime), new SubmitJobResponse({}));
@@ -16844,6 +17168,31 @@ export default class Client extends OpenApi {
   async submitJob(request: SubmitJobRequest): Promise<SubmitJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitJobWithOptions(request, runtime);
+  }
+
+  async syncUsersWithOptions(request: SyncUsersRequest, runtime: $Util.RuntimeOptions): Promise<SyncUsersResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncUsers",
+      version: "2018-04-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncUsersResponse>(await this.callApi(params, req, runtime), new SyncUsersResponse({}));
+  }
+
+  async syncUsers(request: SyncUsersRequest): Promise<SyncUsersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.syncUsersWithOptions(request, runtime);
   }
 
   async uninstallSoftwareWithOptions(request: UninstallSoftwareRequest, runtime: $Util.RuntimeOptions): Promise<UninstallSoftwareResponse> {
@@ -16860,7 +17209,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UninstallSoftwareResponse>(await this.callApi(params, req, runtime), new UninstallSoftwareResponse({}));
@@ -16885,7 +17234,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateClusterVolumesResponse>(await this.callApi(params, req, runtime), new UpdateClusterVolumesResponse({}));
@@ -16910,7 +17259,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateQueueConfigResponse>(await this.callApi(params, req, runtime), new UpdateQueueConfigResponse({}));
@@ -16935,7 +17284,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpgradeClientResponse>(await this.callApi(params, req, runtime), new UpgradeClientResponse({}));
