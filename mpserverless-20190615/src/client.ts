@@ -4,1864 +4,23 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class RunFunctionRequest extends $tea.Model {
-  spaceId?: string;
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      body: 'Body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunFunctionResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: string;
-  runtimeMeta?: RunFunctionResponseBodyRuntimeMeta;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-      runtimeMeta: 'RuntimeMeta',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'string',
-      runtimeMeta: RunFunctionResponseBodyRuntimeMeta,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RunFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RunFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionRequest extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  filterBy?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      filterBy: 'FilterBy',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      filterBy: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionResponseBody extends $tea.Model {
-  requestId?: string;
-  paginator?: ListFunctionResponseBodyPaginator;
-  dataList?: ListFunctionResponseBodyDataList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      paginator: 'Paginator',
-      dataList: 'DataList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      paginator: ListFunctionResponseBodyPaginator,
-      dataList: { 'type': 'array', 'itemType': ListFunctionResponseBodyDataList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingCertificateDetailRequest extends $tea.Model {
-  spaceId?: string;
-  customDomain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      customDomain: 'CustomDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      customDomain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingCertificateDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetWebHostingCertificateDetailResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetWebHostingCertificateDetailResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingCertificateDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWebHostingCertificateDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebHostingCertificateDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSpaceRequest extends $tea.Model {
-  spaceId?: string;
-  desc?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      desc: 'Desc',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      desc: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSpaceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSpaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateSpaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateSpaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainConfigRequest extends $tea.Model {
-  spaceId?: string;
-  forceRedirectType?: string;
-  domainName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      forceRedirectType: 'ForceRedirectType',
-      domainName: 'DomainName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      forceRedirectType: 'string',
-      domainName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveWebHostingCustomDomainConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveWebHostingCustomDomainConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionSpecResponseBody extends $tea.Model {
-  requestId?: string;
-  memoryList?: ListFunctionSpecResponseBodyMemoryList[];
-  runtimeList?: ListFunctionSpecResponseBodyRuntimeList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      memoryList: 'MemoryList',
-      runtimeList: 'RuntimeList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      memoryList: { 'type': 'array', 'itemType': ListFunctionSpecResponseBodyMemoryList },
-      runtimeList: { 'type': 'array', 'itemType': ListFunctionSpecResponseBodyRuntimeList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionSpecResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFunctionSpecResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFunctionSpecResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWechatOpenPlatformConfigRequest extends $tea.Model {
-  spaceId?: string;
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWechatOpenPlatformConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWechatOpenPlatformConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteWechatOpenPlatformConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteWechatOpenPlatformConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSpaceRequest extends $tea.Model {
-  name?: string;
-  desc?: string;
-  workspaceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      desc: 'Desc',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      desc: 'string',
-      workspaceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSpaceResponseBody extends $tea.Model {
-  spaceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSpaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateSpaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSpaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenProductRequest extends $tea.Model {
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenProductResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  synchro?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'data',
-      synchro: 'synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-      synchro: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenProductResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpenProductResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpenProductResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenServiceRequest extends $tea.Model {
-  spaceId?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenServiceResponseBody extends $tea.Model {
-  requestId?: string;
-  serviceStatus?: string;
-  count?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      serviceStatus: 'ServiceStatus',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      serviceStatus: 'string',
-      count: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpenServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpenServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSpaceRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSpaceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSpaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteSpaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteSpaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAntOpenPlatformConfigRequest extends $tea.Model {
-  spaceId?: string;
-  appId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      appId: 'AppId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      appId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAntOpenPlatformConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAntOpenPlatformConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAntOpenPlatformConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteAntOpenPlatformConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFCOpenStatusResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  isAuthorized?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      requestId: 'RequestId',
-      isAuthorized: 'IsAuthorized',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      requestId: 'string',
-      isAuthorized: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFCOpenStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFCOpenStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFCOpenStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
-  filename?: string;
-  size?: number;
-  spaceId?: string;
-  contentType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filename: 'Filename',
-      size: 'Size',
-      spaceId: 'SpaceId',
-      contentType: 'ContentType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filename: 'string',
-      size: 'number',
-      spaceId: 'string',
-      contentType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
-  signUrl?: string;
-  requestId?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signUrl: 'SignUrl',
-      requestId: 'RequestId',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signUrl: 'string',
-      requestId: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileUploadSignedUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFileUploadSignedUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFileUploadSignedUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileRequest extends $tea.Model {
-  id?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBImportTaskStatusRequest extends $tea.Model {
-  spaceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBImportTaskStatusResponseBody extends $tea.Model {
-  status?: string;
-  failedCount?: string;
-  requestId?: string;
-  detailMessage?: string;
-  successCount?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      failedCount: 'FailedCount',
-      requestId: 'RequestId',
-      detailMessage: 'DetailMessage',
-      successCount: 'SuccessCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      failedCount: 'string',
-      requestId: 'string',
-      detailMessage: 'string',
-      successCount: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBImportTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDBImportTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDBImportTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterFileRequest extends $tea.Model {
-  id?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterFileResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RegisterFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RegisterFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RegisterFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveAntOpenPlatformConfigRequest extends $tea.Model {
-  spaceId?: string;
-  appId?: string;
-  publicKey?: string;
-  privateKey?: string;
-  signMode?: string;
-  appCert?: string;
-  publicCert?: string;
-  rootCert?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      appId: 'AppId',
-      publicKey: 'PublicKey',
-      privateKey: 'PrivateKey',
-      signMode: 'SignMode',
-      appCert: 'AppCert',
-      publicCert: 'PublicCert',
-      rootCert: 'RootCert',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      appId: 'string',
-      publicKey: 'string',
-      privateKey: 'string',
-      signMode: 'string',
-      appCert: 'string',
-      publicCert: 'string',
-      rootCert: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveAntOpenPlatformConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveAntOpenPlatformConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveAntOpenPlatformConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveAntOpenPlatformConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFunctionRequest extends $tea.Model {
-  name?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFunctionResponseBody extends $tea.Model {
-  requestId?: string;
-  function?: DescribeFunctionResponseBodyFunction;
-  deployment?: DescribeFunctionResponseBodyDeployment;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      function: 'Function',
-      deployment: 'Deployment',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      function: DescribeFunctionResponseBodyFunction,
-      deployment: DescribeFunctionResponseBodyDeployment,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWebHostingServiceRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWebHostingServiceResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OpenWebHostingServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: OpenWebHostingServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: OpenWebHostingServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignRequest extends $tea.Model {
-  signId?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signId: 'SignId',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signId: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignResponseBody extends $tea.Model {
-  spaceId?: string;
-  updateTime?: string;
-  requestId?: string;
-  remark?: string;
-  createTime?: string;
-  signName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      updateTime: 'UpdateTime',
-      requestId: 'RequestId',
-      remark: 'Remark',
-      createTime: 'CreateTime',
-      signName: 'SignName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      updateTime: 'string',
-      requestId: 'string',
-      remark: 'string',
-      createTime: 'string',
-      signName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsSignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsSignResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableCertificatesRequest extends $tea.Model {
-  spaceId?: string;
+export class AddCorsDomainRequest extends $tea.Model {
   domain?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      spaceId: 'SpaceId',
       domain: 'Domain',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spaceId: 'string',
       domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableCertificatesResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ListAvailableCertificatesResponseBodyData[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListAvailableCertificatesResponseBodyData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableCertificatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAvailableCertificatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAvailableCertificatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenPlatformConfigRequest extends $tea.Model {
-  spaceId?: string;
-  platform?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      platform: 'Platform',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      platform: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenPlatformConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  secretList?: ListOpenPlatformConfigResponseBodySecretList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      secretList: 'SecretList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      secretList: { 'type': 'array', 'itemType': ListOpenPlatformConfigResponseBodySecretList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenPlatformConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListOpenPlatformConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListOpenPlatformConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyWebHostingConfigRequest extends $tea.Model {
-  spaceId?: string;
-  indexPath?: string;
-  errorPath?: string;
-  allowedIps?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      indexPath: 'IndexPath',
-      errorPath: 'ErrorPath',
-      allowedIps: 'AllowedIps',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      indexPath: 'string',
-      errorPath: 'string',
-      allowedIps: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyWebHostingConfigResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyWebHostingConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyWebHostingConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyWebHostingConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmsSignRequest extends $tea.Model {
-  spaceId?: string;
-  signId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      signId: 'SignId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      signId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmsSignResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteSmsSignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteSmsSignResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsOpenStatusResponseBody extends $tea.Model {
-  status?: string;
-  requestId?: string;
-  isAuthorized?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      requestId: 'RequestId',
-      isAuthorized: 'IsAuthorized',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      requestId: 'string',
-      isAuthorized: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsOpenStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsOpenStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsOpenStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSpaceRequest extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSpaceResponseBody extends $tea.Model {
-  requestId?: string;
-  gmtCreate?: string;
-  count?: number;
-  spaces?: ListSpaceResponseBodySpaces[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      gmtCreate: 'GmtCreate',
-      count: 'Count',
-      spaces: 'Spaces',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      gmtCreate: 'string',
-      count: 'number',
-      spaces: { 'type': 'array', 'itemType': ListSpaceResponseBodySpaces },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSpaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSpaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSpaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBCollectionRequest extends $tea.Model {
-  spaceId?: string;
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      body: 'Body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBCollectionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteDBCollectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteDBCollectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteDBCollectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFunctionDeploymentRequest extends $tea.Model {
-  name?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
       spaceId: 'string',
     };
   }
@@ -1871,22 +30,19 @@ export class CreateFunctionDeploymentRequest extends $tea.Model {
   }
 }
 
-export class CreateFunctionDeploymentResponseBody extends $tea.Model {
-  uploadSignedUrl?: string;
-  deploymentId?: string;
+export class AddCorsDomainResponseBody extends $tea.Model {
+  domainId?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      uploadSignedUrl: 'UploadSignedUrl',
-      deploymentId: 'DeploymentId',
+      domainId: 'DomainId',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      uploadSignedUrl: 'string',
-      deploymentId: 'string',
+      domainId: 'string',
       requestId: 'string',
     };
   }
@@ -1896,9 +52,9 @@ export class CreateFunctionDeploymentResponseBody extends $tea.Model {
   }
 }
 
-export class CreateFunctionDeploymentResponse extends $tea.Model {
+export class AddCorsDomainResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateFunctionDeploymentResponseBody;
+  body: AddCorsDomainResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1909,151 +65,7 @@ export class CreateFunctionDeploymentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateFunctionDeploymentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingUploadCredentialRequest extends $tea.Model {
-  spaceId?: string;
-  filePath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      filePath: 'FilePath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      filePath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingUploadCredentialResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetWebHostingUploadCredentialResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetWebHostingUploadCredentialResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingUploadCredentialResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWebHostingUploadCredentialResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebHostingUploadCredentialResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentRequest extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  name?: string;
-  spaceId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      name: 'Name',
-      spaceId: 'SpaceId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      name: 'string',
-      spaceId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentResponseBody extends $tea.Model {
-  requestId?: string;
-  paginator?: ListFunctionDeploymentResponseBodyPaginator;
-  dataList?: ListFunctionDeploymentResponseBodyDataList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      paginator: 'Paginator',
-      dataList: 'DataList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      paginator: ListFunctionDeploymentResponseBodyPaginator,
-      dataList: { 'type': 'array', 'itemType': ListFunctionDeploymentResponseBodyDataList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFunctionDeploymentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFunctionDeploymentResponseBody,
+      body: AddCorsDomainResponseBody,
     };
   }
 
@@ -2128,104 +140,32 @@ export class AddDingtalkOpenPlatformConfigResponse extends $tea.Model {
   }
 }
 
-export class CreateDBRestoreTaskRequest extends $tea.Model {
-  spaceId?: string;
-  backupId?: string;
-  originCollections?: string;
-  newCollections?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      backupId: 'BackupId',
-      originCollections: 'OriginCollections',
-      newCollections: 'NewCollections',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      backupId: 'string',
-      originCollections: 'string',
-      newCollections: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBRestoreTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBRestoreTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDBRestoreTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDBRestoreTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class AttachWebHostingCertificateRequest extends $tea.Model {
-  spaceId?: string;
-  domain?: string;
-  certType?: string;
   certName?: string;
-  serverCertificate?: string;
+  certType?: string;
+  domain?: string;
   privateKey?: string;
+  serverCertificate?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      spaceId: 'SpaceId',
-      domain: 'Domain',
-      certType: 'CertType',
       certName: 'CertName',
-      serverCertificate: 'ServerCertificate',
+      certType: 'CertType',
+      domain: 'Domain',
       privateKey: 'PrivateKey',
+      serverCertificate: 'ServerCertificate',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spaceId: 'string',
-      domain: 'string',
-      certType: 'string',
       certName: 'string',
-      serverCertificate: 'string',
+      certType: 'string',
+      domain: 'string',
       privateKey: 'string',
+      serverCertificate: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -2278,238 +218,19 @@ export class AttachWebHostingCertificateResponse extends $tea.Model {
   }
 }
 
-export class ListFileRequest extends $tea.Model {
-  spaceId?: string;
-  pageNum?: number;
-  pageSize?: number;
-  keyword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      keyword: 'Keyword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      pageNum: 'number',
-      pageSize: 'number',
-      keyword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileResponseBody extends $tea.Model {
-  requestId?: string;
-  paginator?: ListFileResponseBodyPaginator;
-  dataList?: ListFileResponseBodyDataList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      paginator: 'Paginator',
-      dataList: 'DataList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      paginator: ListFileResponseBodyPaginator,
-      dataList: { 'type': 'array', 'itemType': ListFileResponseBodyDataList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBRestoreTaskStatusRequest extends $tea.Model {
-  spaceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBRestoreTaskStatusResponseBody extends $tea.Model {
-  status?: string;
-  failedCount?: number;
-  requestId?: string;
-  detailMessage?: string;
-  successCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      failedCount: 'FailedCount',
-      requestId: 'RequestId',
-      detailMessage: 'DetailMessage',
-      successCount: 'SuccessCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      failedCount: 'number',
-      requestId: 'string',
-      detailMessage: 'string',
-      successCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBRestoreTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDBRestoreTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDBRestoreTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyWebHostingDomainOwnerRequest extends $tea.Model {
-  spaceId?: string;
-  domain?: string;
-  verifyType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      domain: 'Domain',
-      verifyType: 'VerifyType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      domain: 'string',
-      verifyType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyWebHostingDomainOwnerResponseBody extends $tea.Model {
-  data?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyWebHostingDomainOwnerResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: VerifyWebHostingDomainOwnerResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VerifyWebHostingDomainOwnerResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmsTemplateRequest extends $tea.Model {
-  templateCode?: string;
+export class BatchDeleteWebHostingFilesRequest extends $tea.Model {
+  filePaths?: string[];
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      templateCode: 'TemplateCode',
+      filePaths: 'FilePaths',
       spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      templateCode: 'string',
+      filePaths: { 'type': 'array', 'itemType': 'string' },
       spaceId: 'string',
     };
   }
@@ -2519,1192 +240,7 @@ export class DeleteSmsTemplateRequest extends $tea.Model {
   }
 }
 
-export class DeleteSmsTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteSmsTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteSmsTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBExportTaskStatusRequest extends $tea.Model {
-  spaceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBExportTaskStatusResponseBody extends $tea.Model {
-  exportedCount?: string;
-  status?: string;
-  requestId?: string;
-  downloadUrl?: string;
-  detailMessage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exportedCount: 'ExportedCount',
-      status: 'Status',
-      requestId: 'RequestId',
-      downloadUrl: 'DownloadUrl',
-      detailMessage: 'DetailMessage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exportedCount: 'string',
-      status: 'string',
-      requestId: 'string',
-      downloadUrl: 'string',
-      detailMessage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBExportTaskStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDBExportTaskStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDBExportTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBImportTaskRequest extends $tea.Model {
-  spaceId?: string;
-  collection?: string;
-  fileType?: string;
-  mode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      collection: 'Collection',
-      fileType: 'FileType',
-      mode: 'Mode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      collection: 'string',
-      fileType: 'string',
-      mode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBImportTaskResponseBody extends $tea.Model {
-  host?: string;
-  expireTime?: string;
-  fileKey?: string;
-  accessKeyId?: string;
-  signature?: string;
-  requestId?: string;
-  policy?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      host: 'Host',
-      expireTime: 'ExpireTime',
-      fileKey: 'FileKey',
-      accessKeyId: 'AccessKeyId',
-      signature: 'Signature',
-      requestId: 'RequestId',
-      policy: 'Policy',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      host: 'string',
-      expireTime: 'string',
-      fileKey: 'string',
-      accessKeyId: 'string',
-      signature: 'string',
-      requestId: 'string',
-      policy: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBImportTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDBImportTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDBImportTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckSmsHasAuthorizedToMPSRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckSmsHasAuthorizedToMPSResponseBody extends $tea.Model {
-  requestId?: string;
-  isAuthorized?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      isAuthorized: 'IsAuthorized',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      isAuthorized: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckSmsHasAuthorizedToMPSResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckSmsHasAuthorizedToMPSResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckSmsHasAuthorizedToMPSResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServicePolicyRequest extends $tea.Model {
-  spaceId?: string;
-  serviceName?: string;
-  collectionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      serviceName: 'ServiceName',
-      collectionName: 'CollectionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      serviceName: 'string',
-      collectionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServicePolicyResponseBody extends $tea.Model {
-  spaceId?: string;
-  requestId?: string;
-  policy?: string;
-  policyName?: string;
-  serviceName?: string;
-  collectionName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-      policy: 'Policy',
-      policyName: 'PolicyName',
-      serviceName: 'ServiceName',
-      collectionName: 'CollectionName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      requestId: 'string',
-      policy: 'string',
-      policyName: 'string',
-      serviceName: 'string',
-      collectionName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeServicePolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeServicePolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeServicePolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsTemplatesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsTemplatesResponseBody extends $tea.Model {
-  requestId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  smsTemplates?: ListSmsTemplatesResponseBodySmsTemplates[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      smsTemplates: 'SmsTemplates',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      smsTemplates: { 'type': 'array', 'itemType': ListSmsTemplatesResponseBodySmsTemplates },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsTemplatesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSmsTemplatesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSmsTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupCollectionsRequest extends $tea.Model {
-  spaceId?: string;
-  backupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      backupId: 'BackupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      backupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupCollectionsResponseBody extends $tea.Model {
-  requestId?: string;
-  collections?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      collections: 'Collections',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      collections: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupCollectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDBBackupCollectionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDBBackupCollectionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServiceStatusRequest extends $tea.Model {
-  spaceId?: string;
-  serviceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      serviceName: 'ServiceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      serviceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServiceStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  serviceStatus?: string;
-  count?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      serviceStatus: 'ServiceStatus',
-      count: 'Count',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      serviceStatus: 'string',
-      count: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryServiceStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryServiceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceClientConfigRequest extends $tea.Model {
-  spaceId?: string;
-  detail?: string;
-  workspaceId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      detail: 'Detail',
-      workspaceId: 'WorkspaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      detail: 'string',
-      workspaceId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceClientConfigResponseBody extends $tea.Model {
-  apiKey?: string;
-  spaceId?: string;
-  requestId?: string;
-  privateKey?: string;
-  endpoint?: string;
-  fileUploadEndpoint?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiKey: 'ApiKey',
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-      privateKey: 'PrivateKey',
-      endpoint: 'Endpoint',
-      fileUploadEndpoint: 'FileUploadEndpoint',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiKey: 'string',
-      spaceId: 'string',
-      requestId: 'string',
-      privateKey: 'string',
-      endpoint: 'string',
-      fileUploadEndpoint: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceClientConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSpaceClientConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSpaceClientConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBuiltinFunctionTemplateRequest extends $tea.Model {
-  bizId?: string;
-  builtinFunctionTemplateCategoryId?: string;
-  builtinFunctionTemplateProfile?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bizId: 'BizId',
-      builtinFunctionTemplateCategoryId: 'BuiltinFunctionTemplateCategoryId',
-      builtinFunctionTemplateProfile: 'BuiltinFunctionTemplateProfile',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bizId: 'string',
-      builtinFunctionTemplateCategoryId: 'string',
-      builtinFunctionTemplateProfile: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBuiltinFunctionTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  builtinFunctionTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      builtinFunctionTemplateId: 'BuiltinFunctionTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      builtinFunctionTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveBuiltinFunctionTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveBuiltinFunctionTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveBuiltinFunctionTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeISVFileUploadSignedUrlRequest extends $tea.Model {
-  filename?: string;
-  bucketName?: string;
-  tenantId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filename: 'Filename',
-      bucketName: 'BucketName',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filename: 'string',
-      bucketName: 'string',
-      tenantId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeISVFileUploadSignedUrlResponseBody extends $tea.Model {
-  signUrl?: string;
-  requestId?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signUrl: 'SignUrl',
-      requestId: 'RequestId',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signUrl: 'string',
-      requestId: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeISVFileUploadSignedUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeISVFileUploadSignedUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeISVFileUploadSignedUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBuiltinFunctionTemplateRequest extends $tea.Model {
-  builtinFunctionTemplateCategoryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      builtinFunctionTemplateCategoryId: 'BuiltinFunctionTemplateCategoryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      builtinFunctionTemplateCategoryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBuiltinFunctionTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  bizId?: string;
-  artifactUploadUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      bizId: 'BizId',
-      artifactUploadUrl: 'ArtifactUploadUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      bizId: 'string',
-      artifactUploadUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateBuiltinFunctionTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateBuiltinFunctionTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateBuiltinFunctionTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingStatusRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetWebHostingStatusResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetWebHostingStatusResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWebHostingStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebHostingStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionLogRequest extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  name?: string;
-  spaceId?: string;
-  logRequestId?: string;
-  fromDate?: number;
-  toDate?: number;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      name: 'Name',
-      spaceId: 'SpaceId',
-      logRequestId: 'LogRequestId',
-      fromDate: 'FromDate',
-      toDate: 'ToDate',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      name: 'string',
-      spaceId: 'string',
-      logRequestId: 'string',
-      fromDate: 'number',
-      toDate: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionLogResponseBody extends $tea.Model {
-  requestId?: string;
-  paginator?: ListFunctionLogResponseBodyPaginator;
-  dataList?: ListFunctionLogResponseBodyDataList[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      paginator: 'Paginator',
-      dataList: 'DataList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      paginator: ListFunctionLogResponseBodyPaginator,
-      dataList: { 'type': 'array', 'itemType': ListFunctionLogResponseBodyDataList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFunctionLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFunctionLogResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingFilesRequest extends $tea.Model {
-  spaceId?: string;
-  prefix?: string;
-  marker?: string;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      prefix: 'Prefix',
-      marker: 'Marker',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      prefix: 'string',
-      marker: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingFilesResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ListWebHostingFilesResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ListWebHostingFilesResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListWebHostingFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListWebHostingFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileRequest extends $tea.Model {
-  id?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileResponseBody extends $tea.Model {
-  type?: string;
-  url?: string;
-  gmtModified?: string;
-  requestId?: string;
-  size?: number;
-  gmtCreate?: string;
-  name?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      url: 'Url',
-      gmtModified: 'GmtModified',
-      requestId: 'RequestId',
-      size: 'Size',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      url: 'string',
-      gmtModified: 'string',
-      requestId: 'string',
-      size: 'number',
-      gmtCreate: 'string',
-      name: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveWebHostingFileRequest extends $tea.Model {
-  spaceId?: string;
-  sourceFilePath?: string;
-  targetFilePath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      sourceFilePath: 'SourceFilePath',
-      targetFilePath: 'TargetFilePath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      sourceFilePath: 'string',
-      targetFilePath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class MoveWebHostingFileResponseBody extends $tea.Model {
+export class BatchDeleteWebHostingFilesResponseBody extends $tea.Model {
   data?: boolean;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -3726,9 +262,9 @@ export class MoveWebHostingFileResponseBody extends $tea.Model {
   }
 }
 
-export class MoveWebHostingFileResponse extends $tea.Model {
+export class BatchDeleteWebHostingFilesResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: MoveWebHostingFileResponseBody;
+  body: BatchDeleteWebHostingFilesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3739,145 +275,7 @@ export class MoveWebHostingFileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: MoveWebHostingFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmsTemplateRequest extends $tea.Model {
-  spaceId?: string;
-  templateType?: number;
-  templateName?: string;
-  templateContent?: string;
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
-      templateContent: 'TemplateContent',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      templateType: 'number',
-      templateName: 'string',
-      templateContent: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmsTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateSmsTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSmsTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateStatusRequest extends $tea.Model {
-  templateCodes?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCodes: 'TemplateCodes',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCodes: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  templateStatuses?: DescribeSmsTemplateStatusResponseBodyTemplateStatuses[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      templateStatuses: 'TemplateStatuses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      templateStatuses: { 'type': 'array', 'itemType': DescribeSmsTemplateStatusResponseBodyTemplateStatuses },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsTemplateStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsTemplateStatusResponseBody,
+      body: BatchDeleteWebHostingFilesResponseBody,
     };
   }
 
@@ -3887,19 +285,19 @@ export class DescribeSmsTemplateStatusResponse extends $tea.Model {
 }
 
 export class BindWebHostingCustomDomainRequest extends $tea.Model {
-  spaceId?: string;
   customDomain?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      spaceId: 'SpaceId',
       customDomain: 'CustomDomain',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spaceId: 'string',
       customDomain: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -3952,26 +350,323 @@ export class BindWebHostingCustomDomainResponse extends $tea.Model {
   }
 }
 
-export class CreateFunctionRequest extends $tea.Model {
-  name?: string;
-  desc?: string;
-  spaceId?: string;
-  runtime?: string;
+export class CheckMpServerlessRoleExistsRequest extends $tea.Model {
+  roleName?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      desc: 'Desc',
-      spaceId: 'SpaceId',
-      runtime: 'Runtime',
+      roleName: 'RoleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      desc: 'string',
+      roleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMpServerlessRoleExistsResponseBody extends $tea.Model {
+  exists?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exists: 'Exists',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exists: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckMpServerlessRoleExistsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckMpServerlessRoleExistsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckMpServerlessRoleExistsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBExportTaskRequest extends $tea.Model {
+  collection?: string;
+  fields?: string;
+  fileType?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      fields: 'Fields',
+      fileType: 'FileType',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      fields: 'string',
+      fileType: 'string',
       spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBExportTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBExportTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDBExportTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDBExportTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBImportTaskRequest extends $tea.Model {
+  collection?: string;
+  fileType?: string;
+  mode?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collection: 'Collection',
+      fileType: 'FileType',
+      mode: 'Mode',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collection: 'string',
+      fileType: 'string',
+      mode: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBImportTaskResponseBody extends $tea.Model {
+  accessKeyId?: string;
+  expireTime?: string;
+  fileKey?: string;
+  host?: string;
+  policy?: string;
+  requestId?: string;
+  signature?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      fileKey: 'FileKey',
+      host: 'Host',
+      policy: 'Policy',
+      requestId: 'RequestId',
+      signature: 'Signature',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'string',
+      fileKey: 'string',
+      host: 'string',
+      policy: 'string',
+      requestId: 'string',
+      signature: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBImportTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDBImportTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDBImportTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBRestoreTaskRequest extends $tea.Model {
+  backupId?: string;
+  newCollections?: string;
+  originCollections?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      newCollections: 'NewCollections',
+      originCollections: 'OriginCollections',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      newCollections: 'string',
+      originCollections: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBRestoreTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDBRestoreTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDBRestoreTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDBRestoreTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionRequest extends $tea.Model {
+  desc?: string;
+  name?: string;
+  runtime?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      name: 'Name',
+      runtime: 'Runtime',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      name: 'string',
       runtime: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -3981,30 +676,30 @@ export class CreateFunctionRequest extends $tea.Model {
 }
 
 export class CreateFunctionResponseBody extends $tea.Model {
-  requestId?: string;
   createdAt?: string;
-  name?: string;
-  modifiedAt?: string;
   desc?: string;
+  modifiedAt?: string;
+  name?: string;
+  requestId?: string;
   spec?: CreateFunctionResponseBodySpec;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       createdAt: 'CreatedAt',
-      name: 'Name',
-      modifiedAt: 'ModifiedAt',
       desc: 'Desc',
+      modifiedAt: 'ModifiedAt',
+      name: 'Name',
+      requestId: 'RequestId',
       spec: 'Spec',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       createdAt: 'string',
-      name: 'string',
-      modifiedAt: 'string',
       desc: 'string',
+      modifiedAt: 'string',
+      name: 'string',
+      requestId: 'string',
       spec: CreateFunctionResponseBodySpec,
     };
   }
@@ -4028,6 +723,333 @@ export class CreateFunctionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionDeploymentRequest extends $tea.Model {
+  name?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionDeploymentResponseBody extends $tea.Model {
+  deploymentId?: string;
+  requestId?: string;
+  uploadSignedUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'DeploymentId',
+      requestId: 'RequestId',
+      uploadSignedUrl: 'UploadSignedUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      requestId: 'string',
+      uploadSignedUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFunctionDeploymentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFunctionDeploymentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFunctionDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpaceRequest extends $tea.Model {
+  desc?: string;
+  name?: string;
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      name: 'Name',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      name: 'string',
+      workspaceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpaceResponseBody extends $tea.Model {
+  requestId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSpaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntOpenPlatformConfigRequest extends $tea.Model {
+  appId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntOpenPlatformConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAntOpenPlatformConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteAntOpenPlatformConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteAntOpenPlatformConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCorsDomainRequest extends $tea.Model {
+  domainId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCorsDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCorsDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteCorsDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteCorsDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBCollectionRequest extends $tea.Model {
+  body?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBCollectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDBCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDBCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDBCollectionResponseBody,
     };
   }
 
@@ -4099,6 +1121,1679 @@ export class DeleteDingtalkOpenPlatformConfigResponse extends $tea.Model {
   }
 }
 
+export class DeleteFileRequest extends $tea.Model {
+  id?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionRequest extends $tea.Model {
+  name?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSpaceRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSpaceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSpaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSpaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingCertificateRequest extends $tea.Model {
+  domain?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingCertificateResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteWebHostingCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteWebHostingCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingFileRequest extends $tea.Model {
+  filePath?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingFileResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWebHostingFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteWebHostingFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteWebHostingFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWechatOpenPlatformConfigRequest extends $tea.Model {
+  appId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWechatOpenPlatformConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteWechatOpenPlatformConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteWechatOpenPlatformConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteWechatOpenPlatformConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployFunctionRequest extends $tea.Model {
+  deploymentId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentId: 'DeploymentId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployFunctionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeployFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeployFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFCOpenStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFCOpenStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFCOpenStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFCOpenStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileUploadSignedUrlRequest extends $tea.Model {
+  contentType?: string;
+  filename?: string;
+  size?: number;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      filename: 'Filename',
+      size: 'Size',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      filename: 'string',
+      size: 'number',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileUploadSignedUrlResponseBody extends $tea.Model {
+  id?: string;
+  requestId?: string;
+  signUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      signUrl: 'SignUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      signUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFileUploadSignedUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFileUploadSignedUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFileUploadSignedUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFunctionRequest extends $tea.Model {
+  name?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFunctionResponseBody extends $tea.Model {
+  deployment?: DescribeFunctionResponseBodyDeployment;
+  function?: DescribeFunctionResponseBodyFunction;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deployment: 'Deployment',
+      function: 'Function',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployment: DescribeFunctionResponseBodyDeployment,
+      function: DescribeFunctionResponseBodyFunction,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHttpTriggerConfigRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHttpTriggerConfigResponseBody extends $tea.Model {
+  customDomain?: string;
+  customDomainCertificateInfo?: string;
+  customDomainCname?: string;
+  defaultEndpoint?: string;
+  enableService?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomain: 'CustomDomain',
+      customDomainCertificateInfo: 'CustomDomainCertificateInfo',
+      customDomainCname: 'CustomDomainCname',
+      defaultEndpoint: 'DefaultEndpoint',
+      enableService: 'EnableService',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomain: 'string',
+      customDomainCertificateInfo: 'string',
+      customDomainCname: 'string',
+      defaultEndpoint: 'string',
+      enableService: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHttpTriggerConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeHttpTriggerConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeHttpTriggerConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceQuotaRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceQuotaResponseBody extends $tea.Model {
+  cloudStorageDataSizeQuota?: number;
+  requestId?: string;
+  staticWebDataSizeQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudStorageDataSizeQuota: 'CloudStorageDataSizeQuota',
+      requestId: 'RequestId',
+      staticWebDataSizeQuota: 'StaticWebDataSizeQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudStorageDataSizeQuota: 'number',
+      requestId: 'string',
+      staticWebDataSizeQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceQuotaResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeResourceQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeResourceQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageRequest extends $tea.Model {
+  endTime?: string;
+  format?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  spaceId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      format: 'Format',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      spaceId: 'SpaceId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      format: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      spaceId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBody extends $tea.Model {
+  code?: string;
+  dataList?: DescribeResourceUsageResponseBodyDataList[];
+  httpStatusCode?: string;
+  message?: string;
+  paginator?: DescribeResourceUsageResponseBodyPaginator;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      dataList: 'DataList',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      paginator: 'Paginator',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      dataList: { 'type': 'array', 'itemType': DescribeResourceUsageResponseBodyDataList },
+      httpStatusCode: 'string',
+      message: 'string',
+      paginator: DescribeResourceUsageResponseBodyPaginator,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeResourceUsageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeResourceUsageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServicePolicyRequest extends $tea.Model {
+  collectionName?: string;
+  serviceName?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionName: 'CollectionName',
+      serviceName: 'ServiceName',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionName: 'string',
+      serviceName: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServicePolicyResponseBody extends $tea.Model {
+  collectionName?: string;
+  policy?: string;
+  policyName?: string;
+  requestId?: string;
+  serviceName?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collectionName: 'CollectionName',
+      policy: 'Policy',
+      policyName: 'PolicyName',
+      requestId: 'RequestId',
+      serviceName: 'ServiceName',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collectionName: 'string',
+      policy: 'string',
+      policyName: 'string',
+      requestId: 'string',
+      serviceName: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServicePolicyResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeServicePolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeServicePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpaceClientConfigRequest extends $tea.Model {
+  detail?: string;
+  spaceId?: string;
+  workspaceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'Detail',
+      spaceId: 'SpaceId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      spaceId: 'string',
+      workspaceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpaceClientConfigResponseBody extends $tea.Model {
+  apiKey?: string;
+  endpoint?: string;
+  fileUploadEndpoint?: string;
+  name?: string;
+  privateKey?: string;
+  requestId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      endpoint: 'Endpoint',
+      fileUploadEndpoint: 'FileUploadEndpoint',
+      name: 'Name',
+      privateKey: 'PrivateKey',
+      requestId: 'RequestId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      endpoint: 'string',
+      fileUploadEndpoint: 'string',
+      name: 'string',
+      privateKey: 'string',
+      requestId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSpaceClientConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSpaceClientConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSpaceClientConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebHostingFileRequest extends $tea.Model {
+  filePath?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebHostingFileResponseBody extends $tea.Model {
+  data?: DescribeWebHostingFileResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeWebHostingFileResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebHostingFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeWebHostingFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeWebHostingFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableExtensionRequest extends $tea.Model {
+  extensionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extensionId: 'ExtensionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableExtensionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableExtensionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableExtensionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableExtensionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingCertificateDetailRequest extends $tea.Model {
+  customDomain?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomain: 'CustomDomain',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomain: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingCertificateDetailResponseBody extends $tea.Model {
+  data?: GetWebHostingCertificateDetailResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWebHostingCertificateDetailResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingCertificateDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebHostingCertificateDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebHostingCertificateDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingConfigRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingConfigResponseBody extends $tea.Model {
+  data?: GetWebHostingConfigResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWebHostingConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebHostingConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebHostingConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingDomainVerificationContentRequest extends $tea.Model {
+  domain?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingDomainVerificationContentResponseBody extends $tea.Model {
+  data?: GetWebHostingDomainVerificationContentResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWebHostingDomainVerificationContentResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingDomainVerificationContentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebHostingDomainVerificationContentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebHostingDomainVerificationContentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingStatusRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingStatusResponseBody extends $tea.Model {
+  data?: GetWebHostingStatusResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWebHostingStatusResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebHostingStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebHostingStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingUploadCredentialRequest extends $tea.Model {
+  filePath?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingUploadCredentialResponseBody extends $tea.Model {
+  data?: GetWebHostingUploadCredentialResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetWebHostingUploadCredentialResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingUploadCredentialResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetWebHostingUploadCredentialResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetWebHostingUploadCredentialResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableCertificatesRequest extends $tea.Model {
+  domain?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableCertificatesResponseBody extends $tea.Model {
+  data?: ListAvailableCertificatesResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListAvailableCertificatesResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableCertificatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAvailableCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAvailableCertificatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCorsDomainsRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCorsDomainsResponseBody extends $tea.Model {
+  domains?: ListCorsDomainsResponseBodyDomains[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': ListCorsDomainsResponseBodyDomains },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCorsDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCorsDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCorsDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDingtalkOpenPlatformConfigsRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDingtalkOpenPlatformConfigsResponseBody extends $tea.Model {
+  configs?: ListDingtalkOpenPlatformConfigsResponseBodyConfigs[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': ListDingtalkOpenPlatformConfigsResponseBodyConfigs },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDingtalkOpenPlatformConfigsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDingtalkOpenPlatformConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDingtalkOpenPlatformConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListExtensionsRequest extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
@@ -4122,28 +2817,28 @@ export class ListExtensionsRequest extends $tea.Model {
 }
 
 export class ListExtensionsResponseBody extends $tea.Model {
-  requestId?: string;
+  extensions?: ListExtensionsResponseBodyExtensions[];
   pageNumber?: number;
   pageSize?: number;
+  requestId?: string;
   totalCount?: number;
-  extensions?: ListExtensionsResponseBodyExtensions[];
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      extensions: 'Extensions',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      requestId: 'RequestId',
       totalCount: 'TotalCount',
-      extensions: 'Extensions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      extensions: { 'type': 'array', 'itemType': ListExtensionsResponseBodyExtensions },
       pageNumber: 'number',
       pageSize: 'number',
+      requestId: 'string',
       totalCount: 'number',
-      extensions: { 'type': 'array', 'itemType': ListExtensionsResponseBodyExtensions },
     };
   }
 
@@ -4174,123 +2869,25 @@ export class ListExtensionsResponse extends $tea.Model {
   }
 }
 
-export class EnableSmsServiceResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableSmsServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EnableSmsServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EnableSmsServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseBuiltinFunctionTemplateRequest extends $tea.Model {
-  builtinFunctionTemplateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      builtinFunctionTemplateId: 'BuiltinFunctionTemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      builtinFunctionTemplateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseBuiltinFunctionTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ReleaseBuiltinFunctionTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ReleaseBuiltinFunctionTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ReleaseBuiltinFunctionTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSmsSignRequest extends $tea.Model {
-  signName?: string;
-  remark?: string;
+export class ListFileRequest extends $tea.Model {
+  keyword?: string;
+  pageNum?: number;
+  pageSize?: number;
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      signName: 'SignName',
-      remark: 'Remark',
+      keyword: 'Keyword',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      signName: 'string',
-      remark: 'string',
+      keyword: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       spaceId: 'string',
     };
   }
@@ -4300,16 +2897,22 @@ export class CreateSmsSignRequest extends $tea.Model {
   }
 }
 
-export class CreateSmsSignResponseBody extends $tea.Model {
+export class ListFileResponseBody extends $tea.Model {
+  dataList?: ListFileResponseBodyDataList[];
+  paginator?: ListFileResponseBodyPaginator;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataList: 'DataList',
+      paginator: 'Paginator',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataList: { 'type': 'array', 'itemType': ListFileResponseBodyDataList },
+      paginator: ListFileResponseBodyPaginator,
       requestId: 'string',
     };
   }
@@ -4319,9 +2922,9 @@ export class CreateSmsSignResponseBody extends $tea.Model {
   }
 }
 
-export class CreateSmsSignResponse extends $tea.Model {
+export class ListFileResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateSmsSignResponseBody;
+  body: ListFileResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4332,7 +2935,7 @@ export class CreateSmsSignResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSmsSignResponseBody,
+      body: ListFileResponseBody,
     };
   }
 
@@ -4341,41 +2944,104 @@ export class CreateSmsSignResponse extends $tea.Model {
   }
 }
 
-export class UpdateFunctionRequest extends $tea.Model {
-  desc?: string;
+export class ListFunctionRequest extends $tea.Model {
+  filterBy?: string;
+  pageNum?: number;
+  pageSize?: number;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filterBy: 'FilterBy',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterBy: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResponseBody extends $tea.Model {
+  dataList?: ListFunctionResponseBodyDataList[];
+  paginator?: ListFunctionResponseBodyPaginator;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      paginator: 'Paginator',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListFunctionResponseBodyDataList },
+      paginator: ListFunctionResponseBodyPaginator,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionDeploymentRequest extends $tea.Model {
   name?: string;
+  pageNum?: number;
+  pageSize?: number;
   spaceId?: string;
-  memory?: number;
-  timeout?: number;
-  httpTriggerPath?: string;
-  timingTriggerConfig?: string;
-  instanceConcurrency?: number;
-  runtime?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      desc: 'Desc',
       name: 'Name',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       spaceId: 'SpaceId',
-      memory: 'Memory',
-      timeout: 'Timeout',
-      httpTriggerPath: 'HttpTriggerPath',
-      timingTriggerConfig: 'TimingTriggerConfig',
-      instanceConcurrency: 'InstanceConcurrency',
-      runtime: 'Runtime',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      desc: 'string',
       name: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       spaceId: 'string',
-      memory: 'number',
-      timeout: 'number',
-      httpTriggerPath: 'string',
-      timingTriggerConfig: 'string',
-      instanceConcurrency: 'number',
-      runtime: 'string',
+      status: 'string',
     };
   }
 
@@ -4384,91 +3050,85 @@ export class UpdateFunctionRequest extends $tea.Model {
   }
 }
 
-export class UpdateFunctionResponseBody extends $tea.Model {
+export class ListFunctionDeploymentResponseBody extends $tea.Model {
+  dataList?: ListFunctionDeploymentResponseBodyDataList[];
+  paginator?: ListFunctionDeploymentResponseBodyPaginator;
   requestId?: string;
-  timingTriggerConfig?: string;
-  httpTriggerPath?: string;
-  createdAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataList: 'DataList',
+      paginator: 'Paginator',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataList: { 'type': 'array', 'itemType': ListFunctionDeploymentResponseBodyDataList },
+      paginator: ListFunctionDeploymentResponseBodyPaginator,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionDeploymentResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListFunctionDeploymentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListFunctionDeploymentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionLogRequest extends $tea.Model {
+  fromDate?: number;
+  logRequestId?: string;
   name?: string;
-  modifiedAt?: string;
-  desc?: string;
-  spec?: UpdateFunctionResponseBodySpec;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      timingTriggerConfig: 'TimingTriggerConfig',
-      httpTriggerPath: 'HttpTriggerPath',
-      createdAt: 'CreatedAt',
-      name: 'Name',
-      modifiedAt: 'ModifiedAt',
-      desc: 'Desc',
-      spec: 'Spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      timingTriggerConfig: 'string',
-      httpTriggerPath: 'string',
-      createdAt: 'string',
-      name: 'string',
-      modifiedAt: 'string',
-      desc: 'string',
-      spec: UpdateFunctionResponseBodySpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateHttpTriggerConfigRequest extends $tea.Model {
-  enableService?: boolean;
+  pageNum?: number;
+  pageSize?: number;
   spaceId?: string;
-  customDomain?: string;
-  customDomainCertificate?: string;
-  customDomainPrivateKey?: string;
+  status?: string;
+  toDate?: number;
   static names(): { [key: string]: string } {
     return {
-      enableService: 'EnableService',
+      fromDate: 'FromDate',
+      logRequestId: 'LogRequestId',
+      name: 'Name',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
       spaceId: 'SpaceId',
-      customDomain: 'CustomDomain',
-      customDomainCertificate: 'CustomDomainCertificate',
-      customDomainPrivateKey: 'CustomDomainPrivateKey',
+      status: 'Status',
+      toDate: 'ToDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableService: 'boolean',
+      fromDate: 'number',
+      logRequestId: 'string',
+      name: 'string',
+      pageNum: 'number',
+      pageSize: 'number',
       spaceId: 'string',
-      customDomain: 'string',
-      customDomainCertificate: 'string',
-      customDomainPrivateKey: 'string',
+      status: 'string',
+      toDate: 'number',
     };
   }
 
@@ -4477,32 +3137,23 @@ export class UpdateHttpTriggerConfigRequest extends $tea.Model {
   }
 }
 
-export class UpdateHttpTriggerConfigResponseBody extends $tea.Model {
-  enableService?: boolean;
-  customDomainCname?: string;
+export class ListFunctionLogResponseBody extends $tea.Model {
+  dataList?: ListFunctionLogResponseBodyDataList[];
+  paginator?: ListFunctionLogResponseBodyPaginator;
   requestId?: string;
-  defaultEndpoint?: string;
-  customDomainCertificateInfo?: string;
-  customDomain?: string;
   static names(): { [key: string]: string } {
     return {
-      enableService: 'EnableService',
-      customDomainCname: 'CustomDomainCname',
+      dataList: 'DataList',
+      paginator: 'Paginator',
       requestId: 'RequestId',
-      defaultEndpoint: 'DefaultEndpoint',
-      customDomainCertificateInfo: 'CustomDomainCertificateInfo',
-      customDomain: 'CustomDomain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableService: 'boolean',
-      customDomainCname: 'string',
+      dataList: { 'type': 'array', 'itemType': ListFunctionLogResponseBodyDataList },
+      paginator: ListFunctionLogResponseBodyPaginator,
       requestId: 'string',
-      defaultEndpoint: 'string',
-      customDomainCertificateInfo: 'string',
-      customDomain: 'string',
     };
   }
 
@@ -4511,9 +3162,9 @@ export class UpdateHttpTriggerConfigResponseBody extends $tea.Model {
   }
 }
 
-export class UpdateHttpTriggerConfigResponse extends $tea.Model {
+export class ListFunctionLogResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: UpdateHttpTriggerConfigResponseBody;
+  body: ListFunctionLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4524,7 +3175,1030 @@ export class UpdateHttpTriggerConfigResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateHttpTriggerConfigResponseBody,
+      body: ListFunctionLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenPlatformConfigRequest extends $tea.Model {
+  platform?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      platform: 'Platform',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      platform: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenPlatformConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  secretList?: ListOpenPlatformConfigResponseBodySecretList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      secretList: 'SecretList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      secretList: { 'type': 'array', 'itemType': ListOpenPlatformConfigResponseBodySecretList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenPlatformConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListOpenPlatformConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListOpenPlatformConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpaceRequest extends $tea.Model {
+  pageNum?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNum: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpaceResponseBody extends $tea.Model {
+  count?: number;
+  gmtCreate?: string;
+  requestId?: string;
+  spaces?: ListSpaceResponseBodySpaces[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      gmtCreate: 'GmtCreate',
+      requestId: 'RequestId',
+      spaces: 'Spaces',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      gmtCreate: 'string',
+      requestId: 'string',
+      spaces: { 'type': 'array', 'itemType': ListSpaceResponseBodySpaces },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpaceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSpaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSpaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingCustomDomainsRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingCustomDomainsResponseBody extends $tea.Model {
+  data?: ListWebHostingCustomDomainsResponseBodyData[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListWebHostingCustomDomainsResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingCustomDomainsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWebHostingCustomDomainsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWebHostingCustomDomainsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingFilesRequest extends $tea.Model {
+  marker?: string;
+  pageSize?: number;
+  prefix?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      marker: 'Marker',
+      pageSize: 'PageSize',
+      prefix: 'Prefix',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marker: 'string',
+      pageSize: 'number',
+      prefix: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingFilesResponseBody extends $tea.Model {
+  data?: ListWebHostingFilesResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListWebHostingFilesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingFilesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWebHostingFilesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWebHostingFilesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWebHostingConfigRequest extends $tea.Model {
+  allowedIps?: string;
+  errorPath?: string;
+  historyModePath?: string;
+  indexPath?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedIps: 'AllowedIps',
+      errorPath: 'ErrorPath',
+      historyModePath: 'HistoryModePath',
+      indexPath: 'IndexPath',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedIps: 'string',
+      errorPath: 'string',
+      historyModePath: 'string',
+      indexPath: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWebHostingConfigResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyWebHostingConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyWebHostingConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyWebHostingConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenServiceRequest extends $tea.Model {
+  serviceName?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceName: 'ServiceName',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceName: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OpenServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OpenServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWebHostingServiceRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWebHostingServiceResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OpenWebHostingServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: OpenWebHostingServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: OpenWebHostingServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupCollectionsRequest extends $tea.Model {
+  backupId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'BackupId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupCollectionsResponseBody extends $tea.Model {
+  collections?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      collections: 'Collections',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      collections: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupCollectionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDBBackupCollectionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDBBackupCollectionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupDumpTimesRequest extends $tea.Model {
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupDumpTimesResponseBody extends $tea.Model {
+  backupDumpTimes?: QueryDBBackupDumpTimesResponseBodyBackupDumpTimes[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupDumpTimes: 'BackupDumpTimes',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupDumpTimes: { 'type': 'array', 'itemType': QueryDBBackupDumpTimesResponseBodyBackupDumpTimes },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBBackupDumpTimesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDBBackupDumpTimesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDBBackupDumpTimesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBExportTaskStatusRequest extends $tea.Model {
+  spaceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBExportTaskStatusResponseBody extends $tea.Model {
+  detailMessage?: string;
+  downloadUrl?: string;
+  exportedCount?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailMessage: 'DetailMessage',
+      downloadUrl: 'DownloadUrl',
+      exportedCount: 'ExportedCount',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailMessage: 'string',
+      downloadUrl: 'string',
+      exportedCount: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBExportTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDBExportTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDBExportTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBImportTaskStatusRequest extends $tea.Model {
+  spaceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBImportTaskStatusResponseBody extends $tea.Model {
+  detailMessage?: string;
+  failedCount?: string;
+  requestId?: string;
+  status?: string;
+  successCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detailMessage: 'DetailMessage',
+      failedCount: 'FailedCount',
+      requestId: 'RequestId',
+      status: 'Status',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailMessage: 'string',
+      failedCount: 'string',
+      requestId: 'string',
+      status: 'string',
+      successCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBImportTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDBImportTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDBImportTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBRestoreTaskStatusRequest extends $tea.Model {
+  spaceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceId: 'SpaceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBRestoreTaskStatusResponseBody extends $tea.Model {
+  detailMessage?: string;
+  failedCount?: number;
+  requestId?: string;
+  status?: string;
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailMessage: 'DetailMessage',
+      failedCount: 'FailedCount',
+      requestId: 'RequestId',
+      status: 'Status',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailMessage: 'string',
+      failedCount: 'number',
+      requestId: 'string',
+      status: 'string',
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDBRestoreTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDBRestoreTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDBRestoreTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryServiceStatusRequest extends $tea.Model {
+  serviceName?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceName: 'ServiceName',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceName: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryServiceStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryServiceStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryServiceStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryServiceStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterFileRequest extends $tea.Model {
+  id?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterFileResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RegisterFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RegisterFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameDBCollectionRequest extends $tea.Model {
+  newCollection?: string;
+  originCollection?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      newCollection: 'NewCollection',
+      originCollection: 'OriginCollection',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newCollection: 'string',
+      originCollection: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameDBCollectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenameDBCollectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RenameDBCollectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RenameDBCollectionResponseBody,
     };
   }
 
@@ -4593,20 +4267,20 @@ export class ResetServerSecretResponse extends $tea.Model {
   }
 }
 
-export class GetWebHostingDomainVerificationContentRequest extends $tea.Model {
+export class RunDBCommandRequest extends $tea.Model {
+  body?: string;
   spaceId?: string;
-  domain?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'Body',
       spaceId: 'SpaceId',
-      domain: 'Domain',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      body: 'string',
       spaceId: 'string',
-      domain: 'string',
     };
   }
 
@@ -4615,20 +4289,23 @@ export class GetWebHostingDomainVerificationContentRequest extends $tea.Model {
   }
 }
 
-export class GetWebHostingDomainVerificationContentResponseBody extends $tea.Model {
+export class RunDBCommandResponseBody extends $tea.Model {
+  affectedDocs?: number;
   requestId?: string;
-  data?: GetWebHostingDomainVerificationContentResponseBodyData;
+  result?: string;
   static names(): { [key: string]: string } {
     return {
+      affectedDocs: 'AffectedDocs',
       requestId: 'RequestId',
-      data: 'Data',
+      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      affectedDocs: 'number',
       requestId: 'string',
-      data: GetWebHostingDomainVerificationContentResponseBodyData,
+      result: 'string',
     };
   }
 
@@ -4637,9 +4314,9 @@ export class GetWebHostingDomainVerificationContentResponseBody extends $tea.Mod
   }
 }
 
-export class GetWebHostingDomainVerificationContentResponse extends $tea.Model {
+export class RunDBCommandResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetWebHostingDomainVerificationContentResponseBody;
+  body: RunDBCommandResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4650,7 +4327,508 @@ export class GetWebHostingDomainVerificationContentResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebHostingDomainVerificationContentResponseBody,
+      body: RunDBCommandResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunFunctionRequest extends $tea.Model {
+  body?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunFunctionResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: string;
+  runtimeMeta?: RunFunctionResponseBodyRuntimeMeta;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      runtimeMeta: 'RuntimeMeta',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'string',
+      runtimeMeta: RunFunctionResponseBodyRuntimeMeta,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunFunctionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RunFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RunFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAntOpenPlatformConfigRequest extends $tea.Model {
+  appCert?: string;
+  appId?: string;
+  privateKey?: string;
+  publicCert?: string;
+  publicKey?: string;
+  rootCert?: string;
+  signMode?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCert: 'AppCert',
+      appId: 'AppId',
+      privateKey: 'PrivateKey',
+      publicCert: 'PublicCert',
+      publicKey: 'PublicKey',
+      rootCert: 'RootCert',
+      signMode: 'SignMode',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCert: 'string',
+      appId: 'string',
+      privateKey: 'string',
+      publicCert: 'string',
+      publicKey: 'string',
+      rootCert: 'string',
+      signMode: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAntOpenPlatformConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAntOpenPlatformConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveAntOpenPlatformConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveAntOpenPlatformConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAppAuthTokenRequest extends $tea.Model {
+  appAuthToken?: string;
+  appId?: string;
+  isvAppId?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appAuthToken: 'AppAuthToken',
+      appId: 'AppId',
+      isvAppId: 'IsvAppId',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appAuthToken: 'string',
+      appId: 'string',
+      isvAppId: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAppAuthTokenResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveAppAuthTokenResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveAppAuthTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveAppAuthTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainConfigRequest extends $tea.Model {
+  domainName?: string;
+  forceRedirectType?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      forceRedirectType: 'ForceRedirectType',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      forceRedirectType: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveWebHostingCustomDomainConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveWebHostingCustomDomainConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainCorsConfigRequest extends $tea.Model {
+  accessControlAllowOrigin?: string;
+  domainName?: string;
+  enableCors?: boolean;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlAllowOrigin: 'AccessControlAllowOrigin',
+      domainName: 'DomainName',
+      enableCors: 'EnableCors',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlAllowOrigin: 'string',
+      domainName: 'string',
+      enableCors: 'boolean',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainCorsConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  httpStatusCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWebHostingCustomDomainCorsConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveWebHostingCustomDomainCorsConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveWebHostingCustomDomainCorsConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWechatOpenPlatformConfigRequest extends $tea.Model {
+  appId?: string;
+  appSecret?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecret: 'AppSecret',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecret: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWechatOpenPlatformConfigResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SaveWechatOpenPlatformConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SaveWechatOpenPlatformConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SaveWechatOpenPlatformConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindWebHostingCustomDomainRequest extends $tea.Model {
+  customDomain?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customDomain: 'CustomDomain',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customDomain: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindWebHostingCustomDomainResponseBody extends $tea.Model {
+  data?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnbindWebHostingCustomDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UnbindWebHostingCustomDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UnbindWebHostingCustomDomainResponseBody,
     };
   }
 
@@ -4725,146 +4903,41 @@ export class UpdateDingtalkOpenPlatformConfigResponse extends $tea.Model {
   }
 }
 
-export class CheckMpServerlessRoleExistsRequest extends $tea.Model {
-  roleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      roleName: 'RoleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      roleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMpServerlessRoleExistsResponseBody extends $tea.Model {
-  requestId?: string;
-  exists?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      exists: 'Exists',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      exists: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMpServerlessRoleExistsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckMpServerlessRoleExistsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckMpServerlessRoleExistsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableExtensionRequest extends $tea.Model {
-  extensionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extensionId: 'ExtensionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extensionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableExtensionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnableExtensionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EnableExtensionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EnableExtensionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsSignsForAccountRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
+export class UpdateFunctionRequest extends $tea.Model {
+  desc?: string;
+  httpTriggerPath?: string;
+  instanceConcurrency?: number;
+  memory?: number;
+  name?: string;
+  runtime?: string;
   spaceId?: string;
+  timeout?: number;
+  timingTriggerConfig?: string;
   static names(): { [key: string]: string } {
     return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
+      desc: 'Desc',
+      httpTriggerPath: 'HttpTriggerPath',
+      instanceConcurrency: 'InstanceConcurrency',
+      memory: 'Memory',
+      name: 'Name',
+      runtime: 'Runtime',
       spaceId: 'SpaceId',
+      timeout: 'Timeout',
+      timingTriggerConfig: 'TimingTriggerConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      pageNumber: 'number',
-      pageSize: 'number',
+      desc: 'string',
+      httpTriggerPath: 'string',
+      instanceConcurrency: 'number',
+      memory: 'number',
+      name: 'string',
+      runtime: 'string',
       spaceId: 'string',
+      timeout: 'number',
+      timingTriggerConfig: 'string',
     };
   }
 
@@ -4873,29 +4946,38 @@ export class ListSmsSignsForAccountRequest extends $tea.Model {
   }
 }
 
-export class ListSmsSignsForAccountResponseBody extends $tea.Model {
+export class UpdateFunctionResponseBody extends $tea.Model {
+  createdAt?: string;
+  desc?: string;
+  httpTriggerPath?: string;
+  modifiedAt?: string;
+  name?: string;
   requestId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  smsSigns?: ListSmsSignsForAccountResponseBodySmsSigns[];
+  spec?: UpdateFunctionResponseBodySpec;
+  timingTriggerConfig?: string;
   static names(): { [key: string]: string } {
     return {
+      createdAt: 'CreatedAt',
+      desc: 'Desc',
+      httpTriggerPath: 'HttpTriggerPath',
+      modifiedAt: 'ModifiedAt',
+      name: 'Name',
       requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      smsSigns: 'SmsSigns',
+      spec: 'Spec',
+      timingTriggerConfig: 'TimingTriggerConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createdAt: 'string',
+      desc: 'string',
+      httpTriggerPath: 'string',
+      modifiedAt: 'string',
+      name: 'string',
       requestId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      smsSigns: { 'type': 'array', 'itemType': ListSmsSignsForAccountResponseBodySmsSigns },
+      spec: UpdateFunctionResponseBodySpec,
+      timingTriggerConfig: 'string',
     };
   }
 
@@ -4904,9 +4986,9 @@ export class ListSmsSignsForAccountResponseBody extends $tea.Model {
   }
 }
 
-export class ListSmsSignsForAccountResponse extends $tea.Model {
+export class UpdateFunctionResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ListSmsSignsForAccountResponseBody;
+  body: UpdateFunctionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4917,7 +4999,7 @@ export class ListSmsSignsForAccountResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSmsSignsForAccountResponseBody,
+      body: UpdateFunctionResponseBody,
     };
   }
 
@@ -4926,719 +5008,29 @@ export class ListSmsSignsForAccountResponse extends $tea.Model {
   }
 }
 
-export class ListCorsDomainsRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCorsDomainsResponseBody extends $tea.Model {
-  requestId?: string;
-  domains?: ListCorsDomainsResponseBodyDomains[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      domains: 'Domains',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      domains: { 'type': 'array', 'itemType': ListCorsDomainsResponseBodyDomains },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListCorsDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListCorsDomainsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListCorsDomainsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDingtalkOpenPlatformConfigsRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDingtalkOpenPlatformConfigsResponseBody extends $tea.Model {
-  requestId?: string;
-  configs?: ListDingtalkOpenPlatformConfigsResponseBodyConfigs[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      configs: 'Configs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      configs: { 'type': 'array', 'itemType': ListDingtalkOpenPlatformConfigsResponseBodyConfigs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDingtalkOpenPlatformConfigsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDingtalkOpenPlatformConfigsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDingtalkOpenPlatformConfigsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBExportTaskRequest extends $tea.Model {
-  spaceId?: string;
-  collection?: string;
-  fileType?: string;
-  fields?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      collection: 'Collection',
-      fileType: 'FileType',
-      fields: 'Fields',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      collection: 'string',
-      fileType: 'string',
-      fields: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBExportTaskResponseBody extends $tea.Model {
-  requestId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDBExportTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateDBExportTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateDBExportTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingConfigRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: GetWebHostingConfigResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: GetWebHostingConfigResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWebHostingConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWebHostingConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindWebHostingCustomDomainRequest extends $tea.Model {
-  spaceId?: string;
+export class UpdateHttpTriggerConfigRequest extends $tea.Model {
   customDomain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      customDomain: 'CustomDomain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      customDomain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindWebHostingCustomDomainResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UnbindWebHostingCustomDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UnbindWebHostingCustomDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UnbindWebHostingCustomDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateRequest extends $tea.Model {
-  templateCode?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCode: 'TemplateCode',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCode: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateResponseBody extends $tea.Model {
-  updateTime?: string;
-  templateContent?: string;
-  requestId?: string;
-  createTime?: string;
-  templateType?: string;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      templateContent: 'TemplateContent',
-      requestId: 'RequestId',
-      createTime: 'CreateTime',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      templateContent: 'string',
-      requestId: 'string',
-      createTime: 'string',
-      templateType: 'string',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainCorsConfigRequest extends $tea.Model {
-  spaceId?: string;
-  domainName?: string;
-  enableCors?: boolean;
-  accessControlAllowOrigin?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      domainName: 'DomainName',
-      enableCors: 'EnableCors',
-      accessControlAllowOrigin: 'AccessControlAllowOrigin',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      domainName: 'string',
-      enableCors: 'boolean',
-      accessControlAllowOrigin: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainCorsConfigResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  httpStatusCode?: string;
-  requestId?: string;
-  success?: boolean;
-  data?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      httpStatusCode: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      data: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWebHostingCustomDomainCorsConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveWebHostingCustomDomainCorsConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveWebHostingCustomDomainCorsConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchDeleteWebHostingFilesRequest extends $tea.Model {
-  spaceId?: string;
-  filePaths?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      filePaths: 'FilePaths',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      filePaths: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchDeleteWebHostingFilesResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchDeleteWebHostingFilesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: BatchDeleteWebHostingFilesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: BatchDeleteWebHostingFilesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCorsDomainRequest extends $tea.Model {
-  domainId?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainId: 'DomainId',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainId: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCorsDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteCorsDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteCorsDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteCorsDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHttpTriggerConfigRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHttpTriggerConfigResponseBody extends $tea.Model {
+  customDomainCertificate?: string;
+  customDomainPrivateKey?: string;
   enableService?: boolean;
-  customDomainCname?: string;
-  requestId?: string;
-  defaultEndpoint?: string;
-  customDomainCertificateInfo?: string;
-  customDomain?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      enableService: 'EnableService',
-      customDomainCname: 'CustomDomainCname',
-      requestId: 'RequestId',
-      defaultEndpoint: 'DefaultEndpoint',
-      customDomainCertificateInfo: 'CustomDomainCertificateInfo',
       customDomain: 'CustomDomain',
+      customDomainCertificate: 'CustomDomainCertificate',
+      customDomainPrivateKey: 'CustomDomainPrivateKey',
+      enableService: 'EnableService',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enableService: 'boolean',
-      customDomainCname: 'string',
-      requestId: 'string',
-      defaultEndpoint: 'string',
-      customDomainCertificateInfo: 'string',
       customDomain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeHttpTriggerConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeHttpTriggerConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeHttpTriggerConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveAppAuthTokenRequest extends $tea.Model {
-  spaceId?: string;
-  isvAppId?: string;
-  appId?: string;
-  appAuthToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      isvAppId: 'IsvAppId',
-      appId: 'AppId',
-      appAuthToken: 'AppAuthToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
+      customDomainCertificate: 'string',
+      customDomainPrivateKey: 'string',
+      enableService: 'boolean',
       spaceId: 'string',
-      isvAppId: 'string',
-      appId: 'string',
-      appAuthToken: 'string',
     };
   }
 
@@ -5647,16 +5039,31 @@ export class SaveAppAuthTokenRequest extends $tea.Model {
   }
 }
 
-export class SaveAppAuthTokenResponseBody extends $tea.Model {
+export class UpdateHttpTriggerConfigResponseBody extends $tea.Model {
+  customDomain?: string;
+  customDomainCertificateInfo?: string;
+  customDomainCname?: string;
+  defaultEndpoint?: string;
+  enableService?: boolean;
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      customDomain: 'CustomDomain',
+      customDomainCertificateInfo: 'CustomDomainCertificateInfo',
+      customDomainCname: 'CustomDomainCname',
+      defaultEndpoint: 'DefaultEndpoint',
+      enableService: 'EnableService',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customDomain: 'string',
+      customDomainCertificateInfo: 'string',
+      customDomainCname: 'string',
+      defaultEndpoint: 'string',
+      enableService: 'boolean',
       requestId: 'string',
     };
   }
@@ -5666,9 +5073,9 @@ export class SaveAppAuthTokenResponseBody extends $tea.Model {
   }
 }
 
-export class SaveAppAuthTokenResponse extends $tea.Model {
+export class UpdateHttpTriggerConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: SaveAppAuthTokenResponseBody;
+  body: UpdateHttpTriggerConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5679,751 +5086,7 @@ export class SaveAppAuthTokenResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveAppAuthTokenResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignStatusRequest extends $tea.Model {
-  spaceId?: string;
-  signIds?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      signIds: 'SignIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      signIds: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignStatusResponseBody extends $tea.Model {
-  requestId?: string;
-  signStatuses?: DescribeSmsSignStatusResponseBodySignStatuses[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      signStatuses: 'SignStatuses',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      signStatuses: { 'type': 'array', 'itemType': DescribeSmsSignStatusResponseBodySignStatuses },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsSignStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsSignStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWechatOpenPlatformConfigRequest extends $tea.Model {
-  spaceId?: string;
-  appId?: string;
-  appSecret?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      appId: 'AppId',
-      appSecret: 'AppSecret',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      appId: 'string',
-      appSecret: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWechatOpenPlatformConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SaveWechatOpenPlatformConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SaveWechatOpenPlatformConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SaveWechatOpenPlatformConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceResponseBody extends $tea.Model {
-  status?: string;
-  spaceId?: string;
-  requestId?: string;
-  gmtCreate?: string;
-  name?: string;
-  desc?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-      gmtCreate: 'GmtCreate',
-      name: 'Name',
-      desc: 'Desc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      spaceId: 'string',
-      requestId: 'string',
-      gmtCreate: 'string',
-      name: 'string',
-      desc: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSpaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSpaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSpaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameDBCollectionRequest extends $tea.Model {
-  spaceId?: string;
-  originCollection?: string;
-  newCollection?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      originCollection: 'OriginCollection',
-      newCollection: 'NewCollection',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      originCollection: 'string',
-      newCollection: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameDBCollectionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameDBCollectionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RenameDBCollectionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RenameDBCollectionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsSignsRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsSignsResponseBody extends $tea.Model {
-  requestId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  smsSigns?: ListSmsSignsResponseBodySmsSigns[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      smsSigns: 'SmsSigns',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      smsSigns: { 'type': 'array', 'itemType': ListSmsSignsResponseBodySmsSigns },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsSignsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSmsSignsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSmsSignsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductOpenStatusRequest extends $tea.Model {
-  name?: string;
-  desc?: string;
-  labels?: DescribeProductOpenStatusRequestLabels[];
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      desc: 'Desc',
-      labels: 'Labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      desc: 'string',
-      labels: { 'type': 'array', 'itemType': DescribeProductOpenStatusRequestLabels },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductOpenStatusResponseBody extends $tea.Model {
-  spaceId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeProductOpenStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeProductOpenStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeProductOpenStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsSignRequest extends $tea.Model {
-  signId?: string;
-  remark?: string;
-  spaceId?: string;
-  signName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signId: 'SignId',
-      remark: 'Remark',
-      spaceId: 'SpaceId',
-      signName: 'SignName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signId: 'string',
-      remark: 'string',
-      spaceId: 'string',
-      signName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsSignResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateSmsSignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateSmsSignResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWebHostingCertificateRequest extends $tea.Model {
-  spaceId?: string;
-  domain?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      domain: 'Domain',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      domain: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWebHostingCertificateResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWebHostingCertificateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteWebHostingCertificateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteWebHostingCertificateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupDumpTimesRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupDumpTimesResponseBody extends $tea.Model {
-  requestId?: string;
-  backupDumpTimes?: QueryDBBackupDumpTimesResponseBodyBackupDumpTimes[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      backupDumpTimes: 'BackupDumpTimes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      backupDumpTimes: { 'type': 'array', 'itemType': QueryDBBackupDumpTimesResponseBodyBackupDumpTimes },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDBBackupDumpTimesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDBBackupDumpTimesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDBBackupDumpTimesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployFunctionRequest extends $tea.Model {
-  deploymentId?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deploymentId: 'DeploymentId',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deploymentId: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployFunctionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeployFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeployFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeployFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachSmsSignRequest extends $tea.Model {
-  spaceId?: string;
-  signName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      signName: 'SignName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      signName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachSmsSignResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AttachSmsSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AttachSmsSignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AttachSmsSignResponseBody,
+      body: UpdateHttpTriggerConfigResponseBody,
     };
   }
 
@@ -6433,28 +5096,28 @@ export class AttachSmsSignResponse extends $tea.Model {
 }
 
 export class UpdateServicePolicyRequest extends $tea.Model {
-  spaceId?: string;
-  serviceName?: string;
-  policy?: string;
   collectionName?: string;
+  policy?: string;
   policyName?: string;
+  serviceName?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      spaceId: 'SpaceId',
-      serviceName: 'ServiceName',
-      policy: 'Policy',
       collectionName: 'CollectionName',
+      policy: 'Policy',
       policyName: 'PolicyName',
+      serviceName: 'ServiceName',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spaceId: 'string',
-      serviceName: 'string',
-      policy: 'string',
       collectionName: 'string',
+      policy: 'string',
       policyName: 'string',
+      serviceName: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -6464,31 +5127,31 @@ export class UpdateServicePolicyRequest extends $tea.Model {
 }
 
 export class UpdateServicePolicyResponseBody extends $tea.Model {
-  spaceId?: string;
-  requestId?: string;
+  collectionName?: string;
   policy?: string;
   policyName?: string;
+  requestId?: string;
   serviceName?: string;
-  collectionName?: string;
+  spaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
+      collectionName: 'CollectionName',
       policy: 'Policy',
       policyName: 'PolicyName',
+      requestId: 'RequestId',
       serviceName: 'ServiceName',
-      collectionName: 'CollectionName',
+      spaceId: 'SpaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      spaceId: 'string',
-      requestId: 'string',
+      collectionName: 'string',
       policy: 'string',
       policyName: 'string',
+      requestId: 'string',
       serviceName: 'string',
-      collectionName: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -6519,226 +5182,22 @@ export class UpdateServicePolicyResponse extends $tea.Model {
   }
 }
 
-export class AddCorsDomainRequest extends $tea.Model {
-  domain?: string;
+export class UpdateSpaceRequest extends $tea.Model {
+  desc?: string;
   spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domain: 'Domain',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domain: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCorsDomainResponseBody extends $tea.Model {
-  requestId?: string;
-  domainId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      domainId: 'DomainId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      domainId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AddCorsDomainResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AddCorsDomainResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AddCorsDomainResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWebHostingFileRequest extends $tea.Model {
-  spaceId?: string;
-  filePath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      filePath: 'FilePath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      filePath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWebHostingFileResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DescribeWebHostingFileResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DescribeWebHostingFileResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeWebHostingFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeWebHostingFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeWebHostingFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsTemplateRequest extends $tea.Model {
-  spaceId?: string;
-  templateCode?: string;
-  templateType?: string;
-  templateName?: string;
-  templateContent?: string;
-  remark?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      templateCode: 'TemplateCode',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
-      templateContent: 'TemplateContent',
-      remark: 'Remark',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      templateCode: 'string',
-      templateType: 'string',
-      templateName: 'string',
-      templateContent: 'string',
-      remark: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsTemplateResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSmsTemplateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateSmsTemplateResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateSmsTemplateResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyBuiltinFunctionTemplateRequest extends $tea.Model {
-  builtinFunctionTemplateId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      builtinFunctionTemplateId: 'BuiltinFunctionTemplateId',
+      desc: 'Desc',
+      spaceId: 'SpaceId',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      builtinFunctionTemplateId: 'string',
+      desc: 'string',
+      spaceId: 'string',
       status: 'string',
     };
   }
@@ -6748,7 +5207,7 @@ export class VerifyBuiltinFunctionTemplateRequest extends $tea.Model {
   }
 }
 
-export class VerifyBuiltinFunctionTemplateResponseBody extends $tea.Model {
+export class UpdateSpaceResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6767,9 +5226,9 @@ export class VerifyBuiltinFunctionTemplateResponseBody extends $tea.Model {
   }
 }
 
-export class VerifyBuiltinFunctionTemplateResponse extends $tea.Model {
+export class UpdateSpaceResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: VerifyBuiltinFunctionTemplateResponseBody;
+  body: UpdateSpaceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6780,7 +5239,7 @@ export class VerifyBuiltinFunctionTemplateResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VerifyBuiltinFunctionTemplateResponseBody,
+      body: UpdateSpaceResponseBody,
     };
   }
 
@@ -6789,20 +5248,23 @@ export class VerifyBuiltinFunctionTemplateResponse extends $tea.Model {
   }
 }
 
-export class DeleteWebHostingFileRequest extends $tea.Model {
+export class VerifyWebHostingDomainOwnerRequest extends $tea.Model {
+  domain?: string;
   spaceId?: string;
-  filePath?: string;
+  verifyType?: string;
   static names(): { [key: string]: string } {
     return {
+      domain: 'Domain',
       spaceId: 'SpaceId',
-      filePath: 'FilePath',
+      verifyType: 'VerifyType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domain: 'string',
       spaceId: 'string',
-      filePath: 'string',
+      verifyType: 'string',
     };
   }
 
@@ -6811,19 +5273,16 @@ export class DeleteWebHostingFileRequest extends $tea.Model {
   }
 }
 
-export class DeleteWebHostingFileResponseBody extends $tea.Model {
-  data?: boolean;
+export class VerifyWebHostingDomainOwnerResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'Data',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: 'boolean',
       requestId: 'string',
     };
   }
@@ -6833,9 +5292,9 @@ export class DeleteWebHostingFileResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteWebHostingFileResponse extends $tea.Model {
+export class VerifyWebHostingDomainOwnerResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteWebHostingFileResponseBody;
+  body: VerifyWebHostingDomainOwnerResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6846,7 +5305,7 @@ export class DeleteWebHostingFileResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteWebHostingFileResponseBody,
+      body: VerifyWebHostingDomainOwnerResponseBody,
     };
   }
 
@@ -6855,451 +5314,26 @@ export class DeleteWebHostingFileResponse extends $tea.Model {
   }
 }
 
-export class ListWebHostingCustomDomainsRequest extends $tea.Model {
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingCustomDomainsResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ListWebHostingCustomDomainsResponseBodyData[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: { 'type': 'array', 'itemType': ListWebHostingCustomDomainsResponseBodyData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingCustomDomainsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListWebHostingCustomDomainsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListWebHostingCustomDomainsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDBCommandRequest extends $tea.Model {
-  spaceId?: string;
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      body: 'Body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDBCommandResponseBody extends $tea.Model {
-  requestId?: string;
-  result?: string;
-  affectedDocs?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      result: 'Result',
-      affectedDocs: 'AffectedDocs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      result: 'string',
-      affectedDocs: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunDBCommandResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RunDBCommandResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RunDBCommandResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFunctionRequest extends $tea.Model {
-  name?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFunctionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFunctionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteFunctionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunFunctionResponseBodyRuntimeMeta extends $tea.Model {
-  invocationDuration?: number;
-  requestId?: string;
-  billingDuration?: number;
-  maxMemoryUsage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      invocationDuration: 'InvocationDuration',
-      requestId: 'RequestId',
-      billingDuration: 'BillingDuration',
-      maxMemoryUsage: 'MaxMemoryUsage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      invocationDuration: 'number',
-      requestId: 'string',
-      billingDuration: 'number',
-      maxMemoryUsage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionResponseBodyPaginator extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  total?: number;
-  pageCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      total: 'Total',
-      pageCount: 'PageCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      total: 'number',
-      pageCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionResponseBodyDataListSpec extends $tea.Model {
-  timeout?: string;
-  runtime?: string;
-  instanceConcurrency?: number;
+export class CreateFunctionResponseBodySpec extends $tea.Model {
+  instanceConcurrency?: string;
   memory?: string;
+  runtime?: string;
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
-      timeout: 'Timeout',
-      runtime: 'Runtime',
       instanceConcurrency: 'InstanceConcurrency',
       memory: 'Memory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeout: 'string',
-      runtime: 'string',
-      instanceConcurrency: 'number',
-      memory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionResponseBodyDataList extends $tea.Model {
-  timingTriggerConfig?: string;
-  httpTriggerPath?: string;
-  createdAt?: string;
-  modifiedAt?: string;
-  name?: string;
-  desc?: string;
-  spec?: ListFunctionResponseBodyDataListSpec;
-  static names(): { [key: string]: string } {
-    return {
-      timingTriggerConfig: 'TimingTriggerConfig',
-      httpTriggerPath: 'HttpTriggerPath',
-      createdAt: 'CreatedAt',
-      modifiedAt: 'ModifiedAt',
-      name: 'Name',
-      desc: 'Desc',
-      spec: 'Spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timingTriggerConfig: 'string',
-      httpTriggerPath: 'string',
-      createdAt: 'string',
-      modifiedAt: 'string',
-      name: 'string',
-      desc: 'string',
-      spec: ListFunctionResponseBodyDataListSpec,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingCertificateDetailResponseBodyData extends $tea.Model {
-  certLife?: string;
-  certType?: string;
-  certDomainName?: string;
-  serverCertificateStatus?: string;
-  certName?: string;
-  certExpiredTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      certLife: 'CertLife',
-      certType: 'CertType',
-      certDomainName: 'CertDomainName',
-      serverCertificateStatus: 'ServerCertificateStatus',
-      certName: 'CertName',
-      certExpiredTime: 'CertExpiredTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      certLife: 'string',
-      certType: 'string',
-      certDomainName: 'string',
-      serverCertificateStatus: 'string',
-      certName: 'string',
-      certExpiredTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionSpecResponseBodyMemoryList extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionSpecResponseBodyRuntimeList extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFunctionResponseBodyFunctionSpec extends $tea.Model {
-  timeout?: string;
-  runtime?: string;
-  instanceConcurrency?: number;
-  memory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      timeout: 'Timeout',
       runtime: 'Runtime',
-      instanceConcurrency: 'InstanceConcurrency',
-      memory: 'Memory',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeout: 'string',
-      runtime: 'string',
-      instanceConcurrency: 'number',
+      instanceConcurrency: 'string',
       memory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFunctionResponseBodyFunction extends $tea.Model {
-  timingTriggerConfig?: string;
-  httpTriggerPath?: string;
-  createdAt?: string;
-  name?: string;
-  modifiedAt?: string;
-  desc?: string;
-  spec?: DescribeFunctionResponseBodyFunctionSpec;
-  static names(): { [key: string]: string } {
-    return {
-      timingTriggerConfig: 'TimingTriggerConfig',
-      httpTriggerPath: 'HttpTriggerPath',
-      createdAt: 'CreatedAt',
-      name: 'Name',
-      modifiedAt: 'ModifiedAt',
-      desc: 'Desc',
-      spec: 'Spec',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timingTriggerConfig: 'string',
-      httpTriggerPath: 'string',
-      createdAt: 'string',
-      name: 'string',
-      modifiedAt: 'string',
-      desc: 'string',
-      spec: DescribeFunctionResponseBodyFunctionSpec,
+      runtime: 'string',
+      timeout: 'string',
     };
   }
 
@@ -7312,15 +5346,15 @@ export class DescribeFunctionResponseBodyDeployment extends $tea.Model {
   createdAt?: string;
   deploymentId?: string;
   downloadSignedUrl?: string;
-  versionNo?: string;
   modifiedAt?: string;
+  versionNo?: string;
   static names(): { [key: string]: string } {
     return {
       createdAt: 'CreatedAt',
       deploymentId: 'DeploymentId',
       downloadSignedUrl: 'DownloadSignedUrl',
-      versionNo: 'VersionNo',
       modifiedAt: 'ModifiedAt',
+      versionNo: 'VersionNo',
     };
   }
 
@@ -7329,231 +5363,8 @@ export class DescribeFunctionResponseBodyDeployment extends $tea.Model {
       createdAt: 'string',
       deploymentId: 'string',
       downloadSignedUrl: 'string',
-      versionNo: 'string',
       modifiedAt: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAvailableCertificatesResponseBodyData extends $tea.Model {
-  name?: string;
-  id?: string;
-  statusCode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      id: 'Id',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      id: 'string',
-      statusCode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOpenPlatformConfigResponseBodySecretList extends $tea.Model {
-  spaceId?: string;
-  appSecret?: string;
-  publicCert?: string;
-  appCert?: string;
-  privateKey?: string;
-  appId?: string;
-  rootCert?: string;
-  publicKey?: string;
-  platform?: string;
-  signMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      appSecret: 'AppSecret',
-      publicCert: 'PublicCert',
-      appCert: 'AppCert',
-      privateKey: 'PrivateKey',
-      appId: 'AppId',
-      rootCert: 'RootCert',
-      publicKey: 'PublicKey',
-      platform: 'Platform',
-      signMode: 'SignMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      appSecret: 'string',
-      publicCert: 'string',
-      appCert: 'string',
-      privateKey: 'string',
-      appId: 'string',
-      rootCert: 'string',
-      publicKey: 'string',
-      platform: 'string',
-      signMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSpaceResponseBodySpaces extends $tea.Model {
-  status?: string;
-  gmtCreate?: number;
-  spaceId?: string;
-  name?: string;
-  desc?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      gmtCreate: 'GmtCreate',
-      spaceId: 'SpaceId',
-      name: 'Name',
-      desc: 'Desc',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      gmtCreate: 'number',
-      spaceId: 'string',
-      name: 'string',
-      desc: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingUploadCredentialResponseBodyData extends $tea.Model {
-  filePath?: string;
-  signature?: string;
-  policy?: string;
-  securityToken?: string;
-  expiredTime?: number;
-  endpoint?: string;
-  accessKeyId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filePath: 'FilePath',
-      signature: 'Signature',
-      policy: 'Policy',
-      securityToken: 'SecurityToken',
-      expiredTime: 'ExpiredTime',
-      endpoint: 'Endpoint',
-      accessKeyId: 'AccessKeyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filePath: 'string',
-      signature: 'string',
-      policy: 'string',
-      securityToken: 'string',
-      expiredTime: 'number',
-      endpoint: 'string',
-      accessKeyId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentResponseBodyPaginator extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  total?: number;
-  pageCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      total: 'Total',
-      pageCount: 'PageCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      total: 'number',
-      pageCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentResponseBodyDataListStatus extends $tea.Model {
-  status?: string;
-  label?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      label: 'Label',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      label: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionDeploymentResponseBodyDataList extends $tea.Model {
-  createdAt?: string;
-  deploymentId?: string;
-  downloadSignedUrl?: string;
-  versionNo?: string;
-  modifiedAt?: string;
-  status?: ListFunctionDeploymentResponseBodyDataListStatus;
-  static names(): { [key: string]: string } {
-    return {
-      createdAt: 'CreatedAt',
-      deploymentId: 'DeploymentId',
-      downloadSignedUrl: 'DownloadSignedUrl',
-      versionNo: 'VersionNo',
-      modifiedAt: 'ModifiedAt',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdAt: 'string',
-      deploymentId: 'string',
-      downloadSignedUrl: 'string',
       versionNo: 'string',
-      modifiedAt: 'string',
-      status: ListFunctionDeploymentResponseBodyDataListStatus,
     };
   }
 
@@ -7562,358 +5373,330 @@ export class ListFunctionDeploymentResponseBodyDataList extends $tea.Model {
   }
 }
 
-export class ListFileResponseBodyPaginator extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  total?: number;
-  pageCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      total: 'Total',
-      pageCount: 'PageCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      total: 'number',
-      pageCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFileResponseBodyDataList extends $tea.Model {
-  type?: string;
-  size?: number;
-  gmtCreate?: string;
-  url?: string;
-  gmtModified?: string;
-  name?: string;
-  id?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      size: 'Size',
-      gmtCreate: 'GmtCreate',
-      url: 'Url',
-      gmtModified: 'GmtModified',
-      name: 'Name',
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      size: 'number',
-      gmtCreate: 'string',
-      url: 'string',
-      gmtModified: 'string',
-      name: 'string',
-      id: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsTemplatesResponseBodySmsTemplates extends $tea.Model {
-  updateTime?: string;
-  templateContent?: string;
-  remark?: string;
-  templateCode?: string;
-  createTime?: string;
-  templateType?: number;
-  templateName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      templateContent: 'TemplateContent',
-      remark: 'Remark',
-      templateCode: 'TemplateCode',
-      createTime: 'CreateTime',
-      templateType: 'TemplateType',
-      templateName: 'TemplateName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      templateContent: 'string',
-      remark: 'string',
-      templateCode: 'string',
-      createTime: 'string',
-      templateType: 'number',
-      templateName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingStatusResponseBodyData extends $tea.Model {
-  status?: string;
-  spaceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      spaceId: 'SpaceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      spaceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionLogResponseBodyPaginator extends $tea.Model {
-  pageNum?: number;
-  pageSize?: number;
-  total?: number;
-  pageCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNum: 'PageNum',
-      pageSize: 'PageSize',
-      total: 'Total',
-      pageCount: 'PageCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNum: 'number',
-      pageSize: 'number',
-      total: 'number',
-      pageCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFunctionLogResponseBodyDataList extends $tea.Model {
-  status?: string;
-  spaceId?: string;
-  requestId?: string;
-  functionName?: string;
-  timestamps?: string[];
-  contents?: string[];
-  levels?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      spaceId: 'SpaceId',
-      requestId: 'RequestId',
-      functionName: 'FunctionName',
-      timestamps: 'Timestamps',
-      contents: 'Contents',
-      levels: 'Levels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      spaceId: 'string',
-      requestId: 'string',
-      functionName: 'string',
-      timestamps: { 'type': 'array', 'itemType': 'string' },
-      contents: { 'type': 'array', 'itemType': 'string' },
-      levels: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingFilesResponseBodyDataWebHostingFiles extends $tea.Model {
-  filePath?: string;
-  contentType?: string;
-  ETag?: string;
-  size?: number;
-  lastModifiedTime?: number;
-  signedUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      filePath: 'FilePath',
-      contentType: 'ContentType',
-      ETag: 'ETag',
-      size: 'Size',
-      lastModifiedTime: 'LastModifiedTime',
-      signedUrl: 'SignedUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      filePath: 'string',
-      contentType: 'string',
-      ETag: 'string',
-      size: 'number',
-      lastModifiedTime: 'number',
-      signedUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWebHostingFilesResponseBodyData extends $tea.Model {
-  nextMarker?: string;
-  count?: number;
-  webHostingFiles?: ListWebHostingFilesResponseBodyDataWebHostingFiles[];
-  static names(): { [key: string]: string } {
-    return {
-      nextMarker: 'NextMarker',
-      count: 'Count',
-      webHostingFiles: 'WebHostingFiles',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextMarker: 'string',
-      count: 'number',
-      webHostingFiles: { 'type': 'array', 'itemType': ListWebHostingFilesResponseBodyDataWebHostingFiles },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsTemplateStatusResponseBodyTemplateStatuses extends $tea.Model {
-  templateCode?: string;
-  reason?: string;
-  templateStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      templateCode: 'TemplateCode',
-      reason: 'Reason',
-      templateStatus: 'TemplateStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      templateCode: 'string',
-      reason: 'string',
-      templateStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateFunctionResponseBodySpec extends $tea.Model {
-  timeout?: string;
-  runtime?: string;
-  instanceConcurrency?: string;
-  memory?: string;
-  static names(): { [key: string]: string } {
-    return {
-      timeout: 'Timeout',
-      runtime: 'Runtime',
-      instanceConcurrency: 'InstanceConcurrency',
-      memory: 'Memory',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      timeout: 'string',
-      runtime: 'string',
-      instanceConcurrency: 'string',
-      memory: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListExtensionsResponseBodyExtensions extends $tea.Model {
-  extensionDocumentationLink?: string;
-  extensionId?: string;
-  extensionDesc?: string;
-  extensionName?: string;
-  enabled?: string;
-  static names(): { [key: string]: string } {
-    return {
-      extensionDocumentationLink: 'ExtensionDocumentationLink',
-      extensionId: 'ExtensionId',
-      extensionDesc: 'ExtensionDesc',
-      extensionName: 'ExtensionName',
-      enabled: 'Enabled',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      extensionDocumentationLink: 'string',
-      extensionId: 'string',
-      extensionDesc: 'string',
-      extensionName: 'string',
-      enabled: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateFunctionResponseBodySpec extends $tea.Model {
-  timeout?: string;
-  runtime?: string;
+export class DescribeFunctionResponseBodyFunctionSpec extends $tea.Model {
   instanceConcurrency?: number;
   memory?: string;
+  runtime?: string;
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
-      timeout: 'Timeout',
-      runtime: 'Runtime',
       instanceConcurrency: 'InstanceConcurrency',
       memory: 'Memory',
+      runtime: 'Runtime',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timeout: 'string',
-      runtime: 'string',
       instanceConcurrency: 'number',
       memory: 'string',
+      runtime: 'string',
+      timeout: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFunctionResponseBodyFunction extends $tea.Model {
+  createdAt?: string;
+  desc?: string;
+  httpTriggerPath?: string;
+  modifiedAt?: string;
+  name?: string;
+  spec?: DescribeFunctionResponseBodyFunctionSpec;
+  timingTriggerConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      desc: 'Desc',
+      httpTriggerPath: 'HttpTriggerPath',
+      modifiedAt: 'ModifiedAt',
+      name: 'Name',
+      spec: 'Spec',
+      timingTriggerConfig: 'TimingTriggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      desc: 'string',
+      httpTriggerPath: 'string',
+      modifiedAt: 'string',
+      name: 'string',
+      spec: DescribeFunctionResponseBodyFunctionSpec,
+      timingTriggerConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyDataListCloudDB extends $tea.Model {
+  dataSize?: number;
+  read?: number;
+  write?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      read: 'Read',
+      write: 'Write',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'number',
+      read: 'number',
+      write: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyDataListCloudFunction extends $tea.Model {
+  compute?: number;
+  count?: number;
+  traffic?: number;
+  static names(): { [key: string]: string } {
+    return {
+      compute: 'Compute',
+      count: 'Count',
+      traffic: 'Traffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compute: 'number',
+      count: 'number',
+      traffic: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyDataListCloudStorage extends $tea.Model {
+  dataSize?: number;
+  download?: number;
+  traffic?: number;
+  upload?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      download: 'Download',
+      traffic: 'Traffic',
+      upload: 'Upload',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'number',
+      download: 'number',
+      traffic: 'number',
+      upload: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyDataListStaticWeb extends $tea.Model {
+  dataSize?: number;
+  traffic?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSize: 'DataSize',
+      traffic: 'Traffic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSize: 'number',
+      traffic: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyDataList extends $tea.Model {
+  cloudDB?: DescribeResourceUsageResponseBodyDataListCloudDB;
+  cloudFunction?: DescribeResourceUsageResponseBodyDataListCloudFunction;
+  cloudStorage?: DescribeResourceUsageResponseBodyDataListCloudStorage;
+  endTime?: string;
+  startTime?: string;
+  staticWeb?: DescribeResourceUsageResponseBodyDataListStaticWeb;
+  static names(): { [key: string]: string } {
+    return {
+      cloudDB: 'CloudDB',
+      cloudFunction: 'CloudFunction',
+      cloudStorage: 'CloudStorage',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      staticWeb: 'StaticWeb',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudDB: DescribeResourceUsageResponseBodyDataListCloudDB,
+      cloudFunction: DescribeResourceUsageResponseBodyDataListCloudFunction,
+      cloudStorage: DescribeResourceUsageResponseBodyDataListCloudStorage,
+      endTime: 'string',
+      startTime: 'string',
+      staticWeb: DescribeResourceUsageResponseBodyDataListStaticWeb,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeResourceUsageResponseBodyPaginator extends $tea.Model {
+  pageCount?: number;
+  pageNum?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageCount: 'PageCount',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageCount: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeWebHostingFileResponseBodyData extends $tea.Model {
+  contentType?: string;
+  ETag?: string;
+  exists?: boolean;
+  filePath?: string;
+  lastModifiedTime?: number;
+  signedUrl?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      ETag: 'ETag',
+      exists: 'Exists',
+      filePath: 'FilePath',
+      lastModifiedTime: 'LastModifiedTime',
+      signedUrl: 'SignedUrl',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      ETag: 'string',
+      exists: 'boolean',
+      filePath: 'string',
+      lastModifiedTime: 'number',
+      signedUrl: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingCertificateDetailResponseBodyData extends $tea.Model {
+  certDomainName?: string;
+  certExpiredTime?: number;
+  certLife?: string;
+  certName?: string;
+  certType?: string;
+  serverCertificateStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certDomainName: 'CertDomainName',
+      certExpiredTime: 'CertExpiredTime',
+      certLife: 'CertLife',
+      certName: 'CertName',
+      certType: 'CertType',
+      serverCertificateStatus: 'ServerCertificateStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certDomainName: 'string',
+      certExpiredTime: 'number',
+      certLife: 'string',
+      certName: 'string',
+      certType: 'string',
+      serverCertificateStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingConfigResponseBodyData extends $tea.Model {
+  allowedIps?: string;
+  defaultDomain?: string;
+  errorPath?: string;
+  historyModePath?: string;
+  indexPath?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowedIps: 'AllowedIps',
+      defaultDomain: 'DefaultDomain',
+      errorPath: 'ErrorPath',
+      historyModePath: 'HistoryModePath',
+      indexPath: 'IndexPath',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowedIps: 'string',
+      defaultDomain: 'string',
+      errorPath: 'string',
+      historyModePath: 'string',
+      indexPath: 'string',
+      spaceId: 'string',
     };
   }
 
@@ -7944,17 +5727,82 @@ export class GetWebHostingDomainVerificationContentResponseBodyData extends $tea
   }
 }
 
-export class ListSmsSignsForAccountResponseBodySmsSigns extends $tea.Model {
-  signName?: string;
+export class GetWebHostingStatusResponseBodyData extends $tea.Model {
+  spaceId?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      signName: 'SignName',
+      spaceId: 'SpaceId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      signName: 'string',
+      spaceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebHostingUploadCredentialResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  endpoint?: string;
+  expiredTime?: number;
+  filePath?: string;
+  policy?: string;
+  securityToken?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      endpoint: 'Endpoint',
+      expiredTime: 'ExpiredTime',
+      filePath: 'FilePath',
+      policy: 'Policy',
+      securityToken: 'SecurityToken',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      endpoint: 'string',
+      expiredTime: 'number',
+      filePath: 'string',
+      policy: 'string',
+      securityToken: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAvailableCertificatesResponseBodyData extends $tea.Model {
+  id?: string;
+  name?: string;
+  statusCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      statusCode: 'string',
     };
   }
 
@@ -7986,115 +5834,25 @@ export class ListCorsDomainsResponseBodyDomains extends $tea.Model {
 }
 
 export class ListDingtalkOpenPlatformConfigsResponseBodyConfigs extends $tea.Model {
-  updateTime?: string;
-  appSecret?: string;
   appId?: string;
+  appSecret?: string;
   createTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      updateTime: 'UpdateTime',
-      appSecret: 'AppSecret',
-      appId: 'AppId',
-      createTime: 'CreateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      updateTime: 'string',
-      appSecret: 'string',
-      appId: 'string',
-      createTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWebHostingConfigResponseBodyData extends $tea.Model {
-  spaceId?: string;
-  allowedIps?: string;
-  errorPath?: string;
-  defaultDomain?: string;
-  indexPath?: string;
-  static names(): { [key: string]: string } {
-    return {
-      spaceId: 'SpaceId',
-      allowedIps: 'AllowedIps',
-      errorPath: 'ErrorPath',
-      defaultDomain: 'DefaultDomain',
-      indexPath: 'IndexPath',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      spaceId: 'string',
-      allowedIps: 'string',
-      errorPath: 'string',
-      defaultDomain: 'string',
-      indexPath: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsSignStatusResponseBodySignStatuses extends $tea.Model {
-  signId?: string;
-  signStatus?: number;
-  reason?: string;
-  signName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      signId: 'SignId',
-      signStatus: 'SignStatus',
-      reason: 'Reason',
-      signName: 'SignName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      signId: 'string',
-      signStatus: 'number',
-      reason: 'string',
-      signName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSmsSignsResponseBodySmsSigns extends $tea.Model {
   updateTime?: string;
-  signId?: string;
-  remark?: string;
-  signName?: string;
-  createTime?: string;
   static names(): { [key: string]: string } {
     return {
-      updateTime: 'UpdateTime',
-      signId: 'SignId',
-      remark: 'Remark',
-      signName: 'SignName',
+      appId: 'AppId',
+      appSecret: 'AppSecret',
       createTime: 'CreateTime',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      updateTime: 'string',
-      signId: 'string',
-      remark: 'string',
-      signName: 'string',
+      appId: 'string',
+      appSecret: 'string',
       createTime: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -8103,20 +5861,518 @@ export class ListSmsSignsResponseBodySmsSigns extends $tea.Model {
   }
 }
 
-export class DescribeProductOpenStatusRequestLabels extends $tea.Model {
-  value?: string;
-  name?: string;
+export class ListExtensionsResponseBodyExtensions extends $tea.Model {
+  enabled?: string;
+  extensionDesc?: string;
+  extensionDocumentationLink?: string;
+  extensionId?: string;
+  extensionName?: string;
   static names(): { [key: string]: string } {
     return {
-      value: 'Value',
-      name: 'Name',
+      enabled: 'Enabled',
+      extensionDesc: 'ExtensionDesc',
+      extensionDocumentationLink: 'ExtensionDocumentationLink',
+      extensionId: 'ExtensionId',
+      extensionName: 'ExtensionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      value: 'string',
+      enabled: 'string',
+      extensionDesc: 'string',
+      extensionDocumentationLink: 'string',
+      extensionId: 'string',
+      extensionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileResponseBodyDataList extends $tea.Model {
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: string;
+  name?: string;
+  size?: number;
+  type?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      size: 'Size',
+      type: 'Type',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'string',
       name: 'string',
+      size: 'number',
+      type: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFileResponseBodyPaginator extends $tea.Model {
+  pageCount?: number;
+  pageNum?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageCount: 'PageCount',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageCount: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResponseBodyDataListSpec extends $tea.Model {
+  instanceConcurrency?: number;
+  memory?: string;
+  runtime?: string;
+  timeout?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceConcurrency: 'InstanceConcurrency',
+      memory: 'Memory',
+      runtime: 'Runtime',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConcurrency: 'number',
+      memory: 'string',
+      runtime: 'string',
+      timeout: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResponseBodyDataList extends $tea.Model {
+  createdAt?: string;
+  desc?: string;
+  httpTriggerPath?: string;
+  modifiedAt?: string;
+  name?: string;
+  spec?: ListFunctionResponseBodyDataListSpec;
+  timingTriggerConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      desc: 'Desc',
+      httpTriggerPath: 'HttpTriggerPath',
+      modifiedAt: 'ModifiedAt',
+      name: 'Name',
+      spec: 'Spec',
+      timingTriggerConfig: 'TimingTriggerConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      desc: 'string',
+      httpTriggerPath: 'string',
+      modifiedAt: 'string',
+      name: 'string',
+      spec: ListFunctionResponseBodyDataListSpec,
+      timingTriggerConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionResponseBodyPaginator extends $tea.Model {
+  pageCount?: number;
+  pageNum?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageCount: 'PageCount',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageCount: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionDeploymentResponseBodyDataListStatus extends $tea.Model {
+  label?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      label: 'Label',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      label: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionDeploymentResponseBodyDataList extends $tea.Model {
+  createdAt?: string;
+  deploymentId?: string;
+  downloadSignedUrl?: string;
+  modifiedAt?: string;
+  status?: ListFunctionDeploymentResponseBodyDataListStatus;
+  versionNo?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      deploymentId: 'DeploymentId',
+      downloadSignedUrl: 'DownloadSignedUrl',
+      modifiedAt: 'ModifiedAt',
+      status: 'Status',
+      versionNo: 'VersionNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      deploymentId: 'string',
+      downloadSignedUrl: 'string',
+      modifiedAt: 'string',
+      status: ListFunctionDeploymentResponseBodyDataListStatus,
+      versionNo: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionDeploymentResponseBodyPaginator extends $tea.Model {
+  pageCount?: number;
+  pageNum?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageCount: 'PageCount',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageCount: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionLogResponseBodyDataList extends $tea.Model {
+  contents?: string[];
+  functionName?: string;
+  levels?: string[];
+  requestId?: string;
+  spaceId?: string;
+  status?: string;
+  timestamps?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+      functionName: 'FunctionName',
+      levels: 'Levels',
+      requestId: 'RequestId',
+      spaceId: 'SpaceId',
+      status: 'Status',
+      timestamps: 'Timestamps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': 'string' },
+      functionName: 'string',
+      levels: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      spaceId: 'string',
+      status: 'string',
+      timestamps: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListFunctionLogResponseBodyPaginator extends $tea.Model {
+  pageCount?: number;
+  pageNum?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageCount: 'PageCount',
+      pageNum: 'PageNum',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageCount: 'number',
+      pageNum: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListOpenPlatformConfigResponseBodySecretList extends $tea.Model {
+  appCert?: string;
+  appId?: string;
+  appSecret?: string;
+  platform?: string;
+  privateKey?: string;
+  publicCert?: string;
+  publicKey?: string;
+  rootCert?: string;
+  signMode?: string;
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appCert: 'AppCert',
+      appId: 'AppId',
+      appSecret: 'AppSecret',
+      platform: 'Platform',
+      privateKey: 'PrivateKey',
+      publicCert: 'PublicCert',
+      publicKey: 'PublicKey',
+      rootCert: 'RootCert',
+      signMode: 'SignMode',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCert: 'string',
+      appId: 'string',
+      appSecret: 'string',
+      platform: 'string',
+      privateKey: 'string',
+      publicCert: 'string',
+      publicKey: 'string',
+      rootCert: 'string',
+      signMode: 'string',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSpaceResponseBodySpaces extends $tea.Model {
+  desc?: string;
+  gmtCreate?: number;
+  name?: string;
+  spaceId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'Desc',
+      gmtCreate: 'GmtCreate',
+      name: 'Name',
+      spaceId: 'SpaceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      gmtCreate: 'number',
+      name: 'string',
+      spaceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingCustomDomainsResponseBodyData extends $tea.Model {
+  accessControlAllowOrigin?: string;
+  cname?: string;
+  createTime?: number;
+  description?: string;
+  domain?: string;
+  enableCors?: boolean;
+  forceRedirectType?: string;
+  sslProtocol?: string;
+  status?: string;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessControlAllowOrigin: 'AccessControlAllowOrigin',
+      cname: 'Cname',
+      createTime: 'CreateTime',
+      description: 'Description',
+      domain: 'Domain',
+      enableCors: 'EnableCors',
+      forceRedirectType: 'ForceRedirectType',
+      sslProtocol: 'SslProtocol',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessControlAllowOrigin: 'string',
+      cname: 'string',
+      createTime: 'number',
+      description: 'string',
+      domain: 'string',
+      enableCors: 'boolean',
+      forceRedirectType: 'string',
+      sslProtocol: 'string',
+      status: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingFilesResponseBodyDataWebHostingFiles extends $tea.Model {
+  contentType?: string;
+  ETag?: string;
+  filePath?: string;
+  lastModifiedTime?: number;
+  signedUrl?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      ETag: 'ETag',
+      filePath: 'FilePath',
+      lastModifiedTime: 'LastModifiedTime',
+      signedUrl: 'SignedUrl',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      ETag: 'string',
+      filePath: 'string',
+      lastModifiedTime: 'number',
+      signedUrl: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWebHostingFilesResponseBodyData extends $tea.Model {
+  count?: number;
+  nextMarker?: string;
+  webHostingFiles?: ListWebHostingFilesResponseBodyDataWebHostingFiles[];
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      nextMarker: 'NextMarker',
+      webHostingFiles: 'WebHostingFiles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      nextMarker: 'string',
+      webHostingFiles: { 'type': 'array', 'itemType': ListWebHostingFilesResponseBodyDataWebHostingFiles },
     };
   }
 
@@ -8147,35 +6403,26 @@ export class QueryDBBackupDumpTimesResponseBodyBackupDumpTimes extends $tea.Mode
   }
 }
 
-export class DescribeWebHostingFileResponseBodyData extends $tea.Model {
-  filePath?: string;
-  contentType?: string;
-  ETag?: string;
-  size?: number;
-  exists?: boolean;
-  lastModifiedTime?: number;
-  signedUrl?: string;
+export class RunFunctionResponseBodyRuntimeMeta extends $tea.Model {
+  billingDuration?: number;
+  invocationDuration?: number;
+  maxMemoryUsage?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      filePath: 'FilePath',
-      contentType: 'ContentType',
-      ETag: 'ETag',
-      size: 'Size',
-      exists: 'Exists',
-      lastModifiedTime: 'LastModifiedTime',
-      signedUrl: 'SignedUrl',
+      billingDuration: 'BillingDuration',
+      invocationDuration: 'InvocationDuration',
+      maxMemoryUsage: 'MaxMemoryUsage',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      filePath: 'string',
-      contentType: 'string',
-      ETag: 'string',
-      size: 'number',
-      exists: 'boolean',
-      lastModifiedTime: 'number',
-      signedUrl: 'string',
+      billingDuration: 'number',
+      invocationDuration: 'number',
+      maxMemoryUsage: 'number',
+      requestId: 'string',
     };
   }
 
@@ -8184,44 +6431,26 @@ export class DescribeWebHostingFileResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListWebHostingCustomDomainsResponseBodyData extends $tea.Model {
-  status?: string;
-  domain?: string;
-  updateTime?: number;
-  sslProtocol?: string;
-  forceRedirectType?: string;
-  description?: string;
-  createTime?: number;
-  cname?: string;
-  enableCors?: boolean;
-  accessControlAllowOrigin?: string;
+export class UpdateFunctionResponseBodySpec extends $tea.Model {
+  instanceConcurrency?: number;
+  memory?: string;
+  runtime?: string;
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      domain: 'Domain',
-      updateTime: 'UpdateTime',
-      sslProtocol: 'SslProtocol',
-      forceRedirectType: 'ForceRedirectType',
-      description: 'Description',
-      createTime: 'CreateTime',
-      cname: 'Cname',
-      enableCors: 'EnableCors',
-      accessControlAllowOrigin: 'AccessControlAllowOrigin',
+      instanceConcurrency: 'InstanceConcurrency',
+      memory: 'Memory',
+      runtime: 'Runtime',
+      timeout: 'Timeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      domain: 'string',
-      updateTime: 'number',
-      sslProtocol: 'string',
-      forceRedirectType: 'string',
-      description: 'string',
-      createTime: 'number',
-      cname: 'string',
-      enableCors: 'boolean',
-      accessControlAllowOrigin: 'string',
+      instanceConcurrency: 'number',
+      memory: 'string',
+      runtime: 'string',
+      timeout: 'string',
     };
   }
 
@@ -8253,100 +6482,444 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async runFunctionWithOptions(request: RunFunctionRequest, runtime: $Util.RuntimeOptions): Promise<RunFunctionResponse> {
+  async addCorsDomainWithOptions(request: AddCorsDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddCorsDomainResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RunFunctionResponse>(await this.doRPCRequest("RunFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new RunFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddCorsDomain",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddCorsDomainResponse>(await this.callApi(params, req, runtime), new AddCorsDomainResponse({}));
   }
 
-  async runFunction(request: RunFunctionRequest): Promise<RunFunctionResponse> {
+  async addCorsDomain(request: AddCorsDomainRequest): Promise<AddCorsDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.runFunctionWithOptions(request, runtime);
+    return await this.addCorsDomainWithOptions(request, runtime);
   }
 
-  async listFunctionWithOptions(request: ListFunctionRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionResponse> {
+  async addDingtalkOpenPlatformConfigWithOptions(request: AddDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddDingtalkOpenPlatformConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appSecret)) {
+      body["AppSecret"] = request.appSecret;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListFunctionResponse>(await this.doRPCRequest("ListFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddDingtalkOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDingtalkOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new AddDingtalkOpenPlatformConfigResponse({}));
   }
 
-  async listFunction(request: ListFunctionRequest): Promise<ListFunctionResponse> {
+  async addDingtalkOpenPlatformConfig(request: AddDingtalkOpenPlatformConfigRequest): Promise<AddDingtalkOpenPlatformConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFunctionWithOptions(request, runtime);
+    return await this.addDingtalkOpenPlatformConfigWithOptions(request, runtime);
   }
 
-  async getWebHostingCertificateDetailWithOptions(request: GetWebHostingCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingCertificateDetailResponse> {
+  async attachWebHostingCertificateWithOptions(request: AttachWebHostingCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AttachWebHostingCertificateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certName)) {
+      body["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      body["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      body["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      body["ServerCertificate"] = request.serverCertificate;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetWebHostingCertificateDetailResponse>(await this.doRPCRequest("GetWebHostingCertificateDetail", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebHostingCertificateDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachWebHostingCertificate",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachWebHostingCertificateResponse>(await this.callApi(params, req, runtime), new AttachWebHostingCertificateResponse({}));
   }
 
-  async getWebHostingCertificateDetail(request: GetWebHostingCertificateDetailRequest): Promise<GetWebHostingCertificateDetailResponse> {
+  async attachWebHostingCertificate(request: AttachWebHostingCertificateRequest): Promise<AttachWebHostingCertificateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebHostingCertificateDetailWithOptions(request, runtime);
+    return await this.attachWebHostingCertificateWithOptions(request, runtime);
   }
 
-  async updateSpaceWithOptions(request: UpdateSpaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSpaceResponse> {
+  async batchDeleteWebHostingFilesWithOptions(request: BatchDeleteWebHostingFilesRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteWebHostingFilesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filePaths)) {
+      body["FilePaths"] = request.filePaths;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateSpaceResponse>(await this.doRPCRequest("UpdateSpace", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSpaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchDeleteWebHostingFiles",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchDeleteWebHostingFilesResponse>(await this.callApi(params, req, runtime), new BatchDeleteWebHostingFilesResponse({}));
   }
 
-  async updateSpace(request: UpdateSpaceRequest): Promise<UpdateSpaceResponse> {
+  async batchDeleteWebHostingFiles(request: BatchDeleteWebHostingFilesRequest): Promise<BatchDeleteWebHostingFilesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSpaceWithOptions(request, runtime);
+    return await this.batchDeleteWebHostingFilesWithOptions(request, runtime);
   }
 
-  async saveWebHostingCustomDomainConfigWithOptions(request: SaveWebHostingCustomDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebHostingCustomDomainConfigResponse> {
+  async bindWebHostingCustomDomainWithOptions(request: BindWebHostingCustomDomainRequest, runtime: $Util.RuntimeOptions): Promise<BindWebHostingCustomDomainResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomain)) {
+      body["CustomDomain"] = request.customDomain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SaveWebHostingCustomDomainConfigResponse>(await this.doRPCRequest("SaveWebHostingCustomDomainConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveWebHostingCustomDomainConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindWebHostingCustomDomain",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindWebHostingCustomDomainResponse>(await this.callApi(params, req, runtime), new BindWebHostingCustomDomainResponse({}));
   }
 
-  async saveWebHostingCustomDomainConfig(request: SaveWebHostingCustomDomainConfigRequest): Promise<SaveWebHostingCustomDomainConfigResponse> {
+  async bindWebHostingCustomDomain(request: BindWebHostingCustomDomainRequest): Promise<BindWebHostingCustomDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveWebHostingCustomDomainConfigWithOptions(request, runtime);
+    return await this.bindWebHostingCustomDomainWithOptions(request, runtime);
   }
 
-  async listFunctionSpecWithOptions(runtime: $Util.RuntimeOptions): Promise<ListFunctionSpecResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListFunctionSpecResponse>(await this.doRPCRequest("ListFunctionSpec", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListFunctionSpecResponse({}));
-  }
-
-  async listFunctionSpec(): Promise<ListFunctionSpecResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFunctionSpecWithOptions(runtime);
-  }
-
-  async deleteWechatOpenPlatformConfigWithOptions(request: DeleteWechatOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWechatOpenPlatformConfigResponse> {
+  async checkMpServerlessRoleExistsWithOptions(request: CheckMpServerlessRoleExistsRequest, runtime: $Util.RuntimeOptions): Promise<CheckMpServerlessRoleExistsResponse> {
     Util.validateModel(request);
+    let query = { };
+    query["RoleName"] = request.roleName;
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteWechatOpenPlatformConfigResponse>(await this.doRPCRequest("DeleteWechatOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWechatOpenPlatformConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckMpServerlessRoleExists",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckMpServerlessRoleExistsResponse>(await this.callApi(params, req, runtime), new CheckMpServerlessRoleExistsResponse({}));
   }
 
-  async deleteWechatOpenPlatformConfig(request: DeleteWechatOpenPlatformConfigRequest): Promise<DeleteWechatOpenPlatformConfigResponse> {
+  async checkMpServerlessRoleExists(request: CheckMpServerlessRoleExistsRequest): Promise<CheckMpServerlessRoleExistsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWechatOpenPlatformConfigWithOptions(request, runtime);
+    return await this.checkMpServerlessRoleExistsWithOptions(request, runtime);
+  }
+
+  async createDBExportTaskWithOptions(request: CreateDBExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBExportTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collection)) {
+      body["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBExportTask",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBExportTaskResponse>(await this.callApi(params, req, runtime), new CreateDBExportTaskResponse({}));
+  }
+
+  async createDBExportTask(request: CreateDBExportTaskRequest): Promise<CreateDBExportTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBExportTaskWithOptions(request, runtime);
+  }
+
+  async createDBImportTaskWithOptions(request: CreateDBImportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBImportTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collection)) {
+      body["Collection"] = request.collection;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBImportTask",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBImportTaskResponse>(await this.callApi(params, req, runtime), new CreateDBImportTaskResponse({}));
+  }
+
+  async createDBImportTask(request: CreateDBImportTaskRequest): Promise<CreateDBImportTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBImportTaskWithOptions(request, runtime);
+  }
+
+  async createDBRestoreTaskWithOptions(request: CreateDBRestoreTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBRestoreTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backupId)) {
+      body["BackupId"] = request.backupId;
+    }
+
+    if (!Util.isUnset(request.newCollections)) {
+      body["NewCollections"] = request.newCollections;
+    }
+
+    if (!Util.isUnset(request.originCollections)) {
+      body["OriginCollections"] = request.originCollections;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDBRestoreTask",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDBRestoreTaskResponse>(await this.callApi(params, req, runtime), new CreateDBRestoreTaskResponse({}));
+  }
+
+  async createDBRestoreTask(request: CreateDBRestoreTaskRequest): Promise<CreateDBRestoreTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDBRestoreTaskWithOptions(request, runtime);
+  }
+
+  async createFunctionWithOptions(request: CreateFunctionRequest, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.runtime)) {
+      body["Runtime"] = request.runtime;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFunctionResponse>(await this.callApi(params, req, runtime), new CreateFunctionResponse({}));
+  }
+
+  async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFunctionWithOptions(request, runtime);
+  }
+
+  async createFunctionDeploymentWithOptions(request: CreateFunctionDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CreateFunctionDeploymentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFunctionDeployment",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFunctionDeploymentResponse>(await this.callApi(params, req, runtime), new CreateFunctionDeploymentResponse({}));
+  }
+
+  async createFunctionDeployment(request: CreateFunctionDeploymentRequest): Promise<CreateFunctionDeploymentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFunctionDeploymentWithOptions(request, runtime);
   }
 
   async createSpaceWithOptions(request: CreateSpaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateSpaceResponse>(await this.doRPCRequest("CreateSpace", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSpaceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSpace",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSpaceResponse>(await this.callApi(params, req, runtime), new CreateSpaceResponse({}));
   }
 
   async createSpace(request: CreateSpaceRequest): Promise<CreateSpaceResponse> {
@@ -8354,51 +6927,32 @@ export default class Client extends OpenApi {
     return await this.createSpaceWithOptions(request, runtime);
   }
 
-  async openProductWithOptions(request: OpenProductRequest, runtime: $Util.RuntimeOptions): Promise<OpenProductResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OpenProductResponse>(await this.doRPCRequest("OpenProduct", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new OpenProductResponse({}));
-  }
-
-  async openProduct(request: OpenProductRequest): Promise<OpenProductResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openProductWithOptions(request, runtime);
-  }
-
-  async openServiceWithOptions(request: OpenServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenServiceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<OpenServiceResponse>(await this.doRPCRequest("OpenService", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new OpenServiceResponse({}));
-  }
-
-  async openService(request: OpenServiceRequest): Promise<OpenServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.openServiceWithOptions(request, runtime);
-  }
-
-  async deleteSpaceWithOptions(request: DeleteSpaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpaceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteSpaceResponse>(await this.doRPCRequest("DeleteSpace", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSpaceResponse({}));
-  }
-
-  async deleteSpace(request: DeleteSpaceRequest): Promise<DeleteSpaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSpaceWithOptions(request, runtime);
-  }
-
   async deleteAntOpenPlatformConfigWithOptions(request: DeleteAntOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAntOpenPlatformConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteAntOpenPlatformConfigResponse>(await this.doRPCRequest("DeleteAntOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAntOpenPlatformConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAntOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAntOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new DeleteAntOpenPlatformConfigResponse({}));
   }
 
   async deleteAntOpenPlatformConfig(request: DeleteAntOpenPlatformConfigRequest): Promise<DeleteAntOpenPlatformConfigResponse> {
@@ -8406,9 +6960,346 @@ export default class Client extends OpenApi {
     return await this.deleteAntOpenPlatformConfigWithOptions(request, runtime);
   }
 
+  async deleteCorsDomainWithOptions(request: DeleteCorsDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCorsDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainId)) {
+      body["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCorsDomain",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCorsDomainResponse>(await this.callApi(params, req, runtime), new DeleteCorsDomainResponse({}));
+  }
+
+  async deleteCorsDomain(request: DeleteCorsDomainRequest): Promise<DeleteCorsDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCorsDomainWithOptions(request, runtime);
+  }
+
+  async deleteDBCollectionWithOptions(request: DeleteDBCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBCollectionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDBCollection",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDBCollectionResponse>(await this.callApi(params, req, runtime), new DeleteDBCollectionResponse({}));
+  }
+
+  async deleteDBCollection(request: DeleteDBCollectionRequest): Promise<DeleteDBCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDBCollectionWithOptions(request, runtime);
+  }
+
+  async deleteDingtalkOpenPlatformConfigWithOptions(request: DeleteDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDingtalkOpenPlatformConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDingtalkOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDingtalkOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new DeleteDingtalkOpenPlatformConfigResponse({}));
+  }
+
+  async deleteDingtalkOpenPlatformConfig(request: DeleteDingtalkOpenPlatformConfigRequest): Promise<DeleteDingtalkOpenPlatformConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDingtalkOpenPlatformConfigWithOptions(request, runtime);
+  }
+
+  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFile",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
+  }
+
+  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFileWithOptions(request, runtime);
+  }
+
+  async deleteFunctionWithOptions(request: DeleteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteFunctionResponse({}));
+  }
+
+  async deleteFunction(request: DeleteFunctionRequest): Promise<DeleteFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteFunctionWithOptions(request, runtime);
+  }
+
+  async deleteSpaceWithOptions(request: DeleteSpaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSpace",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSpaceResponse>(await this.callApi(params, req, runtime), new DeleteSpaceResponse({}));
+  }
+
+  async deleteSpace(request: DeleteSpaceRequest): Promise<DeleteSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSpaceWithOptions(request, runtime);
+  }
+
+  async deleteWebHostingCertificateWithOptions(request: DeleteWebHostingCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebHostingCertificateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebHostingCertificate",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebHostingCertificateResponse>(await this.callApi(params, req, runtime), new DeleteWebHostingCertificateResponse({}));
+  }
+
+  async deleteWebHostingCertificate(request: DeleteWebHostingCertificateRequest): Promise<DeleteWebHostingCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWebHostingCertificateWithOptions(request, runtime);
+  }
+
+  async deleteWebHostingFileWithOptions(request: DeleteWebHostingFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebHostingFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWebHostingFile",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWebHostingFileResponse>(await this.callApi(params, req, runtime), new DeleteWebHostingFileResponse({}));
+  }
+
+  async deleteWebHostingFile(request: DeleteWebHostingFileRequest): Promise<DeleteWebHostingFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWebHostingFileWithOptions(request, runtime);
+  }
+
+  async deleteWechatOpenPlatformConfigWithOptions(request: DeleteWechatOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWechatOpenPlatformConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteWechatOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteWechatOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new DeleteWechatOpenPlatformConfigResponse({}));
+  }
+
+  async deleteWechatOpenPlatformConfig(request: DeleteWechatOpenPlatformConfigRequest): Promise<DeleteWechatOpenPlatformConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteWechatOpenPlatformConfigWithOptions(request, runtime);
+  }
+
+  async deployFunctionWithOptions(request: DeployFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeployFunctionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      body["DeploymentId"] = request.deploymentId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeployFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeployFunctionResponse>(await this.callApi(params, req, runtime), new DeployFunctionResponse({}));
+  }
+
+  async deployFunction(request: DeployFunctionRequest): Promise<DeployFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deployFunctionWithOptions(request, runtime);
+  }
+
   async describeFCOpenStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeFCOpenStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeFCOpenStatusResponse>(await this.doRPCRequest("DescribeFCOpenStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFCOpenStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFCOpenStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFCOpenStatusResponse>(await this.callApi(params, req, runtime), new DescribeFCOpenStatusResponse({}));
   }
 
   async describeFCOpenStatus(): Promise<DescribeFCOpenStatusResponse> {
@@ -8418,10 +7309,38 @@ export default class Client extends OpenApi {
 
   async describeFileUploadSignedUrlWithOptions(request: DescribeFileUploadSignedUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileUploadSignedUrlResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.filename)) {
+      body["Filename"] = request.filename;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeFileUploadSignedUrlResponse>(await this.doRPCRequest("DescribeFileUploadSignedUrl", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFileUploadSignedUrlResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFileUploadSignedUrl",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFileUploadSignedUrlResponse>(await this.callApi(params, req, runtime), new DescribeFileUploadSignedUrlResponse({}));
   }
 
   async describeFileUploadSignedUrl(request: DescribeFileUploadSignedUrlRequest): Promise<DescribeFileUploadSignedUrlResponse> {
@@ -8429,64 +7348,32 @@ export default class Client extends OpenApi {
     return await this.describeFileUploadSignedUrlWithOptions(request, runtime);
   }
 
-  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteFileResponse>(await this.doRPCRequest("DeleteFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFileResponse({}));
-  }
-
-  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFileWithOptions(request, runtime);
-  }
-
-  async queryDBImportTaskStatusWithOptions(request: QueryDBImportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBImportTaskStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDBImportTaskStatusResponse>(await this.doRPCRequest("QueryDBImportTaskStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDBImportTaskStatusResponse({}));
-  }
-
-  async queryDBImportTaskStatus(request: QueryDBImportTaskStatusRequest): Promise<QueryDBImportTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDBImportTaskStatusWithOptions(request, runtime);
-  }
-
-  async registerFileWithOptions(request: RegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<RegisterFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RegisterFileResponse>(await this.doRPCRequest("RegisterFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterFileResponse({}));
-  }
-
-  async registerFile(request: RegisterFileRequest): Promise<RegisterFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.registerFileWithOptions(request, runtime);
-  }
-
-  async saveAntOpenPlatformConfigWithOptions(request: SaveAntOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveAntOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveAntOpenPlatformConfigResponse>(await this.doRPCRequest("SaveAntOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveAntOpenPlatformConfigResponse({}));
-  }
-
-  async saveAntOpenPlatformConfig(request: SaveAntOpenPlatformConfigRequest): Promise<SaveAntOpenPlatformConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveAntOpenPlatformConfigWithOptions(request, runtime);
-  }
-
   async describeFunctionWithOptions(request: DescribeFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFunctionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeFunctionResponse>(await this.doRPCRequest("DescribeFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFunctionResponse>(await this.callApi(params, req, runtime), new DescribeFunctionResponse({}));
   }
 
   async describeFunction(request: DescribeFunctionRequest): Promise<DescribeFunctionResponse> {
@@ -8494,295 +7381,143 @@ export default class Client extends OpenApi {
     return await this.describeFunctionWithOptions(request, runtime);
   }
 
-  async openWebHostingServiceWithOptions(request: OpenWebHostingServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenWebHostingServiceResponse> {
+  async describeHttpTriggerConfigWithOptions(request: DescribeHttpTriggerConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHttpTriggerConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<OpenWebHostingServiceResponse>(await this.doRPCRequest("OpenWebHostingService", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new OpenWebHostingServiceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHttpTriggerConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHttpTriggerConfigResponse>(await this.callApi(params, req, runtime), new DescribeHttpTriggerConfigResponse({}));
   }
 
-  async openWebHostingService(request: OpenWebHostingServiceRequest): Promise<OpenWebHostingServiceResponse> {
+  async describeHttpTriggerConfig(request: DescribeHttpTriggerConfigRequest): Promise<DescribeHttpTriggerConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.openWebHostingServiceWithOptions(request, runtime);
+    return await this.describeHttpTriggerConfigWithOptions(request, runtime);
   }
 
-  async describeSmsSignWithOptions(request: DescribeSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsSignResponse> {
+  async describeResourceQuotaWithOptions(request: DescribeResourceQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceQuotaResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeSmsSignResponse>(await this.doRPCRequest("DescribeSmsSign", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsSignResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceQuota",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeResourceQuotaResponse>(await this.callApi(params, req, runtime), new DescribeResourceQuotaResponse({}));
   }
 
-  async describeSmsSign(request: DescribeSmsSignRequest): Promise<DescribeSmsSignResponse> {
+  async describeResourceQuota(request: DescribeResourceQuotaRequest): Promise<DescribeResourceQuotaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsSignWithOptions(request, runtime);
+    return await this.describeResourceQuotaWithOptions(request, runtime);
   }
 
-  async listAvailableCertificatesWithOptions(request: ListAvailableCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableCertificatesResponse> {
+  async describeResourceUsageWithOptions(request: DescribeResourceUsageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeResourceUsageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.format)) {
+      body["Format"] = request.format;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListAvailableCertificatesResponse>(await this.doRPCRequest("ListAvailableCertificates", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListAvailableCertificatesResponse({}));
-  }
-
-  async listAvailableCertificates(request: ListAvailableCertificatesRequest): Promise<ListAvailableCertificatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listAvailableCertificatesWithOptions(request, runtime);
-  }
-
-  async listOpenPlatformConfigWithOptions(request: ListOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "DescribeResourceUsage",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<ListOpenPlatformConfigResponse>(await this.doRPCRequest("ListOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListOpenPlatformConfigResponse({}));
+    return $tea.cast<DescribeResourceUsageResponse>(await this.callApi(params, req, runtime), new DescribeResourceUsageResponse({}));
   }
 
-  async listOpenPlatformConfig(request: ListOpenPlatformConfigRequest): Promise<ListOpenPlatformConfigResponse> {
+  async describeResourceUsage(request: DescribeResourceUsageRequest): Promise<DescribeResourceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOpenPlatformConfigWithOptions(request, runtime);
-  }
-
-  async modifyWebHostingConfigWithOptions(request: ModifyWebHostingConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebHostingConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyWebHostingConfigResponse>(await this.doRPCRequest("ModifyWebHostingConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebHostingConfigResponse({}));
-  }
-
-  async modifyWebHostingConfig(request: ModifyWebHostingConfigRequest): Promise<ModifyWebHostingConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyWebHostingConfigWithOptions(request, runtime);
-  }
-
-  async deleteSmsSignWithOptions(request: DeleteSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsSignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteSmsSignResponse>(await this.doRPCRequest("DeleteSmsSign", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmsSignResponse({}));
-  }
-
-  async deleteSmsSign(request: DeleteSmsSignRequest): Promise<DeleteSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSmsSignWithOptions(request, runtime);
-  }
-
-  async describeSmsOpenStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSmsOpenStatusResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeSmsOpenStatusResponse>(await this.doRPCRequest("DescribeSmsOpenStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsOpenStatusResponse({}));
-  }
-
-  async describeSmsOpenStatus(): Promise<DescribeSmsOpenStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsOpenStatusWithOptions(runtime);
-  }
-
-  async listSpaceWithOptions(request: ListSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ListSpaceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListSpaceResponse>(await this.doRPCRequest("ListSpace", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListSpaceResponse({}));
-  }
-
-  async listSpace(request: ListSpaceRequest): Promise<ListSpaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSpaceWithOptions(request, runtime);
-  }
-
-  async deleteDBCollectionWithOptions(request: DeleteDBCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBCollectionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteDBCollectionResponse>(await this.doRPCRequest("DeleteDBCollection", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDBCollectionResponse({}));
-  }
-
-  async deleteDBCollection(request: DeleteDBCollectionRequest): Promise<DeleteDBCollectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDBCollectionWithOptions(request, runtime);
-  }
-
-  async createFunctionDeploymentWithOptions(request: CreateFunctionDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CreateFunctionDeploymentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateFunctionDeploymentResponse>(await this.doRPCRequest("CreateFunctionDeployment", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFunctionDeploymentResponse({}));
-  }
-
-  async createFunctionDeployment(request: CreateFunctionDeploymentRequest): Promise<CreateFunctionDeploymentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createFunctionDeploymentWithOptions(request, runtime);
-  }
-
-  async getWebHostingUploadCredentialWithOptions(request: GetWebHostingUploadCredentialRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingUploadCredentialResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetWebHostingUploadCredentialResponse>(await this.doRPCRequest("GetWebHostingUploadCredential", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebHostingUploadCredentialResponse({}));
-  }
-
-  async getWebHostingUploadCredential(request: GetWebHostingUploadCredentialRequest): Promise<GetWebHostingUploadCredentialResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebHostingUploadCredentialWithOptions(request, runtime);
-  }
-
-  async listFunctionDeploymentWithOptions(request: ListFunctionDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionDeploymentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListFunctionDeploymentResponse>(await this.doRPCRequest("ListFunctionDeployment", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListFunctionDeploymentResponse({}));
-  }
-
-  async listFunctionDeployment(request: ListFunctionDeploymentRequest): Promise<ListFunctionDeploymentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFunctionDeploymentWithOptions(request, runtime);
-  }
-
-  async addDingtalkOpenPlatformConfigWithOptions(request: AddDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<AddDingtalkOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddDingtalkOpenPlatformConfigResponse>(await this.doRPCRequest("AddDingtalkOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddDingtalkOpenPlatformConfigResponse({}));
-  }
-
-  async addDingtalkOpenPlatformConfig(request: AddDingtalkOpenPlatformConfigRequest): Promise<AddDingtalkOpenPlatformConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addDingtalkOpenPlatformConfigWithOptions(request, runtime);
-  }
-
-  async createDBRestoreTaskWithOptions(request: CreateDBRestoreTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBRestoreTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateDBRestoreTaskResponse>(await this.doRPCRequest("CreateDBRestoreTask", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDBRestoreTaskResponse({}));
-  }
-
-  async createDBRestoreTask(request: CreateDBRestoreTaskRequest): Promise<CreateDBRestoreTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDBRestoreTaskWithOptions(request, runtime);
-  }
-
-  async attachWebHostingCertificateWithOptions(request: AttachWebHostingCertificateRequest, runtime: $Util.RuntimeOptions): Promise<AttachWebHostingCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AttachWebHostingCertificateResponse>(await this.doRPCRequest("AttachWebHostingCertificate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new AttachWebHostingCertificateResponse({}));
-  }
-
-  async attachWebHostingCertificate(request: AttachWebHostingCertificateRequest): Promise<AttachWebHostingCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.attachWebHostingCertificateWithOptions(request, runtime);
-  }
-
-  async listFileWithOptions(request: ListFileRequest, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListFileResponse>(await this.doRPCRequest("ListFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListFileResponse({}));
-  }
-
-  async listFile(request: ListFileRequest): Promise<ListFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFileWithOptions(request, runtime);
-  }
-
-  async queryDBRestoreTaskStatusWithOptions(request: QueryDBRestoreTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBRestoreTaskStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDBRestoreTaskStatusResponse>(await this.doRPCRequest("QueryDBRestoreTaskStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDBRestoreTaskStatusResponse({}));
-  }
-
-  async queryDBRestoreTaskStatus(request: QueryDBRestoreTaskStatusRequest): Promise<QueryDBRestoreTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDBRestoreTaskStatusWithOptions(request, runtime);
-  }
-
-  async verifyWebHostingDomainOwnerWithOptions(request: VerifyWebHostingDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyWebHostingDomainOwnerResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<VerifyWebHostingDomainOwnerResponse>(await this.doRPCRequest("VerifyWebHostingDomainOwner", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyWebHostingDomainOwnerResponse({}));
-  }
-
-  async verifyWebHostingDomainOwner(request: VerifyWebHostingDomainOwnerRequest): Promise<VerifyWebHostingDomainOwnerResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyWebHostingDomainOwnerWithOptions(request, runtime);
-  }
-
-  async deleteSmsTemplateWithOptions(request: DeleteSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmsTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteSmsTemplateResponse>(await this.doRPCRequest("DeleteSmsTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSmsTemplateResponse({}));
-  }
-
-  async deleteSmsTemplate(request: DeleteSmsTemplateRequest): Promise<DeleteSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSmsTemplateWithOptions(request, runtime);
-  }
-
-  async queryDBExportTaskStatusWithOptions(request: QueryDBExportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBExportTaskStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDBExportTaskStatusResponse>(await this.doRPCRequest("QueryDBExportTaskStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDBExportTaskStatusResponse({}));
-  }
-
-  async queryDBExportTaskStatus(request: QueryDBExportTaskStatusRequest): Promise<QueryDBExportTaskStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDBExportTaskStatusWithOptions(request, runtime);
-  }
-
-  async createDBImportTaskWithOptions(request: CreateDBImportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBImportTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateDBImportTaskResponse>(await this.doRPCRequest("CreateDBImportTask", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDBImportTaskResponse({}));
-  }
-
-  async createDBImportTask(request: CreateDBImportTaskRequest): Promise<CreateDBImportTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDBImportTaskWithOptions(request, runtime);
-  }
-
-  async checkSmsHasAuthorizedToMPSWithOptions(request: CheckSmsHasAuthorizedToMPSRequest, runtime: $Util.RuntimeOptions): Promise<CheckSmsHasAuthorizedToMPSResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CheckSmsHasAuthorizedToMPSResponse>(await this.doRPCRequest("CheckSmsHasAuthorizedToMPS", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckSmsHasAuthorizedToMPSResponse({}));
-  }
-
-  async checkSmsHasAuthorizedToMPS(request: CheckSmsHasAuthorizedToMPSRequest): Promise<CheckSmsHasAuthorizedToMPSResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkSmsHasAuthorizedToMPSWithOptions(request, runtime);
+    return await this.describeResourceUsageWithOptions(request, runtime);
   }
 
   async describeServicePolicyWithOptions(request: DescribeServicePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServicePolicyResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collectionName)) {
+      body["CollectionName"] = request.collectionName;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeServicePolicyResponse>(await this.doRPCRequest("DescribeServicePolicy", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeServicePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeServicePolicy",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServicePolicyResponse>(await this.callApi(params, req, runtime), new DescribeServicePolicyResponse({}));
   }
 
   async describeServicePolicy(request: DescribeServicePolicyRequest): Promise<DescribeServicePolicyResponse> {
@@ -8790,51 +7525,36 @@ export default class Client extends OpenApi {
     return await this.describeServicePolicyWithOptions(request, runtime);
   }
 
-  async listSmsTemplatesWithOptions(request: ListSmsTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSmsTemplatesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListSmsTemplatesResponse>(await this.doRPCRequest("ListSmsTemplates", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListSmsTemplatesResponse({}));
-  }
-
-  async listSmsTemplates(request: ListSmsTemplatesRequest): Promise<ListSmsTemplatesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSmsTemplatesWithOptions(request, runtime);
-  }
-
-  async queryDBBackupCollectionsWithOptions(request: QueryDBBackupCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBBackupCollectionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDBBackupCollectionsResponse>(await this.doRPCRequest("QueryDBBackupCollections", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDBBackupCollectionsResponse({}));
-  }
-
-  async queryDBBackupCollections(request: QueryDBBackupCollectionsRequest): Promise<QueryDBBackupCollectionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDBBackupCollectionsWithOptions(request, runtime);
-  }
-
-  async queryServiceStatusWithOptions(request: QueryServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryServiceStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryServiceStatusResponse>(await this.doRPCRequest("QueryServiceStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryServiceStatusResponse({}));
-  }
-
-  async queryServiceStatus(request: QueryServiceStatusRequest): Promise<QueryServiceStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryServiceStatusWithOptions(request, runtime);
-  }
-
   async describeSpaceClientConfigWithOptions(request: DescribeSpaceClientConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpaceClientConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.detail)) {
+      body["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeSpaceClientConfigResponse>(await this.doRPCRequest("DescribeSpaceClientConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSpaceClientConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSpaceClientConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSpaceClientConfigResponse>(await this.callApi(params, req, runtime), new DescribeSpaceClientConfigResponse({}));
   }
 
   async describeSpaceClientConfig(request: DescribeSpaceClientConfigRequest): Promise<DescribeSpaceClientConfigResponse> {
@@ -8842,308 +7562,61 @@ export default class Client extends OpenApi {
     return await this.describeSpaceClientConfigWithOptions(request, runtime);
   }
 
-  async saveBuiltinFunctionTemplateWithOptions(request: SaveBuiltinFunctionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SaveBuiltinFunctionTemplateResponse> {
+  async describeWebHostingFileWithOptions(request: DescribeWebHostingFileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebHostingFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SaveBuiltinFunctionTemplateResponse>(await this.doRPCRequest("SaveBuiltinFunctionTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveBuiltinFunctionTemplateResponse({}));
-  }
-
-  async saveBuiltinFunctionTemplate(request: SaveBuiltinFunctionTemplateRequest): Promise<SaveBuiltinFunctionTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveBuiltinFunctionTemplateWithOptions(request, runtime);
-  }
-
-  async describeISVFileUploadSignedUrlWithOptions(request: DescribeISVFileUploadSignedUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeISVFileUploadSignedUrlResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "DescribeWebHostingFile",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DescribeISVFileUploadSignedUrlResponse>(await this.doRPCRequest("DescribeISVFileUploadSignedUrl", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeISVFileUploadSignedUrlResponse({}));
+    return $tea.cast<DescribeWebHostingFileResponse>(await this.callApi(params, req, runtime), new DescribeWebHostingFileResponse({}));
   }
 
-  async describeISVFileUploadSignedUrl(request: DescribeISVFileUploadSignedUrlRequest): Promise<DescribeISVFileUploadSignedUrlResponse> {
+  async describeWebHostingFile(request: DescribeWebHostingFileRequest): Promise<DescribeWebHostingFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeISVFileUploadSignedUrlWithOptions(request, runtime);
-  }
-
-  async createBuiltinFunctionTemplateWithOptions(request: CreateBuiltinFunctionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuiltinFunctionTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateBuiltinFunctionTemplateResponse>(await this.doRPCRequest("CreateBuiltinFunctionTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBuiltinFunctionTemplateResponse({}));
-  }
-
-  async createBuiltinFunctionTemplate(request: CreateBuiltinFunctionTemplateRequest): Promise<CreateBuiltinFunctionTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createBuiltinFunctionTemplateWithOptions(request, runtime);
-  }
-
-  async getWebHostingStatusWithOptions(request: GetWebHostingStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetWebHostingStatusResponse>(await this.doRPCRequest("GetWebHostingStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebHostingStatusResponse({}));
-  }
-
-  async getWebHostingStatus(request: GetWebHostingStatusRequest): Promise<GetWebHostingStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebHostingStatusWithOptions(request, runtime);
-  }
-
-  async listFunctionLogWithOptions(request: ListFunctionLogRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionLogResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListFunctionLogResponse>(await this.doRPCRequest("ListFunctionLog", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListFunctionLogResponse({}));
-  }
-
-  async listFunctionLog(request: ListFunctionLogRequest): Promise<ListFunctionLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFunctionLogWithOptions(request, runtime);
-  }
-
-  async listWebHostingFilesWithOptions(request: ListWebHostingFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListWebHostingFilesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListWebHostingFilesResponse>(await this.doRPCRequest("ListWebHostingFiles", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListWebHostingFilesResponse({}));
-  }
-
-  async listWebHostingFiles(request: ListWebHostingFilesRequest): Promise<ListWebHostingFilesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listWebHostingFilesWithOptions(request, runtime);
-  }
-
-  async describeFileWithOptions(request: DescribeFileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeFileResponse>(await this.doRPCRequest("DescribeFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFileResponse({}));
-  }
-
-  async describeFile(request: DescribeFileRequest): Promise<DescribeFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFileWithOptions(request, runtime);
-  }
-
-  async moveWebHostingFileWithOptions(request: MoveWebHostingFileRequest, runtime: $Util.RuntimeOptions): Promise<MoveWebHostingFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<MoveWebHostingFileResponse>(await this.doRPCRequest("MoveWebHostingFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new MoveWebHostingFileResponse({}));
-  }
-
-  async moveWebHostingFile(request: MoveWebHostingFileRequest): Promise<MoveWebHostingFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.moveWebHostingFileWithOptions(request, runtime);
-  }
-
-  async createSmsTemplateWithOptions(request: CreateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateSmsTemplateResponse>(await this.doRPCRequest("CreateSmsTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSmsTemplateResponse({}));
-  }
-
-  async createSmsTemplate(request: CreateSmsTemplateRequest): Promise<CreateSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSmsTemplateWithOptions(request, runtime);
-  }
-
-  async describeSmsTemplateStatusWithOptions(request: DescribeSmsTemplateStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsTemplateStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSmsTemplateStatusResponse>(await this.doRPCRequest("DescribeSmsTemplateStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsTemplateStatusResponse({}));
-  }
-
-  async describeSmsTemplateStatus(request: DescribeSmsTemplateStatusRequest): Promise<DescribeSmsTemplateStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsTemplateStatusWithOptions(request, runtime);
-  }
-
-  async bindWebHostingCustomDomainWithOptions(request: BindWebHostingCustomDomainRequest, runtime: $Util.RuntimeOptions): Promise<BindWebHostingCustomDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<BindWebHostingCustomDomainResponse>(await this.doRPCRequest("BindWebHostingCustomDomain", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new BindWebHostingCustomDomainResponse({}));
-  }
-
-  async bindWebHostingCustomDomain(request: BindWebHostingCustomDomainRequest): Promise<BindWebHostingCustomDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.bindWebHostingCustomDomainWithOptions(request, runtime);
-  }
-
-  async createFunctionWithOptions(request: CreateFunctionRequest, runtime: $Util.RuntimeOptions): Promise<CreateFunctionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateFunctionResponse>(await this.doRPCRequest("CreateFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFunctionResponse({}));
-  }
-
-  async createFunction(request: CreateFunctionRequest): Promise<CreateFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createFunctionWithOptions(request, runtime);
-  }
-
-  async deleteDingtalkOpenPlatformConfigWithOptions(request: DeleteDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDingtalkOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteDingtalkOpenPlatformConfigResponse>(await this.doRPCRequest("DeleteDingtalkOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDingtalkOpenPlatformConfigResponse({}));
-  }
-
-  async deleteDingtalkOpenPlatformConfig(request: DeleteDingtalkOpenPlatformConfigRequest): Promise<DeleteDingtalkOpenPlatformConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteDingtalkOpenPlatformConfigWithOptions(request, runtime);
-  }
-
-  async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListExtensionsResponse>(await this.doRPCRequest("ListExtensions", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListExtensionsResponse({}));
-  }
-
-  async listExtensions(request: ListExtensionsRequest): Promise<ListExtensionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listExtensionsWithOptions(request, runtime);
-  }
-
-  async enableSmsServiceWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableSmsServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<EnableSmsServiceResponse>(await this.doRPCRequest("EnableSmsService", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new EnableSmsServiceResponse({}));
-  }
-
-  async enableSmsService(): Promise<EnableSmsServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.enableSmsServiceWithOptions(runtime);
-  }
-
-  async releaseBuiltinFunctionTemplateWithOptions(request: ReleaseBuiltinFunctionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseBuiltinFunctionTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ReleaseBuiltinFunctionTemplateResponse>(await this.doRPCRequest("ReleaseBuiltinFunctionTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ReleaseBuiltinFunctionTemplateResponse({}));
-  }
-
-  async releaseBuiltinFunctionTemplate(request: ReleaseBuiltinFunctionTemplateRequest): Promise<ReleaseBuiltinFunctionTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.releaseBuiltinFunctionTemplateWithOptions(request, runtime);
-  }
-
-  async createSmsSignWithOptions(request: CreateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<CreateSmsSignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateSmsSignResponse>(await this.doRPCRequest("CreateSmsSign", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSmsSignResponse({}));
-  }
-
-  async createSmsSign(request: CreateSmsSignRequest): Promise<CreateSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSmsSignWithOptions(request, runtime);
-  }
-
-  async updateFunctionWithOptions(request: UpdateFunctionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateFunctionResponse>(await this.doRPCRequest("UpdateFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFunctionResponse({}));
-  }
-
-  async updateFunction(request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateFunctionWithOptions(request, runtime);
-  }
-
-  async updateHttpTriggerConfigWithOptions(request: UpdateHttpTriggerConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHttpTriggerConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateHttpTriggerConfigResponse>(await this.doRPCRequest("UpdateHttpTriggerConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateHttpTriggerConfigResponse({}));
-  }
-
-  async updateHttpTriggerConfig(request: UpdateHttpTriggerConfigRequest): Promise<UpdateHttpTriggerConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateHttpTriggerConfigWithOptions(request, runtime);
-  }
-
-  async resetServerSecretWithOptions(request: ResetServerSecretRequest, runtime: $Util.RuntimeOptions): Promise<ResetServerSecretResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ResetServerSecretResponse>(await this.doRPCRequest("ResetServerSecret", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ResetServerSecretResponse({}));
-  }
-
-  async resetServerSecret(request: ResetServerSecretRequest): Promise<ResetServerSecretResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.resetServerSecretWithOptions(request, runtime);
-  }
-
-  async getWebHostingDomainVerificationContentWithOptions(request: GetWebHostingDomainVerificationContentRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingDomainVerificationContentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetWebHostingDomainVerificationContentResponse>(await this.doRPCRequest("GetWebHostingDomainVerificationContent", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebHostingDomainVerificationContentResponse({}));
-  }
-
-  async getWebHostingDomainVerificationContent(request: GetWebHostingDomainVerificationContentRequest): Promise<GetWebHostingDomainVerificationContentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebHostingDomainVerificationContentWithOptions(request, runtime);
-  }
-
-  async updateDingtalkOpenPlatformConfigWithOptions(request: UpdateDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDingtalkOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateDingtalkOpenPlatformConfigResponse>(await this.doRPCRequest("UpdateDingtalkOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDingtalkOpenPlatformConfigResponse({}));
-  }
-
-  async updateDingtalkOpenPlatformConfig(request: UpdateDingtalkOpenPlatformConfigRequest): Promise<UpdateDingtalkOpenPlatformConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateDingtalkOpenPlatformConfigWithOptions(request, runtime);
-  }
-
-  async checkMpServerlessRoleExistsWithOptions(request: CheckMpServerlessRoleExistsRequest, runtime: $Util.RuntimeOptions): Promise<CheckMpServerlessRoleExistsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CheckMpServerlessRoleExistsResponse>(await this.doRPCRequest("CheckMpServerlessRoleExists", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CheckMpServerlessRoleExistsResponse({}));
-  }
-
-  async checkMpServerlessRoleExists(request: CheckMpServerlessRoleExistsRequest): Promise<CheckMpServerlessRoleExistsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkMpServerlessRoleExistsWithOptions(request, runtime);
+    return await this.describeWebHostingFileWithOptions(request, runtime);
   }
 
   async enableExtensionWithOptions(request: EnableExtensionRequest, runtime: $Util.RuntimeOptions): Promise<EnableExtensionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extensionId)) {
+      body["ExtensionId"] = request.extensionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<EnableExtensionResponse>(await this.doRPCRequest("EnableExtension", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new EnableExtensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableExtension",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableExtensionResponse>(await this.callApi(params, req, runtime), new EnableExtensionResponse({}));
   }
 
   async enableExtension(request: EnableExtensionRequest): Promise<EnableExtensionResponse> {
@@ -9151,25 +7624,218 @@ export default class Client extends OpenApi {
     return await this.enableExtensionWithOptions(request, runtime);
   }
 
-  async listSmsSignsForAccountWithOptions(request: ListSmsSignsForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListSmsSignsForAccountResponse> {
+  async getWebHostingCertificateDetailWithOptions(request: GetWebHostingCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingCertificateDetailResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomain)) {
+      body["CustomDomain"] = request.customDomain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListSmsSignsForAccountResponse>(await this.doRPCRequest("ListSmsSignsForAccount", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListSmsSignsForAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetWebHostingCertificateDetail",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebHostingCertificateDetailResponse>(await this.callApi(params, req, runtime), new GetWebHostingCertificateDetailResponse({}));
   }
 
-  async listSmsSignsForAccount(request: ListSmsSignsForAccountRequest): Promise<ListSmsSignsForAccountResponse> {
+  async getWebHostingCertificateDetail(request: GetWebHostingCertificateDetailRequest): Promise<GetWebHostingCertificateDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSmsSignsForAccountWithOptions(request, runtime);
+    return await this.getWebHostingCertificateDetailWithOptions(request, runtime);
+  }
+
+  async getWebHostingConfigWithOptions(request: GetWebHostingConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebHostingConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebHostingConfigResponse>(await this.callApi(params, req, runtime), new GetWebHostingConfigResponse({}));
+  }
+
+  async getWebHostingConfig(request: GetWebHostingConfigRequest): Promise<GetWebHostingConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebHostingConfigWithOptions(request, runtime);
+  }
+
+  async getWebHostingDomainVerificationContentWithOptions(request: GetWebHostingDomainVerificationContentRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingDomainVerificationContentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebHostingDomainVerificationContent",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebHostingDomainVerificationContentResponse>(await this.callApi(params, req, runtime), new GetWebHostingDomainVerificationContentResponse({}));
+  }
+
+  async getWebHostingDomainVerificationContent(request: GetWebHostingDomainVerificationContentRequest): Promise<GetWebHostingDomainVerificationContentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebHostingDomainVerificationContentWithOptions(request, runtime);
+  }
+
+  async getWebHostingStatusWithOptions(request: GetWebHostingStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebHostingStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebHostingStatusResponse>(await this.callApi(params, req, runtime), new GetWebHostingStatusResponse({}));
+  }
+
+  async getWebHostingStatus(request: GetWebHostingStatusRequest): Promise<GetWebHostingStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebHostingStatusWithOptions(request, runtime);
+  }
+
+  async getWebHostingUploadCredentialWithOptions(request: GetWebHostingUploadCredentialRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingUploadCredentialResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebHostingUploadCredential",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebHostingUploadCredentialResponse>(await this.callApi(params, req, runtime), new GetWebHostingUploadCredentialResponse({}));
+  }
+
+  async getWebHostingUploadCredential(request: GetWebHostingUploadCredentialRequest): Promise<GetWebHostingUploadCredentialResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getWebHostingUploadCredentialWithOptions(request, runtime);
+  }
+
+  async listAvailableCertificatesWithOptions(request: ListAvailableCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableCertificatesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAvailableCertificates",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAvailableCertificatesResponse>(await this.callApi(params, req, runtime), new ListAvailableCertificatesResponse({}));
+  }
+
+  async listAvailableCertificates(request: ListAvailableCertificatesRequest): Promise<ListAvailableCertificatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAvailableCertificatesWithOptions(request, runtime);
   }
 
   async listCorsDomainsWithOptions(request: ListCorsDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListCorsDomainsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListCorsDomainsResponse>(await this.doRPCRequest("ListCorsDomains", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListCorsDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListCorsDomains",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCorsDomainsResponse>(await this.callApi(params, req, runtime), new ListCorsDomainsResponse({}));
   }
 
   async listCorsDomains(request: ListCorsDomainsRequest): Promise<ListCorsDomainsResponse> {
@@ -9179,10 +7845,26 @@ export default class Client extends OpenApi {
 
   async listDingtalkOpenPlatformConfigsWithOptions(request: ListDingtalkOpenPlatformConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListDingtalkOpenPlatformConfigsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListDingtalkOpenPlatformConfigsResponse>(await this.doRPCRequest("ListDingtalkOpenPlatformConfigs", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListDingtalkOpenPlatformConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDingtalkOpenPlatformConfigs",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDingtalkOpenPlatformConfigsResponse>(await this.callApi(params, req, runtime), new ListDingtalkOpenPlatformConfigsResponse({}));
   }
 
   async listDingtalkOpenPlatformConfigs(request: ListDingtalkOpenPlatformConfigsRequest): Promise<ListDingtalkOpenPlatformConfigsResponse> {
@@ -9190,350 +7872,311 @@ export default class Client extends OpenApi {
     return await this.listDingtalkOpenPlatformConfigsWithOptions(request, runtime);
   }
 
-  async createDBExportTaskWithOptions(request: CreateDBExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBExportTaskResponse> {
+  async listExtensionsWithOptions(request: ListExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<ListExtensionsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateDBExportTaskResponse>(await this.doRPCRequest("CreateDBExportTask", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDBExportTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListExtensions",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListExtensionsResponse>(await this.callApi(params, req, runtime), new ListExtensionsResponse({}));
   }
 
-  async createDBExportTask(request: CreateDBExportTaskRequest): Promise<CreateDBExportTaskResponse> {
+  async listExtensions(request: ListExtensionsRequest): Promise<ListExtensionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDBExportTaskWithOptions(request, runtime);
+    return await this.listExtensionsWithOptions(request, runtime);
   }
 
-  async getWebHostingConfigWithOptions(request: GetWebHostingConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWebHostingConfigResponse> {
+  async listFileWithOptions(request: ListFileRequest, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetWebHostingConfigResponse>(await this.doRPCRequest("GetWebHostingConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetWebHostingConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFile",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFileResponse>(await this.callApi(params, req, runtime), new ListFileResponse({}));
   }
 
-  async getWebHostingConfig(request: GetWebHostingConfigRequest): Promise<GetWebHostingConfigResponse> {
+  async listFile(request: ListFileRequest): Promise<ListFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWebHostingConfigWithOptions(request, runtime);
+    return await this.listFileWithOptions(request, runtime);
   }
 
-  async unbindWebHostingCustomDomainWithOptions(request: UnbindWebHostingCustomDomainRequest, runtime: $Util.RuntimeOptions): Promise<UnbindWebHostingCustomDomainResponse> {
+  async listFunctionWithOptions(request: ListFunctionRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.filterBy)) {
+      body["FilterBy"] = request.filterBy;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UnbindWebHostingCustomDomainResponse>(await this.doRPCRequest("UnbindWebHostingCustomDomain", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindWebHostingCustomDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionResponse>(await this.callApi(params, req, runtime), new ListFunctionResponse({}));
   }
 
-  async unbindWebHostingCustomDomain(request: UnbindWebHostingCustomDomainRequest): Promise<UnbindWebHostingCustomDomainResponse> {
+  async listFunction(request: ListFunctionRequest): Promise<ListFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.unbindWebHostingCustomDomainWithOptions(request, runtime);
+    return await this.listFunctionWithOptions(request, runtime);
   }
 
-  async describeSmsTemplateWithOptions(request: DescribeSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsTemplateResponse> {
+  async listFunctionDeploymentWithOptions(request: ListFunctionDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionDeploymentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DescribeSmsTemplateResponse>(await this.doRPCRequest("DescribeSmsTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFunctionDeployment",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionDeploymentResponse>(await this.callApi(params, req, runtime), new ListFunctionDeploymentResponse({}));
   }
 
-  async describeSmsTemplate(request: DescribeSmsTemplateRequest): Promise<DescribeSmsTemplateResponse> {
+  async listFunctionDeployment(request: ListFunctionDeploymentRequest): Promise<ListFunctionDeploymentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsTemplateWithOptions(request, runtime);
+    return await this.listFunctionDeploymentWithOptions(request, runtime);
   }
 
-  async saveWebHostingCustomDomainCorsConfigWithOptions(request: SaveWebHostingCustomDomainCorsConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebHostingCustomDomainCorsConfigResponse> {
+  async listFunctionLogWithOptions(request: ListFunctionLogRequest, runtime: $Util.RuntimeOptions): Promise<ListFunctionLogResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fromDate)) {
+      body["FromDate"] = request.fromDate;
+    }
+
+    if (!Util.isUnset(request.logRequestId)) {
+      body["LogRequestId"] = request.logRequestId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.toDate)) {
+      body["ToDate"] = request.toDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SaveWebHostingCustomDomainCorsConfigResponse>(await this.doRPCRequest("SaveWebHostingCustomDomainCorsConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveWebHostingCustomDomainCorsConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFunctionLog",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFunctionLogResponse>(await this.callApi(params, req, runtime), new ListFunctionLogResponse({}));
   }
 
-  async saveWebHostingCustomDomainCorsConfig(request: SaveWebHostingCustomDomainCorsConfigRequest): Promise<SaveWebHostingCustomDomainCorsConfigResponse> {
+  async listFunctionLog(request: ListFunctionLogRequest): Promise<ListFunctionLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveWebHostingCustomDomainCorsConfigWithOptions(request, runtime);
+    return await this.listFunctionLogWithOptions(request, runtime);
   }
 
-  async batchDeleteWebHostingFilesWithOptions(request: BatchDeleteWebHostingFilesRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteWebHostingFilesResponse> {
+  async listOpenPlatformConfigWithOptions(request: ListOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListOpenPlatformConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<BatchDeleteWebHostingFilesResponse>(await this.doRPCRequest("BatchDeleteWebHostingFiles", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new BatchDeleteWebHostingFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new ListOpenPlatformConfigResponse({}));
   }
 
-  async batchDeleteWebHostingFiles(request: BatchDeleteWebHostingFilesRequest): Promise<BatchDeleteWebHostingFilesResponse> {
+  async listOpenPlatformConfig(request: ListOpenPlatformConfigRequest): Promise<ListOpenPlatformConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchDeleteWebHostingFilesWithOptions(request, runtime);
+    return await this.listOpenPlatformConfigWithOptions(request, runtime);
   }
 
-  async deleteCorsDomainWithOptions(request: DeleteCorsDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCorsDomainResponse> {
+  async listSpaceWithOptions(request: ListSpaceRequest, runtime: $Util.RuntimeOptions): Promise<ListSpaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNum)) {
+      body["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteCorsDomainResponse>(await this.doRPCRequest("DeleteCorsDomain", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCorsDomainResponse({}));
-  }
-
-  async deleteCorsDomain(request: DeleteCorsDomainRequest): Promise<DeleteCorsDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteCorsDomainWithOptions(request, runtime);
-  }
-
-  async describeHttpTriggerConfigWithOptions(request: DescribeHttpTriggerConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHttpTriggerConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "ListSpace",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DescribeHttpTriggerConfigResponse>(await this.doRPCRequest("DescribeHttpTriggerConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHttpTriggerConfigResponse({}));
+    return $tea.cast<ListSpaceResponse>(await this.callApi(params, req, runtime), new ListSpaceResponse({}));
   }
 
-  async describeHttpTriggerConfig(request: DescribeHttpTriggerConfigRequest): Promise<DescribeHttpTriggerConfigResponse> {
+  async listSpace(request: ListSpaceRequest): Promise<ListSpaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeHttpTriggerConfigWithOptions(request, runtime);
-  }
-
-  async saveAppAuthTokenWithOptions(request: SaveAppAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<SaveAppAuthTokenResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveAppAuthTokenResponse>(await this.doRPCRequest("SaveAppAuthToken", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveAppAuthTokenResponse({}));
-  }
-
-  async saveAppAuthToken(request: SaveAppAuthTokenRequest): Promise<SaveAppAuthTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveAppAuthTokenWithOptions(request, runtime);
-  }
-
-  async describeSmsSignStatusWithOptions(request: DescribeSmsSignStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsSignStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSmsSignStatusResponse>(await this.doRPCRequest("DescribeSmsSignStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsSignStatusResponse({}));
-  }
-
-  async describeSmsSignStatus(request: DescribeSmsSignStatusRequest): Promise<DescribeSmsSignStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsSignStatusWithOptions(request, runtime);
-  }
-
-  async saveWechatOpenPlatformConfigWithOptions(request: SaveWechatOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWechatOpenPlatformConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SaveWechatOpenPlatformConfigResponse>(await this.doRPCRequest("SaveWechatOpenPlatformConfig", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new SaveWechatOpenPlatformConfigResponse({}));
-  }
-
-  async saveWechatOpenPlatformConfig(request: SaveWechatOpenPlatformConfigRequest): Promise<SaveWechatOpenPlatformConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.saveWechatOpenPlatformConfigWithOptions(request, runtime);
-  }
-
-  async describeSpaceWithOptions(request: DescribeSpaceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSpaceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSpaceResponse>(await this.doRPCRequest("DescribeSpace", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSpaceResponse({}));
-  }
-
-  async describeSpace(request: DescribeSpaceRequest): Promise<DescribeSpaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSpaceWithOptions(request, runtime);
-  }
-
-  async renameDBCollectionWithOptions(request: RenameDBCollectionRequest, runtime: $Util.RuntimeOptions): Promise<RenameDBCollectionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RenameDBCollectionResponse>(await this.doRPCRequest("RenameDBCollection", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new RenameDBCollectionResponse({}));
-  }
-
-  async renameDBCollection(request: RenameDBCollectionRequest): Promise<RenameDBCollectionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.renameDBCollectionWithOptions(request, runtime);
-  }
-
-  async listSmsSignsWithOptions(request: ListSmsSignsRequest, runtime: $Util.RuntimeOptions): Promise<ListSmsSignsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListSmsSignsResponse>(await this.doRPCRequest("ListSmsSigns", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListSmsSignsResponse({}));
-  }
-
-  async listSmsSigns(request: ListSmsSignsRequest): Promise<ListSmsSignsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSmsSignsWithOptions(request, runtime);
-  }
-
-  async describeProductOpenStatusWithOptions(request: DescribeProductOpenStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductOpenStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeProductOpenStatusResponse>(await this.doRPCRequest("DescribeProductOpenStatus", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeProductOpenStatusResponse({}));
-  }
-
-  async describeProductOpenStatus(request: DescribeProductOpenStatusRequest): Promise<DescribeProductOpenStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeProductOpenStatusWithOptions(request, runtime);
-  }
-
-  async updateSmsSignWithOptions(request: UpdateSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsSignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateSmsSignResponse>(await this.doRPCRequest("UpdateSmsSign", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSmsSignResponse({}));
-  }
-
-  async updateSmsSign(request: UpdateSmsSignRequest): Promise<UpdateSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSmsSignWithOptions(request, runtime);
-  }
-
-  async deleteWebHostingCertificateWithOptions(request: DeleteWebHostingCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebHostingCertificateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteWebHostingCertificateResponse>(await this.doRPCRequest("DeleteWebHostingCertificate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWebHostingCertificateResponse({}));
-  }
-
-  async deleteWebHostingCertificate(request: DeleteWebHostingCertificateRequest): Promise<DeleteWebHostingCertificateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWebHostingCertificateWithOptions(request, runtime);
-  }
-
-  async queryDBBackupDumpTimesWithOptions(request: QueryDBBackupDumpTimesRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBBackupDumpTimesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDBBackupDumpTimesResponse>(await this.doRPCRequest("QueryDBBackupDumpTimes", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDBBackupDumpTimesResponse({}));
-  }
-
-  async queryDBBackupDumpTimes(request: QueryDBBackupDumpTimesRequest): Promise<QueryDBBackupDumpTimesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDBBackupDumpTimesWithOptions(request, runtime);
-  }
-
-  async deployFunctionWithOptions(request: DeployFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeployFunctionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeployFunctionResponse>(await this.doRPCRequest("DeployFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeployFunctionResponse({}));
-  }
-
-  async deployFunction(request: DeployFunctionRequest): Promise<DeployFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deployFunctionWithOptions(request, runtime);
-  }
-
-  async attachSmsSignWithOptions(request: AttachSmsSignRequest, runtime: $Util.RuntimeOptions): Promise<AttachSmsSignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AttachSmsSignResponse>(await this.doRPCRequest("AttachSmsSign", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new AttachSmsSignResponse({}));
-  }
-
-  async attachSmsSign(request: AttachSmsSignRequest): Promise<AttachSmsSignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.attachSmsSignWithOptions(request, runtime);
-  }
-
-  async updateServicePolicyWithOptions(request: UpdateServicePolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServicePolicyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateServicePolicyResponse>(await this.doRPCRequest("UpdateServicePolicy", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateServicePolicyResponse({}));
-  }
-
-  async updateServicePolicy(request: UpdateServicePolicyRequest): Promise<UpdateServicePolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateServicePolicyWithOptions(request, runtime);
-  }
-
-  async addCorsDomainWithOptions(request: AddCorsDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddCorsDomainResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AddCorsDomainResponse>(await this.doRPCRequest("AddCorsDomain", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddCorsDomainResponse({}));
-  }
-
-  async addCorsDomain(request: AddCorsDomainRequest): Promise<AddCorsDomainResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.addCorsDomainWithOptions(request, runtime);
-  }
-
-  async describeWebHostingFileWithOptions(request: DescribeWebHostingFileRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebHostingFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeWebHostingFileResponse>(await this.doRPCRequest("DescribeWebHostingFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWebHostingFileResponse({}));
-  }
-
-  async describeWebHostingFile(request: DescribeWebHostingFileRequest): Promise<DescribeWebHostingFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeWebHostingFileWithOptions(request, runtime);
-  }
-
-  async updateSmsTemplateWithOptions(request: UpdateSmsTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmsTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpdateSmsTemplateResponse>(await this.doRPCRequest("UpdateSmsTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSmsTemplateResponse({}));
-  }
-
-  async updateSmsTemplate(request: UpdateSmsTemplateRequest): Promise<UpdateSmsTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSmsTemplateWithOptions(request, runtime);
-  }
-
-  async verifyBuiltinFunctionTemplateWithOptions(request: VerifyBuiltinFunctionTemplateRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBuiltinFunctionTemplateResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<VerifyBuiltinFunctionTemplateResponse>(await this.doRPCRequest("VerifyBuiltinFunctionTemplate", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyBuiltinFunctionTemplateResponse({}));
-  }
-
-  async verifyBuiltinFunctionTemplate(request: VerifyBuiltinFunctionTemplateRequest): Promise<VerifyBuiltinFunctionTemplateResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyBuiltinFunctionTemplateWithOptions(request, runtime);
-  }
-
-  async deleteWebHostingFileWithOptions(request: DeleteWebHostingFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWebHostingFileResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteWebHostingFileResponse>(await this.doRPCRequest("DeleteWebHostingFile", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteWebHostingFileResponse({}));
-  }
-
-  async deleteWebHostingFile(request: DeleteWebHostingFileRequest): Promise<DeleteWebHostingFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWebHostingFileWithOptions(request, runtime);
+    return await this.listSpaceWithOptions(request, runtime);
   }
 
   async listWebHostingCustomDomainsWithOptions(request: ListWebHostingCustomDomainsRequest, runtime: $Util.RuntimeOptions): Promise<ListWebHostingCustomDomainsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListWebHostingCustomDomainsResponse>(await this.doRPCRequest("ListWebHostingCustomDomains", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListWebHostingCustomDomainsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListWebHostingCustomDomains",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebHostingCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListWebHostingCustomDomainsResponse({}));
   }
 
   async listWebHostingCustomDomains(request: ListWebHostingCustomDomainsRequest): Promise<ListWebHostingCustomDomainsResponse> {
@@ -9541,12 +8184,473 @@ export default class Client extends OpenApi {
     return await this.listWebHostingCustomDomainsWithOptions(request, runtime);
   }
 
+  async listWebHostingFilesWithOptions(request: ListWebHostingFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListWebHostingFilesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.marker)) {
+      body["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      body["Prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWebHostingFiles",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWebHostingFilesResponse>(await this.callApi(params, req, runtime), new ListWebHostingFilesResponse({}));
+  }
+
+  async listWebHostingFiles(request: ListWebHostingFilesRequest): Promise<ListWebHostingFilesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listWebHostingFilesWithOptions(request, runtime);
+  }
+
+  async modifyWebHostingConfigWithOptions(request: ModifyWebHostingConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebHostingConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.allowedIps)) {
+      body["AllowedIps"] = request.allowedIps;
+    }
+
+    if (!Util.isUnset(request.errorPath)) {
+      body["ErrorPath"] = request.errorPath;
+    }
+
+    if (!Util.isUnset(request.historyModePath)) {
+      body["HistoryModePath"] = request.historyModePath;
+    }
+
+    if (!Util.isUnset(request.indexPath)) {
+      body["IndexPath"] = request.indexPath;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyWebHostingConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebHostingConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebHostingConfigResponse({}));
+  }
+
+  async modifyWebHostingConfig(request: ModifyWebHostingConfigRequest): Promise<ModifyWebHostingConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyWebHostingConfigWithOptions(request, runtime);
+  }
+
+  async openServiceWithOptions(request: OpenServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenServiceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenService",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenServiceResponse>(await this.callApi(params, req, runtime), new OpenServiceResponse({}));
+  }
+
+  async openService(request: OpenServiceRequest): Promise<OpenServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openServiceWithOptions(request, runtime);
+  }
+
+  async openWebHostingServiceWithOptions(request: OpenWebHostingServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenWebHostingServiceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "OpenWebHostingService",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OpenWebHostingServiceResponse>(await this.callApi(params, req, runtime), new OpenWebHostingServiceResponse({}));
+  }
+
+  async openWebHostingService(request: OpenWebHostingServiceRequest): Promise<OpenWebHostingServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.openWebHostingServiceWithOptions(request, runtime);
+  }
+
+  async queryDBBackupCollectionsWithOptions(request: QueryDBBackupCollectionsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBBackupCollectionsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.backupId)) {
+      body["BackupId"] = request.backupId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDBBackupCollections",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDBBackupCollectionsResponse>(await this.callApi(params, req, runtime), new QueryDBBackupCollectionsResponse({}));
+  }
+
+  async queryDBBackupCollections(request: QueryDBBackupCollectionsRequest): Promise<QueryDBBackupCollectionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDBBackupCollectionsWithOptions(request, runtime);
+  }
+
+  async queryDBBackupDumpTimesWithOptions(request: QueryDBBackupDumpTimesRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBBackupDumpTimesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDBBackupDumpTimes",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDBBackupDumpTimesResponse>(await this.callApi(params, req, runtime), new QueryDBBackupDumpTimesResponse({}));
+  }
+
+  async queryDBBackupDumpTimes(request: QueryDBBackupDumpTimesRequest): Promise<QueryDBBackupDumpTimesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDBBackupDumpTimesWithOptions(request, runtime);
+  }
+
+  async queryDBExportTaskStatusWithOptions(request: QueryDBExportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBExportTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDBExportTaskStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDBExportTaskStatusResponse>(await this.callApi(params, req, runtime), new QueryDBExportTaskStatusResponse({}));
+  }
+
+  async queryDBExportTaskStatus(request: QueryDBExportTaskStatusRequest): Promise<QueryDBExportTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDBExportTaskStatusWithOptions(request, runtime);
+  }
+
+  async queryDBImportTaskStatusWithOptions(request: QueryDBImportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBImportTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDBImportTaskStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDBImportTaskStatusResponse>(await this.callApi(params, req, runtime), new QueryDBImportTaskStatusResponse({}));
+  }
+
+  async queryDBImportTaskStatus(request: QueryDBImportTaskStatusRequest): Promise<QueryDBImportTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDBImportTaskStatusWithOptions(request, runtime);
+  }
+
+  async queryDBRestoreTaskStatusWithOptions(request: QueryDBRestoreTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryDBRestoreTaskStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDBRestoreTaskStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDBRestoreTaskStatusResponse>(await this.callApi(params, req, runtime), new QueryDBRestoreTaskStatusResponse({}));
+  }
+
+  async queryDBRestoreTaskStatus(request: QueryDBRestoreTaskStatusRequest): Promise<QueryDBRestoreTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDBRestoreTaskStatusWithOptions(request, runtime);
+  }
+
+  async queryServiceStatusWithOptions(request: QueryServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryServiceStatusResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryServiceStatus",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryServiceStatusResponse>(await this.callApi(params, req, runtime), new QueryServiceStatusResponse({}));
+  }
+
+  async queryServiceStatus(request: QueryServiceStatusRequest): Promise<QueryServiceStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryServiceStatusWithOptions(request, runtime);
+  }
+
+  async registerFileWithOptions(request: RegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<RegisterFileResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterFile",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterFileResponse>(await this.callApi(params, req, runtime), new RegisterFileResponse({}));
+  }
+
+  async registerFile(request: RegisterFileRequest): Promise<RegisterFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerFileWithOptions(request, runtime);
+  }
+
+  async renameDBCollectionWithOptions(request: RenameDBCollectionRequest, runtime: $Util.RuntimeOptions): Promise<RenameDBCollectionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.newCollection)) {
+      body["NewCollection"] = request.newCollection;
+    }
+
+    if (!Util.isUnset(request.originCollection)) {
+      body["OriginCollection"] = request.originCollection;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenameDBCollection",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenameDBCollectionResponse>(await this.callApi(params, req, runtime), new RenameDBCollectionResponse({}));
+  }
+
+  async renameDBCollection(request: RenameDBCollectionRequest): Promise<RenameDBCollectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renameDBCollectionWithOptions(request, runtime);
+  }
+
+  async resetServerSecretWithOptions(request: ResetServerSecretRequest, runtime: $Util.RuntimeOptions): Promise<ResetServerSecretResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetServerSecret",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetServerSecretResponse>(await this.callApi(params, req, runtime), new ResetServerSecretResponse({}));
+  }
+
+  async resetServerSecret(request: ResetServerSecretRequest): Promise<ResetServerSecretResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetServerSecretWithOptions(request, runtime);
+  }
+
   async runDBCommandWithOptions(request: RunDBCommandRequest, runtime: $Util.RuntimeOptions): Promise<RunDBCommandResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RunDBCommandResponse>(await this.doRPCRequest("RunDBCommand", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new RunDBCommandResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RunDBCommand",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDBCommandResponse>(await this.callApi(params, req, runtime), new RunDBCommandResponse({}));
   }
 
   async runDBCommand(request: RunDBCommandRequest): Promise<RunDBCommandResponse> {
@@ -9554,17 +8658,545 @@ export default class Client extends OpenApi {
     return await this.runDBCommandWithOptions(request, runtime);
   }
 
-  async deleteFunctionWithOptions(request: DeleteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFunctionResponse> {
+  async runFunctionWithOptions(request: RunFunctionRequest, runtime: $Util.RuntimeOptions): Promise<RunFunctionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DeleteFunctionResponse>(await this.doRPCRequest("DeleteFunction", "2019-06-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFunctionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RunFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunFunctionResponse>(await this.callApi(params, req, runtime), new RunFunctionResponse({}));
   }
 
-  async deleteFunction(request: DeleteFunctionRequest): Promise<DeleteFunctionResponse> {
+  async runFunction(request: RunFunctionRequest): Promise<RunFunctionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFunctionWithOptions(request, runtime);
+    return await this.runFunctionWithOptions(request, runtime);
+  }
+
+  async saveAntOpenPlatformConfigWithOptions(request: SaveAntOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveAntOpenPlatformConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appCert)) {
+      body["AppCert"] = request.appCert;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      body["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.publicCert)) {
+      body["PublicCert"] = request.publicCert;
+    }
+
+    if (!Util.isUnset(request.publicKey)) {
+      body["PublicKey"] = request.publicKey;
+    }
+
+    if (!Util.isUnset(request.rootCert)) {
+      body["RootCert"] = request.rootCert;
+    }
+
+    if (!Util.isUnset(request.signMode)) {
+      body["SignMode"] = request.signMode;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveAntOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveAntOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new SaveAntOpenPlatformConfigResponse({}));
+  }
+
+  async saveAntOpenPlatformConfig(request: SaveAntOpenPlatformConfigRequest): Promise<SaveAntOpenPlatformConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveAntOpenPlatformConfigWithOptions(request, runtime);
+  }
+
+  async saveAppAuthTokenWithOptions(request: SaveAppAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<SaveAppAuthTokenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appAuthToken)) {
+      body["AppAuthToken"] = request.appAuthToken;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.isvAppId)) {
+      body["IsvAppId"] = request.isvAppId;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveAppAuthToken",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveAppAuthTokenResponse>(await this.callApi(params, req, runtime), new SaveAppAuthTokenResponse({}));
+  }
+
+  async saveAppAuthToken(request: SaveAppAuthTokenRequest): Promise<SaveAppAuthTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveAppAuthTokenWithOptions(request, runtime);
+  }
+
+  async saveWebHostingCustomDomainConfigWithOptions(request: SaveWebHostingCustomDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebHostingCustomDomainConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.forceRedirectType)) {
+      body["ForceRedirectType"] = request.forceRedirectType;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveWebHostingCustomDomainConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveWebHostingCustomDomainConfigResponse>(await this.callApi(params, req, runtime), new SaveWebHostingCustomDomainConfigResponse({}));
+  }
+
+  async saveWebHostingCustomDomainConfig(request: SaveWebHostingCustomDomainConfigRequest): Promise<SaveWebHostingCustomDomainConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveWebHostingCustomDomainConfigWithOptions(request, runtime);
+  }
+
+  async saveWebHostingCustomDomainCorsConfigWithOptions(request: SaveWebHostingCustomDomainCorsConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebHostingCustomDomainCorsConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessControlAllowOrigin)) {
+      body["AccessControlAllowOrigin"] = request.accessControlAllowOrigin;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enableCors)) {
+      body["EnableCors"] = request.enableCors;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveWebHostingCustomDomainCorsConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveWebHostingCustomDomainCorsConfigResponse>(await this.callApi(params, req, runtime), new SaveWebHostingCustomDomainCorsConfigResponse({}));
+  }
+
+  async saveWebHostingCustomDomainCorsConfig(request: SaveWebHostingCustomDomainCorsConfigRequest): Promise<SaveWebHostingCustomDomainCorsConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveWebHostingCustomDomainCorsConfigWithOptions(request, runtime);
+  }
+
+  async saveWechatOpenPlatformConfigWithOptions(request: SaveWechatOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveWechatOpenPlatformConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appSecret)) {
+      body["AppSecret"] = request.appSecret;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SaveWechatOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SaveWechatOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new SaveWechatOpenPlatformConfigResponse({}));
+  }
+
+  async saveWechatOpenPlatformConfig(request: SaveWechatOpenPlatformConfigRequest): Promise<SaveWechatOpenPlatformConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.saveWechatOpenPlatformConfigWithOptions(request, runtime);
+  }
+
+  async unbindWebHostingCustomDomainWithOptions(request: UnbindWebHostingCustomDomainRequest, runtime: $Util.RuntimeOptions): Promise<UnbindWebHostingCustomDomainResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomain)) {
+      body["CustomDomain"] = request.customDomain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnbindWebHostingCustomDomain",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindWebHostingCustomDomainResponse>(await this.callApi(params, req, runtime), new UnbindWebHostingCustomDomainResponse({}));
+  }
+
+  async unbindWebHostingCustomDomain(request: UnbindWebHostingCustomDomainRequest): Promise<UnbindWebHostingCustomDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unbindWebHostingCustomDomainWithOptions(request, runtime);
+  }
+
+  async updateDingtalkOpenPlatformConfigWithOptions(request: UpdateDingtalkOpenPlatformConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDingtalkOpenPlatformConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appSecret)) {
+      body["AppSecret"] = request.appSecret;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDingtalkOpenPlatformConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDingtalkOpenPlatformConfigResponse>(await this.callApi(params, req, runtime), new UpdateDingtalkOpenPlatformConfigResponse({}));
+  }
+
+  async updateDingtalkOpenPlatformConfig(request: UpdateDingtalkOpenPlatformConfigRequest): Promise<UpdateDingtalkOpenPlatformConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDingtalkOpenPlatformConfigWithOptions(request, runtime);
+  }
+
+  async updateFunctionWithOptions(request: UpdateFunctionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFunctionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.httpTriggerPath)) {
+      body["HttpTriggerPath"] = request.httpTriggerPath;
+    }
+
+    if (!Util.isUnset(request.instanceConcurrency)) {
+      body["InstanceConcurrency"] = request.instanceConcurrency;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      body["Memory"] = request.memory;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.runtime)) {
+      body["Runtime"] = request.runtime;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.timingTriggerConfig)) {
+      body["TimingTriggerConfig"] = request.timingTriggerConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateFunction",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFunctionResponse>(await this.callApi(params, req, runtime), new UpdateFunctionResponse({}));
+  }
+
+  async updateFunction(request: UpdateFunctionRequest): Promise<UpdateFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateFunctionWithOptions(request, runtime);
+  }
+
+  async updateHttpTriggerConfigWithOptions(request: UpdateHttpTriggerConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateHttpTriggerConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.customDomain)) {
+      body["CustomDomain"] = request.customDomain;
+    }
+
+    if (!Util.isUnset(request.customDomainCertificate)) {
+      body["CustomDomainCertificate"] = request.customDomainCertificate;
+    }
+
+    if (!Util.isUnset(request.customDomainPrivateKey)) {
+      body["CustomDomainPrivateKey"] = request.customDomainPrivateKey;
+    }
+
+    if (!Util.isUnset(request.enableService)) {
+      body["EnableService"] = request.enableService;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateHttpTriggerConfig",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateHttpTriggerConfigResponse>(await this.callApi(params, req, runtime), new UpdateHttpTriggerConfigResponse({}));
+  }
+
+  async updateHttpTriggerConfig(request: UpdateHttpTriggerConfigRequest): Promise<UpdateHttpTriggerConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateHttpTriggerConfigWithOptions(request, runtime);
+  }
+
+  async updateServicePolicyWithOptions(request: UpdateServicePolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServicePolicyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.collectionName)) {
+      body["CollectionName"] = request.collectionName;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      body["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      body["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      body["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateServicePolicy",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateServicePolicyResponse>(await this.callApi(params, req, runtime), new UpdateServicePolicyResponse({}));
+  }
+
+  async updateServicePolicy(request: UpdateServicePolicyRequest): Promise<UpdateServicePolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateServicePolicyWithOptions(request, runtime);
+  }
+
+  async updateSpaceWithOptions(request: UpdateSpaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSpaceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSpace",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSpaceResponse>(await this.callApi(params, req, runtime), new UpdateSpaceResponse({}));
+  }
+
+  async updateSpace(request: UpdateSpaceRequest): Promise<UpdateSpaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSpaceWithOptions(request, runtime);
+  }
+
+  async verifyWebHostingDomainOwnerWithOptions(request: VerifyWebHostingDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyWebHostingDomainOwnerResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domain)) {
+      body["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.verifyType)) {
+      body["VerifyType"] = request.verifyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifyWebHostingDomainOwner",
+      version: "2019-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyWebHostingDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyWebHostingDomainOwnerResponse({}));
+  }
+
+  async verifyWebHostingDomainOwner(request: VerifyWebHostingDomainOwnerRequest): Promise<VerifyWebHostingDomainOwnerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifyWebHostingDomainOwnerWithOptions(request, runtime);
   }
 
 }
