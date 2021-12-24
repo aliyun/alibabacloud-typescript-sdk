@@ -11,12 +11,10 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddEditingProjectMaterialsRequest extends $tea.Model {
   materialMaps?: string;
   projectId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       materialMaps: 'MaterialMaps',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
     };
   }
 
@@ -24,7 +22,6 @@ export class AddEditingProjectMaterialsRequest extends $tea.Model {
     return {
       materialMaps: 'string',
       projectId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -88,18 +85,15 @@ export class AddEditingProjectMaterialsResponse extends $tea.Model {
 
 export class AddFavoritePublicMediaRequest extends $tea.Model {
   mediaIds?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
-      regionId: 'string',
     };
   }
 
@@ -239,12 +233,10 @@ export class AddTemplateResponse extends $tea.Model {
 export class BatchGetMediaInfosRequest extends $tea.Model {
   additionType?: string;
   mediaIds?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       additionType: 'AdditionType',
       mediaIds: 'MediaIds',
-      regionId: 'RegionId',
     };
   }
 
@@ -252,7 +244,6 @@ export class BatchGetMediaInfosRequest extends $tea.Model {
     return {
       additionType: 'string',
       mediaIds: 'string',
-      regionId: 'string',
     };
   }
 
@@ -307,18 +298,15 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
 
 export class CancelFavoritePublicMediaRequest extends $tea.Model {
   mediaIds?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaIds: 'MediaIds',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaIds: 'string',
-      regionId: 'string',
     };
   }
 
@@ -462,13 +450,11 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
   materialIds?: string;
   materialType?: string;
   projectId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       materialIds: 'MaterialIds',
       materialType: 'MaterialType',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
     };
   }
 
@@ -477,7 +463,6 @@ export class DeleteEditingProjectMaterialsRequest extends $tea.Model {
       materialIds: 'string',
       materialType: 'string',
       projectId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -529,18 +514,15 @@ export class DeleteEditingProjectMaterialsResponse extends $tea.Model {
 
 export class DeleteEditingProjectsRequest extends $tea.Model {
   projectIds?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectIds: 'ProjectIds',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectIds: 'string',
-      regionId: 'string',
     };
   }
 
@@ -593,12 +575,10 @@ export class DeleteEditingProjectsResponse extends $tea.Model {
 export class DeleteMediaInfosRequest extends $tea.Model {
   inputURLs?: string;
   mediaIds?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       inputURLs: 'InputURLs',
       mediaIds: 'MediaIds',
-      regionId: 'RegionId',
     };
   }
 
@@ -606,7 +586,6 @@ export class DeleteMediaInfosRequest extends $tea.Model {
     return {
       inputURLs: 'string',
       mediaIds: 'string',
-      regionId: 'string',
     };
   }
 
@@ -661,18 +640,15 @@ export class DeleteMediaInfosResponse extends $tea.Model {
 
 export class DeleteSmartJobRequest extends $tea.Model {
   jobId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -790,18 +766,15 @@ export class DeleteTemplateResponse extends $tea.Model {
 
 export class DescribeIceProductStatusRequest extends $tea.Model {
   commodityCode?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       commodityCode: 'CommodityCode',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       commodityCode: 'string',
-      regionId: 'string',
     };
   }
 
@@ -857,13 +830,11 @@ export class DescribeIceProductStatusResponse extends $tea.Model {
 export class DescribeMaterialPackageInfoRequest extends $tea.Model {
   materialPackageId?: string;
   materialPackageType?: string;
-  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
       materialPackageId: 'MaterialPackageId',
       materialPackageType: 'MaterialPackageType',
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
@@ -872,7 +843,6 @@ export class DescribeMaterialPackageInfoRequest extends $tea.Model {
     return {
       materialPackageId: 'string',
       materialPackageType: 'string',
-      regionId: 'string',
       status: 'string',
     };
   }
@@ -926,25 +896,6 @@ export class DescribeMaterialPackageInfoResponse extends $tea.Model {
   }
 }
 
-export class DescribeRelatedAuthorizationStatusRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRelatedAuthorizationStatusResponseBody extends $tea.Model {
   authorized?: boolean;
   MNSAuthorized?: boolean;
@@ -990,25 +941,6 @@ export class DescribeRelatedAuthorizationStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRelatedAuthorizationStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetDefaultStorageLocationRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
     };
   }
 
@@ -1072,18 +1004,15 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
 
 export class GetEditingProjectRequest extends $tea.Model {
   projectId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1138,18 +1067,15 @@ export class GetEditingProjectResponse extends $tea.Model {
 
 export class GetEditingProjectMaterialsRequest extends $tea.Model {
   projectId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       projectId: 'ProjectId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       projectId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1211,25 +1137,6 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
   }
 }
 
-export class GetEventCallbackRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetEventCallbackResponseBody extends $tea.Model {
   callbackQueueName?: string;
   eventTypeList?: string;
@@ -1281,14 +1188,12 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
   appName?: string;
   domainName?: string;
   projectId?: string;
-  regionId?: string;
   streamName?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
       domainName: 'DomainName',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
       streamName: 'StreamName',
     };
   }
@@ -1298,7 +1203,6 @@ export class GetLiveEditingIndexFileRequest extends $tea.Model {
       appName: 'string',
       domainName: 'string',
       projectId: 'string',
-      regionId: 'string',
       streamName: 'string',
     };
   }
@@ -1419,13 +1323,11 @@ export class GetMediaInfoRequest extends $tea.Model {
   inputURL?: string;
   mediaId?: string;
   outputType?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       outputType: 'OutputType',
-      regionId: 'RegionId',
     };
   }
 
@@ -1434,7 +1336,6 @@ export class GetMediaInfoRequest extends $tea.Model {
       inputURL: 'string',
       mediaId: 'string',
       outputType: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1489,18 +1390,15 @@ export class GetMediaInfoResponse extends $tea.Model {
 
 export class GetMediaProducingJobRequest extends $tea.Model {
   jobId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       jobId: 'JobId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       jobId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1555,18 +1453,15 @@ export class GetMediaProducingJobResponse extends $tea.Model {
 
 export class GetPublicMediaInfoRequest extends $tea.Model {
   mediaId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       mediaId: 'MediaId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       mediaId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1829,12 +1724,10 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
 export class ListAllPublicMediaTagsRequest extends $tea.Model {
   businessType?: string;
   entityId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       businessType: 'BusinessType',
       entityId: 'EntityId',
-      regionId: 'RegionId',
     };
   }
 
@@ -1842,7 +1735,6 @@ export class ListAllPublicMediaTagsRequest extends $tea.Model {
     return {
       businessType: 'string',
       entityId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1903,7 +1795,6 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
   maxResults?: number;
   mediaType?: string;
   nextToken?: string;
-  regionId?: string;
   sortBy?: string;
   source?: string;
   startTime?: string;
@@ -1917,7 +1808,6 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'MaxResults',
       mediaType: 'MediaType',
       nextToken: 'NextToken',
-      regionId: 'RegionId',
       sortBy: 'SortBy',
       source: 'Source',
       startTime: 'StartTime',
@@ -1934,7 +1824,6 @@ export class ListMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'number',
       mediaType: 'string',
       nextToken: 'string',
-      regionId: 'string',
       sortBy: 'string',
       source: 'string',
       startTime: 'string',
@@ -2001,18 +1890,15 @@ export class ListMediaBasicInfosResponse extends $tea.Model {
 }
 
 export class ListMediaProducingJobsRequest extends $tea.Model {
-  regionId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       status: 'string',
     };
   }
@@ -2071,14 +1957,12 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
   maxResults?: number;
   mediaTagId?: string;
   nextToken?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       includeFileBasicInfo: 'IncludeFileBasicInfo',
       maxResults: 'MaxResults',
       mediaTagId: 'MediaTagId',
       nextToken: 'NextToken',
-      regionId: 'RegionId',
     };
   }
 
@@ -2088,7 +1972,6 @@ export class ListPublicMediaBasicInfosRequest extends $tea.Model {
       maxResults: 'number',
       mediaTagId: 'string',
       nextToken: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2157,7 +2040,6 @@ export class ListSmartJobsRequest extends $tea.Model {
   nextToken?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   sortBy?: string;
   status?: number;
   static names(): { [key: string]: string } {
@@ -2168,7 +2050,6 @@ export class ListSmartJobsRequest extends $tea.Model {
       nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       sortBy: 'SortBy',
       status: 'Status',
     };
@@ -2182,7 +2063,6 @@ export class ListSmartJobsRequest extends $tea.Model {
       nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       sortBy: 'string',
       status: 'number',
     };
@@ -2249,13 +2129,11 @@ export class ListSmartJobsResponse extends $tea.Model {
 export class ListSysTemplatesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
-  regionId?: string;
   type?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      regionId: 'RegionId',
       type: 'Type',
     };
   }
@@ -2264,7 +2142,6 @@ export class ListSysTemplatesRequest extends $tea.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
-      regionId: 'string',
       type: 'string',
     };
   }
@@ -2416,7 +2293,6 @@ export class RegisterMediaInfoRequest extends $tea.Model {
   mediaTags?: string;
   mediaType?: string;
   overwrite?: boolean;
-  regionId?: string;
   registerConfig?: string;
   title?: string;
   userData?: string;
@@ -2432,7 +2308,6 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       mediaTags: 'MediaTags',
       mediaType: 'MediaType',
       overwrite: 'Overwrite',
-      regionId: 'RegionId',
       registerConfig: 'RegisterConfig',
       title: 'Title',
       userData: 'UserData',
@@ -2451,7 +2326,6 @@ export class RegisterMediaInfoRequest extends $tea.Model {
       mediaTags: 'string',
       mediaType: 'string',
       overwrite: 'boolean',
-      regionId: 'string',
       registerConfig: 'string',
       title: 'string',
       userData: 'string',
@@ -2513,7 +2387,6 @@ export class SearchEditingProjectRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   projectType?: string;
-  regionId?: string;
   sortBy?: string;
   startTime?: string;
   status?: string;
@@ -2525,7 +2398,6 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       projectType: 'ProjectType',
-      regionId: 'RegionId',
       sortBy: 'SortBy',
       startTime: 'StartTime',
       status: 'Status',
@@ -2540,7 +2412,6 @@ export class SearchEditingProjectRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       projectType: 'string',
-      regionId: 'string',
       sortBy: 'string',
       startTime: 'string',
       status: 'string',
@@ -2614,7 +2485,6 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
   mediaIds?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   sortBy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2625,7 +2495,6 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
       mediaIds: 'MediaIds',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       sortBy: 'SortBy',
     };
   }
@@ -2639,7 +2508,6 @@ export class SearchPublicMediaInfoRequest extends $tea.Model {
       mediaIds: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       sortBy: 'string',
     };
   }
@@ -2699,13 +2567,11 @@ export class SearchPublicMediaInfoResponse extends $tea.Model {
 export class SetDefaultStorageLocationRequest extends $tea.Model {
   bucket?: string;
   path?: string;
-  regionId?: string;
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
       bucket: 'Bucket',
       path: 'Path',
-      regionId: 'RegionId',
       storageType: 'StorageType',
     };
   }
@@ -2714,7 +2580,6 @@ export class SetDefaultStorageLocationRequest extends $tea.Model {
     return {
       bucket: 'string',
       path: 'string',
-      regionId: 'string',
       storageType: 'string',
     };
   }
@@ -2771,12 +2636,10 @@ export class SetDefaultStorageLocationResponse extends $tea.Model {
 export class SetEventCallbackRequest extends $tea.Model {
   callbackQueueName?: string;
   eventTypeList?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       callbackQueueName: 'CallbackQueueName',
       eventTypeList: 'EventTypeList',
-      regionId: 'RegionId',
     };
   }
 
@@ -2784,7 +2647,6 @@ export class SetEventCallbackRequest extends $tea.Model {
     return {
       callbackQueueName: 'string',
       eventTypeList: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3009,7 +2871,6 @@ export class SubmitDelogoJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: boolean;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3020,7 +2881,6 @@ export class SubmitDelogoJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3034,7 +2894,6 @@ export class SubmitDelogoJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'boolean',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3108,7 +2967,6 @@ export class SubmitDynamicChartJobRequest extends $tea.Model {
   description?: string;
   input?: string;
   outputConfig?: string;
-  regionId?: string;
   subtitle?: string;
   title?: string;
   unit?: string;
@@ -3124,7 +2982,6 @@ export class SubmitDynamicChartJobRequest extends $tea.Model {
       description: 'Description',
       input: 'Input',
       outputConfig: 'OutputConfig',
-      regionId: 'RegionId',
       subtitle: 'Subtitle',
       title: 'Title',
       unit: 'Unit',
@@ -3143,7 +3000,6 @@ export class SubmitDynamicChartJobRequest extends $tea.Model {
       description: 'string',
       input: 'string',
       outputConfig: 'string',
-      regionId: 'string',
       subtitle: 'string',
       title: 'string',
       unit: 'string',
@@ -3207,7 +3063,6 @@ export class SubmitH2VJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: boolean;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3218,7 +3073,6 @@ export class SubmitH2VJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3232,7 +3086,6 @@ export class SubmitH2VJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'boolean',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3300,7 +3153,6 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
   description?: string;
   inputFile?: string;
   keyword?: string;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3308,7 +3160,6 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
       description: 'Description',
       inputFile: 'InputFile',
       keyword: 'Keyword',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3319,7 +3170,6 @@ export class SubmitKeyWordCutJobRequest extends $tea.Model {
       description: 'string',
       inputFile: 'string',
       keyword: 'string',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3390,7 +3240,6 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
   outputMediaConfig?: string;
   outputMediaTarget?: string;
   projectId?: string;
-  regionId?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3400,7 +3249,6 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
       outputMediaConfig: 'OutputMediaConfig',
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
       userData: 'UserData',
     };
   }
@@ -3413,7 +3261,6 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
       outputMediaConfig: 'string',
       outputMediaTarget: 'string',
       projectId: 'string',
-      regionId: 'string',
       userData: 'string',
     };
   }
@@ -3483,7 +3330,6 @@ export class SubmitMattingJobRequest extends $tea.Model {
   outputConfig?: string;
   outputMediaTarget?: string;
   overwrite?: string;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3494,7 +3340,6 @@ export class SubmitMattingJobRequest extends $tea.Model {
       outputConfig: 'OutputConfig',
       outputMediaTarget: 'OutputMediaTarget',
       overwrite: 'Overwrite',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3508,7 +3353,6 @@ export class SubmitMattingJobRequest extends $tea.Model {
       outputConfig: 'string',
       outputMediaTarget: 'string',
       overwrite: 'string',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3580,7 +3424,6 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   outputMediaTarget?: string;
   projectId?: string;
   projectMetadata?: string;
-  regionId?: string;
   source?: string;
   templateId?: string;
   timeline?: string;
@@ -3594,7 +3437,6 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       outputMediaTarget: 'OutputMediaTarget',
       projectId: 'ProjectId',
       projectMetadata: 'ProjectMetadata',
-      regionId: 'RegionId',
       source: 'Source',
       templateId: 'TemplateId',
       timeline: 'Timeline',
@@ -3611,7 +3453,6 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
       outputMediaTarget: 'string',
       projectId: 'string',
       projectMetadata: 'string',
-      regionId: 'string',
       source: 'string',
       templateId: 'string',
       timeline: 'string',
@@ -3680,14 +3521,12 @@ export class SubmitMediaProducingJobResponse extends $tea.Model {
 export class SubmitPPTCutJobRequest extends $tea.Model {
   description?: string;
   inputFile?: string;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
       inputFile: 'InputFile',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3697,7 +3536,6 @@ export class SubmitPPTCutJobRequest extends $tea.Model {
     return {
       description: 'string',
       inputFile: 'string',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -3767,7 +3605,6 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
   inputConfig?: string;
   isAsync?: number;
   outputConfig?: string;
-  regionId?: string;
   title?: string;
   type?: string;
   userData?: string;
@@ -3778,7 +3615,6 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
       inputConfig: 'InputConfig',
       isAsync: 'IsAsync',
       outputConfig: 'OutputConfig',
-      regionId: 'RegionId',
       title: 'Title',
       type: 'Type',
       userData: 'UserData',
@@ -3792,7 +3628,6 @@ export class SubmitSubtitleProduceJobRequest extends $tea.Model {
       inputConfig: 'string',
       isAsync: 'number',
       outputConfig: 'string',
-      regionId: 'string',
       title: 'string',
       type: 'string',
       userData: 'string',
@@ -3854,7 +3689,6 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   coverURL?: string;
   description?: string;
   projectId?: string;
-  regionId?: string;
   templateId?: string;
   timeline?: string;
   title?: string;
@@ -3865,7 +3699,6 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       coverURL: 'CoverURL',
       description: 'Description',
       projectId: 'ProjectId',
-      regionId: 'RegionId',
       templateId: 'TemplateId',
       timeline: 'Timeline',
       title: 'Title',
@@ -3879,7 +3712,6 @@ export class UpdateEditingProjectRequest extends $tea.Model {
       coverURL: 'string',
       description: 'string',
       projectId: 'string',
-      regionId: 'string',
       templateId: 'string',
       timeline: 'string',
       title: 'string',
@@ -3943,7 +3775,6 @@ export class UpdateMediaInfoRequest extends $tea.Model {
   inputURL?: string;
   mediaId?: string;
   mediaTags?: string;
-  regionId?: string;
   title?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -3958,7 +3789,6 @@ export class UpdateMediaInfoRequest extends $tea.Model {
       inputURL: 'InputURL',
       mediaId: 'MediaId',
       mediaTags: 'MediaTags',
-      regionId: 'RegionId',
       title: 'Title',
       userData: 'UserData',
     };
@@ -3976,7 +3806,6 @@ export class UpdateMediaInfoRequest extends $tea.Model {
       inputURL: 'string',
       mediaId: 'string',
       mediaTags: 'string',
-      regionId: 'string',
       title: 'string',
       userData: 'string',
     };
@@ -4034,12 +3863,10 @@ export class UpdateMediaInfoResponse extends $tea.Model {
 export class UpdateSmartJobRequest extends $tea.Model {
   FEExtend?: string;
   jobId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       FEExtend: 'FEExtend',
       jobId: 'JobId',
-      regionId: 'RegionId',
     };
   }
 
@@ -4047,7 +3874,6 @@ export class UpdateSmartJobRequest extends $tea.Model {
     return {
       FEExtend: 'string',
       jobId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -7031,8 +6857,14 @@ export default class Client extends OpenApi {
   async addEditingProjectMaterialsWithOptions(request: AddEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<AddEditingProjectMaterialsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaterialMaps"] = request.materialMaps;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.materialMaps)) {
+      query["MaterialMaps"] = request.materialMaps;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7058,7 +6890,10 @@ export default class Client extends OpenApi {
   async addFavoritePublicMediaWithOptions(request: AddFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<AddFavoritePublicMediaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MediaIds"] = request.mediaIds;
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7084,14 +6919,38 @@ export default class Client extends OpenApi {
   async addTemplateWithOptions(request: AddTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Config"] = request.config;
-    query["CoverUrl"] = request.coverUrl;
-    query["Name"] = request.name;
-    query["PreviewMedia"] = request.previewMedia;
-    query["RelatedMediaids"] = request.relatedMediaids;
-    query["Source"] = request.source;
-    query["Status"] = request.status;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.previewMedia)) {
+      query["PreviewMedia"] = request.previewMedia;
+    }
+
+    if (!Util.isUnset(request.relatedMediaids)) {
+      query["RelatedMediaids"] = request.relatedMediaids;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7117,8 +6976,14 @@ export default class Client extends OpenApi {
   async batchGetMediaInfosWithOptions(request: BatchGetMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetMediaInfosResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AdditionType"] = request.additionType;
-    query["MediaIds"] = request.mediaIds;
+    if (!Util.isUnset(request.additionType)) {
+      query["AdditionType"] = request.additionType;
+    }
+
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7144,7 +7009,10 @@ export default class Client extends OpenApi {
   async cancelFavoritePublicMediaWithOptions(request: CancelFavoritePublicMediaRequest, runtime: $Util.RuntimeOptions): Promise<CancelFavoritePublicMediaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MediaIds"] = request.mediaIds;
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7170,15 +7038,42 @@ export default class Client extends OpenApi {
   async createEditingProjectWithOptions(request: CreateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateEditingProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessConfig"] = request.businessConfig;
-    query["ClipsParam"] = request.clipsParam;
-    query["CoverURL"] = request.coverURL;
-    query["Description"] = request.description;
-    query["MaterialMaps"] = request.materialMaps;
-    query["ProjectType"] = request.projectType;
-    query["TemplateId"] = request.templateId;
-    query["Timeline"] = request.timeline;
-    query["Title"] = request.title;
+    if (!Util.isUnset(request.businessConfig)) {
+      query["BusinessConfig"] = request.businessConfig;
+    }
+
+    if (!Util.isUnset(request.clipsParam)) {
+      query["ClipsParam"] = request.clipsParam;
+    }
+
+    if (!Util.isUnset(request.coverURL)) {
+      query["CoverURL"] = request.coverURL;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.materialMaps)) {
+      query["MaterialMaps"] = request.materialMaps;
+    }
+
+    if (!Util.isUnset(request.projectType)) {
+      query["ProjectType"] = request.projectType;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.timeline)) {
+      query["Timeline"] = request.timeline;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7204,9 +7099,18 @@ export default class Client extends OpenApi {
   async deleteEditingProjectMaterialsWithOptions(request: DeleteEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectMaterialsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaterialIds"] = request.materialIds;
-    query["MaterialType"] = request.materialType;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.materialIds)) {
+      query["MaterialIds"] = request.materialIds;
+    }
+
+    if (!Util.isUnset(request.materialType)) {
+      query["MaterialType"] = request.materialType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7232,7 +7136,10 @@ export default class Client extends OpenApi {
   async deleteEditingProjectsWithOptions(request: DeleteEditingProjectsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEditingProjectsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectIds"] = request.projectIds;
+    if (!Util.isUnset(request.projectIds)) {
+      query["ProjectIds"] = request.projectIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7258,8 +7165,14 @@ export default class Client extends OpenApi {
   async deleteMediaInfosWithOptions(request: DeleteMediaInfosRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMediaInfosResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InputURLs"] = request.inputURLs;
-    query["MediaIds"] = request.mediaIds;
+    if (!Util.isUnset(request.inputURLs)) {
+      query["InputURLs"] = request.inputURLs;
+    }
+
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7285,7 +7198,10 @@ export default class Client extends OpenApi {
   async deleteSmartJobWithOptions(request: DeleteSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSmartJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7336,7 +7252,10 @@ export default class Client extends OpenApi {
   async describeIceProductStatusWithOptions(request: DescribeIceProductStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIceProductStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CommodityCode"] = request.commodityCode;
+    if (!Util.isUnset(request.commodityCode)) {
+      query["CommodityCode"] = request.commodityCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7362,9 +7281,18 @@ export default class Client extends OpenApi {
   async describeMaterialPackageInfoWithOptions(request: DescribeMaterialPackageInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMaterialPackageInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaterialPackageId"] = request.materialPackageId;
-    query["MaterialPackageType"] = request.materialPackageType;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.materialPackageId)) {
+      query["MaterialPackageId"] = request.materialPackageId;
+    }
+
+    if (!Util.isUnset(request.materialPackageType)) {
+      query["MaterialPackageType"] = request.materialPackageType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7387,12 +7315,8 @@ export default class Client extends OpenApi {
     return await this.describeMaterialPackageInfoWithOptions(request, runtime);
   }
 
-  async describeRelatedAuthorizationStatusWithOptions(request: DescribeRelatedAuthorizationStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
+  async describeRelatedAuthorizationStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRelatedAuthorizationStatusResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "DescribeRelatedAuthorizationStatus",
       version: "2020-11-09",
@@ -7407,14 +7331,12 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRelatedAuthorizationStatusResponse>(await this.callApi(params, req, runtime), new DescribeRelatedAuthorizationStatusResponse({}));
   }
 
-  async describeRelatedAuthorizationStatus(request: DescribeRelatedAuthorizationStatusRequest): Promise<DescribeRelatedAuthorizationStatusResponse> {
+  async describeRelatedAuthorizationStatus(): Promise<DescribeRelatedAuthorizationStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRelatedAuthorizationStatusWithOptions(request, runtime);
+    return await this.describeRelatedAuthorizationStatusWithOptions(runtime);
   }
 
-  async getDefaultStorageLocationWithOptions(request: GetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
-    Util.validateModel(request);
-    let query = { };
+  async getDefaultStorageLocationWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultStorageLocationResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetDefaultStorageLocation",
@@ -7430,15 +7352,18 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDefaultStorageLocationResponse>(await this.callApi(params, req, runtime), new GetDefaultStorageLocationResponse({}));
   }
 
-  async getDefaultStorageLocation(request: GetDefaultStorageLocationRequest): Promise<GetDefaultStorageLocationResponse> {
+  async getDefaultStorageLocation(): Promise<GetDefaultStorageLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getDefaultStorageLocationWithOptions(request, runtime);
+    return await this.getDefaultStorageLocationWithOptions(runtime);
   }
 
   async getEditingProjectWithOptions(request: GetEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7464,7 +7389,10 @@ export default class Client extends OpenApi {
   async getEditingProjectMaterialsWithOptions(request: GetEditingProjectMaterialsRequest, runtime: $Util.RuntimeOptions): Promise<GetEditingProjectMaterialsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7487,9 +7415,7 @@ export default class Client extends OpenApi {
     return await this.getEditingProjectMaterialsWithOptions(request, runtime);
   }
 
-  async getEventCallbackWithOptions(request: GetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
-    Util.validateModel(request);
-    let query = { };
+  async getEventCallbackWithOptions(runtime: $Util.RuntimeOptions): Promise<GetEventCallbackResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetEventCallback",
@@ -7505,9 +7431,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetEventCallbackResponse>(await this.callApi(params, req, runtime), new GetEventCallbackResponse({}));
   }
 
-  async getEventCallback(request: GetEventCallbackRequest): Promise<GetEventCallbackResponse> {
+  async getEventCallback(): Promise<GetEventCallbackResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getEventCallbackWithOptions(request, runtime);
+    return await this.getEventCallbackWithOptions(runtime);
   }
 
   async getLiveEditingIndexFileWithOptions(request: GetLiveEditingIndexFileRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingIndexFileResponse> {
@@ -7538,7 +7464,10 @@ export default class Client extends OpenApi {
   async getLiveEditingJobWithOptions(request: GetLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<GetLiveEditingJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7564,9 +7493,18 @@ export default class Client extends OpenApi {
   async getMediaInfoWithOptions(request: GetMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InputURL"] = request.inputURL;
-    query["MediaId"] = request.mediaId;
-    query["OutputType"] = request.outputType;
+    if (!Util.isUnset(request.inputURL)) {
+      query["InputURL"] = request.inputURL;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.outputType)) {
+      query["OutputType"] = request.outputType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7617,7 +7555,10 @@ export default class Client extends OpenApi {
   async getPublicMediaInfoWithOptions(request: GetPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetPublicMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MediaId"] = request.mediaId;
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7718,8 +7659,14 @@ export default class Client extends OpenApi {
   async listAllPublicMediaTagsWithOptions(request: ListAllPublicMediaTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListAllPublicMediaTagsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["EntityId"] = request.entityId;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7745,17 +7692,50 @@ export default class Client extends OpenApi {
   async listMediaBasicInfosWithOptions(request: ListMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaBasicInfosResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["Category"] = request.category;
-    query["EndTime"] = request.endTime;
-    query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
-    query["MaxResults"] = request.maxResults;
-    query["MediaType"] = request.mediaType;
-    query["NextToken"] = request.nextToken;
-    query["SortBy"] = request.sortBy;
-    query["Source"] = request.source;
-    query["StartTime"] = request.startTime;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.includeFileBasicInfo)) {
+      query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7781,7 +7761,10 @@ export default class Client extends OpenApi {
   async listMediaProducingJobsWithOptions(request: ListMediaProducingJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListMediaProducingJobsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7807,10 +7790,22 @@ export default class Client extends OpenApi {
   async listPublicMediaBasicInfosWithOptions(request: ListPublicMediaBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListPublicMediaBasicInfosResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
-    query["MaxResults"] = request.maxResults;
-    query["MediaTagId"] = request.mediaTagId;
-    query["NextToken"] = request.nextToken;
+    if (!Util.isUnset(request.includeFileBasicInfo)) {
+      query["IncludeFileBasicInfo"] = request.includeFileBasicInfo;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.mediaTagId)) {
+      query["MediaTagId"] = request.mediaTagId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7886,11 +7881,26 @@ export default class Client extends OpenApi {
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CreateSource"] = request.createSource;
-    query["Keyword"] = request.keyword;
-    query["SortType"] = request.sortType;
-    query["Status"] = request.status;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.createSource)) {
+      query["CreateSource"] = request.createSource;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7916,19 +7926,58 @@ export default class Client extends OpenApi {
   async registerMediaInfoWithOptions(request: RegisterMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<RegisterMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["Category"] = request.category;
-    query["ClientToken"] = request.clientToken;
-    query["CoverURL"] = request.coverURL;
-    query["Description"] = request.description;
-    query["DynamicMetaDataList"] = request.dynamicMetaDataList;
-    query["InputURL"] = request.inputURL;
-    query["MediaTags"] = request.mediaTags;
-    query["MediaType"] = request.mediaType;
-    query["Overwrite"] = request.overwrite;
-    query["RegisterConfig"] = request.registerConfig;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.coverURL)) {
+      query["CoverURL"] = request.coverURL;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dynamicMetaDataList)) {
+      query["DynamicMetaDataList"] = request.dynamicMetaDataList;
+    }
+
+    if (!Util.isUnset(request.inputURL)) {
+      query["InputURL"] = request.inputURL;
+    }
+
+    if (!Util.isUnset(request.mediaTags)) {
+      query["MediaTags"] = request.mediaTags;
+    }
+
+    if (!Util.isUnset(request.mediaType)) {
+      query["MediaType"] = request.mediaType;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.registerConfig)) {
+      query["RegisterConfig"] = request.registerConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7954,15 +8003,42 @@ export default class Client extends OpenApi {
   async searchEditingProjectWithOptions(request: SearchEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<SearchEditingProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CreateSource"] = request.createSource;
-    query["EndTime"] = request.endTime;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProjectType"] = request.projectType;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
-    query["Status"] = request.status;
-    query["TemplateType"] = request.templateType;
+    if (!Util.isUnset(request.createSource)) {
+      query["CreateSource"] = request.createSource;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectType)) {
+      query["ProjectType"] = request.projectType;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7988,14 +8064,38 @@ export default class Client extends OpenApi {
   async searchPublicMediaInfoWithOptions(request: SearchPublicMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<SearchPublicMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Authorized"] = request.authorized;
-    query["DynamicMetaDataMatchFields"] = request.dynamicMetaDataMatchFields;
-    query["EntityId"] = request.entityId;
-    query["Favorite"] = request.favorite;
-    query["MediaIds"] = request.mediaIds;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["SortBy"] = request.sortBy;
+    if (!Util.isUnset(request.authorized)) {
+      query["Authorized"] = request.authorized;
+    }
+
+    if (!Util.isUnset(request.dynamicMetaDataMatchFields)) {
+      query["DynamicMetaDataMatchFields"] = request.dynamicMetaDataMatchFields;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.favorite)) {
+      query["Favorite"] = request.favorite;
+    }
+
+    if (!Util.isUnset(request.mediaIds)) {
+      query["MediaIds"] = request.mediaIds;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8021,9 +8121,18 @@ export default class Client extends OpenApi {
   async setDefaultStorageLocationWithOptions(request: SetDefaultStorageLocationRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultStorageLocationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bucket"] = request.bucket;
-    query["Path"] = request.path;
-    query["StorageType"] = request.storageType;
+    if (!Util.isUnset(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8049,8 +8158,14 @@ export default class Client extends OpenApi {
   async setEventCallbackWithOptions(request: SetEventCallbackRequest, runtime: $Util.RuntimeOptions): Promise<SetEventCallbackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallbackQueueName"] = request.callbackQueueName;
-    query["EventTypeList"] = request.eventTypeList;
+    if (!Util.isUnset(request.callbackQueueName)) {
+      query["CallbackQueueName"] = request.callbackQueueName;
+    }
+
+    if (!Util.isUnset(request.eventTypeList)) {
+      query["EventTypeList"] = request.eventTypeList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8076,12 +8191,30 @@ export default class Client extends OpenApi {
   async submitASRJobWithOptions(request: SubmitASRJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitASRJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["Duration"] = request.duration;
-    query["InputFile"] = request.inputFile;
-    query["StartTime"] = request.startTime;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.inputFile)) {
+      query["InputFile"] = request.inputFile;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8107,13 +8240,34 @@ export default class Client extends OpenApi {
   async submitAudioProduceJobWithOptions(request: SubmitAudioProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitAudioProduceJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["EditingConfig"] = request.editingConfig;
-    query["InputConfig"] = request.inputConfig;
-    query["OutputConfig"] = request.outputConfig;
-    query["Overwrite"] = request.overwrite;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.editingConfig)) {
+      query["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      query["InputConfig"] = request.inputConfig;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8139,14 +8293,38 @@ export default class Client extends OpenApi {
   async submitDelogoJobWithOptions(request: SubmitDelogoJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDelogoJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["InputFile"] = request.inputFile;
-    query["InputType"] = request.inputType;
-    query["OutputConfig"] = request.outputConfig;
-    query["OutputMediaTarget"] = request.outputMediaTarget;
-    query["Overwrite"] = request.overwrite;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.inputFile)) {
+      query["InputFile"] = request.inputFile;
+    }
+
+    if (!Util.isUnset(request.inputType)) {
+      query["InputType"] = request.inputType;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaTarget)) {
+      query["OutputMediaTarget"] = request.outputMediaTarget;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8172,19 +8350,58 @@ export default class Client extends OpenApi {
   async submitDynamicChartJobWithOptions(request: SubmitDynamicChartJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDynamicChartJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AxisParams"] = request.axisParams;
-    query["Background"] = request.background;
-    query["ChartConfig"] = request.chartConfig;
-    query["ChartTitle"] = request.chartTitle;
-    query["ChartType"] = request.chartType;
-    query["DataSource"] = request.dataSource;
-    query["Description"] = request.description;
-    query["Input"] = request.input;
-    query["OutputConfig"] = request.outputConfig;
-    query["Subtitle"] = request.subtitle;
-    query["Title"] = request.title;
-    query["Unit"] = request.unit;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.axisParams)) {
+      query["AxisParams"] = request.axisParams;
+    }
+
+    if (!Util.isUnset(request.background)) {
+      query["Background"] = request.background;
+    }
+
+    if (!Util.isUnset(request.chartConfig)) {
+      query["ChartConfig"] = request.chartConfig;
+    }
+
+    if (!Util.isUnset(request.chartTitle)) {
+      query["ChartTitle"] = request.chartTitle;
+    }
+
+    if (!Util.isUnset(request.chartType)) {
+      query["ChartType"] = request.chartType;
+    }
+
+    if (!Util.isUnset(request.dataSource)) {
+      query["DataSource"] = request.dataSource;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.subtitle)) {
+      query["Subtitle"] = request.subtitle;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.unit)) {
+      query["Unit"] = request.unit;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8210,14 +8427,38 @@ export default class Client extends OpenApi {
   async submitH2VJobWithOptions(request: SubmitH2VJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitH2VJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["InputFile"] = request.inputFile;
-    query["InputType"] = request.inputType;
-    query["OutputConfig"] = request.outputConfig;
-    query["OutputMediaTarget"] = request.outputMediaTarget;
-    query["Overwrite"] = request.overwrite;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.inputFile)) {
+      query["InputFile"] = request.inputFile;
+    }
+
+    if (!Util.isUnset(request.inputType)) {
+      query["InputType"] = request.inputType;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaTarget)) {
+      query["OutputMediaTarget"] = request.outputMediaTarget;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8268,13 +8509,34 @@ export default class Client extends OpenApi {
   async submitLiveEditingJobWithOptions(request: SubmitLiveEditingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitLiveEditingJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Clips"] = request.clips;
-    query["LiveStreamConfig"] = request.liveStreamConfig;
-    query["MediaProduceConfig"] = request.mediaProduceConfig;
-    query["OutputMediaConfig"] = request.outputMediaConfig;
-    query["OutputMediaTarget"] = request.outputMediaTarget;
-    query["ProjectId"] = request.projectId;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.clips)) {
+      query["Clips"] = request.clips;
+    }
+
+    if (!Util.isUnset(request.liveStreamConfig)) {
+      query["LiveStreamConfig"] = request.liveStreamConfig;
+    }
+
+    if (!Util.isUnset(request.mediaProduceConfig)) {
+      query["MediaProduceConfig"] = request.mediaProduceConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaConfig)) {
+      query["OutputMediaConfig"] = request.outputMediaConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaTarget)) {
+      query["OutputMediaTarget"] = request.outputMediaTarget;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8300,14 +8562,38 @@ export default class Client extends OpenApi {
   async submitMattingJobWithOptions(request: SubmitMattingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMattingJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["InputFile"] = request.inputFile;
-    query["InputType"] = request.inputType;
-    query["OutputConfig"] = request.outputConfig;
-    query["OutputMediaTarget"] = request.outputMediaTarget;
-    query["Overwrite"] = request.overwrite;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.inputFile)) {
+      query["InputFile"] = request.inputFile;
+    }
+
+    if (!Util.isUnset(request.inputType)) {
+      query["InputType"] = request.inputType;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaTarget)) {
+      query["OutputMediaTarget"] = request.outputMediaTarget;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8333,17 +8619,50 @@ export default class Client extends OpenApi {
   async submitMediaProducingJobWithOptions(request: SubmitMediaProducingJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitMediaProducingJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ClipsParam"] = request.clipsParam;
-    query["EditingProduceConfig"] = request.editingProduceConfig;
-    query["OutputMediaConfig"] = request.outputMediaConfig;
-    query["OutputMediaTarget"] = request.outputMediaTarget;
-    query["ProjectId"] = request.projectId;
-    query["ProjectMetadata"] = request.projectMetadata;
-    query["Source"] = request.source;
-    query["TemplateId"] = request.templateId;
-    query["Timeline"] = request.timeline;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clipsParam)) {
+      query["ClipsParam"] = request.clipsParam;
+    }
+
+    if (!Util.isUnset(request.editingProduceConfig)) {
+      query["EditingProduceConfig"] = request.editingProduceConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaConfig)) {
+      query["OutputMediaConfig"] = request.outputMediaConfig;
+    }
+
+    if (!Util.isUnset(request.outputMediaTarget)) {
+      query["OutputMediaTarget"] = request.outputMediaTarget;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectMetadata)) {
+      query["ProjectMetadata"] = request.projectMetadata;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.timeline)) {
+      query["Timeline"] = request.timeline;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8394,14 +8713,38 @@ export default class Client extends OpenApi {
   async submitSubtitleProduceJobWithOptions(request: SubmitSubtitleProduceJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSubtitleProduceJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["EditingConfig"] = request.editingConfig;
-    query["InputConfig"] = request.inputConfig;
-    query["IsAsync"] = request.isAsync;
-    query["OutputConfig"] = request.outputConfig;
-    query["Title"] = request.title;
-    query["Type"] = request.type;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.editingConfig)) {
+      query["EditingConfig"] = request.editingConfig;
+    }
+
+    if (!Util.isUnset(request.inputConfig)) {
+      query["InputConfig"] = request.inputConfig;
+    }
+
+    if (!Util.isUnset(request.isAsync)) {
+      query["IsAsync"] = request.isAsync;
+    }
+
+    if (!Util.isUnset(request.outputConfig)) {
+      query["OutputConfig"] = request.outputConfig;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8427,14 +8770,38 @@ export default class Client extends OpenApi {
   async updateEditingProjectWithOptions(request: UpdateEditingProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEditingProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessStatus"] = request.businessStatus;
-    query["ClipsParam"] = request.clipsParam;
-    query["CoverURL"] = request.coverURL;
-    query["Description"] = request.description;
-    query["ProjectId"] = request.projectId;
-    query["TemplateId"] = request.templateId;
-    query["Timeline"] = request.timeline;
-    query["Title"] = request.title;
+    if (!Util.isUnset(request.businessStatus)) {
+      query["BusinessStatus"] = request.businessStatus;
+    }
+
+    if (!Util.isUnset(request.clipsParam)) {
+      query["ClipsParam"] = request.clipsParam;
+    }
+
+    if (!Util.isUnset(request.coverURL)) {
+      query["CoverURL"] = request.coverURL;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.timeline)) {
+      query["Timeline"] = request.timeline;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8460,18 +8827,54 @@ export default class Client extends OpenApi {
   async updateMediaInfoWithOptions(request: UpdateMediaInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMediaInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppendDynamicMeta"] = request.appendDynamicMeta;
-    query["AppendTags"] = request.appendTags;
-    query["BusinessType"] = request.businessType;
-    query["Category"] = request.category;
-    query["CoverURL"] = request.coverURL;
-    query["Description"] = request.description;
-    query["DynamicMetaDataList"] = request.dynamicMetaDataList;
-    query["InputURL"] = request.inputURL;
-    query["MediaId"] = request.mediaId;
-    query["MediaTags"] = request.mediaTags;
-    query["Title"] = request.title;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.appendDynamicMeta)) {
+      query["AppendDynamicMeta"] = request.appendDynamicMeta;
+    }
+
+    if (!Util.isUnset(request.appendTags)) {
+      query["AppendTags"] = request.appendTags;
+    }
+
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.coverURL)) {
+      query["CoverURL"] = request.coverURL;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dynamicMetaDataList)) {
+      query["DynamicMetaDataList"] = request.dynamicMetaDataList;
+    }
+
+    if (!Util.isUnset(request.inputURL)) {
+      query["InputURL"] = request.inputURL;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!Util.isUnset(request.mediaTags)) {
+      query["MediaTags"] = request.mediaTags;
+    }
+
+    if (!Util.isUnset(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8497,8 +8900,14 @@ export default class Client extends OpenApi {
   async updateSmartJobWithOptions(request: UpdateSmartJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSmartJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FEExtend"] = request.FEExtend;
-    query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.FEExtend)) {
+      query["FEExtend"] = request.FEExtend;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8524,14 +8933,38 @@ export default class Client extends OpenApi {
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Config"] = request.config;
-    query["CoverUrl"] = request.coverUrl;
-    query["Name"] = request.name;
-    query["PreviewMedia"] = request.previewMedia;
-    query["RelatedMediaids"] = request.relatedMediaids;
-    query["Source"] = request.source;
-    query["Status"] = request.status;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.coverUrl)) {
+      query["CoverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.previewMedia)) {
+      query["PreviewMedia"] = request.previewMedia;
+    }
+
+    if (!Util.isUnset(request.relatedMediaids)) {
+      query["RelatedMediaids"] = request.relatedMediaids;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
