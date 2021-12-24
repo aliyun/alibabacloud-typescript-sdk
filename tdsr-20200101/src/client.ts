@@ -230,6 +230,78 @@ export class AddRelativePositionResponse extends $tea.Model {
   }
 }
 
+export class AddRoomPlanRequest extends $tea.Model {
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sceneId: 'SceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRoomPlanResponseBody extends $tea.Model {
+  code?: number;
+  data?: AddRoomPlanResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: AddRoomPlanResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddRoomPlanResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddRoomPlanResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddRoomPlanResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddSceneRequest extends $tea.Model {
   name?: string;
   projectId?: string;
@@ -4442,6 +4514,43 @@ export class UpdateSubSceneResponse extends $tea.Model {
   }
 }
 
+export class AddRoomPlanResponseBodyData extends $tea.Model {
+  accessId?: string;
+  callback?: string;
+  dir?: string;
+  expire?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'AccessId',
+      callback: 'Callback',
+      dir: 'Dir',
+      expire: 'Expire',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      callback: 'string',
+      dir: 'string',
+      expire: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetConnDataResponseBodyList extends $tea.Model {
   id?: string;
   mapId?: string;
@@ -4774,11 +4883,16 @@ export default class Client extends OpenApi {
   async addMosaicsWithOptions(request: AddMosaicsRequest, runtime: $Util.RuntimeOptions): Promise<AddMosaicsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MarkPosition"] = request.markPosition;
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.markPosition)) {
+      query["MarkPosition"] = request.markPosition;
+    }
+
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddMosaics",
@@ -4788,7 +4902,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddMosaicsResponse>(await this.callApi(params, req, runtime), new AddMosaicsResponse({}));
@@ -4802,11 +4916,16 @@ export default class Client extends OpenApi {
   async addProjectWithOptions(request: AddProjectRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessId"] = request.businessId;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddProject",
@@ -4816,7 +4935,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddProjectResponse>(await this.callApi(params, req, runtime), new AddProjectResponse({}));
@@ -4830,11 +4949,16 @@ export default class Client extends OpenApi {
   async addRelativePositionWithOptions(request: AddRelativePositionRequest, runtime: $Util.RuntimeOptions): Promise<AddRelativePositionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RelativePosition"] = request.relativePosition;
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.relativePosition)) {
+      query["RelativePosition"] = request.relativePosition;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddRelativePosition",
@@ -4844,7 +4968,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddRelativePositionResponse>(await this.callApi(params, req, runtime), new AddRelativePositionResponse({}));
@@ -4855,15 +4979,52 @@ export default class Client extends OpenApi {
     return await this.addRelativePositionWithOptions(request, runtime);
   }
 
+  async addRoomPlanWithOptions(request: AddRoomPlanRequest, runtime: $Util.RuntimeOptions): Promise<AddRoomPlanResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddRoomPlan",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddRoomPlanResponse>(await this.callApi(params, req, runtime), new AddRoomPlanResponse({}));
+  }
+
+  async addRoomPlan(request: AddRoomPlanRequest): Promise<AddRoomPlanResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addRoomPlanWithOptions(request, runtime);
+  }
+
   async addSceneWithOptions(request: AddSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddScene",
@@ -4873,7 +5034,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddSceneResponse>(await this.callApi(params, req, runtime), new AddSceneResponse({}));
@@ -4887,12 +5048,20 @@ export default class Client extends OpenApi {
   async addSubSceneWithOptions(request: AddSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<AddSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["SceneId"] = request.sceneId;
-    query["UploadType"] = request.uploadType;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.uploadType)) {
+      query["UploadType"] = request.uploadType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddSubScene",
@@ -4902,7 +5071,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddSubSceneResponse>(await this.callApi(params, req, runtime), new AddSubSceneResponse({}));
@@ -4916,23 +5085,64 @@ export default class Client extends OpenApi {
   async checkResourceWithOptions(request: CheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bid"] = request.bid;
-    query["Country"] = request.country;
-    query["GmtWakeup"] = request.gmtWakeup;
-    query["Hid"] = request.hid;
-    query["Interrupt"] = request.interrupt;
-    query["Invoker"] = request.invoker;
-    query["Level"] = request.level;
-    query["Message"] = request.message;
-    query["Pk"] = request.pk;
-    query["Prompt"] = request.prompt;
-    query["Success"] = request.success;
-    query["TaskExtraData"] = request.taskExtraData;
-    query["TaskIdentifier"] = request.taskIdentifier;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.bid)) {
+      query["Bid"] = request.bid;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.gmtWakeup)) {
+      query["GmtWakeup"] = request.gmtWakeup;
+    }
+
+    if (!Util.isUnset(request.hid)) {
+      query["Hid"] = request.hid;
+    }
+
+    if (!Util.isUnset(request.interrupt)) {
+      query["Interrupt"] = request.interrupt;
+    }
+
+    if (!Util.isUnset(request.invoker)) {
+      query["Invoker"] = request.invoker;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.pk)) {
+      query["Pk"] = request.pk;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.success)) {
+      query["Success"] = request.success;
+    }
+
+    if (!Util.isUnset(request.taskExtraData)) {
+      query["TaskExtraData"] = request.taskExtraData;
+    }
+
+    if (!Util.isUnset(request.taskIdentifier)) {
+      query["TaskIdentifier"] = request.taskIdentifier;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CheckResource",
@@ -4942,7 +5152,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CheckResourceResponse>(await this.callApi(params, req, runtime), new CheckResourceResponse({}));
@@ -4956,14 +5166,28 @@ export default class Client extends OpenApi {
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuilderUserIdList"] = request.builderUserIdList;
-    query["BusinessId"] = request.businessId;
-    query["BusinessUserIdList"] = request.businessUserIdList;
-    query["GatherUserIdList"] = request.gatherUserIdList;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.builderUserIdList)) {
+      query["BuilderUserIdList"] = request.builderUserIdList;
+    }
+
+    if (!Util.isUnset(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.businessUserIdList)) {
+      query["BusinessUserIdList"] = request.businessUserIdList;
+    }
+
+    if (!Util.isUnset(request.gatherUserIdList)) {
+      query["GatherUserIdList"] = request.gatherUserIdList;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateProject",
@@ -4973,7 +5197,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
@@ -4987,11 +5211,16 @@ export default class Client extends OpenApi {
   async createSceneWithOptions(request: CreateSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateScene",
@@ -5001,7 +5230,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSceneResponse>(await this.callApi(params, req, runtime), new CreateSceneResponse({}));
@@ -5015,11 +5244,16 @@ export default class Client extends OpenApi {
   async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ParamFile"] = request.paramFile;
-    query["SubSceneUuid"] = request.subSceneUuid;
+    if (!Util.isUnset(request.paramFile)) {
+      query["ParamFile"] = request.paramFile;
+    }
+
+    if (!Util.isUnset(request.subSceneUuid)) {
+      query["SubSceneUuid"] = request.subSceneUuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFile",
@@ -5029,7 +5263,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
@@ -5043,10 +5277,12 @@ export default class Client extends OpenApi {
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProject",
@@ -5056,7 +5292,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
@@ -5070,10 +5306,12 @@ export default class Client extends OpenApi {
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetailProject",
@@ -5083,7 +5321,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetailProjectResponse>(await this.callApi(params, req, runtime), new DetailProjectResponse({}));
@@ -5097,10 +5335,12 @@ export default class Client extends OpenApi {
   async detailSceneWithOptions(request: DetailSceneRequest, runtime: $Util.RuntimeOptions): Promise<DetailSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetailScene",
@@ -5110,7 +5350,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetailSceneResponse>(await this.callApi(params, req, runtime), new DetailSceneResponse({}));
@@ -5124,10 +5364,12 @@ export default class Client extends OpenApi {
   async detailSubSceneWithOptions(request: DetailSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<DetailSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DetailSubScene",
@@ -5137,7 +5379,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DetailSubSceneResponse>(await this.callApi(params, req, runtime), new DetailSubSceneResponse({}));
@@ -5151,10 +5393,12 @@ export default class Client extends OpenApi {
   async dropProjectWithOptions(request: DropProjectRequest, runtime: $Util.RuntimeOptions): Promise<DropProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DropProject",
@@ -5164,7 +5408,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DropProjectResponse>(await this.callApi(params, req, runtime), new DropProjectResponse({}));
@@ -5178,10 +5422,12 @@ export default class Client extends OpenApi {
   async dropSceneWithOptions(request: DropSceneRequest, runtime: $Util.RuntimeOptions): Promise<DropSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DropScene",
@@ -5191,7 +5437,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DropSceneResponse>(await this.callApi(params, req, runtime), new DropSceneResponse({}));
@@ -5205,10 +5451,12 @@ export default class Client extends OpenApi {
   async dropSubSceneWithOptions(request: DropSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<DropSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DropSubScene",
@@ -5218,7 +5466,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DropSubSceneResponse>(await this.callApi(params, req, runtime), new DropSubSceneResponse({}));
@@ -5232,10 +5480,12 @@ export default class Client extends OpenApi {
   async getConnDataWithOptions(request: GetConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetConnDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetConnData",
@@ -5245,7 +5495,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetConnDataResponse>(await this.callApi(params, req, runtime), new GetConnDataResponse({}));
@@ -5259,13 +5509,24 @@ export default class Client extends OpenApi {
   async getHotspotConfigWithOptions(request: GetHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["PreviewToken"] = request.previewToken;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetHotspotConfig",
@@ -5275,7 +5536,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHotspotConfigResponse>(await this.callApi(params, req, runtime), new GetHotspotConfigResponse({}));
@@ -5289,13 +5550,24 @@ export default class Client extends OpenApi {
   async getHotspotSceneDataWithOptions(request: GetHotspotSceneDataRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotSceneDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["PreviewToken"] = request.previewToken;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetHotspotSceneData",
@@ -5305,7 +5577,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHotspotSceneDataResponse>(await this.callApi(params, req, runtime), new GetHotspotSceneDataResponse({}));
@@ -5319,14 +5591,28 @@ export default class Client extends OpenApi {
   async getHotspotTagWithOptions(request: GetHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<GetHotspotTagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["PreviewToken"] = request.previewToken;
-    query["SubSceneUuid"] = request.subSceneUuid;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
+    if (!Util.isUnset(request.subSceneUuid)) {
+      query["SubSceneUuid"] = request.subSceneUuid;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetHotspotTag",
@@ -5336,7 +5622,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHotspotTagResponse>(await this.callApi(params, req, runtime), new GetHotspotTagResponse({}));
@@ -5350,10 +5636,12 @@ export default class Client extends OpenApi {
   async getLayoutDataWithOptions(request: GetLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<GetLayoutDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetLayoutData",
@@ -5363,7 +5651,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetLayoutDataResponse>(await this.callApi(params, req, runtime), new GetLayoutDataResponse({}));
@@ -5377,10 +5665,12 @@ export default class Client extends OpenApi {
   async getOriginLayoutDataWithOptions(request: GetOriginLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<GetOriginLayoutDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetOriginLayoutData",
@@ -5390,7 +5680,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetOriginLayoutDataResponse>(await this.callApi(params, req, runtime), new GetOriginLayoutDataResponse({}));
@@ -5404,10 +5694,12 @@ export default class Client extends OpenApi {
   async getOssPolicyWithOptions(request: GetOssPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetOssPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetOssPolicy",
@@ -5417,7 +5709,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetOssPolicyResponse>(await this.callApi(params, req, runtime), new GetOssPolicyResponse({}));
@@ -5431,11 +5723,16 @@ export default class Client extends OpenApi {
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneUuid"] = request.subSceneUuid;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.subSceneUuid)) {
+      query["SubSceneUuid"] = request.subSceneUuid;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPolicy",
@@ -5445,7 +5742,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
@@ -5459,10 +5756,12 @@ export default class Client extends OpenApi {
   async getRectifyImageWithOptions(request: GetRectifyImageRequest, runtime: $Util.RuntimeOptions): Promise<GetRectifyImageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRectifyImage",
@@ -5472,7 +5771,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRectifyImageResponse>(await this.callApi(params, req, runtime), new GetRectifyImageResponse({}));
@@ -5486,10 +5785,12 @@ export default class Client extends OpenApi {
   async getSceneBuildTaskStatusWithOptions(request: GetSceneBuildTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSceneBuildTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetSceneBuildTaskStatus",
@@ -5499,7 +5800,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSceneBuildTaskStatusResponse>(await this.callApi(params, req, runtime), new GetSceneBuildTaskStatusResponse({}));
@@ -5513,12 +5814,20 @@ export default class Client extends OpenApi {
   async getScenePreviewInfoWithOptions(request: GetScenePreviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Enabled"] = request.enabled;
-    query["ModelToken"] = request.modelToken;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.modelToken)) {
+      query["ModelToken"] = request.modelToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetScenePreviewInfo",
@@ -5528,7 +5837,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetScenePreviewInfoResponse>(await this.callApi(params, req, runtime), new GetScenePreviewInfoResponse({}));
@@ -5542,10 +5851,12 @@ export default class Client extends OpenApi {
   async getSingleConnDataWithOptions(request: GetSingleConnDataRequest, runtime: $Util.RuntimeOptions): Promise<GetSingleConnDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetSingleConnData",
@@ -5555,7 +5866,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSingleConnDataResponse>(await this.callApi(params, req, runtime), new GetSingleConnDataResponse({}));
@@ -5569,10 +5880,12 @@ export default class Client extends OpenApi {
   async getSubSceneTaskStatusWithOptions(request: GetSubSceneTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSubSceneTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetSubSceneTaskStatus",
@@ -5582,7 +5895,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSubSceneTaskStatusResponse>(await this.callApi(params, req, runtime), new GetSubSceneTaskStatusResponse({}));
@@ -5596,10 +5909,12 @@ export default class Client extends OpenApi {
   async getTaskStatusWithOptions(request: GetTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetTaskStatus",
@@ -5609,7 +5924,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTaskStatusResponse>(await this.callApi(params, req, runtime), new GetTaskStatusResponse({}));
@@ -5623,10 +5938,12 @@ export default class Client extends OpenApi {
   async getWindowConfigWithOptions(request: GetWindowConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetWindowConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PreviewToken"] = request.previewToken;
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetWindowConfig",
@@ -5636,7 +5953,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetWindowConfigResponse>(await this.callApi(params, req, runtime), new GetWindowConfigResponse({}));
@@ -5650,11 +5967,16 @@ export default class Client extends OpenApi {
   async labelBuildWithOptions(request: LabelBuildRequest, runtime: $Util.RuntimeOptions): Promise<LabelBuildResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Mode"] = request.mode;
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "LabelBuild",
@@ -5664,7 +5986,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<LabelBuildResponse>(await this.callApi(params, req, runtime), new LabelBuildResponse({}));
@@ -5678,13 +6000,24 @@ export default class Client extends OpenApi {
   async linkImageWithOptions(request: LinkImageRequest, runtime: $Util.RuntimeOptions): Promise<LinkImageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CameraHeight"] = request.cameraHeight;
-    query["FileName"] = request.fileName;
-    query["Platform"] = request.platform;
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.cameraHeight)) {
+      query["CameraHeight"] = request.cameraHeight;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "LinkImage",
@@ -5694,7 +6027,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<LinkImageResponse>(await this.callApi(params, req, runtime), new LinkImageResponse({}));
@@ -5708,12 +6041,20 @@ export default class Client extends OpenApi {
   async listProjectWithOptions(request: ListProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProject",
@@ -5723,7 +6064,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectResponse>(await this.callApi(params, req, runtime), new ListProjectResponse({}));
@@ -5737,13 +6078,24 @@ export default class Client extends OpenApi {
   async listSceneWithOptions(request: ListSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListScene",
@@ -5753,7 +6105,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSceneResponse>(await this.callApi(params, req, runtime), new ListSceneResponse({}));
@@ -5767,11 +6119,16 @@ export default class Client extends OpenApi {
   async listScenesWithOptions(request: ListScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IsPublishQuery"] = request.isPublishQuery;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.isPublishQuery)) {
+      query["IsPublishQuery"] = request.isPublishQuery;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListScenes",
@@ -5781,7 +6138,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListScenesResponse>(await this.callApi(params, req, runtime), new ListScenesResponse({}));
@@ -5795,13 +6152,24 @@ export default class Client extends OpenApi {
   async listSubSceneWithOptions(request: ListSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["SceneId"] = request.sceneId;
-    query["ShowLayoutData"] = request.showLayoutData;
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
+    if (!Util.isUnset(request.showLayoutData)) {
+      query["ShowLayoutData"] = request.showLayoutData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListSubScene",
@@ -5811,7 +6179,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListSubSceneResponse>(await this.callApi(params, req, runtime), new ListSubSceneResponse({}));
@@ -5825,10 +6193,12 @@ export default class Client extends OpenApi {
   async optimizeRightAngleWithOptions(request: OptimizeRightAngleRequest, runtime: $Util.RuntimeOptions): Promise<OptimizeRightAngleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "OptimizeRightAngle",
@@ -5838,7 +6208,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<OptimizeRightAngleResponse>(await this.callApi(params, req, runtime), new OptimizeRightAngleResponse({}));
@@ -5852,13 +6222,24 @@ export default class Client extends OpenApi {
   async predImageWithOptions(request: PredImageRequest, runtime: $Util.RuntimeOptions): Promise<PredImageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CorrectVertical"] = request.correctVertical;
-    query["CountDetectDoor"] = request.countDetectDoor;
-    query["DetectDoor"] = request.detectDoor;
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.correctVertical)) {
+      query["CorrectVertical"] = request.correctVertical;
+    }
+
+    if (!Util.isUnset(request.countDetectDoor)) {
+      query["CountDetectDoor"] = request.countDetectDoor;
+    }
+
+    if (!Util.isUnset(request.detectDoor)) {
+      query["DetectDoor"] = request.detectDoor;
+    }
+
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PredImage",
@@ -5868,7 +6249,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PredImageResponse>(await this.callApi(params, req, runtime), new PredImageResponse({}));
@@ -5882,11 +6263,16 @@ export default class Client extends OpenApi {
   async predictionWallLineWithOptions(request: PredictionWallLineRequest, runtime: $Util.RuntimeOptions): Promise<PredictionWallLineResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CameraHeight"] = request.cameraHeight;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.cameraHeight)) {
+      query["CameraHeight"] = request.cameraHeight;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PredictionWallLine",
@@ -5896,7 +6282,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PredictionWallLineResponse>(await this.callApi(params, req, runtime), new PredictionWallLineResponse({}));
@@ -5910,11 +6296,16 @@ export default class Client extends OpenApi {
   async publishHotspotWithOptions(request: PublishHotspotRequest, runtime: $Util.RuntimeOptions): Promise<PublishHotspotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ParamTag"] = request.paramTag;
-    query["SubSceneUuid"] = request.subSceneUuid;
+    if (!Util.isUnset(request.paramTag)) {
+      query["ParamTag"] = request.paramTag;
+    }
+
+    if (!Util.isUnset(request.subSceneUuid)) {
+      query["SubSceneUuid"] = request.subSceneUuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PublishHotspot",
@@ -5924,7 +6315,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PublishHotspotResponse>(await this.callApi(params, req, runtime), new PublishHotspotResponse({}));
@@ -5938,10 +6329,12 @@ export default class Client extends OpenApi {
   async publishSceneWithOptions(request: PublishSceneRequest, runtime: $Util.RuntimeOptions): Promise<PublishSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PublishScene",
@@ -5951,7 +6344,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PublishSceneResponse>(await this.callApi(params, req, runtime), new PublishSceneResponse({}));
@@ -5965,10 +6358,12 @@ export default class Client extends OpenApi {
   async publishStatusWithOptions(request: PublishStatusRequest, runtime: $Util.RuntimeOptions): Promise<PublishStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PublishStatus",
@@ -5978,7 +6373,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PublishStatusResponse>(await this.callApi(params, req, runtime), new PublishStatusResponse({}));
@@ -5992,10 +6387,12 @@ export default class Client extends OpenApi {
   async recoveryOriginImageWithOptions(request: RecoveryOriginImageRequest, runtime: $Util.RuntimeOptions): Promise<RecoveryOriginImageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RecoveryOriginImage",
@@ -6005,7 +6402,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecoveryOriginImageResponse>(await this.callApi(params, req, runtime), new RecoveryOriginImageResponse({}));
@@ -6019,13 +6416,24 @@ export default class Client extends OpenApi {
   async rectVerticalWithOptions(request: RectVerticalRequest, runtime: $Util.RuntimeOptions): Promise<RectVerticalResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CountDetectDoor"] = request.countDetectDoor;
-    query["DetectDoor"] = request.detectDoor;
-    query["SubSceneId"] = request.subSceneId;
-    query["VerticalRect"] = request.verticalRect;
+    if (!Util.isUnset(request.countDetectDoor)) {
+      query["CountDetectDoor"] = request.countDetectDoor;
+    }
+
+    if (!Util.isUnset(request.detectDoor)) {
+      query["DetectDoor"] = request.detectDoor;
+    }
+
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
+    if (!Util.isUnset(request.verticalRect)) {
+      query["VerticalRect"] = request.verticalRect;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RectVertical",
@@ -6035,7 +6443,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RectVerticalResponse>(await this.callApi(params, req, runtime), new RectVerticalResponse({}));
@@ -6049,11 +6457,16 @@ export default class Client extends OpenApi {
   async rectifyImageWithOptions(request: RectifyImageRequest, runtime: $Util.RuntimeOptions): Promise<RectifyImageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CameraHeight"] = request.cameraHeight;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.cameraHeight)) {
+      query["CameraHeight"] = request.cameraHeight;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RectifyImage",
@@ -6063,7 +6476,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RectifyImageResponse>(await this.callApi(params, req, runtime), new RectifyImageResponse({}));
@@ -6077,10 +6490,12 @@ export default class Client extends OpenApi {
   async rollbackSubSceneWithOptions(request: RollbackSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RollbackSubScene",
@@ -6090,7 +6505,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RollbackSubSceneResponse>(await this.callApi(params, req, runtime), new RollbackSubSceneResponse({}));
@@ -6104,11 +6519,16 @@ export default class Client extends OpenApi {
   async saveHotspotConfigWithOptions(request: SaveHotspotConfigRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ParamTag"] = request.paramTag;
-    query["PreviewToken"] = request.previewToken;
+    if (!Util.isUnset(request.paramTag)) {
+      query["ParamTag"] = request.paramTag;
+    }
+
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SaveHotspotConfig",
@@ -6118,7 +6538,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SaveHotspotConfigResponse>(await this.callApi(params, req, runtime), new SaveHotspotConfigResponse({}));
@@ -6132,11 +6552,16 @@ export default class Client extends OpenApi {
   async saveHotspotTagWithOptions(request: SaveHotspotTagRequest, runtime: $Util.RuntimeOptions): Promise<SaveHotspotTagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ParamTag"] = request.paramTag;
-    query["SubSceneUuid"] = request.subSceneUuid;
+    if (!Util.isUnset(request.paramTag)) {
+      query["ParamTag"] = request.paramTag;
+    }
+
+    if (!Util.isUnset(request.subSceneUuid)) {
+      query["SubSceneUuid"] = request.subSceneUuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SaveHotspotTag",
@@ -6146,7 +6571,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SaveHotspotTagResponse>(await this.callApi(params, req, runtime), new SaveHotspotTagResponse({}));
@@ -6160,10 +6585,12 @@ export default class Client extends OpenApi {
   async scenePublishWithOptions(request: ScenePublishRequest, runtime: $Util.RuntimeOptions): Promise<ScenePublishResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ScenePublish",
@@ -6173,7 +6600,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ScenePublishResponse>(await this.callApi(params, req, runtime), new ScenePublishResponse({}));
@@ -6187,10 +6614,12 @@ export default class Client extends OpenApi {
   async tempPreviewWithOptions(request: TempPreviewRequest, runtime: $Util.RuntimeOptions): Promise<TempPreviewResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TempPreview",
@@ -6200,7 +6629,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TempPreviewResponse>(await this.callApi(params, req, runtime), new TempPreviewResponse({}));
@@ -6214,10 +6643,12 @@ export default class Client extends OpenApi {
   async tempPreviewStatusWithOptions(request: TempPreviewStatusRequest, runtime: $Util.RuntimeOptions): Promise<TempPreviewStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TempPreviewStatus",
@@ -6227,7 +6658,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TempPreviewStatusResponse>(await this.callApi(params, req, runtime), new TempPreviewStatusResponse({}));
@@ -6241,11 +6672,16 @@ export default class Client extends OpenApi {
   async updateConnDataWithOptions(request: UpdateConnDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnData"] = request.connData;
-    query["SceneId"] = request.sceneId;
+    if (!Util.isUnset(request.connData)) {
+      query["ConnData"] = request.connData;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      query["SceneId"] = request.sceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateConnData",
@@ -6255,7 +6691,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateConnDataResponse>(await this.callApi(params, req, runtime), new UpdateConnDataResponse({}));
@@ -6269,11 +6705,16 @@ export default class Client extends OpenApi {
   async updateLayoutDataWithOptions(request: UpdateLayoutDataRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLayoutDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LayoutData"] = request.layoutData;
-    query["SubSceneId"] = request.subSceneId;
+    if (!Util.isUnset(request.layoutData)) {
+      query["LayoutData"] = request.layoutData;
+    }
+
+    if (!Util.isUnset(request.subSceneId)) {
+      query["SubSceneId"] = request.subSceneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateLayoutData",
@@ -6283,7 +6724,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateLayoutDataResponse>(await this.callApi(params, req, runtime), new UpdateLayoutDataResponse({}));
@@ -6297,12 +6738,20 @@ export default class Client extends OpenApi {
   async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessId"] = request.businessId;
-    query["Id"] = request.id;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.businessId)) {
+      query["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateProject",
@@ -6312,7 +6761,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateProjectResponse>(await this.callApi(params, req, runtime), new UpdateProjectResponse({}));
@@ -6326,11 +6775,16 @@ export default class Client extends OpenApi {
   async updateSceneWithOptions(request: UpdateSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateScene",
@@ -6340,7 +6794,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateSceneResponse>(await this.callApi(params, req, runtime), new UpdateSceneResponse({}));
@@ -6354,11 +6808,16 @@ export default class Client extends OpenApi {
   async updateSubSceneWithOptions(request: UpdateSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubSceneResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateSubScene",
@@ -6368,7 +6827,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateSubSceneResponse>(await this.callApi(params, req, runtime), new UpdateSubSceneResponse({}));
