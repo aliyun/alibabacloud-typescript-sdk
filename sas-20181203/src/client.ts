@@ -71,72 +71,6 @@ export class AddVpcHoneyPotResponse extends $tea.Model {
   }
 }
 
-export class CheckQuaraFileIdRequest extends $tea.Model {
-  quaraFileIds?: string[];
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      quaraFileIds: 'QuaraFileIds',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quaraFileIds: { 'type': 'array', 'itemType': 'string' },
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckQuaraFileIdResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckQuaraFileIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckQuaraFileIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckQuaraFileIdResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckSecurityEventIdRequest extends $tea.Model {
   securityEventIds?: string[];
   uuid?: string;
@@ -279,84 +213,6 @@ export class CreateAntiBruteForceRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateAntiBruteForceRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAssetRequest extends $tea.Model {
-  instanceName?: string;
-  internetIp?: string;
-  intranetIp?: string;
-  os?: string;
-  osName?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceName: 'InstanceName',
-      internetIp: 'InternetIp',
-      intranetIp: 'IntranetIp',
-      os: 'Os',
-      osName: 'OsName',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceName: 'string',
-      internetIp: 'string',
-      intranetIp: 'string',
-      os: 'string',
-      osName: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAssetResponseBody extends $tea.Model {
-  requestId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAssetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateAssetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateAssetResponseBody,
     };
   }
 
@@ -537,192 +393,6 @@ export class CreateOrUpdateAssetGroupResponse extends $tea.Model {
   }
 }
 
-export class CreateRestoreJobRequest extends $tea.Model {
-  includes?: string;
-  snapshotHash?: string;
-  snapshotId?: string;
-  snapshotVersion?: string;
-  sourceType?: string;
-  target?: string;
-  uuid?: string;
-  vaultId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      includes: 'Includes',
-      snapshotHash: 'SnapshotHash',
-      snapshotId: 'SnapshotId',
-      snapshotVersion: 'SnapshotVersion',
-      sourceType: 'SourceType',
-      target: 'Target',
-      uuid: 'Uuid',
-      vaultId: 'VaultId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      includes: 'string',
-      snapshotHash: 'string',
-      snapshotId: 'string',
-      snapshotVersion: 'string',
-      sourceType: 'string',
-      target: 'string',
-      uuid: 'string',
-      vaultId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRestoreJobResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRestoreJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRestoreJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRestoreJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSasOrderRequest extends $tea.Model {
-  autoPay?: boolean;
-  autoRenewPeriod?: number;
-  autoUseCoupon?: boolean;
-  containerImageScan?: string;
-  instanceCount?: string;
-  period?: number;
-  periodUnit?: string;
-  sasAntiRansomware?: string;
-  sasProductService?: string;
-  sasSc?: string;
-  sasSlsStorage?: string;
-  sasWebguardBoolean?: string;
-  sasWebguardOrderNum?: string;
-  spec?: string;
-  vcore?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoPay: 'AutoPay',
-      autoRenewPeriod: 'AutoRenewPeriod',
-      autoUseCoupon: 'AutoUseCoupon',
-      containerImageScan: 'ContainerImageScan',
-      instanceCount: 'InstanceCount',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      sasAntiRansomware: 'SasAntiRansomware',
-      sasProductService: 'SasProductService',
-      sasSc: 'SasSc',
-      sasSlsStorage: 'SasSlsStorage',
-      sasWebguardBoolean: 'SasWebguardBoolean',
-      sasWebguardOrderNum: 'SasWebguardOrderNum',
-      spec: 'Spec',
-      vcore: 'Vcore',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoPay: 'boolean',
-      autoRenewPeriod: 'number',
-      autoUseCoupon: 'boolean',
-      containerImageScan: 'string',
-      instanceCount: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      sasAntiRansomware: 'string',
-      sasProductService: 'string',
-      sasSc: 'string',
-      sasSlsStorage: 'string',
-      sasWebguardBoolean: 'string',
-      sasWebguardOrderNum: 'string',
-      spec: 'string',
-      vcore: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSasOrderResponseBody extends $tea.Model {
-  orderId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderId: 'OrderId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSasOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateSasOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSasOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -828,307 +498,6 @@ export class CreateSimilarSecurityEventsQueryTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateSimilarSecurityEventsQueryTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniBackupPolicyRequest extends $tea.Model {
-  accountName?: string;
-  accountPassword?: string;
-  databaseAddByUser?: string;
-  databaseType?: string;
-  fullPlan?: { [key: string]: any };
-  incPlan?: { [key: string]: any };
-  instanceId?: string;
-  policyName?: string;
-  resourceOwnerId?: number;
-  retention?: number;
-  sourceIp?: string;
-  speedLimiter?: number;
-  uniRegionId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      databaseAddByUser: 'DatabaseAddByUser',
-      databaseType: 'DatabaseType',
-      fullPlan: 'FullPlan',
-      incPlan: 'IncPlan',
-      instanceId: 'InstanceId',
-      policyName: 'PolicyName',
-      resourceOwnerId: 'ResourceOwnerId',
-      retention: 'Retention',
-      sourceIp: 'SourceIp',
-      speedLimiter: 'SpeedLimiter',
-      uniRegionId: 'UniRegionId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPassword: 'string',
-      databaseAddByUser: 'string',
-      databaseType: 'string',
-      fullPlan: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      incPlan: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      instanceId: 'string',
-      policyName: 'string',
-      resourceOwnerId: 'number',
-      retention: 'number',
-      sourceIp: 'string',
-      speedLimiter: 'number',
-      uniRegionId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniBackupPolicyShrinkRequest extends $tea.Model {
-  accountName?: string;
-  accountPassword?: string;
-  databaseAddByUser?: string;
-  databaseType?: string;
-  fullPlanShrink?: string;
-  incPlanShrink?: string;
-  instanceId?: string;
-  policyName?: string;
-  resourceOwnerId?: number;
-  retention?: number;
-  sourceIp?: string;
-  speedLimiter?: number;
-  uniRegionId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      databaseAddByUser: 'DatabaseAddByUser',
-      databaseType: 'DatabaseType',
-      fullPlanShrink: 'FullPlan',
-      incPlanShrink: 'IncPlan',
-      instanceId: 'InstanceId',
-      policyName: 'PolicyName',
-      resourceOwnerId: 'ResourceOwnerId',
-      retention: 'Retention',
-      sourceIp: 'SourceIp',
-      speedLimiter: 'SpeedLimiter',
-      uniRegionId: 'UniRegionId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPassword: 'string',
-      databaseAddByUser: 'string',
-      databaseType: 'string',
-      fullPlanShrink: 'string',
-      incPlanShrink: 'string',
-      instanceId: 'string',
-      policyName: 'string',
-      resourceOwnerId: 'number',
-      retention: 'number',
-      sourceIp: 'string',
-      speedLimiter: 'number',
-      uniRegionId: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniBackupPolicyResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateUniBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateUniBackupPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniRestorePlanRequest extends $tea.Model {
-  database?: string;
-  instanceUuid?: string;
-  policyId?: number;
-  resetScn?: string;
-  resetTime?: string;
-  resourceOwnerId?: number;
-  restoreInfo?: string;
-  sourceIp?: string;
-  timePoint?: number;
-  static names(): { [key: string]: string } {
-    return {
-      database: 'Database',
-      instanceUuid: 'InstanceUuid',
-      policyId: 'PolicyId',
-      resetScn: 'ResetScn',
-      resetTime: 'ResetTime',
-      resourceOwnerId: 'ResourceOwnerId',
-      restoreInfo: 'RestoreInfo',
-      sourceIp: 'SourceIp',
-      timePoint: 'TimePoint',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      database: 'string',
-      instanceUuid: 'string',
-      policyId: 'number',
-      resetScn: 'string',
-      resetTime: 'string',
-      resourceOwnerId: 'number',
-      restoreInfo: 'string',
-      sourceIp: 'string',
-      timePoint: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniRestorePlanResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUniRestorePlanResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateUniRestorePlanResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateUniRestorePlanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAssetRequest extends $tea.Model {
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAssetResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAssetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAssetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteAssetResponseBody,
     };
   }
 
@@ -1527,75 +896,6 @@ export class DeleteTagWithUuidResponse extends $tea.Model {
   }
 }
 
-export class DeleteUniBackupPolicyRequest extends $tea.Model {
-  policyId?: number;
-  policyIds?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      policyIds: 'PolicyIds',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'number',
-      policyIds: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUniBackupPolicyResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteUniBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteUniBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteUniBackupPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteVpcHoneyPotRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
@@ -1648,6 +948,123 @@ export class DeleteVpcHoneyPotResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteVpcHoneyPotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessKeyLeakDetailRequest extends $tea.Model {
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessKeyLeakDetailResponseBody extends $tea.Model {
+  accesskeyId?: string;
+  asset?: string;
+  code?: string;
+  dealTime?: string;
+  dealType?: string;
+  githubFileName?: string;
+  githubFileType?: string;
+  githubFileUpdateTime?: string;
+  githubFileUrl?: string;
+  githubRepoName?: string;
+  githubRepoUrl?: string;
+  githubUser?: string;
+  githubUserPicUrl?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  remark?: string;
+  requestId?: string;
+  source?: string;
+  type?: string;
+  whitelistStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accesskeyId: 'AccesskeyId',
+      asset: 'Asset',
+      code: 'Code',
+      dealTime: 'DealTime',
+      dealType: 'DealType',
+      githubFileName: 'GithubFileName',
+      githubFileType: 'GithubFileType',
+      githubFileUpdateTime: 'GithubFileUpdateTime',
+      githubFileUrl: 'GithubFileUrl',
+      githubRepoName: 'GithubRepoName',
+      githubRepoUrl: 'GithubRepoUrl',
+      githubUser: 'GithubUser',
+      githubUserPicUrl: 'GithubUserPicUrl',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      remark: 'Remark',
+      requestId: 'RequestId',
+      source: 'Source',
+      type: 'Type',
+      whitelistStatus: 'WhitelistStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accesskeyId: 'string',
+      asset: 'string',
+      code: 'string',
+      dealTime: 'string',
+      dealType: 'string',
+      githubFileName: 'string',
+      githubFileType: 'string',
+      githubFileUpdateTime: 'string',
+      githubFileUrl: 'string',
+      githubRepoName: 'string',
+      githubRepoUrl: 'string',
+      githubUser: 'string',
+      githubUserPicUrl: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      remark: 'string',
+      requestId: 'string',
+      source: 'string',
+      type: 'string',
+      whitelistStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAccessKeyLeakDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeAccessKeyLeakDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeAccessKeyLeakDetailResponseBody,
     };
   }
 
@@ -2016,81 +1433,6 @@ export class DescribeAlarmEventListResponse extends $tea.Model {
   }
 }
 
-export class DescribeAlarmEventStackInfoRequest extends $tea.Model {
-  eventName?: string;
-  lang?: string;
-  sourceIp?: string;
-  uniqueInfo?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      eventName: 'EventName',
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-      uniqueInfo: 'UniqueInfo',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      eventName: 'string',
-      lang: 'string',
-      sourceIp: 'string',
-      uniqueInfo: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlarmEventStackInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  stackInfo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      stackInfo: 'StackInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      stackInfo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAlarmEventStackInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAlarmEventStackInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAlarmEventStackInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAllEntityResponseBody extends $tea.Model {
   entityList?: DescribeAllEntityResponseBodyEntityList[];
   requestId?: string;
@@ -2193,129 +1535,6 @@ export class DescribeAllGroupsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAllGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAllRegionsStatisticsRequest extends $tea.Model {
-  action1?: number;
-  allRegion?: boolean;
-  currentPage?: number;
-  dealed?: string;
-  endTime?: string;
-  flow?: number;
-  from?: string;
-  groupId?: number;
-  pageSize?: number;
-  remark?: string;
-  ruleType?: number;
-  saleId?: string;
-  secureToken?: string;
-  sourceIp?: string;
-  startTime?: string;
-  status?: number;
-  statusList?: string;
-  tag?: string;
-  type?: string;
-  uuid?: string;
-  webGroupId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      action1: 'Action1',
-      allRegion: 'AllRegion',
-      currentPage: 'CurrentPage',
-      dealed: 'Dealed',
-      endTime: 'EndTime',
-      flow: 'Flow',
-      from: 'From',
-      groupId: 'GroupId',
-      pageSize: 'PageSize',
-      remark: 'Remark',
-      ruleType: 'RuleType',
-      saleId: 'SaleId',
-      secureToken: 'SecureToken',
-      sourceIp: 'SourceIp',
-      startTime: 'StartTime',
-      status: 'Status',
-      statusList: 'StatusList',
-      tag: 'Tag',
-      type: 'Type',
-      uuid: 'Uuid',
-      webGroupId: 'WebGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action1: 'number',
-      allRegion: 'boolean',
-      currentPage: 'number',
-      dealed: 'string',
-      endTime: 'string',
-      flow: 'number',
-      from: 'string',
-      groupId: 'number',
-      pageSize: 'number',
-      remark: 'string',
-      ruleType: 'number',
-      saleId: 'string',
-      secureToken: 'string',
-      sourceIp: 'string',
-      startTime: 'string',
-      status: 'number',
-      statusList: 'string',
-      tag: 'string',
-      type: 'string',
-      uuid: 'string',
-      webGroupId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAllRegionsStatisticsResponseBody extends $tea.Model {
-  data?: DescribeAllRegionsStatisticsResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeAllRegionsStatisticsResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAllRegionsStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAllRegionsStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAllRegionsStatisticsResponseBody,
     };
   }
 
@@ -2769,81 +1988,6 @@ export class DescribeBackupClientsResponse extends $tea.Model {
   }
 }
 
-export class DescribeBackupDirsRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  policyId?: number;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      policyId: 'number',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupDirsResponseBody extends $tea.Model {
-  backupDirs?: DescribeBackupDirsResponseBodyBackupDirs[];
-  pageInfo?: DescribeBackupDirsResponseBodyPageInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupDirs: 'BackupDirs',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupDirs: { 'type': 'array', 'itemType': DescribeBackupDirsResponseBodyBackupDirs },
-      pageInfo: DescribeBackupDirsResponseBodyPageInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupDirsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeBackupDirsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeBackupDirsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeBackupFilesRequest extends $tea.Model {
   currentPage?: string;
   pageSize?: string;
@@ -2922,75 +2066,6 @@ export class DescribeBackupFilesResponse extends $tea.Model {
   }
 }
 
-export class DescribeBackupMachineStatusRequest extends $tea.Model {
-  policyId?: number;
-  policyVersion?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      policyVersion: 'PolicyVersion',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'number',
-      policyVersion: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupMachineStatusResponseBody extends $tea.Model {
-  backupMachineStatus?: DescribeBackupMachineStatusResponseBodyBackupMachineStatus;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupMachineStatus: 'BackupMachineStatus',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupMachineStatus: DescribeBackupMachineStatusResponseBodyBackupMachineStatus,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupMachineStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeBackupMachineStatusResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeBackupMachineStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeBackupPoliciesRequest extends $tea.Model {
   currentPage?: number;
   machineRemark?: string;
@@ -3061,69 +2136,6 @@ export class DescribeBackupPoliciesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeBackupPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyResponseBody extends $tea.Model {
-  backupPolicyDetail?: DescribeBackupPolicyResponseBodyBackupPolicyDetail;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupPolicyDetail: 'BackupPolicyDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupPolicyDetail: DescribeBackupPolicyResponseBodyBackupPolicyDetail,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeBackupPolicyResponseBody,
     };
   }
 
@@ -3850,6 +2862,87 @@ export class DescribeContainerStatisticsResponse extends $tea.Model {
   }
 }
 
+export class DescribeContainerTagsRequest extends $tea.Model {
+  appName?: string;
+  clusterId?: string;
+  currentPage?: number;
+  fieldName?: string;
+  fieldValue?: string;
+  namespace?: string;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      clusterId: 'ClusterId',
+      currentPage: 'CurrentPage',
+      fieldName: 'FieldName',
+      fieldValue: 'FieldValue',
+      namespace: 'Namespace',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      clusterId: 'string',
+      currentPage: 'number',
+      fieldName: 'string',
+      fieldValue: 'string',
+      namespace: 'string',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerTagsResponseBody extends $tea.Model {
+  requestId?: string;
+  tagValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagValues: 'TagValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeContainerTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeContainerTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeContainerTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCriteriaRequest extends $tea.Model {
   machineTypes?: string;
   supportAutoTag?: boolean;
@@ -4369,75 +3462,6 @@ export class DescribeEmgVulItemResponse extends $tea.Model {
   }
 }
 
-export class DescribeExcludeSystemPathRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcludeSystemPathResponseBody extends $tea.Model {
-  excludePaths?: DescribeExcludeSystemPathResponseBodyExcludePaths[];
-  pageInfo?: DescribeExcludeSystemPathResponseBodyPageInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      excludePaths: 'ExcludePaths',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      excludePaths: { 'type': 'array', 'itemType': DescribeExcludeSystemPathResponseBodyExcludePaths },
-      pageInfo: DescribeExcludeSystemPathResponseBodyPageInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcludeSystemPathResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeExcludeSystemPathResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeExcludeSystemPathResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeExportInfoRequest extends $tea.Model {
   exportId?: number;
   static names(): { [key: string]: string } {
@@ -4741,53 +3765,6 @@ export class DescribeExposedInstanceListResponse extends $tea.Model {
   }
 }
 
-export class DescribeExposedRiskNumResponseBody extends $tea.Model {
-  exposedInstanceCount?: number;
-  requestId?: string;
-  riskExposedInstanceCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      exposedInstanceCount: 'ExposedInstanceCount',
-      requestId: 'RequestId',
-      riskExposedInstanceCount: 'RiskExposedInstanceCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exposedInstanceCount: 'number',
-      requestId: 'string',
-      riskExposedInstanceCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExposedRiskNumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeExposedRiskNumResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeExposedRiskNumResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeExposedStatisticsResponseBody extends $tea.Model {
   exposedAsapVulCount?: number;
   exposedComponentCount?: number;
@@ -4992,156 +3969,6 @@ export class DescribeFieldStatisticsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeFieldStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFrontVulPatchListRequest extends $tea.Model {
-  info?: string;
-  operateType?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      info: 'Info',
-      operateType: 'OperateType',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      info: 'string',
-      operateType: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFrontVulPatchListResponseBody extends $tea.Model {
-  frontPatchList?: DescribeFrontVulPatchListResponseBodyFrontPatchList[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      frontPatchList: 'FrontPatchList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      frontPatchList: { 'type': 'array', 'itemType': DescribeFrontVulPatchListResponseBodyFrontPatchList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFrontVulPatchListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeFrontVulPatchListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeFrontVulPatchListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineRequest extends $tea.Model {
-  anomalyId?: string;
-  anomalyUuid?: string;
-  direction?: string;
-  lang?: string;
-  namespace?: string;
-  pathLength?: number;
-  vertexId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      anomalyId: 'AnomalyId',
-      anomalyUuid: 'AnomalyUuid',
-      direction: 'Direction',
-      lang: 'Lang',
-      namespace: 'Namespace',
-      pathLength: 'PathLength',
-      vertexId: 'VertexId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      anomalyId: 'string',
-      anomalyUuid: 'string',
-      direction: 'string',
-      lang: 'string',
-      namespace: 'string',
-      pathLength: 'number',
-      vertexId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBody extends $tea.Model {
-  data?: DescribeGraph4InvestigationOnlineResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DescribeGraph4InvestigationOnlineResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeGraph4InvestigationOnlineResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeGraph4InvestigationOnlineResponseBody,
     };
   }
 
@@ -5903,81 +4730,6 @@ export class DescribeImageGroupedVulListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeImageGroupedVulListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageInstancesRequest extends $tea.Model {
-  criteria?: string;
-  currentPage?: number;
-  logicalExp?: string;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      criteria: 'Criteria',
-      currentPage: 'CurrentPage',
-      logicalExp: 'LogicalExp',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      criteria: 'string',
-      currentPage: 'number',
-      logicalExp: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageInstancesResponseBody extends $tea.Model {
-  imageInstanceList?: DescribeImageInstancesResponseBodyImageInstanceList[];
-  pageInfo?: DescribeImageInstancesResponseBodyPageInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageInstanceList: 'ImageInstanceList',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageInstanceList: { 'type': 'array', 'itemType': DescribeImageInstancesResponseBodyImageInstanceList },
-      pageInfo: DescribeImageInstancesResponseBodyPageInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeImageInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeImageInstancesResponseBody,
     };
   }
 
@@ -7863,90 +6615,6 @@ export class DescribePropertyUserItemResponse extends $tea.Model {
   }
 }
 
-export class DescribeQuaraFileDownloadInfoRequest extends $tea.Model {
-  from?: string;
-  quaraFileId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      from: 'From',
-      quaraFileId: 'QuaraFileId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      from: 'string',
-      quaraFileId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQuaraFileDownloadInfoResponseBody extends $tea.Model {
-  downloadUrl?: string;
-  md5?: string;
-  path?: string;
-  quaraFileId?: number;
-  requestId?: string;
-  tag?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      downloadUrl: 'DownloadUrl',
-      md5: 'Md5',
-      path: 'Path',
-      quaraFileId: 'QuaraFileId',
-      requestId: 'RequestId',
-      tag: 'Tag',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      downloadUrl: 'string',
-      md5: 'string',
-      path: 'string',
-      quaraFileId: 'number',
-      requestId: 'string',
-      tag: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeQuaraFileDownloadInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeQuaraFileDownloadInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeQuaraFileDownloadInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRestoreJobsRequest extends $tea.Model {
   currentPage?: number;
   machineRemark?: string;
@@ -8014,87 +6682,6 @@ export class DescribeRestoreJobsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRestoreJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRestorePlansRequest extends $tea.Model {
-  currentPage?: number;
-  instanceName?: string;
-  pageSize?: number;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      instanceName: 'InstanceName',
-      pageSize: 'PageSize',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      instanceName: 'string',
-      pageSize: 'number',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRestorePlansResponseBody extends $tea.Model {
-  pageInfo?: DescribeRestorePlansResponseBodyPageInfo;
-  requestId?: string;
-  restorePlans?: DescribeRestorePlansResponseBodyRestorePlans[];
-  static names(): { [key: string]: string } {
-    return {
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      restorePlans: 'RestorePlans',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageInfo: DescribeRestorePlansResponseBodyPageInfo,
-      requestId: 'string',
-      restorePlans: { 'type': 'array', 'itemType': DescribeRestorePlansResponseBodyRestorePlans },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRestorePlansResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeRestorePlansResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeRestorePlansResponseBody,
     };
   }
 
@@ -9203,96 +7790,6 @@ export class DescribeSimilarSecurityEventsResponse extends $tea.Model {
   }
 }
 
-export class DescribeSnapshotsRequest extends $tea.Model {
-  apiVersion?: string;
-  currentPage?: number;
-  isAliYunEcs?: string;
-  machineRegion?: string;
-  machineRemark?: string;
-  nextToken?: string;
-  pageSize?: number;
-  statusList?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      apiVersion: 'ApiVersion',
-      currentPage: 'CurrentPage',
-      isAliYunEcs: 'IsAliYunEcs',
-      machineRegion: 'MachineRegion',
-      machineRemark: 'MachineRemark',
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      statusList: 'StatusList',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      apiVersion: 'string',
-      currentPage: 'number',
-      isAliYunEcs: 'string',
-      machineRegion: 'string',
-      machineRemark: 'string',
-      nextToken: 'string',
-      pageSize: 'number',
-      statusList: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnapshotsResponseBody extends $tea.Model {
-  pageInfo?: DescribeSnapshotsResponseBodyPageInfo;
-  requestId?: string;
-  snapshots?: DescribeSnapshotsResponseBodySnapshots[];
-  static names(): { [key: string]: string } {
-    return {
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      snapshots: 'Snapshots',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageInfo: DescribeSnapshotsResponseBodyPageInfo,
-      requestId: 'string',
-      snapshots: { 'type': 'array', 'itemType': DescribeSnapshotsResponseBodySnapshots },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnapshotsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSnapshotsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSnapshotsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeStrategyRequest extends $tea.Model {
   customType?: string;
   lang?: string;
@@ -9450,81 +7947,6 @@ export class DescribeStrategyExecDetailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeStrategyExecDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStrategyProcessRequest extends $tea.Model {
-  sourceIp?: string;
-  strategyId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sourceIp: 'SourceIp',
-      strategyId: 'StrategyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sourceIp: 'string',
-      strategyId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStrategyProcessResponseBody extends $tea.Model {
-  execStatus?: number;
-  passRate?: string;
-  processRate?: number;
-  requestId?: string;
-  strategyId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      execStatus: 'ExecStatus',
-      passRate: 'PassRate',
-      processRate: 'ProcessRate',
-      requestId: 'RequestId',
-      strategyId: 'StrategyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      execStatus: 'number',
-      passRate: 'string',
-      processRate: 'number',
-      requestId: 'string',
-      strategyId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeStrategyProcessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeStrategyProcessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeStrategyProcessResponseBody,
     };
   }
 
@@ -9844,10 +8266,107 @@ export class DescribeSuspEventDetailResponse extends $tea.Model {
   }
 }
 
+export class DescribeSuspEventExportInfoRequest extends $tea.Model {
+  exportId?: number;
+  from?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exportId: 'ExportId',
+      from: 'From',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exportId: 'number',
+      from: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSuspEventExportInfoResponseBody extends $tea.Model {
+  exportStatus?: string;
+  fileName?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  id?: number;
+  link?: string;
+  progress?: number;
+  properties?: string;
+  requestId?: string;
+  totalCount?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exportStatus: 'ExportStatus',
+      fileName: 'FileName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      link: 'Link',
+      progress: 'Progress',
+      properties: 'Properties',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exportStatus: 'string',
+      fileName: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      id: 'number',
+      link: 'string',
+      progress: 'number',
+      properties: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSuspEventExportInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSuspEventExportInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSuspEventExportInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSuspEventQuaraFilesRequest extends $tea.Model {
   currentPage?: string;
   from?: string;
   groupId?: string;
+  groupingId?: number;
   pageSize?: string;
   quaraTag?: string;
   sourceIp?: string;
@@ -9857,6 +8376,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       from: 'From',
       groupId: 'GroupId',
+      groupingId: 'GroupingId',
       pageSize: 'PageSize',
       quaraTag: 'QuaraTag',
       sourceIp: 'SourceIp',
@@ -9869,6 +8389,7 @@ export class DescribeSuspEventQuaraFilesRequest extends $tea.Model {
       currentPage: 'string',
       from: 'string',
       groupId: 'string',
+      groupingId: 'number',
       pageSize: 'string',
       quaraTag: 'string',
       sourceIp: 'string',
@@ -10075,20 +8596,17 @@ export class DescribeSuspEventsResponse extends $tea.Model {
   }
 }
 
-export class DescribeTaskErrorLogRequest extends $tea.Model {
-  buildTaskId?: string;
-  sourceIp?: string;
+export class DescribeSuspiciousUUIDConfigRequest extends $tea.Model {
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      buildTaskId: 'BuildTaskId',
-      sourceIp: 'SourceIp',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      buildTaskId: 'string',
-      sourceIp: 'string',
+      type: 'string',
     };
   }
 
@@ -10097,20 +8615,23 @@ export class DescribeTaskErrorLogRequest extends $tea.Model {
   }
 }
 
-export class DescribeTaskErrorLogResponseBody extends $tea.Model {
-  logs?: DescribeTaskErrorLogResponseBodyLogs[];
+export class DescribeSuspiciousUUIDConfigResponseBody extends $tea.Model {
+  count?: number;
   requestId?: string;
+  UUIDList?: string[];
   static names(): { [key: string]: string } {
     return {
-      logs: 'Logs',
+      count: 'Count',
       requestId: 'RequestId',
+      UUIDList: 'UUIDList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      logs: { 'type': 'array', 'itemType': DescribeTaskErrorLogResponseBodyLogs },
+      count: 'number',
       requestId: 'string',
+      UUIDList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -10119,9 +8640,9 @@ export class DescribeTaskErrorLogResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeTaskErrorLogResponse extends $tea.Model {
+export class DescribeSuspiciousUUIDConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeTaskErrorLogResponseBody;
+  body: DescribeSuspiciousUUIDConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10132,94 +8653,7 @@ export class DescribeTaskErrorLogResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeTaskErrorLogResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupDatabaseRequest extends $tea.Model {
-  currentPage?: number;
-  databaseType?: string;
-  instanceName?: string;
-  pageSize?: number;
-  queryType?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  uniRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      databaseType: 'DatabaseType',
-      instanceName: 'InstanceName',
-      pageSize: 'PageSize',
-      queryType: 'QueryType',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-      uniRegionId: 'UniRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      databaseType: 'string',
-      instanceName: 'string',
-      pageSize: 'number',
-      queryType: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-      uniRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupDatabaseResponseBody extends $tea.Model {
-  databaseList?: DescribeUniBackupDatabaseResponseBodyDatabaseList[];
-  pageInfo?: DescribeUniBackupDatabaseResponseBodyPageInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseList: 'DatabaseList',
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseList: { 'type': 'array', 'itemType': DescribeUniBackupDatabaseResponseBodyDatabaseList },
-      pageInfo: DescribeUniBackupDatabaseResponseBodyPageInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupDatabaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniBackupDatabaseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniBackupDatabaseResponseBody,
+      body: DescribeSuspiciousUUIDConfigResponseBody,
     };
   }
 
@@ -10298,274 +8732,6 @@ export class DescribeUniBackupPoliciesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeUniBackupPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPolicyDetailRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  policyId?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      policyId: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPolicyDetailResponseBody extends $tea.Model {
-  requestId?: string;
-  uniBackupPolicyDTO?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      uniBackupPolicyDTO: 'UniBackupPolicyDTO',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      uniBackupPolicyDTO: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPolicyDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniBackupPolicyDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniBackupPolicyDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupStatisticsResponseBody extends $tea.Model {
-  protectedDatabaseCount?: number;
-  requestId?: string;
-  restoringTaskCount?: number;
-  totalRecoverableCount?: number;
-  totalRestoreTaskCount?: number;
-  unprotectedDatabaseCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      protectedDatabaseCount: 'ProtectedDatabaseCount',
-      requestId: 'RequestId',
-      restoringTaskCount: 'RestoringTaskCount',
-      totalRecoverableCount: 'TotalRecoverableCount',
-      totalRestoreTaskCount: 'TotalRestoreTaskCount',
-      unprotectedDatabaseCount: 'UnprotectedDatabaseCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      protectedDatabaseCount: 'number',
-      requestId: 'string',
-      restoringTaskCount: 'number',
-      totalRecoverableCount: 'number',
-      totalRestoreTaskCount: 'number',
-      unprotectedDatabaseCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniBackupStatisticsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniBackupStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniRecoverableListRequest extends $tea.Model {
-  currentPage?: number;
-  database?: string;
-  pageSize?: number;
-  policyId?: number;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      database: 'Database',
-      pageSize: 'PageSize',
-      policyId: 'PolicyId',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      database: 'string',
-      pageSize: 'number',
-      policyId: 'number',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniRecoverableListResponseBody extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  database?: string;
-  pageSize?: number;
-  recoverableInfoList?: DescribeUniRecoverableListResponseBodyRecoverableInfoList[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      database: 'Database',
-      pageSize: 'PageSize',
-      recoverableInfoList: 'RecoverableInfoList',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      database: 'string',
-      pageSize: 'number',
-      recoverableInfoList: { 'type': 'array', 'itemType': DescribeUniRecoverableListResponseBodyRecoverableInfoList },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniRecoverableListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniRecoverableListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniRecoverableListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniSupportRegionResponseBody extends $tea.Model {
-  requestId?: string;
-  uniSupportRegion?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      uniSupportRegion: 'UniSupportRegion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      uniSupportRegion: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniSupportRegionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniSupportRegionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniSupportRegionResponseBody,
     };
   }
 
@@ -10748,111 +8914,6 @@ export class DescribeUserLayoutAuthorizationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeUserLayoutAuthorizationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUuidsByVulNamesRequest extends $tea.Model {
-  dealed?: string;
-  fieldName?: string;
-  fieldValue?: string;
-  groupId?: number;
-  lang?: string;
-  level?: string;
-  necessity?: string;
-  remark?: string;
-  searchTags?: string;
-  statusList?: string;
-  tag?: string;
-  targetType?: string;
-  type?: string;
-  vpcInstanceIds?: string;
-  vulNames?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      dealed: 'Dealed',
-      fieldName: 'FieldName',
-      fieldValue: 'FieldValue',
-      groupId: 'GroupId',
-      lang: 'Lang',
-      level: 'Level',
-      necessity: 'Necessity',
-      remark: 'Remark',
-      searchTags: 'SearchTags',
-      statusList: 'StatusList',
-      tag: 'Tag',
-      targetType: 'TargetType',
-      type: 'Type',
-      vpcInstanceIds: 'VpcInstanceIds',
-      vulNames: 'VulNames',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dealed: 'string',
-      fieldName: 'string',
-      fieldValue: 'string',
-      groupId: 'number',
-      lang: 'string',
-      level: 'string',
-      necessity: 'string',
-      remark: 'string',
-      searchTags: 'string',
-      statusList: 'string',
-      tag: 'string',
-      targetType: 'string',
-      type: 'string',
-      vpcInstanceIds: 'string',
-      vulNames: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUuidsByVulNamesResponseBody extends $tea.Model {
-  machineInfoStatistics?: DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      machineInfoStatistics: 'MachineInfoStatistics',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      machineInfoStatistics: { 'type': 'array', 'itemType': DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUuidsByVulNamesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUuidsByVulNamesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUuidsByVulNamesResponseBody,
     };
   }
 
@@ -11489,6 +9550,84 @@ export class DescribeVulListResponse extends $tea.Model {
   }
 }
 
+export class DescribeVulListPageRequest extends $tea.Model {
+  currentPage?: number;
+  cveId?: string;
+  pageSize?: number;
+  sourceIp?: string;
+  vulNameLike?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      cveId: 'CveId',
+      pageSize: 'PageSize',
+      sourceIp: 'SourceIp',
+      vulNameLike: 'VulNameLike',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      cveId: 'string',
+      pageSize: 'number',
+      sourceIp: 'string',
+      vulNameLike: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulListPageResponseBody extends $tea.Model {
+  data?: DescribeVulListPageResponseBodyData[];
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeVulListPageResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVulListPageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeVulListPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeVulListPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVulWhitelistRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -11819,72 +9958,6 @@ export class DescribeWebLockConfigListResponse extends $tea.Model {
   }
 }
 
-export class ExecStrategyRequest extends $tea.Model {
-  lang?: string;
-  sourceIp?: string;
-  strategyId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-      strategyId: 'StrategyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      sourceIp: 'string',
-      strategyId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecStrategyResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExecStrategyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExecStrategyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExecStrategyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ExportRecordRequest extends $tea.Model {
   exportType?: string;
   lang?: string;
@@ -11949,6 +10022,114 @@ export class ExportRecordResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExportRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportSuspEventsRequest extends $tea.Model {
+  clusterId?: string;
+  containerFieldName?: string;
+  containerFieldValue?: string;
+  dealed?: string;
+  from?: string;
+  lang?: string;
+  levels?: string;
+  name?: string;
+  parentEventTypes?: string;
+  remark?: string;
+  sourceIp?: string;
+  status?: string;
+  targetType?: string;
+  timeEnd?: string;
+  timeStart?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      containerFieldName: 'ContainerFieldName',
+      containerFieldValue: 'ContainerFieldValue',
+      dealed: 'Dealed',
+      from: 'From',
+      lang: 'Lang',
+      levels: 'Levels',
+      name: 'Name',
+      parentEventTypes: 'ParentEventTypes',
+      remark: 'Remark',
+      sourceIp: 'SourceIp',
+      status: 'Status',
+      targetType: 'TargetType',
+      timeEnd: 'TimeEnd',
+      timeStart: 'TimeStart',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      containerFieldName: 'string',
+      containerFieldValue: 'string',
+      dealed: 'string',
+      from: 'string',
+      lang: 'string',
+      levels: 'string',
+      name: 'string',
+      parentEventTypes: 'string',
+      remark: 'string',
+      sourceIp: 'string',
+      status: 'string',
+      targetType: 'string',
+      timeEnd: 'string',
+      timeStart: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportSuspEventsResponseBody extends $tea.Model {
+  fileName?: number;
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'number',
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportSuspEventsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportSuspEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportSuspEventsResponseBody,
     };
   }
 
@@ -12042,6 +10223,114 @@ export class ExportVulResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExportVulResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningRequest extends $tea.Model {
+  dealed?: string;
+  exportType?: string;
+  isCleartextPwd?: number;
+  isSummaryExport?: number;
+  lang?: string;
+  riskIds?: string;
+  riskLevels?: string;
+  riskName?: string;
+  sourceIp?: string;
+  statusList?: string;
+  strategyId?: number;
+  subTypeNames?: string;
+  typeName?: string;
+  typeNames?: string;
+  uuids?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dealed: 'Dealed',
+      exportType: 'ExportType',
+      isCleartextPwd: 'IsCleartextPwd',
+      isSummaryExport: 'IsSummaryExport',
+      lang: 'Lang',
+      riskIds: 'RiskIds',
+      riskLevels: 'RiskLevels',
+      riskName: 'RiskName',
+      sourceIp: 'SourceIp',
+      statusList: 'StatusList',
+      strategyId: 'StrategyId',
+      subTypeNames: 'SubTypeNames',
+      typeName: 'TypeName',
+      typeNames: 'TypeNames',
+      uuids: 'Uuids',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dealed: 'string',
+      exportType: 'string',
+      isCleartextPwd: 'number',
+      isSummaryExport: 'number',
+      lang: 'string',
+      riskIds: 'string',
+      riskLevels: 'string',
+      riskName: 'string',
+      sourceIp: 'string',
+      statusList: 'string',
+      strategyId: 'number',
+      subTypeNames: 'string',
+      typeName: 'string',
+      typeNames: 'string',
+      uuids: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningResponseBody extends $tea.Model {
+  fileName?: string;
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportWarningResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportWarningResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportWarningResponseBody,
     };
   }
 
@@ -12161,276 +10450,6 @@ export class GetBackupStorageCountResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetBackupStorageCountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIOCsRequest extends $tea.Model {
-  date?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIOCsResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIOCsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetIOCsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetIOCsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIncIOCsRequest extends $tea.Model {
-  date?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      date: 'Date',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      date: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIncIOCsResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetIncIOCsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetIncIOCsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetIncIOCsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalInstallScriptRequest extends $tea.Model {
-  internalNetwork?: boolean;
-  platformType?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      internalNetwork: 'InternalNetwork',
-      platformType: 'PlatformType',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      internalNetwork: 'boolean',
-      platformType: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalInstallScriptResponseBody extends $tea.Model {
-  requestId?: string;
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalInstallScriptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLocalInstallScriptResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLocalInstallScriptResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalUninstallScriptRequest extends $tea.Model {
-  internalNetwork?: boolean;
-  platformType?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      internalNetwork: 'InternalNetwork',
-      platformType: 'PlatformType',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      internalNetwork: 'boolean',
-      platformType: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalUninstallScriptResponseBody extends $tea.Model {
-  requestId?: string;
-  script?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      script: 'Script',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      script: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetLocalUninstallScriptResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetLocalUninstallScriptResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetLocalUninstallScriptResponseBody,
     };
   }
 
@@ -12594,7 +10613,6 @@ export class HandleSecurityEventsRequest extends $tea.Model {
   markMissParam?: string;
   operationCode?: string;
   operationParams?: string;
-  resourceOwnerId?: number;
   securityEventIds?: string[];
   sourceIp?: string;
   static names(): { [key: string]: string } {
@@ -12603,7 +10621,6 @@ export class HandleSecurityEventsRequest extends $tea.Model {
       markMissParam: 'MarkMissParam',
       operationCode: 'OperationCode',
       operationParams: 'OperationParams',
-      resourceOwnerId: 'ResourceOwnerId',
       securityEventIds: 'SecurityEventIds',
       sourceIp: 'SourceIp',
     };
@@ -12615,7 +10632,6 @@ export class HandleSecurityEventsRequest extends $tea.Model {
       markMissParam: 'string',
       operationCode: 'string',
       operationParams: 'string',
-      resourceOwnerId: 'number',
       securityEventIds: { 'type': 'array', 'itemType': 'string' },
       sourceIp: 'string',
     };
@@ -12878,72 +10894,6 @@ export class InstallBackupClientResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: InstallBackupClientResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallUniBackupAgentRequest extends $tea.Model {
-  policyId?: number;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'number',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallUniBackupAgentResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InstallUniBackupAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: InstallUniBackupAgentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: InstallUniBackupAgentResponseBody,
     };
   }
 
@@ -13269,6 +11219,69 @@ export class ModifyBackupPolicyStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyBackupPolicyStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageRequest extends $tea.Model {
+  from?: string;
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClearLogstoreStorageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyClearLogstoreStorageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyClearLogstoreStorageResponseBody,
     };
   }
 
@@ -13659,75 +11672,6 @@ export class ModifyLoginSwitchConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyLoginSwitchConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNoticeConfigRequest extends $tea.Model {
-  project?: string;
-  route?: number;
-  sourceIp?: string;
-  timeLimit?: number;
-  static names(): { [key: string]: string } {
-    return {
-      project: 'Project',
-      route: 'Route',
-      sourceIp: 'SourceIp',
-      timeLimit: 'TimeLimit',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      project: 'string',
-      route: 'number',
-      sourceIp: 'string',
-      timeLimit: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNoticeConfigResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyNoticeConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyNoticeConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyNoticeConfigResponseBody,
     };
   }
 
@@ -14222,168 +12166,6 @@ export class ModifyStartVulScanResponse extends $tea.Model {
   }
 }
 
-export class ModifyStrategyRequest extends $tea.Model {
-  customType?: string;
-  cycleDays?: string;
-  cycleStartTime?: string;
-  id?: string;
-  name?: string;
-  riskCustomParams?: string;
-  riskSubTypeName?: string;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customType: 'CustomType',
-      cycleDays: 'CycleDays',
-      cycleStartTime: 'CycleStartTime',
-      id: 'Id',
-      name: 'Name',
-      riskCustomParams: 'RiskCustomParams',
-      riskSubTypeName: 'RiskSubTypeName',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customType: 'string',
-      cycleDays: 'string',
-      cycleStartTime: 'string',
-      id: 'string',
-      name: 'string',
-      riskCustomParams: 'string',
-      riskSubTypeName: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyStrategyResponseBody extends $tea.Model {
-  httpStatusCode?: number;
-  requestId?: string;
-  result?: ModifyStrategyResponseBodyResult;
-  success?: boolean;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      result: 'Result',
-      success: 'Success',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      httpStatusCode: 'number',
-      requestId: 'string',
-      result: ModifyStrategyResponseBodyResult,
-      success: 'boolean',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyStrategyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyStrategyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyStrategyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyStrategyTargetRequest extends $tea.Model {
-  config?: string;
-  sourceIp?: string;
-  target?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      sourceIp: 'SourceIp',
-      target: 'Target',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: 'string',
-      sourceIp: 'string',
-      target: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyStrategyTargetResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyStrategyTargetResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyStrategyTargetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyStrategyTargetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyTagWithUuidRequest extends $tea.Model {
   machineTypes?: string;
   tagId?: string;
@@ -14445,145 +12227,6 @@ export class ModifyTagWithUuidResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyTagWithUuidResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUniBackupPolicyRequest extends $tea.Model {
-  accountName?: string;
-  accountPassword?: string;
-  fullPlan?: { [key: string]: any };
-  incPlan?: { [key: string]: any };
-  policyId?: number;
-  policyName?: string;
-  policyStatus?: string;
-  resourceOwnerId?: number;
-  retention?: number;
-  sourceIp?: string;
-  speedLimiter?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      fullPlan: 'FullPlan',
-      incPlan: 'IncPlan',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      policyStatus: 'PolicyStatus',
-      resourceOwnerId: 'ResourceOwnerId',
-      retention: 'Retention',
-      sourceIp: 'SourceIp',
-      speedLimiter: 'SpeedLimiter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPassword: 'string',
-      fullPlan: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      incPlan: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      policyId: 'number',
-      policyName: 'string',
-      policyStatus: 'string',
-      resourceOwnerId: 'number',
-      retention: 'number',
-      sourceIp: 'string',
-      speedLimiter: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUniBackupPolicyShrinkRequest extends $tea.Model {
-  accountName?: string;
-  accountPassword?: string;
-  fullPlanShrink?: string;
-  incPlanShrink?: string;
-  policyId?: number;
-  policyName?: string;
-  policyStatus?: string;
-  resourceOwnerId?: number;
-  retention?: number;
-  sourceIp?: string;
-  speedLimiter?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      accountPassword: 'AccountPassword',
-      fullPlanShrink: 'FullPlan',
-      incPlanShrink: 'IncPlan',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      policyStatus: 'PolicyStatus',
-      resourceOwnerId: 'ResourceOwnerId',
-      retention: 'Retention',
-      sourceIp: 'SourceIp',
-      speedLimiter: 'SpeedLimiter',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      accountPassword: 'string',
-      fullPlanShrink: 'string',
-      incPlanShrink: 'string',
-      policyId: 'number',
-      policyName: 'string',
-      policyStatus: 'string',
-      resourceOwnerId: 'number',
-      retention: 'number',
-      sourceIp: 'string',
-      speedLimiter: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUniBackupPolicyResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyUniBackupPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyUniBackupPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyUniBackupPolicyResponseBody,
     };
   }
 
@@ -15039,66 +12682,6 @@ export class ModifyWebLockStatusResponse extends $tea.Model {
   }
 }
 
-export class ModifyWebLockUnbindRequest extends $tea.Model {
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyWebLockUnbindResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyWebLockUnbindResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyWebLockUnbindResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyWebLockUnbindResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyWebLockUpdateConfigRequest extends $tea.Model {
   defenceMode?: string;
   dir?: string;
@@ -15546,75 +13129,6 @@ export class PauseClientResponse extends $tea.Model {
   }
 }
 
-export class QueryDiscoverDatabaseRequest extends $tea.Model {
-  createMark?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMark: 'CreateMark',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMark: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDiscoverDatabaseResponseBody extends $tea.Model {
-  requestId?: string;
-  taskProgress?: number;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskProgress: 'TaskProgress',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskProgress: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryDiscoverDatabaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryDiscoverDatabaseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryDiscoverDatabaseResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryGroupIdByGroupNameRequest extends $tea.Model {
   groupName?: string;
   sourceIp?: string;
@@ -15673,96 +13187,6 @@ export class QueryGroupIdByGroupNameResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryGroupIdByGroupNameResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPreCheckDatabaseRequest extends $tea.Model {
-  instanceUuid?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  taskId?: string;
-  uniRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceUuid: 'InstanceUuid',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-      taskId: 'TaskId',
-      uniRegionId: 'UniRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceUuid: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-      taskId: 'string',
-      uniRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPreCheckDatabaseResponseBody extends $tea.Model {
-  completedTime?: number;
-  createdTime?: number;
-  description?: string;
-  progress?: number;
-  requestId?: string;
-  result?: string;
-  updatedTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      completedTime: 'CompletedTime',
-      createdTime: 'CreatedTime',
-      description: 'Description',
-      progress: 'Progress',
-      requestId: 'RequestId',
-      result: 'Result',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      completedTime: 'number',
-      createdTime: 'number',
-      description: 'string',
-      progress: 'number',
-      requestId: 'string',
-      result: 'string',
-      updatedTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryPreCheckDatabaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryPreCheckDatabaseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryPreCheckDatabaseResponseBody,
     };
   }
 
@@ -15883,6 +13307,66 @@ export class RefreshContainerAssetsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RefreshContainerAssetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshContainerNetworkRequest extends $tea.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshContainerNetworkResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshContainerNetworkResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RefreshContainerNetworkResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RefreshContainerNetworkResponseBody,
     };
   }
 
@@ -16092,72 +13576,6 @@ export class StartBaselineSecurityCheckResponse extends $tea.Model {
   }
 }
 
-export class StartDiscoverDatabaseTaskRequest extends $tea.Model {
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiscoverDatabaseTaskResponseBody extends $tea.Model {
-  createMark?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMark: 'CreateMark',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMark: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartDiscoverDatabaseTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartDiscoverDatabaseTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartDiscoverDatabaseTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartImageVulScanRequest extends $tea.Model {
   imageDigest?: string;
   imageLayer?: string;
@@ -16237,81 +13655,6 @@ export class StartImageVulScanResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: StartImageVulScanResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPreCheckDatabaseRequest extends $tea.Model {
-  databaseType?: string;
-  instanceUuid?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  uniRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      databaseType: 'DatabaseType',
-      instanceUuid: 'InstanceUuid',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-      uniRegionId: 'UniRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      databaseType: 'string',
-      instanceUuid: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-      uniRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPreCheckDatabaseResponseBody extends $tea.Model {
-  createMark?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createMark: 'CreateMark',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createMark: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StartPreCheckDatabaseResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: StartPreCheckDatabaseResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: StartPreCheckDatabaseResponseBody,
     };
   }
 
@@ -16501,132 +13844,6 @@ export class UninstallBackupClientResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UninstallBackupClientResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallUniBackupAgentRequest extends $tea.Model {
-  policyId?: number;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      policyId: 'PolicyId',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      policyId: 'number',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallUniBackupAgentResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UninstallUniBackupAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UninstallUniBackupAgentResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UninstallUniBackupAgentResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeBackupPolicyVersionRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeBackupPolicyVersionResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpgradeBackupPolicyVersionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpgradeBackupPolicyVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpgradeBackupPolicyVersionResponseBody,
     };
   }
 
@@ -17211,40 +14428,6 @@ export class DescribeAllGroupsResponseBodyGroups extends $tea.Model {
   }
 }
 
-export class DescribeAllRegionsStatisticsResponseBodyData extends $tea.Model {
-  account?: number;
-  health?: number;
-  newSuspicious?: number;
-  suspicious?: number;
-  trojan?: number;
-  vul?: number;
-  static names(): { [key: string]: string } {
-    return {
-      account: 'Account',
-      health: 'Health',
-      newSuspicious: 'NewSuspicious',
-      suspicious: 'Suspicious',
-      trojan: 'Trojan',
-      vul: 'Vul',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      account: 'number',
-      health: 'number',
-      newSuspicious: 'number',
-      suspicious: 'number',
-      trojan: 'number',
-      vul: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAntiBruteForceRulesResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
@@ -17322,10 +14505,12 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
   authVersion?: number;
   bind?: boolean;
   clientStatus?: string;
+  clientVersion?: string;
   cpu?: number;
   cpuInfo?: string;
   createTime?: number;
   diskInfoList?: string[];
+  flag?: number;
   groupTrace?: string;
   hostName?: string;
   instanceId?: string;
@@ -17337,6 +14522,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
   kernel?: string;
   macList?: string[];
   mem?: number;
+  memory?: number;
   os?: string;
   osDetail?: string;
   osName?: string;
@@ -17354,10 +14540,12 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
       authVersion: 'AuthVersion',
       bind: 'Bind',
       clientStatus: 'ClientStatus',
+      clientVersion: 'ClientVersion',
       cpu: 'Cpu',
       cpuInfo: 'CpuInfo',
       createTime: 'CreateTime',
       diskInfoList: 'DiskInfoList',
+      flag: 'Flag',
       groupTrace: 'GroupTrace',
       hostName: 'HostName',
       instanceId: 'InstanceId',
@@ -17369,6 +14557,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
       kernel: 'Kernel',
       macList: 'MacList',
       mem: 'Mem',
+      memory: 'Memory',
       os: 'Os',
       osDetail: 'OsDetail',
       osName: 'OsName',
@@ -17389,10 +14578,12 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
       authVersion: 'number',
       bind: 'boolean',
       clientStatus: 'string',
+      clientVersion: 'string',
       cpu: 'number',
       cpuInfo: 'string',
       createTime: 'number',
       diskInfoList: { 'type': 'array', 'itemType': 'string' },
+      flag: 'number',
       groupTrace: 'string',
       hostName: 'string',
       instanceId: 'string',
@@ -17404,6 +14595,7 @@ export class DescribeAssetDetailByUuidResponseBodyAssetDetail extends $tea.Model
       kernel: 'string',
       macList: { 'type': 'array', 'itemType': 'string' },
       mem: 'number',
+      memory: 'number',
       os: 'string',
       osDetail: 'string',
       osName: 'string',
@@ -17530,56 +14722,6 @@ export class DescribeBackupClientsResponseBodyClients extends $tea.Model {
   }
 }
 
-export class DescribeBackupDirsResponseBodyBackupDirs extends $tea.Model {
-  backupJobId?: number;
-  source?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backupJobId: 'BackupJobId',
-      source: 'Source',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backupJobId: 'number',
-      source: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupDirsResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeBackupFilesResponseBodyBackupFiles extends $tea.Model {
   name?: string;
   size?: number;
@@ -17628,104 +14770,6 @@ export class DescribeBackupFilesResponseBodyPageInfo extends $tea.Model {
       currentPage: 'number',
       pageSize: 'number',
       totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList extends $tea.Model {
-  errorCode?: string;
-  errorFile?: string;
-  errorFileUrl?: string;
-  errorMsg?: string;
-  errorStatus?: string;
-  errorTime?: number;
-  errorType?: string;
-  key?: string;
-  path?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      errorCode: 'ErrorCode',
-      errorFile: 'ErrorFile',
-      errorFileUrl: 'ErrorFileUrl',
-      errorMsg: 'ErrorMsg',
-      errorStatus: 'ErrorStatus',
-      errorTime: 'ErrorTime',
-      errorType: 'ErrorType',
-      key: 'Key',
-      path: 'Path',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errorCode: 'string',
-      errorFile: 'string',
-      errorFileUrl: 'string',
-      errorMsg: 'string',
-      errorStatus: 'string',
-      errorTime: 'number',
-      errorType: 'string',
-      key: 'string',
-      path: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupMachineStatusResponseBodyBackupMachineStatus extends $tea.Model {
-  clientId?: string;
-  clientStatus?: string;
-  clientVersion?: string;
-  errorCode?: string;
-  errorList?: DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList[];
-  instanceId?: string;
-  regionId?: string;
-  requestId?: string;
-  savedBackupCount?: number;
-  status?: string;
-  uuid?: string;
-  vaultId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clientId: 'ClientId',
-      clientStatus: 'ClientStatus',
-      clientVersion: 'ClientVersion',
-      errorCode: 'ErrorCode',
-      errorList: 'ErrorList',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-      requestId: 'RequestId',
-      savedBackupCount: 'SavedBackupCount',
-      status: 'Status',
-      uuid: 'Uuid',
-      vaultId: 'VaultId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientId: 'string',
-      clientStatus: 'string',
-      clientVersion: 'string',
-      errorCode: 'string',
-      errorList: { 'type': 'array', 'itemType': DescribeBackupMachineStatusResponseBodyBackupMachineStatusErrorList },
-      instanceId: 'string',
-      regionId: 'string',
-      requestId: 'string',
-      savedBackupCount: 'number',
-      status: 'string',
-      uuid: 'string',
-      vaultId: 'string',
     };
   }
 
@@ -17817,46 +14861,6 @@ export class DescribeBackupPoliciesResponseBodyPolicies extends $tea.Model {
       serviceErrorUuidList: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       upgradeStatus: 'string',
-      uuidList: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeBackupPolicyResponseBodyBackupPolicyDetail extends $tea.Model {
-  clientStatus?: string;
-  id?: number;
-  name?: string;
-  policy?: string;
-  policyVersion?: string;
-  regionId?: string;
-  status?: string;
-  uuidList?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      clientStatus: 'ClientStatus',
-      id: 'Id',
-      name: 'Name',
-      policy: 'Policy',
-      policyVersion: 'PolicyVersion',
-      regionId: 'RegionId',
-      status: 'Status',
-      uuidList: 'UuidList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clientStatus: 'string',
-      id: 'number',
-      name: 'string',
-      policy: 'string',
-      policyVersion: 'string',
-      regionId: 'string',
-      status: 'string',
       uuidList: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -18011,7 +15015,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $tea.Mode
   createdTime?: number;
   exposedStatus?: number;
   flag?: number;
-  groupId?: string;
+  groupId?: number;
   groupTrace?: string;
   hcStatus?: string;
   healthCheckCount?: number;
@@ -18112,7 +15116,7 @@ export class DescribeCloudCenterInstancesResponseBodyInstances extends $tea.Mode
       createdTime: 'number',
       exposedStatus: 'number',
       flag: 'number',
-      groupId: 'string',
+      groupId: 'number',
       groupTrace: 'string',
       hcStatus: 'string',
       healthCheckCount: 'number',
@@ -18480,56 +15484,6 @@ export class DescribeEmgVulItemResponseBodyGroupedVulItems extends $tea.Model {
       progress: 'number',
       status: 'number',
       type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcludeSystemPathResponseBodyExcludePaths extends $tea.Model {
-  os?: string;
-  path?: string;
-  static names(): { [key: string]: string } {
-    return {
-      os: 'Os',
-      path: 'Path',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      os: 'string',
-      path: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeExcludeSystemPathResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
     };
   }
 
@@ -18911,248 +15865,6 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       testAssetCount: 'number',
       unprotectedInstanceCount: 'number',
       vpcCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFrontVulPatchListResponseBodyFrontPatchListPatchList extends $tea.Model {
-  aliasName?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliasName: 'AliasName',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliasName: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeFrontVulPatchListResponseBodyFrontPatchList extends $tea.Model {
-  patchList?: DescribeFrontVulPatchListResponseBodyFrontPatchListPatchList[];
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      patchList: 'PatchList',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      patchList: { 'type': 'array', 'itemType': DescribeFrontVulPatchListResponseBodyFrontPatchListPatchList },
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList extends $tea.Model {
-  endId?: string;
-  endType?: string;
-  id?: number;
-  name?: string;
-  startId?: string;
-  startType?: string;
-  time?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endId: 'EndId',
-      endType: 'EndType',
-      id: 'Id',
-      name: 'Name',
-      startId: 'StartId',
-      startType: 'StartType',
-      time: 'Time',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endId: 'string',
-      endType: 'string',
-      id: 'number',
-      name: 'string',
-      startId: 'string',
-      startType: 'string',
-      time: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList extends $tea.Model {
-  displayColor?: string;
-  displayIcon?: string;
-  displayOrder?: string;
-  id?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      displayColor: 'DisplayColor',
-      displayIcon: 'DisplayIcon',
-      displayOrder: 'DisplayOrder',
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      displayColor: 'string',
-      displayIcon: 'string',
-      displayOrder: 'string',
-      id: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList extends $tea.Model {
-  directed?: number;
-  id?: string;
-  name?: string;
-  showType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      directed: 'Directed',
-      id: 'Id',
-      name: 'Name',
-      showType: 'ShowType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      directed: 'number',
-      id: 'string',
-      name: 'string',
-      showType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighborList extends $tea.Model {
-  count?: number;
-  hasMore?: boolean;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      hasMore: 'HasMore',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      hasMore: 'boolean',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyDataVertexList extends $tea.Model {
-  aliuid?: string;
-  id?: string;
-  name?: string;
-  neighborList?: DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighborList[];
-  position?: string;
-  positionId?: string;
-  properties?: string;
-  time?: string;
-  type?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliuid: 'Aliuid',
-      id: 'Id',
-      name: 'Name',
-      neighborList: 'NeighborList',
-      position: 'Position',
-      positionId: 'PositionId',
-      properties: 'Properties',
-      time: 'Time',
-      type: 'Type',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliuid: 'string',
-      id: 'string',
-      name: 'string',
-      neighborList: { 'type': 'array', 'itemType': DescribeGraph4InvestigationOnlineResponseBodyDataVertexListNeighborList },
-      position: 'string',
-      positionId: 'string',
-      properties: 'string',
-      time: 'string',
-      type: 'string',
-      uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeGraph4InvestigationOnlineResponseBodyData extends $tea.Model {
-  edgeList?: DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList[];
-  entityTypeList?: DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList[];
-  relationTypeList?: DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList[];
-  vertexList?: DescribeGraph4InvestigationOnlineResponseBodyDataVertexList[];
-  static names(): { [key: string]: string } {
-    return {
-      edgeList: 'EdgeList',
-      entityTypeList: 'EntityTypeList',
-      relationTypeList: 'RelationTypeList',
-      vertexList: 'VertexList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      edgeList: { 'type': 'array', 'itemType': DescribeGraph4InvestigationOnlineResponseBodyDataEdgeList },
-      entityTypeList: { 'type': 'array', 'itemType': DescribeGraph4InvestigationOnlineResponseBodyDataEntityTypeList },
-      relationTypeList: { 'type': 'array', 'itemType': DescribeGraph4InvestigationOnlineResponseBodyDataRelationTypeList },
-      vertexList: { 'type': 'array', 'itemType': DescribeGraph4InvestigationOnlineResponseBodyDataVertexList },
     };
   }
 
@@ -19609,128 +16321,6 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $tea
       status: 'number',
       tags: 'string',
       type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageInstancesResponseBodyImageInstanceList extends $tea.Model {
-  alarmCount?: number;
-  alarmStatus?: string;
-  digest?: string;
-  endpoints?: string;
-  hcCount?: number;
-  hcStatus?: string;
-  imageCreate?: string;
-  imageId?: string;
-  imageSize?: string;
-  imageUpdate?: string;
-  instanceId?: string;
-  regionId?: string;
-  registryType?: string;
-  repoId?: string;
-  repoName?: string;
-  repoNamespace?: string;
-  repoType?: string;
-  riskStatus?: string;
-  scaProgress?: number;
-  scaResult?: string;
-  scaStatus?: string;
-  status?: string;
-  tag?: string;
-  uuid?: string;
-  vulCount?: number;
-  vulStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alarmCount: 'AlarmCount',
-      alarmStatus: 'AlarmStatus',
-      digest: 'Digest',
-      endpoints: 'Endpoints',
-      hcCount: 'HcCount',
-      hcStatus: 'HcStatus',
-      imageCreate: 'ImageCreate',
-      imageId: 'ImageId',
-      imageSize: 'ImageSize',
-      imageUpdate: 'ImageUpdate',
-      instanceId: 'InstanceId',
-      regionId: 'RegionId',
-      registryType: 'RegistryType',
-      repoId: 'RepoId',
-      repoName: 'RepoName',
-      repoNamespace: 'RepoNamespace',
-      repoType: 'RepoType',
-      riskStatus: 'RiskStatus',
-      scaProgress: 'ScaProgress',
-      scaResult: 'ScaResult',
-      scaStatus: 'ScaStatus',
-      status: 'Status',
-      tag: 'Tag',
-      uuid: 'Uuid',
-      vulCount: 'VulCount',
-      vulStatus: 'VulStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alarmCount: 'number',
-      alarmStatus: 'string',
-      digest: 'string',
-      endpoints: 'string',
-      hcCount: 'number',
-      hcStatus: 'string',
-      imageCreate: 'string',
-      imageId: 'string',
-      imageSize: 'string',
-      imageUpdate: 'string',
-      instanceId: 'string',
-      regionId: 'string',
-      registryType: 'string',
-      repoId: 'string',
-      repoName: 'string',
-      repoNamespace: 'string',
-      repoType: 'string',
-      riskStatus: 'string',
-      scaProgress: 'number',
-      scaResult: 'string',
-      scaStatus: 'string',
-      status: 'string',
-      tag: 'string',
-      uuid: 'string',
-      vulCount: 'number',
-      vulStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeImageInstancesResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
     };
   }
 
@@ -21081,85 +17671,8 @@ export class DescribeRestoreJobsResponseBodyRestoreJobs extends $tea.Model {
   }
 }
 
-export class DescribeRestorePlansResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeRestorePlansResponseBodyRestorePlans extends $tea.Model {
-  createdTime?: number;
-  databaseName?: string;
-  instanceName?: string;
-  policyId?: number;
-  policyName?: string;
-  restorePoint?: number;
-  status?: string;
-  targetDatabaseName?: string;
-  targetInstanceId?: string;
-  targetInstanceName?: string;
-  updatedTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      databaseName: 'DatabaseName',
-      instanceName: 'InstanceName',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      restorePoint: 'RestorePoint',
-      status: 'Status',
-      targetDatabaseName: 'TargetDatabaseName',
-      targetInstanceId: 'TargetInstanceId',
-      targetInstanceName: 'TargetInstanceName',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'number',
-      databaseName: 'string',
-      instanceName: 'string',
-      policyId: 'number',
-      policyName: 'string',
-      restorePoint: 'number',
-      status: 'string',
-      targetDatabaseName: 'string',
-      targetInstanceId: 'string',
-      targetInstanceName: 'string',
-      updatedTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends $tea.Model {
-  contentResource?: { [key: string]: any };
+  contentResource?: string;
   count?: number;
   currentPage?: number;
   pageCount?: number;
@@ -21178,7 +17691,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
 
   static types(): { [key: string]: any } {
     return {
-      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      contentResource: 'string',
       count: 'number',
       currentPage: 'number',
       pageCount: 'number',
@@ -21193,7 +17706,7 @@ export class DescribeRiskCheckItemResultResponseBodyPageContentResource extends 
 }
 
 export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $tea.Model {
-  contentResource?: { [key: string]: any };
+  contentResource?: string;
   resourceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21204,7 +17717,7 @@ export class DescribeRiskCheckResultResponseBodyListRiskItemResources extends $t
 
   static types(): { [key: string]: any } {
     return {
-      contentResource: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      contentResource: 'string',
       resourceName: 'string',
     };
   }
@@ -21952,158 +18465,6 @@ export class DescribeSimilarSecurityEventsResponseBodySecurityEventsResponse ext
   }
 }
 
-export class DescribeSnapshotsResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  nextToken?: string;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      nextToken: 'NextToken',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      nextToken: 'string',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSnapshotsResponseBodySnapshots extends $tea.Model {
-  actualBytes?: number;
-  actualItems?: number;
-  bytesDone?: number;
-  bytesTotal?: number;
-  clientId?: string;
-  containerSnapshotId?: string;
-  createdTime?: number;
-  duration?: number;
-  errorCount?: number;
-  errorFile?: string;
-  errorMessage?: string;
-  errorType?: string;
-  exitCode?: string;
-  instanceId?: string;
-  itemsDone?: number;
-  itemsTotal?: number;
-  jobId?: string;
-  parentHash?: string;
-  parentSnapshotHash?: string;
-  path?: string;
-  paths?: string[];
-  planId?: string;
-  regionId?: string;
-  retention?: number;
-  size?: number;
-  snapshotHash?: string;
-  snapshotId?: string;
-  snapshotName?: string;
-  snapshotOption?: string;
-  snapshotType?: string;
-  source?: string;
-  sourceType?: string;
-  status?: string;
-  uuid?: string;
-  vaultId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      actualBytes: 'ActualBytes',
-      actualItems: 'ActualItems',
-      bytesDone: 'BytesDone',
-      bytesTotal: 'BytesTotal',
-      clientId: 'ClientId',
-      containerSnapshotId: 'ContainerSnapshotId',
-      createdTime: 'CreatedTime',
-      duration: 'Duration',
-      errorCount: 'ErrorCount',
-      errorFile: 'ErrorFile',
-      errorMessage: 'ErrorMessage',
-      errorType: 'ErrorType',
-      exitCode: 'ExitCode',
-      instanceId: 'InstanceId',
-      itemsDone: 'ItemsDone',
-      itemsTotal: 'ItemsTotal',
-      jobId: 'JobId',
-      parentHash: 'ParentHash',
-      parentSnapshotHash: 'ParentSnapshotHash',
-      path: 'Path',
-      paths: 'Paths',
-      planId: 'PlanId',
-      regionId: 'RegionId',
-      retention: 'Retention',
-      size: 'Size',
-      snapshotHash: 'SnapshotHash',
-      snapshotId: 'SnapshotId',
-      snapshotName: 'SnapshotName',
-      snapshotOption: 'SnapshotOption',
-      snapshotType: 'SnapshotType',
-      source: 'Source',
-      sourceType: 'SourceType',
-      status: 'Status',
-      uuid: 'Uuid',
-      vaultId: 'VaultId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      actualBytes: 'number',
-      actualItems: 'number',
-      bytesDone: 'number',
-      bytesTotal: 'number',
-      clientId: 'string',
-      containerSnapshotId: 'string',
-      createdTime: 'number',
-      duration: 'number',
-      errorCount: 'number',
-      errorFile: 'string',
-      errorMessage: 'string',
-      errorType: 'string',
-      exitCode: 'string',
-      instanceId: 'string',
-      itemsDone: 'number',
-      itemsTotal: 'number',
-      jobId: 'string',
-      parentHash: 'string',
-      parentSnapshotHash: 'string',
-      path: 'string',
-      paths: { 'type': 'array', 'itemType': 'string' },
-      planId: 'string',
-      regionId: 'string',
-      retention: 'number',
-      size: 'number',
-      snapshotHash: 'string',
-      snapshotId: 'string',
-      snapshotName: 'string',
-      snapshotOption: 'string',
-      snapshotType: 'string',
-      source: 'string',
-      sourceType: 'string',
-      status: 'string',
-      uuid: 'string',
-      vaultId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeStrategyResponseBodyStrategiesConfigTargets extends $tea.Model {
   flag?: string;
   target?: string;
@@ -22533,99 +18894,6 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   }
 }
 
-export class DescribeTaskErrorLogResponseBodyLogs extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'Text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupDatabaseResponseBodyDatabaseList extends $tea.Model {
-  agentStatus?: string;
-  createdByProduct?: string;
-  databaseName?: string;
-  databaseType?: string;
-  databaseVersion?: string;
-  instanceId?: string;
-  instanceName?: string;
-  instanceUuid?: string;
-  policyId?: number;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentStatus: 'AgentStatus',
-      createdByProduct: 'CreatedByProduct',
-      databaseName: 'DatabaseName',
-      databaseType: 'DatabaseType',
-      databaseVersion: 'DatabaseVersion',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      instanceUuid: 'InstanceUuid',
-      policyId: 'PolicyId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentStatus: 'string',
-      createdByProduct: 'string',
-      databaseName: 'string',
-      databaseType: 'string',
-      databaseVersion: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      instanceUuid: 'string',
-      policyId: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupDatabaseResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $tea.Model {
   count?: number;
   currentPage?: number;
@@ -22724,151 +18992,6 @@ export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $tea
   }
 }
 
-export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan extends $tea.Model {
-  days?: string[];
-  interval?: number;
-  planType?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      days: 'Days',
-      interval: 'Interval',
-      planType: 'PlanType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      days: { 'type': 'array', 'itemType': 'string' },
-      interval: 'number',
-      planType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan extends $tea.Model {
-  days?: string[];
-  interval?: number;
-  planType?: string;
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      days: 'Days',
-      interval: 'Interval',
-      planType: 'PlanType',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      days: { 'type': 'array', 'itemType': 'string' },
-      interval: 'number',
-      planType: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTO extends $tea.Model {
-  accountName?: string;
-  agentStatus?: string;
-  databaseType?: string;
-  fullPlan?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan;
-  incPlan?: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan;
-  instanceId?: string;
-  instanceName?: string;
-  policyId?: number;
-  policyName?: string;
-  policyStatus?: string;
-  retention?: number;
-  speedLimiter?: number;
-  uniBackUpCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      agentStatus: 'AgentStatus',
-      databaseType: 'DatabaseType',
-      fullPlan: 'FullPlan',
-      incPlan: 'IncPlan',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      policyStatus: 'PolicyStatus',
-      retention: 'Retention',
-      speedLimiter: 'SpeedLimiter',
-      uniBackUpCount: 'UniBackUpCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      agentStatus: 'string',
-      databaseType: 'string',
-      fullPlan: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOFullPlan,
-      incPlan: DescribeUniBackupPolicyDetailResponseBodyUniBackupPolicyDTOIncPlan,
-      instanceId: 'string',
-      instanceName: 'string',
-      policyId: 'number',
-      policyName: 'string',
-      policyStatus: 'string',
-      retention: 'number',
-      speedLimiter: 'number',
-      uniBackUpCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniRecoverableListResponseBodyRecoverableInfoList extends $tea.Model {
-  firstTime?: number;
-  lastTime?: number;
-  name?: string;
-  resetScn?: string;
-  resetTime?: number;
-  restoreInfo?: { [key: string]: any };
-  static names(): { [key: string]: string } {
-    return {
-      firstTime: 'FirstTime',
-      lastTime: 'LastTime',
-      name: 'Name',
-      resetScn: 'ResetScn',
-      resetTime: 'ResetTime',
-      restoreInfo: 'RestoreInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      firstTime: 'number',
-      lastTime: 'number',
-      name: 'string',
-      resetScn: 'string',
-      resetTime: 'number',
-      restoreInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUserBackupMachinesResponseBodyMachines extends $tea.Model {
   id?: number;
   policyName?: string;
@@ -22905,40 +19028,6 @@ export class DescribeUserBaselineAuthorizationResponseBodyUserBaselineAuthorizat
   static types(): { [key: string]: any } {
     return {
       status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUuidsByVulNamesResponseBodyMachineInfoStatistics extends $tea.Model {
-  machineInstanceId?: string;
-  machineIp?: string;
-  machineName?: string;
-  os?: string;
-  regionId?: string;
-  uuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      machineInstanceId: 'MachineInstanceId',
-      machineIp: 'MachineIp',
-      machineName: 'MachineName',
-      os: 'Os',
-      regionId: 'RegionId',
-      uuid: 'Uuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      machineInstanceId: 'string',
-      machineIp: 'string',
-      machineName: 'string',
-      os: 'string',
-      regionId: 'string',
-      uuid: 'string',
     };
   }
 
@@ -23426,6 +19515,43 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
   }
 }
 
+export class DescribeVulListPageResponseBodyData extends $tea.Model {
+  cveId?: string;
+  id?: number;
+  isAegis?: number;
+  isSas?: number;
+  otherId?: string;
+  releaseTime?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cveId: 'CveId',
+      id: 'Id',
+      isAegis: 'IsAegis',
+      isSas: 'IsSas',
+      otherId: 'OtherId',
+      releaseTime: 'ReleaseTime',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cveId: 'string',
+      id: 'number',
+      isAegis: 'number',
+      isSas: 'number',
+      otherId: 'string',
+      releaseTime: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVulWhitelistResponseBodyVulWhitelists extends $tea.Model {
   aliasName?: string;
   id?: string;
@@ -23731,25 +19857,6 @@ export class ModifyPushAllTaskResponseBodyPushTaskRsp extends $tea.Model {
   }
 }
 
-export class ModifyStrategyResponseBodyResult extends $tea.Model {
-  strategyId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      strategyId: 'StrategyId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      strategyId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList extends $tea.Model {
   instanceId?: string;
   recordId?: number;
@@ -23859,10 +19966,30 @@ export default class Client extends OpenApi {
 
   async addVpcHoneyPotWithOptions(request: AddVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<AddVpcHoneyPotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpcSwitchId)) {
+      query["VpcSwitchId"] = request.vpcSwitchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddVpcHoneyPotResponse>(await this.doRPCRequest("AddVpcHoneyPot", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new AddVpcHoneyPotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddVpcHoneyPot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new AddVpcHoneyPotResponse({}));
   }
 
   async addVpcHoneyPot(request: AddVpcHoneyPotRequest): Promise<AddVpcHoneyPotResponse> {
@@ -23870,25 +19997,32 @@ export default class Client extends OpenApi {
     return await this.addVpcHoneyPotWithOptions(request, runtime);
   }
 
-  async checkQuaraFileIdWithOptions(request: CheckQuaraFileIdRequest, runtime: $Util.RuntimeOptions): Promise<CheckQuaraFileIdResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CheckQuaraFileIdResponse>(await this.doRPCRequest("CheckQuaraFileId", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CheckQuaraFileIdResponse({}));
-  }
-
-  async checkQuaraFileId(request: CheckQuaraFileIdRequest): Promise<CheckQuaraFileIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkQuaraFileIdWithOptions(request, runtime);
-  }
-
   async checkSecurityEventIdWithOptions(request: CheckSecurityEventIdRequest, runtime: $Util.RuntimeOptions): Promise<CheckSecurityEventIdResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.securityEventIds)) {
+      query["SecurityEventIds"] = request.securityEventIds;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CheckSecurityEventIdResponse>(await this.doRPCRequest("CheckSecurityEventId", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CheckSecurityEventIdResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CheckSecurityEventId",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckSecurityEventIdResponse>(await this.callApi(params, req, runtime), new CheckSecurityEventIdResponse({}));
   }
 
   async checkSecurityEventId(request: CheckSecurityEventIdRequest): Promise<CheckSecurityEventIdResponse> {
@@ -23898,28 +20032,59 @@ export default class Client extends OpenApi {
 
   async createAntiBruteForceRuleWithOptions(request: CreateAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAntiBruteForceRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultRule)) {
+      query["DefaultRule"] = request.defaultRule;
+    }
+
+    if (!Util.isUnset(request.failCount)) {
+      query["FailCount"] = request.failCount;
+    }
+
+    if (!Util.isUnset(request.forbiddenTime)) {
+      query["ForbiddenTime"] = request.forbiddenTime;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.span)) {
+      query["Span"] = request.span;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAntiBruteForceRuleResponse>(await this.doRPCRequest("CreateAntiBruteForceRule", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAntiBruteForceRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAntiBruteForceRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new CreateAntiBruteForceRuleResponse({}));
   }
 
   async createAntiBruteForceRule(request: CreateAntiBruteForceRuleRequest): Promise<CreateAntiBruteForceRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAntiBruteForceRuleWithOptions(request, runtime);
-  }
-
-  async createAssetWithOptions(request: CreateAssetRequest, runtime: $Util.RuntimeOptions): Promise<CreateAssetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateAssetResponse>(await this.doRPCRequest("CreateAsset", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAssetResponse({}));
-  }
-
-  async createAsset(request: CreateAssetRequest): Promise<CreateAssetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAssetWithOptions(request, runtime);
   }
 
   async createBackupPolicyWithOptions(tmpReq: CreateBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupPolicyResponse> {
@@ -23930,10 +20095,42 @@ export default class Client extends OpenApi {
       request.policyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policy, "Policy", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policyShrink)) {
+      query["Policy"] = request.policyShrink;
+    }
+
+    if (!Util.isUnset(request.policyRegionId)) {
+      query["PolicyRegionId"] = request.policyRegionId;
+    }
+
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateBackupPolicyResponse>(await this.doRPCRequest("CreateBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBackupPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackupPolicyResponse>(await this.callApi(params, req, runtime), new CreateBackupPolicyResponse({}));
   }
 
   async createBackupPolicy(request: CreateBackupPolicyRequest): Promise<CreateBackupPolicyResponse> {
@@ -23943,10 +20140,34 @@ export default class Client extends OpenApi {
 
   async createOrUpdateAssetGroupWithOptions(request: CreateOrUpdateAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAssetGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateOrUpdateAssetGroupResponse>(await this.doRPCRequest("CreateOrUpdateAssetGroup", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateOrUpdateAssetGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateOrUpdateAssetGroup",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrUpdateAssetGroupResponse>(await this.callApi(params, req, runtime), new CreateOrUpdateAssetGroupResponse({}));
   }
 
   async createOrUpdateAssetGroup(request: CreateOrUpdateAssetGroupRequest): Promise<CreateOrUpdateAssetGroupResponse> {
@@ -23954,35 +20175,20 @@ export default class Client extends OpenApi {
     return await this.createOrUpdateAssetGroupWithOptions(request, runtime);
   }
 
-  async createRestoreJobWithOptions(request: CreateRestoreJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRestoreJobResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateRestoreJobResponse>(await this.doRPCRequest("CreateRestoreJob", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRestoreJobResponse({}));
-  }
-
-  async createRestoreJob(request: CreateRestoreJobRequest): Promise<CreateRestoreJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRestoreJobWithOptions(request, runtime);
-  }
-
-  async createSasOrderWithOptions(request: CreateSasOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSasOrderResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateSasOrderResponse>(await this.doRPCRequest("CreateSasOrder", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSasOrderResponse({}));
-  }
-
-  async createSasOrder(request: CreateSasOrderRequest): Promise<CreateSasOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSasOrderWithOptions(request, runtime);
-  }
-
   async createServiceLinkedRoleWithOptions(runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.doRPCRequest("CreateServiceLinkedRole", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceLinkedRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
   async createServiceLinkedRole(): Promise<CreateServiceLinkedRoleResponse> {
@@ -23992,10 +20198,38 @@ export default class Client extends OpenApi {
 
   async createSimilarSecurityEventsQueryTaskWithOptions(request: CreateSimilarSecurityEventsQueryTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateSimilarSecurityEventsQueryTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityEventId)) {
+      query["SecurityEventId"] = request.securityEventId;
+    }
+
+    if (!Util.isUnset(request.similarEventScenarioCode)) {
+      query["SimilarEventScenarioCode"] = request.similarEventScenarioCode;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateSimilarSecurityEventsQueryTaskResponse>(await this.doRPCRequest("CreateSimilarSecurityEventsQueryTask", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSimilarSecurityEventsQueryTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSimilarSecurityEventsQueryTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSimilarSecurityEventsQueryTaskResponse>(await this.callApi(params, req, runtime), new CreateSimilarSecurityEventsQueryTaskResponse({}));
   }
 
   async createSimilarSecurityEventsQueryTask(request: CreateSimilarSecurityEventsQueryTaskRequest): Promise<CreateSimilarSecurityEventsQueryTaskResponse> {
@@ -24003,61 +20237,32 @@ export default class Client extends OpenApi {
     return await this.createSimilarSecurityEventsQueryTaskWithOptions(request, runtime);
   }
 
-  async createUniBackupPolicyWithOptions(tmpReq: CreateUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateUniBackupPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateUniBackupPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.fullPlan)) {
-      request.fullPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fullPlan, "FullPlan", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.incPlan)) {
-      request.incPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.incPlan, "IncPlan", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateUniBackupPolicyResponse>(await this.doRPCRequest("CreateUniBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateUniBackupPolicyResponse({}));
-  }
-
-  async createUniBackupPolicy(request: CreateUniBackupPolicyRequest): Promise<CreateUniBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createUniBackupPolicyWithOptions(request, runtime);
-  }
-
-  async createUniRestorePlanWithOptions(request: CreateUniRestorePlanRequest, runtime: $Util.RuntimeOptions): Promise<CreateUniRestorePlanResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<CreateUniRestorePlanResponse>(await this.doRPCRequest("CreateUniRestorePlan", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateUniRestorePlanResponse({}));
-  }
-
-  async createUniRestorePlan(request: CreateUniRestorePlanRequest): Promise<CreateUniRestorePlanResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createUniRestorePlanWithOptions(request, runtime);
-  }
-
-  async deleteAssetWithOptions(request: DeleteAssetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAssetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteAssetResponse>(await this.doRPCRequest("DeleteAsset", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAssetResponse({}));
-  }
-
-  async deleteAsset(request: DeleteAssetRequest): Promise<DeleteAssetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAssetWithOptions(request, runtime);
-  }
-
   async deleteBackupPolicyWithOptions(request: DeleteBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteBackupPolicyResponse>(await this.doRPCRequest("DeleteBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBackupPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupPolicyResponse>(await this.callApi(params, req, runtime), new DeleteBackupPolicyResponse({}));
   }
 
   async deleteBackupPolicy(request: DeleteBackupPolicyRequest): Promise<DeleteBackupPolicyResponse> {
@@ -24067,10 +20272,38 @@ export default class Client extends OpenApi {
 
   async deleteBackupPolicyMachineWithOptions(request: DeleteBackupPolicyMachineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupPolicyMachineResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteBackupPolicyMachineResponse>(await this.doRPCRequest("DeleteBackupPolicyMachine", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBackupPolicyMachineResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBackupPolicyMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupPolicyMachineResponse>(await this.callApi(params, req, runtime), new DeleteBackupPolicyMachineResponse({}));
   }
 
   async deleteBackupPolicyMachine(request: DeleteBackupPolicyMachineRequest): Promise<DeleteBackupPolicyMachineResponse> {
@@ -24080,10 +20313,30 @@ export default class Client extends OpenApi {
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGroupResponse>(await this.doRPCRequest("DeleteGroup", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGroup",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
@@ -24093,10 +20346,34 @@ export default class Client extends OpenApi {
 
   async deleteLoginBaseConfigWithOptions(request: DeleteLoginBaseConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginBaseConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLoginBaseConfigResponse>(await this.doRPCRequest("DeleteLoginBaseConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLoginBaseConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLoginBaseConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLoginBaseConfigResponse>(await this.callApi(params, req, runtime), new DeleteLoginBaseConfigResponse({}));
   }
 
   async deleteLoginBaseConfig(request: DeleteLoginBaseConfigRequest): Promise<DeleteLoginBaseConfigResponse> {
@@ -24106,10 +20383,34 @@ export default class Client extends OpenApi {
 
   async deleteStrategyWithOptions(request: DeleteStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteStrategyResponse>(await this.doRPCRequest("DeleteStrategy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStrategyResponse>(await this.callApi(params, req, runtime), new DeleteStrategyResponse({}));
   }
 
   async deleteStrategy(request: DeleteStrategyRequest): Promise<DeleteStrategyResponse> {
@@ -24119,10 +20420,30 @@ export default class Client extends OpenApi {
 
   async deleteTagWithUuidWithOptions(request: DeleteTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagWithUuidResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTagWithUuidResponse>(await this.doRPCRequest("DeleteTagWithUuid", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTagWithUuidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTagWithUuid",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTagWithUuidResponse>(await this.callApi(params, req, runtime), new DeleteTagWithUuidResponse({}));
   }
 
   async deleteTagWithUuid(request: DeleteTagWithUuidRequest): Promise<DeleteTagWithUuidResponse> {
@@ -24130,25 +20451,28 @@ export default class Client extends OpenApi {
     return await this.deleteTagWithUuidWithOptions(request, runtime);
   }
 
-  async deleteUniBackupPolicyWithOptions(request: DeleteUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUniBackupPolicyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteUniBackupPolicyResponse>(await this.doRPCRequest("DeleteUniBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteUniBackupPolicyResponse({}));
-  }
-
-  async deleteUniBackupPolicy(request: DeleteUniBackupPolicyRequest): Promise<DeleteUniBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteUniBackupPolicyWithOptions(request, runtime);
-  }
-
   async deleteVpcHoneyPotWithOptions(request: DeleteVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcHoneyPotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVpcHoneyPotResponse>(await this.doRPCRequest("DeleteVpcHoneyPot", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVpcHoneyPotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVpcHoneyPot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new DeleteVpcHoneyPotResponse({}));
   }
 
   async deleteVpcHoneyPot(request: DeleteVpcHoneyPotRequest): Promise<DeleteVpcHoneyPotResponse> {
@@ -24156,12 +20480,73 @@ export default class Client extends OpenApi {
     return await this.deleteVpcHoneyPotWithOptions(request, runtime);
   }
 
+  async describeAccessKeyLeakDetailWithOptions(request: DescribeAccessKeyLeakDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessKeyLeakDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessKeyLeakDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessKeyLeakDetailResponse>(await this.callApi(params, req, runtime), new DescribeAccessKeyLeakDetailResponse({}));
+  }
+
+  async describeAccessKeyLeakDetail(request: DescribeAccessKeyLeakDetailRequest): Promise<DescribeAccessKeyLeakDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeAccessKeyLeakDetailWithOptions(request, runtime);
+  }
+
   async describeAccesskeyLeakListWithOptions(request: DescribeAccesskeyLeakListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccesskeyLeakListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAccesskeyLeakListResponse>(await this.doRPCRequest("DescribeAccesskeyLeakList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccesskeyLeakListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccesskeyLeakList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccesskeyLeakListResponse>(await this.callApi(params, req, runtime), new DescribeAccesskeyLeakListResponse({}));
   }
 
   async describeAccesskeyLeakList(request: DescribeAccesskeyLeakListRequest): Promise<DescribeAccesskeyLeakListResponse> {
@@ -24171,10 +20556,70 @@ export default class Client extends OpenApi {
 
   async describeAffectedMaliciousFileImagesWithOptions(request: DescribeAffectedMaliciousFileImagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAffectedMaliciousFileImagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.imageDigest)) {
+      query["ImageDigest"] = request.imageDigest;
+    }
+
+    if (!Util.isUnset(request.imageLayer)) {
+      query["ImageLayer"] = request.imageLayer;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.maliciousMd5)) {
+      query["MaliciousMd5"] = request.maliciousMd5;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.repoRegionId)) {
+      query["RepoRegionId"] = request.repoRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAffectedMaliciousFileImagesResponse>(await this.doRPCRequest("DescribeAffectedMaliciousFileImages", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAffectedMaliciousFileImagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAffectedMaliciousFileImages",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAffectedMaliciousFileImagesResponse>(await this.callApi(params, req, runtime), new DescribeAffectedMaliciousFileImagesResponse({}));
   }
 
   async describeAffectedMaliciousFileImages(request: DescribeAffectedMaliciousFileImagesRequest): Promise<DescribeAffectedMaliciousFileImagesResponse> {
@@ -24184,10 +20629,38 @@ export default class Client extends OpenApi {
 
   async describeAlarmEventDetailWithOptions(request: DescribeAlarmEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmUniqueInfo)) {
+      query["AlarmUniqueInfo"] = request.alarmUniqueInfo;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAlarmEventDetailResponse>(await this.doRPCRequest("DescribeAlarmEventDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAlarmEventDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAlarmEventDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlarmEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeAlarmEventDetailResponse({}));
   }
 
   async describeAlarmEventDetail(request: DescribeAlarmEventDetailRequest): Promise<DescribeAlarmEventDetailResponse> {
@@ -24197,10 +20670,70 @@ export default class Client extends OpenApi {
 
   async describeAlarmEventListWithOptions(request: DescribeAlarmEventListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmEventName)) {
+      query["AlarmEventName"] = request.alarmEventName;
+    }
+
+    if (!Util.isUnset(request.alarmEventType)) {
+      query["AlarmEventType"] = request.alarmEventType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
+    if (!Util.isUnset(request.operateErrorCodeList)) {
+      query["OperateErrorCodeList"] = request.operateErrorCodeList;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAlarmEventListResponse>(await this.doRPCRequest("DescribeAlarmEventList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAlarmEventListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAlarmEventList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAlarmEventListResponse>(await this.callApi(params, req, runtime), new DescribeAlarmEventListResponse({}));
   }
 
   async describeAlarmEventList(request: DescribeAlarmEventListRequest): Promise<DescribeAlarmEventListResponse> {
@@ -24208,22 +20741,20 @@ export default class Client extends OpenApi {
     return await this.describeAlarmEventListWithOptions(request, runtime);
   }
 
-  async describeAlarmEventStackInfoWithOptions(request: DescribeAlarmEventStackInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAlarmEventStackInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeAlarmEventStackInfoResponse>(await this.doRPCRequest("DescribeAlarmEventStackInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAlarmEventStackInfoResponse({}));
-  }
-
-  async describeAlarmEventStackInfo(request: DescribeAlarmEventStackInfoRequest): Promise<DescribeAlarmEventStackInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAlarmEventStackInfoWithOptions(request, runtime);
-  }
-
   async describeAllEntityWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAllEntityResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeAllEntityResponse>(await this.doRPCRequest("DescribeAllEntity", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAllEntityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAllEntity",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAllEntityResponse>(await this.callApi(params, req, runtime), new DescribeAllEntityResponse({}));
   }
 
   async describeAllEntity(): Promise<DescribeAllEntityResponse> {
@@ -24233,10 +20764,26 @@ export default class Client extends OpenApi {
 
   async describeAllGroupsWithOptions(request: DescribeAllGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAllGroupsResponse>(await this.doRPCRequest("DescribeAllGroups", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAllGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAllGroups",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAllGroupsResponse>(await this.callApi(params, req, runtime), new DescribeAllGroupsResponse({}));
   }
 
   async describeAllGroups(request: DescribeAllGroupsRequest): Promise<DescribeAllGroupsResponse> {
@@ -24244,25 +20791,32 @@ export default class Client extends OpenApi {
     return await this.describeAllGroupsWithOptions(request, runtime);
   }
 
-  async describeAllRegionsStatisticsWithOptions(request: DescribeAllRegionsStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAllRegionsStatisticsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeAllRegionsStatisticsResponse>(await this.doRPCRequest("DescribeAllRegionsStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAllRegionsStatisticsResponse({}));
-  }
-
-  async describeAllRegionsStatistics(request: DescribeAllRegionsStatisticsRequest): Promise<DescribeAllRegionsStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAllRegionsStatisticsWithOptions(request, runtime);
-  }
-
   async describeAntiBruteForceRulesWithOptions(request: DescribeAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAntiBruteForceRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAntiBruteForceRulesResponse>(await this.doRPCRequest("DescribeAntiBruteForceRules", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAntiBruteForceRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAntiBruteForceRules",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAntiBruteForceRulesResponse>(await this.callApi(params, req, runtime), new DescribeAntiBruteForceRulesResponse({}));
   }
 
   async describeAntiBruteForceRules(request: DescribeAntiBruteForceRulesRequest): Promise<DescribeAntiBruteForceRulesResponse> {
@@ -24272,10 +20826,34 @@ export default class Client extends OpenApi {
 
   async describeAssetDetailByUuidWithOptions(request: DescribeAssetDetailByUuidRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetDetailByUuidResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAssetDetailByUuidResponse>(await this.doRPCRequest("DescribeAssetDetailByUuid", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAssetDetailByUuidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetDetailByUuid",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetDetailByUuidResponse>(await this.callApi(params, req, runtime), new DescribeAssetDetailByUuidResponse({}));
   }
 
   async describeAssetDetailByUuid(request: DescribeAssetDetailByUuidRequest): Promise<DescribeAssetDetailByUuidResponse> {
@@ -24285,10 +20863,26 @@ export default class Client extends OpenApi {
 
   async describeAssetDetailByUuidsWithOptions(request: DescribeAssetDetailByUuidsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAssetDetailByUuidsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAssetDetailByUuidsResponse>(await this.doRPCRequest("DescribeAssetDetailByUuids", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAssetDetailByUuidsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetDetailByUuids",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetDetailByUuidsResponse>(await this.callApi(params, req, runtime), new DescribeAssetDetailByUuidsResponse({}));
   }
 
   async describeAssetDetailByUuids(request: DescribeAssetDetailByUuidsRequest): Promise<DescribeAssetDetailByUuidsResponse> {
@@ -24298,7 +20892,18 @@ export default class Client extends OpenApi {
 
   async describeAssetSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAssetSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeAssetSummaryResponse>(await this.doRPCRequest("DescribeAssetSummary", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAssetSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAssetSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAssetSummaryResponse>(await this.callApi(params, req, runtime), new DescribeAssetSummaryResponse({}));
   }
 
   async describeAssetSummary(): Promise<DescribeAssetSummaryResponse> {
@@ -24308,10 +20913,54 @@ export default class Client extends OpenApi {
 
   async describeAttackAnalysisDataWithOptions(request: DescribeAttackAnalysisDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAttackAnalysisDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.base64)) {
+      query["Base64"] = request.base64;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAttackAnalysisDataResponse>(await this.doRPCRequest("DescribeAttackAnalysisData", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAttackAnalysisDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAttackAnalysisData",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAttackAnalysisDataResponse>(await this.callApi(params, req, runtime), new DescribeAttackAnalysisDataResponse({}));
   }
 
   async describeAttackAnalysisData(request: DescribeAttackAnalysisDataRequest): Promise<DescribeAttackAnalysisDataResponse> {
@@ -24321,7 +20970,18 @@ export default class Client extends OpenApi {
 
   async describeAutoDelConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeAutoDelConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeAutoDelConfigResponse>(await this.doRPCRequest("DescribeAutoDelConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAutoDelConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAutoDelConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAutoDelConfigResponse>(await this.callApi(params, req, runtime), new DescribeAutoDelConfigResponse({}));
   }
 
   async describeAutoDelConfig(): Promise<DescribeAutoDelConfigResponse> {
@@ -24331,10 +20991,26 @@ export default class Client extends OpenApi {
 
   async describeBackupClientsWithOptions(request: DescribeBackupClientsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupClientsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.supportRegionId)) {
+      query["SupportRegionId"] = request.supportRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupClientsResponse>(await this.doRPCRequest("DescribeBackupClients", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupClientsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupClients",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupClientsResponse>(await this.callApi(params, req, runtime), new DescribeBackupClientsResponse({}));
   }
 
   async describeBackupClients(request: DescribeBackupClientsRequest): Promise<DescribeBackupClientsResponse> {
@@ -24342,25 +21018,44 @@ export default class Client extends OpenApi {
     return await this.describeBackupClientsWithOptions(request, runtime);
   }
 
-  async describeBackupDirsWithOptions(request: DescribeBackupDirsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupDirsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeBackupDirsResponse>(await this.doRPCRequest("DescribeBackupDirs", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupDirsResponse({}));
-  }
-
-  async describeBackupDirs(request: DescribeBackupDirsRequest): Promise<DescribeBackupDirsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeBackupDirsWithOptions(request, runtime);
-  }
-
   async describeBackupFilesWithOptions(request: DescribeBackupFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.snapshotHash)) {
+      query["SnapshotHash"] = request.snapshotHash;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupFilesResponse>(await this.doRPCRequest("DescribeBackupFiles", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupFiles",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupFilesResponse>(await this.callApi(params, req, runtime), new DescribeBackupFilesResponse({}));
   }
 
   async describeBackupFiles(request: DescribeBackupFilesRequest): Promise<DescribeBackupFilesResponse> {
@@ -24368,25 +21063,44 @@ export default class Client extends OpenApi {
     return await this.describeBackupFilesWithOptions(request, runtime);
   }
 
-  async describeBackupMachineStatusWithOptions(request: DescribeBackupMachineStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupMachineStatusResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeBackupMachineStatusResponse>(await this.doRPCRequest("DescribeBackupMachineStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupMachineStatusResponse({}));
-  }
-
-  async describeBackupMachineStatus(request: DescribeBackupMachineStatusRequest): Promise<DescribeBackupMachineStatusResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeBackupMachineStatusWithOptions(request, runtime);
-  }
-
   async describeBackupPoliciesWithOptions(request: DescribeBackupPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.machineRemark)) {
+      query["MachineRemark"] = request.machineRemark;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBackupPoliciesResponse>(await this.doRPCRequest("DescribeBackupPolicies", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupPolicies",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeBackupPoliciesResponse({}));
   }
 
   async describeBackupPolicies(request: DescribeBackupPoliciesRequest): Promise<DescribeBackupPoliciesResponse> {
@@ -24394,22 +21108,20 @@ export default class Client extends OpenApi {
     return await this.describeBackupPoliciesWithOptions(request, runtime);
   }
 
-  async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeBackupPolicyResponse>(await this.doRPCRequest("DescribeBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupPolicyResponse({}));
-  }
-
-  async describeBackupPolicy(request: DescribeBackupPolicyRequest): Promise<DescribeBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeBackupPolicyWithOptions(request, runtime);
-  }
-
   async describeBackupRestoreCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeBackupRestoreCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeBackupRestoreCountResponse>(await this.doRPCRequest("DescribeBackupRestoreCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBackupRestoreCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBackupRestoreCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackupRestoreCountResponse>(await this.callApi(params, req, runtime), new DescribeBackupRestoreCountResponse({}));
   }
 
   async describeBackupRestoreCount(): Promise<DescribeBackupRestoreCountResponse> {
@@ -24419,10 +21131,30 @@ export default class Client extends OpenApi {
 
   async describeBruteForceSummaryWithOptions(request: DescribeBruteForceSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBruteForceSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBruteForceSummaryResponse>(await this.doRPCRequest("DescribeBruteForceSummary", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBruteForceSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBruteForceSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBruteForceSummaryResponse>(await this.callApi(params, req, runtime), new DescribeBruteForceSummaryResponse({}));
   }
 
   async describeBruteForceSummary(request: DescribeBruteForceSummaryRequest): Promise<DescribeBruteForceSummaryResponse> {
@@ -24432,10 +21164,26 @@ export default class Client extends OpenApi {
 
   async describeCheckEcsWarningsWithOptions(request: DescribeCheckEcsWarningsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckEcsWarningsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCheckEcsWarningsResponse>(await this.doRPCRequest("DescribeCheckEcsWarnings", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCheckEcsWarningsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCheckEcsWarnings",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCheckEcsWarningsResponse>(await this.callApi(params, req, runtime), new DescribeCheckEcsWarningsResponse({}));
   }
 
   async describeCheckEcsWarnings(request: DescribeCheckEcsWarningsRequest): Promise<DescribeCheckEcsWarningsResponse> {
@@ -24445,10 +21193,34 @@ export default class Client extends OpenApi {
 
   async describeCheckWarningDetailWithOptions(request: DescribeCheckWarningDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkWarningId)) {
+      query["CheckWarningId"] = request.checkWarningId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCheckWarningDetailResponse>(await this.doRPCRequest("DescribeCheckWarningDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCheckWarningDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCheckWarningDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCheckWarningDetailResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningDetailResponse({}));
   }
 
   async describeCheckWarningDetail(request: DescribeCheckWarningDetailRequest): Promise<DescribeCheckWarningDetailResponse> {
@@ -24458,10 +21230,62 @@ export default class Client extends OpenApi {
 
   async describeCheckWarningSummaryWithOptions(request: DescribeCheckWarningSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskName)) {
+      query["RiskName"] = request.riskName;
+    }
+
+    if (!Util.isUnset(request.riskStatus)) {
+      query["RiskStatus"] = request.riskStatus;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.typeName)) {
+      query["TypeName"] = request.typeName;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCheckWarningSummaryResponse>(await this.doRPCRequest("DescribeCheckWarningSummary", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCheckWarningSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCheckWarningSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCheckWarningSummaryResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningSummaryResponse({}));
   }
 
   async describeCheckWarningSummary(request: DescribeCheckWarningSummaryRequest): Promise<DescribeCheckWarningSummaryResponse> {
@@ -24471,10 +21295,50 @@ export default class Client extends OpenApi {
 
   async describeCheckWarningsWithOptions(request: DescribeCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCheckWarningsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkId)) {
+      query["CheckId"] = request.checkId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCheckWarningsResponse>(await this.doRPCRequest("DescribeCheckWarnings", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCheckWarningsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCheckWarnings",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCheckWarningsResponse>(await this.callApi(params, req, runtime), new DescribeCheckWarningsResponse({}));
   }
 
   async describeCheckWarnings(request: DescribeCheckWarningsRequest): Promise<DescribeCheckWarningsResponse> {
@@ -24484,10 +21348,50 @@ export default class Client extends OpenApi {
 
   async describeCloudCenterInstancesWithOptions(request: DescribeCloudCenterInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudCenterInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.importance)) {
+      query["Importance"] = request.importance;
+    }
+
+    if (!Util.isUnset(request.logicalExp)) {
+      query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCloudCenterInstancesResponse>(await this.doRPCRequest("DescribeCloudCenterInstances", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCloudCenterInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudCenterInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudCenterInstancesResponse>(await this.callApi(params, req, runtime), new DescribeCloudCenterInstancesResponse({}));
   }
 
   async describeCloudCenterInstances(request: DescribeCloudCenterInstancesRequest): Promise<DescribeCloudCenterInstancesResponse> {
@@ -24497,7 +21401,18 @@ export default class Client extends OpenApi {
 
   async describeCloudProductFieldStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeCloudProductFieldStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeCloudProductFieldStatisticsResponse>(await this.doRPCRequest("DescribeCloudProductFieldStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCloudProductFieldStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudProductFieldStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudProductFieldStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeCloudProductFieldStatisticsResponse({}));
   }
 
   async describeCloudProductFieldStatistics(): Promise<DescribeCloudProductFieldStatisticsResponse> {
@@ -24507,10 +21422,26 @@ export default class Client extends OpenApi {
 
   async describeConcernNecessityWithOptions(request: DescribeConcernNecessityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConcernNecessityResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeConcernNecessityResponse>(await this.doRPCRequest("DescribeConcernNecessity", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeConcernNecessityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeConcernNecessity",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeConcernNecessityResponse>(await this.callApi(params, req, runtime), new DescribeConcernNecessityResponse({}));
   }
 
   async describeConcernNecessity(request: DescribeConcernNecessityRequest): Promise<DescribeConcernNecessityResponse> {
@@ -24520,10 +21451,26 @@ export default class Client extends OpenApi {
 
   async describeContainerStatisticsWithOptions(request: DescribeContainerStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeContainerStatisticsResponse>(await this.doRPCRequest("DescribeContainerStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeContainerStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeContainerStatisticsResponse({}));
   }
 
   async describeContainerStatistics(request: DescribeContainerStatisticsRequest): Promise<DescribeContainerStatisticsResponse> {
@@ -24531,12 +21478,89 @@ export default class Client extends OpenApi {
     return await this.describeContainerStatisticsWithOptions(request, runtime);
   }
 
+  async describeContainerTagsWithOptions(request: DescribeContainerTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fieldName)) {
+      query["FieldName"] = request.fieldName;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeContainerTags",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeContainerTagsResponse>(await this.callApi(params, req, runtime), new DescribeContainerTagsResponse({}));
+  }
+
+  async describeContainerTags(request: DescribeContainerTagsRequest): Promise<DescribeContainerTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeContainerTagsWithOptions(request, runtime);
+  }
+
   async describeCriteriaWithOptions(request: DescribeCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCriteriaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
+    if (!Util.isUnset(request.supportAutoTag)) {
+      query["SupportAutoTag"] = request.supportAutoTag;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCriteriaResponse>(await this.doRPCRequest("DescribeCriteria", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCriteriaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeCriteriaResponse({}));
   }
 
   async describeCriteria(request: DescribeCriteriaRequest): Promise<DescribeCriteriaResponse> {
@@ -24546,10 +21570,26 @@ export default class Client extends OpenApi {
 
   async describeDialogMessagesWithOptions(request: DescribeDialogMessagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDialogMessagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDialogMessagesResponse>(await this.doRPCRequest("DescribeDialogMessages", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDialogMessagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDialogMessages",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDialogMessagesResponse>(await this.callApi(params, req, runtime), new DescribeDialogMessagesResponse({}));
   }
 
   async describeDialogMessages(request: DescribeDialogMessagesRequest): Promise<DescribeDialogMessagesResponse> {
@@ -24559,10 +21599,34 @@ export default class Client extends OpenApi {
 
   async describeDingTalkWithOptions(request: DescribeDingTalkRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDingTalkResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleActionName)) {
+      query["RuleActionName"] = request.ruleActionName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDingTalkResponse>(await this.doRPCRequest("DescribeDingTalk", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDingTalkResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDingTalk",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDingTalkResponse>(await this.callApi(params, req, runtime), new DescribeDingTalkResponse({}));
   }
 
   async describeDingTalk(request: DescribeDingTalkRequest): Promise<DescribeDingTalkResponse> {
@@ -24572,10 +21636,26 @@ export default class Client extends OpenApi {
 
   async describeDomainCountWithOptions(request: DescribeDomainCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainCountResponse>(await this.doRPCRequest("DescribeDomainCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainCountResponse>(await this.callApi(params, req, runtime), new DescribeDomainCountResponse({}));
   }
 
   async describeDomainCount(request: DescribeDomainCountRequest): Promise<DescribeDomainCountResponse> {
@@ -24585,10 +21665,30 @@ export default class Client extends OpenApi {
 
   async describeDomainDetailWithOptions(request: DescribeDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainDetailResponse>(await this.doRPCRequest("DescribeDomainDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeDomainDetailResponse({}));
   }
 
   async describeDomainDetail(request: DescribeDomainDetailRequest): Promise<DescribeDomainDetailResponse> {
@@ -24598,10 +21698,42 @@ export default class Client extends OpenApi {
 
   async describeDomainListWithOptions(request: DescribeDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.fuzzyDomain)) {
+      query["FuzzyDomain"] = request.fuzzyDomain;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainListResponse>(await this.doRPCRequest("DescribeDomainList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainListResponse>(await this.callApi(params, req, runtime), new DescribeDomainListResponse({}));
   }
 
   async describeDomainList(request: DescribeDomainListRequest): Promise<DescribeDomainListResponse> {
@@ -24611,10 +21743,46 @@ export default class Client extends OpenApi {
 
   async describeEmgVulItemWithOptions(request: DescribeEmgVulItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEmgVulItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskStatus)) {
+      query["RiskStatus"] = request.riskStatus;
+    }
+
+    if (!Util.isUnset(request.scanType)) {
+      query["ScanType"] = request.scanType;
+    }
+
+    if (!Util.isUnset(request.vulName)) {
+      query["VulName"] = request.vulName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEmgVulItemResponse>(await this.doRPCRequest("DescribeEmgVulItem", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEmgVulItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEmgVulItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEmgVulItemResponse>(await this.callApi(params, req, runtime), new DescribeEmgVulItemResponse({}));
   }
 
   async describeEmgVulItem(request: DescribeEmgVulItemRequest): Promise<DescribeEmgVulItemResponse> {
@@ -24622,25 +21790,28 @@ export default class Client extends OpenApi {
     return await this.describeEmgVulItemWithOptions(request, runtime);
   }
 
-  async describeExcludeSystemPathWithOptions(request: DescribeExcludeSystemPathRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExcludeSystemPathResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeExcludeSystemPathResponse>(await this.doRPCRequest("DescribeExcludeSystemPath", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExcludeSystemPathResponse({}));
-  }
-
-  async describeExcludeSystemPath(request: DescribeExcludeSystemPathRequest): Promise<DescribeExcludeSystemPathResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeExcludeSystemPathWithOptions(request, runtime);
-  }
-
   async describeExportInfoWithOptions(request: DescribeExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExportInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExportInfoResponse>(await this.doRPCRequest("DescribeExportInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExportInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExportInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeExportInfoResponse({}));
   }
 
   async describeExportInfo(request: DescribeExportInfoRequest): Promise<DescribeExportInfoResponse> {
@@ -24650,10 +21821,26 @@ export default class Client extends OpenApi {
 
   async describeExposedInstanceCriteriaWithOptions(request: DescribeExposedInstanceCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceCriteriaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExposedInstanceCriteriaResponse>(await this.doRPCRequest("DescribeExposedInstanceCriteria", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedInstanceCriteriaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExposedInstanceCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExposedInstanceCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceCriteriaResponse({}));
   }
 
   async describeExposedInstanceCriteria(request: DescribeExposedInstanceCriteriaRequest): Promise<DescribeExposedInstanceCriteriaResponse> {
@@ -24663,10 +21850,26 @@ export default class Client extends OpenApi {
 
   async describeExposedInstanceDetailWithOptions(request: DescribeExposedInstanceDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExposedInstanceDetailResponse>(await this.doRPCRequest("DescribeExposedInstanceDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedInstanceDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExposedInstanceDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExposedInstanceDetailResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceDetailResponse({}));
   }
 
   async describeExposedInstanceDetail(request: DescribeExposedInstanceDetailRequest): Promise<DescribeExposedInstanceDetailResponse> {
@@ -24676,10 +21879,62 @@ export default class Client extends OpenApi {
 
   async describeExposedInstanceListWithOptions(request: DescribeExposedInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedInstanceListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.exposureComponent)) {
+      query["ExposureComponent"] = request.exposureComponent;
+    }
+
+    if (!Util.isUnset(request.exposureIp)) {
+      query["ExposureIp"] = request.exposureIp;
+    }
+
+    if (!Util.isUnset(request.exposurePort)) {
+      query["ExposurePort"] = request.exposurePort;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.healthStatus)) {
+      query["HealthStatus"] = request.healthStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.vulStatus)) {
+      query["VulStatus"] = request.vulStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExposedInstanceListResponse>(await this.doRPCRequest("DescribeExposedInstanceList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedInstanceListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExposedInstanceList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExposedInstanceListResponse>(await this.callApi(params, req, runtime), new DescribeExposedInstanceListResponse({}));
   }
 
   async describeExposedInstanceList(request: DescribeExposedInstanceListRequest): Promise<DescribeExposedInstanceListResponse> {
@@ -24687,19 +21942,20 @@ export default class Client extends OpenApi {
     return await this.describeExposedInstanceListWithOptions(request, runtime);
   }
 
-  async describeExposedRiskNumWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeExposedRiskNumResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeExposedRiskNumResponse>(await this.doRPCRequest("DescribeExposedRiskNum", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedRiskNumResponse({}));
-  }
-
-  async describeExposedRiskNum(): Promise<DescribeExposedRiskNumResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeExposedRiskNumWithOptions(runtime);
-  }
-
   async describeExposedStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeExposedStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeExposedStatisticsResponse>(await this.doRPCRequest("DescribeExposedStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExposedStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExposedStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeExposedStatisticsResponse({}));
   }
 
   async describeExposedStatistics(): Promise<DescribeExposedStatisticsResponse> {
@@ -24709,10 +21965,42 @@ export default class Client extends OpenApi {
 
   async describeExposedStatisticsDetailWithOptions(request: DescribeExposedStatisticsDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeExposedStatisticsDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.statisticsType)) {
+      query["StatisticsType"] = request.statisticsType;
+    }
+
+    if (!Util.isUnset(request.statisticsTypeGatewayType)) {
+      query["StatisticsTypeGatewayType"] = request.statisticsTypeGatewayType;
+    }
+
+    if (!Util.isUnset(request.statisticsTypeInstanceValue)) {
+      query["StatisticsTypeInstanceValue"] = request.statisticsTypeInstanceValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeExposedStatisticsDetailResponse>(await this.doRPCRequest("DescribeExposedStatisticsDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeExposedStatisticsDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeExposedStatisticsDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeExposedStatisticsDetailResponse>(await this.callApi(params, req, runtime), new DescribeExposedStatisticsDetailResponse({}));
   }
 
   async describeExposedStatisticsDetail(request: DescribeExposedStatisticsDetailRequest): Promise<DescribeExposedStatisticsDetailResponse> {
@@ -24722,10 +22010,30 @@ export default class Client extends OpenApi {
 
   async describeFieldStatisticsWithOptions(request: DescribeFieldStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFieldStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeFieldStatisticsResponse>(await this.doRPCRequest("DescribeFieldStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFieldStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeFieldStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFieldStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeFieldStatisticsResponse({}));
   }
 
   async describeFieldStatistics(request: DescribeFieldStatisticsRequest): Promise<DescribeFieldStatisticsResponse> {
@@ -24733,38 +22041,48 @@ export default class Client extends OpenApi {
     return await this.describeFieldStatisticsWithOptions(request, runtime);
   }
 
-  async describeFrontVulPatchListWithOptions(request: DescribeFrontVulPatchListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFrontVulPatchListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeFrontVulPatchListResponse>(await this.doRPCRequest("DescribeFrontVulPatchList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeFrontVulPatchListResponse({}));
-  }
-
-  async describeFrontVulPatchList(request: DescribeFrontVulPatchListRequest): Promise<DescribeFrontVulPatchListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeFrontVulPatchListWithOptions(request, runtime);
-  }
-
-  async describeGraph4InvestigationOnlineWithOptions(request: DescribeGraph4InvestigationOnlineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGraph4InvestigationOnlineResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeGraph4InvestigationOnlineResponse>(await this.doRPCRequest("DescribeGraph4InvestigationOnline", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGraph4InvestigationOnlineResponse({}));
-  }
-
-  async describeGraph4InvestigationOnline(request: DescribeGraph4InvestigationOnlineRequest): Promise<DescribeGraph4InvestigationOnlineResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeGraph4InvestigationOnlineWithOptions(request, runtime);
-  }
-
   async describeGroupedContainerInstancesWithOptions(request: DescribeGroupedContainerInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedContainerInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.groupField)) {
+      query["GroupField"] = request.groupField;
+    }
+
+    if (!Util.isUnset(request.logicalExp)) {
+      query["LogicalExp"] = request.logicalExp;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGroupedContainerInstancesResponse>(await this.doRPCRequest("DescribeGroupedContainerInstances", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGroupedContainerInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupedContainerInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupedContainerInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedContainerInstancesResponse({}));
   }
 
   async describeGroupedContainerInstances(request: DescribeGroupedContainerInstancesRequest): Promise<DescribeGroupedContainerInstancesResponse> {
@@ -24774,10 +22092,50 @@ export default class Client extends OpenApi {
 
   async describeGroupedInstancesWithOptions(request: DescribeGroupedInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fieldValue)) {
+      query["FieldValue"] = request.fieldValue;
+    }
+
+    if (!Util.isUnset(request.groupField)) {
+      query["GroupField"] = request.groupField;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
+    if (!Util.isUnset(request.noPage)) {
+      query["NoPage"] = request.noPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGroupedInstancesResponse>(await this.doRPCRequest("DescribeGroupedInstances", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGroupedInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupedInstances",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupedInstancesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedInstancesResponse({}));
   }
 
   async describeGroupedInstances(request: DescribeGroupedInstancesRequest): Promise<DescribeGroupedInstancesResponse> {
@@ -24787,10 +22145,74 @@ export default class Client extends OpenApi {
 
   async describeGroupedMaliciousFilesWithOptions(request: DescribeGroupedMaliciousFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedMaliciousFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.fuzzyMaliciousName)) {
+      query["FuzzyMaliciousName"] = request.fuzzyMaliciousName;
+    }
+
+    if (!Util.isUnset(request.imageDigest)) {
+      query["ImageDigest"] = request.imageDigest;
+    }
+
+    if (!Util.isUnset(request.imageLayer)) {
+      query["ImageLayer"] = request.imageLayer;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.repoRegionId)) {
+      query["RepoRegionId"] = request.repoRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGroupedMaliciousFilesResponse>(await this.doRPCRequest("DescribeGroupedMaliciousFiles", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGroupedMaliciousFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupedMaliciousFiles",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupedMaliciousFilesResponse>(await this.callApi(params, req, runtime), new DescribeGroupedMaliciousFilesResponse({}));
   }
 
   async describeGroupedMaliciousFiles(request: DescribeGroupedMaliciousFilesRequest): Promise<DescribeGroupedMaliciousFilesResponse> {
@@ -24800,10 +22222,26 @@ export default class Client extends OpenApi {
 
   async describeGroupedTagsWithOptions(request: DescribeGroupedTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGroupedTagsResponse>(await this.doRPCRequest("DescribeGroupedTags", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGroupedTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupedTags",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupedTagsResponse>(await this.callApi(params, req, runtime), new DescribeGroupedTagsResponse({}));
   }
 
   async describeGroupedTags(request: DescribeGroupedTagsRequest): Promise<DescribeGroupedTagsResponse> {
@@ -24813,10 +22251,62 @@ export default class Client extends OpenApi {
 
   async describeGroupedVulWithOptions(request: DescribeGroupedVulRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGroupedVulResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchTags)) {
+      query["SearchTags"] = request.searchTags;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeGroupedVulResponse>(await this.doRPCRequest("DescribeGroupedVul", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeGroupedVulResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupedVul",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupedVulResponse>(await this.callApi(params, req, runtime), new DescribeGroupedVulResponse({}));
   }
 
   async describeGroupedVul(request: DescribeGroupedVulRequest): Promise<DescribeGroupedVulResponse> {
@@ -24826,7 +22316,18 @@ export default class Client extends OpenApi {
 
   async describeHoneyPotAuthWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeHoneyPotAuthResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeHoneyPotAuthResponse>(await this.doRPCRequest("DescribeHoneyPotAuth", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHoneyPotAuthResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHoneyPotAuth",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHoneyPotAuthResponse>(await this.callApi(params, req, runtime), new DescribeHoneyPotAuthResponse({}));
   }
 
   async describeHoneyPotAuth(): Promise<DescribeHoneyPotAuthResponse> {
@@ -24836,10 +22337,34 @@ export default class Client extends OpenApi {
 
   async describeHoneyPotSuspStatisticsWithOptions(request: DescribeHoneyPotSuspStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHoneyPotSuspStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.statisticsDays)) {
+      query["StatisticsDays"] = request.statisticsDays;
+    }
+
+    if (!Util.isUnset(request.statisticsKeyType)) {
+      query["StatisticsKeyType"] = request.statisticsKeyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeHoneyPotSuspStatisticsResponse>(await this.doRPCRequest("DescribeHoneyPotSuspStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHoneyPotSuspStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHoneyPotSuspStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHoneyPotSuspStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeHoneyPotSuspStatisticsResponse({}));
   }
 
   async describeHoneyPotSuspStatistics(request: DescribeHoneyPotSuspStatisticsRequest): Promise<DescribeHoneyPotSuspStatisticsResponse> {
@@ -24849,10 +22374,42 @@ export default class Client extends OpenApi {
 
   async describeImageFixTaskWithOptions(request: DescribeImageFixTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageFixTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeImageFixTaskResponse>(await this.doRPCRequest("DescribeImageFixTask", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageFixTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageFixTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageFixTaskResponse>(await this.callApi(params, req, runtime), new DescribeImageFixTaskResponse({}));
   }
 
   async describeImageFixTask(request: DescribeImageFixTaskRequest): Promise<DescribeImageFixTaskResponse> {
@@ -24862,10 +22419,102 @@ export default class Client extends OpenApi {
 
   async describeImageGroupedVulListWithOptions(request: DescribeImageGroupedVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageGroupedVulListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.cveId)) {
+      query["CveId"] = request.cveId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.imageDigest)) {
+      query["ImageDigest"] = request.imageDigest;
+    }
+
+    if (!Util.isUnset(request.imageLayer)) {
+      query["ImageLayer"] = request.imageLayer;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.isLatest)) {
+      query["IsLatest"] = request.isLatest;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.patchId)) {
+      query["PatchId"] = request.patchId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.repoRegionId)) {
+      query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeImageGroupedVulListResponse>(await this.doRPCRequest("DescribeImageGroupedVulList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageGroupedVulListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageGroupedVulList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageGroupedVulListResponse>(await this.callApi(params, req, runtime), new DescribeImageGroupedVulListResponse({}));
   }
 
   async describeImageGroupedVulList(request: DescribeImageGroupedVulListRequest): Promise<DescribeImageGroupedVulListResponse> {
@@ -24873,22 +22522,20 @@ export default class Client extends OpenApi {
     return await this.describeImageGroupedVulListWithOptions(request, runtime);
   }
 
-  async describeImageInstancesWithOptions(request: DescribeImageInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageInstancesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeImageInstancesResponse>(await this.doRPCRequest("DescribeImageInstances", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageInstancesResponse({}));
-  }
-
-  async describeImageInstances(request: DescribeImageInstancesRequest): Promise<DescribeImageInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeImageInstancesWithOptions(request, runtime);
-  }
-
   async describeImageScanAuthCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageScanAuthCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeImageScanAuthCountResponse>(await this.doRPCRequest("DescribeImageScanAuthCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageScanAuthCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageScanAuthCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageScanAuthCountResponse>(await this.callApi(params, req, runtime), new DescribeImageScanAuthCountResponse({}));
   }
 
   async describeImageScanAuthCount(): Promise<DescribeImageScanAuthCountResponse> {
@@ -24898,7 +22545,18 @@ export default class Client extends OpenApi {
 
   async describeImageStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageStatisticsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeImageStatisticsResponse>(await this.doRPCRequest("DescribeImageStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeImageStatisticsResponse({}));
   }
 
   async describeImageStatistics(): Promise<DescribeImageStatisticsResponse> {
@@ -24908,10 +22566,106 @@ export default class Client extends OpenApi {
 
   async describeImageVulListWithOptions(request: DescribeImageVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageVulListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.repoRegionId)) {
+      query["RepoRegionId"] = request.repoRegionId;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeImageVulListResponse>(await this.doRPCRequest("DescribeImageVulList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeImageVulListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeImageVulList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageVulListResponse>(await this.callApi(params, req, runtime), new DescribeImageVulListResponse({}));
   }
 
   async describeImageVulList(request: DescribeImageVulListRequest): Promise<DescribeImageVulListResponse> {
@@ -24921,10 +22675,34 @@ export default class Client extends OpenApi {
 
   async describeInstallCaptchaWithOptions(request: DescribeInstallCaptchaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstallCaptchaResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deadline)) {
+      query["Deadline"] = request.deadline;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstallCaptchaResponse>(await this.doRPCRequest("DescribeInstallCaptcha", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstallCaptchaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstallCaptcha",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstallCaptchaResponse>(await this.callApi(params, req, runtime), new DescribeInstallCaptchaResponse({}));
   }
 
   async describeInstallCaptcha(request: DescribeInstallCaptchaRequest): Promise<DescribeInstallCaptchaResponse> {
@@ -24934,7 +22712,18 @@ export default class Client extends OpenApi {
 
   async describeInstallCodesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeInstallCodesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeInstallCodesResponse>(await this.doRPCRequest("DescribeInstallCodes", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstallCodesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstallCodes",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstallCodesResponse>(await this.callApi(params, req, runtime), new DescribeInstallCodesResponse({}));
   }
 
   async describeInstallCodes(): Promise<DescribeInstallCodesResponse> {
@@ -24944,10 +22733,34 @@ export default class Client extends OpenApi {
 
   async describeInstanceAntiBruteForceRulesWithOptions(request: DescribeInstanceAntiBruteForceRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceAntiBruteForceRulesResponse>(await this.doRPCRequest("DescribeInstanceAntiBruteForceRules", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceAntiBruteForceRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceAntiBruteForceRules",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceAntiBruteForceRulesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceAntiBruteForceRulesResponse({}));
   }
 
   async describeInstanceAntiBruteForceRules(request: DescribeInstanceAntiBruteForceRulesRequest): Promise<DescribeInstanceAntiBruteForceRulesResponse> {
@@ -24957,10 +22770,38 @@ export default class Client extends OpenApi {
 
   async describeInstanceStatisticsWithOptions(request: DescribeInstanceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceStatisticsResponse>(await this.doRPCRequest("DescribeInstanceStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceStatisticsResponse({}));
   }
 
   async describeInstanceStatistics(request: DescribeInstanceStatisticsRequest): Promise<DescribeInstanceStatisticsResponse> {
@@ -24970,10 +22811,30 @@ export default class Client extends OpenApi {
 
   async describeIpInfoWithOptions(request: DescribeIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeIpInfoResponse>(await this.doRPCRequest("DescribeIpInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIpInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeIpInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIpInfoResponse>(await this.callApi(params, req, runtime), new DescribeIpInfoResponse({}));
   }
 
   async describeIpInfo(request: DescribeIpInfoRequest): Promise<DescribeIpInfoResponse> {
@@ -24983,10 +22844,30 @@ export default class Client extends OpenApi {
 
   async describeLogstoreStorageWithOptions(request: DescribeLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogstoreStorageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLogstoreStorageResponse>(await this.doRPCRequest("DescribeLogstoreStorage", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLogstoreStorageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLogstoreStorage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogstoreStorageResponse>(await this.callApi(params, req, runtime), new DescribeLogstoreStorageResponse({}));
   }
 
   async describeLogstoreStorage(request: DescribeLogstoreStorageRequest): Promise<DescribeLogstoreStorageResponse> {
@@ -24996,7 +22877,18 @@ export default class Client extends OpenApi {
 
   async describeModuleConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeModuleConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeModuleConfigResponse>(await this.doRPCRequest("DescribeModuleConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeModuleConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeModuleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeModuleConfigResponse>(await this.callApi(params, req, runtime), new DescribeModuleConfigResponse({}));
   }
 
   async describeModuleConfig(): Promise<DescribeModuleConfigResponse> {
@@ -25006,10 +22898,26 @@ export default class Client extends OpenApi {
 
   async describeNoticeConfigWithOptions(request: DescribeNoticeConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeNoticeConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeNoticeConfigResponse>(await this.doRPCRequest("DescribeNoticeConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeNoticeConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeNoticeConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeNoticeConfigResponse>(await this.callApi(params, req, runtime), new DescribeNoticeConfigResponse({}));
   }
 
   async describeNoticeConfig(request: DescribeNoticeConfigRequest): Promise<DescribeNoticeConfigResponse> {
@@ -25019,10 +22927,30 @@ export default class Client extends OpenApi {
 
   async describePropertyCountWithOptions(request: DescribePropertyCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyCountResponse>(await this.doRPCRequest("DescribePropertyCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyCountResponse>(await this.callApi(params, req, runtime), new DescribePropertyCountResponse({}));
   }
 
   async describePropertyCount(request: DescribePropertyCountRequest): Promise<DescribePropertyCountResponse> {
@@ -25032,10 +22960,46 @@ export default class Client extends OpenApi {
 
   async describePropertyCronDetailWithOptions(request: DescribePropertyCronDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyCronDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyCronDetailResponse>(await this.doRPCRequest("DescribePropertyCronDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyCronDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyCronDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyCronDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyCronDetailResponse({}));
   }
 
   async describePropertyCronDetail(request: DescribePropertyCronDetailRequest): Promise<DescribePropertyCronDetailResponse> {
@@ -25045,10 +23009,46 @@ export default class Client extends OpenApi {
 
   async describePropertyPortDetailWithOptions(request: DescribePropertyPortDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyPortDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.procName)) {
+      query["ProcName"] = request.procName;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyPortDetailResponse>(await this.doRPCRequest("DescribePropertyPortDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyPortDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyPortDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyPortDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyPortDetailResponse({}));
   }
 
   async describePropertyPortDetail(request: DescribePropertyPortDetailRequest): Promise<DescribePropertyPortDetailResponse> {
@@ -25058,10 +23058,38 @@ export default class Client extends OpenApi {
 
   async describePropertyPortItemWithOptions(request: DescribePropertyPortItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyPortItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.forceFlush)) {
+      query["ForceFlush"] = request.forceFlush;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyPortItemResponse>(await this.doRPCRequest("DescribePropertyPortItem", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyPortItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyPortItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyPortItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyPortItemResponse({}));
   }
 
   async describePropertyPortItem(request: DescribePropertyPortItemRequest): Promise<DescribePropertyPortItemResponse> {
@@ -25071,10 +23099,50 @@ export default class Client extends OpenApi {
 
   async describePropertyProcDetailWithOptions(request: DescribePropertyProcDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyProcDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cmdline)) {
+      query["Cmdline"] = request.cmdline;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyProcDetailResponse>(await this.doRPCRequest("DescribePropertyProcDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyProcDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyProcDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyProcDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyProcDetailResponse({}));
   }
 
   async describePropertyProcDetail(request: DescribePropertyProcDetailRequest): Promise<DescribePropertyProcDetailResponse> {
@@ -25084,10 +23152,38 @@ export default class Client extends OpenApi {
 
   async describePropertyProcItemWithOptions(request: DescribePropertyProcItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyProcItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.forceFlush)) {
+      query["ForceFlush"] = request.forceFlush;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyProcItemResponse>(await this.doRPCRequest("DescribePropertyProcItem", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyProcItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyProcItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyProcItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyProcItemResponse({}));
   }
 
   async describePropertyProcItem(request: DescribePropertyProcItemRequest): Promise<DescribePropertyProcItemResponse> {
@@ -25097,10 +23193,70 @@ export default class Client extends OpenApi {
 
   async describePropertyScaDetailWithOptions(request: DescribePropertyScaDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyScaDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.scaName)) {
+      query["ScaName"] = request.scaName;
+    }
+
+    if (!Util.isUnset(request.searchInfo)) {
+      query["SearchInfo"] = request.searchInfo;
+    }
+
+    if (!Util.isUnset(request.searchInfoSub)) {
+      query["SearchInfoSub"] = request.searchInfoSub;
+    }
+
+    if (!Util.isUnset(request.searchItem)) {
+      query["SearchItem"] = request.searchItem;
+    }
+
+    if (!Util.isUnset(request.searchItemSub)) {
+      query["SearchItemSub"] = request.searchItemSub;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyScaDetailResponse>(await this.doRPCRequest("DescribePropertyScaDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyScaDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyScaDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyScaDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyScaDetailResponse({}));
   }
 
   async describePropertyScaDetail(request: DescribePropertyScaDetailRequest): Promise<DescribePropertyScaDetailResponse> {
@@ -25110,10 +23266,50 @@ export default class Client extends OpenApi {
 
   async describePropertySoftwareDetailWithOptions(request: DescribePropertySoftwareDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertySoftwareDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.softwareVersion)) {
+      query["SoftwareVersion"] = request.softwareVersion;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertySoftwareDetailResponse>(await this.doRPCRequest("DescribePropertySoftwareDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertySoftwareDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertySoftwareDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertySoftwareDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertySoftwareDetailResponse({}));
   }
 
   async describePropertySoftwareDetail(request: DescribePropertySoftwareDetailRequest): Promise<DescribePropertySoftwareDetailResponse> {
@@ -25123,10 +23319,38 @@ export default class Client extends OpenApi {
 
   async describePropertySoftwareItemWithOptions(request: DescribePropertySoftwareItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertySoftwareItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.forceFlush)) {
+      query["ForceFlush"] = request.forceFlush;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertySoftwareItemResponse>(await this.doRPCRequest("DescribePropertySoftwareItem", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertySoftwareItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertySoftwareItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertySoftwareItemResponse>(await this.callApi(params, req, runtime), new DescribePropertySoftwareItemResponse({}));
   }
 
   async describePropertySoftwareItem(request: DescribePropertySoftwareItemRequest): Promise<DescribePropertySoftwareItemResponse> {
@@ -25136,10 +23360,26 @@ export default class Client extends OpenApi {
 
   async describePropertyUsageNewestWithOptions(request: DescribePropertyUsageNewestRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUsageNewestResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyUsageNewestResponse>(await this.doRPCRequest("DescribePropertyUsageNewest", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyUsageNewestResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyUsageNewest",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyUsageNewestResponse>(await this.callApi(params, req, runtime), new DescribePropertyUsageNewestResponse({}));
   }
 
   async describePropertyUsageNewest(request: DescribePropertyUsageNewestRequest): Promise<DescribePropertyUsageNewestResponse> {
@@ -25149,10 +23389,46 @@ export default class Client extends OpenApi {
 
   async describePropertyUserDetailWithOptions(request: DescribePropertyUserDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUserDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.isRoot)) {
+      query["IsRoot"] = request.isRoot;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyUserDetailResponse>(await this.doRPCRequest("DescribePropertyUserDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyUserDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyUserDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyUserDetailResponse>(await this.callApi(params, req, runtime), new DescribePropertyUserDetailResponse({}));
   }
 
   async describePropertyUserDetail(request: DescribePropertyUserDetailRequest): Promise<DescribePropertyUserDetailResponse> {
@@ -25162,10 +23438,38 @@ export default class Client extends OpenApi {
 
   async describePropertyUserItemWithOptions(request: DescribePropertyUserItemRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyUserItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.forceFlush)) {
+      query["ForceFlush"] = request.forceFlush;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePropertyUserItemResponse>(await this.doRPCRequest("DescribePropertyUserItem", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePropertyUserItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePropertyUserItem",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePropertyUserItemResponse>(await this.callApi(params, req, runtime), new DescribePropertyUserItemResponse({}));
   }
 
   async describePropertyUserItem(request: DescribePropertyUserItemRequest): Promise<DescribePropertyUserItemResponse> {
@@ -25173,25 +23477,40 @@ export default class Client extends OpenApi {
     return await this.describePropertyUserItemWithOptions(request, runtime);
   }
 
-  async describeQuaraFileDownloadInfoWithOptions(request: DescribeQuaraFileDownloadInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeQuaraFileDownloadInfoResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeQuaraFileDownloadInfoResponse>(await this.doRPCRequest("DescribeQuaraFileDownloadInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeQuaraFileDownloadInfoResponse({}));
-  }
-
-  async describeQuaraFileDownloadInfo(request: DescribeQuaraFileDownloadInfoRequest): Promise<DescribeQuaraFileDownloadInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeQuaraFileDownloadInfoWithOptions(request, runtime);
-  }
-
   async describeRestoreJobsWithOptions(request: DescribeRestoreJobsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestoreJobsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.machineRemark)) {
+      query["MachineRemark"] = request.machineRemark;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRestoreJobsResponse>(await this.doRPCRequest("DescribeRestoreJobs", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRestoreJobsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRestoreJobs",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRestoreJobsResponse>(await this.callApi(params, req, runtime), new DescribeRestoreJobsResponse({}));
   }
 
   async describeRestoreJobs(request: DescribeRestoreJobsRequest): Promise<DescribeRestoreJobsResponse> {
@@ -25199,25 +23518,48 @@ export default class Client extends OpenApi {
     return await this.describeRestoreJobsWithOptions(request, runtime);
   }
 
-  async describeRestorePlansWithOptions(request: DescribeRestorePlansRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRestorePlansResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeRestorePlansResponse>(await this.doRPCRequest("DescribeRestorePlans", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRestorePlansResponse({}));
-  }
-
-  async describeRestorePlans(request: DescribeRestorePlansRequest): Promise<DescribeRestorePlansResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRestorePlansWithOptions(request, runtime);
-  }
-
   async describeRiskCheckItemResultWithOptions(request: DescribeRiskCheckItemResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckItemResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskCheckItemResultResponse>(await this.doRPCRequest("DescribeRiskCheckItemResult", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskCheckItemResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskCheckItemResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskCheckItemResultResponse>(await this.callApi(params, req, runtime), new DescribeRiskCheckItemResultResponse({}));
   }
 
   async describeRiskCheckItemResult(request: DescribeRiskCheckItemResultRequest): Promise<DescribeRiskCheckItemResultResponse> {
@@ -25227,10 +23569,70 @@ export default class Client extends OpenApi {
 
   async describeRiskCheckResultWithOptions(request: DescribeRiskCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.itemIds)) {
+      query["ItemIds"] = request.itemIds;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryFlag)) {
+      query["QueryFlag"] = request.queryFlag;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskCheckResultResponse>(await this.doRPCRequest("DescribeRiskCheckResult", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskCheckResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskCheckResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskCheckResultResponse>(await this.callApi(params, req, runtime), new DescribeRiskCheckResultResponse({}));
   }
 
   async describeRiskCheckResult(request: DescribeRiskCheckResultRequest): Promise<DescribeRiskCheckResultResponse> {
@@ -25240,10 +23642,38 @@ export default class Client extends OpenApi {
 
   async describeRiskCheckSummaryWithOptions(request: DescribeRiskCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskCheckSummaryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskCheckSummaryResponse>(await this.doRPCRequest("DescribeRiskCheckSummary", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskCheckSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskCheckSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskCheckSummaryResponse>(await this.callApi(params, req, runtime), new DescribeRiskCheckSummaryResponse({}));
   }
 
   async describeRiskCheckSummary(request: DescribeRiskCheckSummaryRequest): Promise<DescribeRiskCheckSummaryResponse> {
@@ -25253,10 +23683,34 @@ export default class Client extends OpenApi {
 
   async describeRiskItemTypeWithOptions(request: DescribeRiskItemTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskItemTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskItemTypeResponse>(await this.doRPCRequest("DescribeRiskItemType", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskItemTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskItemType",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskItemTypeResponse>(await this.callApi(params, req, runtime), new DescribeRiskItemTypeResponse({}));
   }
 
   async describeRiskItemType(request: DescribeRiskItemTypeRequest): Promise<DescribeRiskItemTypeResponse> {
@@ -25266,10 +23720,46 @@ export default class Client extends OpenApi {
 
   async describeRiskListCheckResultWithOptions(request: DescribeRiskListCheckResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskListCheckResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskListCheckResultResponse>(await this.doRPCRequest("DescribeRiskListCheckResult", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskListCheckResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskListCheckResult",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskListCheckResultResponse>(await this.callApi(params, req, runtime), new DescribeRiskListCheckResultResponse({}));
   }
 
   async describeRiskListCheckResult(request: DescribeRiskListCheckResultRequest): Promise<DescribeRiskListCheckResultResponse> {
@@ -25279,10 +23769,26 @@ export default class Client extends OpenApi {
 
   async describeScanTaskProgressWithOptions(request: DescribeScanTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScanTaskProgressResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeScanTaskProgressResponse>(await this.doRPCRequest("DescribeScanTaskProgress", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeScanTaskProgressResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeScanTaskProgress",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeScanTaskProgressResponse>(await this.callApi(params, req, runtime), new DescribeScanTaskProgressResponse({}));
   }
 
   async describeScanTaskProgress(request: DescribeScanTaskProgressRequest): Promise<DescribeScanTaskProgressResponse> {
@@ -25292,10 +23798,34 @@ export default class Client extends OpenApi {
 
   async describeSearchConditionWithOptions(request: DescribeSearchConditionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSearchConditionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSearchConditionResponse>(await this.doRPCRequest("DescribeSearchCondition", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSearchConditionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSearchCondition",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSearchConditionResponse>(await this.callApi(params, req, runtime), new DescribeSearchConditionResponse({}));
   }
 
   async describeSearchCondition(request: DescribeSearchConditionRequest): Promise<DescribeSearchConditionResponse> {
@@ -25305,10 +23835,30 @@ export default class Client extends OpenApi {
 
   async describeSecureSuggestionWithOptions(request: DescribeSecureSuggestionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecureSuggestionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecureSuggestionResponse>(await this.doRPCRequest("DescribeSecureSuggestion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecureSuggestionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecureSuggestion",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecureSuggestionResponse>(await this.callApi(params, req, runtime), new DescribeSecureSuggestionResponse({}));
   }
 
   async describeSecureSuggestion(request: DescribeSecureSuggestionRequest): Promise<DescribeSecureSuggestionResponse> {
@@ -25318,10 +23868,34 @@ export default class Client extends OpenApi {
 
   async describeSecurityCheckScheduleConfigWithOptions(request: DescribeSecurityCheckScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityCheckScheduleConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecurityCheckScheduleConfigResponse>(await this.doRPCRequest("DescribeSecurityCheckScheduleConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecurityCheckScheduleConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecurityCheckScheduleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecurityCheckScheduleConfigResponse>(await this.callApi(params, req, runtime), new DescribeSecurityCheckScheduleConfigResponse({}));
   }
 
   async describeSecurityCheckScheduleConfig(request: DescribeSecurityCheckScheduleConfigRequest): Promise<DescribeSecurityCheckScheduleConfigResponse> {
@@ -25331,10 +23905,38 @@ export default class Client extends OpenApi {
 
   async describeSecurityEventOperationStatusWithOptions(request: DescribeSecurityEventOperationStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityEventOperationStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityEventIds)) {
+      query["SecurityEventIds"] = request.securityEventIds;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecurityEventOperationStatusResponse>(await this.doRPCRequest("DescribeSecurityEventOperationStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecurityEventOperationStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecurityEventOperationStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecurityEventOperationStatusResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventOperationStatusResponse({}));
   }
 
   async describeSecurityEventOperationStatus(request: DescribeSecurityEventOperationStatusRequest): Promise<DescribeSecurityEventOperationStatusResponse> {
@@ -25344,10 +23946,38 @@ export default class Client extends OpenApi {
 
   async describeSecurityEventOperationsWithOptions(request: DescribeSecurityEventOperationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityEventOperationsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityEventId)) {
+      query["SecurityEventId"] = request.securityEventId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecurityEventOperationsResponse>(await this.doRPCRequest("DescribeSecurityEventOperations", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecurityEventOperationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecurityEventOperations",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecurityEventOperationsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityEventOperationsResponse({}));
   }
 
   async describeSecurityEventOperations(request: DescribeSecurityEventOperationsRequest): Promise<DescribeSecurityEventOperationsResponse> {
@@ -25357,10 +23987,34 @@ export default class Client extends OpenApi {
 
   async describeSecurityStatInfoWithOptions(request: DescribeSecurityStatInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityStatInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSecurityStatInfoResponse>(await this.doRPCRequest("DescribeSecurityStatInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSecurityStatInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSecurityStatInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSecurityStatInfoResponse>(await this.callApi(params, req, runtime), new DescribeSecurityStatInfoResponse({}));
   }
 
   async describeSecurityStatInfo(request: DescribeSecurityStatInfoRequest): Promise<DescribeSecurityStatInfoResponse> {
@@ -25370,7 +24024,18 @@ export default class Client extends OpenApi {
 
   async describeServiceLinkedRoleStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeServiceLinkedRoleStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeServiceLinkedRoleStatusResponse>(await this.doRPCRequest("DescribeServiceLinkedRoleStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeServiceLinkedRoleStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceLinkedRoleStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceLinkedRoleStatusResponse>(await this.callApi(params, req, runtime), new DescribeServiceLinkedRoleStatusResponse({}));
   }
 
   async describeServiceLinkedRoleStatus(): Promise<DescribeServiceLinkedRoleStatusResponse> {
@@ -25380,10 +24045,34 @@ export default class Client extends OpenApi {
 
   async describeSimilarEventScenariosWithOptions(request: DescribeSimilarEventScenariosRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSimilarEventScenariosResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityEventId)) {
+      query["SecurityEventId"] = request.securityEventId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSimilarEventScenariosResponse>(await this.doRPCRequest("DescribeSimilarEventScenarios", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSimilarEventScenariosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSimilarEventScenarios",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSimilarEventScenariosResponse>(await this.callApi(params, req, runtime), new DescribeSimilarEventScenariosResponse({}));
   }
 
   async describeSimilarEventScenarios(request: DescribeSimilarEventScenariosRequest): Promise<DescribeSimilarEventScenariosResponse> {
@@ -25393,10 +24082,46 @@ export default class Client extends OpenApi {
 
   async describeSimilarSecurityEventsWithOptions(request: DescribeSimilarSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSimilarSecurityEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSimilarSecurityEventsResponse>(await this.doRPCRequest("DescribeSimilarSecurityEvents", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSimilarSecurityEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSimilarSecurityEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSimilarSecurityEventsResponse>(await this.callApi(params, req, runtime), new DescribeSimilarSecurityEventsResponse({}));
   }
 
   async describeSimilarSecurityEvents(request: DescribeSimilarSecurityEventsRequest): Promise<DescribeSimilarSecurityEventsResponse> {
@@ -25404,25 +24129,40 @@ export default class Client extends OpenApi {
     return await this.describeSimilarSecurityEventsWithOptions(request, runtime);
   }
 
-  async describeSnapshotsWithOptions(request: DescribeSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSnapshotsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSnapshotsResponse>(await this.doRPCRequest("DescribeSnapshots", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSnapshotsResponse({}));
-  }
-
-  async describeSnapshots(request: DescribeSnapshotsRequest): Promise<DescribeSnapshotsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSnapshotsWithOptions(request, runtime);
-  }
-
   async describeStrategyWithOptions(request: DescribeStrategyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customType)) {
+      query["CustomType"] = request.customType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.strategyIds)) {
+      query["StrategyIds"] = request.strategyIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeStrategyResponse>(await this.doRPCRequest("DescribeStrategy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeStrategyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeStrategyResponse>(await this.callApi(params, req, runtime), new DescribeStrategyResponse({}));
   }
 
   async describeStrategy(request: DescribeStrategyRequest): Promise<DescribeStrategyResponse> {
@@ -25432,10 +24172,38 @@ export default class Client extends OpenApi {
 
   async describeStrategyExecDetailWithOptions(request: DescribeStrategyExecDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyExecDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeStrategyExecDetailResponse>(await this.doRPCRequest("DescribeStrategyExecDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeStrategyExecDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeStrategyExecDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeStrategyExecDetailResponse>(await this.callApi(params, req, runtime), new DescribeStrategyExecDetailResponse({}));
   }
 
   async describeStrategyExecDetail(request: DescribeStrategyExecDetailRequest): Promise<DescribeStrategyExecDetailResponse> {
@@ -25443,25 +24211,36 @@ export default class Client extends OpenApi {
     return await this.describeStrategyExecDetailWithOptions(request, runtime);
   }
 
-  async describeStrategyProcessWithOptions(request: DescribeStrategyProcessRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyProcessResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeStrategyProcessResponse>(await this.doRPCRequest("DescribeStrategyProcess", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeStrategyProcessResponse({}));
-  }
-
-  async describeStrategyProcess(request: DescribeStrategyProcessRequest): Promise<DescribeStrategyProcessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeStrategyProcessWithOptions(request, runtime);
-  }
-
   async describeStrategyTargetWithOptions(request: DescribeStrategyTargetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStrategyTargetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeStrategyTargetResponse>(await this.doRPCRequest("DescribeStrategyTarget", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeStrategyTargetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeStrategyTarget",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeStrategyTargetResponse>(await this.callApi(params, req, runtime), new DescribeStrategyTargetResponse({}));
   }
 
   async describeStrategyTarget(request: DescribeStrategyTargetRequest): Promise<DescribeStrategyTargetResponse> {
@@ -25471,10 +24250,34 @@ export default class Client extends OpenApi {
 
   async describeSummaryInfoWithOptions(request: DescribeSummaryInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSummaryInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSummaryInfoResponse>(await this.doRPCRequest("DescribeSummaryInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSummaryInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSummaryInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSummaryInfoResponse>(await this.callApi(params, req, runtime), new DescribeSummaryInfoResponse({}));
   }
 
   async describeSummaryInfo(request: DescribeSummaryInfoRequest): Promise<DescribeSummaryInfoResponse> {
@@ -25484,7 +24287,18 @@ export default class Client extends OpenApi {
 
   async describeSupportRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeSupportRegionResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeSupportRegionResponse>(await this.doRPCRequest("DescribeSupportRegion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSupportRegionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSupportRegion",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSupportRegionResponse>(await this.callApi(params, req, runtime), new DescribeSupportRegionResponse({}));
   }
 
   async describeSupportRegion(): Promise<DescribeSupportRegionResponse> {
@@ -25494,10 +24308,38 @@ export default class Client extends OpenApi {
 
   async describeSuspEventDetailWithOptions(request: DescribeSuspEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.suspiciousEventId)) {
+      query["SuspiciousEventId"] = request.suspiciousEventId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSuspEventDetailResponse>(await this.doRPCRequest("DescribeSuspEventDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSuspEventDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspEventDetail",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSuspEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventDetailResponse({}));
   }
 
   async describeSuspEventDetail(request: DescribeSuspEventDetailRequest): Promise<DescribeSuspEventDetailResponse> {
@@ -25505,12 +24347,93 @@ export default class Client extends OpenApi {
     return await this.describeSuspEventDetailWithOptions(request, runtime);
   }
 
+  async describeSuspEventExportInfoWithOptions(request: DescribeSuspEventExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventExportInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspEventExportInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSuspEventExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventExportInfoResponse({}));
+  }
+
+  async describeSuspEventExportInfo(request: DescribeSuspEventExportInfoRequest): Promise<DescribeSuspEventExportInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSuspEventExportInfoWithOptions(request, runtime);
+  }
+
   async describeSuspEventQuaraFilesWithOptions(request: DescribeSuspEventQuaraFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventQuaraFilesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupingId)) {
+      query["GroupingId"] = request.groupingId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.quaraTag)) {
+      query["QuaraTag"] = request.quaraTag;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSuspEventQuaraFilesResponse>(await this.doRPCRequest("DescribeSuspEventQuaraFiles", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSuspEventQuaraFilesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspEventQuaraFiles",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSuspEventQuaraFilesResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventQuaraFilesResponse({}));
   }
 
   async describeSuspEventQuaraFiles(request: DescribeSuspEventQuaraFilesRequest): Promise<DescribeSuspEventQuaraFilesResponse> {
@@ -25520,10 +24443,110 @@ export default class Client extends OpenApi {
 
   async describeSuspEventsWithOptions(request: DescribeSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.alarmUniqueInfo)) {
+      query["AlarmUniqueInfo"] = request.alarmUniqueInfo;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
+    }
+
+    if (!Util.isUnset(request.containerFieldValue)) {
+      query["ContainerFieldValue"] = request.containerFieldValue;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.eventNames)) {
+      query["EventNames"] = request.eventNames;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.operateErrorCodeList)) {
+      query["OperateErrorCodeList"] = request.operateErrorCodeList;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentEventTypes)) {
+      query["ParentEventTypes"] = request.parentEventTypes;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.uniqueInfo)) {
+      query["UniqueInfo"] = request.uniqueInfo;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeSuspEventsResponse>(await this.doRPCRequest("DescribeSuspEvents", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSuspEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSuspEventsResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventsResponse({}));
   }
 
   async describeSuspEvents(request: DescribeSuspEventsRequest): Promise<DescribeSuspEventsResponse> {
@@ -25531,38 +24554,73 @@ export default class Client extends OpenApi {
     return await this.describeSuspEventsWithOptions(request, runtime);
   }
 
-  async describeTaskErrorLogWithOptions(request: DescribeTaskErrorLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTaskErrorLogResponse> {
+  async describeSuspiciousUUIDConfigWithOptions(request: DescribeSuspiciousUUIDConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspiciousUUIDConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTaskErrorLogResponse>(await this.doRPCRequest("DescribeTaskErrorLog", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTaskErrorLogResponse({}));
-  }
-
-  async describeTaskErrorLog(request: DescribeTaskErrorLogRequest): Promise<DescribeTaskErrorLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeTaskErrorLogWithOptions(request, runtime);
-  }
-
-  async describeUniBackupDatabaseWithOptions(request: DescribeUniBackupDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupDatabaseResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+    let params = new $OpenApi.Params({
+      action: "DescribeSuspiciousUUIDConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
     });
-    return $tea.cast<DescribeUniBackupDatabaseResponse>(await this.doRPCRequest("DescribeUniBackupDatabase", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniBackupDatabaseResponse({}));
+    return $tea.cast<DescribeSuspiciousUUIDConfigResponse>(await this.callApi(params, req, runtime), new DescribeSuspiciousUUIDConfigResponse({}));
   }
 
-  async describeUniBackupDatabase(request: DescribeUniBackupDatabaseRequest): Promise<DescribeUniBackupDatabaseResponse> {
+  async describeSuspiciousUUIDConfig(request: DescribeSuspiciousUUIDConfigRequest): Promise<DescribeSuspiciousUUIDConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniBackupDatabaseWithOptions(request, runtime);
+    return await this.describeSuspiciousUUIDConfigWithOptions(request, runtime);
   }
 
   async describeUniBackupPoliciesWithOptions(request: DescribeUniBackupPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUniBackupPoliciesResponse>(await this.doRPCRequest("DescribeUniBackupPolicies", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniBackupPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUniBackupPolicies",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUniBackupPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeUniBackupPoliciesResponse({}));
   }
 
   async describeUniBackupPolicies(request: DescribeUniBackupPoliciesRequest): Promise<DescribeUniBackupPoliciesResponse> {
@@ -25570,55 +24628,20 @@ export default class Client extends OpenApi {
     return await this.describeUniBackupPoliciesWithOptions(request, runtime);
   }
 
-  async describeUniBackupPolicyDetailWithOptions(request: DescribeUniBackupPolicyDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupPolicyDetailResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeUniBackupPolicyDetailResponse>(await this.doRPCRequest("DescribeUniBackupPolicyDetail", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniBackupPolicyDetailResponse({}));
-  }
-
-  async describeUniBackupPolicyDetail(request: DescribeUniBackupPolicyDetailRequest): Promise<DescribeUniBackupPolicyDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniBackupPolicyDetailWithOptions(request, runtime);
-  }
-
-  async describeUniBackupStatisticsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupStatisticsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeUniBackupStatisticsResponse>(await this.doRPCRequest("DescribeUniBackupStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniBackupStatisticsResponse({}));
-  }
-
-  async describeUniBackupStatistics(): Promise<DescribeUniBackupStatisticsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniBackupStatisticsWithOptions(runtime);
-  }
-
-  async describeUniRecoverableListWithOptions(request: DescribeUniRecoverableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniRecoverableListResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeUniRecoverableListResponse>(await this.doRPCRequest("DescribeUniRecoverableList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniRecoverableListResponse({}));
-  }
-
-  async describeUniRecoverableList(request: DescribeUniRecoverableListRequest): Promise<DescribeUniRecoverableListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniRecoverableListWithOptions(request, runtime);
-  }
-
-  async describeUniSupportRegionWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUniSupportRegionResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeUniSupportRegionResponse>(await this.doRPCRequest("DescribeUniSupportRegion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUniSupportRegionResponse({}));
-  }
-
-  async describeUniSupportRegion(): Promise<DescribeUniSupportRegionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniSupportRegionWithOptions(runtime);
-  }
-
   async describeUserBackupMachinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserBackupMachinesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeUserBackupMachinesResponse>(await this.doRPCRequest("DescribeUserBackupMachines", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserBackupMachinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserBackupMachines",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserBackupMachinesResponse>(await this.callApi(params, req, runtime), new DescribeUserBackupMachinesResponse({}));
   }
 
   async describeUserBackupMachines(): Promise<DescribeUserBackupMachinesResponse> {
@@ -25628,10 +24651,34 @@ export default class Client extends OpenApi {
 
   async describeUserBaselineAuthorizationWithOptions(request: DescribeUserBaselineAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserBaselineAuthorizationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUserBaselineAuthorizationResponse>(await this.doRPCRequest("DescribeUserBaselineAuthorization", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserBaselineAuthorizationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserBaselineAuthorization",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserBaselineAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeUserBaselineAuthorizationResponse({}));
   }
 
   async describeUserBaselineAuthorization(request: DescribeUserBaselineAuthorizationRequest): Promise<DescribeUserBaselineAuthorizationResponse> {
@@ -25641,10 +24688,34 @@ export default class Client extends OpenApi {
 
   async describeUserLayoutAuthorizationWithOptions(request: DescribeUserLayoutAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserLayoutAuthorizationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUserLayoutAuthorizationResponse>(await this.doRPCRequest("DescribeUserLayoutAuthorization", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserLayoutAuthorizationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserLayoutAuthorization",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserLayoutAuthorizationResponse>(await this.callApi(params, req, runtime), new DescribeUserLayoutAuthorizationResponse({}));
   }
 
   async describeUserLayoutAuthorization(request: DescribeUserLayoutAuthorizationRequest): Promise<DescribeUserLayoutAuthorizationResponse> {
@@ -25652,25 +24723,32 @@ export default class Client extends OpenApi {
     return await this.describeUserLayoutAuthorizationWithOptions(request, runtime);
   }
 
-  async describeUuidsByVulNamesWithOptions(request: DescribeUuidsByVulNamesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUuidsByVulNamesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeUuidsByVulNamesResponse>(await this.doRPCRequest("DescribeUuidsByVulNames", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUuidsByVulNamesResponse({}));
-  }
-
-  async describeUuidsByVulNames(request: DescribeUuidsByVulNamesRequest): Promise<DescribeUuidsByVulNamesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUuidsByVulNamesWithOptions(request, runtime);
-  }
-
   async describeVersionConfigWithOptions(request: DescribeVersionConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVersionConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVersionConfigResponse>(await this.doRPCRequest("DescribeVersionConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVersionConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVersionConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVersionConfigResponse>(await this.callApi(params, req, runtime), new DescribeVersionConfigResponse({}));
   }
 
   async describeVersionConfig(request: DescribeVersionConfigRequest): Promise<DescribeVersionConfigResponse> {
@@ -25680,10 +24758,30 @@ export default class Client extends OpenApi {
 
   async describeVolDingdingMessageWithOptions(request: DescribeVolDingdingMessageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVolDingdingMessageResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVolDingdingMessageResponse>(await this.doRPCRequest("DescribeVolDingdingMessage", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVolDingdingMessageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVolDingdingMessage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVolDingdingMessageResponse>(await this.callApi(params, req, runtime), new DescribeVolDingdingMessageResponse({}));
   }
 
   async describeVolDingdingMessage(request: DescribeVolDingdingMessageRequest): Promise<DescribeVolDingdingMessageResponse> {
@@ -25693,7 +24791,18 @@ export default class Client extends OpenApi {
 
   async describeVpcHoneyPotCriteriaWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVpcHoneyPotCriteriaResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeVpcHoneyPotCriteriaResponse>(await this.doRPCRequest("DescribeVpcHoneyPotCriteria", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcHoneyPotCriteriaResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcHoneyPotCriteria",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcHoneyPotCriteriaResponse>(await this.callApi(params, req, runtime), new DescribeVpcHoneyPotCriteriaResponse({}));
   }
 
   async describeVpcHoneyPotCriteria(): Promise<DescribeVpcHoneyPotCriteriaResponse> {
@@ -25703,10 +24812,46 @@ export default class Client extends OpenApi {
 
   async describeVpcHoneyPotListWithOptions(request: DescribeVpcHoneyPotListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcHoneyPotListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.honeyPotExistence)) {
+      query["HoneyPotExistence"] = request.honeyPotExistence;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vpcName)) {
+      query["VpcName"] = request.vpcName;
+    }
+
+    if (!Util.isUnset(request.vpcRegionId)) {
+      query["VpcRegionId"] = request.vpcRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVpcHoneyPotListResponse>(await this.doRPCRequest("DescribeVpcHoneyPotList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcHoneyPotListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcHoneyPotList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcHoneyPotListResponse>(await this.callApi(params, req, runtime), new DescribeVpcHoneyPotListResponse({}));
   }
 
   async describeVpcHoneyPotList(request: DescribeVpcHoneyPotListRequest): Promise<DescribeVpcHoneyPotListResponse> {
@@ -25716,7 +24861,18 @@ export default class Client extends OpenApi {
 
   async describeVpcListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVpcListResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DescribeVpcListResponse>(await this.doRPCRequest("DescribeVpcList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVpcListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcListResponse>(await this.callApi(params, req, runtime), new DescribeVpcListResponse({}));
   }
 
   async describeVpcList(): Promise<DescribeVpcListResponse> {
@@ -25726,10 +24882,38 @@ export default class Client extends OpenApi {
 
   async describeVulDetailsWithOptions(request: DescribeVulDetailsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulDetailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVulDetailsResponse>(await this.doRPCRequest("DescribeVulDetails", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVulDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVulDetails",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulDetailsResponse>(await this.callApi(params, req, runtime), new DescribeVulDetailsResponse({}));
   }
 
   async describeVulDetails(request: DescribeVulDetailsRequest): Promise<DescribeVulDetailsResponse> {
@@ -25739,10 +24923,26 @@ export default class Client extends OpenApi {
 
   async describeVulExportInfoWithOptions(request: DescribeVulExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulExportInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportId)) {
+      query["ExportId"] = request.exportId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVulExportInfoResponse>(await this.doRPCRequest("DescribeVulExportInfo", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVulExportInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVulExportInfo",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeVulExportInfoResponse({}));
   }
 
   async describeVulExportInfo(request: DescribeVulExportInfoRequest): Promise<DescribeVulExportInfoResponse> {
@@ -25752,10 +24952,70 @@ export default class Client extends OpenApi {
 
   async describeVulListWithOptions(request: DescribeVulListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.attachTypes)) {
+      query["AttachTypes"] = request.attachTypes;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    if (!Util.isUnset(request.vpcInstanceIds)) {
+      query["VpcInstanceIds"] = request.vpcInstanceIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVulListResponse>(await this.doRPCRequest("DescribeVulList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVulListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVulList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulListResponse>(await this.callApi(params, req, runtime), new DescribeVulListResponse({}));
   }
 
   async describeVulList(request: DescribeVulListRequest): Promise<DescribeVulListResponse> {
@@ -25763,12 +25023,77 @@ export default class Client extends OpenApi {
     return await this.describeVulListWithOptions(request, runtime);
   }
 
+  async describeVulListPageWithOptions(request: DescribeVulListPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.cveId)) {
+      query["CveId"] = request.cveId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.vulNameLike)) {
+      query["VulNameLike"] = request.vulNameLike;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVulListPage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulListPageResponse>(await this.callApi(params, req, runtime), new DescribeVulListPageResponse({}));
+  }
+
+  async describeVulListPage(request: DescribeVulListPageRequest): Promise<DescribeVulListPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVulListPageWithOptions(request, runtime);
+  }
+
   async describeVulWhitelistWithOptions(request: DescribeVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulWhitelistResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVulWhitelistResponse>(await this.doRPCRequest("DescribeVulWhitelist", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVulWhitelistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVulWhitelist",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVulWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeVulWhitelistResponse({}));
   }
 
   async describeVulWhitelist(request: DescribeVulWhitelistRequest): Promise<DescribeVulWhitelistResponse> {
@@ -25778,10 +25103,54 @@ export default class Client extends OpenApi {
 
   async describeWarningMachinesWithOptions(request: DescribeWarningMachinesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWarningMachinesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.machineName)) {
+      query["MachineName"] = request.machineName;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeWarningMachinesResponse>(await this.doRPCRequest("DescribeWarningMachines", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWarningMachinesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWarningMachines",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWarningMachinesResponse>(await this.callApi(params, req, runtime), new DescribeWarningMachinesResponse({}));
   }
 
   async describeWarningMachines(request: DescribeWarningMachinesRequest): Promise<DescribeWarningMachinesResponse> {
@@ -25791,10 +25160,46 @@ export default class Client extends OpenApi {
 
   async describeWebLockBindListWithOptions(request: DescribeWebLockBindListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockBindListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeWebLockBindListResponse>(await this.doRPCRequest("DescribeWebLockBindList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWebLockBindListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWebLockBindList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebLockBindListResponse>(await this.callApi(params, req, runtime), new DescribeWebLockBindListResponse({}));
   }
 
   async describeWebLockBindList(request: DescribeWebLockBindListRequest): Promise<DescribeWebLockBindListResponse> {
@@ -25804,10 +25209,34 @@ export default class Client extends OpenApi {
 
   async describeWebLockConfigListWithOptions(request: DescribeWebLockConfigListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeWebLockConfigListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeWebLockConfigListResponse>(await this.doRPCRequest("DescribeWebLockConfigList", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeWebLockConfigListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeWebLockConfigList",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeWebLockConfigListResponse>(await this.callApi(params, req, runtime), new DescribeWebLockConfigListResponse({}));
   }
 
   async describeWebLockConfigList(request: DescribeWebLockConfigListRequest): Promise<DescribeWebLockConfigListResponse> {
@@ -25815,25 +25244,36 @@ export default class Client extends OpenApi {
     return await this.describeWebLockConfigListWithOptions(request, runtime);
   }
 
-  async execStrategyWithOptions(request: ExecStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ExecStrategyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ExecStrategyResponse>(await this.doRPCRequest("ExecStrategy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExecStrategyResponse({}));
-  }
-
-  async execStrategy(request: ExecStrategyRequest): Promise<ExecStrategyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.execStrategyWithOptions(request, runtime);
-  }
-
   async exportRecordWithOptions(request: ExportRecordRequest, runtime: $Util.RuntimeOptions): Promise<ExportRecordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportType)) {
+      query["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExportRecordResponse>(await this.doRPCRequest("ExportRecord", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExportRecordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExportRecord",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportRecordResponse>(await this.callApi(params, req, runtime), new ExportRecordResponse({}));
   }
 
   async exportRecord(request: ExportRecordRequest): Promise<ExportRecordResponse> {
@@ -25841,12 +25281,149 @@ export default class Client extends OpenApi {
     return await this.exportRecordWithOptions(request, runtime);
   }
 
+  async exportSuspEventsWithOptions(request: ExportSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<ExportSuspEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.containerFieldName)) {
+      query["ContainerFieldName"] = request.containerFieldName;
+    }
+
+    if (!Util.isUnset(request.containerFieldValue)) {
+      query["ContainerFieldValue"] = request.containerFieldValue;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.levels)) {
+      query["Levels"] = request.levels;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentEventTypes)) {
+      query["ParentEventTypes"] = request.parentEventTypes;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.timeEnd)) {
+      query["TimeEnd"] = request.timeEnd;
+    }
+
+    if (!Util.isUnset(request.timeStart)) {
+      query["TimeStart"] = request.timeStart;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportSuspEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportSuspEventsResponse>(await this.callApi(params, req, runtime), new ExportSuspEventsResponse({}));
+  }
+
+  async exportSuspEvents(request: ExportSuspEventsRequest): Promise<ExportSuspEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportSuspEventsWithOptions(request, runtime);
+  }
+
   async exportVulWithOptions(request: ExportVulRequest, runtime: $Util.RuntimeOptions): Promise<ExportVulResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliasName)) {
+      query["AliasName"] = request.aliasName;
+    }
+
+    if (!Util.isUnset(request.attachTypes)) {
+      query["AttachTypes"] = request.attachTypes;
+    }
+
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.necessity)) {
+      query["Necessity"] = request.necessity;
+    }
+
+    if (!Util.isUnset(request.searchTags)) {
+      query["SearchTags"] = request.searchTags;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    if (!Util.isUnset(request.vpcInstanceIds)) {
+      query["VpcInstanceIds"] = request.vpcInstanceIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExportVulResponse>(await this.doRPCRequest("ExportVul", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExportVulResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExportVul",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportVulResponse>(await this.callApi(params, req, runtime), new ExportVulResponse({}));
   }
 
   async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
@@ -25854,12 +25431,129 @@ export default class Client extends OpenApi {
     return await this.exportVulWithOptions(request, runtime);
   }
 
+  async exportWarningWithOptions(request: ExportWarningRequest, runtime: $Util.RuntimeOptions): Promise<ExportWarningResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dealed)) {
+      query["Dealed"] = request.dealed;
+    }
+
+    if (!Util.isUnset(request.exportType)) {
+      query["ExportType"] = request.exportType;
+    }
+
+    if (!Util.isUnset(request.isCleartextPwd)) {
+      query["IsCleartextPwd"] = request.isCleartextPwd;
+    }
+
+    if (!Util.isUnset(request.isSummaryExport)) {
+      query["IsSummaryExport"] = request.isSummaryExport;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.riskIds)) {
+      query["RiskIds"] = request.riskIds;
+    }
+
+    if (!Util.isUnset(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!Util.isUnset(request.riskName)) {
+      query["RiskName"] = request.riskName;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.strategyId)) {
+      query["StrategyId"] = request.strategyId;
+    }
+
+    if (!Util.isUnset(request.subTypeNames)) {
+      query["SubTypeNames"] = request.subTypeNames;
+    }
+
+    if (!Util.isUnset(request.typeName)) {
+      query["TypeName"] = request.typeName;
+    }
+
+    if (!Util.isUnset(request.typeNames)) {
+      query["TypeNames"] = request.typeNames;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportWarning",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportWarningResponse>(await this.callApi(params, req, runtime), new ExportWarningResponse({}));
+  }
+
+  async exportWarning(request: ExportWarningRequest): Promise<ExportWarningResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportWarningWithOptions(request, runtime);
+  }
+
   async fixCheckWarningsWithOptions(request: FixCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<FixCheckWarningsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkParams)) {
+      query["CheckParams"] = request.checkParams;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FixCheckWarningsResponse>(await this.doRPCRequest("FixCheckWarnings", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new FixCheckWarningsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "FixCheckWarnings",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FixCheckWarningsResponse>(await this.callApi(params, req, runtime), new FixCheckWarningsResponse({}));
   }
 
   async fixCheckWarnings(request: FixCheckWarningsRequest): Promise<FixCheckWarningsResponse> {
@@ -25869,7 +25563,18 @@ export default class Client extends OpenApi {
 
   async getBackupStorageCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetBackupStorageCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetBackupStorageCountResponse>(await this.doRPCRequest("GetBackupStorageCount", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetBackupStorageCountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBackupStorageCount",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBackupStorageCountResponse>(await this.callApi(params, req, runtime), new GetBackupStorageCountResponse({}));
   }
 
   async getBackupStorageCount(): Promise<GetBackupStorageCountResponse> {
@@ -25877,64 +25582,32 @@ export default class Client extends OpenApi {
     return await this.getBackupStorageCountWithOptions(runtime);
   }
 
-  async getIOCsWithOptions(request: GetIOCsRequest, runtime: $Util.RuntimeOptions): Promise<GetIOCsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetIOCsResponse>(await this.doRPCRequest("GetIOCs", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetIOCsResponse({}));
-  }
-
-  async getIOCs(request: GetIOCsRequest): Promise<GetIOCsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getIOCsWithOptions(request, runtime);
-  }
-
-  async getIncIOCsWithOptions(request: GetIncIOCsRequest, runtime: $Util.RuntimeOptions): Promise<GetIncIOCsResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetIncIOCsResponse>(await this.doRPCRequest("GetIncIOCs", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetIncIOCsResponse({}));
-  }
-
-  async getIncIOCs(request: GetIncIOCsRequest): Promise<GetIncIOCsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getIncIOCsWithOptions(request, runtime);
-  }
-
-  async getLocalInstallScriptWithOptions(request: GetLocalInstallScriptRequest, runtime: $Util.RuntimeOptions): Promise<GetLocalInstallScriptResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetLocalInstallScriptResponse>(await this.doRPCRequest("GetLocalInstallScript", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetLocalInstallScriptResponse({}));
-  }
-
-  async getLocalInstallScript(request: GetLocalInstallScriptRequest): Promise<GetLocalInstallScriptResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLocalInstallScriptWithOptions(request, runtime);
-  }
-
-  async getLocalUninstallScriptWithOptions(request: GetLocalUninstallScriptRequest, runtime: $Util.RuntimeOptions): Promise<GetLocalUninstallScriptResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetLocalUninstallScriptResponse>(await this.doRPCRequest("GetLocalUninstallScript", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetLocalUninstallScriptResponse({}));
-  }
-
-  async getLocalUninstallScript(request: GetLocalUninstallScriptRequest): Promise<GetLocalUninstallScriptResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getLocalUninstallScriptWithOptions(request, runtime);
-  }
-
   async getSuspiciousStatisticsWithOptions(request: GetSuspiciousStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetSuspiciousStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupIdList)) {
+      query["GroupIdList"] = request.groupIdList;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSuspiciousStatisticsResponse>(await this.doRPCRequest("GetSuspiciousStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetSuspiciousStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSuspiciousStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSuspiciousStatisticsResponse>(await this.callApi(params, req, runtime), new GetSuspiciousStatisticsResponse({}));
   }
 
   async getSuspiciousStatistics(request: GetSuspiciousStatisticsRequest): Promise<GetSuspiciousStatisticsResponse> {
@@ -25944,10 +25617,34 @@ export default class Client extends OpenApi {
 
   async getVulStatisticsWithOptions(request: GetVulStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetVulStatisticsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupIdList)) {
+      query["GroupIdList"] = request.groupIdList;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.typeList)) {
+      query["TypeList"] = request.typeList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetVulStatisticsResponse>(await this.doRPCRequest("GetVulStatistics", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new GetVulStatisticsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetVulStatistics",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetVulStatisticsResponse>(await this.callApi(params, req, runtime), new GetVulStatisticsResponse({}));
   }
 
   async getVulStatistics(request: GetVulStatisticsRequest): Promise<GetVulStatisticsResponse> {
@@ -25957,10 +25654,46 @@ export default class Client extends OpenApi {
 
   async handleSecurityEventsWithOptions(request: HandleSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<HandleSecurityEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.markBatch)) {
+      query["MarkBatch"] = request.markBatch;
+    }
+
+    if (!Util.isUnset(request.markMissParam)) {
+      query["MarkMissParam"] = request.markMissParam;
+    }
+
+    if (!Util.isUnset(request.operationCode)) {
+      query["OperationCode"] = request.operationCode;
+    }
+
+    if (!Util.isUnset(request.operationParams)) {
+      query["OperationParams"] = request.operationParams;
+    }
+
+    if (!Util.isUnset(request.securityEventIds)) {
+      query["SecurityEventIds"] = request.securityEventIds;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<HandleSecurityEventsResponse>(await this.doRPCRequest("HandleSecurityEvents", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new HandleSecurityEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "HandleSecurityEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HandleSecurityEventsResponse>(await this.callApi(params, req, runtime), new HandleSecurityEventsResponse({}));
   }
 
   async handleSecurityEvents(request: HandleSecurityEventsRequest): Promise<HandleSecurityEventsResponse> {
@@ -25970,10 +25703,46 @@ export default class Client extends OpenApi {
 
   async handleSimilarSecurityEventsWithOptions(request: HandleSimilarSecurityEventsRequest, runtime: $Util.RuntimeOptions): Promise<HandleSimilarSecurityEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.markMissParam)) {
+      query["MarkMissParam"] = request.markMissParam;
+    }
+
+    if (!Util.isUnset(request.operationCode)) {
+      query["OperationCode"] = request.operationCode;
+    }
+
+    if (!Util.isUnset(request.operationParams)) {
+      query["OperationParams"] = request.operationParams;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<HandleSimilarSecurityEventsResponse>(await this.doRPCRequest("HandleSimilarSecurityEvents", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new HandleSimilarSecurityEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "HandleSimilarSecurityEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HandleSimilarSecurityEventsResponse>(await this.callApi(params, req, runtime), new HandleSimilarSecurityEventsResponse({}));
   }
 
   async handleSimilarSecurityEvents(request: HandleSimilarSecurityEventsRequest): Promise<HandleSimilarSecurityEventsResponse> {
@@ -25983,10 +25752,46 @@ export default class Client extends OpenApi {
 
   async ignoreHcCheckWarningsWithOptions(request: IgnoreHcCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<IgnoreHcCheckWarningsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.checkIds)) {
+      query["CheckIds"] = request.checkIds;
+    }
+
+    if (!Util.isUnset(request.checkWarningIds)) {
+      query["CheckWarningIds"] = request.checkWarningIds;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.riskId)) {
+      query["RiskId"] = request.riskId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<IgnoreHcCheckWarningsResponse>(await this.doRPCRequest("IgnoreHcCheckWarnings", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new IgnoreHcCheckWarningsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "IgnoreHcCheckWarnings",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<IgnoreHcCheckWarningsResponse>(await this.callApi(params, req, runtime), new IgnoreHcCheckWarningsResponse({}));
   }
 
   async ignoreHcCheckWarnings(request: IgnoreHcCheckWarningsRequest): Promise<IgnoreHcCheckWarningsResponse> {
@@ -25996,10 +25801,34 @@ export default class Client extends OpenApi {
 
   async installBackupClientWithOptions(request: InstallBackupClientRequest, runtime: $Util.RuntimeOptions): Promise<InstallBackupClientResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<InstallBackupClientResponse>(await this.doRPCRequest("InstallBackupClient", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new InstallBackupClientResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InstallBackupClient",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InstallBackupClientResponse>(await this.callApi(params, req, runtime), new InstallBackupClientResponse({}));
   }
 
   async installBackupClient(request: InstallBackupClientRequest): Promise<InstallBackupClientResponse> {
@@ -26007,25 +25836,60 @@ export default class Client extends OpenApi {
     return await this.installBackupClientWithOptions(request, runtime);
   }
 
-  async installUniBackupAgentWithOptions(request: InstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<InstallUniBackupAgentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<InstallUniBackupAgentResponse>(await this.doRPCRequest("InstallUniBackupAgent", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new InstallUniBackupAgentResponse({}));
-  }
-
-  async installUniBackupAgent(request: InstallUniBackupAgentRequest): Promise<InstallUniBackupAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.installUniBackupAgentWithOptions(request, runtime);
-  }
-
   async modifyAntiBruteForceRuleWithOptions(request: ModifyAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAntiBruteForceRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultRule)) {
+      query["DefaultRule"] = request.defaultRule;
+    }
+
+    if (!Util.isUnset(request.failCount)) {
+      query["FailCount"] = request.failCount;
+    }
+
+    if (!Util.isUnset(request.forbiddenTime)) {
+      query["ForbiddenTime"] = request.forbiddenTime;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.span)) {
+      query["Span"] = request.span;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAntiBruteForceRuleResponse>(await this.doRPCRequest("ModifyAntiBruteForceRule", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAntiBruteForceRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAntiBruteForceRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new ModifyAntiBruteForceRuleResponse({}));
   }
 
   async modifyAntiBruteForceRule(request: ModifyAntiBruteForceRuleRequest): Promise<ModifyAntiBruteForceRuleResponse> {
@@ -26035,10 +25899,34 @@ export default class Client extends OpenApi {
 
   async modifyAssetGroupWithOptions(request: ModifyAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAssetGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyAssetGroupResponse>(await this.doRPCRequest("ModifyAssetGroup", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyAssetGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyAssetGroup",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAssetGroupResponse>(await this.callApi(params, req, runtime), new ModifyAssetGroupResponse({}));
   }
 
   async modifyAssetGroup(request: ModifyAssetGroupRequest): Promise<ModifyAssetGroupResponse> {
@@ -26054,10 +25942,46 @@ export default class Client extends OpenApi {
       request.policyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policy, "Policy", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.policyShrink)) {
+      query["Policy"] = request.policyShrink;
+    }
+
+    if (!Util.isUnset(request.policyRegionId)) {
+      query["PolicyRegionId"] = request.policyRegionId;
+    }
+
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupPolicyResponse>(await this.doRPCRequest("ModifyBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupPolicy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupPolicyResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyResponse({}));
   }
 
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
@@ -26067,10 +25991,34 @@ export default class Client extends OpenApi {
 
   async modifyBackupPolicyStatusWithOptions(request: ModifyBackupPolicyStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackupPolicyStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyBackupPolicyStatusResponse>(await this.doRPCRequest("ModifyBackupPolicyStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyBackupPolicyStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyBackupPolicyStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackupPolicyStatusResponse>(await this.callApi(params, req, runtime), new ModifyBackupPolicyStatusResponse({}));
   }
 
   async modifyBackupPolicyStatus(request: ModifyBackupPolicyStatusRequest): Promise<ModifyBackupPolicyStatusResponse> {
@@ -26078,12 +26026,69 @@ export default class Client extends OpenApi {
     return await this.modifyBackupPolicyStatusWithOptions(request, runtime);
   }
 
+  async modifyClearLogstoreStorageWithOptions(request: ModifyClearLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClearLogstoreStorageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyClearLogstoreStorage",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyClearLogstoreStorageResponse>(await this.callApi(params, req, runtime), new ModifyClearLogstoreStorageResponse({}));
+  }
+
+  async modifyClearLogstoreStorage(request: ModifyClearLogstoreStorageRequest): Promise<ModifyClearLogstoreStorageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyClearLogstoreStorageWithOptions(request, runtime);
+  }
+
   async modifyCreateVulWhitelistWithOptions(request: ModifyCreateVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCreateVulWhitelistResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.targetInfo)) {
+      query["TargetInfo"] = request.targetInfo;
+    }
+
+    if (!Util.isUnset(request.whitelist)) {
+      query["Whitelist"] = request.whitelist;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyCreateVulWhitelistResponse>(await this.doRPCRequest("ModifyCreateVulWhitelist", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyCreateVulWhitelistResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyCreateVulWhitelist",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCreateVulWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyCreateVulWhitelistResponse({}));
   }
 
   async modifyCreateVulWhitelist(request: ModifyCreateVulWhitelistRequest): Promise<ModifyCreateVulWhitelistResponse> {
@@ -26093,10 +26098,34 @@ export default class Client extends OpenApi {
 
   async modifyEmgVulSubmitWithOptions(request: ModifyEmgVulSubmitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEmgVulSubmitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.userAgreement)) {
+      query["UserAgreement"] = request.userAgreement;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyEmgVulSubmitResponse>(await this.doRPCRequest("ModifyEmgVulSubmit", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyEmgVulSubmitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyEmgVulSubmit",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyEmgVulSubmitResponse>(await this.callApi(params, req, runtime), new ModifyEmgVulSubmitResponse({}));
   }
 
   async modifyEmgVulSubmit(request: ModifyEmgVulSubmitRequest): Promise<ModifyEmgVulSubmitResponse> {
@@ -26106,10 +26135,26 @@ export default class Client extends OpenApi {
 
   async modifyGroupPropertyWithOptions(request: ModifyGroupPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyGroupPropertyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyGroupPropertyResponse>(await this.doRPCRequest("ModifyGroupProperty", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyGroupPropertyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyGroupProperty",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyGroupPropertyResponse>(await this.callApi(params, req, runtime), new ModifyGroupPropertyResponse({}));
   }
 
   async modifyGroupProperty(request: ModifyGroupPropertyRequest): Promise<ModifyGroupPropertyResponse> {
@@ -26119,10 +26164,38 @@ export default class Client extends OpenApi {
 
   async modifyInstanceAntiBruteForceRuleWithOptions(request: ModifyInstanceAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceAntiBruteForceRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newRuleId)) {
+      query["NewRuleId"] = request.newRuleId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyInstanceAntiBruteForceRuleResponse>(await this.doRPCRequest("ModifyInstanceAntiBruteForceRule", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyInstanceAntiBruteForceRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceAntiBruteForceRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceAntiBruteForceRuleResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAntiBruteForceRuleResponse({}));
   }
 
   async modifyInstanceAntiBruteForceRule(request: ModifyInstanceAntiBruteForceRuleRequest): Promise<ModifyInstanceAntiBruteForceRuleResponse> {
@@ -26132,10 +26205,34 @@ export default class Client extends OpenApi {
 
   async modifyLoginBaseConfigWithOptions(request: ModifyLoginBaseConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoginBaseConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLoginBaseConfigResponse>(await this.doRPCRequest("ModifyLoginBaseConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLoginBaseConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLoginBaseConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoginBaseConfigResponse>(await this.callApi(params, req, runtime), new ModifyLoginBaseConfigResponse({}));
   }
 
   async modifyLoginBaseConfig(request: ModifyLoginBaseConfigRequest): Promise<ModifyLoginBaseConfigResponse> {
@@ -26145,10 +26242,30 @@ export default class Client extends OpenApi {
 
   async modifyLoginSwitchConfigWithOptions(request: ModifyLoginSwitchConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoginSwitchConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.item)) {
+      query["Item"] = request.item;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLoginSwitchConfigResponse>(await this.doRPCRequest("ModifyLoginSwitchConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLoginSwitchConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLoginSwitchConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoginSwitchConfigResponse>(await this.callApi(params, req, runtime), new ModifyLoginSwitchConfigResponse({}));
   }
 
   async modifyLoginSwitchConfig(request: ModifyLoginSwitchConfigRequest): Promise<ModifyLoginSwitchConfigResponse> {
@@ -26156,25 +26273,28 @@ export default class Client extends OpenApi {
     return await this.modifyLoginSwitchConfigWithOptions(request, runtime);
   }
 
-  async modifyNoticeConfigWithOptions(request: ModifyNoticeConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyNoticeConfigResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyNoticeConfigResponse>(await this.doRPCRequest("ModifyNoticeConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyNoticeConfigResponse({}));
-  }
-
-  async modifyNoticeConfig(request: ModifyNoticeConfigRequest): Promise<ModifyNoticeConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyNoticeConfigWithOptions(request, runtime);
-  }
-
   async modifyOpenLogShipperWithOptions(request: ModifyOpenLogShipperRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOpenLogShipperResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyOpenLogShipperResponse>(await this.doRPCRequest("ModifyOpenLogShipper", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyOpenLogShipperResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyOpenLogShipper",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyOpenLogShipperResponse>(await this.callApi(params, req, runtime), new ModifyOpenLogShipperResponse({}));
   }
 
   async modifyOpenLogShipper(request: ModifyOpenLogShipperRequest): Promise<ModifyOpenLogShipperResponse> {
@@ -26184,10 +26304,38 @@ export default class Client extends OpenApi {
 
   async modifyOperateVulWithOptions(request: ModifyOperateVulRequest, runtime: $Util.RuntimeOptions): Promise<ModifyOperateVulResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.info)) {
+      query["Info"] = request.info;
+    }
+
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyOperateVulResponse>(await this.doRPCRequest("ModifyOperateVul", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyOperateVulResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyOperateVul",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyOperateVulResponse>(await this.callApi(params, req, runtime), new ModifyOperateVulResponse({}));
   }
 
   async modifyOperateVul(request: ModifyOperateVulRequest): Promise<ModifyOperateVulResponse> {
@@ -26197,10 +26345,34 @@ export default class Client extends OpenApi {
 
   async modifyPushAllTaskWithOptions(request: ModifyPushAllTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPushAllTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.tasks)) {
+      query["Tasks"] = request.tasks;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyPushAllTaskResponse>(await this.doRPCRequest("ModifyPushAllTask", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyPushAllTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyPushAllTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPushAllTaskResponse>(await this.callApi(params, req, runtime), new ModifyPushAllTaskResponse({}));
   }
 
   async modifyPushAllTask(request: ModifyPushAllTaskRequest): Promise<ModifyPushAllTaskResponse> {
@@ -26210,10 +26382,46 @@ export default class Client extends OpenApi {
 
   async modifyRiskCheckStatusWithOptions(request: ModifyRiskCheckStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRiskCheckStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.itemId)) {
+      query["ItemId"] = request.itemId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyRiskCheckStatusResponse>(await this.doRPCRequest("ModifyRiskCheckStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRiskCheckStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyRiskCheckStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRiskCheckStatusResponse>(await this.callApi(params, req, runtime), new ModifyRiskCheckStatusResponse({}));
   }
 
   async modifyRiskCheckStatus(request: ModifyRiskCheckStatusRequest): Promise<ModifyRiskCheckStatusResponse> {
@@ -26223,10 +26431,46 @@ export default class Client extends OpenApi {
 
   async modifyRiskSingleResultStatusWithOptions(request: ModifyRiskSingleResultStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRiskSingleResultStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyRiskSingleResultStatusResponse>(await this.doRPCRequest("ModifyRiskSingleResultStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRiskSingleResultStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyRiskSingleResultStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRiskSingleResultStatusResponse>(await this.callApi(params, req, runtime), new ModifyRiskSingleResultStatusResponse({}));
   }
 
   async modifyRiskSingleResultStatus(request: ModifyRiskSingleResultStatusRequest): Promise<ModifyRiskSingleResultStatusResponse> {
@@ -26236,10 +26480,46 @@ export default class Client extends OpenApi {
 
   async modifySecurityCheckScheduleConfigWithOptions(request: ModifySecurityCheckScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityCheckScheduleConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.daysOfWeek)) {
+      query["DaysOfWeek"] = request.daysOfWeek;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifySecurityCheckScheduleConfigResponse>(await this.doRPCRequest("ModifySecurityCheckScheduleConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifySecurityCheckScheduleConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifySecurityCheckScheduleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySecurityCheckScheduleConfigResponse>(await this.callApi(params, req, runtime), new ModifySecurityCheckScheduleConfigResponse({}));
   }
 
   async modifySecurityCheckScheduleConfig(request: ModifySecurityCheckScheduleConfigRequest): Promise<ModifySecurityCheckScheduleConfigResponse> {
@@ -26249,10 +26529,30 @@ export default class Client extends OpenApi {
 
   async modifyStartVulScanWithOptions(request: ModifyStartVulScanRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStartVulScanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.types)) {
+      query["Types"] = request.types;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyStartVulScanResponse>(await this.doRPCRequest("ModifyStartVulScan", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyStartVulScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyStartVulScan",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyStartVulScanResponse>(await this.callApi(params, req, runtime), new ModifyStartVulScanResponse({}));
   }
 
   async modifyStartVulScan(request: ModifyStartVulScanRequest): Promise<ModifyStartVulScanResponse> {
@@ -26260,38 +26560,40 @@ export default class Client extends OpenApi {
     return await this.modifyStartVulScanWithOptions(request, runtime);
   }
 
-  async modifyStrategyWithOptions(request: ModifyStrategyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStrategyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyStrategyResponse>(await this.doRPCRequest("ModifyStrategy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyStrategyResponse({}));
-  }
-
-  async modifyStrategy(request: ModifyStrategyRequest): Promise<ModifyStrategyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyStrategyWithOptions(request, runtime);
-  }
-
-  async modifyStrategyTargetWithOptions(request: ModifyStrategyTargetRequest, runtime: $Util.RuntimeOptions): Promise<ModifyStrategyTargetResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyStrategyTargetResponse>(await this.doRPCRequest("ModifyStrategyTarget", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyStrategyTargetResponse({}));
-  }
-
-  async modifyStrategyTarget(request: ModifyStrategyTargetRequest): Promise<ModifyStrategyTargetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyStrategyTargetWithOptions(request, runtime);
-  }
-
   async modifyTagWithUuidWithOptions(request: ModifyTagWithUuidRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTagWithUuidResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.machineTypes)) {
+      query["MachineTypes"] = request.machineTypes;
+    }
+
+    if (!Util.isUnset(request.tagId)) {
+      query["TagId"] = request.tagId;
+    }
+
+    if (!Util.isUnset(request.tagList)) {
+      query["TagList"] = request.tagList;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyTagWithUuidResponse>(await this.doRPCRequest("ModifyTagWithUuid", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyTagWithUuidResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyTagWithUuid",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTagWithUuidResponse>(await this.callApi(params, req, runtime), new ModifyTagWithUuidResponse({}));
   }
 
   async modifyTagWithUuid(request: ModifyTagWithUuidRequest): Promise<ModifyTagWithUuidResponse> {
@@ -26299,35 +26601,32 @@ export default class Client extends OpenApi {
     return await this.modifyTagWithUuidWithOptions(request, runtime);
   }
 
-  async modifyUniBackupPolicyWithOptions(tmpReq: ModifyUniBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUniBackupPolicyResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ModifyUniBackupPolicyShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.fullPlan)) {
-      request.fullPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fullPlan, "FullPlan", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.incPlan)) {
-      request.incPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.incPlan, "IncPlan", "json");
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyUniBackupPolicyResponse>(await this.doRPCRequest("ModifyUniBackupPolicy", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyUniBackupPolicyResponse({}));
-  }
-
-  async modifyUniBackupPolicy(request: ModifyUniBackupPolicyRequest): Promise<ModifyUniBackupPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyUniBackupPolicyWithOptions(request, runtime);
-  }
-
   async modifyVpcHoneyPotWithOptions(request: ModifyVpcHoneyPotRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVpcHoneyPotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.honeyPotAction)) {
+      query["HoneyPotAction"] = request.honeyPotAction;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyVpcHoneyPotResponse>(await this.doRPCRequest("ModifyVpcHoneyPot", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVpcHoneyPotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyVpcHoneyPot",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVpcHoneyPotResponse>(await this.callApi(params, req, runtime), new ModifyVpcHoneyPotResponse({}));
   }
 
   async modifyVpcHoneyPot(request: ModifyVpcHoneyPotRequest): Promise<ModifyVpcHoneyPotResponse> {
@@ -26337,10 +26636,38 @@ export default class Client extends OpenApi {
 
   async modifyVulTargetConfigWithOptions(request: ModifyVulTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVulTargetConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyVulTargetConfigResponse>(await this.doRPCRequest("ModifyVulTargetConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVulTargetConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyVulTargetConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVulTargetConfigResponse>(await this.callApi(params, req, runtime), new ModifyVulTargetConfigResponse({}));
   }
 
   async modifyVulTargetConfig(request: ModifyVulTargetConfigRequest): Promise<ModifyVulTargetConfigResponse> {
@@ -26350,10 +26677,70 @@ export default class Client extends OpenApi {
 
   async modifyWebLockCreateConfigWithOptions(request: ModifyWebLockCreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockCreateConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenceMode)) {
+      query["DefenceMode"] = request.defenceMode;
+    }
+
+    if (!Util.isUnset(request.dir)) {
+      query["Dir"] = request.dir;
+    }
+
+    if (!Util.isUnset(request.exclusiveDir)) {
+      query["ExclusiveDir"] = request.exclusiveDir;
+    }
+
+    if (!Util.isUnset(request.exclusiveFile)) {
+      query["ExclusiveFile"] = request.exclusiveFile;
+    }
+
+    if (!Util.isUnset(request.exclusiveFileType)) {
+      query["ExclusiveFileType"] = request.exclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.inclusiveFile)) {
+      query["InclusiveFile"] = request.inclusiveFile;
+    }
+
+    if (!Util.isUnset(request.inclusiveFileType)) {
+      query["InclusiveFileType"] = request.inclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.localBackupDir)) {
+      query["LocalBackupDir"] = request.localBackupDir;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyWebLockCreateConfigResponse>(await this.doRPCRequest("ModifyWebLockCreateConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockCreateConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyWebLockCreateConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebLockCreateConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockCreateConfigResponse({}));
   }
 
   async modifyWebLockCreateConfig(request: ModifyWebLockCreateConfigRequest): Promise<ModifyWebLockCreateConfigResponse> {
@@ -26363,10 +26750,38 @@ export default class Client extends OpenApi {
 
   async modifyWebLockDeleteConfigWithOptions(request: ModifyWebLockDeleteConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockDeleteConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyWebLockDeleteConfigResponse>(await this.doRPCRequest("ModifyWebLockDeleteConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockDeleteConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyWebLockDeleteConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebLockDeleteConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockDeleteConfigResponse({}));
   }
 
   async modifyWebLockDeleteConfig(request: ModifyWebLockDeleteConfigRequest): Promise<ModifyWebLockDeleteConfigResponse> {
@@ -26376,10 +26791,58 @@ export default class Client extends OpenApi {
 
   async modifyWebLockStartWithOptions(request: ModifyWebLockStartRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockStartResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenceMode)) {
+      query["DefenceMode"] = request.defenceMode;
+    }
+
+    if (!Util.isUnset(request.dir)) {
+      query["Dir"] = request.dir;
+    }
+
+    if (!Util.isUnset(request.exclusiveDir)) {
+      query["ExclusiveDir"] = request.exclusiveDir;
+    }
+
+    if (!Util.isUnset(request.exclusiveFile)) {
+      query["ExclusiveFile"] = request.exclusiveFile;
+    }
+
+    if (!Util.isUnset(request.exclusiveFileType)) {
+      query["ExclusiveFileType"] = request.exclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.inclusiveFileType)) {
+      query["InclusiveFileType"] = request.inclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.localBackupDir)) {
+      query["LocalBackupDir"] = request.localBackupDir;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyWebLockStartResponse>(await this.doRPCRequest("ModifyWebLockStart", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockStartResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyWebLockStart",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebLockStartResponse>(await this.callApi(params, req, runtime), new ModifyWebLockStartResponse({}));
   }
 
   async modifyWebLockStart(request: ModifyWebLockStartRequest): Promise<ModifyWebLockStartResponse> {
@@ -26389,10 +26852,38 @@ export default class Client extends OpenApi {
 
   async modifyWebLockStatusWithOptions(request: ModifyWebLockStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyWebLockStatusResponse>(await this.doRPCRequest("ModifyWebLockStatus", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyWebLockStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebLockStatusResponse>(await this.callApi(params, req, runtime), new ModifyWebLockStatusResponse({}));
   }
 
   async modifyWebLockStatus(request: ModifyWebLockStatusRequest): Promise<ModifyWebLockStatusResponse> {
@@ -26400,25 +26891,76 @@ export default class Client extends OpenApi {
     return await this.modifyWebLockStatusWithOptions(request, runtime);
   }
 
-  async modifyWebLockUnbindWithOptions(request: ModifyWebLockUnbindRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockUnbindResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ModifyWebLockUnbindResponse>(await this.doRPCRequest("ModifyWebLockUnbind", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockUnbindResponse({}));
-  }
-
-  async modifyWebLockUnbind(request: ModifyWebLockUnbindRequest): Promise<ModifyWebLockUnbindResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyWebLockUnbindWithOptions(request, runtime);
-  }
-
   async modifyWebLockUpdateConfigWithOptions(request: ModifyWebLockUpdateConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyWebLockUpdateConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defenceMode)) {
+      query["DefenceMode"] = request.defenceMode;
+    }
+
+    if (!Util.isUnset(request.dir)) {
+      query["Dir"] = request.dir;
+    }
+
+    if (!Util.isUnset(request.exclusiveDir)) {
+      query["ExclusiveDir"] = request.exclusiveDir;
+    }
+
+    if (!Util.isUnset(request.exclusiveFile)) {
+      query["ExclusiveFile"] = request.exclusiveFile;
+    }
+
+    if (!Util.isUnset(request.exclusiveFileType)) {
+      query["ExclusiveFileType"] = request.exclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.inclusiveFile)) {
+      query["InclusiveFile"] = request.inclusiveFile;
+    }
+
+    if (!Util.isUnset(request.inclusiveFileType)) {
+      query["InclusiveFileType"] = request.inclusiveFileType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.localBackupDir)) {
+      query["LocalBackupDir"] = request.localBackupDir;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyWebLockUpdateConfigResponse>(await this.doRPCRequest("ModifyWebLockUpdateConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyWebLockUpdateConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyWebLockUpdateConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyWebLockUpdateConfigResponse>(await this.callApi(params, req, runtime), new ModifyWebLockUpdateConfigResponse({}));
   }
 
   async modifyWebLockUpdateConfig(request: ModifyWebLockUpdateConfigRequest): Promise<ModifyWebLockUpdateConfigResponse> {
@@ -26428,10 +26970,30 @@ export default class Client extends OpenApi {
 
   async operateAgentClientInstallWithOptions(request: OperateAgentClientInstallRequest, runtime: $Util.RuntimeOptions): Promise<OperateAgentClientInstallResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OperateAgentClientInstallResponse>(await this.doRPCRequest("OperateAgentClientInstall", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new OperateAgentClientInstallResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OperateAgentClientInstall",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateAgentClientInstallResponse>(await this.callApi(params, req, runtime), new OperateAgentClientInstallResponse({}));
   }
 
   async operateAgentClientInstall(request: OperateAgentClientInstallRequest): Promise<OperateAgentClientInstallResponse> {
@@ -26441,10 +27003,42 @@ export default class Client extends OpenApi {
 
   async operateSuspiciousTargetConfigWithOptions(request: OperateSuspiciousTargetConfigRequest, runtime: $Util.RuntimeOptions): Promise<OperateSuspiciousTargetConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.targetOperations)) {
+      query["TargetOperations"] = request.targetOperations;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OperateSuspiciousTargetConfigResponse>(await this.doRPCRequest("OperateSuspiciousTargetConfig", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new OperateSuspiciousTargetConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OperateSuspiciousTargetConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateSuspiciousTargetConfigResponse>(await this.callApi(params, req, runtime), new OperateSuspiciousTargetConfigResponse({}));
   }
 
   async operateSuspiciousTargetConfig(request: OperateSuspiciousTargetConfigRequest): Promise<OperateSuspiciousTargetConfigResponse> {
@@ -26454,10 +27048,38 @@ export default class Client extends OpenApi {
 
   async operateVulsWithOptions(request: OperateVulsRequest, runtime: $Util.RuntimeOptions): Promise<OperateVulsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    if (!Util.isUnset(request.vulNames)) {
+      query["VulNames"] = request.vulNames;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OperateVulsResponse>(await this.doRPCRequest("OperateVuls", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new OperateVulsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OperateVuls",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateVulsResponse>(await this.callApi(params, req, runtime), new OperateVulsResponse({}));
   }
 
   async operateVuls(request: OperateVulsRequest): Promise<OperateVulsResponse> {
@@ -26467,10 +27089,46 @@ export default class Client extends OpenApi {
 
   async operationSuspEventsWithOptions(request: OperationSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<OperationSuspEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.subOperation)) {
+      query["SubOperation"] = request.subOperation;
+    }
+
+    if (!Util.isUnset(request.suspiciousEventIds)) {
+      query["SuspiciousEventIds"] = request.suspiciousEventIds;
+    }
+
+    if (!Util.isUnset(request.warnType)) {
+      query["WarnType"] = request.warnType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<OperationSuspEventsResponse>(await this.doRPCRequest("OperationSuspEvents", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new OperationSuspEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "OperationSuspEvents",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperationSuspEventsResponse>(await this.callApi(params, req, runtime), new OperationSuspEventsResponse({}));
   }
 
   async operationSuspEvents(request: OperationSuspEventsRequest): Promise<OperationSuspEventsResponse> {
@@ -26480,10 +27138,30 @@ export default class Client extends OpenApi {
 
   async pauseClientWithOptions(request: PauseClientRequest, runtime: $Util.RuntimeOptions): Promise<PauseClientResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PauseClientResponse>(await this.doRPCRequest("PauseClient", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new PauseClientResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PauseClient",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PauseClientResponse>(await this.callApi(params, req, runtime), new PauseClientResponse({}));
   }
 
   async pauseClient(request: PauseClientRequest): Promise<PauseClientResponse> {
@@ -26491,25 +27169,32 @@ export default class Client extends OpenApi {
     return await this.pauseClientWithOptions(request, runtime);
   }
 
-  async queryDiscoverDatabaseWithOptions(request: QueryDiscoverDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryDiscoverDatabaseResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryDiscoverDatabaseResponse>(await this.doRPCRequest("QueryDiscoverDatabase", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDiscoverDatabaseResponse({}));
-  }
-
-  async queryDiscoverDatabase(request: QueryDiscoverDatabaseRequest): Promise<QueryDiscoverDatabaseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryDiscoverDatabaseWithOptions(request, runtime);
-  }
-
   async queryGroupIdByGroupNameWithOptions(request: QueryGroupIdByGroupNameRequest, runtime: $Util.RuntimeOptions): Promise<QueryGroupIdByGroupNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryGroupIdByGroupNameResponse>(await this.doRPCRequest("QueryGroupIdByGroupName", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new QueryGroupIdByGroupNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryGroupIdByGroupName",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGroupIdByGroupNameResponse>(await this.callApi(params, req, runtime), new QueryGroupIdByGroupNameResponse({}));
   }
 
   async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
@@ -26517,25 +27202,28 @@ export default class Client extends OpenApi {
     return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
   }
 
-  async queryPreCheckDatabaseWithOptions(request: QueryPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<QueryPreCheckDatabaseResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryPreCheckDatabaseResponse>(await this.doRPCRequest("QueryPreCheckDatabase", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPreCheckDatabaseResponse({}));
-  }
-
-  async queryPreCheckDatabase(request: QueryPreCheckDatabaseRequest): Promise<QueryPreCheckDatabaseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryPreCheckDatabaseWithOptions(request, runtime);
-  }
-
   async refreshAssetsWithOptions(request: RefreshAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAssetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RefreshAssetsResponse>(await this.doRPCRequest("RefreshAssets", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshAssetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RefreshAssets",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshAssetsResponse>(await this.callApi(params, req, runtime), new RefreshAssetsResponse({}));
   }
 
   async refreshAssets(request: RefreshAssetsRequest): Promise<RefreshAssetsResponse> {
@@ -26545,10 +27233,26 @@ export default class Client extends OpenApi {
 
   async refreshContainerAssetsWithOptions(request: RefreshContainerAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshContainerAssetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assetType)) {
+      query["AssetType"] = request.assetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RefreshContainerAssetsResponse>(await this.doRPCRequest("RefreshContainerAssets", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new RefreshContainerAssetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RefreshContainerAssets",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshContainerAssetsResponse>(await this.callApi(params, req, runtime), new RefreshContainerAssetsResponse({}));
   }
 
   async refreshContainerAssets(request: RefreshContainerAssetsRequest): Promise<RefreshContainerAssetsResponse> {
@@ -26556,12 +27260,65 @@ export default class Client extends OpenApi {
     return await this.refreshContainerAssetsWithOptions(request, runtime);
   }
 
+  async refreshContainerNetworkWithOptions(request: RefreshContainerNetworkRequest, runtime: $Util.RuntimeOptions): Promise<RefreshContainerNetworkResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshContainerNetwork",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshContainerNetworkResponse>(await this.callApi(params, req, runtime), new RefreshContainerNetworkResponse({}));
+  }
+
+  async refreshContainerNetwork(request: RefreshContainerNetworkRequest): Promise<RefreshContainerNetworkResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshContainerNetworkWithOptions(request, runtime);
+  }
+
   async rollbackSuspEventQuaraFileWithOptions(request: RollbackSuspEventQuaraFileRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSuspEventQuaraFileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.quaraFileId)) {
+      query["QuaraFileId"] = request.quaraFileId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RollbackSuspEventQuaraFileResponse>(await this.doRPCRequest("RollbackSuspEventQuaraFile", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new RollbackSuspEventQuaraFileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RollbackSuspEventQuaraFile",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackSuspEventQuaraFileResponse>(await this.callApi(params, req, runtime), new RollbackSuspEventQuaraFileResponse({}));
   }
 
   async rollbackSuspEventQuaraFile(request: RollbackSuspEventQuaraFileRequest): Promise<RollbackSuspEventQuaraFileResponse> {
@@ -26571,10 +27328,26 @@ export default class Client extends OpenApi {
 
   async sasInstallCodeWithOptions(request: SasInstallCodeRequest, runtime: $Util.RuntimeOptions): Promise<SasInstallCodeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SasInstallCodeResponse>(await this.doRPCRequest("SasInstallCode", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new SasInstallCodeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SasInstallCode",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SasInstallCodeResponse>(await this.callApi(params, req, runtime), new SasInstallCodeResponse({}));
   }
 
   async sasInstallCode(request: SasInstallCodeRequest): Promise<SasInstallCodeResponse> {
@@ -26584,10 +27357,42 @@ export default class Client extends OpenApi {
 
   async startBaselineSecurityCheckWithOptions(request: StartBaselineSecurityCheckRequest, runtime: $Util.RuntimeOptions): Promise<StartBaselineSecurityCheckResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.itemIds)) {
+      query["ItemIds"] = request.itemIds;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartBaselineSecurityCheckResponse>(await this.doRPCRequest("StartBaselineSecurityCheck", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new StartBaselineSecurityCheckResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartBaselineSecurityCheck",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartBaselineSecurityCheckResponse>(await this.callApi(params, req, runtime), new StartBaselineSecurityCheckResponse({}));
   }
 
   async startBaselineSecurityCheck(request: StartBaselineSecurityCheckRequest): Promise<StartBaselineSecurityCheckResponse> {
@@ -26595,25 +27400,64 @@ export default class Client extends OpenApi {
     return await this.startBaselineSecurityCheckWithOptions(request, runtime);
   }
 
-  async startDiscoverDatabaseTaskWithOptions(request: StartDiscoverDatabaseTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartDiscoverDatabaseTaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StartDiscoverDatabaseTaskResponse>(await this.doRPCRequest("StartDiscoverDatabaseTask", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new StartDiscoverDatabaseTaskResponse({}));
-  }
-
-  async startDiscoverDatabaseTask(request: StartDiscoverDatabaseTaskRequest): Promise<StartDiscoverDatabaseTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startDiscoverDatabaseTaskWithOptions(request, runtime);
-  }
-
   async startImageVulScanWithOptions(request: StartImageVulScanRequest, runtime: $Util.RuntimeOptions): Promise<StartImageVulScanResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageDigest)) {
+      query["ImageDigest"] = request.imageDigest;
+    }
+
+    if (!Util.isUnset(request.imageLayer)) {
+      query["ImageLayer"] = request.imageLayer;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.registryTypes)) {
+      query["RegistryTypes"] = request.registryTypes;
+    }
+
+    if (!Util.isUnset(request.repName)) {
+      query["RepName"] = request.repName;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    if (!Util.isUnset(request.repoRegionId)) {
+      query["RepoRegionId"] = request.repoRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartImageVulScanResponse>(await this.doRPCRequest("StartImageVulScan", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new StartImageVulScanResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartImageVulScan",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartImageVulScanResponse>(await this.callApi(params, req, runtime), new StartImageVulScanResponse({}));
   }
 
   async startImageVulScan(request: StartImageVulScanRequest): Promise<StartImageVulScanResponse> {
@@ -26621,25 +27465,28 @@ export default class Client extends OpenApi {
     return await this.startImageVulScanWithOptions(request, runtime);
   }
 
-  async startPreCheckDatabaseWithOptions(request: StartPreCheckDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<StartPreCheckDatabaseResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<StartPreCheckDatabaseResponse>(await this.doRPCRequest("StartPreCheckDatabase", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new StartPreCheckDatabaseResponse({}));
-  }
-
-  async startPreCheckDatabase(request: StartPreCheckDatabaseRequest): Promise<StartPreCheckDatabaseResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.startPreCheckDatabaseWithOptions(request, runtime);
-  }
-
   async startVirusScanTaskWithOptions(request: StartVirusScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartVirusScanTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.targetInfo)) {
+      query["TargetInfo"] = request.targetInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartVirusScanTaskResponse>(await this.doRPCRequest("StartVirusScanTask", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new StartVirusScanTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartVirusScanTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartVirusScanTaskResponse>(await this.callApi(params, req, runtime), new StartVirusScanTaskResponse({}));
   }
 
   async startVirusScanTask(request: StartVirusScanTaskRequest): Promise<StartVirusScanTaskResponse> {
@@ -26649,10 +27496,26 @@ export default class Client extends OpenApi {
 
   async unbindAegisWithOptions(request: UnbindAegisRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAegisResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindAegisResponse>(await this.doRPCRequest("UnbindAegis", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindAegisResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindAegis",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindAegisResponse>(await this.callApi(params, req, runtime), new UnbindAegisResponse({}));
   }
 
   async unbindAegis(request: UnbindAegisRequest): Promise<UnbindAegisResponse> {
@@ -26662,10 +27525,34 @@ export default class Client extends OpenApi {
 
   async uninstallBackupClientWithOptions(request: UninstallBackupClientRequest, runtime: $Util.RuntimeOptions): Promise<UninstallBackupClientResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyVersion)) {
+      query["PolicyVersion"] = request.policyVersion;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    if (!Util.isUnset(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UninstallBackupClientResponse>(await this.doRPCRequest("UninstallBackupClient", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new UninstallBackupClientResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UninstallBackupClient",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UninstallBackupClientResponse>(await this.callApi(params, req, runtime), new UninstallBackupClientResponse({}));
   }
 
   async uninstallBackupClient(request: UninstallBackupClientRequest): Promise<UninstallBackupClientResponse> {
@@ -26673,38 +27560,36 @@ export default class Client extends OpenApi {
     return await this.uninstallBackupClientWithOptions(request, runtime);
   }
 
-  async uninstallUniBackupAgentWithOptions(request: UninstallUniBackupAgentRequest, runtime: $Util.RuntimeOptions): Promise<UninstallUniBackupAgentResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UninstallUniBackupAgentResponse>(await this.doRPCRequest("UninstallUniBackupAgent", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new UninstallUniBackupAgentResponse({}));
-  }
-
-  async uninstallUniBackupAgent(request: UninstallUniBackupAgentRequest): Promise<UninstallUniBackupAgentResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.uninstallUniBackupAgentWithOptions(request, runtime);
-  }
-
-  async upgradeBackupPolicyVersionWithOptions(request: UpgradeBackupPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeBackupPolicyVersionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<UpgradeBackupPolicyVersionResponse>(await this.doRPCRequest("UpgradeBackupPolicyVersion", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new UpgradeBackupPolicyVersionResponse({}));
-  }
-
-  async upgradeBackupPolicyVersion(request: UpgradeBackupPolicyVersionRequest): Promise<UpgradeBackupPolicyVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.upgradeBackupPolicyVersionWithOptions(request, runtime);
-  }
-
   async validateHcWarningsWithOptions(request: ValidateHcWarningsRequest, runtime: $Util.RuntimeOptions): Promise<ValidateHcWarningsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.riskIds)) {
+      query["RiskIds"] = request.riskIds;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.uuids)) {
+      query["Uuids"] = request.uuids;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ValidateHcWarningsResponse>(await this.doRPCRequest("ValidateHcWarnings", "2018-12-03", "HTTPS", "POST", "AK", "json", req, runtime), new ValidateHcWarningsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ValidateHcWarnings",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateHcWarningsResponse>(await this.callApi(params, req, runtime), new ValidateHcWarningsResponse({}));
   }
 
   async validateHcWarnings(request: ValidateHcWarningsRequest): Promise<ValidateHcWarningsResponse> {
