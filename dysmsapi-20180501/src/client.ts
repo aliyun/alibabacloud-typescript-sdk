@@ -4,122 +4,33 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class QueryMessageRequest extends $tea.Model {
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMessageResponseBody extends $tea.Model {
-  status?: string;
-  errorDescription?: string;
-  responseCode?: string;
-  receiveDate?: string;
-  numberDetail?: QueryMessageResponseBodyNumberDetail;
-  message?: string;
-  responseDescription?: string;
-  errorCode?: string;
-  sendDate?: string;
-  to?: string;
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      errorDescription: 'ErrorDescription',
-      responseCode: 'ResponseCode',
-      receiveDate: 'ReceiveDate',
-      numberDetail: 'NumberDetail',
-      message: 'Message',
-      responseDescription: 'ResponseDescription',
-      errorCode: 'ErrorCode',
-      sendDate: 'SendDate',
-      to: 'To',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      errorDescription: 'string',
-      responseCode: 'string',
-      receiveDate: 'string',
-      numberDetail: QueryMessageResponseBodyNumberDetail,
-      message: 'string',
-      responseDescription: 'string',
-      errorCode: 'string',
-      sendDate: 'string',
-      to: 'string',
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryMessageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryMessageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class BatchSendMessageToGlobeRequest extends $tea.Model {
-  to?: string;
   from?: string;
   message?: string;
-  type?: string;
   taskId?: string;
+  to?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      to: 'To',
       from: 'From',
       message: 'Message',
-      type: 'Type',
       taskId: 'TaskId',
+      to: 'To',
+      type: 'Type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      to: 'string',
       from: 'string',
       message: 'string',
-      type: 'string',
       taskId: 'string',
+      to: 'string',
+      type: 'string',
     };
   }
 
@@ -129,33 +40,33 @@ export class BatchSendMessageToGlobeRequest extends $tea.Model {
 }
 
 export class BatchSendMessageToGlobeResponseBody extends $tea.Model {
-  responseCode?: string;
-  requestId?: string;
   failedList?: string;
-  responseDescription?: string;
   from?: string;
   messageIdList?: string;
+  requestId?: string;
+  responseCode?: string;
+  responseDescription?: string;
   successCount?: string;
   static names(): { [key: string]: string } {
     return {
-      responseCode: 'ResponseCode',
-      requestId: 'RequestId',
       failedList: 'FailedList',
-      responseDescription: 'ResponseDescription',
       from: 'From',
       messageIdList: 'MessageIdList',
+      requestId: 'RequestId',
+      responseCode: 'ResponseCode',
+      responseDescription: 'ResponseDescription',
       successCount: 'SuccessCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      responseCode: 'string',
-      requestId: 'string',
       failedList: 'string',
-      responseDescription: 'string',
       from: 'string',
       messageIdList: 'string',
+      requestId: 'string',
+      responseCode: 'string',
+      responseDescription: 'string',
       successCount: 'string',
     };
   }
@@ -187,182 +98,20 @@ export class BatchSendMessageToGlobeResponse extends $tea.Model {
   }
 }
 
-export class SmsConversionRequest extends $tea.Model {
-  messageId?: string;
-  delivered?: boolean;
-  conversionTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      messageId: 'MessageId',
-      delivered: 'Delivered',
-      conversionTime: 'ConversionTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      messageId: 'string',
-      delivered: 'boolean',
-      conversionTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SmsConversionResponseBody extends $tea.Model {
-  responseCode?: string;
-  responseDescription?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      responseCode: 'ResponseCode',
-      responseDescription: 'ResponseDescription',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      responseCode: 'string',
-      responseDescription: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SmsConversionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SmsConversionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SmsConversionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendMessageToGlobeRequest extends $tea.Model {
-  to?: string;
-  from?: string;
-  message?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      to: 'To',
-      from: 'From',
-      message: 'Message',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      to: 'string',
-      from: 'string',
-      message: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendMessageToGlobeResponseBody extends $tea.Model {
-  responseCode?: string;
-  numberDetail?: SendMessageToGlobeResponseBodyNumberDetail;
-  requestId?: string;
-  segments?: string;
-  responseDescription?: string;
-  from?: string;
-  to?: string;
-  messageId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      responseCode: 'ResponseCode',
-      numberDetail: 'NumberDetail',
-      requestId: 'RequestId',
-      segments: 'Segments',
-      responseDescription: 'ResponseDescription',
-      from: 'From',
-      to: 'To',
-      messageId: 'MessageId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      responseCode: 'string',
-      numberDetail: SendMessageToGlobeResponseBodyNumberDetail,
-      requestId: 'string',
-      segments: 'string',
-      responseDescription: 'string',
-      from: 'string',
-      to: 'string',
-      messageId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendMessageToGlobeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SendMessageToGlobeResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SendMessageToGlobeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ConversionDataRequest extends $tea.Model {
-  reportTime?: number;
   conversionRate?: string;
+  reportTime?: number;
   static names(): { [key: string]: string } {
     return {
-      reportTime: 'ReportTime',
       conversionRate: 'ConversionRate',
+      reportTime: 'ReportTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      reportTime: 'number',
       conversionRate: 'string',
+      reportTime: 'number',
     };
   }
 
@@ -372,22 +121,22 @@ export class ConversionDataRequest extends $tea.Model {
 }
 
 export class ConversionDataResponseBody extends $tea.Model {
+  requestId?: string;
   responseCode?: string;
   responseDescription?: string;
-  requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      requestId: 'RequestId',
       responseCode: 'ResponseCode',
       responseDescription: 'ResponseDescription',
-      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requestId: 'string',
       responseCode: 'string',
       responseDescription: 'string',
-      requestId: 'string',
     };
   }
 
@@ -418,29 +167,212 @@ export class ConversionDataResponse extends $tea.Model {
   }
 }
 
-export class SendMessageWithTemplateRequest extends $tea.Model {
-  to?: string;
-  from?: string;
-  templateCode?: string;
-  templateParam?: string;
-  smsUpExtendCode?: string;
+export class QueryMessageRequest extends $tea.Model {
+  messageId?: string;
   static names(): { [key: string]: string } {
     return {
-      to: 'To',
-      from: 'From',
-      templateCode: 'TemplateCode',
-      templateParam: 'TemplateParam',
-      smsUpExtendCode: 'SmsUpExtendCode',
+      messageId: 'MessageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorDescription?: string;
+  message?: string;
+  messageId?: string;
+  numberDetail?: QueryMessageResponseBodyNumberDetail;
+  receiveDate?: string;
+  requestId?: string;
+  responseCode?: string;
+  responseDescription?: string;
+  sendDate?: string;
+  status?: string;
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorDescription: 'ErrorDescription',
+      message: 'Message',
+      messageId: 'MessageId',
+      numberDetail: 'NumberDetail',
+      receiveDate: 'ReceiveDate',
+      requestId: 'RequestId',
+      responseCode: 'ResponseCode',
+      responseDescription: 'ResponseDescription',
+      sendDate: 'SendDate',
+      status: 'Status',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorDescription: 'string',
+      message: 'string',
+      messageId: 'string',
+      numberDetail: QueryMessageResponseBodyNumberDetail,
+      receiveDate: 'string',
+      requestId: 'string',
+      responseCode: 'string',
+      responseDescription: 'string',
+      sendDate: 'string',
+      status: 'string',
       to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMessageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeRequest extends $tea.Model {
+  from?: string;
+  message?: string;
+  taskId?: string;
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      message: 'Message',
+      taskId: 'TaskId',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       from: 'string',
+      message: 'string',
+      taskId: 'string',
+      to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeResponseBody extends $tea.Model {
+  from?: string;
+  messageId?: string;
+  numberDetail?: SendMessageToGlobeResponseBodyNumberDetail;
+  requestId?: string;
+  responseCode?: string;
+  responseDescription?: string;
+  segments?: string;
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      messageId: 'MessageId',
+      numberDetail: 'NumberDetail',
+      requestId: 'RequestId',
+      responseCode: 'ResponseCode',
+      responseDescription: 'ResponseDescription',
+      segments: 'Segments',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      messageId: 'string',
+      numberDetail: SendMessageToGlobeResponseBodyNumberDetail,
+      requestId: 'string',
+      responseCode: 'string',
+      responseDescription: 'string',
+      segments: 'string',
+      to: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageToGlobeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendMessageToGlobeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendMessageToGlobeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendMessageWithTemplateRequest extends $tea.Model {
+  from?: string;
+  smsUpExtendCode?: string;
+  templateCode?: string;
+  templateParam?: string;
+  to?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      smsUpExtendCode: 'SmsUpExtendCode',
+      templateCode: 'TemplateCode',
+      templateParam: 'TemplateParam',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'string',
+      smsUpExtendCode: 'string',
       templateCode: 'string',
       templateParam: 'string',
-      smsUpExtendCode: 'string',
+      to: 'string',
     };
   }
 
@@ -450,31 +382,34 @@ export class SendMessageWithTemplateRequest extends $tea.Model {
 }
 
 export class SendMessageWithTemplateResponseBody extends $tea.Model {
-  responseCode?: string;
+  messageId?: string;
   numberDetail?: SendMessageWithTemplateResponseBodyNumberDetail;
+  requestId?: string;
+  responseCode?: string;
   responseDescription?: string;
   segments?: string;
   to?: string;
-  messageId?: string;
   static names(): { [key: string]: string } {
     return {
-      responseCode: 'ResponseCode',
+      messageId: 'MessageId',
       numberDetail: 'NumberDetail',
+      requestId: 'RequestId',
+      responseCode: 'ResponseCode',
       responseDescription: 'ResponseDescription',
       segments: 'Segments',
       to: 'To',
-      messageId: 'MessageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      responseCode: 'string',
+      messageId: 'string',
       numberDetail: SendMessageWithTemplateResponseBodyNumberDetail,
+      requestId: 'string',
+      responseCode: 'string',
       responseDescription: 'string',
       segments: 'string',
       to: 'string',
-      messageId: 'string',
     };
   }
 
@@ -505,23 +440,95 @@ export class SendMessageWithTemplateResponse extends $tea.Model {
   }
 }
 
+export class SmsConversionRequest extends $tea.Model {
+  conversionTime?: number;
+  delivered?: boolean;
+  messageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conversionTime: 'ConversionTime',
+      delivered: 'Delivered',
+      messageId: 'MessageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversionTime: 'number',
+      delivered: 'boolean',
+      messageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsConversionResponseBody extends $tea.Model {
+  requestId?: string;
+  responseCode?: string;
+  responseDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responseCode: 'ResponseCode',
+      responseDescription: 'ResponseDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responseCode: 'string',
+      responseDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsConversionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SmsConversionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SmsConversionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryMessageResponseBodyNumberDetail extends $tea.Model {
   carrier?: string;
-  region?: string;
   country?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       carrier: 'Carrier',
-      region: 'Region',
       country: 'Country',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       carrier: 'string',
-      region: 'string',
       country: 'string',
+      region: 'string',
     };
   }
 
@@ -532,21 +539,21 @@ export class QueryMessageResponseBodyNumberDetail extends $tea.Model {
 
 export class SendMessageToGlobeResponseBodyNumberDetail extends $tea.Model {
   carrier?: string;
-  region?: string;
   country?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       carrier: 'Carrier',
-      region: 'Region',
       country: 'Country',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       carrier: 'string',
-      region: 'string',
       country: 'string',
+      region: 'string',
     };
   }
 
@@ -557,21 +564,21 @@ export class SendMessageToGlobeResponseBodyNumberDetail extends $tea.Model {
 
 export class SendMessageWithTemplateResponseBodyNumberDetail extends $tea.Model {
   carrier?: string;
-  region?: string;
   country?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       carrier: 'Carrier',
-      region: 'Region',
       country: 'Country',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       carrier: 'string',
-      region: 'string',
       country: 'string',
+      region: 'string',
     };
   }
 
@@ -609,25 +616,44 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async queryMessageWithOptions(request: QueryMessageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<QueryMessageResponse>(await this.doRPCRequest("QueryMessage", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new QueryMessageResponse({}));
-  }
-
-  async queryMessage(request: QueryMessageRequest): Promise<QueryMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryMessageWithOptions(request, runtime);
-  }
-
   async batchSendMessageToGlobeWithOptions(request: BatchSendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<BatchSendMessageToGlobeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BatchSendMessageToGlobeResponse>(await this.doRPCRequest("BatchSendMessageToGlobe", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new BatchSendMessageToGlobeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BatchSendMessageToGlobe",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchSendMessageToGlobeResponse>(await this.callApi(params, req, runtime), new BatchSendMessageToGlobeResponse({}));
   }
 
   async batchSendMessageToGlobe(request: BatchSendMessageToGlobeRequest): Promise<BatchSendMessageToGlobeResponse> {
@@ -635,38 +661,32 @@ export default class Client extends OpenApi {
     return await this.batchSendMessageToGlobeWithOptions(request, runtime);
   }
 
-  async smsConversionWithOptions(request: SmsConversionRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SmsConversionResponse>(await this.doRPCRequest("SmsConversion", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SmsConversionResponse({}));
-  }
-
-  async smsConversion(request: SmsConversionRequest): Promise<SmsConversionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.smsConversionWithOptions(request, runtime);
-  }
-
-  async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SendMessageToGlobeResponse>(await this.doRPCRequest("SendMessageToGlobe", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SendMessageToGlobeResponse({}));
-  }
-
-  async sendMessageToGlobe(request: SendMessageToGlobeRequest): Promise<SendMessageToGlobeResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.sendMessageToGlobeWithOptions(request, runtime);
-  }
-
   async conversionDataWithOptions(request: ConversionDataRequest, runtime: $Util.RuntimeOptions): Promise<ConversionDataResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.conversionRate)) {
+      body["ConversionRate"] = request.conversionRate;
+    }
+
+    if (!Util.isUnset(request.reportTime)) {
+      body["ReportTime"] = request.reportTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ConversionDataResponse>(await this.doRPCRequest("ConversionData", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new ConversionDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ConversionData",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ConversionDataResponse>(await this.callApi(params, req, runtime), new ConversionDataResponse({}));
   }
 
   async conversionData(request: ConversionDataRequest): Promise<ConversionDataResponse> {
@@ -674,17 +694,156 @@ export default class Client extends OpenApi {
     return await this.conversionDataWithOptions(request, runtime);
   }
 
+  async queryMessageWithOptions(request: QueryMessageRequest, runtime: $Util.RuntimeOptions): Promise<QueryMessageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMessage",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMessageResponse>(await this.callApi(params, req, runtime), new QueryMessageResponse({}));
+  }
+
+  async queryMessage(request: QueryMessageRequest): Promise<QueryMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMessageWithOptions(request, runtime);
+  }
+
+  async sendMessageToGlobeWithOptions(request: SendMessageToGlobeRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageToGlobeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendMessageToGlobe",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendMessageToGlobeResponse>(await this.callApi(params, req, runtime), new SendMessageToGlobeResponse({}));
+  }
+
+  async sendMessageToGlobe(request: SendMessageToGlobeRequest): Promise<SendMessageToGlobeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendMessageToGlobeWithOptions(request, runtime);
+  }
+
   async sendMessageWithTemplateWithOptions(request: SendMessageWithTemplateRequest, runtime: $Util.RuntimeOptions): Promise<SendMessageWithTemplateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.smsUpExtendCode)) {
+      query["SmsUpExtendCode"] = request.smsUpExtendCode;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateParam)) {
+      query["TemplateParam"] = request.templateParam;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SendMessageWithTemplateResponse>(await this.doRPCRequest("SendMessageWithTemplate", "2018-05-01", "HTTPS", "POST", "AK", "json", req, runtime), new SendMessageWithTemplateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SendMessageWithTemplate",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendMessageWithTemplateResponse>(await this.callApi(params, req, runtime), new SendMessageWithTemplateResponse({}));
   }
 
   async sendMessageWithTemplate(request: SendMessageWithTemplateRequest): Promise<SendMessageWithTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendMessageWithTemplateWithOptions(request, runtime);
+  }
+
+  async smsConversionWithOptions(request: SmsConversionRequest, runtime: $Util.RuntimeOptions): Promise<SmsConversionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.conversionTime)) {
+      query["ConversionTime"] = request.conversionTime;
+    }
+
+    if (!Util.isUnset(request.delivered)) {
+      query["Delivered"] = request.delivered;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmsConversion",
+      version: "2018-05-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SmsConversionResponse>(await this.callApi(params, req, runtime), new SmsConversionResponse({}));
+  }
+
+  async smsConversion(request: SmsConversionRequest): Promise<SmsConversionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.smsConversionWithOptions(request, runtime);
   }
 
 }
