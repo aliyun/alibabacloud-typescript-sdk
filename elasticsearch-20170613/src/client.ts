@@ -8589,24 +8589,24 @@ export class TransferNodeResponse extends $tea.Model {
 
 export class TriggerNetworkRequest extends $tea.Model {
   actionType?: string;
-  clientToken?: string;
   networkType?: string;
   nodeType?: string;
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       actionType: 'actionType',
-      clientToken: 'clientToken',
       networkType: 'networkType',
       nodeType: 'nodeType',
+      clientToken: 'clientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       actionType: 'string',
-      clientToken: 'string',
       networkType: 'string',
       nodeType: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -18612,18 +18612,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ActivateZones",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/recover-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ActivateZonesResponse>(await this.callApi(params, req, runtime), new ActivateZonesResponse({}));
+    return $tea.cast<ActivateZonesResponse>(await this.doROARequest("ActivateZones", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/recover-zones`, "json", req, runtime), new ActivateZonesResponse({}));
   }
 
   async addConnectableCluster(InstanceId: string, request: AddConnectableClusterRequest): Promise<AddConnectableClusterResponse> {
@@ -18644,18 +18633,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "AddConnectableCluster",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddConnectableClusterResponse>(await this.callApi(params, req, runtime), new AddConnectableClusterResponse({}));
+    return $tea.cast<AddConnectableClusterResponse>(await this.doROARequest("AddConnectableCluster", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new AddConnectableClusterResponse({}));
   }
 
   async addSnapshotRepo(InstanceId: string): Promise<AddSnapshotRepoResponse> {
@@ -18669,18 +18647,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "AddSnapshotRepo",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<AddSnapshotRepoResponse>(await this.callApi(params, req, runtime), new AddSnapshotRepoResponse({}));
+    return $tea.cast<AddSnapshotRepoResponse>(await this.doROARequest("AddSnapshotRepo", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new AddSnapshotRepoResponse({}));
   }
 
   async cancelDeletion(InstanceId: string, request: CancelDeletionRequest): Promise<CancelDeletionResponse> {
@@ -18701,18 +18668,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelDeletion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-deletion`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelDeletionResponse>(await this.callApi(params, req, runtime), new CancelDeletionResponse({}));
+    return $tea.cast<CancelDeletionResponse>(await this.doROARequest("CancelDeletion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/cancel-deletion`, "json", req, runtime), new CancelDeletionResponse({}));
   }
 
   async cancelLogstashDeletion(InstanceId: string, request: CancelLogstashDeletionRequest): Promise<CancelLogstashDeletionResponse> {
@@ -18733,18 +18689,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelLogstashDeletion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/cancel-deletion`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelLogstashDeletionResponse>(await this.callApi(params, req, runtime), new CancelLogstashDeletionResponse({}));
+    return $tea.cast<CancelLogstashDeletionResponse>(await this.doROARequest("CancelLogstashDeletion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/cancel-deletion`, "json", req, runtime), new CancelLogstashDeletionResponse({}));
   }
 
   async cancelTask(InstanceId: string, request: CancelTaskRequest): Promise<CancelTaskResponse> {
@@ -18769,18 +18714,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CancelTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/cancel-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
+    return $tea.cast<CancelTaskResponse>(await this.doROARequest("CancelTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/cancel-task`, "json", req, runtime), new CancelTaskResponse({}));
   }
 
   async capacityPlan(request: CapacityPlanRequest): Promise<CapacityPlanResponse> {
@@ -18812,18 +18746,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CapacityPlan",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/assist/actions/capacity-plan`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CapacityPlanResponse>(await this.callApi(params, req, runtime), new CapacityPlanResponse({}));
+    return $tea.cast<CapacityPlanResponse>(await this.doROARequest("CapacityPlan", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/assist/actions/capacity-plan`, "json", req, runtime), new CapacityPlanResponse({}));
   }
 
   async closeDiagnosis(InstanceId: string, request: CloseDiagnosisRequest): Promise<CloseDiagnosisResponse> {
@@ -18848,18 +18771,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseDiagnosis",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/close-diagnosis`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseDiagnosisResponse>(await this.callApi(params, req, runtime), new CloseDiagnosisResponse({}));
+    return $tea.cast<CloseDiagnosisResponse>(await this.doROARequest("CloseDiagnosis", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/close-diagnosis`, "json", req, runtime), new CloseDiagnosisResponse({}));
   }
 
   async closeHttps(InstanceId: string, request: CloseHttpsRequest): Promise<CloseHttpsResponse> {
@@ -18880,18 +18792,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseHttps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/close-https`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseHttpsResponse>(await this.callApi(params, req, runtime), new CloseHttpsResponse({}));
+    return $tea.cast<CloseHttpsResponse>(await this.doROARequest("CloseHttps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/close-https`, "json", req, runtime), new CloseHttpsResponse({}));
   }
 
   async closeManagedIndex(InstanceId: string, Index: string, request: CloseManagedIndexRequest): Promise<CloseManagedIndexResponse> {
@@ -18913,18 +18814,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CloseManagedIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices/${Index}/close-managed`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CloseManagedIndexResponse>(await this.callApi(params, req, runtime), new CloseManagedIndexResponse({}));
+    return $tea.cast<CloseManagedIndexResponse>(await this.doROARequest("CloseManagedIndex", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/indices/${Index}/close-managed`, "json", req, runtime), new CloseManagedIndexResponse({}));
   }
 
   async createCollector(request: CreateCollectorRequest): Promise<CreateCollectorResponse> {
@@ -18944,18 +18834,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateCollectorResponse>(await this.callApi(params, req, runtime), new CreateCollectorResponse({}));
+    return $tea.cast<CreateCollectorResponse>(await this.doROARequest("CreateCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors`, "json", req, runtime), new CreateCollectorResponse({}));
   }
 
   async createComponentIndex(InstanceId: string, name: string, request: CreateComponentIndexRequest): Promise<CreateComponentIndexResponse> {
@@ -18981,18 +18860,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateComponentIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateComponentIndexResponse>(await this.callApi(params, req, runtime), new CreateComponentIndexResponse({}));
+    return $tea.cast<CreateComponentIndexResponse>(await this.doROARequest("CreateComponentIndex", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/component-index/${name}`, "json", req, runtime), new CreateComponentIndexResponse({}));
   }
 
   async createDataStream(InstanceId: string, request: CreateDataStreamRequest): Promise<CreateDataStreamResponse> {
@@ -19013,18 +18881,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDataStreamResponse>(await this.callApi(params, req, runtime), new CreateDataStreamResponse({}));
+    return $tea.cast<CreateDataStreamResponse>(await this.doROARequest("CreateDataStream", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-streams`, "json", req, runtime), new CreateDataStreamResponse({}));
   }
 
   async createDataTasks(InstanceId: string, request: CreateDataTasksRequest): Promise<CreateDataTasksResponse> {
@@ -19045,18 +18902,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateDataTasks",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDataTasksResponse>(await this.callApi(params, req, runtime), new CreateDataTasksResponse({}));
+    return $tea.cast<CreateDataTasksResponse>(await this.doROARequest("CreateDataTasks", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new CreateDataTasksResponse({}));
   }
 
   async createILMPolicy(InstanceId: string, request: CreateILMPolicyRequest): Promise<CreateILMPolicyResponse> {
@@ -19077,18 +18923,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateILMPolicyResponse>(await this.callApi(params, req, runtime), new CreateILMPolicyResponse({}));
+    return $tea.cast<CreateILMPolicyResponse>(await this.doROARequest("CreateILMPolicy", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/ilm-policies`, "json", req, runtime), new CreateILMPolicyResponse({}));
   }
 
   async createIndexTemplate(InstanceId: string, request: CreateIndexTemplateRequest): Promise<CreateIndexTemplateResponse> {
@@ -19109,18 +18944,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateIndexTemplateResponse>(await this.callApi(params, req, runtime), new CreateIndexTemplateResponse({}));
+    return $tea.cast<CreateIndexTemplateResponse>(await this.doROARequest("CreateIndexTemplate", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/index-templates`, "json", req, runtime), new CreateIndexTemplateResponse({}));
   }
 
   async createLogstash(request: CreateLogstashRequest): Promise<CreateLogstashResponse> {
@@ -19140,18 +18964,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateLogstashResponse>(await this.callApi(params, req, runtime), new CreateLogstashResponse({}));
+    return $tea.cast<CreateLogstashResponse>(await this.doROARequest("CreateLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes`, "json", req, runtime), new CreateLogstashResponse({}));
   }
 
   async createPipelines(InstanceId: string, request: CreatePipelinesRequest): Promise<CreatePipelinesResponse> {
@@ -19176,18 +18989,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreatePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePipelinesResponse>(await this.callApi(params, req, runtime), new CreatePipelinesResponse({}));
+    return $tea.cast<CreatePipelinesResponse>(await this.doROARequest("CreatePipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new CreatePipelinesResponse({}));
   }
 
   async createSnapshot(InstanceId: string, request: CreateSnapshotRequest): Promise<CreateSnapshotResponse> {
@@ -19208,18 +19010,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateSnapshot",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshots`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSnapshotResponse>(await this.callApi(params, req, runtime), new CreateSnapshotResponse({}));
+    return $tea.cast<CreateSnapshotResponse>(await this.doROARequest("CreateSnapshot", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshots`, "json", req, runtime), new CreateSnapshotResponse({}));
   }
 
   async createVpcEndpoint(InstanceId: string, request: CreateVpcEndpointRequest): Promise<CreateVpcEndpointResponse> {
@@ -19254,18 +19045,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "CreateVpcEndpoint",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateVpcEndpointResponse>(await this.callApi(params, req, runtime), new CreateVpcEndpointResponse({}));
+    return $tea.cast<CreateVpcEndpointResponse>(await this.doROARequest("CreateVpcEndpoint", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints`, "json", req, runtime), new CreateVpcEndpointResponse({}));
   }
 
   async deactivateZones(InstanceId: string, request: DeactivateZonesRequest): Promise<DeactivateZonesResponse> {
@@ -19286,18 +19066,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeactivateZones",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/down-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeactivateZonesResponse>(await this.callApi(params, req, runtime), new DeactivateZonesResponse({}));
+    return $tea.cast<DeactivateZonesResponse>(await this.doROARequest("DeactivateZones", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/down-zones`, "json", req, runtime), new DeactivateZonesResponse({}));
   }
 
   async deleteCollector(ResId: string, request: DeleteCollectorRequest): Promise<DeleteCollectorResponse> {
@@ -19318,18 +19087,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteCollectorResponse>(await this.callApi(params, req, runtime), new DeleteCollectorResponse({}));
+    return $tea.cast<DeleteCollectorResponse>(await this.doROARequest("DeleteCollector", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new DeleteCollectorResponse({}));
   }
 
   async deleteComponentIndex(InstanceId: string, name: string): Promise<DeleteComponentIndexResponse> {
@@ -19344,18 +19102,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteComponentIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteComponentIndexResponse>(await this.callApi(params, req, runtime), new DeleteComponentIndexResponse({}));
+    return $tea.cast<DeleteComponentIndexResponse>(await this.doROARequest("DeleteComponentIndex", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/component-index/${name}`, "json", req, runtime), new DeleteComponentIndexResponse({}));
   }
 
   async deleteConnectedCluster(InstanceId: string, request: DeleteConnectedClusterRequest): Promise<DeleteConnectedClusterResponse> {
@@ -19380,18 +19127,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteConnectedCluster",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteConnectedClusterResponse>(await this.callApi(params, req, runtime), new DeleteConnectedClusterResponse({}));
+    return $tea.cast<DeleteConnectedClusterResponse>(await this.doROARequest("DeleteConnectedCluster", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new DeleteConnectedClusterResponse({}));
   }
 
   async deleteDataStream(InstanceId: string, DataStream: string, request: DeleteDataStreamRequest): Promise<DeleteDataStreamResponse> {
@@ -19413,18 +19149,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/${DataStream}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDataStreamResponse>(await this.callApi(params, req, runtime), new DeleteDataStreamResponse({}));
+    return $tea.cast<DeleteDataStreamResponse>(await this.doROARequest("DeleteDataStream", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/data-streams/${DataStream}`, "json", req, runtime), new DeleteDataStreamResponse({}));
   }
 
   async deleteDataTask(InstanceId: string, request: DeleteDataTaskRequest): Promise<DeleteDataTaskResponse> {
@@ -19449,18 +19174,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDataTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDataTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataTaskResponse({}));
+    return $tea.cast<DeleteDataTaskResponse>(await this.doROARequest("DeleteDataTask", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new DeleteDataTaskResponse({}));
   }
 
   async deleteDeprecatedTemplate(InstanceId: string, name: string): Promise<DeleteDeprecatedTemplateResponse> {
@@ -19475,18 +19189,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteDeprecatedTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates/${name}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDeprecatedTemplateResponse({}));
+    return $tea.cast<DeleteDeprecatedTemplateResponse>(await this.doROARequest("DeleteDeprecatedTemplate", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/deprecated-templates/${name}`, "json", req, runtime), new DeleteDeprecatedTemplateResponse({}));
   }
 
   async deleteILMPolicy(InstanceId: string, PolicyName: string): Promise<DeleteILMPolicyResponse> {
@@ -19501,18 +19204,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteILMPolicyResponse>(await this.callApi(params, req, runtime), new DeleteILMPolicyResponse({}));
+    return $tea.cast<DeleteILMPolicyResponse>(await this.doROARequest("DeleteILMPolicy", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new DeleteILMPolicyResponse({}));
   }
 
   async deleteIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DeleteIndexTemplateResponse> {
@@ -19527,18 +19219,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteIndexTemplateResponse>(await this.callApi(params, req, runtime), new DeleteIndexTemplateResponse({}));
+    return $tea.cast<DeleteIndexTemplateResponse>(await this.doROARequest("DeleteIndexTemplate", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new DeleteIndexTemplateResponse({}));
   }
 
   async deleteInstance(InstanceId: string, request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
@@ -19563,18 +19244,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+    return $tea.cast<DeleteInstanceResponse>(await this.doROARequest("DeleteInstance", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new DeleteInstanceResponse({}));
   }
 
   async deleteLogstash(InstanceId: string, request: DeleteLogstashRequest): Promise<DeleteLogstashResponse> {
@@ -19599,18 +19269,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteLogstashResponse>(await this.callApi(params, req, runtime), new DeleteLogstashResponse({}));
+    return $tea.cast<DeleteLogstashResponse>(await this.doROARequest("DeleteLogstash", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new DeleteLogstashResponse({}));
   }
 
   async deletePipelines(InstanceId: string, request: DeletePipelinesRequest): Promise<DeletePipelinesResponse> {
@@ -19635,18 +19294,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeletePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeletePipelinesResponse>(await this.callApi(params, req, runtime), new DeletePipelinesResponse({}));
+    return $tea.cast<DeletePipelinesResponse>(await this.doROARequest("DeletePipelines", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new DeletePipelinesResponse({}));
   }
 
   async deleteSnapshotRepo(InstanceId: string, request: DeleteSnapshotRepoRequest): Promise<DeleteSnapshotRepoResponse> {
@@ -19671,18 +19319,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteSnapshotRepo",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSnapshotRepoResponse>(await this.callApi(params, req, runtime), new DeleteSnapshotRepoResponse({}));
+    return $tea.cast<DeleteSnapshotRepoResponse>(await this.doROARequest("DeleteSnapshotRepo", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new DeleteSnapshotRepoResponse({}));
   }
 
   async deleteVpcEndpoint(InstanceId: string, EndpointId: string, request: DeleteVpcEndpointRequest): Promise<DeleteVpcEndpointResponse> {
@@ -19704,18 +19341,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DeleteVpcEndpoint",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints/${EndpointId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteVpcEndpointResponse>(await this.callApi(params, req, runtime), new DeleteVpcEndpointResponse({}));
+    return $tea.cast<DeleteVpcEndpointResponse>(await this.doROARequest("DeleteVpcEndpoint", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints/${EndpointId}`, "json", req, runtime), new DeleteVpcEndpointResponse({}));
   }
 
   async describeAckOperator(ClusterId: string): Promise<DescribeAckOperatorResponse> {
@@ -19729,18 +19355,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeAckOperator",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAckOperatorResponse>(await this.callApi(params, req, runtime), new DescribeAckOperatorResponse({}));
+    return $tea.cast<DescribeAckOperatorResponse>(await this.doROARequest("DescribeAckOperator", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters/${ClusterId}/operator`, "json", req, runtime), new DescribeAckOperatorResponse({}));
   }
 
   async describeApm(instanceId: string): Promise<DescribeApmResponse> {
@@ -19754,18 +19369,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeApmResponse>(await this.callApi(params, req, runtime), new DescribeApmResponse({}));
+    return $tea.cast<DescribeApmResponse>(await this.doROARequest("DescribeApm", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/apm/${instanceId}`, "json", req, runtime), new DescribeApmResponse({}));
   }
 
   async describeCollector(ResId: string): Promise<DescribeCollectorResponse> {
@@ -19779,18 +19383,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeCollectorResponse>(await this.callApi(params, req, runtime), new DescribeCollectorResponse({}));
+    return $tea.cast<DescribeCollectorResponse>(await this.doROARequest("DescribeCollector", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new DescribeCollectorResponse({}));
   }
 
   async describeComponentIndex(InstanceId: string, name: string): Promise<DescribeComponentIndexResponse> {
@@ -19805,18 +19398,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeComponentIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeComponentIndexResponse>(await this.callApi(params, req, runtime), new DescribeComponentIndexResponse({}));
+    return $tea.cast<DescribeComponentIndexResponse>(await this.doROARequest("DescribeComponentIndex", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/component-index/${name}`, "json", req, runtime), new DescribeComponentIndexResponse({}));
   }
 
   async describeConnectableClusters(InstanceId: string, request: DescribeConnectableClustersRequest): Promise<DescribeConnectableClustersResponse> {
@@ -19837,18 +19419,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeConnectableClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connectable-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeConnectableClustersResponse>(await this.callApi(params, req, runtime), new DescribeConnectableClustersResponse({}));
+    return $tea.cast<DescribeConnectableClustersResponse>(await this.doROARequest("DescribeConnectableClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/connectable-clusters`, "json", req, runtime), new DescribeConnectableClustersResponse({}));
   }
 
   async describeDeprecatedTemplate(InstanceId: string, name: string): Promise<DescribeDeprecatedTemplateResponse> {
@@ -19863,18 +19434,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeDeprecatedTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates/${name}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDeprecatedTemplateResponse>(await this.callApi(params, req, runtime), new DescribeDeprecatedTemplateResponse({}));
+    return $tea.cast<DescribeDeprecatedTemplateResponse>(await this.doROARequest("DescribeDeprecatedTemplate", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/deprecated-templates/${name}`, "json", req, runtime), new DescribeDeprecatedTemplateResponse({}));
   }
 
   async describeDiagnoseReport(InstanceId: string, ReportId: string, request: DescribeDiagnoseReportRequest): Promise<DescribeDiagnoseReportResponse> {
@@ -19896,18 +19456,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiagnoseReport",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports/${ReportId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiagnoseReportResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportResponse({}));
+    return $tea.cast<DescribeDiagnoseReportResponse>(await this.doROARequest("DescribeDiagnoseReport", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/reports/${ReportId}`, "json", req, runtime), new DescribeDiagnoseReportResponse({}));
   }
 
   async describeDiagnosisSettings(InstanceId: string, request: DescribeDiagnosisSettingsRequest): Promise<DescribeDiagnosisSettingsResponse> {
@@ -19928,18 +19477,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeDiagnosisSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnosisSettingsResponse({}));
+    return $tea.cast<DescribeDiagnosisSettingsResponse>(await this.doROARequest("DescribeDiagnosisSettings", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/settings`, "json", req, runtime), new DescribeDiagnosisSettingsResponse({}));
   }
 
   async describeElasticsearchHealth(InstanceId: string): Promise<DescribeElasticsearchHealthResponse> {
@@ -19953,18 +19491,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeElasticsearchHealth",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elasticsearch-health`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeElasticsearchHealthResponse>(await this.callApi(params, req, runtime), new DescribeElasticsearchHealthResponse({}));
+    return $tea.cast<DescribeElasticsearchHealthResponse>(await this.doROARequest("DescribeElasticsearchHealth", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/elasticsearch-health`, "json", req, runtime), new DescribeElasticsearchHealthResponse({}));
   }
 
   async describeILMPolicy(InstanceId: string, PolicyName: string): Promise<DescribeILMPolicyResponse> {
@@ -19979,18 +19506,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeILMPolicyResponse>(await this.callApi(params, req, runtime), new DescribeILMPolicyResponse({}));
+    return $tea.cast<DescribeILMPolicyResponse>(await this.doROARequest("DescribeILMPolicy", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new DescribeILMPolicyResponse({}));
   }
 
   async describeIndexTemplate(InstanceId: string, IndexTemplate: string): Promise<DescribeIndexTemplateResponse> {
@@ -20005,18 +19521,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIndexTemplateResponse>(await this.callApi(params, req, runtime), new DescribeIndexTemplateResponse({}));
+    return $tea.cast<DescribeIndexTemplateResponse>(await this.doROARequest("DescribeIndexTemplate", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new DescribeIndexTemplateResponse({}));
   }
 
   async describeInstance(InstanceId: string): Promise<DescribeInstanceResponse> {
@@ -20030,18 +19535,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
+    return $tea.cast<DescribeInstanceResponse>(await this.doROARequest("DescribeInstance", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new DescribeInstanceResponse({}));
   }
 
   async describeKibanaSettings(InstanceId: string): Promise<DescribeKibanaSettingsResponse> {
@@ -20055,18 +19549,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeKibanaSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-settings`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeKibanaSettingsResponse>(await this.callApi(params, req, runtime), new DescribeKibanaSettingsResponse({}));
+    return $tea.cast<DescribeKibanaSettingsResponse>(await this.doROARequest("DescribeKibanaSettings", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/kibana-settings`, "json", req, runtime), new DescribeKibanaSettingsResponse({}));
   }
 
   async describeLogstash(InstanceId: string): Promise<DescribeLogstashResponse> {
@@ -20080,18 +19563,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeLogstashResponse>(await this.callApi(params, req, runtime), new DescribeLogstashResponse({}));
+    return $tea.cast<DescribeLogstashResponse>(await this.doROARequest("DescribeLogstash", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new DescribeLogstashResponse({}));
   }
 
   async describePipeline(InstanceId: string, PipelineId: string): Promise<DescribePipelineResponse> {
@@ -20106,18 +19578,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePipeline",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/${PipelineId}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
+    return $tea.cast<DescribePipelineResponse>(await this.doROARequest("DescribePipeline", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipelines/${PipelineId}`, "json", req, runtime), new DescribePipelineResponse({}));
   }
 
   async describePipelineManagementConfig(InstanceId: string, request: DescribePipelineManagementConfigRequest): Promise<DescribePipelineManagementConfigResponse> {
@@ -20138,18 +19599,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DescribePipelineManagementConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new DescribePipelineManagementConfigResponse({}));
+    return $tea.cast<DescribePipelineManagementConfigResponse>(await this.doROARequest("DescribePipelineManagementConfig", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipeline-management-config`, "json", req, runtime), new DescribePipelineManagementConfigResponse({}));
   }
 
   async describeRegions(): Promise<DescribeRegionsResponse> {
@@ -20162,18 +19612,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeRegions",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/regions`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    return $tea.cast<DescribeRegionsResponse>(await this.doROARequest("DescribeRegions", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/regions`, "json", req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeSnapshotSetting(InstanceId: string): Promise<DescribeSnapshotSettingResponse> {
@@ -20187,18 +19626,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeSnapshotSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSnapshotSettingResponse>(await this.callApi(params, req, runtime), new DescribeSnapshotSettingResponse({}));
+    return $tea.cast<DescribeSnapshotSettingResponse>(await this.doROARequest("DescribeSnapshotSetting", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/snapshot-setting`, "json", req, runtime), new DescribeSnapshotSettingResponse({}));
   }
 
   async describeTemplates(InstanceId: string): Promise<DescribeTemplatesResponse> {
@@ -20212,18 +19640,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeTemplatesResponse({}));
+    return $tea.cast<DescribeTemplatesResponse>(await this.doROARequest("DescribeTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/templates`, "json", req, runtime), new DescribeTemplatesResponse({}));
   }
 
   async describeXpackMonitorConfig(InstanceId: string): Promise<DescribeXpackMonitorConfigResponse> {
@@ -20237,18 +19654,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "DescribeXpackMonitorConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new DescribeXpackMonitorConfigResponse({}));
+    return $tea.cast<DescribeXpackMonitorConfigResponse>(await this.doROARequest("DescribeXpackMonitorConfig", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/xpack-monitor-config`, "json", req, runtime), new DescribeXpackMonitorConfigResponse({}));
   }
 
   async diagnoseInstance(InstanceId: string, request: DiagnoseInstanceRequest): Promise<DiagnoseInstanceResponse> {
@@ -20273,18 +19679,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "DiagnoseInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/diagnose`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DiagnoseInstanceResponse>(await this.callApi(params, req, runtime), new DiagnoseInstanceResponse({}));
+    return $tea.cast<DiagnoseInstanceResponse>(await this.doROARequest("DiagnoseInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/diagnose`, "json", req, runtime), new DiagnoseInstanceResponse({}));
   }
 
   async estimatedLogstashRestartTime(InstanceId: string, request: EstimatedLogstashRestartTimeRequest): Promise<EstimatedLogstashRestartTimeResponse> {
@@ -20305,18 +19700,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "EstimatedLogstashRestartTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/estimated-time/restart-time`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedLogstashRestartTimeResponse({}));
+    return $tea.cast<EstimatedLogstashRestartTimeResponse>(await this.doROARequest("EstimatedLogstashRestartTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/estimated-time/restart-time`, "json", req, runtime), new EstimatedLogstashRestartTimeResponse({}));
   }
 
   async estimatedRestartTime(InstanceId: string, request: EstimatedRestartTimeRequest): Promise<EstimatedRestartTimeResponse> {
@@ -20337,18 +19721,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "EstimatedRestartTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/estimated-time/restart-time`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<EstimatedRestartTimeResponse>(await this.callApi(params, req, runtime), new EstimatedRestartTimeResponse({}));
+    return $tea.cast<EstimatedRestartTimeResponse>(await this.doROARequest("EstimatedRestartTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/estimated-time/restart-time`, "json", req, runtime), new EstimatedRestartTimeResponse({}));
   }
 
   async getClusterDataInformation(): Promise<GetClusterDataInformationResponse> {
@@ -20361,18 +19734,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetClusterDataInformation",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/cluster/data-information`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetClusterDataInformationResponse>(await this.callApi(params, req, runtime), new GetClusterDataInformationResponse({}));
+    return $tea.cast<GetClusterDataInformationResponse>(await this.doROARequest("GetClusterDataInformation", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/cluster/data-information`, "json", req, runtime), new GetClusterDataInformationResponse({}));
   }
 
   async getElastictask(InstanceId: string): Promise<GetElastictaskResponse> {
@@ -20386,18 +19748,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetElastictask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetElastictaskResponse>(await this.callApi(params, req, runtime), new GetElastictaskResponse({}));
+    return $tea.cast<GetElastictaskResponse>(await this.doROARequest("GetElastictask", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/elastic-task`, "json", req, runtime), new GetElastictaskResponse({}));
   }
 
   async getEmonGrafanaAlerts(ProjectId: string): Promise<GetEmonGrafanaAlertsResponse> {
@@ -20411,18 +19762,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonGrafanaAlerts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/alerts`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaAlertsResponse({}));
+    return $tea.cast<GetEmonGrafanaAlertsResponse>(await this.doROARequest("GetEmonGrafanaAlerts", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/alerts`, "json", req, runtime), new GetEmonGrafanaAlertsResponse({}));
   }
 
   async getEmonGrafanaDashboards(ProjectId: string): Promise<GetEmonGrafanaDashboardsResponse> {
@@ -20436,18 +19776,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonGrafanaDashboards",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/search`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.callApi(params, req, runtime), new GetEmonGrafanaDashboardsResponse({}));
+    return $tea.cast<GetEmonGrafanaDashboardsResponse>(await this.doROARequest("GetEmonGrafanaDashboards", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/emon/projects/${ProjectId}/grafana/proxy/api/search`, "json", req, runtime), new GetEmonGrafanaDashboardsResponse({}));
   }
 
   async getEmonMonitorData(ProjectId: string): Promise<GetEmonMonitorDataResponse> {
@@ -20461,18 +19790,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetEmonMonitorData",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/metrics/query`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetEmonMonitorDataResponse>(await this.callApi(params, req, runtime), new GetEmonMonitorDataResponse({}));
+    return $tea.cast<GetEmonMonitorDataResponse>(await this.doROARequest("GetEmonMonitorData", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/emon/projects/${ProjectId}/metrics/query`, "json", req, runtime), new GetEmonMonitorDataResponse({}));
   }
 
   async getOpenStoreUsage(InstanceId: string): Promise<GetOpenStoreUsageResponse> {
@@ -20486,18 +19804,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "GetOpenStoreUsage",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/openstore/usage`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetOpenStoreUsageResponse>(await this.callApi(params, req, runtime), new GetOpenStoreUsageResponse({}));
+    return $tea.cast<GetOpenStoreUsageResponse>(await this.doROARequest("GetOpenStoreUsage", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/openstore/usage`, "json", req, runtime), new GetOpenStoreUsageResponse({}));
   }
 
   async getRegionConfiguration(request: GetRegionConfigurationRequest): Promise<GetRegionConfigurationResponse> {
@@ -20517,18 +19824,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetRegionConfiguration",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/region`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetRegionConfigurationResponse>(await this.callApi(params, req, runtime), new GetRegionConfigurationResponse({}));
+    return $tea.cast<GetRegionConfigurationResponse>(await this.doROARequest("GetRegionConfiguration", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/region`, "json", req, runtime), new GetRegionConfigurationResponse({}));
   }
 
   async getSuggestShrinkableNodes(InstanceId: string, request: GetSuggestShrinkableNodesRequest): Promise<GetSuggestShrinkableNodesResponse> {
@@ -20557,18 +19853,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetSuggestShrinkableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/suggest-shrinkable-nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.callApi(params, req, runtime), new GetSuggestShrinkableNodesResponse({}));
+    return $tea.cast<GetSuggestShrinkableNodesResponse>(await this.doROARequest("GetSuggestShrinkableNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/suggest-shrinkable-nodes`, "json", req, runtime), new GetSuggestShrinkableNodesResponse({}));
   }
 
   async getTransferableNodes(InstanceId: string, request: GetTransferableNodesRequest): Promise<GetTransferableNodesResponse> {
@@ -20593,18 +19878,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "GetTransferableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/transferable-nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetTransferableNodesResponse>(await this.callApi(params, req, runtime), new GetTransferableNodesResponse({}));
+    return $tea.cast<GetTransferableNodesResponse>(await this.doROARequest("GetTransferableNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/transferable-nodes`, "json", req, runtime), new GetTransferableNodesResponse({}));
   }
 
   async initializeOperationRole(request: InitializeOperationRoleRequest): Promise<InitializeOperationRoleResponse> {
@@ -20624,18 +19898,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InitializeOperationRole",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/user/slr`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InitializeOperationRoleResponse>(await this.callApi(params, req, runtime), new InitializeOperationRoleResponse({}));
+    return $tea.cast<InitializeOperationRoleResponse>(await this.doROARequest("InitializeOperationRole", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/user/slr`, "json", req, runtime), new InitializeOperationRoleResponse({}));
   }
 
   async installAckOperator(ClusterId: string, request: InstallAckOperatorRequest): Promise<InstallAckOperatorResponse> {
@@ -20656,18 +19919,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallAckOperator",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/operator`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallAckOperatorResponse>(await this.callApi(params, req, runtime), new InstallAckOperatorResponse({}));
+    return $tea.cast<InstallAckOperatorResponse>(await this.doROARequest("InstallAckOperator", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/ack-clusters/${ClusterId}/operator`, "json", req, runtime), new InstallAckOperatorResponse({}));
   }
 
   async installKibanaSystemPlugin(InstanceId: string, request: InstallKibanaSystemPluginRequest): Promise<InstallKibanaSystemPluginResponse> {
@@ -20688,18 +19940,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallKibanaSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallKibanaSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallKibanaSystemPluginResponse({}));
+    return $tea.cast<InstallKibanaSystemPluginResponse>(await this.doROARequest("InstallKibanaSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-plugins/system/actions/install`, "json", req, runtime), new InstallKibanaSystemPluginResponse({}));
   }
 
   async installLogstashSystemPlugin(InstanceId: string, request: InstallLogstashSystemPluginRequest): Promise<InstallLogstashSystemPluginResponse> {
@@ -20720,18 +19961,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallLogstashSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallLogstashSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallLogstashSystemPluginResponse({}));
+    return $tea.cast<InstallLogstashSystemPluginResponse>(await this.doROARequest("InstallLogstashSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/plugins/system/actions/install`, "json", req, runtime), new InstallLogstashSystemPluginResponse({}));
   }
 
   async installSystemPlugin(InstanceId: string, request: InstallSystemPluginRequest): Promise<InstallSystemPluginResponse> {
@@ -20752,18 +19982,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InstallSystemPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/system/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallSystemPluginResponse>(await this.callApi(params, req, runtime), new InstallSystemPluginResponse({}));
+    return $tea.cast<InstallSystemPluginResponse>(await this.doROARequest("InstallSystemPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/system/actions/install`, "json", req, runtime), new InstallSystemPluginResponse({}));
   }
 
   async installUserPlugins(InstanceId: string): Promise<InstallUserPluginsResponse> {
@@ -20777,18 +19996,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "InstallUserPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/user/actions/install`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InstallUserPluginsResponse>(await this.callApi(params, req, runtime), new InstallUserPluginsResponse({}));
+    return $tea.cast<InstallUserPluginsResponse>(await this.doROARequest("InstallUserPlugins", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/user/actions/install`, "json", req, runtime), new InstallUserPluginsResponse({}));
   }
 
   async interruptElasticsearchTask(InstanceId: string, request: InterruptElasticsearchTaskRequest): Promise<InterruptElasticsearchTaskResponse> {
@@ -20809,18 +20017,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InterruptElasticsearchTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/interrupt`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InterruptElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new InterruptElasticsearchTaskResponse({}));
+    return $tea.cast<InterruptElasticsearchTaskResponse>(await this.doROARequest("InterruptElasticsearchTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/interrupt`, "json", req, runtime), new InterruptElasticsearchTaskResponse({}));
   }
 
   async interruptLogstashTask(InstanceId: string, request: InterruptLogstashTaskRequest): Promise<InterruptLogstashTaskResponse> {
@@ -20841,18 +20038,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "InterruptLogstashTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/interrupt`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<InterruptLogstashTaskResponse>(await this.callApi(params, req, runtime), new InterruptLogstashTaskResponse({}));
+    return $tea.cast<InterruptLogstashTaskResponse>(await this.doROARequest("InterruptLogstashTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/interrupt`, "json", req, runtime), new InterruptLogstashTaskResponse({}));
   }
 
   async listAckClusters(request: ListAckClustersRequest): Promise<ListAckClustersResponse> {
@@ -20880,18 +20066,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAckClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAckClustersResponse>(await this.callApi(params, req, runtime), new ListAckClustersResponse({}));
+    return $tea.cast<ListAckClustersResponse>(await this.doROARequest("ListAckClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters`, "json", req, runtime), new ListAckClustersResponse({}));
   }
 
   async listAckNamespaces(ClusterId: string, request: ListAckNamespacesRequest): Promise<ListAckNamespacesResponse> {
@@ -20916,18 +20091,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAckNamespaces",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ack-clusters/${ClusterId}/namespaces`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAckNamespacesResponse>(await this.callApi(params, req, runtime), new ListAckNamespacesResponse({}));
+    return $tea.cast<ListAckNamespacesResponse>(await this.doROARequest("ListAckNamespaces", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ack-clusters/${ClusterId}/namespaces`, "json", req, runtime), new ListAckNamespacesResponse({}));
   }
 
   async listAllNode(InstanceId: string, request: ListAllNodeRequest): Promise<ListAllNodeResponse> {
@@ -20948,18 +20112,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAllNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAllNodeResponse>(await this.callApi(params, req, runtime), new ListAllNodeResponse({}));
+    return $tea.cast<ListAllNodeResponse>(await this.doROARequest("ListAllNode", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/nodes`, "json", req, runtime), new ListAllNodeResponse({}));
   }
 
   async listAlternativeSnapshotRepos(InstanceId: string, request: ListAlternativeSnapshotReposRequest): Promise<ListAlternativeSnapshotReposResponse> {
@@ -20980,18 +20133,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListAlternativeSnapshotRepos",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/alternative-snapshot-repos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.callApi(params, req, runtime), new ListAlternativeSnapshotReposResponse({}));
+    return $tea.cast<ListAlternativeSnapshotReposResponse>(await this.doROARequest("ListAlternativeSnapshotRepos", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/alternative-snapshot-repos`, "json", req, runtime), new ListAlternativeSnapshotReposResponse({}));
   }
 
   async listApm(request: ListApmRequest): Promise<ListApmResponse> {
@@ -21027,18 +20169,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListApmResponse>(await this.callApi(params, req, runtime), new ListApmResponse({}));
+    return $tea.cast<ListApmResponse>(await this.doROARequest("ListApm", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/apm`, "json", req, runtime), new ListApmResponse({}));
   }
 
   async listAvailableEsInstanceIds(InstanceId: string): Promise<ListAvailableEsInstanceIdsResponse> {
@@ -21052,18 +20183,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListAvailableEsInstanceIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/available-elasticsearch-for-centralized-management`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.callApi(params, req, runtime), new ListAvailableEsInstanceIdsResponse({}));
+    return $tea.cast<ListAvailableEsInstanceIdsResponse>(await this.doROARequest("ListAvailableEsInstanceIds", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/available-elasticsearch-for-centralized-management`, "json", req, runtime), new ListAvailableEsInstanceIdsResponse({}));
   }
 
   async listCollectors(request: ListCollectorsRequest): Promise<ListCollectorsResponse> {
@@ -21103,18 +20223,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListCollectors",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListCollectorsResponse>(await this.callApi(params, req, runtime), new ListCollectorsResponse({}));
+    return $tea.cast<ListCollectorsResponse>(await this.doROARequest("ListCollectors", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors`, "json", req, runtime), new ListCollectorsResponse({}));
   }
 
   async listComponentIndices(InstanceId: string, request: ListComponentIndicesRequest): Promise<ListComponentIndicesResponse> {
@@ -21143,18 +20252,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListComponentIndices",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListComponentIndicesResponse>(await this.callApi(params, req, runtime), new ListComponentIndicesResponse({}));
+    return $tea.cast<ListComponentIndicesResponse>(await this.doROARequest("ListComponentIndices", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/component-index`, "json", req, runtime), new ListComponentIndicesResponse({}));
   }
 
   async listConnectedClusters(InstanceId: string): Promise<ListConnectedClustersResponse> {
@@ -21168,18 +20266,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListConnectedClusters",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/connected-clusters`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListConnectedClustersResponse>(await this.callApi(params, req, runtime), new ListConnectedClustersResponse({}));
+    return $tea.cast<ListConnectedClustersResponse>(await this.doROARequest("ListConnectedClusters", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/connected-clusters`, "json", req, runtime), new ListConnectedClustersResponse({}));
   }
 
   async listDataStreams(InstanceId: string, request: ListDataStreamsRequest): Promise<ListDataStreamsResponse> {
@@ -21204,18 +20291,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDataStreams",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDataStreamsResponse>(await this.callApi(params, req, runtime), new ListDataStreamsResponse({}));
+    return $tea.cast<ListDataStreamsResponse>(await this.doROARequest("ListDataStreams", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/data-streams`, "json", req, runtime), new ListDataStreamsResponse({}));
   }
 
   async listDataTasks(InstanceId: string): Promise<ListDataTasksResponse> {
@@ -21229,18 +20305,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListDataTasks",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-task`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDataTasksResponse>(await this.callApi(params, req, runtime), new ListDataTasksResponse({}));
+    return $tea.cast<ListDataTasksResponse>(await this.doROARequest("ListDataTasks", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/data-task`, "json", req, runtime), new ListDataTasksResponse({}));
   }
 
   async listDefaultCollectorConfigurations(request: ListDefaultCollectorConfigurationsRequest): Promise<ListDefaultCollectorConfigurationsResponse> {
@@ -21268,18 +20333,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDefaultCollectorConfigurations",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/beats/default-configurations`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.callApi(params, req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
+    return $tea.cast<ListDefaultCollectorConfigurationsResponse>(await this.doROARequest("ListDefaultCollectorConfigurations", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/beats/default-configurations`, "json", req, runtime), new ListDefaultCollectorConfigurationsResponse({}));
   }
 
   async listDeprecatedTemplates(InstanceId: string, request: ListDeprecatedTemplatesRequest): Promise<ListDeprecatedTemplatesResponse> {
@@ -21308,18 +20362,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDeprecatedTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/deprecated-templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDeprecatedTemplatesResponse>(await this.callApi(params, req, runtime), new ListDeprecatedTemplatesResponse({}));
+    return $tea.cast<ListDeprecatedTemplatesResponse>(await this.doROARequest("ListDeprecatedTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/deprecated-templates`, "json", req, runtime), new ListDeprecatedTemplatesResponse({}));
   }
 
   async listDiagnoseIndices(InstanceId: string, request: ListDiagnoseIndicesRequest): Promise<ListDiagnoseIndicesResponse> {
@@ -21340,18 +20383,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseIndices",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/indices`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseIndicesResponse>(await this.callApi(params, req, runtime), new ListDiagnoseIndicesResponse({}));
+    return $tea.cast<ListDiagnoseIndicesResponse>(await this.doROARequest("ListDiagnoseIndices", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/indices`, "json", req, runtime), new ListDiagnoseIndicesResponse({}));
   }
 
   async listDiagnoseReport(InstanceId: string, request: ListDiagnoseReportRequest): Promise<ListDiagnoseReportResponse> {
@@ -21396,18 +20428,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseReport",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/reports`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseReportResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportResponse({}));
+    return $tea.cast<ListDiagnoseReportResponse>(await this.doROARequest("ListDiagnoseReport", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/reports`, "json", req, runtime), new ListDiagnoseReportResponse({}));
   }
 
   async listDiagnoseReportIds(InstanceId: string, request: ListDiagnoseReportIdsRequest): Promise<ListDiagnoseReportIdsResponse> {
@@ -21448,18 +20469,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDiagnoseReportIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/report-ids`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDiagnoseReportIdsResponse>(await this.callApi(params, req, runtime), new ListDiagnoseReportIdsResponse({}));
+    return $tea.cast<ListDiagnoseReportIdsResponse>(await this.doROARequest("ListDiagnoseReportIds", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/diagnosis/instances/${InstanceId}/report-ids`, "json", req, runtime), new ListDiagnoseReportIdsResponse({}));
   }
 
   async listDictInformation(InstanceId: string, request: ListDictInformationRequest): Promise<ListDictInformationResponse> {
@@ -21488,18 +20498,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDictInformation",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict/_info`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDictInformationResponse>(await this.callApi(params, req, runtime), new ListDictInformationResponse({}));
+    return $tea.cast<ListDictInformationResponse>(await this.doROARequest("ListDictInformation", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/dict/_info`, "json", req, runtime), new ListDictInformationResponse({}));
   }
 
   async listDicts(InstanceId: string, request: ListDictsRequest): Promise<ListDictsResponse> {
@@ -21524,18 +20523,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dicts`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDictsResponse>(await this.callApi(params, req, runtime), new ListDictsResponse({}));
+    return $tea.cast<ListDictsResponse>(await this.doROARequest("ListDicts", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/dicts`, "json", req, runtime), new ListDictsResponse({}));
   }
 
   async listEcsInstances(request: ListEcsInstancesRequest): Promise<ListEcsInstancesResponse> {
@@ -21575,18 +20563,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListEcsInstances",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/ecs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListEcsInstancesResponse>(await this.callApi(params, req, runtime), new ListEcsInstancesResponse({}));
+    return $tea.cast<ListEcsInstancesResponse>(await this.doROARequest("ListEcsInstances", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/ecs`, "json", req, runtime), new ListEcsInstancesResponse({}));
   }
 
   async listExtendfiles(InstanceId: string): Promise<ListExtendfilesResponse> {
@@ -21600,18 +20577,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListExtendfiles",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListExtendfilesResponse>(await this.callApi(params, req, runtime), new ListExtendfilesResponse({}));
+    return $tea.cast<ListExtendfilesResponse>(await this.doROARequest("ListExtendfiles", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/extendfiles`, "json", req, runtime), new ListExtendfilesResponse({}));
   }
 
   async listILMPolicies(InstanceId: string, request: ListILMPoliciesRequest): Promise<ListILMPoliciesResponse> {
@@ -21632,18 +20598,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListILMPolicies",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListILMPoliciesResponse>(await this.callApi(params, req, runtime), new ListILMPoliciesResponse({}));
+    return $tea.cast<ListILMPoliciesResponse>(await this.doROARequest("ListILMPolicies", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/ilm-policies`, "json", req, runtime), new ListILMPoliciesResponse({}));
   }
 
   async listIndexTemplates(InstanceId: string, request: ListIndexTemplatesRequest): Promise<ListIndexTemplatesResponse> {
@@ -21664,18 +20619,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListIndexTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListIndexTemplatesResponse>(await this.callApi(params, req, runtime), new ListIndexTemplatesResponse({}));
+    return $tea.cast<ListIndexTemplatesResponse>(await this.doROARequest("ListIndexTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/index-templates`, "json", req, runtime), new ListIndexTemplatesResponse({}));
   }
 
   async listInstance(request: ListInstanceRequest): Promise<ListInstanceResponse> {
@@ -21735,18 +20679,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstanceResponse>(await this.callApi(params, req, runtime), new ListInstanceResponse({}));
+    return $tea.cast<ListInstanceResponse>(await this.doROARequest("ListInstance", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances`, "json", req, runtime), new ListInstanceResponse({}));
   }
 
   async listInstanceIndices(InstanceId: string, request: ListInstanceIndicesRequest): Promise<ListInstanceIndicesResponse> {
@@ -21787,18 +20720,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListInstanceIndices",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/indices`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInstanceIndicesResponse>(await this.callApi(params, req, runtime), new ListInstanceIndicesResponse({}));
+    return $tea.cast<ListInstanceIndicesResponse>(await this.doROARequest("ListInstanceIndices", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/indices`, "json", req, runtime), new ListInstanceIndicesResponse({}));
   }
 
   async listKibanaPlugins(InstanceId: string, request: ListKibanaPluginsRequest): Promise<ListKibanaPluginsResponse> {
@@ -21823,18 +20745,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListKibanaPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListKibanaPluginsResponse>(await this.callApi(params, req, runtime), new ListKibanaPluginsResponse({}));
+    return $tea.cast<ListKibanaPluginsResponse>(await this.doROARequest("ListKibanaPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/kibana-plugins`, "json", req, runtime), new ListKibanaPluginsResponse({}));
   }
 
   async listLogstash(request: ListLogstashRequest): Promise<ListLogstashResponse> {
@@ -21878,18 +20789,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashResponse>(await this.callApi(params, req, runtime), new ListLogstashResponse({}));
+    return $tea.cast<ListLogstashResponse>(await this.doROARequest("ListLogstash", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes`, "json", req, runtime), new ListLogstashResponse({}));
   }
 
   async listLogstashLog(InstanceId: string, request: ListLogstashLogRequest): Promise<ListLogstashLogResponse> {
@@ -21930,18 +20830,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstashLog",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/search-log`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashLogResponse>(await this.callApi(params, req, runtime), new ListLogstashLogResponse({}));
+    return $tea.cast<ListLogstashLogResponse>(await this.doROARequest("ListLogstashLog", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/search-log`, "json", req, runtime), new ListLogstashLogResponse({}));
   }
 
   async listLogstashPlugins(InstanceId: string, request: ListLogstashPluginsRequest): Promise<ListLogstashPluginsResponse> {
@@ -21974,18 +20863,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListLogstashPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListLogstashPluginsResponse>(await this.callApi(params, req, runtime), new ListLogstashPluginsResponse({}));
+    return $tea.cast<ListLogstashPluginsResponse>(await this.doROARequest("ListLogstashPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/plugins`, "json", req, runtime), new ListLogstashPluginsResponse({}));
   }
 
   async listNodes(ResId: string, request: ListNodesRequest): Promise<ListNodesResponse> {
@@ -22022,18 +20900,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/nodes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListNodesResponse>(await this.callApi(params, req, runtime), new ListNodesResponse({}));
+    return $tea.cast<ListNodesResponse>(await this.doROARequest("ListNodes", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/collectors/${ResId}/nodes`, "json", req, runtime), new ListNodesResponse({}));
   }
 
   async listPipeline(InstanceId: string, request: ListPipelineRequest): Promise<ListPipelineResponse> {
@@ -22062,18 +20929,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPipeline",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPipelineResponse>(await this.callApi(params, req, runtime), new ListPipelineResponse({}));
+    return $tea.cast<ListPipelineResponse>(await this.doROARequest("ListPipeline", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new ListPipelineResponse({}));
   }
 
   async listPipelineIds(InstanceId: string): Promise<ListPipelineIdsResponse> {
@@ -22087,18 +20943,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListPipelineIds",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/pipeline-ids`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPipelineIdsResponse>(await this.callApi(params, req, runtime), new ListPipelineIdsResponse({}));
+    return $tea.cast<ListPipelineIdsResponse>(await this.doROARequest("ListPipelineIds", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/pipeline-ids`, "json", req, runtime), new ListPipelineIdsResponse({}));
   }
 
   async listPlugins(InstanceId: string, request: ListPluginsRequest): Promise<ListPluginsResponse> {
@@ -22131,18 +20976,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListPlugins",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListPluginsResponse>(await this.callApi(params, req, runtime), new ListPluginsResponse({}));
+    return $tea.cast<ListPluginsResponse>(await this.doROARequest("ListPlugins", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/plugins`, "json", req, runtime), new ListPluginsResponse({}));
   }
 
   async listSearchLog(InstanceId: string, request: ListSearchLogRequest): Promise<ListSearchLogResponse> {
@@ -22183,18 +21017,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListSearchLog",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/search-log`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSearchLogResponse>(await this.callApi(params, req, runtime), new ListSearchLogResponse({}));
+    return $tea.cast<ListSearchLogResponse>(await this.doROARequest("ListSearchLog", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/search-log`, "json", req, runtime), new ListSearchLogResponse({}));
   }
 
   async listShardRecoveries(InstanceId: string, request: ListShardRecoveriesRequest): Promise<ListShardRecoveriesResponse> {
@@ -22215,18 +21038,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListShardRecoveries",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/cat-recovery`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListShardRecoveriesResponse>(await this.callApi(params, req, runtime), new ListShardRecoveriesResponse({}));
+    return $tea.cast<ListShardRecoveriesResponse>(await this.doROARequest("ListShardRecoveries", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/cat-recovery`, "json", req, runtime), new ListShardRecoveriesResponse({}));
   }
 
   async listSnapshotReposByInstanceId(InstanceId: string): Promise<ListSnapshotReposByInstanceIdResponse> {
@@ -22240,18 +21052,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ListSnapshotReposByInstanceId",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-repos`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.callApi(params, req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
+    return $tea.cast<ListSnapshotReposByInstanceIdResponse>(await this.doROARequest("ListSnapshotReposByInstanceId", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/snapshot-repos`, "json", req, runtime), new ListSnapshotReposByInstanceIdResponse({}));
   }
 
   async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
@@ -22291,18 +21092,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    return $tea.cast<ListTagResourcesResponse>(await this.doROARequest("ListTagResources", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/tags`, "json", req, runtime), new ListTagResourcesResponse({}));
   }
 
   async listTags(request: ListTagsRequest): Promise<ListTagsResponse> {
@@ -22326,18 +21116,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListTags",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags/all-tags`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTagsResponse>(await this.callApi(params, req, runtime), new ListTagsResponse({}));
+    return $tea.cast<ListTagsResponse>(await this.doROARequest("ListTags", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/tags/all-tags`, "json", req, runtime), new ListTagsResponse({}));
   }
 
   async listVpcEndpoints(InstanceId: string, request: ListVpcEndpointsRequest): Promise<ListVpcEndpointsResponse> {
@@ -22362,18 +21141,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ListVpcEndpoints",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/vpc-endpoints`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListVpcEndpointsResponse>(await this.callApi(params, req, runtime), new ListVpcEndpointsResponse({}));
+    return $tea.cast<ListVpcEndpointsResponse>(await this.doROARequest("ListVpcEndpoints", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/vpc-endpoints`, "json", req, runtime), new ListVpcEndpointsResponse({}));
   }
 
   async migrateToOtherZone(InstanceId: string, request: MigrateToOtherZoneRequest): Promise<MigrateToOtherZoneResponse> {
@@ -22394,18 +21162,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "MigrateToOtherZone",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/migrate-zones`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<MigrateToOtherZoneResponse>(await this.callApi(params, req, runtime), new MigrateToOtherZoneResponse({}));
+    return $tea.cast<MigrateToOtherZoneResponse>(await this.doROARequest("MigrateToOtherZone", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/migrate-zones`, "json", req, runtime), new MigrateToOtherZoneResponse({}));
   }
 
   async modifyDeployMachine(ResId: string, request: ModifyDeployMachineRequest): Promise<ModifyDeployMachineResponse> {
@@ -22426,18 +21183,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyDeployMachine",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/modify-deploy-machines`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyDeployMachineResponse>(await this.callApi(params, req, runtime), new ModifyDeployMachineResponse({}));
+    return $tea.cast<ModifyDeployMachineResponse>(await this.doROARequest("ModifyDeployMachine", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/modify-deploy-machines`, "json", req, runtime), new ModifyDeployMachineResponse({}));
   }
 
   async modifyElastictask(InstanceId: string): Promise<ModifyElastictaskResponse> {
@@ -22451,18 +21197,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyElastictask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/elastic-task`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyElastictaskResponse>(await this.callApi(params, req, runtime), new ModifyElastictaskResponse({}));
+    return $tea.cast<ModifyElastictaskResponse>(await this.doROARequest("ModifyElastictask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/elastic-task`, "json", req, runtime), new ModifyElastictaskResponse({}));
   }
 
   async modifyInstanceMaintainTime(InstanceId: string, request: ModifyInstanceMaintainTimeRequest): Promise<ModifyInstanceMaintainTimeResponse> {
@@ -22483,18 +21218,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyInstanceMaintainTime",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-maintaintime`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceMaintainTimeResponse({}));
+    return $tea.cast<ModifyInstanceMaintainTimeResponse>(await this.doROARequest("ModifyInstanceMaintainTime", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/modify-maintaintime`, "json", req, runtime), new ModifyInstanceMaintainTimeResponse({}));
   }
 
   async modifyWhiteIps(InstanceId: string, request: ModifyWhiteIpsRequest): Promise<ModifyWhiteIpsResponse> {
@@ -22537,18 +21261,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "ModifyWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/modify-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyWhiteIpsResponse>(await this.callApi(params, req, runtime), new ModifyWhiteIpsResponse({}));
+    return $tea.cast<ModifyWhiteIpsResponse>(await this.doROARequestWithForm("ModifyWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/modify-white-ips`, "json", req, runtime), new ModifyWhiteIpsResponse({}));
   }
 
   async moveResourceGroup(InstanceId: string, request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
@@ -22569,18 +21282,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "MoveResourceGroup",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/resourcegroup`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+    return $tea.cast<MoveResourceGroupResponse>(await this.doROARequest("MoveResourceGroup", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/resourcegroup`, "json", req, runtime), new MoveResourceGroupResponse({}));
   }
 
   async openDiagnosis(InstanceId: string, request: OpenDiagnosisRequest): Promise<OpenDiagnosisResponse> {
@@ -22605,18 +21307,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenDiagnosis",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/actions/open-diagnosis`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenDiagnosisResponse>(await this.callApi(params, req, runtime), new OpenDiagnosisResponse({}));
+    return $tea.cast<OpenDiagnosisResponse>(await this.doROARequest("OpenDiagnosis", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/diagnosis/instances/${InstanceId}/actions/open-diagnosis`, "json", req, runtime), new OpenDiagnosisResponse({}));
   }
 
   async openHttps(InstanceId: string, request: OpenHttpsRequest): Promise<OpenHttpsResponse> {
@@ -22637,18 +21328,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "OpenHttps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/open-https`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OpenHttpsResponse>(await this.callApi(params, req, runtime), new OpenHttpsResponse({}));
+    return $tea.cast<OpenHttpsResponse>(await this.doROARequest("OpenHttps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/open-https`, "json", req, runtime), new OpenHttpsResponse({}));
   }
 
   async postEmonTryAlarmRule(ProjectId: string, AlarmGroupId: string): Promise<PostEmonTryAlarmRuleResponse> {
@@ -22663,18 +21343,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "PostEmonTryAlarmRule",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/emon/projects/${ProjectId}/alarm-groups/${AlarmGroupId}/alarm-rules/_test`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.callApi(params, req, runtime), new PostEmonTryAlarmRuleResponse({}));
+    return $tea.cast<PostEmonTryAlarmRuleResponse>(await this.doROARequest("PostEmonTryAlarmRule", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/emon/projects/${ProjectId}/alarm-groups/${AlarmGroupId}/alarm-rules/_test`, "json", req, runtime), new PostEmonTryAlarmRuleResponse({}));
   }
 
   async recommendTemplates(InstanceId: string, request: RecommendTemplatesRequest): Promise<RecommendTemplatesResponse> {
@@ -22695,18 +21364,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RecommendTemplates",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/recommended-templates`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RecommendTemplatesResponse>(await this.callApi(params, req, runtime), new RecommendTemplatesResponse({}));
+    return $tea.cast<RecommendTemplatesResponse>(await this.doROARequest("RecommendTemplates", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/instances/${InstanceId}/recommended-templates`, "json", req, runtime), new RecommendTemplatesResponse({}));
   }
 
   async reinstallCollector(ResId: string, request: ReinstallCollectorRequest): Promise<ReinstallCollectorResponse> {
@@ -22727,18 +21385,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ReinstallCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/reinstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ReinstallCollectorResponse>(await this.callApi(params, req, runtime), new ReinstallCollectorResponse({}));
+    return $tea.cast<ReinstallCollectorResponse>(await this.doROARequest("ReinstallCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/reinstall`, "json", req, runtime), new ReinstallCollectorResponse({}));
   }
 
   async removeApm(instanceId: string): Promise<RemoveApmResponse> {
@@ -22752,18 +21399,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "RemoveApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RemoveApmResponse>(await this.callApi(params, req, runtime), new RemoveApmResponse({}));
+    return $tea.cast<RemoveApmResponse>(await this.doROARequest("RemoveApm", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/apm/${instanceId}`, "json", req, runtime), new RemoveApmResponse({}));
   }
 
   async renewInstance(InstanceId: string, request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
@@ -22784,18 +21420,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RenewInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/renew`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RenewInstanceResponse>(await this.callApi(params, req, runtime), new RenewInstanceResponse({}));
+    return $tea.cast<RenewInstanceResponse>(await this.doROARequest("RenewInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/renew`, "json", req, runtime), new RenewInstanceResponse({}));
   }
 
   async renewLogstash(InstanceId: string, request: RenewLogstashRequest): Promise<RenewLogstashResponse> {
@@ -22816,18 +21441,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RenewLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/renew`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RenewLogstashResponse>(await this.callApi(params, req, runtime), new RenewLogstashResponse({}));
+    return $tea.cast<RenewLogstashResponse>(await this.doROARequest("RenewLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/renew`, "json", req, runtime), new RenewLogstashResponse({}));
   }
 
   async restartCollector(ResId: string, request: RestartCollectorRequest): Promise<RestartCollectorResponse> {
@@ -22848,18 +21462,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartCollectorResponse>(await this.callApi(params, req, runtime), new RestartCollectorResponse({}));
+    return $tea.cast<RestartCollectorResponse>(await this.doROARequest("RestartCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/restart`, "json", req, runtime), new RestartCollectorResponse({}));
   }
 
   async restartInstance(InstanceId: string, request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
@@ -22884,18 +21487,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartInstanceResponse>(await this.callApi(params, req, runtime), new RestartInstanceResponse({}));
+    return $tea.cast<RestartInstanceResponse>(await this.doROARequest("RestartInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/restart`, "json", req, runtime), new RestartInstanceResponse({}));
   }
 
   async restartLogstash(InstanceId: string, request: RestartLogstashRequest): Promise<RestartLogstashResponse> {
@@ -22920,18 +21512,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RestartLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/restart`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RestartLogstashResponse>(await this.callApi(params, req, runtime), new RestartLogstashResponse({}));
+    return $tea.cast<RestartLogstashResponse>(await this.doROARequest("RestartLogstash", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/restart`, "json", req, runtime), new RestartLogstashResponse({}));
   }
 
   async resumeElasticsearchTask(InstanceId: string, request: ResumeElasticsearchTaskRequest): Promise<ResumeElasticsearchTaskResponse> {
@@ -22952,18 +21533,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ResumeElasticsearchTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/resume`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeElasticsearchTaskResponse>(await this.callApi(params, req, runtime), new ResumeElasticsearchTaskResponse({}));
+    return $tea.cast<ResumeElasticsearchTaskResponse>(await this.doROARequest("ResumeElasticsearchTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/resume`, "json", req, runtime), new ResumeElasticsearchTaskResponse({}));
   }
 
   async resumeLogstashTask(InstanceId: string, request: ResumeLogstashTaskRequest): Promise<ResumeLogstashTaskResponse> {
@@ -22984,18 +21554,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ResumeLogstashTask",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/resume`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ResumeLogstashTaskResponse>(await this.callApi(params, req, runtime), new ResumeLogstashTaskResponse({}));
+    return $tea.cast<ResumeLogstashTaskResponse>(await this.doROARequest("ResumeLogstashTask", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/resume`, "json", req, runtime), new ResumeLogstashTaskResponse({}));
   }
 
   async rolloverDataStream(InstanceId: string, DataStream: string, request: RolloverDataStreamRequest): Promise<RolloverDataStreamResponse> {
@@ -23017,18 +21576,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RolloverDataStream",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/data-streams/${DataStream}/rollover`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RolloverDataStreamResponse>(await this.callApi(params, req, runtime), new RolloverDataStreamResponse({}));
+    return $tea.cast<RolloverDataStreamResponse>(await this.doROARequest("RolloverDataStream", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/data-streams/${DataStream}/rollover`, "json", req, runtime), new RolloverDataStreamResponse({}));
   }
 
   async runPipelines(InstanceId: string, request: RunPipelinesRequest): Promise<RunPipelinesResponse> {
@@ -23049,18 +21597,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "RunPipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/run`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<RunPipelinesResponse>(await this.callApi(params, req, runtime), new RunPipelinesResponse({}));
+    return $tea.cast<RunPipelinesResponse>(await this.doROARequest("RunPipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines/action/run`, "json", req, runtime), new RunPipelinesResponse({}));
   }
 
   async shrinkNode(InstanceId: string, request: ShrinkNodeRequest): Promise<ShrinkNodeResponse> {
@@ -23089,18 +21626,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ShrinkNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/shrink`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ShrinkNodeResponse>(await this.callApi(params, req, runtime), new ShrinkNodeResponse({}));
+    return $tea.cast<ShrinkNodeResponse>(await this.doROARequest("ShrinkNode", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/shrink`, "json", req, runtime), new ShrinkNodeResponse({}));
   }
 
   async startApm(instanceId: string): Promise<StartApmResponse> {
@@ -23114,18 +21640,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "StartApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartApmResponse>(await this.callApi(params, req, runtime), new StartApmResponse({}));
+    return $tea.cast<StartApmResponse>(await this.doROARequest("StartApm", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/apm/${instanceId}/actions/start`, "json", req, runtime), new StartApmResponse({}));
   }
 
   async startCollector(ResId: string, request: StartCollectorRequest): Promise<StartCollectorResponse> {
@@ -23146,18 +21661,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StartCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/start`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StartCollectorResponse>(await this.callApi(params, req, runtime), new StartCollectorResponse({}));
+    return $tea.cast<StartCollectorResponse>(await this.doROARequest("StartCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/start`, "json", req, runtime), new StartCollectorResponse({}));
   }
 
   async stopApm(instanceId: string): Promise<StopApmResponse> {
@@ -23171,18 +21675,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "StopApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}/actions/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopApmResponse>(await this.callApi(params, req, runtime), new StopApmResponse({}));
+    return $tea.cast<StopApmResponse>(await this.doROARequest("StopApm", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/apm/${instanceId}/actions/stop`, "json", req, runtime), new StopApmResponse({}));
   }
 
   async stopCollector(ResId: string, request: StopCollectorRequest): Promise<StopCollectorResponse> {
@@ -23203,18 +21696,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StopCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopCollectorResponse>(await this.callApi(params, req, runtime), new StopCollectorResponse({}));
+    return $tea.cast<StopCollectorResponse>(await this.doROARequest("StopCollector", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/stop`, "json", req, runtime), new StopCollectorResponse({}));
   }
 
   async stopPipelines(InstanceId: string, request: StopPipelinesRequest): Promise<StopPipelinesResponse> {
@@ -23235,18 +21717,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "StopPipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines/action/stop`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<StopPipelinesResponse>(await this.callApi(params, req, runtime), new StopPipelinesResponse({}));
+    return $tea.cast<StopPipelinesResponse>(await this.doROARequest("StopPipelines", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipelines/action/stop`, "json", req, runtime), new StopPipelinesResponse({}));
   }
 
   async tagResources(): Promise<TagResourcesResponse> {
@@ -23259,18 +21730,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "TagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    return $tea.cast<TagResourcesResponse>(await this.doROARequest("TagResources", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/tags`, "json", req, runtime), new TagResourcesResponse({}));
   }
 
   async transferNode(InstanceId: string, request: TransferNodeRequest): Promise<TransferNodeResponse> {
@@ -23295,18 +21755,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "TransferNode",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/transfer`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<TransferNodeResponse>(await this.callApi(params, req, runtime), new TransferNodeResponse({}));
+    return $tea.cast<TransferNodeResponse>(await this.doROARequest("TransferNode", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/transfer`, "json", req, runtime), new TransferNodeResponse({}));
   }
 
   async triggerNetwork(InstanceId: string, request: TriggerNetworkRequest): Promise<TriggerNetworkResponse> {
@@ -23341,18 +21790,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "TriggerNetwork",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/network-trigger`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<TriggerNetworkResponse>(await this.callApi(params, req, runtime), new TriggerNetworkResponse({}));
+    return $tea.cast<TriggerNetworkResponse>(await this.doROARequest("TriggerNetwork", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/network-trigger`, "json", req, runtime), new TriggerNetworkResponse({}));
   }
 
   async uninstallKibanaPlugin(InstanceId: string, request: UninstallKibanaPluginRequest): Promise<UninstallKibanaPluginResponse> {
@@ -23373,18 +21811,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallKibanaPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallKibanaPluginResponse>(await this.callApi(params, req, runtime), new UninstallKibanaPluginResponse({}));
+    return $tea.cast<UninstallKibanaPluginResponse>(await this.doROARequest("UninstallKibanaPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-plugins/actions/uninstall`, "json", req, runtime), new UninstallKibanaPluginResponse({}));
   }
 
   async uninstallLogstashPlugin(InstanceId: string, request: UninstallLogstashPluginRequest): Promise<UninstallLogstashPluginResponse> {
@@ -23405,18 +21832,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallLogstashPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallLogstashPluginResponse>(await this.callApi(params, req, runtime), new UninstallLogstashPluginResponse({}));
+    return $tea.cast<UninstallLogstashPluginResponse>(await this.doROARequest("UninstallLogstashPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/plugins/actions/uninstall`, "json", req, runtime), new UninstallLogstashPluginResponse({}));
   }
 
   async uninstallPlugin(InstanceId: string, request: UninstallPluginRequest): Promise<UninstallPluginResponse> {
@@ -23437,18 +21853,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UninstallPlugin",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/plugins/actions/uninstall`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UninstallPluginResponse>(await this.callApi(params, req, runtime), new UninstallPluginResponse({}));
+    return $tea.cast<UninstallPluginResponse>(await this.doROARequest("UninstallPlugin", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/plugins/actions/uninstall`, "json", req, runtime), new UninstallPluginResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -23480,18 +21885,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UntagResources",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/tags`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    return $tea.cast<UntagResourcesResponse>(await this.doROARequest("UntagResources", "2017-06-13", "HTTPS", "DELETE", "AK", `/openapi/tags`, "json", req, runtime), new UntagResourcesResponse({}));
   }
 
   async updateAdminPassword(InstanceId: string, request: UpdateAdminPasswordRequest): Promise<UpdateAdminPasswordResponse> {
@@ -23512,18 +21906,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAdminPassword",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/admin-pwd`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAdminPasswordResponse>(await this.callApi(params, req, runtime), new UpdateAdminPasswordResponse({}));
+    return $tea.cast<UpdateAdminPasswordResponse>(await this.doROARequest("UpdateAdminPassword", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/admin-pwd`, "json", req, runtime), new UpdateAdminPasswordResponse({}));
   }
 
   async updateAdvancedSetting(InstanceId: string, request: UpdateAdvancedSettingRequest): Promise<UpdateAdvancedSettingResponse> {
@@ -23544,18 +21927,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAdvancedSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-advanced-setting`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAdvancedSettingResponse>(await this.callApi(params, req, runtime), new UpdateAdvancedSettingResponse({}));
+    return $tea.cast<UpdateAdvancedSettingResponse>(await this.doROARequest("UpdateAdvancedSetting", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-advanced-setting`, "json", req, runtime), new UpdateAdvancedSettingResponse({}));
   }
 
   async updateAliwsDict(InstanceId: string, request: UpdateAliwsDictRequest): Promise<UpdateAliwsDictResponse> {
@@ -23576,18 +21948,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateAliwsDict",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/aliws-dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateAliwsDictResponse>(await this.callApi(params, req, runtime), new UpdateAliwsDictResponse({}));
+    return $tea.cast<UpdateAliwsDictResponse>(await this.doROARequest("UpdateAliwsDict", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/aliws-dict`, "json", req, runtime), new UpdateAliwsDictResponse({}));
   }
 
   async updateApm(instanceId: string, request: UpdateApmRequest): Promise<UpdateApmResponse> {
@@ -23624,18 +21985,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateApm",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/apm/${instanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateApmResponse>(await this.callApi(params, req, runtime), new UpdateApmResponse({}));
+    return $tea.cast<UpdateApmResponse>(await this.doROARequest("UpdateApm", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/apm/${instanceId}`, "json", req, runtime), new UpdateApmResponse({}));
   }
 
   async updateBlackIps(InstanceId: string, request: UpdateBlackIpsRequest): Promise<UpdateBlackIpsResponse> {
@@ -23662,18 +22012,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateBlackIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/black-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateBlackIpsResponse>(await this.callApi(params, req, runtime), new UpdateBlackIpsResponse({}));
+    return $tea.cast<UpdateBlackIpsResponse>(await this.doROARequestWithForm("UpdateBlackIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/black-ips`, "json", req, runtime), new UpdateBlackIpsResponse({}));
   }
 
   async updateCollector(ResId: string, request: UpdateCollectorRequest): Promise<UpdateCollectorResponse> {
@@ -23694,18 +22033,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCollector",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCollectorResponse>(await this.callApi(params, req, runtime), new UpdateCollectorResponse({}));
+    return $tea.cast<UpdateCollectorResponse>(await this.doROARequest("UpdateCollector", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/collectors/${ResId}`, "json", req, runtime), new UpdateCollectorResponse({}));
   }
 
   async updateCollectorName(ResId: string, request: UpdateCollectorNameRequest): Promise<UpdateCollectorNameResponse> {
@@ -23726,18 +22054,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateCollectorName",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/collectors/${ResId}/actions/rename`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateCollectorNameResponse>(await this.callApi(params, req, runtime), new UpdateCollectorNameResponse({}));
+    return $tea.cast<UpdateCollectorNameResponse>(await this.doROARequest("UpdateCollectorName", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/collectors/${ResId}/actions/rename`, "json", req, runtime), new UpdateCollectorNameResponse({}));
   }
 
   async updateComponentIndex(InstanceId: string, name: string, request: UpdateComponentIndexRequest): Promise<UpdateComponentIndexResponse> {
@@ -23763,18 +22080,7 @@ export default class Client extends OpenApi {
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateComponentIndex",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/component-index/${name}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateComponentIndexResponse>(await this.callApi(params, req, runtime), new UpdateComponentIndexResponse({}));
+    return $tea.cast<UpdateComponentIndexResponse>(await this.doROARequest("UpdateComponentIndex", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/component-index/${name}`, "json", req, runtime), new UpdateComponentIndexResponse({}));
   }
 
   async updateDescription(InstanceId: string, request: UpdateDescriptionRequest): Promise<UpdateDescriptionResponse> {
@@ -23801,18 +22107,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDescription",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/description`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateDescriptionResponse({}));
+    return $tea.cast<UpdateDescriptionResponse>(await this.doROARequest("UpdateDescription", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/description`, "json", req, runtime), new UpdateDescriptionResponse({}));
   }
 
   async updateDiagnosisSettings(InstanceId: string, request: UpdateDiagnosisSettingsRequest): Promise<UpdateDiagnosisSettingsResponse> {
@@ -23837,18 +22132,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDiagnosisSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/diagnosis/instances/${InstanceId}/settings`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.callApi(params, req, runtime), new UpdateDiagnosisSettingsResponse({}));
+    return $tea.cast<UpdateDiagnosisSettingsResponse>(await this.doROARequest("UpdateDiagnosisSettings", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/diagnosis/instances/${InstanceId}/settings`, "json", req, runtime), new UpdateDiagnosisSettingsResponse({}));
   }
 
   async updateDict(InstanceId: string, request: UpdateDictRequest): Promise<UpdateDictResponse> {
@@ -23869,18 +22153,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateDict",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateDictResponse>(await this.callApi(params, req, runtime), new UpdateDictResponse({}));
+    return $tea.cast<UpdateDictResponse>(await this.doROARequest("UpdateDict", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/dict`, "json", req, runtime), new UpdateDictResponse({}));
   }
 
   async updateExtendConfig(InstanceId: string, request: UpdateExtendConfigRequest): Promise<UpdateExtendConfigResponse> {
@@ -23901,18 +22174,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateExtendConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/extend-configs/actions/update`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateExtendConfigResponse>(await this.callApi(params, req, runtime), new UpdateExtendConfigResponse({}));
+    return $tea.cast<UpdateExtendConfigResponse>(await this.doROARequest("UpdateExtendConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/extend-configs/actions/update`, "json", req, runtime), new UpdateExtendConfigResponse({}));
   }
 
   async updateExtendfiles(InstanceId: string, request: UpdateExtendfilesRequest): Promise<UpdateExtendfilesResponse> {
@@ -23933,18 +22195,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateExtendfiles",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/extendfiles`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateExtendfilesResponse>(await this.callApi(params, req, runtime), new UpdateExtendfilesResponse({}));
+    return $tea.cast<UpdateExtendfilesResponse>(await this.doROARequest("UpdateExtendfiles", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}/extendfiles`, "json", req, runtime), new UpdateExtendfilesResponse({}));
   }
 
   async updateHotIkDicts(InstanceId: string, request: UpdateHotIkDictsRequest): Promise<UpdateHotIkDictsResponse> {
@@ -23965,18 +22216,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateHotIkDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ik-hot-dict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateHotIkDictsResponse>(await this.callApi(params, req, runtime), new UpdateHotIkDictsResponse({}));
+    return $tea.cast<UpdateHotIkDictsResponse>(await this.doROARequest("UpdateHotIkDicts", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/ik-hot-dict`, "json", req, runtime), new UpdateHotIkDictsResponse({}));
   }
 
   async updateILMPolicy(InstanceId: string, PolicyName: string, request: UpdateILMPolicyRequest): Promise<UpdateILMPolicyResponse> {
@@ -23998,18 +22238,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateILMPolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateILMPolicyResponse>(await this.callApi(params, req, runtime), new UpdateILMPolicyResponse({}));
+    return $tea.cast<UpdateILMPolicyResponse>(await this.doROARequest("UpdateILMPolicy", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/ilm-policies/${PolicyName}`, "json", req, runtime), new UpdateILMPolicyResponse({}));
   }
 
   async updateIndexTemplate(InstanceId: string, IndexTemplate: string, request: UpdateIndexTemplateRequest): Promise<UpdateIndexTemplateResponse> {
@@ -24031,18 +22260,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateIndexTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateIndexTemplateResponse>(await this.callApi(params, req, runtime), new UpdateIndexTemplateResponse({}));
+    return $tea.cast<UpdateIndexTemplateResponse>(await this.doROARequest("UpdateIndexTemplate", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/index-templates/${IndexTemplate}`, "json", req, runtime), new UpdateIndexTemplateResponse({}));
   }
 
   async updateInstance(InstanceId: string, request: UpdateInstanceRequest): Promise<UpdateInstanceResponse> {
@@ -24071,18 +22289,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceResponse>(await this.callApi(params, req, runtime), new UpdateInstanceResponse({}));
+    return $tea.cast<UpdateInstanceResponse>(await this.doROARequest("UpdateInstance", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}`, "json", req, runtime), new UpdateInstanceResponse({}));
   }
 
   async updateInstanceChargeType(InstanceId: string, request: UpdateInstanceChargeTypeRequest): Promise<UpdateInstanceChargeTypeResponse> {
@@ -24103,18 +22310,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstanceChargeType",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/convert-pay-type`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateInstanceChargeTypeResponse({}));
+    return $tea.cast<UpdateInstanceChargeTypeResponse>(await this.doROARequest("UpdateInstanceChargeType", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/convert-pay-type`, "json", req, runtime), new UpdateInstanceChargeTypeResponse({}));
   }
 
   async updateInstanceSettings(InstanceId: string, request: UpdateInstanceSettingsRequest): Promise<UpdateInstanceSettingsResponse> {
@@ -24135,18 +22331,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateInstanceSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/instance-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateInstanceSettingsResponse>(await this.callApi(params, req, runtime), new UpdateInstanceSettingsResponse({}));
+    return $tea.cast<UpdateInstanceSettingsResponse>(await this.doROARequest("UpdateInstanceSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/instance-settings`, "json", req, runtime), new UpdateInstanceSettingsResponse({}));
   }
 
   async updateKibanaSettings(InstanceId: string, request: UpdateKibanaSettingsRequest): Promise<UpdateKibanaSettingsResponse> {
@@ -24167,18 +22352,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateKibanaSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-kibana-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateKibanaSettingsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaSettingsResponse({}));
+    return $tea.cast<UpdateKibanaSettingsResponse>(await this.doROARequest("UpdateKibanaSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-kibana-settings`, "json", req, runtime), new UpdateKibanaSettingsResponse({}));
   }
 
   async updateKibanaWhiteIps(InstanceId: string, request: UpdateKibanaWhiteIpsRequest): Promise<UpdateKibanaWhiteIpsResponse> {
@@ -24203,18 +22377,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateKibanaWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/kibana-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateKibanaWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateKibanaWhiteIpsResponse({}));
+    return $tea.cast<UpdateKibanaWhiteIpsResponse>(await this.doROARequest("UpdateKibanaWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/kibana-white-ips`, "json", req, runtime), new UpdateKibanaWhiteIpsResponse({}));
   }
 
   async updateLogstash(InstanceId: string, request: UpdateLogstashRequest): Promise<UpdateLogstashResponse> {
@@ -24235,18 +22398,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstash",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashResponse>(await this.callApi(params, req, runtime), new UpdateLogstashResponse({}));
+    return $tea.cast<UpdateLogstashResponse>(await this.doROARequest("UpdateLogstash", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}`, "json", req, runtime), new UpdateLogstashResponse({}));
   }
 
   async updateLogstashChargeType(InstanceId: string, request: UpdateLogstashChargeTypeRequest): Promise<UpdateLogstashChargeTypeResponse> {
@@ -24267,18 +22419,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashChargeType",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/actions/convert-pay-type`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.callApi(params, req, runtime), new UpdateLogstashChargeTypeResponse({}));
+    return $tea.cast<UpdateLogstashChargeTypeResponse>(await this.doROARequest("UpdateLogstashChargeType", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/actions/convert-pay-type`, "json", req, runtime), new UpdateLogstashChargeTypeResponse({}));
   }
 
   async updateLogstashDescription(InstanceId: string, request: UpdateLogstashDescriptionRequest): Promise<UpdateLogstashDescriptionResponse> {
@@ -24299,18 +22440,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashDescription",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/description`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateLogstashDescriptionResponse({}));
+    return $tea.cast<UpdateLogstashDescriptionResponse>(await this.doROARequest("UpdateLogstashDescription", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/description`, "json", req, runtime), new UpdateLogstashDescriptionResponse({}));
   }
 
   async updateLogstashSettings(InstanceId: string, request: UpdateLogstashSettingsRequest): Promise<UpdateLogstashSettingsResponse> {
@@ -24331,18 +22461,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateLogstashSettings",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/instance-settings`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateLogstashSettingsResponse>(await this.callApi(params, req, runtime), new UpdateLogstashSettingsResponse({}));
+    return $tea.cast<UpdateLogstashSettingsResponse>(await this.doROARequest("UpdateLogstashSettings", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/instance-settings`, "json", req, runtime), new UpdateLogstashSettingsResponse({}));
   }
 
   async updatePipelineManagementConfig(InstanceId: string, request: UpdatePipelineManagementConfigRequest): Promise<UpdatePipelineManagementConfigResponse> {
@@ -24363,18 +22482,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipelineManagementConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipeline-management-config`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.callApi(params, req, runtime), new UpdatePipelineManagementConfigResponse({}));
+    return $tea.cast<UpdatePipelineManagementConfigResponse>(await this.doROARequest("UpdatePipelineManagementConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/pipeline-management-config`, "json", req, runtime), new UpdatePipelineManagementConfigResponse({}));
   }
 
   async updatePipelines(InstanceId: string, request: UpdatePipelinesRequest): Promise<UpdatePipelinesResponse> {
@@ -24399,18 +22507,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePipelines",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/pipelines`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePipelinesResponse>(await this.callApi(params, req, runtime), new UpdatePipelinesResponse({}));
+    return $tea.cast<UpdatePipelinesResponse>(await this.doROARequest("UpdatePipelines", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/logstashes/${InstanceId}/pipelines`, "json", req, runtime), new UpdatePipelinesResponse({}));
   }
 
   async updatePrivateNetworkWhiteIps(InstanceId: string, request: UpdatePrivateNetworkWhiteIpsRequest): Promise<UpdatePrivateNetworkWhiteIpsResponse> {
@@ -24435,18 +22532,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePrivateNetworkWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/private-network-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePrivateNetworkWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePrivateNetworkWhiteIpsResponse({}));
+    return $tea.cast<UpdatePrivateNetworkWhiteIpsResponse>(await this.doROARequest("UpdatePrivateNetworkWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/private-network-white-ips`, "json", req, runtime), new UpdatePrivateNetworkWhiteIpsResponse({}));
   }
 
   async updatePublicNetwork(InstanceId: string, request: UpdatePublicNetworkRequest): Promise<UpdatePublicNetworkResponse> {
@@ -24467,18 +22553,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePublicNetwork",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-network`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePublicNetworkResponse>(await this.callApi(params, req, runtime), new UpdatePublicNetworkResponse({}));
+    return $tea.cast<UpdatePublicNetworkResponse>(await this.doROARequest("UpdatePublicNetwork", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/public-network`, "json", req, runtime), new UpdatePublicNetworkResponse({}));
   }
 
   async updatePublicWhiteIps(InstanceId: string, request: UpdatePublicWhiteIpsRequest): Promise<UpdatePublicWhiteIpsResponse> {
@@ -24503,18 +22578,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdatePublicWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/public-white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdatePublicWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdatePublicWhiteIpsResponse({}));
+    return $tea.cast<UpdatePublicWhiteIpsResponse>(await this.doROARequest("UpdatePublicWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/public-white-ips`, "json", req, runtime), new UpdatePublicWhiteIpsResponse({}));
   }
 
   async updateReadWritePolicy(InstanceId: string, request: UpdateReadWritePolicyRequest): Promise<UpdateReadWritePolicyResponse> {
@@ -24535,18 +22599,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateReadWritePolicy",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/update-read-write-policy`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateReadWritePolicyResponse>(await this.callApi(params, req, runtime), new UpdateReadWritePolicyResponse({}));
+    return $tea.cast<UpdateReadWritePolicyResponse>(await this.doROARequest("UpdateReadWritePolicy", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/update-read-write-policy`, "json", req, runtime), new UpdateReadWritePolicyResponse({}));
   }
 
   async updateSnapshotSetting(InstanceId: string): Promise<UpdateSnapshotSettingResponse> {
@@ -24560,18 +22613,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateSnapshotSetting",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/snapshot-setting`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSnapshotSettingResponse>(await this.callApi(params, req, runtime), new UpdateSnapshotSettingResponse({}));
+    return $tea.cast<UpdateSnapshotSettingResponse>(await this.doROARequest("UpdateSnapshotSetting", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/snapshot-setting`, "json", req, runtime), new UpdateSnapshotSettingResponse({}));
   }
 
   async updateSynonymsDicts(InstanceId: string, request: UpdateSynonymsDictsRequest): Promise<UpdateSynonymsDictsResponse> {
@@ -24592,18 +22634,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateSynonymsDicts",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/synonymsDict`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSynonymsDictsResponse>(await this.callApi(params, req, runtime), new UpdateSynonymsDictsResponse({}));
+    return $tea.cast<UpdateSynonymsDictsResponse>(await this.doROARequest("UpdateSynonymsDicts", "2017-06-13", "HTTPS", "PUT", "AK", `/openapi/instances/${InstanceId}/synonymsDict`, "json", req, runtime), new UpdateSynonymsDictsResponse({}));
   }
 
   async updateTemplate(InstanceId: string, TemplateName: string, request: UpdateTemplateRequest): Promise<UpdateTemplateResponse> {
@@ -24625,18 +22656,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateTemplate",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/templates/${TemplateName}`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateTemplateResponse>(await this.callApi(params, req, runtime), new UpdateTemplateResponse({}));
+    return $tea.cast<UpdateTemplateResponse>(await this.doROARequest("UpdateTemplate", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/templates/${TemplateName}`, "json", req, runtime), new UpdateTemplateResponse({}));
   }
 
   async updateWhiteIps(InstanceId: string, request: UpdateWhiteIpsRequest): Promise<UpdateWhiteIpsResponse> {
@@ -24671,18 +22691,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateWhiteIps",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/white-ips`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateWhiteIpsResponse>(await this.callApi(params, req, runtime), new UpdateWhiteIpsResponse({}));
+    return $tea.cast<UpdateWhiteIpsResponse>(await this.doROARequest("UpdateWhiteIps", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/white-ips`, "json", req, runtime), new UpdateWhiteIpsResponse({}));
   }
 
   async updateXpackMonitorConfig(InstanceId: string, request: UpdateXpackMonitorConfigRequest): Promise<UpdateXpackMonitorConfigResponse> {
@@ -24703,18 +22712,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "UpdateXpackMonitorConfig",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/xpack-monitor-config`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.callApi(params, req, runtime), new UpdateXpackMonitorConfigResponse({}));
+    return $tea.cast<UpdateXpackMonitorConfigResponse>(await this.doROARequest("UpdateXpackMonitorConfig", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/xpack-monitor-config`, "json", req, runtime), new UpdateXpackMonitorConfigResponse({}));
   }
 
   async upgradeEngineVersion(InstanceId: string, request: UpgradeEngineVersionRequest): Promise<UpgradeEngineVersionResponse> {
@@ -24749,18 +22747,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
-    let params = new $OpenApi.Params({
-      action: "UpgradeEngineVersion",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/actions/upgrade-version`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpgradeEngineVersionResponse>(await this.callApi(params, req, runtime), new UpgradeEngineVersionResponse({}));
+    return $tea.cast<UpgradeEngineVersionResponse>(await this.doROARequestWithForm("UpgradeEngineVersion", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/actions/upgrade-version`, "json", req, runtime), new UpgradeEngineVersionResponse({}));
   }
 
   async validateConnection(InstanceId: string, request: ValidateConnectionRequest): Promise<ValidateConnectionResponse> {
@@ -24781,18 +22768,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateConnection",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/logstashes/${InstanceId}/validate-connection`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateConnectionResponse>(await this.callApi(params, req, runtime), new ValidateConnectionResponse({}));
+    return $tea.cast<ValidateConnectionResponse>(await this.doROARequest("ValidateConnection", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/logstashes/${InstanceId}/validate-connection`, "json", req, runtime), new ValidateConnectionResponse({}));
   }
 
   async validateShrinkNodes(InstanceId: string, request: ValidateShrinkNodesRequest): Promise<ValidateShrinkNodesResponse> {
@@ -24817,18 +22793,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateShrinkNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-shrink-nodes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateShrinkNodesResponse>(await this.callApi(params, req, runtime), new ValidateShrinkNodesResponse({}));
+    return $tea.cast<ValidateShrinkNodesResponse>(await this.doROARequest("ValidateShrinkNodes", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/validate-shrink-nodes`, "json", req, runtime), new ValidateShrinkNodesResponse({}));
   }
 
   async validateSlrPermission(request: ValidateSlrPermissionRequest): Promise<ValidateSlrPermissionResponse> {
@@ -24852,18 +22817,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateSlrPermission",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/user/servicerolepermission`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateSlrPermissionResponse>(await this.callApi(params, req, runtime), new ValidateSlrPermissionResponse({}));
+    return $tea.cast<ValidateSlrPermissionResponse>(await this.doROARequest("ValidateSlrPermission", "2017-06-13", "HTTPS", "GET", "AK", `/openapi/user/servicerolepermission`, "json", req, runtime), new ValidateSlrPermissionResponse({}));
   }
 
   async validateTransferableNodes(InstanceId: string, request: ValidateTransferableNodesRequest): Promise<ValidateTransferableNodesResponse> {
@@ -24884,18 +22838,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "ValidateTransferableNodes",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances/${InstanceId}/validate-transfer-nodes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ValidateTransferableNodesResponse>(await this.callApi(params, req, runtime), new ValidateTransferableNodesResponse({}));
+    return $tea.cast<ValidateTransferableNodesResponse>(await this.doROARequest("ValidateTransferableNodes", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances/${InstanceId}/validate-transfer-nodes`, "json", req, runtime), new ValidateTransferableNodesResponse({}));
   }
 
   async createInstance(request: CreateInstanceRequest): Promise<CreateInstanceResponse> {
@@ -24915,18 +22858,7 @@ export default class Client extends OpenApi {
       headers: headers,
       query: OpenApiUtil.query(query),
     });
-    let params = new $OpenApi.Params({
-      action: "createInstance",
-      version: "2017-06-13",
-      protocol: "HTTPS",
-      pathname: `/openapi/instances`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
+    return $tea.cast<CreateInstanceResponse>(await this.doROARequest("createInstance", "2017-06-13", "HTTPS", "POST", "AK", `/openapi/instances`, "json", req, runtime), new CreateInstanceResponse({}));
   }
 
 }
