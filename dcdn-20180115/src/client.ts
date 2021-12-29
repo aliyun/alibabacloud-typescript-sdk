@@ -1317,6 +1317,142 @@ export class CreateSlrAndSlsProjectResponse extends $tea.Model {
   }
 }
 
+export class DcdnHttpRequestTestToolRequest extends $tea.Model {
+  args?: string;
+  body?: string;
+  header?: { [key: string]: any };
+  host?: string;
+  method?: string;
+  ownerId?: number;
+  proxyIp?: string;
+  scheme?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      body: 'Body',
+      header: 'Header',
+      host: 'Host',
+      method: 'Method',
+      ownerId: 'OwnerId',
+      proxyIp: 'ProxyIp',
+      scheme: 'Scheme',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      body: 'string',
+      header: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      host: 'string',
+      method: 'string',
+      ownerId: 'number',
+      proxyIp: 'string',
+      scheme: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DcdnHttpRequestTestToolShrinkRequest extends $tea.Model {
+  args?: string;
+  body?: string;
+  headerShrink?: string;
+  host?: string;
+  method?: string;
+  ownerId?: number;
+  proxyIp?: string;
+  scheme?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      args: 'Args',
+      body: 'Body',
+      headerShrink: 'Header',
+      host: 'Host',
+      method: 'Method',
+      ownerId: 'OwnerId',
+      proxyIp: 'ProxyIp',
+      scheme: 'Scheme',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      args: 'string',
+      body: 'string',
+      headerShrink: 'string',
+      host: 'string',
+      method: 'string',
+      ownerId: 'number',
+      proxyIp: 'string',
+      scheme: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DcdnHttpRequestTestToolResponseBody extends $tea.Model {
+  body?: string;
+  header?: string;
+  requestId?: string;
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      header: 'Header',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      header: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DcdnHttpRequestTestToolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DcdnHttpRequestTestToolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DcdnHttpRequestTestToolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDcdnDeliverTaskRequest extends $tea.Model {
   deliverId?: number;
   ownerId?: number;
@@ -9788,6 +9924,90 @@ export class EditRoutineConfResponse extends $tea.Model {
   }
 }
 
+export class ListDcdnEsTemplateInfoRequest extends $tea.Model {
+  language?: string;
+  op?: string;
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      language: 'Language',
+      op: 'Op',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      language: 'string',
+      op: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDcdnEsTemplateInfoResponseBody extends $tea.Model {
+  dataItems?: ListDcdnEsTemplateInfoResponseBodyDataItems;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataItems: 'DataItems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataItems: ListDcdnEsTemplateInfoResponseBodyDataItems,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDcdnEsTemplateInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDcdnEsTemplateInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDcdnEsTemplateInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectRequest extends $tea.Model {
   businessType?: string;
   domainName?: string;
@@ -16471,6 +16691,53 @@ export class DescribeDcdnsecServiceResponseBodyOperationLocks extends $tea.Model
   }
 }
 
+export class ListDcdnEsTemplateInfoResponseBodyDataItemsDataItem extends $tea.Model {
+  id?: number;
+  tmplDef?: string;
+  tmplDesc?: string;
+  tmplName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      tmplDef: 'TmplDef',
+      tmplDesc: 'TmplDesc',
+      tmplName: 'TmplName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      tmplDef: 'string',
+      tmplDesc: 'string',
+      tmplName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDcdnEsTemplateInfoResponseBodyDataItems extends $tea.Model {
+  dataItem?: ListDcdnEsTemplateInfoResponseBodyDataItemsDataItem[];
+  static names(): { [key: string]: string } {
+    return {
+      dataItem: 'DataItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataItem: { 'type': 'array', 'itemType': ListDcdnEsTemplateInfoResponseBodyDataItemsDataItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDcdnRealTimeDeliveryProjectResponseBodyContentProjects extends $tea.Model {
   businessType?: string;
   dataCenter?: string;
@@ -16687,15 +16954,42 @@ export default class Client extends OpenApi {
   async addDcdnDomainWithOptions(request: AddDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CheckUrl"] = request.checkUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Scope"] = request.scope;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.checkUrl)) {
+      query["CheckUrl"] = request.checkUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16721,16 +17015,46 @@ export default class Client extends OpenApi {
   async addDcdnIpaDomainWithOptions(request: AddDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CheckUrl"] = request.checkUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Protocol"] = request.protocol;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Scope"] = request.scope;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.checkUrl)) {
+      query["CheckUrl"] = request.checkUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16756,15 +17080,42 @@ export default class Client extends OpenApi {
   async batchAddDcdnDomainWithOptions(request: BatchAddDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CheckUrl"] = request.checkUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Scope"] = request.scope;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.checkUrl)) {
+      query["CheckUrl"] = request.checkUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16790,11 +17141,26 @@ export default class Client extends OpenApi {
   async batchDeleteDcdnDomainConfigsWithOptions(request: BatchDeleteDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16820,15 +17186,42 @@ export default class Client extends OpenApi {
   async batchSetDcdnDomainCertificateWithOptions(request: BatchSetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["CertType"] = request.certType;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["Region"] = request.region;
-    query["SSLPri"] = request.SSLPri;
-    query["SSLProtocol"] = request.SSLProtocol;
-    query["SSLPub"] = request.SSLPub;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.SSLPri)) {
+      query["SSLPri"] = request.SSLPri;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16854,11 +17247,26 @@ export default class Client extends OpenApi {
   async batchSetDcdnDomainConfigsWithOptions(request: BatchSetDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["Functions"] = request.functions;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.functions)) {
+      query["Functions"] = request.functions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16884,11 +17292,26 @@ export default class Client extends OpenApi {
   async batchSetDcdnIpaDomainConfigsWithOptions(request: BatchSetDcdnIpaDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetDcdnIpaDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["Functions"] = request.functions;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.functions)) {
+      query["Functions"] = request.functions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16914,9 +17337,18 @@ export default class Client extends OpenApi {
   async batchStartDcdnDomainWithOptions(request: BatchStartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16942,9 +17374,18 @@ export default class Client extends OpenApi {
   async batchStopDcdnDomainWithOptions(request: BatchStopDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16995,7 +17436,10 @@ export default class Client extends OpenApi {
   async commitStagingRoutineCodeWithOptions(request: CommitStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<CommitStagingRoutineCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.codeDescription)) {
       body["CodeDescription"] = request.codeDescription;
@@ -17031,15 +17475,42 @@ export default class Client extends OpenApi {
   async createDcdnCertificateSigningRequestWithOptions(request: CreateDcdnCertificateSigningRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnCertificateSigningRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["City"] = request.city;
-    query["CommonName"] = request.commonName;
-    query["Country"] = request.country;
-    query["Email"] = request.email;
-    query["Organization"] = request.organization;
-    query["OrganizationUnit"] = request.organizationUnit;
-    query["OwnerId"] = request.ownerId;
-    query["SANs"] = request.SANs;
-    query["State"] = request.state;
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.commonName)) {
+      query["CommonName"] = request.commonName;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.organization)) {
+      query["Organization"] = request.organization;
+    }
+
+    if (!Util.isUnset(request.organizationUnit)) {
+      query["OrganizationUnit"] = request.organizationUnit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SANs)) {
+      query["SANs"] = request.SANs;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17065,7 +17536,10 @@ export default class Client extends OpenApi {
   async createDcdnDeliverTaskWithOptions(request: CreateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.deliver)) {
       body["Deliver"] = request.deliver;
@@ -17113,7 +17587,10 @@ export default class Client extends OpenApi {
   async createDcdnSLSRealTimeLogDeliveryWithOptions(request: CreateDcdnSLSRealTimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnSLSRealTimeLogDeliveryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.businessType)) {
       body["BusinessType"] = request.businessType;
@@ -17173,7 +17650,10 @@ export default class Client extends OpenApi {
   async createDcdnSubTaskWithOptions(request: CreateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDcdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.domainName)) {
       body["DomainName"] = request.domainName;
@@ -17215,7 +17695,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
@@ -17255,7 +17738,10 @@ export default class Client extends OpenApi {
   async createSlrAndSlsProjectWithOptions(request: CreateSlrAndSlsProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrAndSlsProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.region)) {
       body["Region"] = request.region;
@@ -17284,11 +17770,86 @@ export default class Client extends OpenApi {
     return await this.createSlrAndSlsProjectWithOptions(request, runtime);
   }
 
+  async dcdnHttpRequestTestToolWithOptions(tmpReq: DcdnHttpRequestTestToolRequest, runtime: $Util.RuntimeOptions): Promise<DcdnHttpRequestTestToolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DcdnHttpRequestTestToolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.header)) {
+      request.headerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.header, "Header", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.args)) {
+      body["Args"] = request.args;
+    }
+
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.headerShrink)) {
+      body["Header"] = request.headerShrink;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      body["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.proxyIp)) {
+      body["ProxyIp"] = request.proxyIp;
+    }
+
+    if (!Util.isUnset(request.scheme)) {
+      body["Scheme"] = request.scheme;
+    }
+
+    if (!Util.isUnset(request.uri)) {
+      body["Uri"] = request.uri;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DcdnHttpRequestTestTool",
+      version: "2018-01-15",
+      protocol: "HTTP",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DcdnHttpRequestTestToolResponse>(await this.callApi(params, req, runtime), new DcdnHttpRequestTestToolResponse({}));
+  }
+
+  async dcdnHttpRequestTestTool(request: DcdnHttpRequestTestToolRequest): Promise<DcdnHttpRequestTestToolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.dcdnHttpRequestTestToolWithOptions(request, runtime);
+  }
+
   async deleteDcdnDeliverTaskWithOptions(request: DeleteDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeliverId"] = request.deliverId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.deliverId)) {
+      query["DeliverId"] = request.deliverId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17314,10 +17875,22 @@ export default class Client extends OpenApi {
   async deleteDcdnDomainWithOptions(request: DeleteDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17343,10 +17916,22 @@ export default class Client extends OpenApi {
   async deleteDcdnIpaDomainWithOptions(request: DeleteDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17372,10 +17957,22 @@ export default class Client extends OpenApi {
   async deleteDcdnIpaSpecificConfigWithOptions(request: DeleteDcdnIpaSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnIpaSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17401,9 +17998,18 @@ export default class Client extends OpenApi {
   async deleteDcdnRealTimeLogProjectWithOptions(request: DeleteDcdnRealTimeLogProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnRealTimeLogProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["OwnerId"] = request.ownerId;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17429,10 +18035,22 @@ export default class Client extends OpenApi {
   async deleteDcdnSpecificConfigWithOptions(request: DeleteDcdnSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17458,10 +18076,22 @@ export default class Client extends OpenApi {
   async deleteDcdnSpecificStagingConfigWithOptions(request: DeleteDcdnSpecificStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSpecificStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17487,7 +18117,10 @@ export default class Client extends OpenApi {
   async deleteDcdnSubTaskWithOptions(request: DeleteDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDcdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17513,7 +18146,10 @@ export default class Client extends OpenApi {
   async deleteRoutineWithOptions(request: DeleteRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -17545,7 +18181,10 @@ export default class Client extends OpenApi {
   async deleteRoutineCodeRevisionWithOptions(request: DeleteRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoutineCodeRevisionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -17587,7 +18226,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envsShrink)) {
       body["Envs"] = request.envsShrink;
@@ -17623,8 +18265,14 @@ export default class Client extends OpenApi {
   async describeDcdnAclFieldsWithOptions(request: DescribeDcdnAclFieldsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnAclFieldsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Lang"] = request.lang;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17650,11 +18298,26 @@ export default class Client extends OpenApi {
   async describeDcdnBgpBpsDataWithOptions(request: DescribeDcdnBgpBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBgpBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["Isp"] = request.isp;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17680,11 +18343,26 @@ export default class Client extends OpenApi {
   async describeDcdnBgpTrafficDataWithOptions(request: DescribeDcdnBgpTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnBgpTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["Isp"] = request.isp;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.isp)) {
+      query["Isp"] = request.isp;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17735,9 +18413,18 @@ export default class Client extends OpenApi {
   async describeDcdnCertificateDetailWithOptions(request: DescribeDcdnCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17763,9 +18450,18 @@ export default class Client extends OpenApi {
   async describeDcdnCertificateListWithOptions(request: DescribeDcdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17791,9 +18487,18 @@ export default class Client extends OpenApi {
   async describeDcdnConfigGroupDetailWithOptions(request: DescribeDcdnConfigGroupDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnConfigGroupDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigGroupId"] = request.configGroupId;
-    query["ConfigGroupName"] = request.configGroupName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configGroupId)) {
+      query["ConfigGroupId"] = request.configGroupId;
+    }
+
+    if (!Util.isUnset(request.configGroupName)) {
+      query["ConfigGroupName"] = request.configGroupName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17819,12 +18524,30 @@ export default class Client extends OpenApi {
   async describeDcdnConfigOfVersionWithOptions(request: DescribeDcdnConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnConfigOfVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FunctionId"] = request.functionId;
-    query["FunctionName"] = request.functionName;
-    query["GroupId"] = request.groupId;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.functionId)) {
+      query["FunctionId"] = request.functionId;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17850,9 +18573,18 @@ export default class Client extends OpenApi {
   async describeDcdnDeletedDomainsWithOptions(request: DescribeDcdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeletedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17878,8 +18610,14 @@ export default class Client extends OpenApi {
   async describeDcdnDeliverListWithOptions(request: DescribeDcdnDeliverListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDeliverListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeliverId"] = request.deliverId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.deliverId)) {
+      query["DeliverId"] = request.deliverId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17905,13 +18643,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainBpsDataWithOptions(request: DescribeDcdnDomainBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17937,8 +18696,14 @@ export default class Client extends OpenApi {
   async describeDcdnDomainByCertificateWithOptions(request: DescribeDcdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SSLPub"] = request.SSLPub;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17964,15 +18729,42 @@ export default class Client extends OpenApi {
   async describeDcdnDomainCcActivityLogWithOptions(request: DescribeDcdnDomainCcActivityLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainCcActivityLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RuleName"] = request.ruleName;
-    query["StartTime"] = request.startTime;
-    query["TriggerObject"] = request.triggerObject;
-    query["Value"] = request.value;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.triggerObject)) {
+      query["TriggerObject"] = request.triggerObject;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -17998,8 +18790,14 @@ export default class Client extends OpenApi {
   async describeDcdnDomainCertificateInfoWithOptions(request: DescribeDcdnDomainCertificateInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainCertificateInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18050,11 +18848,26 @@ export default class Client extends OpenApi {
   async describeDcdnDomainConfigsWithOptions(request: DescribeDcdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18080,9 +18893,18 @@ export default class Client extends OpenApi {
   async describeDcdnDomainDetailWithOptions(request: DescribeDcdnDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18108,11 +18930,26 @@ export default class Client extends OpenApi {
   async describeDcdnDomainHitRateDataWithOptions(request: DescribeDcdnDomainHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHitRateDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18138,13 +18975,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainHttpCodeDataWithOptions(request: DescribeDcdnDomainHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18170,15 +19028,42 @@ export default class Client extends OpenApi {
   async describeDcdnDomainIpaBpsDataWithOptions(request: DescribeDcdnDomainIpaBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["FixTimeGap"] = request.fixTimeGap;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TimeMerge"] = request.timeMerge;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.fixTimeGap)) {
+      query["FixTimeGap"] = request.fixTimeGap;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.timeMerge)) {
+      query["TimeMerge"] = request.timeMerge;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18204,15 +19089,42 @@ export default class Client extends OpenApi {
   async describeDcdnDomainIpaTrafficDataWithOptions(request: DescribeDcdnDomainIpaTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["FixTimeGap"] = request.fixTimeGap;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TimeMerge"] = request.timeMerge;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.fixTimeGap)) {
+      query["FixTimeGap"] = request.fixTimeGap;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.timeMerge)) {
+      query["TimeMerge"] = request.timeMerge;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18238,10 +19150,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainIspDataWithOptions(request: DescribeDcdnDomainIspDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIspDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18267,12 +19191,30 @@ export default class Client extends OpenApi {
   async describeDcdnDomainLogWithOptions(request: DescribeDcdnDomainLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18298,10 +19240,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainMultiUsageDataWithOptions(request: DescribeDcdnDomainMultiUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainMultiUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18327,11 +19281,26 @@ export default class Client extends OpenApi {
   async describeDcdnDomainOriginBpsDataWithOptions(request: DescribeDcdnDomainOriginBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainOriginBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18357,11 +19326,26 @@ export default class Client extends OpenApi {
   async describeDcdnDomainOriginTrafficDataWithOptions(request: DescribeDcdnDomainOriginTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainOriginTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18387,8 +19371,14 @@ export default class Client extends OpenApi {
   async describeDcdnDomainPropertyWithOptions(request: DescribeDcdnDomainPropertyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainPropertyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18414,10 +19404,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainPvDataWithOptions(request: DescribeDcdnDomainPvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainPvDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18443,13 +19445,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainQpsDataWithOptions(request: DescribeDcdnDomainQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18550,12 +19573,30 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRealTimeHttpCodeDataWithOptions(request: DescribeDcdnDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18631,10 +19672,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRealTimeSrcBpsDataWithOptions(request: DescribeDcdnDomainRealTimeSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18660,12 +19713,30 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRealTimeSrcHttpCodeDataWithOptions(request: DescribeDcdnDomainRealTimeSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18691,10 +19762,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRealTimeSrcTrafficDataWithOptions(request: DescribeDcdnDomainRealTimeSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeSrcTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18720,10 +19803,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRealTimeTrafficDataWithOptions(request: DescribeDcdnDomainRealTimeTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18749,10 +19844,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainRegionDataWithOptions(request: DescribeDcdnDomainRegionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRegionDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18778,9 +19885,18 @@ export default class Client extends OpenApi {
   async describeDcdnDomainStagingConfigWithOptions(request: DescribeDcdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18806,10 +19922,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainTopReferVisitWithOptions(request: DescribeDcdnDomainTopReferVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTopReferVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18835,10 +19963,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainTopUrlVisitWithOptions(request: DescribeDcdnDomainTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTopUrlVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18864,13 +20004,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainTrafficDataWithOptions(request: DescribeDcdnDomainTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18896,14 +20057,38 @@ export default class Client extends OpenApi {
   async describeDcdnDomainUsageDataWithOptions(request: DescribeDcdnDomainUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["DataProtocol"] = request.dataProtocol;
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Field"] = request.field;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.dataProtocol)) {
+      query["DataProtocol"] = request.dataProtocol;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18929,10 +20114,22 @@ export default class Client extends OpenApi {
   async describeDcdnDomainUvDataWithOptions(request: DescribeDcdnDomainUvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainUvDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18958,13 +20155,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainWebsocketBpsDataWithOptions(request: DescribeDcdnDomainWebsocketBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18990,13 +20208,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainWebsocketHttpCodeDataWithOptions(request: DescribeDcdnDomainWebsocketHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19022,13 +20261,34 @@ export default class Client extends OpenApi {
   async describeDcdnDomainWebsocketTrafficDataWithOptions(request: DescribeDcdnDomainWebsocketTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainWebsocketTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19054,10 +20314,22 @@ export default class Client extends OpenApi {
   async describeDcdnEsExceptionDataWithOptions(request: DescribeDcdnEsExceptionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnEsExceptionDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19083,10 +20355,22 @@ export default class Client extends OpenApi {
   async describeDcdnEsExecuteDataWithOptions(request: DescribeDcdnEsExecuteDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnEsExecuteDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19112,10 +20396,22 @@ export default class Client extends OpenApi {
   async describeDcdnHttpsDomainListWithOptions(request: DescribeDcdnHttpsDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnHttpsDomainListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Keyword"] = request.keyword;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19141,9 +20437,18 @@ export default class Client extends OpenApi {
   async describeDcdnIpInfoWithOptions(request: DescribeDcdnIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IP"] = request.IP;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.IP)) {
+      query["IP"] = request.IP;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19169,10 +20474,22 @@ export default class Client extends OpenApi {
   async describeDcdnIpaDomainConfigsWithOptions(request: DescribeDcdnIpaDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19198,9 +20515,18 @@ export default class Client extends OpenApi {
   async describeDcdnIpaDomainDetailWithOptions(request: DescribeDcdnIpaDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19226,8 +20552,14 @@ export default class Client extends OpenApi {
   async describeDcdnIpaServiceWithOptions(request: DescribeDcdnIpaServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19253,18 +20585,54 @@ export default class Client extends OpenApi {
   async describeDcdnIpaUserDomainsWithOptions(request: DescribeDcdnIpaUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnIpaUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CheckDomainShow"] = request.checkDomainShow;
-    query["DomainName"] = request.domainName;
-    query["DomainSearchType"] = request.domainSearchType;
-    query["DomainStatus"] = request.domainStatus;
-    query["FuncFilter"] = request.funcFilter;
-    query["FuncId"] = request.funcId;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.checkDomainShow)) {
+      query["CheckDomainShow"] = request.checkDomainShow;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainSearchType)) {
+      query["DomainSearchType"] = request.domainSearchType;
+    }
+
+    if (!Util.isUnset(request.domainStatus)) {
+      query["DomainStatus"] = request.domainStatus;
+    }
+
+    if (!Util.isUnset(request.funcFilter)) {
+      query["FuncFilter"] = request.funcFilter;
+    }
+
+    if (!Util.isUnset(request.funcId)) {
+      query["FuncId"] = request.funcId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19290,8 +20658,14 @@ export default class Client extends OpenApi {
   async describeDcdnRealTimeDeliveryFieldWithOptions(request: DescribeDcdnRealTimeDeliveryFieldRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRealTimeDeliveryFieldResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19317,8 +20691,14 @@ export default class Client extends OpenApi {
   async describeDcdnRefreshQuotaWithOptions(request: DescribeDcdnRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshQuotaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19344,8 +20724,14 @@ export default class Client extends OpenApi {
   async describeDcdnRefreshTaskByIdWithOptions(request: DescribeDcdnRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTaskByIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19371,17 +20757,50 @@ export default class Client extends OpenApi {
   async describeDcdnRefreshTasksWithOptions(request: DescribeDcdnRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRefreshTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["ObjectPath"] = request.objectPath;
-    query["ObjectType"] = request.objectType;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StartTime"] = request.startTime;
-    query["Status"] = request.status;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19407,8 +20826,14 @@ export default class Client extends OpenApi {
   async describeDcdnRegionAndIspWithOptions(request: DescribeDcdnRegionAndIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnRegionAndIspResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19434,14 +20859,38 @@ export default class Client extends OpenApi {
   async describeDcdnReportWithOptions(request: DescribeDcdnReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["HttpCode"] = request.httpCode;
-    query["IsOverseas"] = request.isOverseas;
-    query["OwnerId"] = request.ownerId;
-    query["ReportId"] = request.reportId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.httpCode)) {
+      query["HttpCode"] = request.httpCode;
+    }
+
+    if (!Util.isUnset(request.isOverseas)) {
+      query["IsOverseas"] = request.isOverseas;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19467,8 +20916,14 @@ export default class Client extends OpenApi {
   async describeDcdnReportListWithOptions(request: DescribeDcdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnReportListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ReportId"] = request.reportId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19494,9 +20949,18 @@ export default class Client extends OpenApi {
   async describeDcdnSLSRealtimeLogDeliveryWithOptions(request: DescribeDcdnSLSRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSLSRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["OwnerId"] = request.ownerId;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19522,9 +20986,18 @@ export default class Client extends OpenApi {
   async describeDcdnSMCertificateDetailWithOptions(request: DescribeDcdnSMCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSMCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertIdentifier"] = request.certIdentifier;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19550,9 +21023,18 @@ export default class Client extends OpenApi {
   async describeDcdnSMCertificateListWithOptions(request: DescribeDcdnSMCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSMCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19578,9 +21060,18 @@ export default class Client extends OpenApi {
   async describeDcdnSecFuncInfoWithOptions(request: DescribeDcdnSecFuncInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSecFuncInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Lang"] = request.lang;
-    query["OwnerId"] = request.ownerId;
-    query["SecFuncType"] = request.secFuncType;
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.secFuncType)) {
+      query["SecFuncType"] = request.secFuncType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19606,7 +21097,10 @@ export default class Client extends OpenApi {
   async describeDcdnSecSpecInfoWithOptions(request: DescribeDcdnSecSpecInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSecSpecInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19632,8 +21126,14 @@ export default class Client extends OpenApi {
   async describeDcdnServiceWithOptions(request: DescribeDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19659,7 +21159,10 @@ export default class Client extends OpenApi {
   async describeDcdnStagingIpWithOptions(request: DescribeDcdnStagingIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnStagingIpResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19685,7 +21188,10 @@ export default class Client extends OpenApi {
   async describeDcdnSubListWithOptions(request: DescribeDcdnSubListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnSubListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19711,10 +21217,22 @@ export default class Client extends OpenApi {
   async describeDcdnTagResourcesWithOptions(request: DescribeDcdnTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19740,10 +21258,22 @@ export default class Client extends OpenApi {
   async describeDcdnTopDomainsByFlowWithOptions(request: DescribeDcdnTopDomainsByFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnTopDomainsByFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Limit"] = request.limit;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19769,9 +21299,18 @@ export default class Client extends OpenApi {
   async describeDcdnUserBillHistoryWithOptions(request: DescribeDcdnUserBillHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserBillHistoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19797,9 +21336,18 @@ export default class Client extends OpenApi {
   async describeDcdnUserBillTypeWithOptions(request: DescribeDcdnUserBillTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserBillTypeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19825,19 +21373,58 @@ export default class Client extends OpenApi {
   async describeDcdnUserDomainsWithOptions(request: DescribeDcdnUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeEndTime"] = request.changeEndTime;
-    query["ChangeStartTime"] = request.changeStartTime;
-    query["CheckDomainShow"] = request.checkDomainShow;
-    query["Coverage"] = request.coverage;
-    query["DomainName"] = request.domainName;
-    query["DomainSearchType"] = request.domainSearchType;
-    query["DomainStatus"] = request.domainStatus;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.changeEndTime)) {
+      query["ChangeEndTime"] = request.changeEndTime;
+    }
+
+    if (!Util.isUnset(request.changeStartTime)) {
+      query["ChangeStartTime"] = request.changeStartTime;
+    }
+
+    if (!Util.isUnset(request.checkDomainShow)) {
+      query["CheckDomainShow"] = request.checkDomainShow;
+    }
+
+    if (!Util.isUnset(request.coverage)) {
+      query["Coverage"] = request.coverage;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainSearchType)) {
+      query["DomainSearchType"] = request.domainSearchType;
+    }
+
+    if (!Util.isUnset(request.domainStatus)) {
+      query["DomainStatus"] = request.domainStatus;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19863,13 +21450,34 @@ export default class Client extends OpenApi {
   async describeDcdnUserDomainsByFuncWithOptions(request: DescribeDcdnUserDomainsByFuncRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserDomainsByFuncResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FuncFilter"] = request.funcFilter;
-    query["FuncId"] = request.funcId;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.funcFilter)) {
+      query["FuncFilter"] = request.funcFilter;
+    }
+
+    if (!Util.isUnset(request.funcId)) {
+      query["FuncId"] = request.funcId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19895,8 +21503,14 @@ export default class Client extends OpenApi {
   async describeDcdnUserQuotaWithOptions(request: DescribeDcdnUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserQuotaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19947,9 +21561,18 @@ export default class Client extends OpenApi {
   async describeDcdnUserResourcePackageWithOptions(request: DescribeDcdnUserResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserResourcePackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19975,10 +21598,22 @@ export default class Client extends OpenApi {
   async describeDcdnUserSecDropWithOptions(request: DescribeDcdnUserSecDropRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserSecDropResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Data"] = request.data;
-    query["Metric"] = request.metric;
-    query["OwnerId"] = request.ownerId;
-    query["SecFunc"] = request.secFunc;
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.secFunc)) {
+      query["SecFunc"] = request.secFunc;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20004,16 +21639,46 @@ export default class Client extends OpenApi {
   async describeDcdnUserSecDropByMinuteWithOptions(request: DescribeDcdnUserSecDropByMinuteRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserSecDropByMinuteResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Lang"] = request.lang;
-    query["Object"] = request.object;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RuleName"] = request.ruleName;
-    query["SecFunc"] = request.secFunc;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.object)) {
+      query["Object"] = request.object;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.secFunc)) {
+      query["SecFunc"] = request.secFunc;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20039,7 +21704,10 @@ export default class Client extends OpenApi {
   async describeDcdnUserTagsWithOptions(request: DescribeDcdnUserTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnUserTagsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20065,8 +21733,14 @@ export default class Client extends OpenApi {
   async describeDcdnVerifyContentWithOptions(request: DescribeDcdnVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnVerifyContentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20092,10 +21766,22 @@ export default class Client extends OpenApi {
   async describeDcdnWafDomainWithOptions(request: DescribeDcdnWafDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnWafDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20121,8 +21807,14 @@ export default class Client extends OpenApi {
   async describeDcdnsecServiceWithOptions(request: DescribeDcdnsecServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnsecServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20148,7 +21840,10 @@ export default class Client extends OpenApi {
   async describeRoutineWithOptions(request: DescribeRoutineRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -20180,7 +21875,10 @@ export default class Client extends OpenApi {
   async describeRoutineCanaryEnvsWithOptions(request: DescribeRoutineCanaryEnvsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCanaryEnvsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20206,7 +21904,10 @@ export default class Client extends OpenApi {
   async describeRoutineCodeRevisionWithOptions(request: DescribeRoutineCodeRevisionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineCodeRevisionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
@@ -20242,7 +21943,10 @@ export default class Client extends OpenApi {
   async describeRoutineSpecWithOptions(request: DescribeRoutineSpecRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineSpecResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20268,7 +21972,10 @@ export default class Client extends OpenApi {
   async describeRoutineUserInfoWithOptions(request: DescribeRoutineUserInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRoutineUserInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20294,8 +22001,14 @@ export default class Client extends OpenApi {
   async describeUserDcdnIpaStatusWithOptions(request: DescribeUserDcdnIpaStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDcdnIpaStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20321,8 +22034,14 @@ export default class Client extends OpenApi {
   async describeUserDcdnStatusWithOptions(request: DescribeUserDcdnStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDcdnStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20348,8 +22067,14 @@ export default class Client extends OpenApi {
   async describeUserErStatusWithOptions(request: DescribeUserErStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserErStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20375,8 +22100,14 @@ export default class Client extends OpenApi {
   async describeUserLogserviceStatusWithOptions(request: DescribeUserLogserviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserLogserviceStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20408,7 +22139,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.description)) {
       body["Description"] = request.description;
@@ -20445,14 +22179,54 @@ export default class Client extends OpenApi {
     return await this.editRoutineConfWithOptions(request, runtime);
   }
 
+  async listDcdnEsTemplateInfoWithOptions(request: ListDcdnEsTemplateInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnEsTemplateInfoResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDcdnEsTemplateInfo",
+      version: "2018-01-15",
+      protocol: "HTTP",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDcdnEsTemplateInfoResponse>(await this.callApi(params, req, runtime), new ListDcdnEsTemplateInfoResponse({}));
+  }
+
+  async listDcdnEsTemplateInfo(request: ListDcdnEsTemplateInfoRequest): Promise<ListDcdnEsTemplateInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDcdnEsTemplateInfoWithOptions(request, runtime);
+  }
+
   async listDcdnRealTimeDeliveryProjectWithOptions(request: ListDcdnRealTimeDeliveryProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListDcdnRealTimeDeliveryProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BusinessType"] = request.businessType;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20478,9 +22252,18 @@ export default class Client extends OpenApi {
   async modifyDCdnDomainSchdmByPropertyWithOptions(request: ModifyDCdnDomainSchdmByPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDCdnDomainSchdmByPropertyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["Property"] = request.property;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.property)) {
+      query["Property"] = request.property;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20506,10 +22289,22 @@ export default class Client extends OpenApi {
   async openDcdnServiceWithOptions(request: OpenDcdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenDcdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BillType"] = request.billType;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["WebsocketBillType"] = request.websocketBillType;
+    if (!Util.isUnset(request.billType)) {
+      query["BillType"] = request.billType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.websocketBillType)) {
+      query["WebsocketBillType"] = request.websocketBillType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20535,10 +22330,22 @@ export default class Client extends OpenApi {
   async preloadDcdnObjectCachesWithOptions(request: PreloadDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<PreloadDcdnObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["ObjectPath"] = request.objectPath;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20564,9 +22371,18 @@ export default class Client extends OpenApi {
   async publishDcdnStagingConfigToProductionWithOptions(request: PublishDcdnStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishDcdnStagingConfigToProductionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionName"] = request.functionName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20598,7 +22414,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.envsShrink)) {
       body["Envs"] = request.envsShrink;
@@ -20638,10 +22457,22 @@ export default class Client extends OpenApi {
   async refreshDcdnObjectCachesWithOptions(request: RefreshDcdnObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshDcdnObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ObjectPath"] = request.objectPath;
-    query["ObjectType"] = request.objectType;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20667,8 +22498,14 @@ export default class Client extends OpenApi {
   async rollbackDcdnStagingConfigWithOptions(request: RollbackDcdnStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<RollbackDcdnStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20694,14 +22531,38 @@ export default class Client extends OpenApi {
   async setDcdnConfigOfVersionWithOptions(request: SetDcdnConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnConfigOfVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["FunctionArgs"] = request.functionArgs;
-    query["FunctionId"] = request.functionId;
-    query["FunctionName"] = request.functionName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.functionArgs)) {
+      query["FunctionArgs"] = request.functionArgs;
+    }
+
+    if (!Util.isUnset(request.functionId)) {
+      query["FunctionId"] = request.functionId;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20727,9 +22588,18 @@ export default class Client extends OpenApi {
   async setDcdnDomainCSRCertificateWithOptions(request: SetDcdnDomainCSRCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainCSRCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ServerCertificate"] = request.serverCertificate;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      query["ServerCertificate"] = request.serverCertificate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20755,16 +22625,46 @@ export default class Client extends OpenApi {
   async setDcdnDomainCertificateWithOptions(request: SetDcdnDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["CertType"] = request.certType;
-    query["DomainName"] = request.domainName;
-    query["ForceSet"] = request.forceSet;
-    query["OwnerId"] = request.ownerId;
-    query["Region"] = request.region;
-    query["SSLPri"] = request.SSLPri;
-    query["SSLProtocol"] = request.SSLProtocol;
-    query["SSLPub"] = request.SSLPub;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.forceSet)) {
+      query["ForceSet"] = request.forceSet;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.SSLPri)) {
+      query["SSLPri"] = request.SSLPri;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20790,11 +22690,26 @@ export default class Client extends OpenApi {
   async setDcdnDomainSMCertificateWithOptions(request: SetDcdnDomainSMCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainSMCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertIdentifier"] = request.certIdentifier;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SSLProtocol"] = request.SSLProtocol;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20820,9 +22735,18 @@ export default class Client extends OpenApi {
   async setDcdnDomainStagingConfigWithOptions(request: SetDcdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnDomainStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["Functions"] = request.functions;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functions)) {
+      query["Functions"] = request.functions;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20848,7 +22772,10 @@ export default class Client extends OpenApi {
   async setDcdnFullDomainsBlockIPWithOptions(request: SetDcdnFullDomainsBlockIPRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnFullDomainsBlockIPResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.blockInterval)) {
       body["BlockInterval"] = request.blockInterval;
@@ -20888,11 +22815,26 @@ export default class Client extends OpenApi {
   async setDcdnUserConfigWithOptions(request: SetDcdnUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDcdnUserConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Configs"] = request.configs;
-    query["FunctionId"] = request.functionId;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configs)) {
+      query["Configs"] = request.configs;
+    }
+
+    if (!Util.isUnset(request.functionId)) {
+      query["FunctionId"] = request.functionId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20924,7 +22866,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.subdomainsShrink)) {
       body["Subdomains"] = request.subdomainsShrink;
@@ -20956,9 +22901,18 @@ export default class Client extends OpenApi {
   async startDcdnDomainWithOptions(request: StartDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20984,9 +22938,18 @@ export default class Client extends OpenApi {
   async startDcdnIpaDomainWithOptions(request: StartDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21012,9 +22975,18 @@ export default class Client extends OpenApi {
   async stopDcdnDomainWithOptions(request: StopDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21040,9 +23012,18 @@ export default class Client extends OpenApi {
   async stopDcdnIpaDomainWithOptions(request: StopDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21068,10 +23049,22 @@ export default class Client extends OpenApi {
   async tagDcdnResourcesWithOptions(request: TagDcdnResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagDcdnResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21097,11 +23090,26 @@ export default class Client extends OpenApi {
   async untagDcdnResourcesWithOptions(request: UntagDcdnResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagDcdnResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["All"] = request.all;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["TagKey"] = request.tagKey;
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21127,7 +23135,10 @@ export default class Client extends OpenApi {
   async updateDcdnDeliverTaskWithOptions(request: UpdateDcdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.deliver)) {
       body["Deliver"] = request.deliver;
@@ -21179,12 +23190,30 @@ export default class Client extends OpenApi {
   async updateDcdnDomainWithOptions(request: UpdateDcdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21210,12 +23239,30 @@ export default class Client extends OpenApi {
   async updateDcdnIpaDomainWithOptions(request: UpdateDcdnIpaDomainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnIpaDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21241,7 +23288,10 @@ export default class Client extends OpenApi {
   async updateDcdnSLSRealtimeLogDeliveryWithOptions(request: UpdateDcdnSLSRealtimeLogDeliveryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnSLSRealtimeLogDeliveryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.dataCenter)) {
       body["DataCenter"] = request.dataCenter;
@@ -21297,7 +23347,10 @@ export default class Client extends OpenApi {
   async updateDcdnSubTaskWithOptions(request: UpdateDcdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDcdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.domainName)) {
       body["DomainName"] = request.domainName;
@@ -21366,7 +23419,10 @@ export default class Client extends OpenApi {
   async uploadRoutineCodeWithOptions(request: UploadRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadRoutineCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.codeDescription)) {
       body["CodeDescription"] = request.codeDescription;
@@ -21402,7 +23458,10 @@ export default class Client extends OpenApi {
   async uploadStagingRoutineCodeWithOptions(request: UploadStagingRoutineCodeRequest, runtime: $Util.RuntimeOptions): Promise<UploadStagingRoutineCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.codeDescription)) {
       body["CodeDescription"] = request.codeDescription;
@@ -21438,9 +23497,18 @@ export default class Client extends OpenApi {
   async verifyDcdnDomainOwnerWithOptions(request: VerifyDcdnDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDcdnDomainOwnerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["VerifyType"] = request.verifyType;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
