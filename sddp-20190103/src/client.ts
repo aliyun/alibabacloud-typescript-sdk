@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -283,6 +284,7 @@ export class CreateRuleResponse extends $tea.Model {
 export class CreateScanTaskRequest extends $tea.Model {
   dataLimitId?: number;
   intervalDay?: number;
+  lang?: string;
   ossScanPath?: string;
   resourceType?: number;
   runHour?: number;
@@ -295,6 +297,7 @@ export class CreateScanTaskRequest extends $tea.Model {
     return {
       dataLimitId: 'DataLimitId',
       intervalDay: 'IntervalDay',
+      lang: 'Lang',
       ossScanPath: 'OssScanPath',
       resourceType: 'ResourceType',
       runHour: 'RunHour',
@@ -310,6 +313,7 @@ export class CreateScanTaskRequest extends $tea.Model {
     return {
       dataLimitId: 'number',
       intervalDay: 'number',
+      lang: 'string',
       ossScanPath: 'string',
       resourceType: 'number',
       runHour: 'number',
@@ -362,6 +366,69 @@ export class CreateScanTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateScanTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleRequest extends $tea.Model {
+  lang?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleResponseBody extends $tea.Model {
+  hasPermission?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasPermission: 'HasPermission',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasPermission: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSlrRoleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSlrRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSlrRoleResponseBody,
     };
   }
 
@@ -2385,10 +2452,12 @@ export class DisableUserConfigResponse extends $tea.Model {
 
 export class ExecDatamaskRequest extends $tea.Model {
   data?: string;
+  lang?: string;
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      lang: 'Lang',
       templateId: 'TemplateId',
     };
   }
@@ -2396,6 +2465,7 @@ export class ExecDatamaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      lang: 'string',
       templateId: 'number',
     };
   }
@@ -2798,6 +2868,69 @@ export class ModifyEventTypeStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyEventTypeStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusRequest extends $tea.Model {
+  lang?: string;
+  reportTaskStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      lang: 'Lang',
+      reportTaskStatus: 'ReportTaskStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lang: 'string',
+      reportTaskStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyReportTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyReportTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyReportTaskStatusResponseBody,
     };
   }
 
@@ -4639,11 +4772,11 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
 export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
   accessKeyId?: string;
   authed?: boolean;
-  buyed?: boolean;
   chargeType?: string;
   instanceId?: string;
   instanceNum?: number;
   labStatus?: number;
+  purchased?: boolean;
   remainDays?: number;
   trail?: boolean;
   useInstanceNum?: number;
@@ -4652,11 +4785,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
     return {
       accessKeyId: 'AccessKeyId',
       authed: 'Authed',
-      buyed: 'Buyed',
       chargeType: 'ChargeType',
       instanceId: 'InstanceId',
       instanceNum: 'InstanceNum',
       labStatus: 'LabStatus',
+      purchased: 'Purchased',
       remainDays: 'RemainDays',
       trail: 'Trail',
       useInstanceNum: 'UseInstanceNum',
@@ -4668,11 +4801,11 @@ export class DescribeUserStatusResponseBodyUserStatus extends $tea.Model {
     return {
       accessKeyId: 'string',
       authed: 'boolean',
-      buyed: 'boolean',
       chargeType: 'string',
       instanceId: 'string',
       instanceNum: 'number',
       labStatus: 'number',
+      purchased: 'boolean',
       remainDays: 'number',
       trail: 'boolean',
       useInstanceNum: 'number',
@@ -4713,10 +4846,38 @@ export default class Client extends OpenApi {
 
   async createConfigWithOptions(request: CreateConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateConfigResponse>(await this.doRPCRequest("CreateConfig", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateConfig",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConfigResponse>(await this.callApi(params, req, runtime), new CreateConfigResponse({}));
   }
 
   async createConfig(request: CreateConfigRequest): Promise<CreateConfigResponse> {
@@ -4726,10 +4887,74 @@ export default class Client extends OpenApi {
 
   async createDataLimitWithOptions(request: CreateDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataLimitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.autoScan)) {
+      query["AutoScan"] = request.autoScan;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.eventStatus)) {
+      query["EventStatus"] = request.eventStatus;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.logStoreDay)) {
+      query["LogStoreDay"] = request.logStoreDay;
+    }
+
+    if (!Util.isUnset(request.ocrStatus)) {
+      query["OcrStatus"] = request.ocrStatus;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateDataLimitResponse>(await this.doRPCRequest("CreateDataLimit", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDataLimitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDataLimit",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataLimitResponse>(await this.callApi(params, req, runtime), new CreateDataLimitResponse({}));
   }
 
   async createDataLimit(request: CreateDataLimitRequest): Promise<CreateDataLimitResponse> {
@@ -4739,10 +4964,78 @@ export default class Client extends OpenApi {
 
   async createRuleWithOptions(request: CreateRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.contentCategory)) {
+      query["ContentCategory"] = request.contentCategory;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.statExpress)) {
+      query["StatExpress"] = request.statExpress;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.warnLevel)) {
+      query["WarnLevel"] = request.warnLevel;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRuleResponse>(await this.doRPCRequest("CreateRule", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRule",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRuleResponse>(await this.callApi(params, req, runtime), new CreateRuleResponse({}));
   }
 
   async createRule(request: CreateRuleRequest): Promise<CreateRuleResponse> {
@@ -4752,10 +5045,66 @@ export default class Client extends OpenApi {
 
   async createScanTaskWithOptions(request: CreateScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateScanTaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataLimitId)) {
+      query["DataLimitId"] = request.dataLimitId;
+    }
+
+    if (!Util.isUnset(request.intervalDay)) {
+      query["IntervalDay"] = request.intervalDay;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.ossScanPath)) {
+      query["OssScanPath"] = request.ossScanPath;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.runHour)) {
+      query["RunHour"] = request.runHour;
+    }
+
+    if (!Util.isUnset(request.runMinute)) {
+      query["RunMinute"] = request.runMinute;
+    }
+
+    if (!Util.isUnset(request.scanRange)) {
+      query["ScanRange"] = request.scanRange;
+    }
+
+    if (!Util.isUnset(request.scanRangeContent)) {
+      query["ScanRangeContent"] = request.scanRangeContent;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.taskUserName)) {
+      query["TaskUserName"] = request.taskUserName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateScanTaskResponse>(await this.doRPCRequest("CreateScanTask", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new CreateScanTaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateScanTask",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateScanTaskResponse>(await this.callApi(params, req, runtime), new CreateScanTaskResponse({}));
   }
 
   async createScanTask(request: CreateScanTaskRequest): Promise<CreateScanTaskResponse> {
@@ -4763,12 +5112,61 @@ export default class Client extends OpenApi {
     return await this.createScanTaskWithOptions(request, runtime);
   }
 
+  async createSlrRoleWithOptions(request: CreateSlrRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSlrRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSlrRole",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSlrRoleResponse>(await this.callApi(params, req, runtime), new CreateSlrRoleResponse({}));
+  }
+
+  async createSlrRole(request: CreateSlrRoleRequest): Promise<CreateSlrRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSlrRoleWithOptions(request, runtime);
+  }
+
   async deleteDataLimitWithOptions(request: DeleteDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataLimitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDataLimitResponse>(await this.doRPCRequest("DeleteDataLimit", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDataLimitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDataLimit",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataLimitResponse>(await this.callApi(params, req, runtime), new DeleteDataLimitResponse({}));
   }
 
   async deleteDataLimit(request: DeleteDataLimitRequest): Promise<DeleteDataLimitResponse> {
@@ -4778,10 +5176,30 @@ export default class Client extends OpenApi {
 
   async deleteRuleWithOptions(request: DeleteRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteRuleResponse>(await this.doRPCRequest("DeleteRule", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRule",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRuleResponse>(await this.callApi(params, req, runtime), new DeleteRuleResponse({}));
   }
 
   async deleteRule(request: DeleteRuleRequest): Promise<DeleteRuleResponse> {
@@ -4791,10 +5209,42 @@ export default class Client extends OpenApi {
 
   async describeCategoryTemplateRuleListWithOptions(request: DescribeCategoryTemplateRuleListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryTemplateRuleListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCategoryTemplateRuleListResponse>(await this.doRPCRequest("DescribeCategoryTemplateRuleList", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCategoryTemplateRuleList",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCategoryTemplateRuleListResponse>(await this.callApi(params, req, runtime), new DescribeCategoryTemplateRuleListResponse({}));
   }
 
   async describeCategoryTemplateRuleList(request: DescribeCategoryTemplateRuleListRequest): Promise<DescribeCategoryTemplateRuleListResponse> {
@@ -4804,10 +5254,74 @@ export default class Client extends OpenApi {
 
   async describeColumnsWithOptions(request: DescribeColumnsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeColumnsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.sensLevelName)) {
+      query["SensLevelName"] = request.sensLevelName;
+    }
+
+    if (!Util.isUnset(request.tableId)) {
+      query["TableId"] = request.tableId;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeColumnsResponse>(await this.doRPCRequest("DescribeColumns", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeColumnsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeColumns",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeColumnsResponse>(await this.callApi(params, req, runtime), new DescribeColumnsResponse({}));
   }
 
   async describeColumns(request: DescribeColumnsRequest): Promise<DescribeColumnsResponse> {
@@ -4817,10 +5331,26 @@ export default class Client extends OpenApi {
 
   async describeConfigsWithOptions(request: DescribeConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeConfigsResponse>(await this.doRPCRequest("DescribeConfigs", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeConfigsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeConfigs",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeConfigsResponse>(await this.callApi(params, req, runtime), new DescribeConfigsResponse({}));
   }
 
   async describeConfigs(request: DescribeConfigsRequest): Promise<DescribeConfigsResponse> {
@@ -4830,10 +5360,50 @@ export default class Client extends OpenApi {
 
   async describeDataAssetsWithOptions(request: DescribeDataAssetsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataAssetsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.rangeId)) {
+      query["RangeId"] = request.rangeId;
+    }
+
+    if (!Util.isUnset(request.riskLevels)) {
+      query["RiskLevels"] = request.riskLevels;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataAssetsResponse>(await this.doRPCRequest("DescribeDataAssets", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataAssetsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataAssets",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataAssetsResponse>(await this.callApi(params, req, runtime), new DescribeDataAssetsResponse({}));
   }
 
   async describeDataAssets(request: DescribeDataAssetsRequest): Promise<DescribeDataAssetsResponse> {
@@ -4843,10 +5413,34 @@ export default class Client extends OpenApi {
 
   async describeDataLimitDetailWithOptions(request: DescribeDataLimitDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataLimitDetailResponse>(await this.doRPCRequest("DescribeDataLimitDetail", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataLimitDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataLimitDetail",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataLimitDetailResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitDetailResponse({}));
   }
 
   async describeDataLimitDetail(request: DescribeDataLimitDetailRequest): Promise<DescribeDataLimitDetailResponse> {
@@ -4856,10 +5450,34 @@ export default class Client extends OpenApi {
 
   async describeDataLimitSetWithOptions(request: DescribeDataLimitSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitSetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataLimitSetResponse>(await this.doRPCRequest("DescribeDataLimitSet", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataLimitSetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataLimitSet",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataLimitSetResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitSetResponse({}));
   }
 
   async describeDataLimitSet(request: DescribeDataLimitSetRequest): Promise<DescribeDataLimitSetResponse> {
@@ -4869,10 +5487,74 @@ export default class Client extends OpenApi {
 
   async describeDataLimitsWithOptions(request: DescribeDataLimitsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataLimitsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.checkStatus)) {
+      query["CheckStatus"] = request.checkStatus;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.datamaskStatus)) {
+      query["DatamaskStatus"] = request.datamaskStatus;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataLimitsResponse>(await this.doRPCRequest("DescribeDataLimits", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataLimitsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataLimits",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataLimitsResponse>(await this.callApi(params, req, runtime), new DescribeDataLimitsResponse({}));
   }
 
   async describeDataLimits(request: DescribeDataLimitsRequest): Promise<DescribeDataLimitsResponse> {
@@ -4882,10 +5564,66 @@ export default class Client extends OpenApi {
 
   async describeDataMaskingRunHistoryWithOptions(request: DescribeDataMaskingRunHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingRunHistoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dstType)) {
+      query["DstType"] = request.dstType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.mainProcessId)) {
+      query["MainProcessId"] = request.mainProcessId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.srcTableName)) {
+      query["SrcTableName"] = request.srcTableName;
+    }
+
+    if (!Util.isUnset(request.srcType)) {
+      query["SrcType"] = request.srcType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataMaskingRunHistoryResponse>(await this.doRPCRequest("DescribeDataMaskingRunHistory", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataMaskingRunHistory",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataMaskingRunHistoryResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingRunHistoryResponse({}));
   }
 
   async describeDataMaskingRunHistory(request: DescribeDataMaskingRunHistoryRequest): Promise<DescribeDataMaskingRunHistoryResponse> {
@@ -4895,10 +5633,50 @@ export default class Client extends OpenApi {
 
   async describeDataMaskingTasksWithOptions(request: DescribeDataMaskingTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDataMaskingTasksResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dstType)) {
+      query["DstType"] = request.dstType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDataMaskingTasksResponse>(await this.doRPCRequest("DescribeDataMaskingTasks", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDataMaskingTasksResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDataMaskingTasks",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDataMaskingTasksResponse>(await this.callApi(params, req, runtime), new DescribeDataMaskingTasksResponse({}));
   }
 
   async describeDataMaskingTasks(request: DescribeDataMaskingTasksRequest): Promise<DescribeDataMaskingTasksResponse> {
@@ -4908,10 +5686,30 @@ export default class Client extends OpenApi {
 
   async describeEventDetailWithOptions(request: DescribeEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEventDetailResponse>(await this.doRPCRequest("DescribeEventDetail", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEventDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEventDetail",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventDetailResponse>(await this.callApi(params, req, runtime), new DescribeEventDetailResponse({}));
   }
 
   async describeEventDetail(request: DescribeEventDetailRequest): Promise<DescribeEventDetailResponse> {
@@ -4921,10 +5719,38 @@ export default class Client extends OpenApi {
 
   async describeEventTypesWithOptions(request: DescribeEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventTypesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.parentTypeId)) {
+      query["ParentTypeId"] = request.parentTypeId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEventTypesResponse>(await this.doRPCRequest("DescribeEventTypes", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEventTypesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEventTypes",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventTypesResponse>(await this.callApi(params, req, runtime), new DescribeEventTypesResponse({}));
   }
 
   async describeEventTypes(request: DescribeEventTypesRequest): Promise<DescribeEventTypesResponse> {
@@ -4934,10 +5760,82 @@ export default class Client extends OpenApi {
 
   async describeEventsWithOptions(request: DescribeEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEventsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.dealUserId)) {
+      query["DealUserId"] = request.dealUserId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.subTypeCode)) {
+      query["SubTypeCode"] = request.subTypeCode;
+    }
+
+    if (!Util.isUnset(request.targetProductCode)) {
+      query["TargetProductCode"] = request.targetProductCode;
+    }
+
+    if (!Util.isUnset(request.typeCode)) {
+      query["TypeCode"] = request.typeCode;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEventsResponse>(await this.doRPCRequest("DescribeEvents", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEventsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEvents",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
   }
 
   async describeEvents(request: DescribeEventsRequest): Promise<DescribeEventsResponse> {
@@ -4947,10 +5845,50 @@ export default class Client extends OpenApi {
 
   async describeInstanceSourcesWithOptions(request: DescribeInstanceSourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstanceSourcesResponse>(await this.doRPCRequest("DescribeInstanceSources", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstanceSourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSources",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSourcesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSourcesResponse({}));
   }
 
   async describeInstanceSources(request: DescribeInstanceSourcesRequest): Promise<DescribeInstanceSourcesResponse> {
@@ -4960,10 +5898,62 @@ export default class Client extends OpenApi {
 
   async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.featureType)) {
+      query["FeatureType"] = request.featureType;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeInstancesResponse>(await this.doRPCRequest("DescribeInstances", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeInstancesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeInstances",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
   }
 
   async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
@@ -4973,10 +5963,30 @@ export default class Client extends OpenApi {
 
   async describeOssObjectDetailWithOptions(request: DescribeOssObjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectDetailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeOssObjectDetailResponse>(await this.doRPCRequest("DescribeOssObjectDetail", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssObjectDetailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeOssObjectDetail",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssObjectDetailResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectDetailResponse({}));
   }
 
   async describeOssObjectDetail(request: DescribeOssObjectDetailRequest): Promise<DescribeOssObjectDetailResponse> {
@@ -4986,10 +5996,62 @@ export default class Client extends OpenApi {
 
   async describeOssObjectsWithOptions(request: DescribeOssObjectsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOssObjectsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.lastScanTimeEnd)) {
+      query["LastScanTimeEnd"] = request.lastScanTimeEnd;
+    }
+
+    if (!Util.isUnset(request.lastScanTimeStart)) {
+      query["LastScanTimeStart"] = request.lastScanTimeStart;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeOssObjectsResponse>(await this.doRPCRequest("DescribeOssObjects", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeOssObjectsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeOssObjects",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOssObjectsResponse>(await this.callApi(params, req, runtime), new DescribeOssObjectsResponse({}));
   }
 
   async describeOssObjects(request: DescribeOssObjectsRequest): Promise<DescribeOssObjectsResponse> {
@@ -4999,10 +6061,54 @@ export default class Client extends OpenApi {
 
   async describePackagesWithOptions(request: DescribePackagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackagesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePackagesResponse>(await this.doRPCRequest("DescribePackages", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePackagesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePackages",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePackagesResponse>(await this.callApi(params, req, runtime), new DescribePackagesResponse({}));
   }
 
   async describePackages(request: DescribePackagesRequest): Promise<DescribePackagesResponse> {
@@ -5012,10 +6118,26 @@ export default class Client extends OpenApi {
 
   async describeRiskLevelsWithOptions(request: DescribeRiskLevelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRiskLevelsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRiskLevelsResponse>(await this.doRPCRequest("DescribeRiskLevels", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRiskLevelsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRiskLevels",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRiskLevelsResponse>(await this.callApi(params, req, runtime), new DescribeRiskLevelsResponse({}));
   }
 
   async describeRiskLevels(request: DescribeRiskLevelsRequest): Promise<DescribeRiskLevelsResponse> {
@@ -5025,10 +6147,82 @@ export default class Client extends OpenApi {
 
   async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.contentCategory)) {
+      query["ContentCategory"] = request.contentCategory;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.customType)) {
+      query["CustomType"] = request.customType;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.keywordCompatible)) {
+      query["KeywordCompatible"] = request.keywordCompatible;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.warnLevel)) {
+      query["WarnLevel"] = request.warnLevel;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRulesResponse>(await this.doRPCRequest("DescribeRules", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRules",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
   }
 
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
@@ -5038,10 +6232,66 @@ export default class Client extends OpenApi {
 
   async describeTablesWithOptions(request: DescribeTablesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTablesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.packageId)) {
+      query["PackageId"] = request.packageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTablesResponse>(await this.doRPCRequest("DescribeTables", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTablesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTables",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTablesResponse>(await this.callApi(params, req, runtime), new DescribeTablesResponse({}));
   }
 
   async describeTables(request: DescribeTablesRequest): Promise<DescribeTablesResponse> {
@@ -5051,10 +6301,26 @@ export default class Client extends OpenApi {
 
   async describeUserStatusWithOptions(request: DescribeUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeUserStatusResponse>(await this.doRPCRequest("DescribeUserStatus", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeUserStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeUserStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserStatusResponse>(await this.callApi(params, req, runtime), new DescribeUserStatusResponse({}));
   }
 
   async describeUserStatus(request: DescribeUserStatusRequest): Promise<DescribeUserStatusResponse> {
@@ -5064,10 +6330,30 @@ export default class Client extends OpenApi {
 
   async disableUserConfigWithOptions(request: DisableUserConfigRequest, runtime: $Util.RuntimeOptions): Promise<DisableUserConfigResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableUserConfigResponse>(await this.doRPCRequest("DisableUserConfig", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new DisableUserConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableUserConfig",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableUserConfigResponse>(await this.callApi(params, req, runtime), new DisableUserConfigResponse({}));
   }
 
   async disableUserConfig(request: DisableUserConfigRequest): Promise<DisableUserConfigResponse> {
@@ -5077,10 +6363,34 @@ export default class Client extends OpenApi {
 
   async execDatamaskWithOptions(request: ExecDatamaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecDatamaskResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ExecDatamaskResponse>(await this.doRPCRequest("ExecDatamask", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ExecDatamaskResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExecDatamask",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecDatamaskResponse>(await this.callApi(params, req, runtime), new ExecDatamaskResponse({}));
   }
 
   async execDatamask(request: ExecDatamaskRequest): Promise<ExecDatamaskResponse> {
@@ -5090,10 +6400,30 @@ export default class Client extends OpenApi {
 
   async manualTriggerMaskingProcessWithOptions(request: ManualTriggerMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<ManualTriggerMaskingProcessResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ManualTriggerMaskingProcessResponse>(await this.doRPCRequest("ManualTriggerMaskingProcess", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ManualTriggerMaskingProcessResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ManualTriggerMaskingProcess",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ManualTriggerMaskingProcessResponse>(await this.callApi(params, req, runtime), new ManualTriggerMaskingProcessResponse({}));
   }
 
   async manualTriggerMaskingProcess(request: ManualTriggerMaskingProcessRequest): Promise<ManualTriggerMaskingProcessResponse> {
@@ -5103,10 +6433,70 @@ export default class Client extends OpenApi {
 
   async modifyDataLimitWithOptions(request: ModifyDataLimitRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDataLimitResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.autoScan)) {
+      query["AutoScan"] = request.autoScan;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.logStoreDay)) {
+      query["LogStoreDay"] = request.logStoreDay;
+    }
+
+    if (!Util.isUnset(request.modifyPassword)) {
+      query["ModifyPassword"] = request.modifyPassword;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceRegionId)) {
+      query["ServiceRegionId"] = request.serviceRegionId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDataLimitResponse>(await this.doRPCRequest("ModifyDataLimit", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDataLimitResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDataLimit",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDataLimitResponse>(await this.callApi(params, req, runtime), new ModifyDataLimitResponse({}));
   }
 
   async modifyDataLimit(request: ModifyDataLimitRequest): Promise<ModifyDataLimitResponse> {
@@ -5116,10 +6506,34 @@ export default class Client extends OpenApi {
 
   async modifyDefaultLevelWithOptions(request: ModifyDefaultLevelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDefaultLevelResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultId)) {
+      query["DefaultId"] = request.defaultId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.sensitiveIds)) {
+      query["SensitiveIds"] = request.sensitiveIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyDefaultLevelResponse>(await this.doRPCRequest("ModifyDefaultLevel", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyDefaultLevelResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyDefaultLevel",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDefaultLevelResponse>(await this.callApi(params, req, runtime), new ModifyDefaultLevelResponse({}));
   }
 
   async modifyDefaultLevel(request: ModifyDefaultLevelRequest): Promise<ModifyDefaultLevelResponse> {
@@ -5129,10 +6543,42 @@ export default class Client extends OpenApi {
 
   async modifyEventStatusWithOptions(request: ModifyEventStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backed)) {
+      query["Backed"] = request.backed;
+    }
+
+    if (!Util.isUnset(request.dealReason)) {
+      query["DealReason"] = request.dealReason;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyEventStatusResponse>(await this.doRPCRequest("ModifyEventStatus", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyEventStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyEventStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyEventStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventStatusResponse({}));
   }
 
   async modifyEventStatus(request: ModifyEventStatusRequest): Promise<ModifyEventStatusResponse> {
@@ -5142,10 +6588,30 @@ export default class Client extends OpenApi {
 
   async modifyEventTypeStatusWithOptions(request: ModifyEventTypeStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEventTypeStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.subTypeIds)) {
+      query["SubTypeIds"] = request.subTypeIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyEventTypeStatusResponse>(await this.doRPCRequest("ModifyEventTypeStatus", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyEventTypeStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyEventTypeStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyEventTypeStatusResponse>(await this.callApi(params, req, runtime), new ModifyEventTypeStatusResponse({}));
   }
 
   async modifyEventTypeStatus(request: ModifyEventTypeStatusRequest): Promise<ModifyEventTypeStatusResponse> {
@@ -5153,12 +6619,97 @@ export default class Client extends OpenApi {
     return await this.modifyEventTypeStatusWithOptions(request, runtime);
   }
 
+  async modifyReportTaskStatusWithOptions(request: ModifyReportTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyReportTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.reportTaskStatus)) {
+      query["ReportTaskStatus"] = request.reportTaskStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyReportTaskStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyReportTaskStatusResponse>(await this.callApi(params, req, runtime), new ModifyReportTaskStatusResponse({}));
+  }
+
+  async modifyReportTaskStatus(request: ModifyReportTaskStatusRequest): Promise<ModifyReportTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyReportTaskStatusWithOptions(request, runtime);
+  }
+
   async modifyRuleWithOptions(request: ModifyRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.riskLevelId)) {
+      query["RiskLevelId"] = request.riskLevelId;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      query["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.warnLevel)) {
+      query["WarnLevel"] = request.warnLevel;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyRuleResponse>(await this.doRPCRequest("ModifyRule", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyRule",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRuleResponse>(await this.callApi(params, req, runtime), new ModifyRuleResponse({}));
   }
 
   async modifyRule(request: ModifyRuleRequest): Promise<ModifyRuleResponse> {
@@ -5168,10 +6719,38 @@ export default class Client extends OpenApi {
 
   async modifyRuleStatusWithOptions(request: ModifyRuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRuleStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyRuleStatusResponse>(await this.doRPCRequest("ModifyRuleStatus", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyRuleStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyRuleStatus",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyRuleStatusResponse({}));
   }
 
   async modifyRuleStatus(request: ModifyRuleStatusRequest): Promise<ModifyRuleStatusResponse> {
@@ -5181,10 +6760,30 @@ export default class Client extends OpenApi {
 
   async stopMaskingProcessWithOptions(request: StopMaskingProcessRequest, runtime: $Util.RuntimeOptions): Promise<StopMaskingProcessResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopMaskingProcessResponse>(await this.doRPCRequest("StopMaskingProcess", "2019-01-03", "HTTPS", "POST", "AK", "json", req, runtime), new StopMaskingProcessResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopMaskingProcess",
+      version: "2019-01-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopMaskingProcessResponse>(await this.callApi(params, req, runtime), new StopMaskingProcessResponse({}));
   }
 
   async stopMaskingProcess(request: StopMaskingProcessRequest): Promise<StopMaskingProcessResponse> {
