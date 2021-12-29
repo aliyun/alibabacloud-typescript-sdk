@@ -1983,10 +1983,14 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
 }
 
 export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  instanceTypeFamily?: string;
+  OSName?: string;
   label?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceTypeFamily: 'InstanceTypeFamily',
+      OSName: 'OSName',
       label: 'label',
       value: 'value',
     };
@@ -1994,6 +1998,8 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      instanceTypeFamily: 'string',
+      OSName: 'string',
       label: 'string',
       value: 'string',
     };
@@ -2005,14 +2011,18 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
 }
 
 export class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
+  instanceTypeFamily?: string;
   mountPoint?: string;
   mountedTime?: string;
+  OSName?: string;
   label?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceTypeFamily: 'InstanceTypeFamily',
       mountPoint: 'MountPoint',
       mountedTime: 'MountedTime',
+      OSName: 'OSName',
       label: 'label',
       value: 'value',
     };
@@ -2020,8 +2030,10 @@ export class ListDbfsAttachedEcsInstancesResponseBodyEcsLabelInfo extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      instanceTypeFamily: 'string',
       mountPoint: 'string',
       mountedTime: 'string',
+      OSName: 'string',
       label: 'string',
       value: 'string',
     };
@@ -2152,10 +2164,22 @@ export default class Client extends OpenApi {
   async addTagsBatchWithOptions(request: AddTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsBatchResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DbfsList"] = request.dbfsList;
-    query["RegionId"] = request.regionId;
-    query["Tags"] = request.tags;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dbfsList)) {
+      query["DbfsList"] = request.dbfsList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2181,12 +2205,30 @@ export default class Client extends OpenApi {
   async attachDbfsWithOptions(request: AttachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<AttachDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AttachMode"] = request.attachMode;
-    query["AttachPoint"] = request.attachPoint;
-    query["ECSInstanceId"] = request.ECSInstanceId;
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
-    query["ServerUrl"] = request.serverUrl;
+    if (!Util.isUnset(request.attachMode)) {
+      query["AttachMode"] = request.attachMode;
+    }
+
+    if (!Util.isUnset(request.attachPoint)) {
+      query["AttachPoint"] = request.attachPoint;
+    }
+
+    if (!Util.isUnset(request.ECSInstanceId)) {
+      query["ECSInstanceId"] = request.ECSInstanceId;
+    }
+
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serverUrl)) {
+      query["ServerUrl"] = request.serverUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2212,21 +2254,66 @@ export default class Client extends OpenApi {
   async createDbfsWithOptions(request: CreateDbfsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Category"] = request.category;
-    query["ClientToken"] = request.clientToken;
-    query["DeleteSnapshot"] = request.deleteSnapshot;
-    query["EnableRaid"] = request.enableRaid;
-    query["Encryption"] = request.encryption;
-    query["FsName"] = request.fsName;
-    query["InstanceType"] = request.instanceType;
-    query["KMSKeyId"] = request.KMSKeyId;
-    query["PerformanceLevel"] = request.performanceLevel;
-    query["RaidStripeUnitNumber"] = request.raidStripeUnitNumber;
-    query["RegionId"] = request.regionId;
-    query["SizeG"] = request.sizeG;
-    query["SnapshotId"] = request.snapshotId;
-    query["UsedScene"] = request.usedScene;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deleteSnapshot)) {
+      query["DeleteSnapshot"] = request.deleteSnapshot;
+    }
+
+    if (!Util.isUnset(request.enableRaid)) {
+      query["EnableRaid"] = request.enableRaid;
+    }
+
+    if (!Util.isUnset(request.encryption)) {
+      query["Encryption"] = request.encryption;
+    }
+
+    if (!Util.isUnset(request.fsName)) {
+      query["FsName"] = request.fsName;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.KMSKeyId)) {
+      query["KMSKeyId"] = request.KMSKeyId;
+    }
+
+    if (!Util.isUnset(request.performanceLevel)) {
+      query["PerformanceLevel"] = request.performanceLevel;
+    }
+
+    if (!Util.isUnset(request.raidStripeUnitNumber)) {
+      query["RaidStripeUnitNumber"] = request.raidStripeUnitNumber;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sizeG)) {
+      query["SizeG"] = request.sizeG;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.usedScene)) {
+      query["UsedScene"] = request.usedScene;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2252,8 +2339,14 @@ export default class Client extends OpenApi {
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2279,12 +2372,30 @@ export default class Client extends OpenApi {
   async createSnapshotWithOptions(request: CreateSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
-    query["RetentionDays"] = request.retentionDays;
-    query["SnapshotName"] = request.snapshotName;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      query["SnapshotName"] = request.snapshotName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2310,8 +2421,14 @@ export default class Client extends OpenApi {
   async deleteDbfsWithOptions(request: DeleteDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2337,9 +2454,18 @@ export default class Client extends OpenApi {
   async deleteSnapshotWithOptions(request: DeleteSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Force"] = request.force;
-    query["RegionId"] = request.regionId;
-    query["SnapshotId"] = request.snapshotId;
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2365,9 +2491,18 @@ export default class Client extends OpenApi {
   async deleteTagsBatchWithOptions(request: DeleteTagsBatchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTagsBatchResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DbfsList"] = request.dbfsList;
-    query["RegionId"] = request.regionId;
-    query["Tags"] = request.tags;
+    if (!Util.isUnset(request.dbfsList)) {
+      query["DbfsList"] = request.dbfsList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2393,9 +2528,18 @@ export default class Client extends OpenApi {
   async describeDbfsSpecificationsWithOptions(request: DescribeDbfsSpecificationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbfsSpecificationsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Category"] = request.category;
-    query["EcsInstanceType"] = request.ecsInstanceType;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.ecsInstanceType)) {
+      query["EcsInstanceType"] = request.ecsInstanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2421,7 +2565,10 @@ export default class Client extends OpenApi {
   async describeInstanceTypesWithOptions(request: DescribeInstanceTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceTypesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2447,9 +2594,18 @@ export default class Client extends OpenApi {
   async detachDbfsWithOptions(request: DetachDbfsRequest, runtime: $Util.RuntimeOptions): Promise<DetachDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ECSInstanceId"] = request.ECSInstanceId;
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ECSInstanceId)) {
+      query["ECSInstanceId"] = request.ECSInstanceId;
+    }
+
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2475,8 +2631,14 @@ export default class Client extends OpenApi {
   async getDbfsWithOptions(request: GetDbfsRequest, runtime: $Util.RuntimeOptions): Promise<GetDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2502,7 +2664,10 @@ export default class Client extends OpenApi {
   async getServiceLinkedRoleWithOptions(request: GetServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceLinkedRoleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2528,14 +2693,38 @@ export default class Client extends OpenApi {
   async listDbfsWithOptions(request: ListDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FilterKey"] = request.filterKey;
-    query["FilterValue"] = request.filterValue;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["SortKey"] = request.sortKey;
-    query["SortType"] = request.sortType;
-    query["Tags"] = request.tags;
+    if (!Util.isUnset(request.filterKey)) {
+      query["FilterKey"] = request.filterKey;
+    }
+
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2561,7 +2750,10 @@ export default class Client extends OpenApi {
   async listDbfsAttachableEcsInstancesWithOptions(request: ListDbfsAttachableEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachableEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2587,8 +2779,14 @@ export default class Client extends OpenApi {
   async listDbfsAttachedEcsInstancesWithOptions(request: ListDbfsAttachedEcsInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListDbfsAttachedEcsInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2614,18 +2812,54 @@ export default class Client extends OpenApi {
   async listSnapshotWithOptions(request: ListSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ListSnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FilterKey"] = request.filterKey;
-    query["FilterValue"] = request.filterValue;
-    query["FsId"] = request.fsId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["SnapshotIds"] = request.snapshotIds;
-    query["SnapshotName"] = request.snapshotName;
-    query["SnapshotType"] = request.snapshotType;
-    query["SortKey"] = request.sortKey;
-    query["SortType"] = request.sortType;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.filterKey)) {
+      query["FilterKey"] = request.filterKey;
+    }
+
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotIds)) {
+      query["SnapshotIds"] = request.snapshotIds;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      query["SnapshotName"] = request.snapshotName;
+    }
+
+    if (!Util.isUnset(request.snapshotType)) {
+      query["SnapshotType"] = request.snapshotType;
+    }
+
+    if (!Util.isUnset(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2651,7 +2885,10 @@ export default class Client extends OpenApi {
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2677,8 +2914,14 @@ export default class Client extends OpenApi {
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["TagKey"] = request.tagKey;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2704,9 +2947,18 @@ export default class Client extends OpenApi {
   async renameDbfsWithOptions(request: RenameDbfsRequest, runtime: $Util.RuntimeOptions): Promise<RenameDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["FsName"] = request.fsName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.fsName)) {
+      query["FsName"] = request.fsName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2732,9 +2984,18 @@ export default class Client extends OpenApi {
   async resetDbfsWithOptions(request: ResetDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ResetDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["RegionId"] = request.regionId;
-    query["SnapshotId"] = request.snapshotId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2760,9 +3021,18 @@ export default class Client extends OpenApi {
   async resizeDbfsWithOptions(request: ResizeDbfsRequest, runtime: $Util.RuntimeOptions): Promise<ResizeDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FsId"] = request.fsId;
-    query["NewSizeG"] = request.newSizeG;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.fsId)) {
+      query["FsId"] = request.fsId;
+    }
+
+    if (!Util.isUnset(request.newSizeG)) {
+      query["NewSizeG"] = request.newSizeG;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -2788,9 +3058,18 @@ export default class Client extends OpenApi {
   async tagDbfsWithOptions(request: TagDbfsRequest, runtime: $Util.RuntimeOptions): Promise<TagDbfsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DbfsId"] = request.dbfsId;
-    query["RegionId"] = request.regionId;
-    query["Tags"] = request.tags;
+    if (!Util.isUnset(request.dbfsId)) {
+      query["DbfsId"] = request.dbfsId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
