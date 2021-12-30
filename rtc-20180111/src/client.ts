@@ -212,6 +212,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
   channelId?: string;
   clientToken?: string;
   events?: string[];
+  needCallbackAuth?: boolean;
   ownerId?: number;
   users?: string[];
   static names(): { [key: string]: string } {
@@ -221,6 +222,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
       channelId: 'ChannelId',
       clientToken: 'ClientToken',
       events: 'Events',
+      needCallbackAuth: 'NeedCallbackAuth',
       ownerId: 'OwnerId',
       users: 'Users',
     };
@@ -233,6 +235,7 @@ export class CreateEventSubscribeRequest extends $tea.Model {
       channelId: 'string',
       clientToken: 'string',
       events: { 'type': 'array', 'itemType': 'string' },
+      needCallbackAuth: 'boolean',
       ownerId: 'number',
       users: { 'type': 'array', 'itemType': 'string' },
     };
@@ -4107,27 +4110,80 @@ export default class Client extends OpenApi {
   async addRecordTemplateWithOptions(request: AddRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["BackgroundColor"] = request.backgroundColor;
-    query["Backgrounds"] = request.backgrounds;
-    query["ClockWidgets"] = request.clockWidgets;
-    query["DelayStopTime"] = request.delayStopTime;
-    query["EnableM3u8DateTime"] = request.enableM3u8DateTime;
-    query["FileSplitInterval"] = request.fileSplitInterval;
-    query["Formats"] = request.formats;
-    query["HttpCallbackUrl"] = request.httpCallbackUrl;
-    query["LayoutIds"] = request.layoutIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["MnsQueue"] = request.mnsQueue;
-    query["Name"] = request.name;
-    query["OssBucket"] = request.ossBucket;
-    query["OssFilePrefix"] = request.ossFilePrefix;
-    query["OwnerId"] = request.ownerId;
-    query["TaskProfile"] = request.taskProfile;
-    query["Watermarks"] = request.watermarks;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.backgroundColor)) {
+      query["BackgroundColor"] = request.backgroundColor;
+    }
+
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.delayStopTime)) {
+      query["DelayStopTime"] = request.delayStopTime;
+    }
+
+    if (!Util.isUnset(request.enableM3u8DateTime)) {
+      query["EnableM3u8DateTime"] = request.enableM3u8DateTime;
+    }
+
+    if (!Util.isUnset(request.fileSplitInterval)) {
+      query["FileSplitInterval"] = request.fileSplitInterval;
+    }
+
+    if (!Util.isUnset(request.formats)) {
+      query["Formats"] = request.formats;
+    }
+
+    if (!Util.isUnset(request.httpCallbackUrl)) {
+      query["HttpCallbackUrl"] = request.httpCallbackUrl;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.mnsQueue)) {
+      query["MnsQueue"] = request.mnsQueue;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ossBucket)) {
+      query["OssBucket"] = request.ossBucket;
+    }
+
+    if (!Util.isUnset(request.ossFilePrefix)) {
+      query["OssFilePrefix"] = request.ossFilePrefix;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskProfile)) {
+      query["TaskProfile"] = request.taskProfile;
+    }
+
+    if (!Util.isUnset(request.watermarks)) {
+      query["Watermarks"] = request.watermarks;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddRecordTemplate",
@@ -4137,7 +4193,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddRecordTemplateResponse>(await this.callApi(params, req, runtime), new AddRecordTemplateResponse({}));
@@ -4151,17 +4207,40 @@ export default class Client extends OpenApi {
   async createAutoLiveStreamRuleWithOptions(request: CreateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["CallBack"] = request.callBack;
-    query["ChannelIdPrefixes"] = request.channelIdPrefixes;
-    query["ChannelIds"] = request.channelIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["OwnerId"] = request.ownerId;
-    query["PlayDomain"] = request.playDomain;
-    query["RuleName"] = request.ruleName;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.channelIdPrefixes)) {
+      query["ChannelIdPrefixes"] = request.channelIdPrefixes;
+    }
+
+    if (!Util.isUnset(request.channelIds)) {
+      query["ChannelIds"] = request.channelIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playDomain)) {
+      query["PlayDomain"] = request.playDomain;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateAutoLiveStreamRule",
@@ -4171,7 +4250,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new CreateAutoLiveStreamRuleResponse({}));
@@ -4185,16 +4264,40 @@ export default class Client extends OpenApi {
   async createEventSubscribeWithOptions(request: CreateEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<CreateEventSubscribeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["CallbackUrl"] = request.callbackUrl;
-    query["ChannelId"] = request.channelId;
-    query["ClientToken"] = request.clientToken;
-    query["Events"] = request.events;
-    query["OwnerId"] = request.ownerId;
-    query["Users"] = request.users;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.events)) {
+      query["Events"] = request.events;
+    }
+
+    if (!Util.isUnset(request.needCallbackAuth)) {
+      query["NeedCallbackAuth"] = request.needCallbackAuth;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.users)) {
+      query["Users"] = request.users;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateEventSubscribe",
@@ -4204,7 +4307,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateEventSubscribeResponse>(await this.callApi(params, req, runtime), new CreateEventSubscribeResponse({}));
@@ -4218,14 +4321,28 @@ export default class Client extends OpenApi {
   async createMPULayoutWithOptions(request: CreateMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<CreateMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["AudioMixCount"] = request.audioMixCount;
-    query["Name"] = request.name;
-    query["OwnerId"] = request.ownerId;
-    query["Panes"] = request.panes;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.audioMixCount)) {
+      query["AudioMixCount"] = request.audioMixCount;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateMPULayout",
@@ -4235,7 +4352,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateMPULayoutResponse>(await this.callApi(params, req, runtime), new CreateMPULayoutResponse({}));
@@ -4249,12 +4366,20 @@ export default class Client extends OpenApi {
   async deleteAutoLiveStreamRuleWithOptions(request: DeleteAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAutoLiveStreamRule",
@@ -4264,7 +4389,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DeleteAutoLiveStreamRuleResponse({}));
@@ -4278,12 +4403,20 @@ export default class Client extends OpenApi {
   async deleteChannelWithOptions(request: DeleteChannelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChannelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteChannel",
@@ -4293,7 +4426,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteChannelResponse>(await this.callApi(params, req, runtime), new DeleteChannelResponse({}));
@@ -4307,12 +4440,20 @@ export default class Client extends OpenApi {
   async deleteEventSubscribeWithOptions(request: DeleteEventSubscribeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventSubscribeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["SubscribeId"] = request.subscribeId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.subscribeId)) {
+      query["SubscribeId"] = request.subscribeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteEventSubscribe",
@@ -4322,7 +4463,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteEventSubscribeResponse>(await this.callApi(params, req, runtime), new DeleteEventSubscribeResponse({}));
@@ -4336,12 +4477,20 @@ export default class Client extends OpenApi {
   async deleteMPULayoutWithOptions(request: DeleteMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["LayoutId"] = request.layoutId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.layoutId)) {
+      query["LayoutId"] = request.layoutId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteMPULayout",
@@ -4351,7 +4500,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteMPULayoutResponse>(await this.callApi(params, req, runtime), new DeleteMPULayoutResponse({}));
@@ -4365,12 +4514,20 @@ export default class Client extends OpenApi {
   async deleteRecordTemplateWithOptions(request: DeleteRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRecordTemplate",
@@ -4380,7 +4537,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRecordTemplateResponse>(await this.callApi(params, req, runtime), new DeleteRecordTemplateResponse({}));
@@ -4394,15 +4551,32 @@ export default class Client extends OpenApi {
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["Order"] = request.order;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApps",
@@ -4412,7 +4586,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
@@ -4426,11 +4600,16 @@ export default class Client extends OpenApi {
   async describeAutoLiveStreamRuleWithOptions(request: DescribeAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAutoLiveStreamRule",
@@ -4440,7 +4619,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DescribeAutoLiveStreamRuleResponse({}));
@@ -4454,15 +4633,32 @@ export default class Client extends OpenApi {
   async describeChannelParticipantsWithOptions(request: DescribeChannelParticipantsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelParticipantsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["Order"] = request.order;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeChannelParticipants",
@@ -4472,7 +4668,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeChannelParticipantsResponse>(await this.callApi(params, req, runtime), new DescribeChannelParticipantsResponse({}));
@@ -4486,12 +4682,20 @@ export default class Client extends OpenApi {
   async describeChannelUsersWithOptions(request: DescribeChannelUsersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeChannelUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeChannelUsers",
@@ -4501,7 +4705,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeChannelUsersResponse>(await this.callApi(params, req, runtime), new DescribeChannelUsersResponse({}));
@@ -4515,15 +4719,32 @@ export default class Client extends OpenApi {
   async describeMPULayoutInfoListWithOptions(request: DescribeMPULayoutInfoListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMPULayoutInfoListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["LayoutId"] = request.layoutId;
-    query["Name"] = request.name;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.layoutId)) {
+      query["LayoutId"] = request.layoutId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeMPULayoutInfoList",
@@ -4533,7 +4754,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeMPULayoutInfoListResponse>(await this.callApi(params, req, runtime), new DescribeMPULayoutInfoListResponse({}));
@@ -4547,17 +4768,40 @@ export default class Client extends OpenApi {
   async describeRecordFilesWithOptions(request: DescribeRecordFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordFilesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
-    query["TaskIds"] = request.taskIds;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRecordFiles",
@@ -4567,7 +4811,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRecordFilesResponse>(await this.callApi(params, req, runtime), new DescribeRecordFilesResponse({}));
@@ -4581,14 +4825,28 @@ export default class Client extends OpenApi {
   async describeRecordTemplatesWithOptions(request: DescribeRecordTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["TemplateIds"] = request.templateIds;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.templateIds)) {
+      query["TemplateIds"] = request.templateIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRecordTemplates",
@@ -4598,7 +4856,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRecordTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeRecordTemplatesResponse({}));
@@ -4612,13 +4870,24 @@ export default class Client extends OpenApi {
   async describeUserInfoInChannelWithOptions(request: DescribeUserInfoInChannelRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserInfoInChannelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["OwnerId"] = request.ownerId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserInfoInChannel",
@@ -4628,7 +4897,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserInfoInChannelResponse>(await this.callApi(params, req, runtime), new DescribeUserInfoInChannelResponse({}));
@@ -4642,12 +4911,20 @@ export default class Client extends OpenApi {
   async disableAutoLiveStreamRuleWithOptions(request: DisableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<DisableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DisableAutoLiveStreamRule",
@@ -4657,7 +4934,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DisableAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new DisableAutoLiveStreamRuleResponse({}));
@@ -4671,12 +4948,20 @@ export default class Client extends OpenApi {
   async enableAutoLiveStreamRuleWithOptions(request: EnableAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<EnableAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "EnableAutoLiveStreamRule",
@@ -4686,7 +4971,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<EnableAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new EnableAutoLiveStreamRuleResponse({}));
@@ -4700,12 +4985,20 @@ export default class Client extends OpenApi {
   async getMPUTaskStatusWithOptions(request: GetMPUTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetMPUTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMPUTaskStatus",
@@ -4715,7 +5008,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMPUTaskStatusResponse>(await this.callApi(params, req, runtime), new GetMPUTaskStatusResponse({}));
@@ -4729,12 +5022,20 @@ export default class Client extends OpenApi {
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["AppName"] = request.appName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApp",
@@ -4744,7 +5045,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
@@ -4758,15 +5059,32 @@ export default class Client extends OpenApi {
   async modifyMPULayoutWithOptions(request: ModifyMPULayoutRequest, runtime: $Util.RuntimeOptions): Promise<ModifyMPULayoutResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["AudioMixCount"] = request.audioMixCount;
-    query["LayoutId"] = request.layoutId;
-    query["Name"] = request.name;
-    query["OwnerId"] = request.ownerId;
-    query["Panes"] = request.panes;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.audioMixCount)) {
+      query["AudioMixCount"] = request.audioMixCount;
+    }
+
+    if (!Util.isUnset(request.layoutId)) {
+      query["LayoutId"] = request.layoutId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.panes)) {
+      query["Panes"] = request.panes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyMPULayout",
@@ -4776,7 +5094,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyMPULayoutResponse>(await this.callApi(params, req, runtime), new ModifyMPULayoutResponse({}));
@@ -4790,13 +5108,24 @@ export default class Client extends OpenApi {
   async removeTerminalsWithOptions(request: RemoveTerminalsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTerminalsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["OwnerId"] = request.ownerId;
-    query["TerminalIds"] = request.terminalIds;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.terminalIds)) {
+      query["TerminalIds"] = request.terminalIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveTerminals",
@@ -4806,7 +5135,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveTerminalsResponse>(await this.callApi(params, req, runtime), new RemoveTerminalsResponse({}));
@@ -4820,38 +5149,135 @@ export default class Client extends OpenApi {
   async startMPUTaskWithOptions(request: StartMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["BackgroundColor"] = request.backgroundColor;
-    query["Backgrounds"] = request.backgrounds;
-    query["ChannelId"] = request.channelId;
-    query["ClockWidgets"] = request.clockWidgets;
-    query["CropMode"] = request.cropMode;
-    query["LayoutIds"] = request.layoutIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["MixMode"] = request.mixMode;
-    query["OwnerId"] = request.ownerId;
-    query["PayloadType"] = request.payloadType;
-    query["ReportVad"] = request.reportVad;
-    query["RtpExtInfo"] = request.rtpExtInfo;
-    query["SourceType"] = request.sourceType;
-    query["StreamType"] = request.streamType;
-    query["StreamURL"] = request.streamURL;
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
-    query["SubSpecUsers"] = request.subSpecUsers;
-    query["TaskId"] = request.taskId;
-    query["TaskType"] = request.taskType;
-    query["TimeStampRef"] = request.timeStampRef;
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
-    query["UserPanes"] = request.userPanes;
-    query["VadInterval"] = request.vadInterval;
-    query["Watermarks"] = request.watermarks;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.backgroundColor)) {
+      query["BackgroundColor"] = request.backgroundColor;
+    }
+
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.mixMode)) {
+      query["MixMode"] = request.mixMode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payloadType)) {
+      query["PayloadType"] = request.payloadType;
+    }
+
+    if (!Util.isUnset(request.reportVad)) {
+      query["ReportVad"] = request.reportVad;
+    }
+
+    if (!Util.isUnset(request.rtpExtInfo)) {
+      query["RtpExtInfo"] = request.rtpExtInfo;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    if (!Util.isUnset(request.streamURL)) {
+      query["StreamURL"] = request.streamURL;
+    }
+
+    if (!Util.isUnset(request.subSpecAudioUsers)) {
+      query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecCameraUsers)) {
+      query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecShareScreenUsers)) {
+      query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecUsers)) {
+      query["SubSpecUsers"] = request.subSpecUsers;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.timeStampRef)) {
+      query["TimeStampRef"] = request.timeStampRef;
+    }
+
+    if (!Util.isUnset(request.unsubSpecAudioUsers)) {
+      query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecCameraUsers)) {
+      query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecShareScreenUsers)) {
+      query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.userPanes)) {
+      query["UserPanes"] = request.userPanes;
+    }
+
+    if (!Util.isUnset(request.vadInterval)) {
+      query["VadInterval"] = request.vadInterval;
+    }
+
+    if (!Util.isUnset(request.watermarks)) {
+      query["Watermarks"] = request.watermarks;
+    }
+
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset($tea.toMap(request.enhancedParam))) {
+      bodyFlat["EnhancedParam"] = request.enhancedParam;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StartMPUTask",
@@ -4875,29 +5301,88 @@ export default class Client extends OpenApi {
   async startRecordTaskWithOptions(request: StartRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["CropMode"] = request.cropMode;
-    query["LayoutIds"] = request.layoutIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["MixMode"] = request.mixMode;
-    query["OwnerId"] = request.ownerId;
-    query["SourceType"] = request.sourceType;
-    query["StreamType"] = request.streamType;
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
-    query["SubSpecUsers"] = request.subSpecUsers;
-    query["TaskId"] = request.taskId;
-    query["TaskProfile"] = request.taskProfile;
-    query["TemplateId"] = request.templateId;
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
-    query["UserPanes"] = request.userPanes;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.mixMode)) {
+      query["MixMode"] = request.mixMode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    if (!Util.isUnset(request.subSpecAudioUsers)) {
+      query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecCameraUsers)) {
+      query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecShareScreenUsers)) {
+      query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecUsers)) {
+      query["SubSpecUsers"] = request.subSpecUsers;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskProfile)) {
+      query["TaskProfile"] = request.taskProfile;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.unsubSpecAudioUsers)) {
+      query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecCameraUsers)) {
+      query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecShareScreenUsers)) {
+      query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.userPanes)) {
+      query["UserPanes"] = request.userPanes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartRecordTask",
@@ -4907,7 +5392,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartRecordTaskResponse>(await this.callApi(params, req, runtime), new StartRecordTaskResponse({}));
@@ -4921,12 +5406,20 @@ export default class Client extends OpenApi {
   async stopMPUTaskWithOptions(request: StopMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopMPUTask",
@@ -4936,7 +5429,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopMPUTaskResponse>(await this.callApi(params, req, runtime), new StopMPUTaskResponse({}));
@@ -4950,12 +5443,20 @@ export default class Client extends OpenApi {
   async stopRecordTaskWithOptions(request: StopRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopRecordTask",
@@ -4965,7 +5466,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopRecordTaskResponse>(await this.callApi(params, req, runtime), new StopRecordTaskResponse({}));
@@ -4979,18 +5480,44 @@ export default class Client extends OpenApi {
   async updateAutoLiveStreamRuleWithOptions(request: UpdateAutoLiveStreamRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAutoLiveStreamRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["CallBack"] = request.callBack;
-    query["ChannelIdPrefixes"] = request.channelIdPrefixes;
-    query["ChannelIds"] = request.channelIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["OwnerId"] = request.ownerId;
-    query["PlayDomain"] = request.playDomain;
-    query["RuleId"] = request.ruleId;
-    query["RuleName"] = request.ruleName;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.callBack)) {
+      query["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.channelIdPrefixes)) {
+      query["ChannelIdPrefixes"] = request.channelIdPrefixes;
+    }
+
+    if (!Util.isUnset(request.channelIds)) {
+      query["ChannelIds"] = request.channelIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playDomain)) {
+      query["PlayDomain"] = request.playDomain;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateAutoLiveStreamRule",
@@ -5000,7 +5527,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateAutoLiveStreamRuleResponse>(await this.callApi(params, req, runtime), new UpdateAutoLiveStreamRuleResponse({}));
@@ -5014,30 +5541,92 @@ export default class Client extends OpenApi {
   async updateMPUTaskWithOptions(request: UpdateMPUTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMPUTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["BackgroundColor"] = request.backgroundColor;
-    query["Backgrounds"] = request.backgrounds;
-    query["ClockWidgets"] = request.clockWidgets;
-    query["CropMode"] = request.cropMode;
-    query["LayoutIds"] = request.layoutIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["MixMode"] = request.mixMode;
-    query["OwnerId"] = request.ownerId;
-    query["SourceType"] = request.sourceType;
-    query["StreamType"] = request.streamType;
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
-    query["SubSpecUsers"] = request.subSpecUsers;
-    query["TaskId"] = request.taskId;
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
-    query["UserPanes"] = request.userPanes;
-    query["Watermarks"] = request.watermarks;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.backgroundColor)) {
+      query["BackgroundColor"] = request.backgroundColor;
+    }
+
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.cropMode)) {
+      query["CropMode"] = request.cropMode;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.mixMode)) {
+      query["MixMode"] = request.mixMode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!Util.isUnset(request.streamType)) {
+      query["StreamType"] = request.streamType;
+    }
+
+    if (!Util.isUnset(request.subSpecAudioUsers)) {
+      query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecCameraUsers)) {
+      query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecShareScreenUsers)) {
+      query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecUsers)) {
+      query["SubSpecUsers"] = request.subSpecUsers;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.unsubSpecAudioUsers)) {
+      query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecCameraUsers)) {
+      query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecShareScreenUsers)) {
+      query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.userPanes)) {
+      query["UserPanes"] = request.userPanes;
+    }
+
+    if (!Util.isUnset(request.watermarks)) {
+      query["Watermarks"] = request.watermarks;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateMPUTask",
@@ -5047,7 +5636,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateMPUTaskResponse>(await this.callApi(params, req, runtime), new UpdateMPUTaskResponse({}));
@@ -5061,23 +5650,64 @@ export default class Client extends OpenApi {
   async updateRecordTaskWithOptions(request: UpdateRecordTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ChannelId"] = request.channelId;
-    query["LayoutIds"] = request.layoutIds;
-    query["OwnerId"] = request.ownerId;
-    query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
-    query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
-    query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
-    query["SubSpecUsers"] = request.subSpecUsers;
-    query["TaskId"] = request.taskId;
-    query["TemplateId"] = request.templateId;
-    query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
-    query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
-    query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
-    query["UserPanes"] = request.userPanes;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.subSpecAudioUsers)) {
+      query["SubSpecAudioUsers"] = request.subSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecCameraUsers)) {
+      query["SubSpecCameraUsers"] = request.subSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecShareScreenUsers)) {
+      query["SubSpecShareScreenUsers"] = request.subSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.subSpecUsers)) {
+      query["SubSpecUsers"] = request.subSpecUsers;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.unsubSpecAudioUsers)) {
+      query["UnsubSpecAudioUsers"] = request.unsubSpecAudioUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecCameraUsers)) {
+      query["UnsubSpecCameraUsers"] = request.unsubSpecCameraUsers;
+    }
+
+    if (!Util.isUnset(request.unsubSpecShareScreenUsers)) {
+      query["UnsubSpecShareScreenUsers"] = request.unsubSpecShareScreenUsers;
+    }
+
+    if (!Util.isUnset(request.userPanes)) {
+      query["UserPanes"] = request.userPanes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRecordTask",
@@ -5087,7 +5717,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRecordTaskResponse>(await this.callApi(params, req, runtime), new UpdateRecordTaskResponse({}));
@@ -5101,28 +5731,84 @@ export default class Client extends OpenApi {
   async updateRecordTemplateWithOptions(request: UpdateRecordTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRecordTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["BackgroundColor"] = request.backgroundColor;
-    query["Backgrounds"] = request.backgrounds;
-    query["ClockWidgets"] = request.clockWidgets;
-    query["DelayStopTime"] = request.delayStopTime;
-    query["EnableM3u8DateTime"] = request.enableM3u8DateTime;
-    query["FileSplitInterval"] = request.fileSplitInterval;
-    query["Formats"] = request.formats;
-    query["HttpCallbackUrl"] = request.httpCallbackUrl;
-    query["LayoutIds"] = request.layoutIds;
-    query["MediaEncode"] = request.mediaEncode;
-    query["MnsQueue"] = request.mnsQueue;
-    query["Name"] = request.name;
-    query["OssBucket"] = request.ossBucket;
-    query["OssFilePrefix"] = request.ossFilePrefix;
-    query["OwnerId"] = request.ownerId;
-    query["TaskProfile"] = request.taskProfile;
-    query["TemplateId"] = request.templateId;
-    query["Watermarks"] = request.watermarks;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.backgroundColor)) {
+      query["BackgroundColor"] = request.backgroundColor;
+    }
+
+    if (!Util.isUnset(request.backgrounds)) {
+      query["Backgrounds"] = request.backgrounds;
+    }
+
+    if (!Util.isUnset(request.clockWidgets)) {
+      query["ClockWidgets"] = request.clockWidgets;
+    }
+
+    if (!Util.isUnset(request.delayStopTime)) {
+      query["DelayStopTime"] = request.delayStopTime;
+    }
+
+    if (!Util.isUnset(request.enableM3u8DateTime)) {
+      query["EnableM3u8DateTime"] = request.enableM3u8DateTime;
+    }
+
+    if (!Util.isUnset(request.fileSplitInterval)) {
+      query["FileSplitInterval"] = request.fileSplitInterval;
+    }
+
+    if (!Util.isUnset(request.formats)) {
+      query["Formats"] = request.formats;
+    }
+
+    if (!Util.isUnset(request.httpCallbackUrl)) {
+      query["HttpCallbackUrl"] = request.httpCallbackUrl;
+    }
+
+    if (!Util.isUnset(request.layoutIds)) {
+      query["LayoutIds"] = request.layoutIds;
+    }
+
+    if (!Util.isUnset(request.mediaEncode)) {
+      query["MediaEncode"] = request.mediaEncode;
+    }
+
+    if (!Util.isUnset(request.mnsQueue)) {
+      query["MnsQueue"] = request.mnsQueue;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ossBucket)) {
+      query["OssBucket"] = request.ossBucket;
+    }
+
+    if (!Util.isUnset(request.ossFilePrefix)) {
+      query["OssFilePrefix"] = request.ossFilePrefix;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskProfile)) {
+      query["TaskProfile"] = request.taskProfile;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.watermarks)) {
+      query["Watermarks"] = request.watermarks;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRecordTemplate",
@@ -5132,7 +5818,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateRecordTemplateResponse>(await this.callApi(params, req, runtime), new UpdateRecordTemplateResponse({}));
