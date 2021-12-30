@@ -134,6 +134,90 @@ export class AePropRecResponse extends $tea.Model {
   }
 }
 
+export class AlivisionImgdupRequest extends $tea.Model {
+  imageHeight?: number;
+  imageWidth?: number;
+  outputImageNum?: number;
+  picNum?: number;
+  picUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageHeight: 'ImageHeight',
+      imageWidth: 'ImageWidth',
+      outputImageNum: 'OutputImageNum',
+      picNum: 'PicNum',
+      picUrl: 'PicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageHeight: 'number',
+      imageWidth: 'number',
+      outputImageNum: 'number',
+      picNum: 'number',
+      picUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlivisionImgdupAdvanceRequest extends $tea.Model {
+  picUrlObject: Readable;
+  imageHeight?: number;
+  imageWidth?: number;
+  outputImageNum?: number;
+  picNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      picUrlObject: 'PicUrlObject',
+      imageHeight: 'ImageHeight',
+      imageWidth: 'ImageWidth',
+      outputImageNum: 'OutputImageNum',
+      picNum: 'PicNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      picUrlObject: 'Readable',
+      imageHeight: 'number',
+      imageWidth: 'number',
+      outputImageNum: 'number',
+      picNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlivisionImgdupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageAmazonTaskRequest extends $tea.Model {
   gif?: boolean;
   imgUrlList?: string[];
@@ -235,6 +319,84 @@ export class CreateImageAmazonTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateImageAmazonTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceshifterTRequest extends $tea.Model {
+  age?: number;
+  gender?: number;
+  picUrl?: string;
+  race?: number;
+  static names(): { [key: string]: string } {
+    return {
+      age: 'Age',
+      gender: 'Gender',
+      picUrl: 'PicUrl',
+      race: 'Race',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      age: 'number',
+      gender: 'number',
+      picUrl: 'string',
+      race: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceshifterTAdvanceRequest extends $tea.Model {
+  picUrlObject: Readable;
+  age?: number;
+  gender?: number;
+  race?: number;
+  static names(): { [key: string]: string } {
+    return {
+      picUrlObject: 'PicUrlObject',
+      age: 'Age',
+      gender: 'Gender',
+      race: 'Race',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      picUrlObject: 'Readable',
+      age: 'number',
+      gender: 'number',
+      race: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FaceshifterTResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -379,6 +541,78 @@ export class GetTaskStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KuajingSegRequest extends $tea.Model {
+  picUrl?: string;
+  returnPicFormat?: string;
+  returnPicType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      picUrl: 'PicUrl',
+      returnPicFormat: 'ReturnPicFormat',
+      returnPicType: 'ReturnPicType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      picUrl: 'string',
+      returnPicFormat: 'string',
+      returnPicType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KuajingSegAdvanceRequest extends $tea.Model {
+  picUrlObject: Readable;
+  returnPicFormat?: string;
+  returnPicType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      picUrlObject: 'PicUrlObject',
+      returnPicFormat: 'ReturnPicFormat',
+      returnPicType: 'ReturnPicType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      picUrlObject: 'Readable',
+      returnPicFormat: 'string',
+      returnPicType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KuajingSegResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: {[key: string]: any};
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -603,7 +837,6 @@ export default class Client extends OpenApi {
 
   async aePredictCategoryWithOptions(request: AePredictCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AePredictCategoryResponse> {
     Util.validateModel(request);
-    let query = { };
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.picUrl)) {
       body["PicUrl"] = request.picUrl;
@@ -707,7 +940,6 @@ export default class Client extends OpenApi {
 
   async aePropRecWithOptions(request: AePropRecRequest, runtime: $Util.RuntimeOptions): Promise<AePropRecResponse> {
     Util.validateModel(request);
-    let query = { };
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.picUrl)) {
       body["PicUrl"] = request.picUrl;
@@ -809,6 +1041,125 @@ export default class Client extends OpenApi {
     return aePropRecResp;
   }
 
+  async alivisionImgdupWithOptions(request: AlivisionImgdupRequest, runtime: $Util.RuntimeOptions): Promise<AlivisionImgdupResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageHeight)) {
+      body["ImageHeight"] = request.imageHeight;
+    }
+
+    if (!Util.isUnset(request.imageWidth)) {
+      body["ImageWidth"] = request.imageWidth;
+    }
+
+    if (!Util.isUnset(request.outputImageNum)) {
+      body["OutputImageNum"] = request.outputImageNum;
+    }
+
+    if (!Util.isUnset(request.picNum)) {
+      body["PicNum"] = request.picNum;
+    }
+
+    if (!Util.isUnset(request.picUrl)) {
+      body["PicUrl"] = request.picUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AlivisionImgdup",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AlivisionImgdupResponse>(await this.callApi(params, req, runtime), new AlivisionImgdupResponse({}));
+  }
+
+  async alivisionImgdup(request: AlivisionImgdupRequest): Promise<AlivisionImgdupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.alivisionImgdupWithOptions(request, runtime);
+  }
+
+  async alivisionImgdupAdvance(request: AlivisionImgdupAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<AlivisionImgdupResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dplus",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let alivisionImgdupReq = new AlivisionImgdupRequest({ });
+    OpenApiUtil.convert(request, alivisionImgdupReq);
+    if (!Util.isUnset(request.picUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.picUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      alivisionImgdupReq.picUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let alivisionImgdupResp = await this.alivisionImgdupWithOptions(alivisionImgdupReq, runtime);
+    return alivisionImgdupResp;
+  }
+
   async createImageAmazonTaskWithOptions(tmpReq: CreateImageAmazonTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateImageAmazonTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateImageAmazonTaskShrinkRequest({ });
@@ -822,10 +1173,22 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["Gif"] = request.gif;
-    query["ImgUrlList"] = request.imgUrlListShrink;
-    query["TemplateMode"] = request.templateMode;
-    query["TextList"] = request.textListShrink;
+    if (!Util.isUnset(request.gif)) {
+      query["Gif"] = request.gif;
+    }
+
+    if (!Util.isUnset(request.imgUrlListShrink)) {
+      query["ImgUrlList"] = request.imgUrlListShrink;
+    }
+
+    if (!Util.isUnset(request.templateMode)) {
+      query["TemplateMode"] = request.templateMode;
+    }
+
+    if (!Util.isUnset(request.textListShrink)) {
+      query["TextList"] = request.textListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -848,10 +1211,128 @@ export default class Client extends OpenApi {
     return await this.createImageAmazonTaskWithOptions(request, runtime);
   }
 
+  async faceshifterTWithOptions(request: FaceshifterTRequest, runtime: $Util.RuntimeOptions): Promise<FaceshifterTResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.age)) {
+      body["Age"] = request.age;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["Gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.picUrl)) {
+      body["PicUrl"] = request.picUrl;
+    }
+
+    if (!Util.isUnset(request.race)) {
+      body["Race"] = request.race;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FaceshifterT",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FaceshifterTResponse>(await this.callApi(params, req, runtime), new FaceshifterTResponse({}));
+  }
+
+  async faceshifterT(request: FaceshifterTRequest): Promise<FaceshifterTResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.faceshifterTWithOptions(request, runtime);
+  }
+
+  async faceshifterTAdvance(request: FaceshifterTAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<FaceshifterTResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dplus",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let faceshifterTReq = new FaceshifterTRequest({ });
+    OpenApiUtil.convert(request, faceshifterTReq);
+    if (!Util.isUnset(request.picUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.picUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      faceshifterTReq.picUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let faceshifterTResp = await this.faceshifterTWithOptions(faceshifterTReq, runtime);
+    return faceshifterTResp;
+  }
+
   async getTaskResultWithOptions(request: GetTaskResultRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -877,7 +1358,10 @@ export default class Client extends OpenApi {
   async getTaskStatusWithOptions(request: GetTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -900,10 +1384,124 @@ export default class Client extends OpenApi {
     return await this.getTaskStatusWithOptions(request, runtime);
   }
 
+  async kuajingSegWithOptions(request: KuajingSegRequest, runtime: $Util.RuntimeOptions): Promise<KuajingSegResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.picUrl)) {
+      body["PicUrl"] = request.picUrl;
+    }
+
+    if (!Util.isUnset(request.returnPicFormat)) {
+      body["ReturnPicFormat"] = request.returnPicFormat;
+    }
+
+    if (!Util.isUnset(request.returnPicType)) {
+      body["ReturnPicType"] = request.returnPicType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "KuajingSeg",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<KuajingSegResponse>(await this.callApi(params, req, runtime), new KuajingSegResponse({}));
+  }
+
+  async kuajingSeg(request: KuajingSegRequest): Promise<KuajingSegResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.kuajingSegWithOptions(request, runtime);
+  }
+
+  async kuajingSegAdvance(request: KuajingSegAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<KuajingSegResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dplus",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let kuajingSegReq = new KuajingSegRequest({ });
+    OpenApiUtil.convert(request, kuajingSegReq);
+    if (!Util.isUnset(request.picUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.picUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      kuajingSegReq.picUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let kuajingSegResp = await this.kuajingSegWithOptions(kuajingSegReq, runtime);
+    return kuajingSegResp;
+  }
+
   async removeWordsWithOptions(request: RemoveWordsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveWordsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PicUrl"] = request.picUrl;
+    if (!Util.isUnset(request.picUrl)) {
+      query["PicUrl"] = request.picUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1003,10 +1601,22 @@ export default class Client extends OpenApi {
   async replaceBackgroundWithOptions(request: ReplaceBackgroundRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBackgroundResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BackgroundId"] = request.backgroundId;
-    query["Num"] = request.num;
-    query["PicBackgroundUrl"] = request.picBackgroundUrl;
-    query["PicUrl"] = request.picUrl;
+    if (!Util.isUnset(request.backgroundId)) {
+      query["BackgroundId"] = request.backgroundId;
+    }
+
+    if (!Util.isUnset(request.num)) {
+      query["Num"] = request.num;
+    }
+
+    if (!Util.isUnset(request.picBackgroundUrl)) {
+      query["PicBackgroundUrl"] = request.picBackgroundUrl;
+    }
+
+    if (!Util.isUnset(request.picUrl)) {
+      query["PicUrl"] = request.picUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
