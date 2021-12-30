@@ -155,23 +155,26 @@ export class CancelActiveOperationTasksResponse extends $tea.Model {
   }
 }
 
-export class CancelPolarxOrderRequest extends $tea.Model {
-  DBInstanceName?: string;
+export class ChangeResourceGroupRequest extends $tea.Model {
+  newResourceGroupId?: string;
   regionId?: string;
-  scaleOutToken?: string;
+  resourceId?: string;
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
-      DBInstanceName: 'DBInstanceName',
+      newResourceGroupId: 'NewResourceGroupId',
       regionId: 'RegionId',
-      scaleOutToken: 'ScaleOutToken',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      DBInstanceName: 'string',
+      newResourceGroupId: 'string',
       regionId: 'string',
-      scaleOutToken: 'string',
+      resourceId: 'string',
+      resourceType: 'string',
     };
   }
 
@@ -180,7 +183,7 @@ export class CancelPolarxOrderRequest extends $tea.Model {
   }
 }
 
-export class CancelPolarxOrderResponseBody extends $tea.Model {
+export class ChangeResourceGroupResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -199,9 +202,9 @@ export class CancelPolarxOrderResponseBody extends $tea.Model {
   }
 }
 
-export class CancelPolarxOrderResponse extends $tea.Model {
+export class ChangeResourceGroupResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CancelPolarxOrderResponseBody;
+  body: ChangeResourceGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -212,7 +215,7 @@ export class CancelPolarxOrderResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CancelPolarxOrderResponseBody,
+      body: ChangeResourceGroupResponseBody,
     };
   }
 
@@ -656,75 +659,6 @@ export class CreateDBInstanceResponse extends $tea.Model {
   }
 }
 
-export class CreatePolarxOrderRequest extends $tea.Model {
-  DBInstanceName?: string;
-  nodeCount?: string;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      nodeCount: 'NodeCount',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      nodeCount: 'string',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolarxOrderResponseBody extends $tea.Model {
-  orderResultList?: CreatePolarxOrderResponseBodyOrderResultList[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      orderResultList: 'OrderResultList',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      orderResultList: { 'type': 'array', 'itemType': CreatePolarxOrderResponseBodyOrderResultList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreatePolarxOrderResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreatePolarxOrderResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreatePolarxOrderResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateSuperAccountRequest extends $tea.Model {
   accountDescription?: string;
   accountName?: string;
@@ -956,10 +890,12 @@ export class DeleteDBResponse extends $tea.Model {
 export class DeleteDBInstanceRequest extends $tea.Model {
   DBInstanceName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -967,6 +903,7 @@ export class DeleteDBInstanceRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1655,10 +1592,12 @@ export class DescribeCharacterSetResponse extends $tea.Model {
 export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   DBInstanceName?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1666,6 +1605,7 @@ export class DescribeDBInstanceAttributeRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1986,22 +1926,31 @@ export class DescribeDBInstanceTopologyResponse extends $tea.Model {
 }
 
 export class DescribeDBInstancesRequest extends $tea.Model {
+  instanceId?: string;
   pageNumber?: number;
   pageSize?: number;
   regionId?: string;
+  resourceGroupId?: string;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
+      tags: 'string',
     };
   }
 
@@ -2528,168 +2477,6 @@ export class DescribeParametersResponse extends $tea.Model {
   }
 }
 
-export class DescribePolarxDataNodesRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDataNodesResponseBody extends $tea.Model {
-  DBInstanceDataNodes?: DescribePolarxDataNodesResponseBodyDBInstanceDataNodes[];
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  totalNumber?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceDataNodes: 'DBInstanceDataNodes',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalNumber: 'TotalNumber',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceDataNodes: { 'type': 'array', 'itemType': DescribePolarxDataNodesResponseBodyDBInstanceDataNodes },
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalNumber: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDataNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribePolarxDataNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribePolarxDataNodesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDbInstancesRequest extends $tea.Model {
-  dbName?: string;
-  drdsInstanceId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dbName: 'DbName',
-      drdsInstanceId: 'DrdsInstanceId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbName: 'string',
-      drdsInstanceId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDbInstancesResponseBody extends $tea.Model {
-  dbInstances?: DescribePolarxDbInstancesResponseBodyDbInstances;
-  pageNumber?: string;
-  pageSize?: string;
-  requestId?: string;
-  success?: boolean;
-  total?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dbInstances: 'DbInstances',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbInstances: DescribePolarxDbInstancesResponseBodyDbInstances,
-      pageNumber: 'string',
-      pageSize: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      total: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDbInstancesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribePolarxDbInstancesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribePolarxDbInstancesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRegionsResponseBody extends $tea.Model {
   code?: number;
   errorCode?: number;
@@ -2893,6 +2680,159 @@ export class DescribeSecurityIpsResponse extends $tea.Model {
   }
 }
 
+export class DescribeSlinkTaskInfoRequest extends $tea.Model {
+  failPageNumber?: number;
+  failPageSize?: number;
+  regionId?: string;
+  slinkTaskId?: string;
+  successPageNumber?: number;
+  successPageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failPageNumber: 'FailPageNumber',
+      failPageSize: 'FailPageSize',
+      regionId: 'RegionId',
+      slinkTaskId: 'SlinkTaskId',
+      successPageNumber: 'SuccessPageNumber',
+      successPageSize: 'SuccessPageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failPageNumber: 'number',
+      failPageSize: 'number',
+      regionId: 'string',
+      slinkTaskId: 'string',
+      successPageNumber: 'number',
+      successPageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlinkTaskInfoResponseBody extends $tea.Model {
+  code?: number;
+  data?: DescribeSlinkTaskInfoResponseBodyData;
+  message?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeSlinkTaskInfoResponseBodyData,
+      message: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlinkTaskInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeSlinkTaskInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeSlinkTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsRequest extends $tea.Model {
+  DBInstanceName?: string;
+  regionId?: string;
+  tagKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceName: 'DBInstanceName',
+      regionId: 'RegionId',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceName: 'string',
+      regionId: 'string',
+      tagKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBody extends $tea.Model {
+  requestId?: string;
+  tagInfos?: DescribeTagsResponseBodyTagInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      tagInfos: 'TagInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      tagInfos: { 'type': 'array', 'itemType': DescribeTagsResponseBodyTagInfos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTasksRequest extends $tea.Model {
   DBInstanceId?: string;
   endTime?: string;
@@ -3058,14 +2998,12 @@ export class DescribeUserEncryptionKeyListResponse extends $tea.Model {
   }
 }
 
-export class GetPolarxCommodityRequest extends $tea.Model {
+export class InitDBInstanceResourceGroupIdRequest extends $tea.Model {
   DBInstanceName?: string;
-  orderType?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
-      orderType: 'OrderType',
       regionId: 'RegionId',
     };
   }
@@ -3073,7 +3011,6 @@ export class GetPolarxCommodityRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
-      orderType: 'string',
       regionId: 'string',
     };
   }
@@ -3083,22 +3020,16 @@ export class GetPolarxCommodityRequest extends $tea.Model {
   }
 }
 
-export class GetPolarxCommodityResponseBody extends $tea.Model {
-  componentList?: GetPolarxCommodityResponseBodyComponentList[];
-  DBInstance?: GetPolarxCommodityResponseBodyDBInstance;
+export class InitDBInstanceResourceGroupIdResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      componentList: 'ComponentList',
-      DBInstance: 'DBInstance',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      componentList: { 'type': 'array', 'itemType': GetPolarxCommodityResponseBodyComponentList },
-      DBInstance: GetPolarxCommodityResponseBodyDBInstance,
       requestId: 'string',
     };
   }
@@ -3108,9 +3039,9 @@ export class GetPolarxCommodityResponseBody extends $tea.Model {
   }
 }
 
-export class GetPolarxCommodityResponse extends $tea.Model {
+export class InitDBInstanceResourceGroupIdResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetPolarxCommodityResponseBody;
+  body: InitDBInstanceResourceGroupIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3121,7 +3052,85 @@ export class GetPolarxCommodityResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetPolarxCommodityResponseBody,
+      body: InitDBInstanceResourceGroupIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -3485,6 +3494,87 @@ export class ModifyDBInstanceConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyDBInstanceConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
+  connectionString?: string;
+  DBInstanceName?: string;
+  newPort?: string;
+  newPrefix?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      DBInstanceName: 'DBInstanceName',
+      newPort: 'NewPort',
+      newPrefix: 'NewPrefix',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      DBInstanceName: 'string',
+      newPort: 'string',
+      newPrefix: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringResponseBody extends $tea.Model {
+  code?: number;
+  data?: ModifyDBInstanceConnectionStringResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ModifyDBInstanceConnectionStringResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyDBInstanceConnectionStringResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyDBInstanceConnectionStringResponseBody,
     };
   }
 
@@ -3917,6 +4007,147 @@ export class RestartDBInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RestartDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  regionId?: string;
+  resourceId?: string[];
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -4359,28 +4590,6 @@ export class CreateBackupResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreatePolarxOrderResponseBodyOrderResultList extends $tea.Model {
-  DBInstanceName?: string;
-  orderId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceName: 'DBInstanceName',
-      orderId: 'OrderId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceName: 'string',
-      orderId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAccountListResponseBodyData extends $tea.Model {
   accountDescription?: string;
   accountName?: string;
@@ -4774,6 +4983,28 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstanceDBNodes extends $t
   }
 }
 
+export class DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Model {
   commodityCode?: string;
   connAddrs?: DescribeDBInstanceAttributeResponseBodyDBInstanceConnAddrs[];
@@ -4801,10 +5032,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
   port?: string;
   readDBInstances?: string[];
   regionId?: string;
+  resourceGroupId?: string;
   rightsSeparationEnabled?: boolean;
   rightsSeparationStatus?: string;
   status?: string;
   storageUsed?: number;
+  tagSet?: DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet[];
   type?: string;
   VPCId?: string;
   vSwitchId?: string;
@@ -4837,10 +5070,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       port: 'Port',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       rightsSeparationEnabled: 'RightsSeparationEnabled',
       rightsSeparationStatus: 'RightsSeparationStatus',
       status: 'Status',
       storageUsed: 'StorageUsed',
+      tagSet: 'TagSet',
       type: 'Type',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -4876,10 +5111,12 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       port: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupId: 'string',
       rightsSeparationEnabled: 'boolean',
       rightsSeparationStatus: 'string',
       status: 'string',
       storageUsed: 'number',
+      tagSet: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDBInstanceTagSet },
       type: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -5164,9 +5401,32 @@ export class DescribeDBInstancesResponseBodyDBInstancesNodes extends $tea.Model 
   }
 }
 
+export class DescribeDBInstancesResponseBodyDBInstancesTagSet extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   commodityCode?: string;
   createTime?: string;
+  DBInstanceName?: string;
   DBType?: string;
   DBVersion?: string;
   description?: string;
@@ -5184,8 +5444,10 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
   payType?: string;
   readDBInstances?: string[];
   regionId?: string;
+  resourceGroupId?: string;
   status?: string;
   storageUsed?: number;
+  tagSet?: DescribeDBInstancesResponseBodyDBInstancesTagSet[];
   type?: string;
   VPCId?: string;
   zoneId?: string;
@@ -5193,6 +5455,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
     return {
       commodityCode: 'CommodityCode',
       createTime: 'CreateTime',
+      DBInstanceName: 'DBInstanceName',
       DBType: 'DBType',
       DBVersion: 'DBVersion',
       description: 'Description',
@@ -5210,8 +5473,10 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       payType: 'PayType',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       storageUsed: 'StorageUsed',
+      tagSet: 'TagSet',
       type: 'Type',
       VPCId: 'VPCId',
       zoneId: 'ZoneId',
@@ -5222,6 +5487,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
     return {
       commodityCode: 'string',
       createTime: 'string',
+      DBInstanceName: 'string',
       DBType: 'string',
       DBVersion: 'string',
       description: 'string',
@@ -5239,8 +5505,10 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       payType: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       storageUsed: 'number',
+      tagSet: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstancesTagSet },
       type: 'string',
       VPCId: 'string',
       zoneId: 'string',
@@ -5629,123 +5897,6 @@ export class DescribeParametersResponseBodyData extends $tea.Model {
   }
 }
 
-export class DescribePolarxDataNodesResponseBodyDBInstanceDataNodes extends $tea.Model {
-  DBInstanceDescription?: string;
-  DBInstanceId?: string;
-  DBInstanceName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceDescription: 'DBInstanceDescription',
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceName: 'DBInstanceName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceDescription: 'string',
-      DBInstanceId: 'string',
-      DBInstanceName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDbInstancesResponseBodyDbInstancesDbInstance extends $tea.Model {
-  createTime?: string;
-  DBInstanceId?: string;
-  DBType?: string;
-  DBVersion?: string;
-  description?: string;
-  engine?: string;
-  expireTime?: string;
-  lockMode?: string;
-  network?: string;
-  nodeClass?: string;
-  nodeCount?: number;
-  payType?: string;
-  regionId?: string;
-  status?: string;
-  statusDesc?: string;
-  storageUsed?: number;
-  VPCId?: string;
-  zoneId?: string;
-  lockReason?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      DBInstanceId: 'DBInstanceId',
-      DBType: 'DBType',
-      DBVersion: 'DBVersion',
-      description: 'Description',
-      engine: 'Engine',
-      expireTime: 'ExpireTime',
-      lockMode: 'LockMode',
-      network: 'Network',
-      nodeClass: 'NodeClass',
-      nodeCount: 'NodeCount',
-      payType: 'PayType',
-      regionId: 'RegionId',
-      status: 'Status',
-      statusDesc: 'StatusDesc',
-      storageUsed: 'StorageUsed',
-      VPCId: 'VPCId',
-      zoneId: 'ZoneId',
-      lockReason: 'lockReason',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'string',
-      DBInstanceId: 'string',
-      DBType: 'string',
-      DBVersion: 'string',
-      description: 'string',
-      engine: 'string',
-      expireTime: 'string',
-      lockMode: 'string',
-      network: 'string',
-      nodeClass: 'string',
-      nodeCount: 'number',
-      payType: 'string',
-      regionId: 'string',
-      status: 'string',
-      statusDesc: 'string',
-      storageUsed: 'number',
-      VPCId: 'string',
-      zoneId: 'string',
-      lockReason: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePolarxDbInstancesResponseBodyDbInstances extends $tea.Model {
-  dbInstance?: DescribePolarxDbInstancesResponseBodyDbInstancesDbInstance[];
-  static names(): { [key: string]: string } {
-    return {
-      dbInstance: 'DbInstance',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dbInstance: { 'type': 'array', 'itemType': DescribePolarxDbInstancesResponseBodyDbInstancesDbInstance },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $tea.Model {
   vpcEnabled?: boolean;
   zoneId?: string;
@@ -5878,6 +6029,146 @@ export class DescribeSecurityIpsResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList extends $tea.Model {
+  delay?: number;
+  lastError?: string;
+  physicalDbName?: string;
+  progress?: number;
+  statistics?: string;
+  status?: string;
+  taskId?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      delay: 'Delay',
+      lastError: 'LastError',
+      physicalDbName: 'PhysicalDbName',
+      progress: 'Progress',
+      statistics: 'Statistics',
+      status: 'Status',
+      taskId: 'TaskId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delay: 'number',
+      lastError: 'string',
+      physicalDbName: 'string',
+      progress: 'number',
+      statistics: 'string',
+      status: 'string',
+      taskId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList extends $tea.Model {
+  id?: number;
+  status?: string;
+  taskDetailList?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      status: 'Status',
+      taskDetailList: 'TaskDetailList',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      status: 'string',
+      taskDetailList: { 'type': 'array', 'itemType': DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailListTaskDetailList },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo extends $tea.Model {
+  fsmId?: number;
+  fsmState?: string;
+  fsmStatus?: string;
+  serviceDetailList?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList[];
+  static names(): { [key: string]: string } {
+    return {
+      fsmId: 'FsmId',
+      fsmState: 'FsmState',
+      fsmStatus: 'FsmStatus',
+      serviceDetailList: 'ServiceDetailList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fsmId: 'number',
+      fsmState: 'string',
+      fsmStatus: 'string',
+      serviceDetailList: { 'type': 'array', 'itemType': DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfoServiceDetailList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSlinkTaskInfoResponseBodyData extends $tea.Model {
+  dataImportTaskDetailInfo?: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo;
+  static names(): { [key: string]: string } {
+    return {
+      dataImportTaskDetailInfo: 'DataImportTaskDetailInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataImportTaskDetailInfo: DescribeSlinkTaskInfoResponseBodyDataDataImportTaskDetailInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTagsResponseBodyTagInfos extends $tea.Model {
+  DBInstanceIds?: string[];
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceIds: 'DBInstanceIds',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceIds: { 'type': 'array', 'itemType': 'string' },
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTasksResponseBodyItems extends $tea.Model {
   beginTime?: string;
   DBName?: string;
@@ -5946,23 +6237,20 @@ export class DescribeUserEncryptionKeyListResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetPolarxCommodityResponseBodyComponentList extends $tea.Model {
-  name?: string;
-  type?: string;
-  values?: string[];
+export class ListTagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      name: 'Name',
-      type: 'Type',
-      values: 'Values',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      name: 'string',
-      type: 'string',
-      values: { 'type': 'array', 'itemType': 'string' },
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5971,29 +6259,73 @@ export class GetPolarxCommodityResponseBodyComponentList extends $tea.Model {
   }
 }
 
-export class GetPolarxCommodityResponseBodyDBInstanceConnAddrs extends $tea.Model {
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceConnectionStringResponseBodyData extends $tea.Model {
   connectionString?: string;
+  DBInstanceName?: string;
+  DBInstanceNetType?: string;
   port?: string;
-  type?: string;
-  VPCId?: string;
-  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       connectionString: 'ConnectionString',
+      DBInstanceName: 'DBInstanceName',
+      DBInstanceNetType: 'DBInstanceNetType',
       port: 'Port',
-      type: 'Type',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       connectionString: 'string',
+      DBInstanceName: 'string',
+      DBInstanceNetType: 'string',
       port: 'string',
-      type: 'string',
-      VPCId: 'string',
-      vSwitchId: 'string',
     };
   }
 
@@ -6002,135 +6334,20 @@ export class GetPolarxCommodityResponseBodyDBInstanceConnAddrs extends $tea.Mode
   }
 }
 
-export class GetPolarxCommodityResponseBodyDBInstanceDBNodes extends $tea.Model {
-  id?: string;
-  nodeClass?: string;
-  regionId?: string;
-  zoneId?: string;
+export class TagResourcesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      nodeClass: 'NodeClass',
-      regionId: 'RegionId',
-      zoneId: 'ZoneId',
+      key: 'Key',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      nodeClass: 'string',
-      regionId: 'string',
-      zoneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolarxCommodityResponseBodyDBInstance extends $tea.Model {
-  commodityCode?: string;
-  connAddrs?: GetPolarxCommodityResponseBodyDBInstanceConnAddrs[];
-  connectionString?: string;
-  createTime?: string;
-  DBInstanceType?: string;
-  DBNodeClass?: string;
-  DBNodeCount?: number;
-  DBNodes?: GetPolarxCommodityResponseBodyDBInstanceDBNodes[];
-  DBType?: string;
-  DBVersion?: string;
-  description?: string;
-  engine?: string;
-  expireDate?: string;
-  expired?: string;
-  id?: string;
-  latestMinorVersion?: string;
-  lockMode?: string;
-  maintainEndTime?: string;
-  maintainStartTime?: string;
-  minorVersion?: string;
-  network?: string;
-  payType?: string;
-  port?: string;
-  readDBInstances?: string[];
-  regionId?: string;
-  status?: string;
-  storageUsed?: number;
-  type?: string;
-  VPCId?: string;
-  vSwitchId?: string;
-  zoneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      commodityCode: 'CommodityCode',
-      connAddrs: 'ConnAddrs',
-      connectionString: 'ConnectionString',
-      createTime: 'CreateTime',
-      DBInstanceType: 'DBInstanceType',
-      DBNodeClass: 'DBNodeClass',
-      DBNodeCount: 'DBNodeCount',
-      DBNodes: 'DBNodes',
-      DBType: 'DBType',
-      DBVersion: 'DBVersion',
-      description: 'Description',
-      engine: 'Engine',
-      expireDate: 'ExpireDate',
-      expired: 'Expired',
-      id: 'Id',
-      latestMinorVersion: 'LatestMinorVersion',
-      lockMode: 'LockMode',
-      maintainEndTime: 'MaintainEndTime',
-      maintainStartTime: 'MaintainStartTime',
-      minorVersion: 'MinorVersion',
-      network: 'Network',
-      payType: 'PayType',
-      port: 'Port',
-      readDBInstances: 'ReadDBInstances',
-      regionId: 'RegionId',
-      status: 'Status',
-      storageUsed: 'StorageUsed',
-      type: 'Type',
-      VPCId: 'VPCId',
-      vSwitchId: 'VSwitchId',
-      zoneId: 'ZoneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      commodityCode: 'string',
-      connAddrs: { 'type': 'array', 'itemType': GetPolarxCommodityResponseBodyDBInstanceConnAddrs },
-      connectionString: 'string',
-      createTime: 'string',
-      DBInstanceType: 'string',
-      DBNodeClass: 'string',
-      DBNodeCount: 'number',
-      DBNodes: { 'type': 'array', 'itemType': GetPolarxCommodityResponseBodyDBInstanceDBNodes },
-      DBType: 'string',
-      DBVersion: 'string',
-      description: 'string',
-      engine: 'string',
-      expireDate: 'string',
-      expired: 'string',
-      id: 'string',
-      latestMinorVersion: 'string',
-      lockMode: 'string',
-      maintainEndTime: 'string',
-      maintainStartTime: 'string',
-      minorVersion: 'string',
-      network: 'string',
-      payType: 'string',
-      port: 'string',
-      readDBInstances: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
-      status: 'string',
-      storageUsed: 'number',
-      type: 'string',
-      VPCId: 'string',
-      vSwitchId: 'string',
-      zoneId: 'string',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -6299,17 +6516,40 @@ export default class Client extends OpenApi {
   async allocateInstancePublicConnectionWithOptions(request: AllocateInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<AllocateInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionStringPrefix"] = request.connectionStringPrefix;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["Port"] = request.port;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AllocateInstancePublicConnection",
@@ -6319,7 +6559,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AllocateInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new AllocateInstancePublicConnectionResponse({}));
@@ -6344,7 +6584,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
@@ -6355,44 +6595,64 @@ export default class Client extends OpenApi {
     return await this.cancelActiveOperationTasksWithOptions(request, runtime);
   }
 
-  async cancelPolarxOrderWithOptions(request: CancelPolarxOrderRequest, runtime: $Util.RuntimeOptions): Promise<CancelPolarxOrderResponse> {
+  async changeResourceGroupWithOptions(request: ChangeResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ChangeResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
-    query["ScaleOutToken"] = request.scaleOutToken;
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
-      action: "CancelPolarxOrder",
+      action: "ChangeResourceGroup",
       version: "2020-02-02",
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelPolarxOrderResponse>(await this.callApi(params, req, runtime), new CancelPolarxOrderResponse({}));
+    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
   }
 
-  async cancelPolarxOrder(request: CancelPolarxOrderRequest): Promise<CancelPolarxOrderResponse> {
+  async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.cancelPolarxOrderWithOptions(request, runtime);
+    return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   async checkCloudResourceAuthorizedWithOptions(request: CheckCloudResourceAuthorizedRequest, runtime: $Util.RuntimeOptions): Promise<CheckCloudResourceAuthorizedResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
-    query["RoleArn"] = request.roleArn;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CheckCloudResourceAuthorized",
@@ -6402,7 +6662,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CheckCloudResourceAuthorizedResponse>(await this.callApi(params, req, runtime), new CheckCloudResourceAuthorizedResponse({}));
@@ -6416,18 +6676,44 @@ export default class Client extends OpenApi {
   async createAccountWithOptions(request: CreateAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccountResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDescription"] = request.accountDescription;
-    query["AccountName"] = request.accountName;
-    query["AccountPassword"] = request.accountPassword;
-    query["AccountPrivilege"] = request.accountPrivilege;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DBName"] = request.DBName;
-    query["RegionId"] = request.regionId;
-    query["SecurityAccountName"] = request.securityAccountName;
-    query["SecurityAccountPassword"] = request.securityAccountPassword;
+    if (!Util.isUnset(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!Util.isUnset(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateAccount",
@@ -6437,7 +6723,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateAccountResponse>(await this.callApi(params, req, runtime), new CreateAccountResponse({}));
@@ -6451,12 +6737,20 @@ export default class Client extends OpenApi {
   async createBackupWithOptions(request: CreateBackupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BackupType"] = request.backupType;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.backupType)) {
+      query["BackupType"] = request.backupType;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateBackup",
@@ -6466,7 +6760,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateBackupResponse>(await this.callApi(params, req, runtime), new CreateBackupResponse({}));
@@ -6480,18 +6774,44 @@ export default class Client extends OpenApi {
   async createDBWithOptions(request: CreateDBRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountName"] = request.accountName;
-    query["AccountPrivilege"] = request.accountPrivilege;
-    query["Charset"] = request.charset;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DbDescription"] = request.dbDescription;
-    query["DbName"] = request.dbName;
-    query["RegionId"] = request.regionId;
-    query["SecurityAccountName"] = request.securityAccountName;
-    query["SecurityAccountPassword"] = request.securityAccountPassword;
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPrivilege)) {
+      query["AccountPrivilege"] = request.accountPrivilege;
+    }
+
+    if (!Util.isUnset(request.charset)) {
+      query["Charset"] = request.charset;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbDescription)) {
+      query["DbDescription"] = request.dbDescription;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDB",
@@ -6501,7 +6821,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDBResponse>(await this.callApi(params, req, runtime), new CreateDBResponse({}));
@@ -6515,25 +6835,72 @@ export default class Client extends OpenApi {
   async createDBInstanceWithOptions(request: CreateDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoRenew"] = request.autoRenew;
-    query["ClientToken"] = request.clientToken;
-    query["DBNodeClass"] = request.DBNodeClass;
-    query["DBNodeCount"] = request.DBNodeCount;
-    query["EngineVersion"] = request.engineVersion;
-    query["IsReadDBInstance"] = request.isReadDBInstance;
-    query["NetworkType"] = request.networkType;
-    query["PayType"] = request.payType;
-    query["Period"] = request.period;
-    query["PrimaryDBInstanceName"] = request.primaryDBInstanceName;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["UsedTime"] = request.usedTime;
-    query["VPCId"] = request.VPCId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!Util.isUnset(request.DBNodeCount)) {
+      query["DBNodeCount"] = request.DBNodeCount;
+    }
+
+    if (!Util.isUnset(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!Util.isUnset(request.isReadDBInstance)) {
+      query["IsReadDBInstance"] = request.isReadDBInstance;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.primaryDBInstanceName)) {
+      query["PrimaryDBInstanceName"] = request.primaryDBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDBInstance",
@@ -6543,7 +6910,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDBInstanceResponse>(await this.callApi(params, req, runtime), new CreateDBInstanceResponse({}));
@@ -6554,46 +6921,31 @@ export default class Client extends OpenApi {
     return await this.createDBInstanceWithOptions(request, runtime);
   }
 
-  async createPolarxOrderWithOptions(request: CreatePolarxOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolarxOrderResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["NodeCount"] = request.nodeCount;
-    query["RegionId"] = request.regionId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreatePolarxOrder",
-      version: "2020-02-02",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreatePolarxOrderResponse>(await this.callApi(params, req, runtime), new CreatePolarxOrderResponse({}));
-  }
-
-  async createPolarxOrder(request: CreatePolarxOrderRequest): Promise<CreatePolarxOrderResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createPolarxOrderWithOptions(request, runtime);
-  }
-
   async createSuperAccountWithOptions(request: CreateSuperAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateSuperAccountResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDescription"] = request.accountDescription;
-    query["AccountName"] = request.accountName;
-    query["AccountPassword"] = request.accountPassword;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountPassword)) {
+      query["AccountPassword"] = request.accountPassword;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSuperAccount",
@@ -6603,7 +6955,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSuperAccountResponse>(await this.callApi(params, req, runtime), new CreateSuperAccountResponse({}));
@@ -6617,14 +6969,28 @@ export default class Client extends OpenApi {
   async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountName"] = request.accountName;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
-    query["SecurityAccountName"] = request.securityAccountName;
-    query["SecurityAccountPassword"] = request.securityAccountPassword;
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityAccountName)) {
+      query["SecurityAccountName"] = request.securityAccountName;
+    }
+
+    if (!Util.isUnset(request.securityAccountPassword)) {
+      query["SecurityAccountPassword"] = request.securityAccountPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAccount",
@@ -6634,7 +7000,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
@@ -6648,12 +7014,20 @@ export default class Client extends OpenApi {
   async deleteDBWithOptions(request: DeleteDBRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DbName"] = request.dbName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDB",
@@ -6663,7 +7037,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDBResponse>(await this.callApi(params, req, runtime), new DeleteDBResponse({}));
@@ -6677,11 +7051,20 @@ export default class Client extends OpenApi {
   async deleteDBInstanceWithOptions(request: DeleteDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDBInstance",
@@ -6691,7 +7074,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDBInstanceResponse>(await this.callApi(params, req, runtime), new DeleteDBInstanceResponse({}));
@@ -6705,13 +7088,24 @@ export default class Client extends OpenApi {
   async describeAccountListWithOptions(request: DescribeAccountListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountName"] = request.accountName;
-    query["AccountType"] = request.accountType;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.accountType)) {
+      query["AccountType"] = request.accountType;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAccountList",
@@ -6721,7 +7115,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAccountListResponse>(await this.callApi(params, req, runtime), new DescribeAccountListResponse({}));
@@ -6735,10 +7129,12 @@ export default class Client extends OpenApi {
   async describeActiveOperationMaintainConfWithOptions(request: DescribeActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationMaintainConfResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeActiveOperationMaintainConf",
@@ -6748,7 +7144,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
@@ -6773,7 +7169,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeActiveOperationTaskCountResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskCountResponse({}));
@@ -6798,7 +7194,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
@@ -6812,11 +7208,16 @@ export default class Client extends OpenApi {
   async describeBackupPolicyWithOptions(request: DescribeBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeBackupPolicy",
@@ -6826,7 +7227,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeBackupPolicyResponse>(await this.callApi(params, req, runtime), new DescribeBackupPolicyResponse({}));
@@ -6851,7 +7252,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeBackupSetListResponse>(await this.callApi(params, req, runtime), new DescribeBackupSetListResponse({}));
@@ -6865,15 +7266,32 @@ export default class Client extends OpenApi {
   async describeBinaryLogListWithOptions(request: DescribeBinaryLogListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBinaryLogListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["EndTime"] = request.endTime;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeBinaryLogList",
@@ -6883,7 +7301,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeBinaryLogListResponse>(await this.callApi(params, req, runtime), new DescribeBinaryLogListResponse({}));
@@ -6897,11 +7315,16 @@ export default class Client extends OpenApi {
   async describeCharacterSetWithOptions(request: DescribeCharacterSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCharacterSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCharacterSet",
@@ -6911,7 +7334,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCharacterSetResponse>(await this.callApi(params, req, runtime), new DescribeCharacterSetResponse({}));
@@ -6925,11 +7348,20 @@ export default class Client extends OpenApi {
   async describeDBInstanceAttributeWithOptions(request: DescribeDBInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstanceAttribute",
@@ -6939,7 +7371,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceAttributeResponse({}));
@@ -6953,12 +7385,20 @@ export default class Client extends OpenApi {
   async describeDBInstanceConfigWithOptions(request: DescribeDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigName"] = request.configName;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstanceConfig",
@@ -6968,7 +7408,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceConfigResponse({}));
@@ -6982,11 +7422,16 @@ export default class Client extends OpenApi {
   async describeDBInstanceSSLWithOptions(request: DescribeDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstanceSSL",
@@ -6996,7 +7441,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceSSLResponse({}));
@@ -7010,11 +7455,16 @@ export default class Client extends OpenApi {
   async describeDBInstanceTDEWithOptions(request: DescribeDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstanceTDE",
@@ -7024,7 +7474,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTDEResponse({}));
@@ -7038,11 +7488,16 @@ export default class Client extends OpenApi {
   async describeDBInstanceTopologyWithOptions(request: DescribeDBInstanceTopologyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceTopologyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstanceTopology",
@@ -7052,7 +7507,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstanceTopologyResponse>(await this.callApi(params, req, runtime), new DescribeDBInstanceTopologyResponse({}));
@@ -7066,12 +7521,32 @@ export default class Client extends OpenApi {
   async describeDBInstancesWithOptions(request: DescribeDBInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBInstances",
@@ -7081,7 +7556,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBInstancesResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancesResponse({}));
@@ -7095,17 +7570,40 @@ export default class Client extends OpenApi {
   async describeDBNodePerformanceWithOptions(request: DescribeDBNodePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBNodePerformanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CharacterType"] = request.characterType;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DBNodeIds"] = request.DBNodeIds;
-    query["DBNodeRole"] = request.DBNodeRole;
-    query["EndTime"] = request.endTime;
-    query["Key"] = request.key;
-    query["RegionId"] = request.regionId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.characterType)) {
+      query["CharacterType"] = request.characterType;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.DBNodeIds)) {
+      query["DBNodeIds"] = request.DBNodeIds;
+    }
+
+    if (!Util.isUnset(request.DBNodeRole)) {
+      query["DBNodeRole"] = request.DBNodeRole;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDBNodePerformance",
@@ -7115,7 +7613,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDBNodePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBNodePerformanceResponse({}));
@@ -7129,12 +7627,20 @@ export default class Client extends OpenApi {
   async describeDbListWithOptions(request: DescribeDbListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDbListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DBName"] = request.DBName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.DBName)) {
+      query["DBName"] = request.DBName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDbList",
@@ -7144,7 +7650,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDbListResponse>(await this.callApi(params, req, runtime), new DescribeDbListResponse({}));
@@ -7158,12 +7664,20 @@ export default class Client extends OpenApi {
   async describeDistributeTableListWithOptions(request: DescribeDistributeTableListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDistributeTableListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DbName"] = request.dbName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDistributeTableList",
@@ -7173,7 +7687,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDistributeTableListResponse>(await this.callApi(params, req, runtime), new DescribeDistributeTableListResponse({}));
@@ -7198,7 +7712,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeEventsResponse>(await this.callApi(params, req, runtime), new DescribeEventsResponse({}));
@@ -7212,12 +7726,20 @@ export default class Client extends OpenApi {
   async describeParameterTemplatesWithOptions(request: DescribeParameterTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParameterTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceId"] = request.DBInstanceId;
-    query["ParamLevel"] = request.paramLevel;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.paramLevel)) {
+      query["ParamLevel"] = request.paramLevel;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeParameterTemplates",
@@ -7227,7 +7749,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeParameterTemplatesResponse>(await this.callApi(params, req, runtime), new DescribeParameterTemplatesResponse({}));
@@ -7241,12 +7763,20 @@ export default class Client extends OpenApi {
   async describeParametersWithOptions(request: DescribeParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeParametersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceId"] = request.DBInstanceId;
-    query["ParamLevel"] = request.paramLevel;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.paramLevel)) {
+      query["ParamLevel"] = request.paramLevel;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeParameters",
@@ -7256,7 +7786,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeParametersResponse>(await this.callApi(params, req, runtime), new DescribeParametersResponse({}));
@@ -7265,65 +7795,6 @@ export default class Client extends OpenApi {
   async describeParameters(request: DescribeParametersRequest): Promise<DescribeParametersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeParametersWithOptions(request, runtime);
-  }
-
-  async describePolarxDataNodesWithOptions(request: DescribePolarxDataNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolarxDataNodesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePolarxDataNodes",
-      version: "2020-02-02",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePolarxDataNodesResponse>(await this.callApi(params, req, runtime), new DescribePolarxDataNodesResponse({}));
-  }
-
-  async describePolarxDataNodes(request: DescribePolarxDataNodesRequest): Promise<DescribePolarxDataNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePolarxDataNodesWithOptions(request, runtime);
-  }
-
-  async describePolarxDbInstancesWithOptions(request: DescribePolarxDbInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePolarxDbInstancesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DbName"] = request.dbName;
-    query["DrdsInstanceId"] = request.drdsInstanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribePolarxDbInstances",
-      version: "2020-02-02",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribePolarxDbInstancesResponse>(await this.callApi(params, req, runtime), new DescribePolarxDbInstancesResponse({}));
-  }
-
-  async describePolarxDbInstances(request: DescribePolarxDbInstancesRequest): Promise<DescribePolarxDbInstancesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describePolarxDbInstancesWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -7336,7 +7807,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
@@ -7350,14 +7821,28 @@ export default class Client extends OpenApi {
   async describeScaleOutMigrateTaskListWithOptions(request: DescribeScaleOutMigrateTaskListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeScaleOutMigrateTaskListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeScaleOutMigrateTaskList",
@@ -7367,7 +7852,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeScaleOutMigrateTaskListResponse>(await this.callApi(params, req, runtime), new DescribeScaleOutMigrateTaskListResponse({}));
@@ -7381,11 +7866,16 @@ export default class Client extends OpenApi {
   async describeSecurityIpsWithOptions(request: DescribeSecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeSecurityIps",
@@ -7395,7 +7885,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeSecurityIpsResponse>(await this.callApi(params, req, runtime), new DescribeSecurityIpsResponse({}));
@@ -7406,22 +7896,137 @@ export default class Client extends OpenApi {
     return await this.describeSecurityIpsWithOptions(request, runtime);
   }
 
+  async describeSlinkTaskInfoWithOptions(request: DescribeSlinkTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSlinkTaskInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.failPageNumber)) {
+      query["FailPageNumber"] = request.failPageNumber;
+    }
+
+    if (!Util.isUnset(request.failPageSize)) {
+      query["FailPageSize"] = request.failPageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.slinkTaskId)) {
+      query["SlinkTaskId"] = request.slinkTaskId;
+    }
+
+    if (!Util.isUnset(request.successPageNumber)) {
+      query["SuccessPageNumber"] = request.successPageNumber;
+    }
+
+    if (!Util.isUnset(request.successPageSize)) {
+      query["SuccessPageSize"] = request.successPageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSlinkTaskInfo",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSlinkTaskInfoResponse>(await this.callApi(params, req, runtime), new DescribeSlinkTaskInfoResponse({}));
+  }
+
+  async describeSlinkTaskInfo(request: DescribeSlinkTaskInfoRequest): Promise<DescribeSlinkTaskInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSlinkTaskInfoWithOptions(request, runtime);
+  }
+
+  async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTags",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
+  }
+
+  async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTagsWithOptions(request, runtime);
+  }
+
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceId"] = request.DBInstanceId;
-    query["EndTime"] = request.endTime;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeTasks",
@@ -7431,7 +8036,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeTasksResponse>(await this.callApi(params, req, runtime), new DescribeTasksResponse({}));
@@ -7445,11 +8050,16 @@ export default class Client extends OpenApi {
   async describeUserEncryptionKeyListWithOptions(request: DescribeUserEncryptionKeyListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEncryptionKeyListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserEncryptionKeyList",
@@ -7459,7 +8069,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserEncryptionKeyListResponse>(await this.callApi(params, req, runtime), new DescribeUserEncryptionKeyListResponse({}));
@@ -7470,45 +8080,105 @@ export default class Client extends OpenApi {
     return await this.describeUserEncryptionKeyListWithOptions(request, runtime);
   }
 
-  async getPolarxCommodityWithOptions(request: GetPolarxCommodityRequest, runtime: $Util.RuntimeOptions): Promise<GetPolarxCommodityResponse> {
+  async initDBInstanceResourceGroupIdWithOptions(request: InitDBInstanceResourceGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<InitDBInstanceResourceGroupIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["OrderType"] = request.orderType;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
-      action: "GetPolarxCommodity",
+      action: "InitDBInstanceResourceGroupId",
       version: "2020-02-02",
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPolarxCommodityResponse>(await this.callApi(params, req, runtime), new GetPolarxCommodityResponse({}));
+    return $tea.cast<InitDBInstanceResourceGroupIdResponse>(await this.callApi(params, req, runtime), new InitDBInstanceResourceGroupIdResponse({}));
   }
 
-  async getPolarxCommodity(request: GetPolarxCommodityRequest): Promise<GetPolarxCommodityResponse> {
+  async initDBInstanceResourceGroupId(request: InitDBInstanceResourceGroupIdRequest): Promise<InitDBInstanceResourceGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPolarxCommodityWithOptions(request, runtime);
+    return await this.initDBInstanceResourceGroupIdWithOptions(request, runtime);
+  }
+
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   async modifyAccountDescriptionWithOptions(request: ModifyAccountDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAccountDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountDescription"] = request.accountDescription;
-    query["AccountName"] = request.accountName;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accountDescription)) {
+      query["AccountDescription"] = request.accountDescription;
+    }
+
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyAccountDescription",
@@ -7518,7 +8188,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyAccountDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyAccountDescriptionResponse({}));
@@ -7543,7 +8213,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
@@ -7557,13 +8227,24 @@ export default class Client extends OpenApi {
   async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Ids"] = request.ids;
-    query["ImmediateStart"] = request.immediateStart;
-    query["RegionId"] = request.regionId;
-    query["SwitchTime"] = request.switchTime;
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyActiveOperationTasks",
@@ -7573,7 +8254,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
@@ -7587,13 +8268,24 @@ export default class Client extends OpenApi {
   async modifyDBInstanceClassWithOptions(request: ModifyDBInstanceClassRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceClassResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
-    query["TargetDBInstanceClass"] = request.targetDBInstanceClass;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.targetDBInstanceClass)) {
+      query["TargetDBInstanceClass"] = request.targetDBInstanceClass;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDBInstanceClass",
@@ -7603,7 +8295,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDBInstanceClassResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceClassResponse({}));
@@ -7617,13 +8309,24 @@ export default class Client extends OpenApi {
   async modifyDBInstanceConfigWithOptions(request: ModifyDBInstanceConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigName"] = request.configName;
-    query["ConfigValue"] = request.configValue;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.configName)) {
+      query["ConfigName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.configValue)) {
+      query["ConfigValue"] = request.configValue;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDBInstanceConfig",
@@ -7633,7 +8336,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDBInstanceConfigResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConfigResponse({}));
@@ -7644,15 +8347,68 @@ export default class Client extends OpenApi {
     return await this.modifyDBInstanceConfigWithOptions(request, runtime);
   }
 
+  async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.newPort)) {
+      query["NewPort"] = request.newPort;
+    }
+
+    if (!Util.isUnset(request.newPrefix)) {
+      query["NewPrefix"] = request.newPrefix;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceConnectionString",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceConnectionStringResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceConnectionStringResponse({}));
+  }
+
+  async modifyDBInstanceConnectionString(request: ModifyDBInstanceConnectionStringRequest): Promise<ModifyDBInstanceConnectionStringResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceConnectionStringWithOptions(request, runtime);
+  }
+
   async modifyDBInstanceDescriptionWithOptions(request: ModifyDBInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceDescription"] = request.DBInstanceDescription;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceDescription)) {
+      query["DBInstanceDescription"] = request.DBInstanceDescription;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDBInstanceDescription",
@@ -7662,7 +8418,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDBInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceDescriptionResponse({}));
@@ -7676,13 +8432,24 @@ export default class Client extends OpenApi {
   async modifyDatabaseDescriptionWithOptions(request: ModifyDatabaseDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDatabaseDescriptionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DbDescription"] = request.dbDescription;
-    query["DbName"] = request.dbName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbDescription)) {
+      query["DbDescription"] = request.dbDescription;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDatabaseDescription",
@@ -7692,7 +8459,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDatabaseDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyDatabaseDescriptionResponse({}));
@@ -7706,14 +8473,28 @@ export default class Client extends OpenApi {
   async modifyParameterWithOptions(request: ModifyParameterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyParameterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DBInstanceId"] = request.DBInstanceId;
-    query["ParamLevel"] = request.paramLevel;
-    query["Parameters"] = request.parameters;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.paramLevel)) {
+      query["ParamLevel"] = request.paramLevel;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyParameter",
@@ -7723,7 +8504,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyParameterResponse>(await this.callApi(params, req, runtime), new ModifyParameterResponse({}));
@@ -7737,14 +8518,28 @@ export default class Client extends OpenApi {
   async modifySecurityIpsWithOptions(request: ModifySecurityIpsRequest, runtime: $Util.RuntimeOptions): Promise<ModifySecurityIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["GroupName"] = request.groupName;
-    query["ModifyMode"] = request.modifyMode;
-    query["RegionId"] = request.regionId;
-    query["SecurityIPList"] = request.securityIPList;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.modifyMode)) {
+      query["ModifyMode"] = request.modifyMode;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifySecurityIps",
@@ -7754,7 +8549,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifySecurityIpsResponse>(await this.callApi(params, req, runtime), new ModifySecurityIpsResponse({}));
@@ -7768,16 +8563,36 @@ export default class Client extends OpenApi {
   async releaseInstancePublicConnectionWithOptions(request: ReleaseInstancePublicConnectionRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseInstancePublicConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CurrentConnectionString"] = request.currentConnectionString;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.currentConnectionString)) {
+      query["CurrentConnectionString"] = request.currentConnectionString;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ReleaseInstancePublicConnection",
@@ -7787,7 +8602,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ReleaseInstancePublicConnectionResponse>(await this.callApi(params, req, runtime), new ReleaseInstancePublicConnectionResponse({}));
@@ -7801,11 +8616,16 @@ export default class Client extends OpenApi {
   async restartDBInstanceWithOptions(request: RestartDBInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartDBInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RestartDBInstance",
@@ -7815,7 +8635,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RestartDBInstanceResponse>(await this.callApi(params, req, runtime), new RestartDBInstanceResponse({}));
@@ -7826,24 +8646,145 @@ export default class Client extends OpenApi {
     return await this.restartDBInstanceWithOptions(request, runtime);
   }
 
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
+  }
+
   async updateBackupPolicyWithOptions(request: UpdateBackupPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBackupPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BackupPeriod"] = request.backupPeriod;
-    query["BackupPlanBegin"] = request.backupPlanBegin;
-    query["BackupSetRetention"] = request.backupSetRetention;
-    query["BackupType"] = request.backupType;
-    query["BackupWay"] = request.backupWay;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["ForceCleanOnHighSpaceUsage"] = request.forceCleanOnHighSpaceUsage;
-    query["IsEnabled"] = request.isEnabled;
-    query["LocalLogRetention"] = request.localLogRetention;
-    query["LogLocalRetentionSpace"] = request.logLocalRetentionSpace;
-    query["RegionId"] = request.regionId;
-    query["RemoveLogRetention"] = request.removeLogRetention;
+    if (!Util.isUnset(request.backupPeriod)) {
+      query["BackupPeriod"] = request.backupPeriod;
+    }
+
+    if (!Util.isUnset(request.backupPlanBegin)) {
+      query["BackupPlanBegin"] = request.backupPlanBegin;
+    }
+
+    if (!Util.isUnset(request.backupSetRetention)) {
+      query["BackupSetRetention"] = request.backupSetRetention;
+    }
+
+    if (!Util.isUnset(request.backupType)) {
+      query["BackupType"] = request.backupType;
+    }
+
+    if (!Util.isUnset(request.backupWay)) {
+      query["BackupWay"] = request.backupWay;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.forceCleanOnHighSpaceUsage)) {
+      query["ForceCleanOnHighSpaceUsage"] = request.forceCleanOnHighSpaceUsage;
+    }
+
+    if (!Util.isUnset(request.isEnabled)) {
+      query["IsEnabled"] = request.isEnabled;
+    }
+
+    if (!Util.isUnset(request.localLogRetention)) {
+      query["LocalLogRetention"] = request.localLogRetention;
+    }
+
+    if (!Util.isUnset(request.logLocalRetentionSpace)) {
+      query["LogLocalRetentionSpace"] = request.logLocalRetentionSpace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.removeLogRetention)) {
+      query["RemoveLogRetention"] = request.removeLogRetention;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateBackupPolicy",
@@ -7853,7 +8794,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateBackupPolicyResponse>(await this.callApi(params, req, runtime), new UpdateBackupPolicyResponse({}));
@@ -7867,13 +8808,24 @@ export default class Client extends OpenApi {
   async updateDBInstanceSSLWithOptions(request: UpdateDBInstanceSSLRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceSSLResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertCommonName"] = request.certCommonName;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["EnableSSL"] = request.enableSSL;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.certCommonName)) {
+      query["CertCommonName"] = request.certCommonName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.enableSSL)) {
+      query["EnableSSL"] = request.enableSSL;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDBInstanceSSL",
@@ -7883,7 +8835,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDBInstanceSSLResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceSSLResponse({}));
@@ -7897,14 +8849,28 @@ export default class Client extends OpenApi {
   async updateDBInstanceTDEWithOptions(request: UpdateDBInstanceTDERequest, runtime: $Util.RuntimeOptions): Promise<UpdateDBInstanceTDEResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["EncryptionKey"] = request.encryptionKey;
-    query["RegionId"] = request.regionId;
-    query["RoleArn"] = request.roleArn;
-    query["TDEStatus"] = request.TDEStatus;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.encryptionKey)) {
+      query["EncryptionKey"] = request.encryptionKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.roleArn)) {
+      query["RoleArn"] = request.roleArn;
+    }
+
+    if (!Util.isUnset(request.TDEStatus)) {
+      query["TDEStatus"] = request.TDEStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDBInstanceTDE",
@@ -7914,7 +8880,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDBInstanceTDEResponse>(await this.callApi(params, req, runtime), new UpdateDBInstanceTDEResponse({}));
@@ -7928,13 +8894,24 @@ export default class Client extends OpenApi {
   async updatePolarDBXInstanceNodeWithOptions(request: UpdatePolarDBXInstanceNodeRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePolarDBXInstanceNodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["DbInstanceNodeCount"] = request.dbInstanceNodeCount;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.dbInstanceNodeCount)) {
+      query["DbInstanceNodeCount"] = request.dbInstanceNodeCount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdatePolarDBXInstanceNode",
@@ -7944,7 +8921,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdatePolarDBXInstanceNodeResponse>(await this.callApi(params, req, runtime), new UpdatePolarDBXInstanceNodeResponse({}));
@@ -7958,11 +8935,16 @@ export default class Client extends OpenApi {
   async upgradeDBInstanceKernelVersionWithOptions(request: UpgradeDBInstanceKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<UpgradeDBInstanceKernelVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DBInstanceName"] = request.DBInstanceName;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpgradeDBInstanceKernelVersion",
@@ -7972,7 +8954,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpgradeDBInstanceKernelVersionResponse>(await this.callApi(params, req, runtime), new UpgradeDBInstanceKernelVersionResponse({}));
