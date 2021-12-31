@@ -7,16 +7,15 @@ import SPI from '@alicloud/gateway-spi';
 import GatewayClient from '@alicloud/gateway-sls';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ConsumerGroup extends $tea.Model {
-  consumerGroup?: string;
+  name?: string;
   order?: boolean;
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
-      consumerGroup: 'consumerGroup',
+      name: 'name',
       order: 'order',
       timeout: 'timeout',
     };
@@ -24,9 +23,59 @@ export class ConsumerGroup extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      consumerGroup: 'string',
+      name: 'string',
       order: 'boolean',
       timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptConf extends $tea.Model {
+  enable?: boolean;
+  encryptType?: string;
+  userCmkInfo?: EncryptUserCmkConf;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      encryptType: 'encrypt_type',
+      userCmkInfo: 'user_cmk_info',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      encryptType: 'string',
+      userCmkInfo: EncryptUserCmkConf,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EncryptUserCmkConf extends $tea.Model {
+  arn?: string;
+  cmkKeyId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      arn: 'arn',
+      cmkKeyId: 'cmk_key_id',
+      regionId: 'region_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      arn: 'string',
+      cmkKeyId: 'string',
+      regionId: 'string',
     };
   }
 
@@ -68,10 +117,10 @@ export class SavedSearch extends $tea.Model {
 
 export class Logstore extends $tea.Model {
   appendMeta?: boolean;
-  archiveSeconds?: number;
   autoSplit?: boolean;
   createTime?: number;
   enableTracking?: boolean;
+  encryptConf?: EncryptConf;
   lastModifyTime?: number;
   logstoreName?: string;
   maxSplitShard?: number;
@@ -81,10 +130,10 @@ export class Logstore extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       appendMeta: 'appendMeta',
-      archiveSeconds: 'archiveSeconds',
       autoSplit: 'autoSplit',
       createTime: 'createTime',
-      enableTracking: 'enableTracking',
+      enableTracking: 'enable_tracking',
+      encryptConf: 'encrypt_conf',
       lastModifyTime: 'lastModifyTime',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
@@ -97,10 +146,10 @@ export class Logstore extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appendMeta: 'boolean',
-      archiveSeconds: 'number',
       autoSplit: 'boolean',
       createTime: 'number',
       enableTracking: 'boolean',
+      encryptConf: EncryptConf,
       lastModifyTime: 'number',
       logstoreName: 'string',
       maxSplitShard: 'number',
@@ -234,6 +283,7 @@ export class CreateLogStoreRequest extends $tea.Model {
   appendMeta?: boolean;
   autoSplit?: boolean;
   enableTracking?: boolean;
+  encryptConf?: EncryptConf;
   logstoreName?: string;
   maxSplitShard?: number;
   shardCount?: number;
@@ -243,6 +293,7 @@ export class CreateLogStoreRequest extends $tea.Model {
       appendMeta: 'appendMeta',
       autoSplit: 'autoSplit',
       enableTracking: 'enable_tracking',
+      encryptConf: 'encrypt_conf',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       shardCount: 'shardCount',
@@ -255,6 +306,47 @@ export class CreateLogStoreRequest extends $tea.Model {
       appendMeta: 'boolean',
       autoSplit: 'boolean',
       enableTracking: 'boolean',
+      encryptConf: EncryptConf,
+      logstoreName: 'string',
+      maxSplitShard: 'number',
+      shardCount: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLogStoreShrinkRequest extends $tea.Model {
+  appendMeta?: boolean;
+  autoSplit?: boolean;
+  enableTracking?: boolean;
+  encryptConfShrink?: string;
+  logstoreName?: string;
+  maxSplitShard?: number;
+  shardCount?: number;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appendMeta: 'appendMeta',
+      autoSplit: 'autoSplit',
+      enableTracking: 'enable_tracking',
+      encryptConfShrink: 'encrypt_conf',
+      logstoreName: 'logstoreName',
+      maxSplitShard: 'maxSplitShard',
+      shardCount: 'shardCount',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appendMeta: 'boolean',
+      autoSplit: 'boolean',
+      enableTracking: 'boolean',
+      encryptConfShrink: 'string',
       logstoreName: 'string',
       maxSplitShard: 'number',
       shardCount: 'number',
@@ -470,6 +562,28 @@ export class GetProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: Project,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSavedSearchResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SavedSearch;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SavedSearch,
     };
   }
 
@@ -758,6 +872,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
   appendMeta?: boolean;
   autoSplit?: boolean;
   enableTracking?: boolean;
+  encryptConf?: EncryptConf;
   logstoreName?: string;
   maxSplitShard?: number;
   shardCount?: number;
@@ -767,6 +882,7 @@ export class UpdateLogStoreRequest extends $tea.Model {
       appendMeta: 'appendMeta',
       autoSplit: 'autoSplit',
       enableTracking: 'enable_tracking',
+      encryptConf: 'encrypt_conf',
       logstoreName: 'logstoreName',
       maxSplitShard: 'maxSplitShard',
       shardCount: 'shardCount',
@@ -779,6 +895,47 @@ export class UpdateLogStoreRequest extends $tea.Model {
       appendMeta: 'boolean',
       autoSplit: 'boolean',
       enableTracking: 'boolean',
+      encryptConf: EncryptConf,
+      logstoreName: 'string',
+      maxSplitShard: 'number',
+      shardCount: 'number',
+      ttl: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateLogStoreShrinkRequest extends $tea.Model {
+  appendMeta?: boolean;
+  autoSplit?: boolean;
+  enableTracking?: boolean;
+  encryptConfShrink?: string;
+  logstoreName?: string;
+  maxSplitShard?: number;
+  shardCount?: number;
+  ttl?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appendMeta: 'appendMeta',
+      autoSplit: 'autoSplit',
+      enableTracking: 'enable_tracking',
+      encryptConfShrink: 'encrypt_conf',
+      logstoreName: 'logstoreName',
+      maxSplitShard: 'maxSplitShard',
+      shardCount: 'shardCount',
+      ttl: 'ttl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appendMeta: 'boolean',
+      autoSplit: 'boolean',
+      enableTracking: 'boolean',
+      encryptConfShrink: 'string',
       logstoreName: 'string',
       maxSplitShard: 'number',
       shardCount: 'number',
@@ -908,7 +1065,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<CreateConsumerGroupResponse>(await this.execute(params, req, runtime), new CreateConsumerGroupResponse({}));
   }
@@ -919,10 +1076,16 @@ export default class Client extends OpenApi {
     return await this.createLogStoreWithOptions(project, request, headers, runtime);
   }
 
-  async createLogStoreWithOptions(project: string, request: CreateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogStoreResponse> {
-    Util.validateModel(request);
+  async createLogStoreWithOptions(project: string, tmpReq: CreateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateLogStoreResponse> {
+    Util.validateModel(tmpReq);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
+    let request = new CreateLogStoreShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.encryptConf))) {
+      request.encryptConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.encryptConf), "encrypt_conf", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appendMeta)) {
       body["appendMeta"] = request.appendMeta;
@@ -934,6 +1097,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableTracking)) {
       body["enable_tracking"] = request.enableTracking;
+    }
+
+    if (!Util.isUnset(request.encryptConfShrink)) {
+      body["encrypt_conf"] = request.encryptConfShrink;
     }
 
     if (!Util.isUnset(request.logstoreName)) {
@@ -966,7 +1133,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<CreateLogStoreResponse>(await this.execute(params, req, runtime), new CreateLogStoreResponse({}));
   }
@@ -1001,7 +1168,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<CreateProjectResponse>(await this.execute(params, req, runtime), new CreateProjectResponse({}));
   }
@@ -1048,7 +1215,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<CreateSavedSearchResponse>(await this.execute(params, req, runtime), new CreateSavedSearchResponse({}));
   }
@@ -1077,7 +1244,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<DeleteConsumerGroupResponse>(await this.execute(params, req, runtime), new DeleteConsumerGroupResponse({}));
   }
@@ -1104,7 +1271,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<DeleteProjectResponse>(await this.execute(params, req, runtime), new DeleteProjectResponse({}));
   }
@@ -1132,7 +1299,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<DeleteSavedSearchResponse>(await this.execute(params, req, runtime), new DeleteSavedSearchResponse({}));
   }
@@ -1190,6 +1357,34 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetProjectResponse>(await this.execute(params, req, runtime), new GetProjectResponse({}));
+  }
+
+  async getSavedSearch(project: string, savedsearchName: string): Promise<GetSavedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSavedSearchWithOptions(project, savedsearchName, headers, runtime);
+  }
+
+  async getSavedSearchWithOptions(project: string, savedsearchName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSavedSearchResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    savedsearchName = OpenApiUtil.getEncodeParam(savedsearchName);
+    let req = new $OpenApi.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSavedSearch",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/savedsearches/${savedsearchName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSavedSearchResponse>(await this.execute(params, req, runtime), new GetSavedSearchResponse({}));
   }
 
   async listConsumerGroup(project: string, logstore: string): Promise<ListConsumerGroupResponse> {
@@ -1378,7 +1573,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<UpdateConsumerGroupResponse>(await this.execute(params, req, runtime), new UpdateConsumerGroupResponse({}));
   }
@@ -1389,11 +1584,17 @@ export default class Client extends OpenApi {
     return await this.updateLogStoreWithOptions(project, logstore, request, headers, runtime);
   }
 
-  async updateLogStoreWithOptions(project: string, logstore: string, request: UpdateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogStoreResponse> {
-    Util.validateModel(request);
+  async updateLogStoreWithOptions(project: string, logstore: string, tmpReq: UpdateLogStoreRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateLogStoreResponse> {
+    Util.validateModel(tmpReq);
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     logstore = OpenApiUtil.getEncodeParam(logstore);
+    let request = new UpdateLogStoreShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.encryptConf))) {
+      request.encryptConfShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.encryptConf), "encrypt_conf", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appendMeta)) {
       body["appendMeta"] = request.appendMeta;
@@ -1405,6 +1606,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableTracking)) {
       body["enable_tracking"] = request.enableTracking;
+    }
+
+    if (!Util.isUnset(request.encryptConfShrink)) {
+      body["encrypt_conf"] = request.encryptConfShrink;
     }
 
     if (!Util.isUnset(request.logstoreName)) {
@@ -1437,7 +1642,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<UpdateLogStoreResponse>(await this.execute(params, req, runtime), new UpdateLogStoreResponse({}));
   }
@@ -1471,7 +1676,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<UpdateProjectResponse>(await this.execute(params, req, runtime), new UpdateProjectResponse({}));
   }
