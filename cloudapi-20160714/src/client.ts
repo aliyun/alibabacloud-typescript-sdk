@@ -7011,28 +7011,37 @@ export class DescribeUpdateVpcInfoTaskResponse extends $tea.Model {
 }
 
 export class DescribeVpcAccessesRequest extends $tea.Model {
+  instanceId?: string;
   name?: string;
   pageNumber?: number;
   pageSize?: number;
+  port?: string;
   securityToken?: string;
   vpcAccessId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      port: 'Port',
       securityToken: 'SecurityToken',
       vpcAccessId: 'VpcAccessId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      port: 'string',
       securityToken: 'string',
       vpcAccessId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -14924,13 +14933,13 @@ export class DescribePluginsResponseBodyPluginsPluginAttributeTags extends $tea.
 
 export class DescribePluginsResponseBodyPluginsPluginAttribute extends $tea.Model {
   createdTime?: string;
-  description?: number;
+  description?: string;
   modifiedTime?: string;
   pluginData?: string;
   pluginId?: string;
   pluginName?: string;
   pluginType?: string;
-  regionId?: number;
+  regionId?: string;
   tags?: DescribePluginsResponseBodyPluginsPluginAttributeTags;
   static names(): { [key: string]: string } {
     return {
@@ -14949,13 +14958,13 @@ export class DescribePluginsResponseBodyPluginsPluginAttribute extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       createdTime: 'string',
-      description: 'number',
+      description: 'string',
       modifiedTime: 'string',
       pluginData: 'string',
       pluginId: 'string',
       pluginName: 'string',
       pluginType: 'string',
-      regionId: 'number',
+      regionId: 'string',
       tags: DescribePluginsResponseBodyPluginsPluginAttributeTags,
     };
   }
@@ -16375,13 +16384,24 @@ export default class Client extends OpenApi {
   async abolishApiWithOptions(request: AbolishApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AbolishApi",
@@ -16391,7 +16411,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AbolishApiResponse>(await this.callApi(params, req, runtime), new AbolishApiResponse({}));
@@ -16405,13 +16425,24 @@ export default class Client extends OpenApi {
   async addIpControlPolicyItemWithOptions(request: AddIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<AddIpControlPolicyItemResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["CidrIp"] = request.cidrIp;
-    query["IpControlId"] = request.ipControlId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.cidrIp)) {
+      query["CidrIp"] = request.cidrIp;
+    }
+
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddIpControlPolicyItem",
@@ -16421,7 +16452,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddIpControlPolicyItemResponse>(await this.callApi(params, req, runtime), new AddIpControlPolicyItemResponse({}));
@@ -16435,14 +16466,28 @@ export default class Client extends OpenApi {
   async addTrafficSpecialControlWithOptions(request: AddTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<AddTrafficSpecialControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["SpecialKey"] = request.specialKey;
-    query["SpecialType"] = request.specialType;
-    query["TrafficControlId"] = request.trafficControlId;
-    query["TrafficValue"] = request.trafficValue;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.specialKey)) {
+      query["SpecialKey"] = request.specialKey;
+    }
+
+    if (!Util.isUnset(request.specialType)) {
+      query["SpecialType"] = request.specialType;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
+    if (!Util.isUnset(request.trafficValue)) {
+      query["TrafficValue"] = request.trafficValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddTrafficSpecialControl",
@@ -16452,7 +16497,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddTrafficSpecialControlResponse>(await this.callApi(params, req, runtime), new AddTrafficSpecialControlResponse({}));
@@ -16466,15 +16511,32 @@ export default class Client extends OpenApi {
   async attachPluginWithOptions(request: AttachPluginRequest, runtime: $Util.RuntimeOptions): Promise<AttachPluginResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["PluginId"] = request.pluginId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AttachPlugin",
@@ -16484,7 +16546,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AttachPluginResponse>(await this.callApi(params, req, runtime), new AttachPluginResponse({}));
@@ -16498,11 +16560,16 @@ export default class Client extends OpenApi {
   async batchAbolishApisWithOptions(request: BatchAbolishApisRequest, runtime: $Util.RuntimeOptions): Promise<BatchAbolishApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Api"] = request.api;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchAbolishApis",
@@ -16512,7 +16579,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchAbolishApisResponse>(await this.callApi(params, req, runtime), new BatchAbolishApisResponse({}));
@@ -16526,13 +16593,24 @@ export default class Client extends OpenApi {
   async batchDeployApisWithOptions(request: BatchDeployApisRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeployApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Api"] = request.api;
-    query["Description"] = request.description;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.api)) {
+      query["Api"] = request.api;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchDeployApis",
@@ -16542,7 +16620,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchDeployApisResponse>(await this.callApi(params, req, runtime), new BatchDeployApisResponse({}));
@@ -16556,34 +16634,108 @@ export default class Client extends OpenApi {
   async createApiWithOptions(request: CreateApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowSignatureMethod"] = request.allowSignatureMethod;
-    query["ApiName"] = request.apiName;
-    query["AppCodeAuthType"] = request.appCodeAuthType;
-    query["AuthType"] = request.authType;
-    query["ConstantParameters"] = request.constantParameters;
-    query["Description"] = request.description;
-    query["DisableInternet"] = request.disableInternet;
-    query["ErrorCodeSamples"] = request.errorCodeSamples;
-    query["FailResultSample"] = request.failResultSample;
-    query["ForceNonceCheck"] = request.forceNonceCheck;
-    query["GroupId"] = request.groupId;
-    query["OpenIdConnectConfig"] = request.openIdConnectConfig;
-    query["RequestConfig"] = request.requestConfig;
-    query["RequestParameters"] = request.requestParameters;
-    query["ResultBodyModel"] = request.resultBodyModel;
-    query["ResultDescriptions"] = request.resultDescriptions;
-    query["ResultSample"] = request.resultSample;
-    query["ResultType"] = request.resultType;
-    query["SecurityToken"] = request.securityToken;
-    query["ServiceConfig"] = request.serviceConfig;
-    query["ServiceParameters"] = request.serviceParameters;
-    query["ServiceParametersMap"] = request.serviceParametersMap;
-    query["SystemParameters"] = request.systemParameters;
-    query["Visibility"] = request.visibility;
-    query["WebSocketApiType"] = request.webSocketApiType;
+    if (!Util.isUnset(request.allowSignatureMethod)) {
+      query["AllowSignatureMethod"] = request.allowSignatureMethod;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.appCodeAuthType)) {
+      query["AppCodeAuthType"] = request.appCodeAuthType;
+    }
+
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.constantParameters)) {
+      query["ConstantParameters"] = request.constantParameters;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.disableInternet)) {
+      query["DisableInternet"] = request.disableInternet;
+    }
+
+    if (!Util.isUnset(request.errorCodeSamples)) {
+      query["ErrorCodeSamples"] = request.errorCodeSamples;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      query["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.forceNonceCheck)) {
+      query["ForceNonceCheck"] = request.forceNonceCheck;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.openIdConnectConfig)) {
+      query["OpenIdConnectConfig"] = request.openIdConnectConfig;
+    }
+
+    if (!Util.isUnset(request.requestConfig)) {
+      query["RequestConfig"] = request.requestConfig;
+    }
+
+    if (!Util.isUnset(request.requestParameters)) {
+      query["RequestParameters"] = request.requestParameters;
+    }
+
+    if (!Util.isUnset(request.resultBodyModel)) {
+      query["ResultBodyModel"] = request.resultBodyModel;
+    }
+
+    if (!Util.isUnset(request.resultDescriptions)) {
+      query["ResultDescriptions"] = request.resultDescriptions;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      query["ResultSample"] = request.resultSample;
+    }
+
+    if (!Util.isUnset(request.resultType)) {
+      query["ResultType"] = request.resultType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serviceConfig)) {
+      query["ServiceConfig"] = request.serviceConfig;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.serviceParametersMap)) {
+      query["ServiceParametersMap"] = request.serviceParametersMap;
+    }
+
+    if (!Util.isUnset(request.systemParameters)) {
+      query["SystemParameters"] = request.systemParameters;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    if (!Util.isUnset(request.webSocketApiType)) {
+      query["WebSocketApiType"] = request.webSocketApiType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateApi",
@@ -16593,7 +16745,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateApiResponse>(await this.callApi(params, req, runtime), new CreateApiResponse({}));
@@ -16607,15 +16759,32 @@ export default class Client extends OpenApi {
   async createApiGroupWithOptions(request: CreateApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BasePath"] = request.basePath;
-    query["Description"] = request.description;
-    query["GroupName"] = request.groupName;
-    query["InstanceId"] = request.instanceId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.basePath)) {
+      query["BasePath"] = request.basePath;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateApiGroup",
@@ -16625,7 +16794,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateApiGroupResponse>(await this.callApi(params, req, runtime), new CreateApiGroupResponse({}));
@@ -16639,16 +16808,36 @@ export default class Client extends OpenApi {
   async createApiStageVariableWithOptions(request: CreateApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiStageVariableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageId"] = request.stageId;
-    query["StageRouteModel"] = request.stageRouteModel;
-    query["SupportRoute"] = request.supportRoute;
-    query["VariableName"] = request.variableName;
-    query["VariableValue"] = request.variableValue;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageId)) {
+      query["StageId"] = request.stageId;
+    }
+
+    if (!Util.isUnset(request.stageRouteModel)) {
+      query["StageRouteModel"] = request.stageRouteModel;
+    }
+
+    if (!Util.isUnset(request.supportRoute)) {
+      query["SupportRoute"] = request.supportRoute;
+    }
+
+    if (!Util.isUnset(request.variableName)) {
+      query["VariableName"] = request.variableName;
+    }
+
+    if (!Util.isUnset(request.variableValue)) {
+      query["VariableValue"] = request.variableValue;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateApiStageVariable",
@@ -16658,7 +16847,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateApiStageVariableResponse>(await this.callApi(params, req, runtime), new CreateApiStageVariableResponse({}));
@@ -16672,14 +16861,28 @@ export default class Client extends OpenApi {
   async createAppWithOptions(request: CreateAppRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["Description"] = request.description;
-    query["SecurityToken"] = request.securityToken;
-    query["Source"] = request.source;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateApp",
@@ -16689,7 +16892,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateAppResponse>(await this.callApi(params, req, runtime), new CreateAppResponse({}));
@@ -16703,18 +16906,44 @@ export default class Client extends OpenApi {
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["ChargeType"] = request.chargeType;
-    query["Duration"] = request.duration;
-    query["HttpsPolicy"] = request.httpsPolicy;
-    query["InstanceName"] = request.instanceName;
-    query["InstanceSpec"] = request.instanceSpec;
-    query["PricingCycle"] = request.pricingCycle;
-    query["Token"] = request.token;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.httpsPolicy)) {
+      query["HttpsPolicy"] = request.httpsPolicy;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateInstance",
@@ -16724,7 +16953,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateInstanceResponse>(await this.callApi(params, req, runtime), new CreateInstanceResponse({}));
@@ -16738,11 +16967,16 @@ export default class Client extends OpenApi {
   async createIntranetDomainWithOptions(request: CreateIntranetDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateIntranetDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateIntranetDomain",
@@ -16752,7 +16986,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateIntranetDomainResponse>(await this.callApi(params, req, runtime), new CreateIntranetDomainResponse({}));
@@ -16766,14 +17000,28 @@ export default class Client extends OpenApi {
   async createIpControlWithOptions(request: CreateIpControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["IpControlName"] = request.ipControlName;
-    query["IpControlPolicys"] = request.ipControlPolicys;
-    query["IpControlType"] = request.ipControlType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ipControlName)) {
+      query["IpControlName"] = request.ipControlName;
+    }
+
+    if (!Util.isUnset(request.ipControlPolicys)) {
+      query["IpControlPolicys"] = request.ipControlPolicys;
+    }
+
+    if (!Util.isUnset(request.ipControlType)) {
+      query["IpControlType"] = request.ipControlType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateIpControl",
@@ -16783,7 +17031,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateIpControlResponse>(await this.callApi(params, req, runtime), new CreateIpControlResponse({}));
@@ -16797,13 +17045,24 @@ export default class Client extends OpenApi {
   async createLogConfigWithOptions(request: CreateLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LogType"] = request.logType;
-    query["SecurityToken"] = request.securityToken;
-    query["SlsLogStore"] = request.slsLogStore;
-    query["SlsProject"] = request.slsProject;
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.slsLogStore)) {
+      query["SlsLogStore"] = request.slsLogStore;
+    }
+
+    if (!Util.isUnset(request.slsProject)) {
+      query["SlsProject"] = request.slsProject;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateLogConfig",
@@ -16813,7 +17072,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateLogConfigResponse>(await this.callApi(params, req, runtime), new CreateLogConfigResponse({}));
@@ -16827,13 +17086,24 @@ export default class Client extends OpenApi {
   async createModelWithOptions(request: CreateModelRequest, runtime: $Util.RuntimeOptions): Promise<CreateModelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["ModelName"] = request.modelName;
-    query["Schema"] = request.schema;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateModel",
@@ -16843,7 +17113,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateModelResponse>(await this.callApi(params, req, runtime), new CreateModelResponse({}));
@@ -16857,13 +17127,24 @@ export default class Client extends OpenApi {
   async createMonitorGroupWithOptions(request: CreateMonitorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMonitorGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Auth"] = request.auth;
-    query["GroupId"] = request.groupId;
-    query["RawMonitorGroupId"] = request.rawMonitorGroupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.auth)) {
+      query["Auth"] = request.auth;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.rawMonitorGroupId)) {
+      query["RawMonitorGroupId"] = request.rawMonitorGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateMonitorGroup",
@@ -16873,7 +17154,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateMonitorGroupResponse>(await this.callApi(params, req, runtime), new CreateMonitorGroupResponse({}));
@@ -16887,15 +17168,32 @@ export default class Client extends OpenApi {
   async createPluginWithOptions(request: CreatePluginRequest, runtime: $Util.RuntimeOptions): Promise<CreatePluginResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["PluginData"] = request.pluginData;
-    query["PluginName"] = request.pluginName;
-    query["PluginType"] = request.pluginType;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.pluginData)) {
+      query["PluginData"] = request.pluginData;
+    }
+
+    if (!Util.isUnset(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!Util.isUnset(request.pluginType)) {
+      query["PluginType"] = request.pluginType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreatePlugin",
@@ -16905,7 +17203,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreatePluginResponse>(await this.callApi(params, req, runtime), new CreatePluginResponse({}));
@@ -16919,13 +17217,24 @@ export default class Client extends OpenApi {
   async createSignatureWithOptions(request: CreateSignatureRequest, runtime: $Util.RuntimeOptions): Promise<CreateSignatureResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureKey"] = request.signatureKey;
-    query["SignatureName"] = request.signatureName;
-    query["SignatureSecret"] = request.signatureSecret;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureKey)) {
+      query["SignatureKey"] = request.signatureKey;
+    }
+
+    if (!Util.isUnset(request.signatureName)) {
+      query["SignatureName"] = request.signatureName;
+    }
+
+    if (!Util.isUnset(request.signatureSecret)) {
+      query["SignatureSecret"] = request.signatureSecret;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateSignature",
@@ -16935,7 +17244,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateSignatureResponse>(await this.callApi(params, req, runtime), new CreateSignatureResponse({}));
@@ -16949,16 +17258,36 @@ export default class Client extends OpenApi {
   async createTrafficControlWithOptions(request: CreateTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<CreateTrafficControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiDefault"] = request.apiDefault;
-    query["AppDefault"] = request.appDefault;
-    query["Description"] = request.description;
-    query["SecurityToken"] = request.securityToken;
-    query["TrafficControlName"] = request.trafficControlName;
-    query["TrafficControlUnit"] = request.trafficControlUnit;
-    query["UserDefault"] = request.userDefault;
+    if (!Util.isUnset(request.apiDefault)) {
+      query["ApiDefault"] = request.apiDefault;
+    }
+
+    if (!Util.isUnset(request.appDefault)) {
+      query["AppDefault"] = request.appDefault;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.trafficControlName)) {
+      query["TrafficControlName"] = request.trafficControlName;
+    }
+
+    if (!Util.isUnset(request.trafficControlUnit)) {
+      query["TrafficControlUnit"] = request.trafficControlUnit;
+    }
+
+    if (!Util.isUnset(request.userDefault)) {
+      query["UserDefault"] = request.userDefault;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateTrafficControl",
@@ -16968,7 +17297,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateTrafficControlResponse>(await this.callApi(params, req, runtime), new CreateTrafficControlResponse({}));
@@ -16982,11 +17311,16 @@ export default class Client extends OpenApi {
   async deleteAllTrafficSpecialControlWithOptions(request: DeleteAllTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAllTrafficSpecialControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteAllTrafficSpecialControl",
@@ -16996,7 +17330,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAllTrafficSpecialControlResponse>(await this.callApi(params, req, runtime), new DeleteAllTrafficSpecialControlResponse({}));
@@ -17010,12 +17344,20 @@ export default class Client extends OpenApi {
   async deleteApiWithOptions(request: DeleteApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApi",
@@ -17025,7 +17367,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteApiResponse>(await this.callApi(params, req, runtime), new DeleteApiResponse({}));
@@ -17039,12 +17381,20 @@ export default class Client extends OpenApi {
   async deleteApiGroupWithOptions(request: DeleteApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApiGroup",
@@ -17054,7 +17404,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteApiGroupResponse>(await this.callApi(params, req, runtime), new DeleteApiGroupResponse({}));
@@ -17068,13 +17418,24 @@ export default class Client extends OpenApi {
   async deleteApiStageVariableWithOptions(request: DeleteApiStageVariableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApiStageVariableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageId"] = request.stageId;
-    query["VariableName"] = request.variableName;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageId)) {
+      query["StageId"] = request.stageId;
+    }
+
+    if (!Util.isUnset(request.variableName)) {
+      query["VariableName"] = request.variableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApiStageVariable",
@@ -17084,7 +17445,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteApiStageVariableResponse>(await this.callApi(params, req, runtime), new DeleteApiStageVariableResponse({}));
@@ -17098,12 +17459,20 @@ export default class Client extends OpenApi {
   async deleteAppWithOptions(request: DeleteAppRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteApp",
@@ -17113,7 +17482,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteAppResponse>(await this.callApi(params, req, runtime), new DeleteAppResponse({}));
@@ -17127,12 +17496,20 @@ export default class Client extends OpenApi {
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDomain",
@@ -17142,7 +17519,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDomainResponse>(await this.callApi(params, req, runtime), new DeleteDomainResponse({}));
@@ -17156,13 +17533,24 @@ export default class Client extends OpenApi {
   async deleteDomainCertificateWithOptions(request: DeleteDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertificateId"] = request.certificateId;
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certificateId)) {
+      query["CertificateId"] = request.certificateId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDomainCertificate",
@@ -17172,7 +17560,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDomainCertificateResponse>(await this.callApi(params, req, runtime), new DeleteDomainCertificateResponse({}));
@@ -17186,11 +17574,16 @@ export default class Client extends OpenApi {
   async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteInstance",
@@ -17200,7 +17593,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
@@ -17214,11 +17607,16 @@ export default class Client extends OpenApi {
   async deleteIpControlWithOptions(request: DeleteIpControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpControlId"] = request.ipControlId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteIpControl",
@@ -17228,7 +17626,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteIpControlResponse>(await this.callApi(params, req, runtime), new DeleteIpControlResponse({}));
@@ -17242,11 +17640,16 @@ export default class Client extends OpenApi {
   async deleteLogConfigWithOptions(request: DeleteLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LogType"] = request.logType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteLogConfig",
@@ -17256,7 +17659,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteLogConfigResponse>(await this.callApi(params, req, runtime), new DeleteLogConfigResponse({}));
@@ -17270,11 +17673,16 @@ export default class Client extends OpenApi {
   async deleteModelWithOptions(request: DeleteModelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteModelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["ModelName"] = request.modelName;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteModel",
@@ -17284,7 +17692,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteModelResponse>(await this.callApi(params, req, runtime), new DeleteModelResponse({}));
@@ -17298,12 +17706,20 @@ export default class Client extends OpenApi {
   async deletePluginWithOptions(request: DeletePluginRequest, runtime: $Util.RuntimeOptions): Promise<DeletePluginResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PluginId"] = request.pluginId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeletePlugin",
@@ -17313,7 +17729,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeletePluginResponse>(await this.callApi(params, req, runtime), new DeletePluginResponse({}));
@@ -17327,11 +17743,16 @@ export default class Client extends OpenApi {
   async deleteSignatureWithOptions(request: DeleteSignatureRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSignatureResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSignature",
@@ -17341,7 +17762,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSignatureResponse>(await this.callApi(params, req, runtime), new DeleteSignatureResponse({}));
@@ -17355,11 +17776,16 @@ export default class Client extends OpenApi {
   async deleteTrafficControlWithOptions(request: DeleteTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTrafficControl",
@@ -17369,7 +17795,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTrafficControlResponse>(await this.callApi(params, req, runtime), new DeleteTrafficControlResponse({}));
@@ -17383,13 +17809,24 @@ export default class Client extends OpenApi {
   async deleteTrafficSpecialControlWithOptions(request: DeleteTrafficSpecialControlRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTrafficSpecialControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["SpecialKey"] = request.specialKey;
-    query["SpecialType"] = request.specialType;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.specialKey)) {
+      query["SpecialKey"] = request.specialKey;
+    }
+
+    if (!Util.isUnset(request.specialType)) {
+      query["SpecialType"] = request.specialType;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTrafficSpecialControl",
@@ -17399,7 +17836,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTrafficSpecialControlResponse>(await this.callApi(params, req, runtime), new DeleteTrafficSpecialControlResponse({}));
@@ -17413,14 +17850,28 @@ export default class Client extends OpenApi {
   async deployApiWithOptions(request: DeployApiRequest, runtime: $Util.RuntimeOptions): Promise<DeployApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeployApi",
@@ -17430,7 +17881,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeployApiResponse>(await this.callApi(params, req, runtime), new DeployApiResponse({}));
@@ -17444,11 +17895,16 @@ export default class Client extends OpenApi {
   async describeAbolishApiTaskWithOptions(request: DescribeAbolishApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAbolishApiTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationUid"] = request.operationUid;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.operationUid)) {
+      query["OperationUid"] = request.operationUid;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAbolishApiTask",
@@ -17458,7 +17914,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAbolishApiTaskResponse>(await this.callApi(params, req, runtime), new DescribeAbolishApiTaskResponse({}));
@@ -17472,12 +17928,20 @@ export default class Client extends OpenApi {
   async describeApiWithOptions(request: DescribeApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApi",
@@ -17487,7 +17951,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiResponse>(await this.callApi(params, req, runtime), new DescribeApiResponse({}));
@@ -17501,13 +17965,24 @@ export default class Client extends OpenApi {
   async describeApiDocWithOptions(request: DescribeApiDocRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiDocResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiDoc",
@@ -17517,7 +17992,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiDocResponse>(await this.callApi(params, req, runtime), new DescribeApiDocResponse({}));
@@ -17531,12 +18006,20 @@ export default class Client extends OpenApi {
   async describeApiGroupWithOptions(request: DescribeApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiGroup",
@@ -17546,7 +18029,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiGroupResponse>(await this.callApi(params, req, runtime), new DescribeApiGroupResponse({}));
@@ -17560,11 +18043,16 @@ export default class Client extends OpenApi {
   async describeApiGroupVpcWhitelistWithOptions(request: DescribeApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupVpcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiGroupVpcWhitelist",
@@ -17574,7 +18062,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiGroupVpcWhitelistResponse>(await this.callApi(params, req, runtime), new DescribeApiGroupVpcWhitelistResponse({}));
@@ -17588,18 +18076,44 @@ export default class Client extends OpenApi {
   async describeApiGroupsWithOptions(request: DescribeApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EnableTagAuth"] = request.enableTagAuth;
-    query["GroupId"] = request.groupId;
-    query["GroupName"] = request.groupName;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["Sort"] = request.sort;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.enableTagAuth)) {
+      query["EnableTagAuth"] = request.enableTagAuth;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiGroups",
@@ -17609,7 +18123,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApiGroupsResponse({}));
@@ -17623,16 +18137,36 @@ export default class Client extends OpenApi {
   async describeApiHistoriesWithOptions(request: DescribeApiHistoriesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiHistoriesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiHistories",
@@ -17642,7 +18176,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiHistoriesResponse>(await this.callApi(params, req, runtime), new DescribeApiHistoriesResponse({}));
@@ -17656,14 +18190,28 @@ export default class Client extends OpenApi {
   async describeApiHistoryWithOptions(request: DescribeApiHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiHistoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["HistoryVersion"] = request.historyVersion;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.historyVersion)) {
+      query["HistoryVersion"] = request.historyVersion;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiHistory",
@@ -17673,7 +18221,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiHistoryResponse>(await this.callApi(params, req, runtime), new DescribeApiHistoryResponse({}));
@@ -17687,15 +18235,32 @@ export default class Client extends OpenApi {
   async describeApiIpControlsWithOptions(request: DescribeApiIpControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiIpControlsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiIpControls",
@@ -17705,7 +18270,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiIpControlsResponse>(await this.callApi(params, req, runtime), new DescribeApiIpControlsResponse({}));
@@ -17719,15 +18284,32 @@ export default class Client extends OpenApi {
   async describeApiLatencyDataWithOptions(request: DescribeApiLatencyDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiLatencyDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["EndTime"] = request.endTime;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiLatencyData",
@@ -17737,7 +18319,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiLatencyDataResponse>(await this.callApi(params, req, runtime), new DescribeApiLatencyDataResponse({}));
@@ -17751,12 +18333,20 @@ export default class Client extends OpenApi {
   async describeApiMarketAttributesWithOptions(request: DescribeApiMarketAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiMarketAttributesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiMarketAttributes",
@@ -17766,7 +18356,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiMarketAttributesResponse>(await this.callApi(params, req, runtime), new DescribeApiMarketAttributesResponse({}));
@@ -17780,15 +18370,32 @@ export default class Client extends OpenApi {
   async describeApiQpsDataWithOptions(request: DescribeApiQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["EndTime"] = request.endTime;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiQpsData",
@@ -17798,7 +18405,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeApiQpsDataResponse({}));
@@ -17812,15 +18419,32 @@ export default class Client extends OpenApi {
   async describeApiSignaturesWithOptions(request: DescribeApiSignaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiSignaturesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiSignatures",
@@ -17830,7 +18454,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiSignaturesResponse>(await this.callApi(params, req, runtime), new DescribeApiSignaturesResponse({}));
@@ -17844,15 +18468,32 @@ export default class Client extends OpenApi {
   async describeApiTrafficControlsWithOptions(request: DescribeApiTrafficControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiTrafficControlsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiTrafficControls",
@@ -17862,7 +18503,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiTrafficControlsResponse>(await this.callApi(params, req, runtime), new DescribeApiTrafficControlsResponse({}));
@@ -17876,15 +18517,32 @@ export default class Client extends OpenApi {
   async describeApiTrafficDataWithOptions(request: DescribeApiTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["EndTime"] = request.endTime;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApiTrafficData",
@@ -17894,7 +18552,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApiTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeApiTrafficDataResponse({}));
@@ -17908,19 +18566,48 @@ export default class Client extends OpenApi {
   async describeApisWithOptions(request: DescribeApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["CatalogId"] = request.catalogId;
-    query["EnableTagAuth"] = request.enableTagAuth;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
-    query["Visibility"] = request.visibility;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.catalogId)) {
+      query["CatalogId"] = request.catalogId;
+    }
+
+    if (!Util.isUnset(request.enableTagAuth)) {
+      query["EnableTagAuth"] = request.enableTagAuth;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApis",
@@ -17930,7 +18617,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApisResponse>(await this.callApi(params, req, runtime), new DescribeApisResponse({}));
@@ -17944,17 +18631,40 @@ export default class Client extends OpenApi {
   async describeApisByAppWithOptions(request: DescribeApisByAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiName"] = request.apiName;
-    query["ApiUid"] = request.apiUid;
-    query["AppId"] = request.appId;
-    query["Method"] = request.method;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Path"] = request.path;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.apiUid)) {
+      query["ApiUid"] = request.apiUid;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.method)) {
+      query["Method"] = request.method;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApisByApp",
@@ -17964,7 +18674,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApisByAppResponse>(await this.callApi(params, req, runtime), new DescribeApisByAppResponse({}));
@@ -17978,13 +18688,24 @@ export default class Client extends OpenApi {
   async describeApisByIpControlWithOptions(request: DescribeApisByIpControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByIpControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpControlId"] = request.ipControlId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApisByIpControl",
@@ -17994,7 +18715,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApisByIpControlResponse>(await this.callApi(params, req, runtime), new DescribeApisByIpControlResponse({}));
@@ -18008,13 +18729,24 @@ export default class Client extends OpenApi {
   async describeApisBySignatureWithOptions(request: DescribeApisBySignatureRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisBySignatureResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApisBySignature",
@@ -18024,7 +18756,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApisBySignatureResponse>(await this.callApi(params, req, runtime), new DescribeApisBySignatureResponse({}));
@@ -18038,13 +18770,24 @@ export default class Client extends OpenApi {
   async describeApisByTrafficControlWithOptions(request: DescribeApisByTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByTrafficControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApisByTrafficControl",
@@ -18054,7 +18797,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeApisByTrafficControlResponse>(await this.callApi(params, req, runtime), new DescribeApisByTrafficControlResponse({}));
@@ -18068,11 +18811,16 @@ export default class Client extends OpenApi {
   async describeAppWithOptions(request: DescribeAppRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApp",
@@ -18082,7 +18830,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAppResponse>(await this.callApi(params, req, runtime), new DescribeAppResponse({}));
@@ -18096,19 +18844,48 @@ export default class Client extends OpenApi {
   async describeAppAttributesWithOptions(request: DescribeAppAttributesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppAttributesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppCode"] = request.appCode;
-    query["AppId"] = request.appId;
-    query["AppKey"] = request.appKey;
-    query["AppName"] = request.appName;
-    query["EnableTagAuth"] = request.enableTagAuth;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["Sort"] = request.sort;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.appCode)) {
+      query["AppCode"] = request.appCode;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.enableTagAuth)) {
+      query["EnableTagAuth"] = request.enableTagAuth;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAppAttributes",
@@ -18118,7 +18895,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAppAttributesResponse>(await this.callApi(params, req, runtime), new DescribeAppAttributesResponse({}));
@@ -18132,12 +18909,20 @@ export default class Client extends OpenApi {
   async describeAppSecurityWithOptions(request: DescribeAppSecurityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppSecurityResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAppSecurity",
@@ -18147,7 +18932,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAppSecurityResponse>(await this.callApi(params, req, runtime), new DescribeAppSecurityResponse({}));
@@ -18161,14 +18946,28 @@ export default class Client extends OpenApi {
   async describeAppsWithOptions(request: DescribeAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAppsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["AppOwner"] = request.appOwner;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appOwner)) {
+      query["AppOwner"] = request.appOwner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeApps",
@@ -18178,7 +18977,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAppsResponse>(await this.callApi(params, req, runtime), new DescribeAppsResponse({}));
@@ -18192,13 +18991,24 @@ export default class Client extends OpenApi {
   async describeAuthorizedApisWithOptions(request: DescribeAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuthorizedApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAuthorizedApis",
@@ -18208,7 +19018,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAuthorizedApisResponse>(await this.callApi(params, req, runtime), new DescribeAuthorizedApisResponse({}));
@@ -18222,18 +19032,44 @@ export default class Client extends OpenApi {
   async describeAuthorizedAppsWithOptions(request: DescribeAuthorizedAppsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuthorizedAppsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["AppId"] = request.appId;
-    query["AppName"] = request.appName;
-    query["AppOwnerId"] = request.appOwnerId;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appOwnerId)) {
+      query["AppOwnerId"] = request.appOwnerId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeAuthorizedApps",
@@ -18243,7 +19079,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeAuthorizedAppsResponse>(await this.callApi(params, req, runtime), new DescribeAuthorizedAppsResponse({}));
@@ -18257,11 +19093,16 @@ export default class Client extends OpenApi {
   async describeDeployApiTaskWithOptions(request: DescribeDeployApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployApiTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationUid"] = request.operationUid;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.operationUid)) {
+      query["OperationUid"] = request.operationUid;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDeployApiTask",
@@ -18271,7 +19112,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDeployApiTaskResponse>(await this.callApi(params, req, runtime), new DescribeDeployApiTaskResponse({}));
@@ -18285,13 +19126,24 @@ export default class Client extends OpenApi {
   async describeDeployedApiWithOptions(request: DescribeDeployedApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployedApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDeployedApi",
@@ -18301,7 +19153,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDeployedApiResponse>(await this.callApi(params, req, runtime), new DescribeDeployedApiResponse({}));
@@ -18315,18 +19167,44 @@ export default class Client extends OpenApi {
   async describeDeployedApisWithOptions(request: DescribeDeployedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployedApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["EnableTagAuth"] = request.enableTagAuth;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.enableTagAuth)) {
+      query["EnableTagAuth"] = request.enableTagAuth;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDeployedApis",
@@ -18336,7 +19214,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDeployedApisResponse>(await this.callApi(params, req, runtime), new DescribeDeployedApisResponse({}));
@@ -18350,12 +19228,20 @@ export default class Client extends OpenApi {
   async describeDomainWithOptions(request: DescribeDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomain",
@@ -18365,7 +19251,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainResponse>(await this.callApi(params, req, runtime), new DescribeDomainResponse({}));
@@ -18379,16 +19265,36 @@ export default class Client extends OpenApi {
   async describeHistoryApisWithOptions(request: DescribeHistoryApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeHistoryApis",
@@ -18398,7 +19304,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeHistoryApisResponse>(await this.callApi(params, req, runtime), new DescribeHistoryApisResponse({}));
@@ -18412,14 +19318,28 @@ export default class Client extends OpenApi {
   async describeIpControlPolicyItemsWithOptions(request: DescribeIpControlPolicyItemsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlPolicyItemsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpControlId"] = request.ipControlId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PolicyItemId"] = request.policyItemId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyItemId)) {
+      query["PolicyItemId"] = request.policyItemId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeIpControlPolicyItems",
@@ -18429,7 +19349,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeIpControlPolicyItemsResponse>(await this.callApi(params, req, runtime), new DescribeIpControlPolicyItemsResponse({}));
@@ -18443,15 +19363,32 @@ export default class Client extends OpenApi {
   async describeIpControlsWithOptions(request: DescribeIpControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpControlsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpControlId"] = request.ipControlId;
-    query["IpControlName"] = request.ipControlName;
-    query["IpControlType"] = request.ipControlType;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.ipControlName)) {
+      query["IpControlName"] = request.ipControlName;
+    }
+
+    if (!Util.isUnset(request.ipControlType)) {
+      query["IpControlType"] = request.ipControlType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeIpControls",
@@ -18461,7 +19398,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeIpControlsResponse>(await this.callApi(params, req, runtime), new DescribeIpControlsResponse({}));
@@ -18475,11 +19412,16 @@ export default class Client extends OpenApi {
   async describeLogConfigWithOptions(request: DescribeLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LogType"] = request.logType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeLogConfig",
@@ -18489,7 +19431,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeLogConfigResponse({}));
@@ -18503,11 +19445,16 @@ export default class Client extends OpenApi {
   async describeMarketRemainsQuotaWithOptions(request: DescribeMarketRemainsQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMarketRemainsQuotaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeMarketRemainsQuota",
@@ -18517,7 +19464,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeMarketRemainsQuotaResponse>(await this.callApi(params, req, runtime), new DescribeMarketRemainsQuotaResponse({}));
@@ -18531,14 +19478,28 @@ export default class Client extends OpenApi {
   async describeModelsWithOptions(request: DescribeModelsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModelsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["ModelId"] = request.modelId;
-    query["ModelName"] = request.modelName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      query["ModelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeModels",
@@ -18548,7 +19509,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeModelsResponse>(await this.callApi(params, req, runtime), new DescribeModelsResponse({}));
@@ -18562,11 +19523,16 @@ export default class Client extends OpenApi {
   async describePluginSchemasWithOptions(request: DescribePluginSchemasRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginSchemasResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Language"] = request.language;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePluginSchemas",
@@ -18576,7 +19542,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePluginSchemasResponse>(await this.callApi(params, req, runtime), new DescribePluginSchemasResponse({}));
@@ -18590,12 +19556,20 @@ export default class Client extends OpenApi {
   async describePluginTemplatesWithOptions(request: DescribePluginTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Language"] = request.language;
-    query["PluginName"] = request.pluginName;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePluginTemplates",
@@ -18605,7 +19579,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePluginTemplatesResponse>(await this.callApi(params, req, runtime), new DescribePluginTemplatesResponse({}));
@@ -18619,16 +19593,36 @@ export default class Client extends OpenApi {
   async describePluginsWithOptions(request: DescribePluginsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PluginId"] = request.pluginId;
-    query["PluginName"] = request.pluginName;
-    query["PluginType"] = request.pluginType;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!Util.isUnset(request.pluginType)) {
+      query["PluginType"] = request.pluginType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePlugins",
@@ -18638,7 +19632,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePluginsResponse>(await this.callApi(params, req, runtime), new DescribePluginsResponse({}));
@@ -18652,13 +19646,24 @@ export default class Client extends OpenApi {
   async describePluginsByApiWithOptions(request: DescribePluginsByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribePluginsByApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePluginsByApi",
@@ -18668,7 +19673,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePluginsByApiResponse>(await this.callApi(params, req, runtime), new DescribePluginsByApiResponse({}));
@@ -18682,11 +19687,16 @@ export default class Client extends OpenApi {
   async describePurchasedApiGroupWithOptions(request: DescribePurchasedApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePurchasedApiGroup",
@@ -18696,7 +19706,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePurchasedApiGroupResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApiGroupResponse({}));
@@ -18710,12 +19720,20 @@ export default class Client extends OpenApi {
   async describePurchasedApiGroupsWithOptions(request: DescribePurchasedApiGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApiGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePurchasedApiGroups",
@@ -18725,7 +19743,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePurchasedApiGroupsResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApiGroupsResponse({}));
@@ -18739,17 +19757,40 @@ export default class Client extends OpenApi {
   async describePurchasedApisWithOptions(request: DescribePurchasedApisRequest, runtime: $Util.RuntimeOptions): Promise<DescribePurchasedApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["Visibility"] = request.visibility;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribePurchasedApis",
@@ -18759,7 +19800,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribePurchasedApisResponse>(await this.callApi(params, req, runtime), new DescribePurchasedApisResponse({}));
@@ -18773,11 +19814,16 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Language"] = request.language;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
@@ -18787,7 +19833,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
@@ -18801,14 +19847,28 @@ export default class Client extends OpenApi {
   async describeSignaturesWithOptions(request: DescribeSignaturesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSignaturesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
-    query["SignatureName"] = request.signatureName;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.signatureName)) {
+      query["SignatureName"] = request.signatureName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeSignatures",
@@ -18818,7 +19878,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeSignaturesResponse>(await this.callApi(params, req, runtime), new DescribeSignaturesResponse({}));
@@ -18832,13 +19892,24 @@ export default class Client extends OpenApi {
   async describeSignaturesByApiWithOptions(request: DescribeSignaturesByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSignaturesByApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeSignaturesByApi",
@@ -18848,7 +19919,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeSignaturesByApiResponse>(await this.callApi(params, req, runtime), new DescribeSignaturesByApiResponse({}));
@@ -18862,10 +19933,12 @@ export default class Client extends OpenApi {
   async describeSystemParametersWithOptions(request: DescribeSystemParametersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSystemParametersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeSystemParameters",
@@ -18875,7 +19948,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeSystemParametersResponse>(await this.callApi(params, req, runtime), new DescribeSystemParametersResponse({}));
@@ -18889,17 +19962,40 @@ export default class Client extends OpenApi {
   async describeTrafficControlsWithOptions(request: DescribeTrafficControlsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficControlsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["TrafficControlId"] = request.trafficControlId;
-    query["TrafficControlName"] = request.trafficControlName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
+    if (!Util.isUnset(request.trafficControlName)) {
+      query["TrafficControlName"] = request.trafficControlName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeTrafficControls",
@@ -18909,7 +20005,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeTrafficControlsResponse>(await this.callApi(params, req, runtime), new DescribeTrafficControlsResponse({}));
@@ -18923,13 +20019,24 @@ export default class Client extends OpenApi {
   async describeTrafficControlsByApiWithOptions(request: DescribeTrafficControlsByApiRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTrafficControlsByApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeTrafficControlsByApi",
@@ -18939,7 +20046,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeTrafficControlsByApiResponse>(await this.callApi(params, req, runtime), new DescribeTrafficControlsByApiResponse({}));
@@ -18953,11 +20060,16 @@ export default class Client extends OpenApi {
   async describeUpdateVpcInfoTaskWithOptions(request: DescribeUpdateVpcInfoTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdateVpcInfoTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationUid"] = request.operationUid;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.operationUid)) {
+      query["OperationUid"] = request.operationUid;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUpdateVpcInfoTask",
@@ -18967,7 +20079,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUpdateVpcInfoTaskResponse>(await this.callApi(params, req, runtime), new DescribeUpdateVpcInfoTaskResponse({}));
@@ -18981,14 +20093,40 @@ export default class Client extends OpenApi {
   async describeVpcAccessesWithOptions(request: DescribeVpcAccessesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcAccessesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SecurityToken"] = request.securityToken;
-    query["VpcAccessId"] = request.vpcAccessId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcAccessId)) {
+      query["VpcAccessId"] = request.vpcAccessId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeVpcAccesses",
@@ -18998,7 +20136,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeVpcAccessesResponse>(await this.callApi(params, req, runtime), new DescribeVpcAccessesResponse({}));
@@ -19012,11 +20150,16 @@ export default class Client extends OpenApi {
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Language"] = request.language;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeZones",
@@ -19026,7 +20169,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
@@ -19046,14 +20189,34 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DataFormat"] = request.dataFormat;
-    query["GlobalCondition"] = request.globalConditionShrink;
-    query["GroupId"] = request.groupId;
-    query["Overwrite"] = request.overwrite;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.dataFormat)) {
+      query["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.globalConditionShrink)) {
+      query["GlobalCondition"] = request.globalConditionShrink;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DryRunSwagger",
@@ -19083,15 +20246,38 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DataFormat"] = request.dataFormat;
-    query["DryRun"] = request.dryRun;
-    query["GlobalCondition"] = request.globalConditionShrink;
-    query["GroupId"] = request.groupId;
-    query["Overwrite"] = request.overwrite;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.dataFormat)) {
+      query["DataFormat"] = request.dataFormat;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.globalConditionShrink)) {
+      query["GlobalCondition"] = request.globalConditionShrink;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ImportSwagger",
@@ -19115,13 +20301,24 @@ export default class Client extends OpenApi {
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NextToken"] = request.nextToken;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListTagResources",
@@ -19131,7 +20328,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
@@ -19145,35 +20342,112 @@ export default class Client extends OpenApi {
   async modifyApiWithOptions(request: ModifyApiRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowSignatureMethod"] = request.allowSignatureMethod;
-    query["ApiId"] = request.apiId;
-    query["ApiName"] = request.apiName;
-    query["AppCodeAuthType"] = request.appCodeAuthType;
-    query["AuthType"] = request.authType;
-    query["ConstantParameters"] = request.constantParameters;
-    query["Description"] = request.description;
-    query["DisableInternet"] = request.disableInternet;
-    query["ErrorCodeSamples"] = request.errorCodeSamples;
-    query["FailResultSample"] = request.failResultSample;
-    query["ForceNonceCheck"] = request.forceNonceCheck;
-    query["GroupId"] = request.groupId;
-    query["OpenIdConnectConfig"] = request.openIdConnectConfig;
-    query["RequestConfig"] = request.requestConfig;
-    query["RequestParameters"] = request.requestParameters;
-    query["ResultBodyModel"] = request.resultBodyModel;
-    query["ResultDescriptions"] = request.resultDescriptions;
-    query["ResultSample"] = request.resultSample;
-    query["ResultType"] = request.resultType;
-    query["SecurityToken"] = request.securityToken;
-    query["ServiceConfig"] = request.serviceConfig;
-    query["ServiceParameters"] = request.serviceParameters;
-    query["ServiceParametersMap"] = request.serviceParametersMap;
-    query["SystemParameters"] = request.systemParameters;
-    query["Visibility"] = request.visibility;
-    query["WebSocketApiType"] = request.webSocketApiType;
+    if (!Util.isUnset(request.allowSignatureMethod)) {
+      query["AllowSignatureMethod"] = request.allowSignatureMethod;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      query["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.appCodeAuthType)) {
+      query["AppCodeAuthType"] = request.appCodeAuthType;
+    }
+
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.constantParameters)) {
+      query["ConstantParameters"] = request.constantParameters;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.disableInternet)) {
+      query["DisableInternet"] = request.disableInternet;
+    }
+
+    if (!Util.isUnset(request.errorCodeSamples)) {
+      query["ErrorCodeSamples"] = request.errorCodeSamples;
+    }
+
+    if (!Util.isUnset(request.failResultSample)) {
+      query["FailResultSample"] = request.failResultSample;
+    }
+
+    if (!Util.isUnset(request.forceNonceCheck)) {
+      query["ForceNonceCheck"] = request.forceNonceCheck;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.openIdConnectConfig)) {
+      query["OpenIdConnectConfig"] = request.openIdConnectConfig;
+    }
+
+    if (!Util.isUnset(request.requestConfig)) {
+      query["RequestConfig"] = request.requestConfig;
+    }
+
+    if (!Util.isUnset(request.requestParameters)) {
+      query["RequestParameters"] = request.requestParameters;
+    }
+
+    if (!Util.isUnset(request.resultBodyModel)) {
+      query["ResultBodyModel"] = request.resultBodyModel;
+    }
+
+    if (!Util.isUnset(request.resultDescriptions)) {
+      query["ResultDescriptions"] = request.resultDescriptions;
+    }
+
+    if (!Util.isUnset(request.resultSample)) {
+      query["ResultSample"] = request.resultSample;
+    }
+
+    if (!Util.isUnset(request.resultType)) {
+      query["ResultType"] = request.resultType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serviceConfig)) {
+      query["ServiceConfig"] = request.serviceConfig;
+    }
+
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.serviceParametersMap)) {
+      query["ServiceParametersMap"] = request.serviceParametersMap;
+    }
+
+    if (!Util.isUnset(request.systemParameters)) {
+      query["SystemParameters"] = request.systemParameters;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    if (!Util.isUnset(request.webSocketApiType)) {
+      query["WebSocketApiType"] = request.webSocketApiType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApi",
@@ -19183,7 +20457,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyApiResponse>(await this.callApi(params, req, runtime), new ModifyApiResponse({}));
@@ -19197,22 +20471,60 @@ export default class Client extends OpenApi {
   async modifyApiGroupWithOptions(request: ModifyApiGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BasePath"] = request.basePath;
-    query["CompatibleFlags"] = request.compatibleFlags;
-    query["CustomTraceConfig"] = request.customTraceConfig;
-    query["CustomerConfigs"] = request.customerConfigs;
-    query["DefaultDomain"] = request.defaultDomain;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["GroupName"] = request.groupName;
-    query["PassthroughHeaders"] = request.passthroughHeaders;
-    query["RpcPattern"] = request.rpcPattern;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
-    query["UserLogConfig"] = request.userLogConfig;
+    if (!Util.isUnset(request.basePath)) {
+      query["BasePath"] = request.basePath;
+    }
+
+    if (!Util.isUnset(request.compatibleFlags)) {
+      query["CompatibleFlags"] = request.compatibleFlags;
+    }
+
+    if (!Util.isUnset(request.customTraceConfig)) {
+      query["CustomTraceConfig"] = request.customTraceConfig;
+    }
+
+    if (!Util.isUnset(request.customerConfigs)) {
+      query["CustomerConfigs"] = request.customerConfigs;
+    }
+
+    if (!Util.isUnset(request.defaultDomain)) {
+      query["DefaultDomain"] = request.defaultDomain;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.passthroughHeaders)) {
+      query["PassthroughHeaders"] = request.passthroughHeaders;
+    }
+
+    if (!Util.isUnset(request.rpcPattern)) {
+      query["RpcPattern"] = request.rpcPattern;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.userLogConfig)) {
+      query["UserLogConfig"] = request.userLogConfig;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApiGroup",
@@ -19222,7 +20534,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyApiGroupResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupResponse({}));
@@ -19236,12 +20548,20 @@ export default class Client extends OpenApi {
   async modifyApiGroupVpcWhitelistWithOptions(request: ModifyApiGroupVpcWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApiGroupVpcWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["VpcIds"] = request.vpcIds;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcIds)) {
+      query["VpcIds"] = request.vpcIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApiGroupVpcWhitelist",
@@ -19251,7 +20571,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyApiGroupVpcWhitelistResponse>(await this.callApi(params, req, runtime), new ModifyApiGroupVpcWhitelistResponse({}));
@@ -19265,14 +20585,28 @@ export default class Client extends OpenApi {
   async modifyAppWithOptions(request: ModifyAppRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["AppName"] = request.appName;
-    query["Description"] = request.description;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyApp",
@@ -19282,7 +20616,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyAppResponse>(await this.callApi(params, req, runtime), new ModifyAppResponse({}));
@@ -19296,13 +20630,24 @@ export default class Client extends OpenApi {
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["InstanceId"] = request.instanceId;
-    query["InstanceSpec"] = request.instanceSpec;
-    query["Token"] = request.token;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceSpec)) {
+      query["InstanceSpec"] = request.instanceSpec;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyInstanceSpec",
@@ -19312,7 +20657,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyInstanceSpecResponse({}));
@@ -19326,13 +20671,24 @@ export default class Client extends OpenApi {
   async modifyIpControlWithOptions(request: ModifyIpControlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["IpControlId"] = request.ipControlId;
-    query["IpControlName"] = request.ipControlName;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.ipControlName)) {
+      query["IpControlName"] = request.ipControlName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyIpControl",
@@ -19342,7 +20698,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyIpControlResponse>(await this.callApi(params, req, runtime), new ModifyIpControlResponse({}));
@@ -19356,14 +20712,28 @@ export default class Client extends OpenApi {
   async modifyIpControlPolicyItemWithOptions(request: ModifyIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<ModifyIpControlPolicyItemResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["CidrIp"] = request.cidrIp;
-    query["IpControlId"] = request.ipControlId;
-    query["PolicyItemId"] = request.policyItemId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.cidrIp)) {
+      query["CidrIp"] = request.cidrIp;
+    }
+
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.policyItemId)) {
+      query["PolicyItemId"] = request.policyItemId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyIpControlPolicyItem",
@@ -19373,7 +20743,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyIpControlPolicyItemResponse>(await this.callApi(params, req, runtime), new ModifyIpControlPolicyItemResponse({}));
@@ -19387,13 +20757,24 @@ export default class Client extends OpenApi {
   async modifyLogConfigWithOptions(request: ModifyLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LogType"] = request.logType;
-    query["SecurityToken"] = request.securityToken;
-    query["SlsLogStore"] = request.slsLogStore;
-    query["SlsProject"] = request.slsProject;
+    if (!Util.isUnset(request.logType)) {
+      query["LogType"] = request.logType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.slsLogStore)) {
+      query["SlsLogStore"] = request.slsLogStore;
+    }
+
+    if (!Util.isUnset(request.slsProject)) {
+      query["SlsProject"] = request.slsProject;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyLogConfig",
@@ -19403,7 +20784,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyLogConfigResponse({}));
@@ -19417,14 +20798,28 @@ export default class Client extends OpenApi {
   async modifyModelWithOptions(request: ModifyModelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyModelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["ModelName"] = request.modelName;
-    query["NewModelName"] = request.newModelName;
-    query["Schema"] = request.schema;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!Util.isUnset(request.newModelName)) {
+      query["NewModelName"] = request.newModelName;
+    }
+
+    if (!Util.isUnset(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyModel",
@@ -19434,7 +20829,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyModelResponse>(await this.callApi(params, req, runtime), new ModifyModelResponse({}));
@@ -19448,15 +20843,32 @@ export default class Client extends OpenApi {
   async modifyPluginWithOptions(request: ModifyPluginRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPluginResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["PluginData"] = request.pluginData;
-    query["PluginId"] = request.pluginId;
-    query["PluginName"] = request.pluginName;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.pluginData)) {
+      query["PluginData"] = request.pluginData;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.pluginName)) {
+      query["PluginName"] = request.pluginName;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyPlugin",
@@ -19466,7 +20878,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyPluginResponse>(await this.callApi(params, req, runtime), new ModifyPluginResponse({}));
@@ -19480,14 +20892,28 @@ export default class Client extends OpenApi {
   async modifySignatureWithOptions(request: ModifySignatureRequest, runtime: $Util.RuntimeOptions): Promise<ModifySignatureResponse> {
     Util.validateModel(request);
     let query = { };
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
-    query["SignatureKey"] = request.signatureKey;
-    query["SignatureName"] = request.signatureName;
-    query["SignatureSecret"] = request.signatureSecret;
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.signatureKey)) {
+      query["SignatureKey"] = request.signatureKey;
+    }
+
+    if (!Util.isUnset(request.signatureName)) {
+      query["SignatureName"] = request.signatureName;
+    }
+
+    if (!Util.isUnset(request.signatureSecret)) {
+      query["SignatureSecret"] = request.signatureSecret;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifySignature",
@@ -19497,7 +20923,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifySignatureResponse>(await this.callApi(params, req, runtime), new ModifySignatureResponse({}));
@@ -19511,17 +20937,40 @@ export default class Client extends OpenApi {
   async modifyTrafficControlWithOptions(request: ModifyTrafficControlRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTrafficControlResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiDefault"] = request.apiDefault;
-    query["AppDefault"] = request.appDefault;
-    query["Description"] = request.description;
-    query["SecurityToken"] = request.securityToken;
-    query["TrafficControlId"] = request.trafficControlId;
-    query["TrafficControlName"] = request.trafficControlName;
-    query["TrafficControlUnit"] = request.trafficControlUnit;
-    query["UserDefault"] = request.userDefault;
+    if (!Util.isUnset(request.apiDefault)) {
+      query["ApiDefault"] = request.apiDefault;
+    }
+
+    if (!Util.isUnset(request.appDefault)) {
+      query["AppDefault"] = request.appDefault;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
+    if (!Util.isUnset(request.trafficControlName)) {
+      query["TrafficControlName"] = request.trafficControlName;
+    }
+
+    if (!Util.isUnset(request.trafficControlUnit)) {
+      query["TrafficControlUnit"] = request.trafficControlUnit;
+    }
+
+    if (!Util.isUnset(request.userDefault)) {
+      query["UserDefault"] = request.userDefault;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyTrafficControl",
@@ -19531,7 +20980,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyTrafficControlResponse>(await this.callApi(params, req, runtime), new ModifyTrafficControlResponse({}));
@@ -19552,7 +21001,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<OpenApiGatewayServiceResponse>(await this.callApi(params, req, runtime), new OpenApiGatewayServiceResponse({}));
@@ -19566,12 +21015,20 @@ export default class Client extends OpenApi {
   async reactivateDomainWithOptions(request: ReactivateDomainRequest, runtime: $Util.RuntimeOptions): Promise<ReactivateDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ReactivateDomain",
@@ -19581,7 +21038,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ReactivateDomainResponse>(await this.callApi(params, req, runtime), new ReactivateDomainResponse({}));
@@ -19595,15 +21052,32 @@ export default class Client extends OpenApi {
   async removeApisAuthoritiesWithOptions(request: RemoveApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveApisAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["AppId"] = request.appId;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveApisAuthorities",
@@ -19613,7 +21087,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveApisAuthoritiesResponse>(await this.callApi(params, req, runtime), new RemoveApisAuthoritiesResponse({}));
@@ -19627,14 +21101,28 @@ export default class Client extends OpenApi {
   async removeAppsAuthoritiesWithOptions(request: RemoveAppsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAppsAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["AppIds"] = request.appIds;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveAppsAuthorities",
@@ -19644,7 +21132,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveAppsAuthoritiesResponse>(await this.callApi(params, req, runtime), new RemoveAppsAuthoritiesResponse({}));
@@ -19658,14 +21146,28 @@ export default class Client extends OpenApi {
   async removeIpControlApisWithOptions(request: RemoveIpControlApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIpControlApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["IpControlId"] = request.ipControlId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveIpControlApis",
@@ -19675,7 +21177,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveIpControlApisResponse>(await this.callApi(params, req, runtime), new RemoveIpControlApisResponse({}));
@@ -19689,12 +21191,20 @@ export default class Client extends OpenApi {
   async removeIpControlPolicyItemWithOptions(request: RemoveIpControlPolicyItemRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIpControlPolicyItemResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpControlId"] = request.ipControlId;
-    query["PolicyItemIds"] = request.policyItemIds;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.policyItemIds)) {
+      query["PolicyItemIds"] = request.policyItemIds;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveIpControlPolicyItem",
@@ -19704,7 +21214,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveIpControlPolicyItemResponse>(await this.callApi(params, req, runtime), new RemoveIpControlPolicyItemResponse({}));
@@ -19718,14 +21228,28 @@ export default class Client extends OpenApi {
   async removeSignatureApisWithOptions(request: RemoveSignatureApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSignatureApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveSignatureApis",
@@ -19735,7 +21259,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveSignatureApisResponse>(await this.callApi(params, req, runtime), new RemoveSignatureApisResponse({}));
@@ -19749,14 +21273,28 @@ export default class Client extends OpenApi {
   async removeTrafficControlApisWithOptions(request: RemoveTrafficControlApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTrafficControlApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveTrafficControlApis",
@@ -19766,7 +21304,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveTrafficControlApisResponse>(await this.callApi(params, req, runtime), new RemoveTrafficControlApisResponse({}));
@@ -19780,14 +21318,28 @@ export default class Client extends OpenApi {
   async removeVpcAccessWithOptions(request: RemoveVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVpcAccessResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NeedBatchWork"] = request.needBatchWork;
-    query["Port"] = request.port;
-    query["SecurityToken"] = request.securityToken;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.needBatchWork)) {
+      query["NeedBatchWork"] = request.needBatchWork;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveVpcAccess",
@@ -19797,7 +21349,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveVpcAccessResponse>(await this.callApi(params, req, runtime), new RemoveVpcAccessResponse({}));
@@ -19811,14 +21363,28 @@ export default class Client extends OpenApi {
   async removeVpcAccessAndAbolishApisWithOptions(request: RemoveVpcAccessAndAbolishApisRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVpcAccessAndAbolishApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NeedBatchWork"] = request.needBatchWork;
-    query["Port"] = request.port;
-    query["SecurityToken"] = request.securityToken;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.needBatchWork)) {
+      query["NeedBatchWork"] = request.needBatchWork;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveVpcAccessAndAbolishApis",
@@ -19828,7 +21394,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveVpcAccessAndAbolishApisResponse>(await this.callApi(params, req, runtime), new RemoveVpcAccessAndAbolishApisResponse({}));
@@ -19842,11 +21408,16 @@ export default class Client extends OpenApi {
   async resetAppCodeWithOptions(request: ResetAppCodeRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppCode"] = request.appCode;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appCode)) {
+      query["AppCode"] = request.appCode;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResetAppCode",
@@ -19856,7 +21427,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetAppCodeResponse>(await this.callApi(params, req, runtime), new ResetAppCodeResponse({}));
@@ -19870,11 +21441,16 @@ export default class Client extends OpenApi {
   async resetAppSecretWithOptions(request: ResetAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<ResetAppSecretResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppKey"] = request.appKey;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appKey)) {
+      query["AppKey"] = request.appKey;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ResetAppSecret",
@@ -19884,7 +21460,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ResetAppSecretResponse>(await this.callApi(params, req, runtime), new ResetAppSecretResponse({}));
@@ -19898,12 +21474,20 @@ export default class Client extends OpenApi {
   async sdkGenerateByAppWithOptions(request: SdkGenerateByAppRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByAppResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["Language"] = request.language;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SdkGenerateByApp",
@@ -19913,7 +21497,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SdkGenerateByAppResponse>(await this.callApi(params, req, runtime), new SdkGenerateByAppResponse({}));
@@ -19927,12 +21511,20 @@ export default class Client extends OpenApi {
   async sdkGenerateByGroupWithOptions(request: SdkGenerateByGroupRequest, runtime: $Util.RuntimeOptions): Promise<SdkGenerateByGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["GroupId"] = request.groupId;
-    query["Language"] = request.language;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SdkGenerateByGroup",
@@ -19942,7 +21534,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SdkGenerateByGroupResponse>(await this.callApi(params, req, runtime), new SdkGenerateByGroupResponse({}));
@@ -19956,16 +21548,36 @@ export default class Client extends OpenApi {
   async setApisAuthoritiesWithOptions(request: SetApisAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetApisAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["AppId"] = request.appId;
-    query["AuthValidTime"] = request.authValidTime;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.authValidTime)) {
+      query["AuthValidTime"] = request.authValidTime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetApisAuthorities",
@@ -19975,7 +21587,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetApisAuthoritiesResponse>(await this.callApi(params, req, runtime), new SetApisAuthoritiesResponse({}));
@@ -19989,16 +21601,36 @@ export default class Client extends OpenApi {
   async setAppsAuthoritiesWithOptions(request: SetAppsAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<SetAppsAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["AppIds"] = request.appIds;
-    query["AuthValidTime"] = request.authValidTime;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.appIds)) {
+      query["AppIds"] = request.appIds;
+    }
+
+    if (!Util.isUnset(request.authValidTime)) {
+      query["AuthValidTime"] = request.authValidTime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetAppsAuthorities",
@@ -20008,7 +21640,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetAppsAuthoritiesResponse>(await this.callApi(params, req, runtime), new SetAppsAuthoritiesResponse({}));
@@ -20022,14 +21654,28 @@ export default class Client extends OpenApi {
   async setDomainWithOptions(request: SetDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BindStageName"] = request.bindStageName;
-    query["CustomDomainType"] = request.customDomainType;
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["IsForce"] = request.isForce;
+    if (!Util.isUnset(request.bindStageName)) {
+      query["BindStageName"] = request.bindStageName;
+    }
+
+    if (!Util.isUnset(request.customDomainType)) {
+      query["CustomDomainType"] = request.customDomainType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.isForce)) {
+      query["IsForce"] = request.isForce;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDomain",
@@ -20039,7 +21685,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDomainResponse>(await this.callApi(params, req, runtime), new SetDomainResponse({}));
@@ -20053,16 +21699,36 @@ export default class Client extends OpenApi {
   async setDomainCertificateWithOptions(request: SetDomainCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CaCertificateBody"] = request.caCertificateBody;
-    query["CertificateBody"] = request.certificateBody;
-    query["CertificateName"] = request.certificateName;
-    query["CertificatePrivateKey"] = request.certificatePrivateKey;
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.caCertificateBody)) {
+      query["CaCertificateBody"] = request.caCertificateBody;
+    }
+
+    if (!Util.isUnset(request.certificateBody)) {
+      query["CertificateBody"] = request.certificateBody;
+    }
+
+    if (!Util.isUnset(request.certificateName)) {
+      query["CertificateName"] = request.certificateName;
+    }
+
+    if (!Util.isUnset(request.certificatePrivateKey)) {
+      query["CertificatePrivateKey"] = request.certificatePrivateKey;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDomainCertificate",
@@ -20072,7 +21738,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDomainCertificateResponse>(await this.callApi(params, req, runtime), new SetDomainCertificateResponse({}));
@@ -20086,13 +21752,24 @@ export default class Client extends OpenApi {
   async setDomainWebSocketStatusWithOptions(request: SetDomainWebSocketStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainWebSocketStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ActionValue"] = request.actionValue;
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.actionValue)) {
+      query["ActionValue"] = request.actionValue;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDomainWebSocketStatus",
@@ -20102,7 +21779,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDomainWebSocketStatusResponse>(await this.callApi(params, req, runtime), new SetDomainWebSocketStatusResponse({}));
@@ -20116,14 +21793,28 @@ export default class Client extends OpenApi {
   async setIpControlApisWithOptions(request: SetIpControlApisRequest, runtime: $Util.RuntimeOptions): Promise<SetIpControlApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["IpControlId"] = request.ipControlId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ipControlId)) {
+      query["IpControlId"] = request.ipControlId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetIpControlApis",
@@ -20133,7 +21824,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetIpControlApisResponse>(await this.callApi(params, req, runtime), new SetIpControlApisResponse({}));
@@ -20147,14 +21838,28 @@ export default class Client extends OpenApi {
   async setSignatureApisWithOptions(request: SetSignatureApisRequest, runtime: $Util.RuntimeOptions): Promise<SetSignatureApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["SignatureId"] = request.signatureId;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetSignatureApis",
@@ -20164,7 +21869,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetSignatureApisResponse>(await this.callApi(params, req, runtime), new SetSignatureApisResponse({}));
@@ -20178,14 +21883,28 @@ export default class Client extends OpenApi {
   async setTrafficControlApisWithOptions(request: SetTrafficControlApisRequest, runtime: $Util.RuntimeOptions): Promise<SetTrafficControlApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiIds"] = request.apiIds;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
-    query["TrafficControlId"] = request.trafficControlId;
+    if (!Util.isUnset(request.apiIds)) {
+      query["ApiIds"] = request.apiIds;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    if (!Util.isUnset(request.trafficControlId)) {
+      query["TrafficControlId"] = request.trafficControlId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetTrafficControlApis",
@@ -20195,7 +21914,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetTrafficControlApisResponse>(await this.callApi(params, req, runtime), new SetTrafficControlApisResponse({}));
@@ -20209,15 +21928,32 @@ export default class Client extends OpenApi {
   async setVpcAccessWithOptions(request: SetVpcAccessRequest, runtime: $Util.RuntimeOptions): Promise<SetVpcAccessResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["InstanceId"] = request.instanceId;
-    query["Name"] = request.name;
-    query["Port"] = request.port;
-    query["SecurityToken"] = request.securityToken;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetVpcAccess",
@@ -20227,7 +21963,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetVpcAccessResponse>(await this.callApi(params, req, runtime), new SetVpcAccessResponse({}));
@@ -20241,13 +21977,24 @@ export default class Client extends OpenApi {
   async setWildcardDomainPatternsWithOptions(request: SetWildcardDomainPatternsRequest, runtime: $Util.RuntimeOptions): Promise<SetWildcardDomainPatternsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["GroupId"] = request.groupId;
-    query["SecurityToken"] = request.securityToken;
-    query["WildcardDomainPatterns"] = request.wildcardDomainPatterns;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.wildcardDomainPatterns)) {
+      query["WildcardDomainPatterns"] = request.wildcardDomainPatterns;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetWildcardDomainPatterns",
@@ -20257,7 +22004,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetWildcardDomainPatternsResponse>(await this.callApi(params, req, runtime), new SetWildcardDomainPatternsResponse({}));
@@ -20271,15 +22018,32 @@ export default class Client extends OpenApi {
   async switchApiWithOptions(request: SwitchApiRequest, runtime: $Util.RuntimeOptions): Promise<SwitchApiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApiId"] = request.apiId;
-    query["Description"] = request.description;
-    query["GroupId"] = request.groupId;
-    query["HistoryVersion"] = request.historyVersion;
-    query["SecurityToken"] = request.securityToken;
-    query["StageName"] = request.stageName;
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.historyVersion)) {
+      query["HistoryVersion"] = request.historyVersion;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SwitchApi",
@@ -20289,7 +22053,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SwitchApiResponse>(await this.callApi(params, req, runtime), new SwitchApiResponse({}));
@@ -20303,13 +22067,24 @@ export default class Client extends OpenApi {
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["SecurityToken"] = request.securityToken;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TagResources",
@@ -20319,7 +22094,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
@@ -20333,14 +22108,28 @@ export default class Client extends OpenApi {
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["All"] = request.all;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["SecurityToken"] = request.securityToken;
-    query["TagKey"] = request.tagKey;
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UntagResources",
@@ -20350,7 +22139,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
