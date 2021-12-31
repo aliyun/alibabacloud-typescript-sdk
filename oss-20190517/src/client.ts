@@ -7,7 +7,6 @@ import SPI from '@alicloud/gateway-spi';
 import GatewayClient from '@alicloud/gateway-oss';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -980,6 +979,34 @@ export class RefererConfiguration extends $tea.Model {
     return {
       allowEmptyReferer: 'boolean',
       refererList: RefererConfigurationRefererList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegionInfo extends $tea.Model {
+  accelerateEndpoint?: string;
+  internalEndpoint?: string;
+  internetEndpoint?: string;
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accelerateEndpoint: 'AccelerateEndpoint',
+      internalEndpoint: 'InternalEndpoint',
+      internetEndpoint: 'InternetEndpoint',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accelerateEndpoint: 'string',
+      internalEndpoint: 'string',
+      internetEndpoint: 'string',
+      region: 'string',
     };
   }
 
@@ -2307,6 +2334,66 @@ export class DeleteObjectTaggingResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  regions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'regions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponseBody extends $tea.Model {
+  regionInfos?: RegionInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      regionInfos: 'RegionInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionInfos: { 'type': 'array', 'itemType': RegionInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRegionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRegionsResponseBody,
     };
   }
 
@@ -6766,7 +6853,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<AbortBucketWormResponse>(await this.execute(params, req, runtime), new AbortBucketWormResponse({}));
   }
@@ -6801,7 +6888,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<AbortMultipartUploadResponse>(await this.execute(params, req, runtime), new AbortMultipartUploadResponse({}));
   }
@@ -6879,7 +6966,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "binary",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<AppendObjectResponse>(await this.execute(params, req, runtime), new AppendObjectResponse({}));
   }
@@ -6913,7 +7000,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<CompleteBucketWormResponse>(await this.execute(params, req, runtime), new CompleteBucketWormResponse({}));
   }
@@ -7087,7 +7174,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketResponse>(await this.execute(params, req, runtime), new DeleteBucketResponse({}));
   }
@@ -7114,7 +7201,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketCorsResponse>(await this.execute(params, req, runtime), new DeleteBucketCorsResponse({}));
   }
@@ -7141,7 +7228,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketEncryptionResponse>(await this.execute(params, req, runtime), new DeleteBucketEncryptionResponse({}));
   }
@@ -7175,7 +7262,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketInventoryResponse>(await this.execute(params, req, runtime), new DeleteBucketInventoryResponse({}));
   }
@@ -7202,7 +7289,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketLifecycleResponse>(await this.execute(params, req, runtime), new DeleteBucketLifecycleResponse({}));
   }
@@ -7229,7 +7316,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketLoggingResponse>(await this.execute(params, req, runtime), new DeleteBucketLoggingResponse({}));
   }
@@ -7256,7 +7343,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketPolicyResponse>(await this.execute(params, req, runtime), new DeleteBucketPolicyResponse({}));
   }
@@ -7290,7 +7377,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketReplicationResponse>(await this.execute(params, req, runtime), new DeleteBucketReplicationResponse({}));
   }
@@ -7317,7 +7404,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketTagsResponse>(await this.execute(params, req, runtime), new DeleteBucketTagsResponse({}));
   }
@@ -7344,7 +7431,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteBucketWebsiteResponse>(await this.execute(params, req, runtime), new DeleteBucketWebsiteResponse({}));
   }
@@ -7372,7 +7459,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteLiveChannelResponse>(await this.execute(params, req, runtime), new DeleteLiveChannelResponse({}));
   }
@@ -7444,7 +7531,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "binary",
-      bodyType: "binary",
+      bodyType: "none",
     });
     return $tea.cast<DeleteObjectResponse>(await this.execute(params, req, runtime), new DeleteObjectResponse({}));
   }
@@ -7479,9 +7566,40 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<DeleteObjectTaggingResponse>(await this.execute(params, req, runtime), new DeleteObjectTaggingResponse({}));
+  }
+
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regions)) {
+      query["regions"] = request.regions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2019-05-17",
+      protocol: "HTTPS",
+      pathname: `/?regions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "xml",
+      bodyType: "xml",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async extendBucketWorm(bucket: string, request: ExtendBucketWormRequest): Promise<ExtendBucketWormResponse> {
@@ -7519,7 +7637,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<ExtendBucketWormResponse>(await this.execute(params, req, runtime), new ExtendBucketWormResponse({}));
   }
@@ -8334,7 +8452,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "binary",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<GetObjectMetaResponse>(await this.execute(params, req, runtime), new GetObjectMetaResponse({}));
   }
@@ -8443,7 +8561,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<GetSymlinkResponse>(await this.execute(params, req, runtime), new GetSymlinkResponse({}));
   }
@@ -8538,7 +8656,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<HeadObjectResponse>(await this.execute(params, req, runtime), new HeadObjectResponse({}));
   }
@@ -8572,7 +8690,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<InitiateBucketWormResponse>(await this.execute(params, req, runtime), new InitiateBucketWormResponse({}));
   }
@@ -9081,7 +9199,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<OptionObjectResponse>(await this.execute(params, req, runtime), new OptionObjectResponse({}));
   }
@@ -9108,7 +9226,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "none",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PostObjectResponse>(await this.execute(params, req, runtime), new PostObjectResponse({}));
   }
@@ -9148,7 +9266,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PostVodPlaylistResponse>(await this.execute(params, req, runtime), new PostVodPlaylistResponse({}));
   }
@@ -9191,7 +9309,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketResponse>(await this.execute(params, req, runtime), new PutBucketResponse({}));
   }
@@ -9227,7 +9345,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketAclResponse>(await this.execute(params, req, runtime), new PutBucketAclResponse({}));
   }
@@ -9261,7 +9379,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketCorsResponse>(await this.execute(params, req, runtime), new PutBucketCorsResponse({}));
   }
@@ -9295,7 +9413,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketEncryptionResponse>(await this.execute(params, req, runtime), new PutBucketEncryptionResponse({}));
   }
@@ -9335,7 +9453,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketInventoryResponse>(await this.execute(params, req, runtime), new PutBucketInventoryResponse({}));
   }
@@ -9369,7 +9487,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketLifecycleResponse>(await this.execute(params, req, runtime), new PutBucketLifecycleResponse({}));
   }
@@ -9403,7 +9521,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketLoggingResponse>(await this.execute(params, req, runtime), new PutBucketLoggingResponse({}));
   }
@@ -9432,7 +9550,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "json",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketPolicyResponse>(await this.execute(params, req, runtime), new PutBucketPolicyResponse({}));
   }
@@ -9466,7 +9584,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketRefererResponse>(await this.execute(params, req, runtime), new PutBucketRefererResponse({}));
   }
@@ -9500,7 +9618,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketReplicationResponse>(await this.execute(params, req, runtime), new PutBucketReplicationResponse({}));
   }
@@ -9534,7 +9652,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketRequestPaymentResponse>(await this.execute(params, req, runtime), new PutBucketRequestPaymentResponse({}));
   }
@@ -9568,7 +9686,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketTagsResponse>(await this.execute(params, req, runtime), new PutBucketTagsResponse({}));
   }
@@ -9602,7 +9720,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketTransferAccelerationResponse>(await this.execute(params, req, runtime), new PutBucketTransferAccelerationResponse({}));
   }
@@ -9636,7 +9754,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketVersioningResponse>(await this.execute(params, req, runtime), new PutBucketVersioningResponse({}));
   }
@@ -9670,7 +9788,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutBucketWebsiteResponse>(await this.execute(params, req, runtime), new PutBucketWebsiteResponse({}));
   }
@@ -9740,7 +9858,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutLiveChannelStatusResponse>(await this.execute(params, req, runtime), new PutLiveChannelStatusResponse({}));
   }
@@ -9808,7 +9926,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "binary",
-      bodyType: "binary",
+      bodyType: "none",
     });
     return $tea.cast<PutObjectResponse>(await this.execute(params, req, runtime), new PutObjectResponse({}));
   }
@@ -9852,7 +9970,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutObjectAclResponse>(await this.execute(params, req, runtime), new PutObjectAclResponse({}));
   }
@@ -9893,7 +10011,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutObjectTaggingResponse>(await this.execute(params, req, runtime), new PutObjectTaggingResponse({}));
   }
@@ -9942,7 +10060,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<PutSymlinkResponse>(await this.execute(params, req, runtime), new PutSymlinkResponse({}));
   }
@@ -9983,7 +10101,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "xml",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<RestoreObjectResponse>(await this.execute(params, req, runtime), new RestoreObjectResponse({}));
   }
@@ -10059,7 +10177,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "binary",
-      bodyType: "xml",
+      bodyType: "none",
     });
     return $tea.cast<UploadPartResponse>(await this.execute(params, req, runtime), new UploadPartResponse({}));
   }
