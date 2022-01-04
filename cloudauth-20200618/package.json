@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/cloudauth20200618",
-  "version": "2.0.3",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

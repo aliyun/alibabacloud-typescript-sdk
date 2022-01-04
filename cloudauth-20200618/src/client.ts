@@ -1,63 +1,87 @@
 // This file is auto-generated, don't edit it
-/**
- *
- */
 import Util, * as $Util from '@alicloud/tea-util';
-import OSS, * as $OSS from '@alicloud/oss-client';
+import RPCUtil from '@alicloud/rpc-util';
 import RPC, * as $RPC from '@alicloud/rpc-client';
+import EndpointUtil from '@alicloud/endpoint-util';
+import OSS, * as $OSS from '@alicloud/oss-client';
 import OpenPlatform, * as $OpenPlatform from '@alicloud/openplatform20191219';
 import OSSUtil, * as $OSSUtil from '@alicloud/oss-util';
 import FileForm, * as $FileForm from '@alicloud/tea-fileform';
-import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
-import OpenApiUtil from '@alicloud/openapi-util';
-import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class ContrastSmartVerifyRequest extends $tea.Model {
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  certType?: string;
-  mobile?: string;
-  ip?: string;
-  userId?: string;
   certName?: string;
   certNo?: string;
+  certType?: string;
   facePicFile?: string;
-  facePicUrl?: string;
   facePicString?: string;
+  facePicUrl?: string;
+  ip?: string;
+  mobile?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      certType: 'CertType',
-      mobile: 'Mobile',
-      ip: 'Ip',
-      userId: 'UserId',
       certName: 'CertName',
       certNo: 'CertNo',
+      certType: 'CertType',
       facePicFile: 'FacePicFile',
-      facePicUrl: 'FacePicUrl',
       facePicString: 'FacePicString',
+      facePicUrl: 'FacePicUrl',
+      ip: 'Ip',
+      mobile: 'Mobile',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      certType: 'string',
-      mobile: 'string',
-      ip: 'string',
-      userId: 'string',
       certName: 'string',
       certNo: 'string',
+      certType: 'string',
       facePicFile: 'string',
-      facePicUrl: 'string',
       facePicString: 'string',
+      facePicUrl: 'string',
+      ip: 'string',
+      mobile: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ContrastSmartVerifyResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: ContrastSmartVerifyResponseResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: ContrastSmartVerifyResponseResultObject,
     };
   }
 
@@ -68,98 +92,48 @@ export class ContrastSmartVerifyRequest extends $tea.Model {
 
 export class ContrastSmartVerifyAdvanceRequest extends $tea.Model {
   facePicFileObject: Readable;
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  certType?: string;
-  mobile?: string;
-  ip?: string;
-  userId?: string;
   certName?: string;
   certNo?: string;
-  facePicUrl?: string;
+  certType?: string;
   facePicString?: string;
+  facePicUrl?: string;
+  ip?: string;
+  mobile?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       facePicFileObject: 'FacePicFileObject',
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      certType: 'CertType',
-      mobile: 'Mobile',
-      ip: 'Ip',
-      userId: 'UserId',
       certName: 'CertName',
       certNo: 'CertNo',
-      facePicUrl: 'FacePicUrl',
+      certType: 'CertType',
       facePicString: 'FacePicString',
+      facePicUrl: 'FacePicUrl',
+      ip: 'Ip',
+      mobile: 'Mobile',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       facePicFileObject: 'Readable',
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      certType: 'string',
-      mobile: 'string',
-      ip: 'string',
-      userId: 'string',
       certName: 'string',
       certNo: 'string',
-      facePicUrl: 'string',
+      certType: 'string',
       facePicString: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContrastSmartVerifyResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: ContrastSmartVerifyResponseBodyResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: ContrastSmartVerifyResponseBodyResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContrastSmartVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ContrastSmartVerifyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ContrastSmartVerifyResponseBody,
+      facePicUrl: 'string',
+      ip: 'string',
+      mobile: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
+      userId: 'string',
     };
   }
 
@@ -169,22 +143,22 @@ export class ContrastSmartVerifyResponse extends $tea.Model {
 }
 
 export class DescribeSmartVerifyRequest extends $tea.Model {
-  sceneId?: number;
   certifyId?: string;
   pictureReturnType?: string;
+  sceneId?: number;
   static names(): { [key: string]: string } {
     return {
-      sceneId: 'SceneId',
       certifyId: 'CertifyId',
       pictureReturnType: 'PictureReturnType',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneId: 'number',
       certifyId: 'string',
       pictureReturnType: 'string',
+      sceneId: 'number',
     };
   }
 
@@ -193,11 +167,11 @@ export class DescribeSmartVerifyRequest extends $tea.Model {
   }
 }
 
-export class DescribeSmartVerifyResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: DescribeSmartVerifyResponseBodyResultObject;
+export class DescribeSmartVerifyResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: DescribeSmartVerifyResponseResultObject;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -212,29 +186,7 @@ export class DescribeSmartVerifyResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      resultObject: DescribeSmartVerifyResponseBodyResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmartVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmartVerifyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmartVerifyResponseBody,
+      resultObject: DescribeSmartVerifyResponseResultObject,
     };
   }
 
@@ -244,83 +196,43 @@ export class DescribeSmartVerifyResponse extends $tea.Model {
 }
 
 export class DescribeSmsDetailRequest extends $tea.Model {
-  mobile?: string;
-  sendDate?: string;
+  bizId?: string;
+  currentPage: number;
   errorCode?: string;
+  mobile?: string;
   outerOrderNo?: string;
+  pageSize: number;
+  sendDate: string;
   sendStatus?: string;
   signName?: string;
   templateCode?: string;
-  currentPage?: number;
-  pageSize?: number;
-  bizId?: string;
   static names(): { [key: string]: string } {
     return {
-      mobile: 'Mobile',
-      sendDate: 'SendDate',
+      bizId: 'BizId',
+      currentPage: 'CurrentPage',
       errorCode: 'ErrorCode',
+      mobile: 'Mobile',
       outerOrderNo: 'OuterOrderNo',
+      pageSize: 'PageSize',
+      sendDate: 'SendDate',
       sendStatus: 'SendStatus',
       signName: 'SignName',
       templateCode: 'TemplateCode',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      bizId: 'BizId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      mobile: 'string',
-      sendDate: 'string',
+      bizId: 'string',
+      currentPage: 'number',
       errorCode: 'string',
+      mobile: 'string',
       outerOrderNo: 'string',
+      pageSize: 'number',
+      sendDate: 'string',
       sendStatus: 'string',
       signName: 'string',
       templateCode: 'string',
-      currentPage: 'number',
-      pageSize: 'number',
-      bizId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSmsDetailResponseBody extends $tea.Model {
-  totalItem?: number;
-  currentPage?: number;
-  requestId?: string;
-  code?: string;
-  message?: string;
-  totalPage?: number;
-  pageSize?: number;
-  items?: DescribeSmsDetailResponseBodyItems[];
-  static names(): { [key: string]: string } {
-    return {
-      totalItem: 'TotalItem',
-      currentPage: 'CurrentPage',
-      requestId: 'RequestId',
-      code: 'Code',
-      message: 'Message',
-      totalPage: 'TotalPage',
-      pageSize: 'PageSize',
-      items: 'Items',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      totalItem: 'number',
-      currentPage: 'number',
-      requestId: 'string',
-      code: 'string',
-      message: 'string',
-      totalPage: 'number',
-      pageSize: 'number',
-      items: { 'type': 'array', 'itemType': DescribeSmsDetailResponseBodyItems },
     };
   }
 
@@ -330,19 +242,37 @@ export class DescribeSmsDetailResponseBody extends $tea.Model {
 }
 
 export class DescribeSmsDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSmsDetailResponseBody;
+  code: string;
+  currentPage: number;
+  message: string;
+  pageSize: number;
+  requestId: string;
+  totalItem: number;
+  totalPage: number;
+  items: DescribeSmsDetailResponseItems[];
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      code: 'Code',
+      currentPage: 'CurrentPage',
+      message: 'Message',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalItem: 'TotalItem',
+      totalPage: 'TotalPage',
+      items: 'Items',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSmsDetailResponseBody,
+      code: 'string',
+      currentPage: 'number',
+      message: 'string',
+      pageSize: 'number',
+      requestId: 'string',
+      totalItem: 'number',
+      totalPage: 'number',
+      items: { 'type': 'array', 'itemType': DescribeSmsDetailResponseItems },
     };
   }
 
@@ -352,40 +282,68 @@ export class DescribeSmsDetailResponse extends $tea.Model {
 }
 
 export class ElementSmartVerifyRequest extends $tea.Model {
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  certType?: string;
-  certName?: string;
-  certNo?: string;
-  certUrl?: string;
   certFile?: string;
+  certName?: string;
   certNationalEmblemUrl?: string;
+  certNo?: string;
+  certType?: string;
+  certUrl?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
   static names(): { [key: string]: string } {
     return {
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      certType: 'CertType',
-      certName: 'CertName',
-      certNo: 'CertNo',
-      certUrl: 'CertUrl',
       certFile: 'CertFile',
+      certName: 'CertName',
       certNationalEmblemUrl: 'CertNationalEmblemUrl',
+      certNo: 'CertNo',
+      certType: 'CertType',
+      certUrl: 'CertUrl',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      certType: 'string',
-      certName: 'string',
-      certNo: 'string',
-      certUrl: 'string',
       certFile: 'string',
+      certName: 'string',
       certNationalEmblemUrl: 'string',
+      certNo: 'string',
+      certType: 'string',
+      certUrl: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ElementSmartVerifyResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: ElementSmartVerifyResponseResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: ElementSmartVerifyResponseResultObject,
     };
   }
 
@@ -396,89 +354,39 @@ export class ElementSmartVerifyRequest extends $tea.Model {
 
 export class ElementSmartVerifyAdvanceRequest extends $tea.Model {
   certFileObject: Readable;
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  certType?: string;
   certName?: string;
-  certNo?: string;
-  certUrl?: string;
   certNationalEmblemUrl?: string;
+  certNo?: string;
+  certType?: string;
+  certUrl?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
   static names(): { [key: string]: string } {
     return {
       certFileObject: 'CertFileObject',
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      certType: 'CertType',
       certName: 'CertName',
-      certNo: 'CertNo',
-      certUrl: 'CertUrl',
       certNationalEmblemUrl: 'CertNationalEmblemUrl',
+      certNo: 'CertNo',
+      certType: 'CertType',
+      certUrl: 'CertUrl',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certFileObject: 'Readable',
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      certType: 'string',
       certName: 'string',
-      certNo: 'string',
-      certUrl: 'string',
       certNationalEmblemUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElementSmartVerifyResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: ElementSmartVerifyResponseBodyResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: ElementSmartVerifyResponseBodyResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ElementSmartVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ElementSmartVerifyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ElementSmartVerifyResponseBody,
+      certNo: 'string',
+      certType: 'string',
+      certUrl: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
     };
   }
 
@@ -488,101 +396,73 @@ export class ElementSmartVerifyResponse extends $tea.Model {
 }
 
 export class InitSmartVerifyRequest extends $tea.Model {
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  certType?: string;
-  metaInfo?: string;
-  mobile?: string;
-  ip?: string;
-  userId?: string;
+  callbackToken?: string;
+  callbackUrl?: string;
   certName?: string;
   certNo?: string;
-  ocr?: string;
-  callbackUrl?: string;
-  callbackToken?: string;
+  certType?: string;
+  certifyId?: string;
   facePictureBase64?: string;
   facePictureUrl?: string;
-  certifyId?: string;
+  idName?: string;
+  idNo?: string;
+  ip?: string;
+  metaInfo?: string;
+  mobile?: string;
+  mode?: string;
+  ocr?: string;
   ossBucketName?: string;
   ossObjectName?: string;
-  idNo?: string;
-  idName?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      certType: 'CertType',
-      metaInfo: 'MetaInfo',
-      mobile: 'Mobile',
-      ip: 'Ip',
-      userId: 'UserId',
+      callbackToken: 'CallbackToken',
+      callbackUrl: 'CallbackUrl',
       certName: 'CertName',
       certNo: 'CertNo',
-      ocr: 'Ocr',
-      callbackUrl: 'CallbackUrl',
-      callbackToken: 'CallbackToken',
+      certType: 'CertType',
+      certifyId: 'CertifyId',
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
-      certifyId: 'CertifyId',
+      idName: 'IdName',
+      idNo: 'IdNo',
+      ip: 'Ip',
+      metaInfo: 'MetaInfo',
+      mobile: 'Mobile',
+      mode: 'Mode',
+      ocr: 'Ocr',
       ossBucketName: 'OssBucketName',
       ossObjectName: 'OssObjectName',
-      idNo: 'IdNo',
-      idName: 'IdName',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
+      userId: 'UserId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      certType: 'string',
-      metaInfo: 'string',
-      mobile: 'string',
-      ip: 'string',
-      userId: 'string',
+      callbackToken: 'string',
+      callbackUrl: 'string',
       certName: 'string',
       certNo: 'string',
-      ocr: 'string',
-      callbackUrl: 'string',
-      callbackToken: 'string',
+      certType: 'string',
+      certifyId: 'string',
       facePictureBase64: 'string',
       facePictureUrl: 'string',
-      certifyId: 'string',
+      idName: 'string',
+      idNo: 'string',
+      ip: 'string',
+      metaInfo: 'string',
+      mobile: 'string',
+      mode: 'string',
+      ocr: 'string',
       ossBucketName: 'string',
       ossObjectName: 'string',
-      idNo: 'string',
-      idName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InitSmartVerifyResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: InitSmartVerifyResponseBodyResultObject;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: InitSmartVerifyResponseBodyResultObject,
+      outerOrderNo: 'string',
+      sceneId: 'number',
+      userId: 'string',
     };
   }
 
@@ -592,63 +472,10 @@ export class InitSmartVerifyResponseBody extends $tea.Model {
 }
 
 export class InitSmartVerifyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: InitSmartVerifyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: InitSmartVerifyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendSmsRequest extends $tea.Model {
-  mobile?: string;
-  signName?: string;
-  templateCode?: string;
-  templateParam?: string;
-  outerOrderNo?: string;
-  static names(): { [key: string]: string } {
-    return {
-      mobile: 'Mobile',
-      signName: 'SignName',
-      templateCode: 'TemplateCode',
-      templateParam: 'TemplateParam',
-      outerOrderNo: 'OuterOrderNo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      mobile: 'string',
-      signName: 'string',
-      templateCode: 'string',
-      templateParam: 'string',
-      outerOrderNo: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SendSmsResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: SendSmsResponseBodyResultObject;
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: InitSmartVerifyResponseResultObject;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -663,7 +490,38 @@ export class SendSmsResponseBody extends $tea.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      resultObject: SendSmsResponseBodyResultObject,
+      resultObject: InitSmartVerifyResponseResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSmsRequest extends $tea.Model {
+  mobile: string;
+  outerOrderNo?: string;
+  signName: string;
+  templateCode: string;
+  templateParam?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+      outerOrderNo: 'OuterOrderNo',
+      signName: 'SignName',
+      templateCode: 'TemplateCode',
+      templateParam: 'TemplateParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
+      outerOrderNo: 'string',
+      signName: 'string',
+      templateCode: 'string',
+      templateParam: 'string',
     };
   }
 
@@ -673,19 +531,25 @@ export class SendSmsResponseBody extends $tea.Model {
 }
 
 export class SendSmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SendSmsResponseBody;
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: SendSmsResponseResultObject;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      body: 'body',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SendSmsResponseBody,
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: SendSmsResponseResultObject,
     };
   }
 
@@ -695,40 +559,68 @@ export class SendSmsResponse extends $tea.Model {
 }
 
 export class VerifyBankElementRequest extends $tea.Model {
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
-  bankCardNo?: string;
-  idNo?: string;
-  bankCardUrl?: string;
   bankCardFile?: string;
+  bankCardNo?: string;
+  bankCardUrl?: string;
   idName?: string;
+  idNo?: string;
   mobile?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
   static names(): { [key: string]: string } {
     return {
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
-      bankCardNo: 'BankCardNo',
-      idNo: 'IdNo',
-      bankCardUrl: 'BankCardUrl',
       bankCardFile: 'BankCardFile',
+      bankCardNo: 'BankCardNo',
+      bankCardUrl: 'BankCardUrl',
       idName: 'IdName',
+      idNo: 'IdNo',
       mobile: 'Mobile',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
-      bankCardNo: 'string',
-      idNo: 'string',
-      bankCardUrl: 'string',
       bankCardFile: 'string',
+      bankCardNo: 'string',
+      bankCardUrl: 'string',
       idName: 'string',
+      idNo: 'string',
       mobile: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifyBankElementResponse extends $tea.Model {
+  code: string;
+  message: string;
+  requestId: string;
+  resultObject: VerifyBankElementResponseResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: VerifyBankElementResponseResultObject,
     };
   }
 
@@ -739,39 +631,39 @@ export class VerifyBankElementRequest extends $tea.Model {
 
 export class VerifyBankElementAdvanceRequest extends $tea.Model {
   bankCardFileObject: Readable;
-  sceneId?: number;
-  outerOrderNo?: string;
-  mode?: string;
   bankCardNo?: string;
-  idNo?: string;
   bankCardUrl?: string;
   idName?: string;
+  idNo?: string;
   mobile?: string;
+  mode?: string;
+  outerOrderNo?: string;
+  sceneId?: number;
   static names(): { [key: string]: string } {
     return {
       bankCardFileObject: 'BankCardFileObject',
-      sceneId: 'SceneId',
-      outerOrderNo: 'OuterOrderNo',
-      mode: 'Mode',
       bankCardNo: 'BankCardNo',
-      idNo: 'IdNo',
       bankCardUrl: 'BankCardUrl',
       idName: 'IdName',
+      idNo: 'IdNo',
       mobile: 'Mobile',
+      mode: 'Mode',
+      outerOrderNo: 'OuterOrderNo',
+      sceneId: 'SceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bankCardFileObject: 'Readable',
-      sceneId: 'number',
-      outerOrderNo: 'string',
-      mode: 'string',
       bankCardNo: 'string',
-      idNo: 'string',
       bankCardUrl: 'string',
       idName: 'string',
+      idNo: 'string',
       mobile: 'string',
+      mode: 'string',
+      outerOrderNo: 'string',
+      sceneId: 'number',
     };
   }
 
@@ -780,79 +672,29 @@ export class VerifyBankElementAdvanceRequest extends $tea.Model {
   }
 }
 
-export class VerifyBankElementResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  requestId?: string;
-  resultObject?: VerifyBankElementResponseBodyResultObject;
+export class ContrastSmartVerifyResponseResultObject extends $tea.Model {
+  certifyId: string;
+  passed: string;
+  riskInfo: string;
+  subCode: string;
+  verifyInfo: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      resultObject: 'ResultObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      resultObject: VerifyBankElementResponseBodyResultObject,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class VerifyBankElementResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: VerifyBankElementResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: VerifyBankElementResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ContrastSmartVerifyResponseBodyResultObject extends $tea.Model {
-  subCode?: string;
-  certifyId?: string;
-  verifyInfo?: string;
-  riskInfo?: string;
-  passed?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subCode: 'SubCode',
       certifyId: 'CertifyId',
-      verifyInfo: 'VerifyInfo',
-      riskInfo: 'RiskInfo',
       passed: 'Passed',
+      riskInfo: 'RiskInfo',
+      subCode: 'SubCode',
+      verifyInfo: 'VerifyInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subCode: 'string',
       certifyId: 'string',
-      verifyInfo: 'string',
-      riskInfo: 'string',
       passed: 'string',
+      riskInfo: 'string',
+      subCode: 'string',
+      verifyInfo: 'string',
     };
   }
 
@@ -861,26 +703,26 @@ export class ContrastSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
-export class DescribeSmartVerifyResponseBodyResultObject extends $tea.Model {
-  subCode?: string;
-  passedScore?: number;
-  materialInfo?: string;
-  passed?: string;
+export class DescribeSmartVerifyResponseResultObject extends $tea.Model {
+  materialInfo: string;
+  passed: string;
+  passedScore: number;
+  subCode: string;
   static names(): { [key: string]: string } {
     return {
-      subCode: 'SubCode',
-      passedScore: 'PassedScore',
       materialInfo: 'MaterialInfo',
       passed: 'Passed',
+      passedScore: 'PassedScore',
+      subCode: 'SubCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      subCode: 'string',
-      passedScore: 'number',
       materialInfo: 'string',
       passed: 'string',
+      passedScore: 'number',
+      subCode: 'string',
     };
   }
 
@@ -889,53 +731,53 @@ export class DescribeSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
-export class DescribeSmsDetailResponseBodyItems extends $tea.Model {
-  errorMessage?: string;
-  receiveDate?: string;
-  sendDate?: string;
-  bizId?: string;
-  taskDate?: string;
-  templateCode?: string;
-  outerOrderNo?: string;
-  errorCode?: string;
-  mobile?: string;
-  smsSize?: number;
-  content?: string;
-  signName?: string;
-  sendStatus?: string;
+export class DescribeSmsDetailResponseItems extends $tea.Model {
+  bizId: string;
+  content: string;
+  errorCode: string;
+  errorMessage: string;
+  mobile: string;
+  outerOrderNo: string;
+  receiveDate: string;
+  sendDate: string;
+  sendStatus: string;
+  signName: string;
+  smsSize: number;
+  taskDate: string;
+  templateCode: string;
   static names(): { [key: string]: string } {
     return {
+      bizId: 'BizId',
+      content: 'Content',
+      errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      mobile: 'Mobile',
+      outerOrderNo: 'OuterOrderNo',
       receiveDate: 'ReceiveDate',
       sendDate: 'SendDate',
-      bizId: 'BizId',
+      sendStatus: 'SendStatus',
+      signName: 'SignName',
+      smsSize: 'SmsSize',
       taskDate: 'TaskDate',
       templateCode: 'TemplateCode',
-      outerOrderNo: 'OuterOrderNo',
-      errorCode: 'ErrorCode',
-      mobile: 'Mobile',
-      smsSize: 'SmsSize',
-      content: 'Content',
-      signName: 'SignName',
-      sendStatus: 'SendStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizId: 'string',
+      content: 'string',
+      errorCode: 'string',
       errorMessage: 'string',
+      mobile: 'string',
+      outerOrderNo: 'string',
       receiveDate: 'string',
       sendDate: 'string',
-      bizId: 'string',
+      sendStatus: 'string',
+      signName: 'string',
+      smsSize: 'number',
       taskDate: 'string',
       templateCode: 'string',
-      outerOrderNo: 'string',
-      errorCode: 'string',
-      mobile: 'string',
-      smsSize: 'number',
-      content: 'string',
-      signName: 'string',
-      sendStatus: 'string',
     };
   }
 
@@ -944,26 +786,26 @@ export class DescribeSmsDetailResponseBodyItems extends $tea.Model {
   }
 }
 
-export class ElementSmartVerifyResponseBodyResultObject extends $tea.Model {
-  certifyId?: string;
-  subCode?: string;
-  materialInfo?: string;
-  passed?: string;
+export class ElementSmartVerifyResponseResultObject extends $tea.Model {
+  certifyId: string;
+  materialInfo: string;
+  passed: string;
+  subCode: string;
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
-      subCode: 'SubCode',
       materialInfo: 'MaterialInfo',
       passed: 'Passed',
+      subCode: 'SubCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certifyId: 'string',
-      subCode: 'string',
       materialInfo: 'string',
       passed: 'string',
+      subCode: 'string',
     };
   }
 
@@ -972,8 +814,8 @@ export class ElementSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
-export class InitSmartVerifyResponseBodyResultObject extends $tea.Model {
-  certifyId?: string;
+export class InitSmartVerifyResponseResultObject extends $tea.Model {
+  certifyId: string;
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
@@ -991,8 +833,8 @@ export class InitSmartVerifyResponseBodyResultObject extends $tea.Model {
   }
 }
 
-export class SendSmsResponseBodyResultObject extends $tea.Model {
-  bizId?: string;
+export class SendSmsResponseResultObject extends $tea.Model {
+  bizId: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
@@ -1010,26 +852,26 @@ export class SendSmsResponseBodyResultObject extends $tea.Model {
   }
 }
 
-export class VerifyBankElementResponseBodyResultObject extends $tea.Model {
-  certifyId?: string;
-  subCode?: string;
-  materialInfo?: string;
-  passed?: string;
+export class VerifyBankElementResponseResultObject extends $tea.Model {
+  certifyId: string;
+  materialInfo: string;
+  passed: string;
+  subCode: string;
   static names(): { [key: string]: string } {
     return {
       certifyId: 'CertifyId',
-      subCode: 'SubCode',
       materialInfo: 'MaterialInfo',
       passed: 'Passed',
+      subCode: 'SubCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       certifyId: 'string',
-      subCode: 'string',
       materialInfo: 'string',
       passed: 'string',
+      subCode: 'string',
     };
   }
 
@@ -1039,9 +881,9 @@ export class VerifyBankElementResponseBodyResultObject extends $tea.Model {
 }
 
 
-export default class Client extends OpenApi {
+export default class Client extends RPC {
 
-  constructor(config: $OpenApi.Config) {
+  constructor(config: $RPC.Config) {
     super(config);
     this._endpointRule = "central";
     this.checkConfig(config);
@@ -1049,29 +891,14 @@ export default class Client extends OpenApi {
   }
 
 
-  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
-    if (!Util.empty(endpoint)) {
-      return endpoint;
-    }
-
-    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
-      return endpointMap[regionId];
-    }
-
-    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
-  }
-
-  async contrastSmartVerifyWithOptions(request: ContrastSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
+  async contrastSmartVerify(request: ContrastSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ContrastSmartVerifyResponse>(await this.doRPCRequest("ContrastSmartVerify", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new ContrastSmartVerifyResponse({}));
+    return $tea.cast<ContrastSmartVerifyResponse>(await this.doRequest("ContrastSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new ContrastSmartVerifyResponse({}));
   }
 
-  async contrastSmartVerify(request: ContrastSmartVerifyRequest): Promise<ContrastSmartVerifyResponse> {
+  async contrastSmartVerifySimply(request: ContrastSmartVerifyRequest): Promise<ContrastSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.contrastSmartVerifyWithOptions(request, runtime);
+    return await this.contrastSmartVerify(request, runtime);
   }
 
   async contrastSmartVerifyAdvance(request: ContrastSmartVerifyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ContrastSmartVerifyResponse> {
@@ -1079,14 +906,21 @@ export default class Client extends OpenApi {
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
     let openPlatformEndpoint = this._openPlatformEndpoint;
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
     }
 
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -1108,13 +942,13 @@ export default class Client extends OpenApi {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    RPCUtil.convert(runtime, ossRuntime);
     let contrastSmartVerifyReq = new ContrastSmartVerifyRequest({ });
-    OpenApiUtil.convert(request, contrastSmartVerifyReq);
+    RPCUtil.convert(request, contrastSmartVerifyReq);
     if (!Util.isUnset(request.facePicFileObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
         filename: authResponse.objectKey,
@@ -1137,47 +971,38 @@ export default class Client extends OpenApi {
       contrastSmartVerifyReq.facePicFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let contrastSmartVerifyResp = await this.contrastSmartVerifyWithOptions(contrastSmartVerifyReq, runtime);
+    let contrastSmartVerifyResp = await this.contrastSmartVerify(contrastSmartVerifyReq, runtime);
     return contrastSmartVerifyResp;
   }
 
-  async describeSmartVerifyWithOptions(request: DescribeSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartVerifyResponse> {
+  async describeSmartVerify(request: DescribeSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmartVerifyResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSmartVerifyResponse>(await this.doRPCRequest("DescribeSmartVerify", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmartVerifyResponse({}));
+    return $tea.cast<DescribeSmartVerifyResponse>(await this.doRequest("DescribeSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new DescribeSmartVerifyResponse({}));
   }
 
-  async describeSmartVerify(request: DescribeSmartVerifyRequest): Promise<DescribeSmartVerifyResponse> {
+  async describeSmartVerifySimply(request: DescribeSmartVerifyRequest): Promise<DescribeSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmartVerifyWithOptions(request, runtime);
+    return await this.describeSmartVerify(request, runtime);
   }
 
-  async describeSmsDetailWithOptions(request: DescribeSmsDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsDetailResponse> {
+  async describeSmsDetail(request: DescribeSmsDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSmsDetailResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeSmsDetailResponse>(await this.doRPCRequest("DescribeSmsDetail", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeSmsDetailResponse({}));
+    return $tea.cast<DescribeSmsDetailResponse>(await this.doRequest("DescribeSmsDetail", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new DescribeSmsDetailResponse({}));
   }
 
-  async describeSmsDetail(request: DescribeSmsDetailRequest): Promise<DescribeSmsDetailResponse> {
+  async describeSmsDetailSimply(request: DescribeSmsDetailRequest): Promise<DescribeSmsDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSmsDetailWithOptions(request, runtime);
+    return await this.describeSmsDetail(request, runtime);
   }
 
-  async elementSmartVerifyWithOptions(request: ElementSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
+  async elementSmartVerify(request: ElementSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ElementSmartVerifyResponse>(await this.doRPCRequest("ElementSmartVerify", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new ElementSmartVerifyResponse({}));
+    return $tea.cast<ElementSmartVerifyResponse>(await this.doRequest("ElementSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new ElementSmartVerifyResponse({}));
   }
 
-  async elementSmartVerify(request: ElementSmartVerifyRequest): Promise<ElementSmartVerifyResponse> {
+  async elementSmartVerifySimply(request: ElementSmartVerifyRequest): Promise<ElementSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.elementSmartVerifyWithOptions(request, runtime);
+    return await this.elementSmartVerify(request, runtime);
   }
 
   async elementSmartVerifyAdvance(request: ElementSmartVerifyAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<ElementSmartVerifyResponse> {
@@ -1185,14 +1010,21 @@ export default class Client extends OpenApi {
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
     let openPlatformEndpoint = this._openPlatformEndpoint;
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
     }
 
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -1214,13 +1046,13 @@ export default class Client extends OpenApi {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    RPCUtil.convert(runtime, ossRuntime);
     let elementSmartVerifyReq = new ElementSmartVerifyRequest({ });
-    OpenApiUtil.convert(request, elementSmartVerifyReq);
+    RPCUtil.convert(request, elementSmartVerifyReq);
     if (!Util.isUnset(request.certFileObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
         filename: authResponse.objectKey,
@@ -1243,47 +1075,38 @@ export default class Client extends OpenApi {
       elementSmartVerifyReq.certFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let elementSmartVerifyResp = await this.elementSmartVerifyWithOptions(elementSmartVerifyReq, runtime);
+    let elementSmartVerifyResp = await this.elementSmartVerify(elementSmartVerifyReq, runtime);
     return elementSmartVerifyResp;
   }
 
-  async initSmartVerifyWithOptions(request: InitSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitSmartVerifyResponse> {
+  async initSmartVerify(request: InitSmartVerifyRequest, runtime: $Util.RuntimeOptions): Promise<InitSmartVerifyResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<InitSmartVerifyResponse>(await this.doRPCRequest("InitSmartVerify", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new InitSmartVerifyResponse({}));
+    return $tea.cast<InitSmartVerifyResponse>(await this.doRequest("InitSmartVerify", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new InitSmartVerifyResponse({}));
   }
 
-  async initSmartVerify(request: InitSmartVerifyRequest): Promise<InitSmartVerifyResponse> {
+  async initSmartVerifySimply(request: InitSmartVerifyRequest): Promise<InitSmartVerifyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.initSmartVerifyWithOptions(request, runtime);
+    return await this.initSmartVerify(request, runtime);
   }
 
-  async sendSmsWithOptions(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
+  async sendSms(request: SendSmsRequest, runtime: $Util.RuntimeOptions): Promise<SendSmsResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SendSmsResponse>(await this.doRPCRequest("SendSms", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new SendSmsResponse({}));
+    return $tea.cast<SendSmsResponse>(await this.doRequest("SendSms", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new SendSmsResponse({}));
   }
 
-  async sendSms(request: SendSmsRequest): Promise<SendSmsResponse> {
+  async sendSmsSimply(request: SendSmsRequest): Promise<SendSmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.sendSmsWithOptions(request, runtime);
+    return await this.sendSms(request, runtime);
   }
 
-  async verifyBankElementWithOptions(request: VerifyBankElementRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
+  async verifyBankElement(request: VerifyBankElementRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
     Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<VerifyBankElementResponse>(await this.doRPCRequest("VerifyBankElement", "2020-06-18", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyBankElementResponse({}));
+    return $tea.cast<VerifyBankElementResponse>(await this.doRequest("VerifyBankElement", "HTTPS", "POST", "2020-06-18", "AK", null, $tea.toMap(request), runtime), new VerifyBankElementResponse({}));
   }
 
-  async verifyBankElement(request: VerifyBankElementRequest): Promise<VerifyBankElementResponse> {
+  async verifyBankElementSimply(request: VerifyBankElementRequest): Promise<VerifyBankElementResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.verifyBankElementWithOptions(request, runtime);
+    return await this.verifyBankElement(request, runtime);
   }
 
   async verifyBankElementAdvance(request: VerifyBankElementAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<VerifyBankElementResponse> {
@@ -1291,14 +1114,21 @@ export default class Client extends OpenApi {
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
     let openPlatformEndpoint = this._openPlatformEndpoint;
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
     if (Util.isUnset(openPlatformEndpoint)) {
       openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
     }
 
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
+      securityToken: securityToken,
+      type: credentialType,
       endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
@@ -1320,13 +1150,13 @@ export default class Client extends OpenApi {
     let ossHeader = new $OSS.PostObjectRequestHeader({ });
     let uploadRequest = new $OSS.PostObjectRequest({ });
     let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
+    RPCUtil.convert(runtime, ossRuntime);
     let verifyBankElementReq = new VerifyBankElementRequest({ });
-    OpenApiUtil.convert(request, verifyBankElementReq);
+    RPCUtil.convert(request, verifyBankElementReq);
     if (!Util.isUnset(request.bankCardFileObject)) {
       authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
       ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossConfig.endpoint = RPCUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
       ossClient = new OSS(ossConfig);
       fileObj = new $FileForm.FileField({
         filename: authResponse.objectKey,
@@ -1349,8 +1179,20 @@ export default class Client extends OpenApi {
       verifyBankElementReq.bankCardFile = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
     }
 
-    let verifyBankElementResp = await this.verifyBankElementWithOptions(verifyBankElementReq, runtime);
+    let verifyBankElementResp = await this.verifyBankElement(verifyBankElementReq, runtime);
     return verifyBankElementResp;
+  }
+
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
 }
