@@ -9281,9 +9281,18 @@ export default class Client extends OpenApi {
   async cancelUpdateStackWithOptions(request: CancelUpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<CancelUpdateStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CancelType"] = request.cancelType;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.cancelType)) {
+      query["CancelType"] = request.cancelType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9309,18 +9318,54 @@ export default class Client extends OpenApi {
   async continueCreateStackWithOptions(request: ContinueCreateStackRequest, runtime: $Util.RuntimeOptions): Promise<ContinueCreateStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DryRun"] = request.dryRun;
-    query["Mode"] = request.mode;
-    query["Parallelism"] = request.parallelism;
-    query["Parameters"] = request.parameters;
-    query["RamRoleName"] = request.ramRoleName;
-    query["RecreatingResources"] = request.recreatingResources;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.recreatingResources)) {
+      query["RecreatingResources"] = request.recreatingResources;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9346,31 +9391,106 @@ export default class Client extends OpenApi {
   async createChangeSetWithOptions(request: CreateChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetName"] = request.changeSetName;
-    query["ChangeSetType"] = request.changeSetType;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DisableRollback"] = request.disableRollback;
-    query["NotificationURLs"] = request.notificationURLs;
-    query["Parallelism"] = request.parallelism;
-    query["Parameters"] = request.parameters;
-    query["RamRoleName"] = request.ramRoleName;
-    query["RegionId"] = request.regionId;
-    query["ReplacementOption"] = request.replacementOption;
-    query["ResourcesToImport"] = request.resourcesToImport;
-    query["StackId"] = request.stackId;
-    query["StackName"] = request.stackName;
-    query["StackPolicyBody"] = request.stackPolicyBody;
-    query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
-    query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
-    query["StackPolicyURL"] = request.stackPolicyURL;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateScratchId"] = request.templateScratchId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
-    query["UsePreviousParameters"] = request.usePreviousParameters;
+    if (!Util.isUnset(request.changeSetName)) {
+      query["ChangeSetName"] = request.changeSetName;
+    }
+
+    if (!Util.isUnset(request.changeSetType)) {
+      query["ChangeSetType"] = request.changeSetType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.notificationURLs)) {
+      query["NotificationURLs"] = request.notificationURLs;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replacementOption)) {
+      query["ReplacementOption"] = request.replacementOption;
+    }
+
+    if (!Util.isUnset(request.resourcesToImport)) {
+      query["ResourcesToImport"] = request.resourcesToImport;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.stackName)) {
+      query["StackName"] = request.stackName;
+    }
+
+    if (!Util.isUnset(request.stackPolicyBody)) {
+      query["StackPolicyBody"] = request.stackPolicyBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyDuringUpdateBody)) {
+      query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyDuringUpdateURL)) {
+      query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
+    }
+
+    if (!Util.isUnset(request.stackPolicyURL)) {
+      query["StackPolicyURL"] = request.stackPolicyURL;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
+    if (!Util.isUnset(request.usePreviousParameters)) {
+      query["UsePreviousParameters"] = request.usePreviousParameters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9396,27 +9516,90 @@ export default class Client extends OpenApi {
   async createStackWithOptions(request: CreateStackRequest, runtime: $Util.RuntimeOptions): Promise<CreateStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["CreateOption"] = request.createOption;
-    query["DeletionProtection"] = request.deletionProtection;
-    query["DisableRollback"] = request.disableRollback;
-    query["NotificationURLs"] = request.notificationURLs;
-    query["Parallelism"] = request.parallelism;
-    query["Parameters"] = request.parameters;
-    query["RamRoleName"] = request.ramRoleName;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["StackName"] = request.stackName;
-    query["StackPolicyBody"] = request.stackPolicyBody;
-    query["StackPolicyURL"] = request.stackPolicyURL;
-    query["Tags"] = request.tags;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateScratchId"] = request.templateScratchId;
-    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.createOption)) {
+      query["CreateOption"] = request.createOption;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.notificationURLs)) {
+      query["NotificationURLs"] = request.notificationURLs;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.stackName)) {
+      query["StackName"] = request.stackName;
+    }
+
+    if (!Util.isUnset(request.stackPolicyBody)) {
+      query["StackPolicyBody"] = request.stackPolicyBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyURL)) {
+      query["StackPolicyURL"] = request.stackPolicyURL;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
+    if (!Util.isUnset(request.templateScratchRegionId)) {
+      query["TemplateScratchRegionId"] = request.templateScratchRegionId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9448,20 +9631,62 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AdministrationRoleName"] = request.administrationRoleName;
-    query["AutoDeployment"] = request.autoDeploymentShrink;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ExecutionRoleName"] = request.executionRoleName;
-    query["Parameters"] = request.parameters;
-    query["PermissionModel"] = request.permissionModel;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["StackGroupName"] = request.stackGroupName;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.administrationRoleName)) {
+      query["AdministrationRoleName"] = request.administrationRoleName;
+    }
+
+    if (!Util.isUnset(request.autoDeploymentShrink)) {
+      query["AutoDeployment"] = request.autoDeploymentShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionRoleName)) {
+      query["ExecutionRoleName"] = request.executionRoleName;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.permissionModel)) {
+      query["PermissionModel"] = request.permissionModel;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9505,17 +9730,50 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AccountIds"] = request.accountIdsShrink;
-    query["ClientToken"] = request.clientToken;
-    query["DeploymentTargets"] = request.deploymentTargetsShrink;
-    query["DisableRollback"] = request.disableRollback;
-    query["OperationDescription"] = request.operationDescription;
-    query["OperationPreferences"] = request.operationPreferencesShrink;
-    query["ParameterOverrides"] = request.parameterOverrides;
-    query["RegionId"] = request.regionId;
-    query["RegionIds"] = request.regionIdsShrink;
-    query["StackGroupName"] = request.stackGroupName;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+      query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.operationDescription)) {
+      query["OperationDescription"] = request.operationDescription;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.parameterOverrides)) {
+      query["ParameterOverrides"] = request.parameterOverrides;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionIdsShrink)) {
+      query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9541,11 +9799,26 @@ export default class Client extends OpenApi {
   async createTemplateWithOptions(request: CreateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateName"] = request.templateName;
-    query["TemplateURL"] = request.templateURL;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9589,16 +9862,46 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ExecutionMode"] = request.executionMode;
-    query["LogicalIdStrategy"] = request.logicalIdStrategy;
-    query["PreferenceParameters"] = request.preferenceParametersShrink;
-    query["RegionId"] = request.regionId;
-    query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
-    query["SourceResources"] = request.sourceResourcesShrink;
-    query["SourceTag"] = request.sourceTagShrink;
-    query["TemplateScratchType"] = request.templateScratchType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionMode)) {
+      query["ExecutionMode"] = request.executionMode;
+    }
+
+    if (!Util.isUnset(request.logicalIdStrategy)) {
+      query["LogicalIdStrategy"] = request.logicalIdStrategy;
+    }
+
+    if (!Util.isUnset(request.preferenceParametersShrink)) {
+      query["PreferenceParameters"] = request.preferenceParametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceResourceGroupShrink)) {
+      query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
+    }
+
+    if (!Util.isUnset(request.sourceResourcesShrink)) {
+      query["SourceResources"] = request.sourceResourcesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceTagShrink)) {
+      query["SourceTag"] = request.sourceTagShrink;
+    }
+
+    if (!Util.isUnset(request.templateScratchType)) {
+      query["TemplateScratchType"] = request.templateScratchType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9624,8 +9927,14 @@ export default class Client extends OpenApi {
   async deleteChangeSetWithOptions(request: DeleteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9651,11 +9960,26 @@ export default class Client extends OpenApi {
   async deleteStackWithOptions(request: DeleteStackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RamRoleName"] = request.ramRoleName;
-    query["RegionId"] = request.regionId;
-    query["RetainAllResources"] = request.retainAllResources;
-    query["RetainResources"] = request.retainResources;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retainAllResources)) {
+      query["RetainAllResources"] = request.retainAllResources;
+    }
+
+    if (!Util.isUnset(request.retainResources)) {
+      query["RetainResources"] = request.retainResources;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9681,8 +10005,14 @@ export default class Client extends OpenApi {
   async deleteStackGroupWithOptions(request: DeleteStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStackGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9726,15 +10056,42 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AccountIds"] = request.accountIdsShrink;
-    query["ClientToken"] = request.clientToken;
-    query["DeploymentTargets"] = request.deploymentTargetsShrink;
-    query["OperationDescription"] = request.operationDescription;
-    query["OperationPreferences"] = request.operationPreferencesShrink;
-    query["RegionId"] = request.regionId;
-    query["RegionIds"] = request.regionIdsShrink;
-    query["RetainStacks"] = request.retainStacks;
-    query["StackGroupName"] = request.stackGroupName;
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+      query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    }
+
+    if (!Util.isUnset(request.operationDescription)) {
+      query["OperationDescription"] = request.operationDescription;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionIdsShrink)) {
+      query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.retainStacks)) {
+      query["RetainStacks"] = request.retainStacks;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9760,7 +10117,10 @@ export default class Client extends OpenApi {
   async deleteTemplateWithOptions(request: DeleteTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9786,8 +10146,14 @@ export default class Client extends OpenApi {
   async deleteTemplateScratchWithOptions(request: DeleteTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTemplateScratchResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["TemplateScratchId"] = request.templateScratchId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9813,7 +10179,10 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9839,10 +10208,22 @@ export default class Client extends OpenApi {
   async detectStackDriftWithOptions(request: DetectStackDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackDriftResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9874,10 +10255,22 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OperationPreferences"] = request.operationPreferencesShrink;
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9903,10 +10296,22 @@ export default class Client extends OpenApi {
   async detectStackResourceDriftWithOptions(request: DetectStackResourceDriftRequest, runtime: $Util.RuntimeOptions): Promise<DetectStackResourceDriftResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9932,9 +10337,18 @@ export default class Client extends OpenApi {
   async executeChangeSetWithOptions(request: ExecuteChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9960,9 +10374,18 @@ export default class Client extends OpenApi {
   async generateTemplateByScratchWithOptions(request: GenerateTemplateByScratchRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplateByScratchResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProvisionRegionId"] = request.provisionRegionId;
-    query["RegionId"] = request.regionId;
-    query["TemplateScratchId"] = request.templateScratchId;
+    if (!Util.isUnset(request.provisionRegionId)) {
+      query["ProvisionRegionId"] = request.provisionRegionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9988,10 +10411,22 @@ export default class Client extends OpenApi {
   async generateTemplatePolicyWithOptions(request: GenerateTemplatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<GenerateTemplatePolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10017,9 +10452,18 @@ export default class Client extends OpenApi {
   async getChangeSetWithOptions(request: GetChangeSetRequest, runtime: $Util.RuntimeOptions): Promise<GetChangeSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["RegionId"] = request.regionId;
-    query["ShowTemplate"] = request.showTemplate;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.showTemplate)) {
+      query["ShowTemplate"] = request.showTemplate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10045,8 +10489,14 @@ export default class Client extends OpenApi {
   async getFeatureDetailsWithOptions(request: GetFeatureDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetFeatureDetailsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Feature"] = request.feature;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.feature)) {
+      query["Feature"] = request.feature;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10072,7 +10522,10 @@ export default class Client extends OpenApi {
   async getResourceTypeWithOptions(request: GetResourceTypeRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10098,7 +10551,10 @@ export default class Client extends OpenApi {
   async getResourceTypeTemplateWithOptions(request: GetResourceTypeTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceTypeTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10124,13 +10580,34 @@ export default class Client extends OpenApi {
   async getServiceProvisionsWithOptions(request: GetServiceProvisionsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceProvisionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Parameters"] = request.parameters;
-    query["RegionId"] = request.regionId;
-    query["Services"] = request.services;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.services)) {
+      query["Services"] = request.services;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10156,11 +10633,26 @@ export default class Client extends OpenApi {
   async getStackWithOptions(request: GetStackRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OutputOption"] = request.outputOption;
-    query["RegionId"] = request.regionId;
-    query["ShowResourceProgress"] = request.showResourceProgress;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.outputOption)) {
+      query["OutputOption"] = request.outputOption;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.showResourceProgress)) {
+      query["ShowResourceProgress"] = request.showResourceProgress;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10186,8 +10678,14 @@ export default class Client extends OpenApi {
   async getStackDriftDetectionStatusWithOptions(request: GetStackDriftDetectionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetStackDriftDetectionStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DriftDetectionId"] = request.driftDetectionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.driftDetectionId)) {
+      query["DriftDetectionId"] = request.driftDetectionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10213,9 +10711,18 @@ export default class Client extends OpenApi {
   async getStackGroupWithOptions(request: GetStackGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackGroupId"] = request.stackGroupId;
-    query["StackGroupName"] = request.stackGroupName;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupId)) {
+      query["StackGroupId"] = request.stackGroupId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10241,8 +10748,14 @@ export default class Client extends OpenApi {
   async getStackGroupOperationWithOptions(request: GetStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<GetStackGroupOperationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationId"] = request.operationId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10268,10 +10781,22 @@ export default class Client extends OpenApi {
   async getStackInstanceWithOptions(request: GetStackInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
-    query["StackInstanceAccountId"] = request.stackInstanceAccountId;
-    query["StackInstanceRegionId"] = request.stackInstanceRegionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.stackInstanceAccountId)) {
+      query["StackInstanceAccountId"] = request.stackInstanceAccountId;
+    }
+
+    if (!Util.isUnset(request.stackInstanceRegionId)) {
+      query["StackInstanceRegionId"] = request.stackInstanceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10297,8 +10822,14 @@ export default class Client extends OpenApi {
   async getStackPolicyWithOptions(request: GetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetStackPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10324,11 +10855,26 @@ export default class Client extends OpenApi {
   async getStackResourceWithOptions(request: GetStackResourceRequest, runtime: $Util.RuntimeOptions): Promise<GetStackResourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["RegionId"] = request.regionId;
-    query["ShowResourceAttributes"] = request.showResourceAttributes;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.showResourceAttributes)) {
+      query["ShowResourceAttributes"] = request.showResourceAttributes;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10354,14 +10900,38 @@ export default class Client extends OpenApi {
   async getTemplateWithOptions(request: GetTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["IncludePermission"] = request.includePermission;
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
-    query["StackId"] = request.stackId;
-    query["TemplateId"] = request.templateId;
-    query["TemplateStage"] = request.templateStage;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.includePermission)) {
+      query["IncludePermission"] = request.includePermission;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateStage)) {
+      query["TemplateStage"] = request.templateStage;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10387,15 +10957,42 @@ export default class Client extends OpenApi {
   async getTemplateEstimateCostWithOptions(request: GetTemplateEstimateCostRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateEstimateCostResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Parameters"] = request.parameters;
-    query["RegionId"] = request.regionId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateScratchId"] = request.templateScratchId;
-    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
+    if (!Util.isUnset(request.templateScratchRegionId)) {
+      query["TemplateScratchRegionId"] = request.templateScratchRegionId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10427,14 +11024,38 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Parameters"] = request.parameters;
-    query["ParametersKeyFilter"] = request.parametersKeyFilterShrink;
-    query["RegionId"] = request.regionId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.parametersKeyFilterShrink)) {
+      query["ParametersKeyFilter"] = request.parametersKeyFilterShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10460,9 +11081,18 @@ export default class Client extends OpenApi {
   async getTemplateScratchWithOptions(request: GetTemplateScratchRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateScratchResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["ShowDataOption"] = request.showDataOption;
-    query["TemplateScratchId"] = request.templateScratchId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.showDataOption)) {
+      query["ShowDataOption"] = request.showDataOption;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10488,14 +11118,38 @@ export default class Client extends OpenApi {
   async getTemplateSummaryWithOptions(request: GetTemplateSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateSummaryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
-    query["StackId"] = request.stackId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10521,14 +11175,38 @@ export default class Client extends OpenApi {
   async listChangeSetsWithOptions(request: ListChangeSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListChangeSetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChangeSetId"] = request.changeSetId;
-    query["ChangeSetName"] = request.changeSetName;
-    query["ExecutionStatus"] = request.executionStatus;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.changeSetId)) {
+      query["ChangeSetId"] = request.changeSetId;
+    }
+
+    if (!Util.isUnset(request.changeSetName)) {
+      query["ChangeSetName"] = request.changeSetName;
+    }
+
+    if (!Util.isUnset(request.executionStatus)) {
+      query["ExecutionStatus"] = request.executionStatus;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10575,13 +11253,34 @@ export default class Client extends OpenApi {
   async listStackEventsWithOptions(request: ListStackEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackEventsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceType"] = request.resourceType;
-    query["StackId"] = request.stackId;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10607,10 +11306,22 @@ export default class Client extends OpenApi {
   async listStackGroupOperationResultsWithOptions(request: ListStackGroupOperationResultsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationResultsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationId"] = request.operationId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10636,10 +11347,22 @@ export default class Client extends OpenApi {
   async listStackGroupOperationsWithOptions(request: ListStackGroupOperationsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupOperationsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10665,11 +11388,26 @@ export default class Client extends OpenApi {
   async listStackGroupsWithOptions(request: ListStackGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10695,12 +11433,30 @@ export default class Client extends OpenApi {
   async listStackInstancesWithOptions(request: ListStackInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["StackGroupName"] = request.stackGroupName;
-    query["StackInstanceAccountId"] = request.stackInstanceAccountId;
-    query["StackInstanceRegionId"] = request.stackInstanceRegionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.stackInstanceAccountId)) {
+      query["StackInstanceAccountId"] = request.stackInstanceAccountId;
+    }
+
+    if (!Util.isUnset(request.stackInstanceRegionId)) {
+      query["StackInstanceRegionId"] = request.stackInstanceRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10726,13 +11482,34 @@ export default class Client extends OpenApi {
   async listStackOperationRisksWithOptions(request: ListStackOperationRisksRequest, runtime: $Util.RuntimeOptions): Promise<ListStackOperationRisksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["OperationType"] = request.operationType;
-    query["RamRoleName"] = request.ramRoleName;
-    query["RegionId"] = request.regionId;
-    query["RetainAllResources"] = request.retainAllResources;
-    query["RetainResources"] = request.retainResources;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.operationType)) {
+      query["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retainAllResources)) {
+      query["RetainAllResources"] = request.retainAllResources;
+    }
+
+    if (!Util.isUnset(request.retainResources)) {
+      query["RetainResources"] = request.retainResources;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10758,11 +11535,26 @@ export default class Client extends OpenApi {
   async listStackResourceDriftsWithOptions(request: ListStackResourceDriftsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourceDriftsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ResourceDriftStatus"] = request.resourceDriftStatus;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceDriftStatus)) {
+      query["ResourceDriftStatus"] = request.resourceDriftStatus;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10788,8 +11580,14 @@ export default class Client extends OpenApi {
   async listStackResourcesWithOptions(request: ListStackResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListStackResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10815,17 +11613,50 @@ export default class Client extends OpenApi {
   async listStacksWithOptions(request: ListStacksRequest, runtime: $Util.RuntimeOptions): Promise<ListStacksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ParentStackId"] = request.parentStackId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ShowNestedStack"] = request.showNestedStack;
-    query["StackId"] = request.stackId;
-    query["StackIds"] = request.stackIds;
-    query["StackName"] = request.stackName;
-    query["Status"] = request.status;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentStackId)) {
+      query["ParentStackId"] = request.parentStackId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.showNestedStack)) {
+      query["ShowNestedStack"] = request.showNestedStack;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.stackIds)) {
+      query["StackIds"] = request.stackIds;
+    }
+
+    if (!Util.isUnset(request.stackName)) {
+      query["StackName"] = request.stackName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10851,9 +11682,18 @@ export default class Client extends OpenApi {
   async listTagKeysWithOptions(request: ListTagKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListTagKeysResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10879,11 +11719,26 @@ export default class Client extends OpenApi {
   async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10909,10 +11764,22 @@ export default class Client extends OpenApi {
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Key"] = request.key;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10938,12 +11805,30 @@ export default class Client extends OpenApi {
   async listTemplateScratchesWithOptions(request: ListTemplateScratchesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateScratchesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["Status"] = request.status;
-    query["TemplateScratchId"] = request.templateScratchId;
-    query["TemplateScratchType"] = request.templateScratchType;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
+    if (!Util.isUnset(request.templateScratchType)) {
+      query["TemplateScratchType"] = request.templateScratchType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10969,9 +11854,18 @@ export default class Client extends OpenApi {
   async listTemplateVersionsWithOptions(request: ListTemplateVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplateVersionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10997,12 +11891,30 @@ export default class Client extends OpenApi {
   async listTemplatesWithOptions(request: ListTemplatesRequest, runtime: $Util.RuntimeOptions): Promise<ListTemplatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ShareType"] = request.shareType;
-    query["Tag"] = request.tag;
-    query["TemplateName"] = request.templateName;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.shareType)) {
+      query["ShareType"] = request.shareType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11028,10 +11940,22 @@ export default class Client extends OpenApi {
   async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NewResourceGroupId"] = request.newResourceGroupId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11057,21 +11981,66 @@ export default class Client extends OpenApi {
   async previewStackWithOptions(request: PreviewStackRequest, runtime: $Util.RuntimeOptions): Promise<PreviewStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DisableRollback"] = request.disableRollback;
-    query["Parallelism"] = request.parallelism;
-    query["Parameters"] = request.parameters;
-    query["RegionId"] = request.regionId;
-    query["StackName"] = request.stackName;
-    query["StackPolicyBody"] = request.stackPolicyBody;
-    query["StackPolicyURL"] = request.stackPolicyURL;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateScratchId"] = request.templateScratchId;
-    query["TemplateScratchRegionId"] = request.templateScratchRegionId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackName)) {
+      query["StackName"] = request.stackName;
+    }
+
+    if (!Util.isUnset(request.stackPolicyBody)) {
+      query["StackPolicyBody"] = request.stackPolicyBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyURL)) {
+      query["StackPolicyURL"] = request.stackPolicyURL;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
+    if (!Util.isUnset(request.templateScratchRegionId)) {
+      query["TemplateScratchRegionId"] = request.templateScratchRegionId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11097,9 +12066,18 @@ export default class Client extends OpenApi {
   async setDeletionProtectionWithOptions(request: SetDeletionProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetDeletionProtectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeletionProtection"] = request.deletionProtection;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11125,10 +12103,22 @@ export default class Client extends OpenApi {
   async setStackPolicyWithOptions(request: SetStackPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetStackPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
-    query["StackPolicyBody"] = request.stackPolicyBody;
-    query["StackPolicyURL"] = request.stackPolicyURL;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.stackPolicyBody)) {
+      query["StackPolicyBody"] = request.stackPolicyBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyURL)) {
+      query["StackPolicyURL"] = request.stackPolicyURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11154,11 +12144,26 @@ export default class Client extends OpenApi {
   async setTemplatePermissionWithOptions(request: SetTemplatePermissionRequest, runtime: $Util.RuntimeOptions): Promise<SetTemplatePermissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccountIds"] = request.accountIds;
-    query["ShareOption"] = request.shareOption;
-    query["TemplateId"] = request.templateId;
-    query["TemplateVersion"] = request.templateVersion;
-    query["VersionOption"] = request.versionOption;
+    if (!Util.isUnset(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!Util.isUnset(request.shareOption)) {
+      query["ShareOption"] = request.shareOption;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    if (!Util.isUnset(request.versionOption)) {
+      query["VersionOption"] = request.versionOption;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11184,12 +12189,30 @@ export default class Client extends OpenApi {
   async signalResourceWithOptions(request: SignalResourceRequest, runtime: $Util.RuntimeOptions): Promise<SignalResourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
-    query["Status"] = request.status;
-    query["UniqueId"] = request.uniqueId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11215,8 +12238,14 @@ export default class Client extends OpenApi {
   async stopStackGroupOperationWithOptions(request: StopStackGroupOperationRequest, runtime: $Util.RuntimeOptions): Promise<StopStackGroupOperationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OperationId"] = request.operationId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.operationId)) {
+      query["OperationId"] = request.operationId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11242,10 +12271,22 @@ export default class Client extends OpenApi {
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11271,11 +12312,26 @@ export default class Client extends OpenApi {
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["All"] = request.all;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["TagKey"] = request.tagKey;
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11301,25 +12357,82 @@ export default class Client extends OpenApi {
   async updateStackWithOptions(request: UpdateStackRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DisableRollback"] = request.disableRollback;
-    query["Parallelism"] = request.parallelism;
-    query["Parameters"] = request.parameters;
-    query["RamRoleName"] = request.ramRoleName;
-    query["RegionId"] = request.regionId;
-    query["ReplacementOption"] = request.replacementOption;
-    query["StackId"] = request.stackId;
-    query["StackPolicyBody"] = request.stackPolicyBody;
-    query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
-    query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
-    query["StackPolicyURL"] = request.stackPolicyURL;
-    query["Tags"] = request.tags;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
-    query["UsePreviousParameters"] = request.usePreviousParameters;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.disableRollback)) {
+      query["DisableRollback"] = request.disableRollback;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      query["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.ramRoleName)) {
+      query["RamRoleName"] = request.ramRoleName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replacementOption)) {
+      query["ReplacementOption"] = request.replacementOption;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.stackPolicyBody)) {
+      query["StackPolicyBody"] = request.stackPolicyBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyDuringUpdateBody)) {
+      query["StackPolicyDuringUpdateBody"] = request.stackPolicyDuringUpdateBody;
+    }
+
+    if (!Util.isUnset(request.stackPolicyDuringUpdateURL)) {
+      query["StackPolicyDuringUpdateURL"] = request.stackPolicyDuringUpdateURL;
+    }
+
+    if (!Util.isUnset(request.stackPolicyURL)) {
+      query["StackPolicyURL"] = request.stackPolicyURL;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
+    if (!Util.isUnset(request.usePreviousParameters)) {
+      query["UsePreviousParameters"] = request.usePreviousParameters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11367,24 +12480,78 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AccountIds"] = request.accountIdsShrink;
-    query["AdministrationRoleName"] = request.administrationRoleName;
-    query["AutoDeployment"] = request.autoDeploymentShrink;
-    query["ClientToken"] = request.clientToken;
-    query["DeploymentTargets"] = request.deploymentTargetsShrink;
-    query["Description"] = request.description;
-    query["ExecutionRoleName"] = request.executionRoleName;
-    query["OperationDescription"] = request.operationDescription;
-    query["OperationPreferences"] = request.operationPreferencesShrink;
-    query["Parameters"] = request.parameters;
-    query["PermissionModel"] = request.permissionModel;
-    query["RegionId"] = request.regionId;
-    query["RegionIds"] = request.regionIdsShrink;
-    query["StackGroupName"] = request.stackGroupName;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateURL"] = request.templateURL;
-    query["TemplateVersion"] = request.templateVersion;
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.administrationRoleName)) {
+      query["AdministrationRoleName"] = request.administrationRoleName;
+    }
+
+    if (!Util.isUnset(request.autoDeploymentShrink)) {
+      query["AutoDeployment"] = request.autoDeploymentShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+      query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionRoleName)) {
+      query["ExecutionRoleName"] = request.executionRoleName;
+    }
+
+    if (!Util.isUnset(request.operationDescription)) {
+      query["OperationDescription"] = request.operationDescription;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.permissionModel)) {
+      query["PermissionModel"] = request.permissionModel;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionIdsShrink)) {
+      query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11428,16 +12595,46 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AccountIds"] = request.accountIdsShrink;
-    query["ClientToken"] = request.clientToken;
-    query["DeploymentTargets"] = request.deploymentTargetsShrink;
-    query["OperationDescription"] = request.operationDescription;
-    query["OperationPreferences"] = request.operationPreferencesShrink;
-    query["ParameterOverrides"] = request.parameterOverrides;
-    query["RegionId"] = request.regionId;
-    query["RegionIds"] = request.regionIdsShrink;
-    query["StackGroupName"] = request.stackGroupName;
-    query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    if (!Util.isUnset(request.accountIdsShrink)) {
+      query["AccountIds"] = request.accountIdsShrink;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentTargetsShrink)) {
+      query["DeploymentTargets"] = request.deploymentTargetsShrink;
+    }
+
+    if (!Util.isUnset(request.operationDescription)) {
+      query["OperationDescription"] = request.operationDescription;
+    }
+
+    if (!Util.isUnset(request.operationPreferencesShrink)) {
+      query["OperationPreferences"] = request.operationPreferencesShrink;
+    }
+
+    if (!Util.isUnset(request.parameterOverrides)) {
+      query["ParameterOverrides"] = request.parameterOverrides;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionIdsShrink)) {
+      query["RegionIds"] = request.regionIdsShrink;
+    }
+
+    if (!Util.isUnset(request.stackGroupName)) {
+      query["StackGroupName"] = request.stackGroupName;
+    }
+
+    if (!Util.isUnset(request.timeoutInMinutes)) {
+      query["TimeoutInMinutes"] = request.timeoutInMinutes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11463,12 +12660,30 @@ export default class Client extends OpenApi {
   async updateStackTemplateByResourcesWithOptions(request: UpdateStackTemplateByResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStackTemplateByResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["LogicalResourceId"] = request.logicalResourceId;
-    query["RegionId"] = request.regionId;
-    query["StackId"] = request.stackId;
-    query["TemplateFormat"] = request.templateFormat;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.logicalResourceId)) {
+      query["LogicalResourceId"] = request.logicalResourceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.stackId)) {
+      query["StackId"] = request.stackId;
+    }
+
+    if (!Util.isUnset(request.templateFormat)) {
+      query["TemplateFormat"] = request.templateFormat;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11494,11 +12709,26 @@ export default class Client extends OpenApi {
   async updateTemplateWithOptions(request: UpdateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateId"] = request.templateId;
-    query["TemplateName"] = request.templateName;
-    query["TemplateURL"] = request.templateURL;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11542,16 +12772,46 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ExecutionMode"] = request.executionMode;
-    query["LogicalIdStrategy"] = request.logicalIdStrategy;
-    query["PreferenceParameters"] = request.preferenceParametersShrink;
-    query["RegionId"] = request.regionId;
-    query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
-    query["SourceResources"] = request.sourceResourcesShrink;
-    query["SourceTag"] = request.sourceTagShrink;
-    query["TemplateScratchId"] = request.templateScratchId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionMode)) {
+      query["ExecutionMode"] = request.executionMode;
+    }
+
+    if (!Util.isUnset(request.logicalIdStrategy)) {
+      query["LogicalIdStrategy"] = request.logicalIdStrategy;
+    }
+
+    if (!Util.isUnset(request.preferenceParametersShrink)) {
+      query["PreferenceParameters"] = request.preferenceParametersShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceResourceGroupShrink)) {
+      query["SourceResourceGroup"] = request.sourceResourceGroupShrink;
+    }
+
+    if (!Util.isUnset(request.sourceResourcesShrink)) {
+      query["SourceResources"] = request.sourceResourcesShrink;
+    }
+
+    if (!Util.isUnset(request.sourceTagShrink)) {
+      query["SourceTag"] = request.sourceTagShrink;
+    }
+
+    if (!Util.isUnset(request.templateScratchId)) {
+      query["TemplateScratchId"] = request.templateScratchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11577,11 +12837,26 @@ export default class Client extends OpenApi {
   async validateTemplateWithOptions(request: ValidateTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateTemplateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
-    query["TemplateBody"] = request.templateBody;
-    query["TemplateURL"] = request.templateURL;
-    query["ValidationOption"] = request.validationOption;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateBody)) {
+      query["TemplateBody"] = request.templateBody;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.validationOption)) {
+      query["ValidationOption"] = request.validationOption;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
