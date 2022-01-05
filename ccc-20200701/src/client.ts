@@ -11627,6 +11627,7 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
   sipServerUrl?: string;
   userId?: string;
   userKey?: string;
+  workMode?: string;
   static names(): { [key: string]: string } {
     return {
       agentServerUrl: 'AgentServerUrl',
@@ -11637,6 +11638,7 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
       sipServerUrl: 'SipServerUrl',
       userId: 'UserId',
       userKey: 'UserKey',
+      workMode: 'WorkMode',
     };
   }
 
@@ -11650,6 +11652,7 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
       sipServerUrl: 'string',
       userId: 'string',
       userKey: 'string',
+      workMode: 'string',
     };
   }
 
@@ -16584,6 +16587,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
   mobile?: string;
   personalOutboundNumberList?: ListUsersResponseBodyDataListPersonalOutboundNumberList[];
   primaryAccount?: boolean;
+  ramId?: number;
   roleId?: string;
   roleName?: string;
   skillLevelList?: ListUsersResponseBodyDataListSkillLevelList[];
@@ -16598,6 +16602,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
       mobile: 'Mobile',
       personalOutboundNumberList: 'PersonalOutboundNumberList',
       primaryAccount: 'PrimaryAccount',
+      ramId: 'RamId',
       roleId: 'RoleId',
       roleName: 'RoleName',
       skillLevelList: 'SkillLevelList',
@@ -16615,6 +16620,7 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
       mobile: 'string',
       personalOutboundNumberList: { 'type': 'array', 'itemType': ListUsersResponseBodyDataListPersonalOutboundNumberList },
       primaryAccount: 'boolean',
+      ramId: 'number',
       roleId: 'string',
       roleName: 'string',
       skillLevelList: { 'type': 'array', 'itemType': ListUsersResponseBodyDataListSkillLevelList },
@@ -18644,8 +18650,14 @@ export default class Client extends OpenApi {
   async abortCampaignWithOptions(request: AbortCampaignRequest, runtime: $Util.RuntimeOptions): Promise<AbortCampaignResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18671,9 +18683,18 @@ export default class Client extends OpenApi {
   async addNumbersToSkillGroupWithOptions(request: AddNumbersToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddNumbersToSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NumberList"] = request.numberList;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18699,9 +18720,18 @@ export default class Client extends OpenApi {
   async addPersonalNumbersToUserWithOptions(request: AddPersonalNumbersToUserRequest, runtime: $Util.RuntimeOptions): Promise<AddPersonalNumbersToUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NumberList"] = request.numberList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18727,9 +18757,18 @@ export default class Client extends OpenApi {
   async addPhoneNumberToSkillGroupsWithOptions(request: AddPhoneNumberToSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<AddPhoneNumberToSkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Number"] = request.number;
-    query["SkillGroupIdList"] = request.skillGroupIdList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18755,11 +18794,26 @@ export default class Client extends OpenApi {
   async addPhoneNumbersWithOptions(request: AddPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<AddPhoneNumbersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactFlowId"] = request.contactFlowId;
-    query["InstanceId"] = request.instanceId;
-    query["NumberGroupId"] = request.numberGroupId;
-    query["NumberList"] = request.numberList;
-    query["Usage"] = request.usage;
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberGroupId)) {
+      query["NumberGroupId"] = request.numberGroupId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.usage)) {
+      query["Usage"] = request.usage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18785,9 +18839,18 @@ export default class Client extends OpenApi {
   async addSkillGroupsToUserWithOptions(request: AddSkillGroupsToUserRequest, runtime: $Util.RuntimeOptions): Promise<AddSkillGroupsToUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillLevelList"] = request.skillLevelList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillLevelList)) {
+      query["SkillLevelList"] = request.skillLevelList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18813,9 +18876,18 @@ export default class Client extends OpenApi {
   async addUsersToSkillGroupWithOptions(request: AddUsersToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUsersToSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["UserSkillLevelList"] = request.userSkillLevelList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.userSkillLevelList)) {
+      query["UserSkillLevelList"] = request.userSkillLevelList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18841,10 +18913,22 @@ export default class Client extends OpenApi {
   async answerCallWithOptions(request: AnswerCallRequest, runtime: $Util.RuntimeOptions): Promise<AnswerCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18870,11 +18954,26 @@ export default class Client extends OpenApi {
   async assignUsersWithOptions(request: AssignUsersRequest, runtime: $Util.RuntimeOptions): Promise<AssignUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RamIdList"] = request.ramIdList;
-    query["RoleId"] = request.roleId;
-    query["SkillLevelList"] = request.skillLevelList;
-    query["WorkMode"] = request.workMode;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ramIdList)) {
+      query["RamIdList"] = request.ramIdList;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.skillLevelList)) {
+      query["SkillLevelList"] = request.skillLevelList;
+    }
+
+    if (!Util.isUnset(request.workMode)) {
+      query["WorkMode"] = request.workMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18900,12 +18999,30 @@ export default class Client extends OpenApi {
   async bargeInCallWithOptions(request: BargeInCallRequest, runtime: $Util.RuntimeOptions): Promise<BargeInCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BargedUserId"] = request.bargedUserId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.bargedUserId)) {
+      query["BargedUserId"] = request.bargedUserId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18931,13 +19048,34 @@ export default class Client extends OpenApi {
   async blindTransferWithOptions(request: BlindTransferRequest, runtime: $Util.RuntimeOptions): Promise<BlindTransferResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["Transferee"] = request.transferee;
-    query["Transferor"] = request.transferor;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.transferee)) {
+      query["Transferee"] = request.transferee;
+    }
+
+    if (!Util.isUnset(request.transferor)) {
+      query["Transferor"] = request.transferor;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18963,10 +19101,22 @@ export default class Client extends OpenApi {
   async cancelAttendedTransferWithOptions(request: CancelAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<CancelAttendedTransferResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -18992,10 +19142,22 @@ export default class Client extends OpenApi {
   async changeWorkModeWithOptions(request: ChangeWorkModeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeWorkModeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
-    query["WorkMode"] = request.workMode;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.workMode)) {
+      query["WorkMode"] = request.workMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19021,12 +19183,30 @@ export default class Client extends OpenApi {
   async coachCallWithOptions(request: CoachCallRequest, runtime: $Util.RuntimeOptions): Promise<CoachCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CoachedUserId"] = request.coachedUserId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.coachedUserId)) {
+      query["CoachedUserId"] = request.coachedUserId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19052,10 +19232,22 @@ export default class Client extends OpenApi {
   async completeAttendedTransferWithOptions(request: CompleteAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<CompleteAttendedTransferResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19087,21 +19279,66 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["CallableTime"] = request.callableTime;
-    query["CaseFileKey"] = request.caseFileKey;
-    query["CaseList"] = request.caseListShrink;
-    query["ContactFlowId"] = request.contactFlowId;
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["MaxAttemptCount"] = request.maxAttemptCount;
-    query["MinAttemptInterval"] = request.minAttemptInterval;
-    query["Name"] = request.name;
-    query["QueueId"] = request.queueId;
-    query["Simulation"] = request.simulation;
-    query["SimulationParameters"] = request.simulationParameters;
-    query["StartTime"] = request.startTime;
-    query["StrategyParameters"] = request.strategyParameters;
-    query["StrategyType"] = request.strategyType;
+    if (!Util.isUnset(request.callableTime)) {
+      query["CallableTime"] = request.callableTime;
+    }
+
+    if (!Util.isUnset(request.caseFileKey)) {
+      query["CaseFileKey"] = request.caseFileKey;
+    }
+
+    if (!Util.isUnset(request.caseListShrink)) {
+      query["CaseList"] = request.caseListShrink;
+    }
+
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maxAttemptCount)) {
+      query["MaxAttemptCount"] = request.maxAttemptCount;
+    }
+
+    if (!Util.isUnset(request.minAttemptInterval)) {
+      query["MinAttemptInterval"] = request.minAttemptInterval;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.simulation)) {
+      query["Simulation"] = request.simulation;
+    }
+
+    if (!Util.isUnset(request.simulationParameters)) {
+      query["SimulationParameters"] = request.simulationParameters;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.strategyParameters)) {
+      query["StrategyParameters"] = request.strategyParameters;
+    }
+
+    if (!Util.isUnset(request.strategyType)) {
+      query["StrategyType"] = request.strategyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19127,11 +19364,26 @@ export default class Client extends OpenApi {
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AdminRamIdList"] = request.adminRamIdList;
-    query["Description"] = request.description;
-    query["DomainName"] = request.domainName;
-    query["Name"] = request.name;
-    query["NumberList"] = request.numberList;
+    if (!Util.isUnset(request.adminRamIdList)) {
+      query["AdminRamIdList"] = request.adminRamIdList;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19157,10 +19409,22 @@ export default class Client extends OpenApi {
   async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["DisplayName"] = request.displayName;
-    query["InstanceId"] = request.instanceId;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19186,15 +19450,42 @@ export default class Client extends OpenApi {
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DisplayName"] = request.displayName;
-    query["Email"] = request.email;
-    query["InstanceId"] = request.instanceId;
-    query["LoginName"] = request.loginName;
-    query["Mobile"] = request.mobile;
-    query["ResetPassword"] = request.resetPassword;
-    query["RoleId"] = request.roleId;
-    query["SkillLevelList"] = request.skillLevelList;
-    query["WorkMode"] = request.workMode;
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.loginName)) {
+      query["LoginName"] = request.loginName;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.resetPassword)) {
+      query["ResetPassword"] = request.resetPassword;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.skillLevelList)) {
+      query["SkillLevelList"] = request.skillLevelList;
+    }
+
+    if (!Util.isUnset(request.workMode)) {
+      query["WorkMode"] = request.workMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19220,9 +19511,18 @@ export default class Client extends OpenApi {
   async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Force"] = request.force;
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19248,8 +19548,14 @@ export default class Client extends OpenApi {
   async getCallDetailRecordWithOptions(request: GetCallDetailRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetCallDetailRecordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactId"] = request.contactId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19275,8 +19581,14 @@ export default class Client extends OpenApi {
   async getCampaignWithOptions(request: GetCampaignRequest, runtime: $Util.RuntimeOptions): Promise<GetCampaignResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19302,10 +19614,22 @@ export default class Client extends OpenApi {
   async getHistoricalCallerReportWithOptions(request: GetHistoricalCallerReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCallerReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallingNumber"] = request.callingNumber;
-    query["InstanceId"] = request.instanceId;
-    query["StartTime"] = request.startTime;
-    query["StopTime"] = request.stopTime;
+    if (!Util.isUnset(request.callingNumber)) {
+      query["CallingNumber"] = request.callingNumber;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.stopTime)) {
+      query["StopTime"] = request.stopTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19331,9 +19655,18 @@ export default class Client extends OpenApi {
   async getHistoricalInstanceReportWithOptions(request: GetHistoricalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalInstanceReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19359,7 +19692,10 @@ export default class Client extends OpenApi {
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19385,9 +19721,18 @@ export default class Client extends OpenApi {
   async getInstanceTrendingReportWithOptions(request: GetInstanceTrendingReportRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceTrendingReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19413,8 +19758,14 @@ export default class Client extends OpenApi {
   async getLoginDetailsWithOptions(request: GetLoginDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginDetailsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19440,8 +19791,14 @@ export default class Client extends OpenApi {
   async getMonoRecordingWithOptions(request: GetMonoRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetMonoRecordingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactId"] = request.contactId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19467,8 +19824,14 @@ export default class Client extends OpenApi {
   async getMultiChannelRecordingWithOptions(request: GetMultiChannelRecordingRequest, runtime: $Util.RuntimeOptions): Promise<GetMultiChannelRecordingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactId"] = request.contactId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19494,8 +19857,14 @@ export default class Client extends OpenApi {
   async getNumberLocationWithOptions(request: GetNumberLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetNumberLocationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Number"] = request.number;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19521,7 +19890,10 @@ export default class Client extends OpenApi {
   async getRealtimeInstanceStatesWithOptions(request: GetRealtimeInstanceStatesRequest, runtime: $Util.RuntimeOptions): Promise<GetRealtimeInstanceStatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19547,8 +19919,14 @@ export default class Client extends OpenApi {
   async getTurnCredentialsWithOptions(request: GetTurnCredentialsRequest, runtime: $Util.RuntimeOptions): Promise<GetTurnCredentialsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19574,7 +19952,10 @@ export default class Client extends OpenApi {
   async getTurnServerListWithOptions(request: GetTurnServerListRequest, runtime: $Util.RuntimeOptions): Promise<GetTurnServerListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19600,9 +19981,18 @@ export default class Client extends OpenApi {
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Extension"] = request.extension;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.extension)) {
+      query["Extension"] = request.extension;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19628,12 +20018,30 @@ export default class Client extends OpenApi {
   async holdCallWithOptions(request: HoldCallRequest, runtime: $Util.RuntimeOptions): Promise<HoldCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["Music"] = request.music;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.music)) {
+      query["Music"] = request.music;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19659,13 +20067,34 @@ export default class Client extends OpenApi {
   async initiateAttendedTransferWithOptions(request: InitiateAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<InitiateAttendedTransferResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["Transferee"] = request.transferee;
-    query["Transferor"] = request.transferor;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.transferee)) {
+      query["Transferee"] = request.transferee;
+    }
+
+    if (!Util.isUnset(request.transferor)) {
+      query["Transferor"] = request.transferor;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19691,12 +20120,30 @@ export default class Client extends OpenApi {
   async interceptCallWithOptions(request: InterceptCallRequest, runtime: $Util.RuntimeOptions): Promise<InterceptCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["InterceptedUserId"] = request.interceptedUserId;
-    query["JobId"] = request.jobId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interceptedUserId)) {
+      query["InterceptedUserId"] = request.interceptedUserId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19722,11 +20169,26 @@ export default class Client extends OpenApi {
   async launchAuthenticationWithOptions(request: LaunchAuthenticationRequest, runtime: $Util.RuntimeOptions): Promise<LaunchAuthenticationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactFlowId"] = request.contactFlowId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19752,11 +20214,26 @@ export default class Client extends OpenApi {
   async launchSurveyWithOptions(request: LaunchSurveyRequest, runtime: $Util.RuntimeOptions): Promise<LaunchSurveyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactFlowId"] = request.contactFlowId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19782,10 +20259,22 @@ export default class Client extends OpenApi {
   async listAgentStateLogsWithOptions(request: ListAgentStateLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentStateLogsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AgentId"] = request.agentId;
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19836,10 +20325,22 @@ export default class Client extends OpenApi {
   async listBriefSkillGroupsWithOptions(request: ListBriefSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListBriefSkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19865,25 +20366,82 @@ export default class Client extends OpenApi {
   async listCallDetailRecordsWithOptions(request: ListCallDetailRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListCallDetailRecordsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AgentId"] = request.agentId;
-    query["CalledNumber"] = request.calledNumber;
-    query["CallingNumber"] = request.callingNumber;
-    query["ContactDisposition"] = request.contactDisposition;
-    query["ContactId"] = request.contactId;
-    query["ContactType"] = request.contactType;
-    query["Criteria"] = request.criteria;
-    query["EarlyMediaStateList"] = request.earlyMediaStateList;
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["OrderByField"] = request.orderByField;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SatisfactionDescriptionList"] = request.satisfactionDescriptionList;
-    query["SatisfactionList"] = request.satisfactionList;
-    query["SatisfactionSurveyChannel"] = request.satisfactionSurveyChannel;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["SortOrder"] = request.sortOrder;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.callingNumber)) {
+      query["CallingNumber"] = request.callingNumber;
+    }
+
+    if (!Util.isUnset(request.contactDisposition)) {
+      query["ContactDisposition"] = request.contactDisposition;
+    }
+
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.contactType)) {
+      query["ContactType"] = request.contactType;
+    }
+
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.earlyMediaStateList)) {
+      query["EarlyMediaStateList"] = request.earlyMediaStateList;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderByField)) {
+      query["OrderByField"] = request.orderByField;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.satisfactionDescriptionList)) {
+      query["SatisfactionDescriptionList"] = request.satisfactionDescriptionList;
+    }
+
+    if (!Util.isUnset(request.satisfactionList)) {
+      query["SatisfactionList"] = request.satisfactionList;
+    }
+
+    if (!Util.isUnset(request.satisfactionSurveyChannel)) {
+      query["SatisfactionSurveyChannel"] = request.satisfactionSurveyChannel;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19934,16 +20492,46 @@ export default class Client extends OpenApi {
   async listCampaignsWithOptions(request: ListCampaignsRequest, runtime: $Util.RuntimeOptions): Promise<ListCampaignsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ActualStartTimeFrom"] = request.actualStartTimeFrom;
-    query["ActualStartTimeTo"] = request.actualStartTimeTo;
-    query["InstanceId"] = request.instanceId;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PlanedStartTimeFrom"] = request.planedStartTimeFrom;
-    query["PlanedStartTimeTo"] = request.planedStartTimeTo;
-    query["QueueId"] = request.queueId;
-    query["State"] = request.state;
+    if (!Util.isUnset(request.actualStartTimeFrom)) {
+      query["ActualStartTimeFrom"] = request.actualStartTimeFrom;
+    }
+
+    if (!Util.isUnset(request.actualStartTimeTo)) {
+      query["ActualStartTimeTo"] = request.actualStartTimeTo;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.planedStartTimeFrom)) {
+      query["PlanedStartTimeFrom"] = request.planedStartTimeFrom;
+    }
+
+    if (!Util.isUnset(request.planedStartTimeTo)) {
+      query["PlanedStartTimeTo"] = request.planedStartTimeTo;
+    }
+
+    if (!Util.isUnset(request.queueId)) {
+      query["QueueId"] = request.queueId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19969,11 +20557,26 @@ export default class Client extends OpenApi {
   async listCasesWithOptions(request: ListCasesRequest, runtime: $Util.RuntimeOptions): Promise<ListCasesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["PhoneNumber"] = request.phoneNumber;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -19999,9 +20602,18 @@ export default class Client extends OpenApi {
   async listConfigItemsWithOptions(request: ListConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigItemsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ObjectId"] = request.objectId;
-    query["ObjectType"] = request.objectType;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20027,10 +20639,22 @@ export default class Client extends OpenApi {
   async listContactFlowsWithOptions(request: ListContactFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListContactFlowsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20056,8 +20680,14 @@ export default class Client extends OpenApi {
   async listDevicesWithOptions(request: ListDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20083,11 +20713,26 @@ export default class Client extends OpenApi {
   async listHistoricalAgentReportWithOptions(request: ListHistoricalAgentReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalAgentReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
-    query["StopTime"] = request.stopTime;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.stopTime)) {
+      query["StopTime"] = request.stopTime;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.agentIdList)) {
       body["AgentIdList"] = request.agentIdList;
@@ -20119,11 +20764,26 @@ export default class Client extends OpenApi {
   async listHistoricalSkillGroupReportWithOptions(request: ListHistoricalSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalSkillGroupReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.skillGroupIdList)) {
       body["SkillGroupIdList"] = request.skillGroupIdList;
@@ -20155,8 +20815,14 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20182,8 +20848,14 @@ export default class Client extends OpenApi {
   async listInstancesOfUserWithOptions(request: ListInstancesOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20209,11 +20881,26 @@ export default class Client extends OpenApi {
   async listIntervalAgentReportWithOptions(request: ListIntervalAgentReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalAgentReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AgentId"] = request.agentId;
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["Interval"] = request.interval;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20239,10 +20926,22 @@ export default class Client extends OpenApi {
   async listIntervalInstanceReportWithOptions(request: ListIntervalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalInstanceReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["Interval"] = request.interval;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20268,11 +20967,26 @@ export default class Client extends OpenApi {
   async listIntervalSkillGroupReportWithOptions(request: ListIntervalSkillGroupReportRequest, runtime: $Util.RuntimeOptions): Promise<ListIntervalSkillGroupReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["Interval"] = request.interval;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20298,10 +21012,22 @@ export default class Client extends OpenApi {
   async listIvrTrackingDetailsWithOptions(request: ListIvrTrackingDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListIvrTrackingDetailsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactId"] = request.contactId;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.contactId)) {
+      query["ContactId"] = request.contactId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20327,11 +21053,26 @@ export default class Client extends OpenApi {
   async listOutboundNumbersOfUserWithOptions(request: ListOutboundNumbersOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundNumbersOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SkillGroupIdList"] = request.skillGroupIdList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20357,12 +21098,30 @@ export default class Client extends OpenApi {
   async listPersonalNumbersOfUserWithOptions(request: ListPersonalNumbersOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPersonalNumbersOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["IsMember"] = request.isMember;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isMember)) {
+      query["IsMember"] = request.isMember;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20388,12 +21147,30 @@ export default class Client extends OpenApi {
   async listPhoneNumbersWithOptions(request: ListPhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneNumbersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Active"] = request.active;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
-    query["Usage"] = request.usage;
+    if (!Util.isUnset(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.usage)) {
+      query["Usage"] = request.usage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20419,13 +21196,34 @@ export default class Client extends OpenApi {
   async listPhoneNumbersOfSkillGroupWithOptions(request: ListPhoneNumbersOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListPhoneNumbersOfSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Active"] = request.active;
-    query["InstanceId"] = request.instanceId;
-    query["IsMember"] = request.isMember;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isMember)) {
+      query["IsMember"] = request.isMember;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20451,7 +21249,10 @@ export default class Client extends OpenApi {
   async listPrivilegesOfUserWithOptions(request: ListPrivilegesOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListPrivilegesOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20477,10 +21278,22 @@ export default class Client extends OpenApi {
   async listRamUsersWithOptions(request: ListRamUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListRamUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20506,11 +21319,26 @@ export default class Client extends OpenApi {
   async listRealtimeAgentStatesWithOptions(request: ListRealtimeAgentStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeAgentStatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AgentName"] = request.agentName;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.agentIdList)) {
       body["AgentIdList"] = request.agentIdList;
@@ -20546,9 +21374,18 @@ export default class Client extends OpenApi {
   async listRealtimeSkillGroupStatesWithOptions(request: ListRealtimeSkillGroupStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListRealtimeSkillGroupStatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.skillGroupIdList)) {
       body["SkillGroupIdList"] = request.skillGroupIdList;
@@ -20580,11 +21417,26 @@ export default class Client extends OpenApi {
   async listRecentCallDetailRecordsWithOptions(request: ListRecentCallDetailRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListRecentCallDetailRecordsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Criteria"] = request.criteria;
-    query["EndTime"] = request.endTime;
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.startTime)) {
       body["StartTime"] = request.startTime;
@@ -20616,7 +21468,10 @@ export default class Client extends OpenApi {
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20642,8 +21497,14 @@ export default class Client extends OpenApi {
   async listSipCallRecordsWithOptions(request: ListSipCallRecordsRequest, runtime: $Util.RuntimeOptions): Promise<ListSipCallRecordsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactIdList"] = request.contactIdList;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.contactIdList)) {
+      query["ContactIdList"] = request.contactIdList;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20669,8 +21530,14 @@ export default class Client extends OpenApi {
   async listSipTracesWithOptions(request: ListSipTracesRequest, runtime: $Util.RuntimeOptions): Promise<ListSipTracesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20696,10 +21563,22 @@ export default class Client extends OpenApi {
   async listSkillGroupsWithOptions(request: ListSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20725,12 +21604,30 @@ export default class Client extends OpenApi {
   async listSkillLevelsOfUserWithOptions(request: ListSkillLevelsOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillLevelsOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["IsMember"] = request.isMember;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isMember)) {
+      query["IsMember"] = request.isMember;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20756,10 +21653,22 @@ export default class Client extends OpenApi {
   async listUnassignedNumbersWithOptions(request: ListUnassignedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListUnassignedNumbersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20785,12 +21694,30 @@ export default class Client extends OpenApi {
   async listUserLevelsOfSkillGroupWithOptions(request: ListUserLevelsOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUserLevelsOfSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["IsMember"] = request.isMember;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isMember)) {
+      query["IsMember"] = request.isMember;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20816,10 +21743,22 @@ export default class Client extends OpenApi {
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["SearchPattern"] = request.searchPattern;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20845,14 +21784,38 @@ export default class Client extends OpenApi {
   async makeCallWithOptions(request: MakeCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Callee"] = request.callee;
-    query["Caller"] = request.caller;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["MaskedCallee"] = request.maskedCallee;
-    query["Tags"] = request.tags;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!Util.isUnset(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maskedCallee)) {
+      query["MaskedCallee"] = request.maskedCallee;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20878,8 +21841,14 @@ export default class Client extends OpenApi {
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20905,10 +21874,22 @@ export default class Client extends OpenApi {
   async modifyPhoneNumberWithOptions(request: ModifyPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPhoneNumberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ContactFlowId"] = request.contactFlowId;
-    query["InstanceId"] = request.instanceId;
-    query["Number"] = request.number;
-    query["Usage"] = request.usage;
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.usage)) {
+      query["Usage"] = request.usage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20934,10 +21915,22 @@ export default class Client extends OpenApi {
   async modifySkillGroupWithOptions(request: ModifySkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifySkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["DisplayName"] = request.displayName;
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20963,9 +21956,18 @@ export default class Client extends OpenApi {
   async modifySkillLevelsOfUserWithOptions(request: ModifySkillLevelsOfUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifySkillLevelsOfUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillLevelList"] = request.skillLevelList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillLevelList)) {
+      query["SkillLevelList"] = request.skillLevelList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -20991,11 +21993,26 @@ export default class Client extends OpenApi {
   async modifyUserWithOptions(request: ModifyUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Mobile"] = request.mobile;
-    query["RoleId"] = request.roleId;
-    query["UserId"] = request.userId;
-    query["WorkMode"] = request.workMode;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.mobile)) {
+      query["Mobile"] = request.mobile;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.workMode)) {
+      query["WorkMode"] = request.workMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21021,9 +22038,18 @@ export default class Client extends OpenApi {
   async modifyUserLevelsOfSkillGroupWithOptions(request: ModifyUserLevelsOfSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserLevelsOfSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["UserLevelList"] = request.userLevelList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.userLevelList)) {
+      query["UserLevelList"] = request.userLevelList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21049,11 +22075,26 @@ export default class Client extends OpenApi {
   async monitorCallWithOptions(request: MonitorCallRequest, runtime: $Util.RuntimeOptions): Promise<MonitorCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["MonitoredUserId"] = request.monitoredUserId;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.monitoredUserId)) {
+      query["MonitoredUserId"] = request.monitoredUserId;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21079,11 +22120,26 @@ export default class Client extends OpenApi {
   async muteCallWithOptions(request: MuteCallRequest, runtime: $Util.RuntimeOptions): Promise<MuteCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21109,8 +22165,14 @@ export default class Client extends OpenApi {
   async pauseCampaignWithOptions(request: PauseCampaignRequest, runtime: $Util.RuntimeOptions): Promise<PauseCampaignResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21136,10 +22198,22 @@ export default class Client extends OpenApi {
   async pickOutboundNumbersWithOptions(request: PickOutboundNumbersRequest, runtime: $Util.RuntimeOptions): Promise<PickOutboundNumbersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNumber"] = request.calledNumber;
-    query["Count"] = request.count;
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupIdList"] = request.skillGroupIdList;
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21165,9 +22239,18 @@ export default class Client extends OpenApi {
   async pollUserStatusWithOptions(request: PollUserStatusRequest, runtime: $Util.RuntimeOptions): Promise<PollUserStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21193,10 +22276,22 @@ export default class Client extends OpenApi {
   async readyForServiceWithOptions(request: ReadyForServiceRequest, runtime: $Util.RuntimeOptions): Promise<ReadyForServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["OutboundScenario"] = request.outboundScenario;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.outboundScenario)) {
+      query["OutboundScenario"] = request.outboundScenario;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21222,10 +22317,22 @@ export default class Client extends OpenApi {
   async registerDeviceWithOptions(request: RegisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDeviceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["Password"] = request.password;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21251,11 +22358,26 @@ export default class Client extends OpenApi {
   async releaseCallWithOptions(request: ReleaseCallRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21281,9 +22403,18 @@ export default class Client extends OpenApi {
   async removePersonalNumbersFromUserWithOptions(request: RemovePersonalNumbersFromUserRequest, runtime: $Util.RuntimeOptions): Promise<RemovePersonalNumbersFromUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NumberList"] = request.numberList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21309,9 +22440,18 @@ export default class Client extends OpenApi {
   async removePhoneNumberFromSkillGroupsWithOptions(request: RemovePhoneNumberFromSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumberFromSkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Number"] = request.number;
-    query["SkillGroupIdList"] = request.skillGroupIdList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21337,8 +22477,14 @@ export default class Client extends OpenApi {
   async removePhoneNumbersWithOptions(request: RemovePhoneNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumbersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NumberList"] = request.numberList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21364,9 +22510,18 @@ export default class Client extends OpenApi {
   async removePhoneNumbersFromSkillGroupWithOptions(request: RemovePhoneNumbersFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemovePhoneNumbersFromSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NumberList"] = request.numberList;
-    query["SkillGroupId"] = request.skillGroupId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21392,9 +22547,18 @@ export default class Client extends OpenApi {
   async removeSkillGroupsFromUserWithOptions(request: RemoveSkillGroupsFromUserRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSkillGroupsFromUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupIdList"] = request.skillGroupIdList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupIdList)) {
+      query["SkillGroupIdList"] = request.skillGroupIdList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21420,8 +22584,14 @@ export default class Client extends OpenApi {
   async removeUsersWithOptions(request: RemoveUsersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["UserIdList"] = request.userIdList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userIdList)) {
+      query["UserIdList"] = request.userIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21447,9 +22617,18 @@ export default class Client extends OpenApi {
   async removeUsersFromSkillGroupWithOptions(request: RemoveUsersFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUsersFromSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["UserIdList"] = request.userIdList;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.userIdList)) {
+      query["UserIdList"] = request.userIdList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21475,9 +22654,18 @@ export default class Client extends OpenApi {
   async resetAgentStateWithOptions(request: ResetAgentStateRequest, runtime: $Util.RuntimeOptions): Promise<ResetAgentStateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21503,9 +22691,18 @@ export default class Client extends OpenApi {
   async resetUserPasswordWithOptions(request: ResetUserPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetUserPasswordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Password"] = request.password;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21531,8 +22728,14 @@ export default class Client extends OpenApi {
   async resumeCampaignWithOptions(request: ResumeCampaignRequest, runtime: $Util.RuntimeOptions): Promise<ResumeCampaignResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21558,11 +22761,26 @@ export default class Client extends OpenApi {
   async retrieveCallWithOptions(request: RetrieveCallRequest, runtime: $Util.RuntimeOptions): Promise<RetrieveCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21588,12 +22806,30 @@ export default class Client extends OpenApi {
   async saveRTCStatsV2WithOptions(request: SaveRTCStatsV2Request, runtime: $Util.RuntimeOptions): Promise<SaveRTCStatsV2Response> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["GeneralInfo"] = request.generalInfo;
-    query["GoogAddress"] = request.googAddress;
-    query["InstanceId"] = request.instanceId;
-    query["ReceiverReport"] = request.receiverReport;
-    query["SenderReport"] = request.senderReport;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.generalInfo)) {
+      query["GeneralInfo"] = request.generalInfo;
+    }
+
+    if (!Util.isUnset(request.googAddress)) {
+      query["GoogAddress"] = request.googAddress;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.receiverReport)) {
+      query["ReceiverReport"] = request.receiverReport;
+    }
+
+    if (!Util.isUnset(request.senderReport)) {
+      query["SenderReport"] = request.senderReport;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21619,15 +22855,42 @@ export default class Client extends OpenApi {
   async saveTerminalLogWithOptions(request: SaveTerminalLogRequest, runtime: $Util.RuntimeOptions): Promise<SaveTerminalLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppName"] = request.appName;
-    query["CallId"] = request.callId;
-    query["Content"] = request.content;
-    query["DataType"] = request.dataType;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["MethodName"] = request.methodName;
-    query["Status"] = request.status;
-    query["UniqueRequestId"] = request.uniqueRequestId;
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.methodName)) {
+      query["MethodName"] = request.methodName;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.uniqueRequestId)) {
+      query["UniqueRequestId"] = request.uniqueRequestId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21653,12 +22916,30 @@ export default class Client extends OpenApi {
   async saveWebRTCStatsWithOptions(request: SaveWebRTCStatsRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebRTCStatsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["GeneralInfo"] = request.generalInfo;
-    query["GoogAddress"] = request.googAddress;
-    query["InstanceId"] = request.instanceId;
-    query["ReceiverReport"] = request.receiverReport;
-    query["SenderReport"] = request.senderReport;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.generalInfo)) {
+      query["GeneralInfo"] = request.generalInfo;
+    }
+
+    if (!Util.isUnset(request.googAddress)) {
+      query["GoogAddress"] = request.googAddress;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.receiverReport)) {
+      query["ReceiverReport"] = request.receiverReport;
+    }
+
+    if (!Util.isUnset(request.senderReport)) {
+      query["SenderReport"] = request.senderReport;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21684,11 +22965,26 @@ export default class Client extends OpenApi {
   async saveWebRtcInfoWithOptions(request: SaveWebRtcInfoRequest, runtime: $Util.RuntimeOptions): Promise<SaveWebRtcInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["Content"] = request.content;
-    query["ContentType"] = request.contentType;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21714,12 +23010,30 @@ export default class Client extends OpenApi {
   async sendDtmfSignalingWithOptions(request: SendDtmfSignalingRequest, runtime: $Util.RuntimeOptions): Promise<SendDtmfSignalingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["Dtmf"] = request.dtmf;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.dtmf)) {
+      query["Dtmf"] = request.dtmf;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21745,10 +23059,22 @@ export default class Client extends OpenApi {
   async signInGroupWithOptions(request: SignInGroupRequest, runtime: $Util.RuntimeOptions): Promise<SignInGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["SignedSkillGroupIdList"] = request.signedSkillGroupIdList;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.signedSkillGroupIdList)) {
+      query["SignedSkillGroupIdList"] = request.signedSkillGroupIdList;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21774,9 +23100,18 @@ export default class Client extends OpenApi {
   async signOutGroupWithOptions(request: SignOutGroupRequest, runtime: $Util.RuntimeOptions): Promise<SignOutGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21802,13 +23137,34 @@ export default class Client extends OpenApi {
   async startBack2BackCallWithOptions(request: StartBack2BackCallRequest, runtime: $Util.RuntimeOptions): Promise<StartBack2BackCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AdditionalBroker"] = request.additionalBroker;
-    query["Broker"] = request.broker;
-    query["Callee"] = request.callee;
-    query["Caller"] = request.caller;
-    query["InstanceId"] = request.instanceId;
-    query["Tags"] = request.tags;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
+    if (!Util.isUnset(request.additionalBroker)) {
+      query["AdditionalBroker"] = request.additionalBroker;
+    }
+
+    if (!Util.isUnset(request.broker)) {
+      query["Broker"] = request.broker;
+    }
+
+    if (!Util.isUnset(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!Util.isUnset(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21834,15 +23190,42 @@ export default class Client extends OpenApi {
   async startPredictiveCallWithOptions(request: StartPredictiveCallRequest, runtime: $Util.RuntimeOptions): Promise<StartPredictiveCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Callee"] = request.callee;
-    query["Caller"] = request.caller;
-    query["ContactFlowId"] = request.contactFlowId;
-    query["ContactFlowVariables"] = request.contactFlowVariables;
-    query["InstanceId"] = request.instanceId;
-    query["MaskedCallee"] = request.maskedCallee;
-    query["SkillGroupId"] = request.skillGroupId;
-    query["Tags"] = request.tags;
-    query["TimeoutSeconds"] = request.timeoutSeconds;
+    if (!Util.isUnset(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!Util.isUnset(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!Util.isUnset(request.contactFlowId)) {
+      query["ContactFlowId"] = request.contactFlowId;
+    }
+
+    if (!Util.isUnset(request.contactFlowVariables)) {
+      query["ContactFlowVariables"] = request.contactFlowVariables;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.maskedCallee)) {
+      query["MaskedCallee"] = request.maskedCallee;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21868,8 +23251,14 @@ export default class Client extends OpenApi {
   async submitCampaignWithOptions(request: SubmitCampaignRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCampaignResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CampaignId"] = request.campaignId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.campaignId)) {
+      query["CampaignId"] = request.campaignId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21895,10 +23284,22 @@ export default class Client extends OpenApi {
   async takeBreakWithOptions(request: TakeBreakRequest, runtime: $Util.RuntimeOptions): Promise<TakeBreakResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Code"] = request.code;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21924,11 +23325,26 @@ export default class Client extends OpenApi {
   async unmuteCallWithOptions(request: UnmuteCallRequest, runtime: $Util.RuntimeOptions): Promise<UnmuteCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChannelId"] = request.channelId;
-    query["DeviceId"] = request.deviceId;
-    query["InstanceId"] = request.instanceId;
-    query["JobId"] = request.jobId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -21954,10 +23370,22 @@ export default class Client extends OpenApi {
   async updateConfigItemsWithOptions(request: UpdateConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigItemsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigItems"] = request.configItems;
-    query["InstanceId"] = request.instanceId;
-    query["ObjectId"] = request.objectId;
-    query["ObjectType"] = request.objectType;
+    if (!Util.isUnset(request.configItems)) {
+      query["ConfigItems"] = request.configItems;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
