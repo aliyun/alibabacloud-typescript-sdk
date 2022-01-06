@@ -791,6 +791,90 @@ export class CreateAclResponse extends $tea.Model {
   }
 }
 
+export class CreateApplicationMonitorRequest extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  clientToken?: string;
+  detectThreshold?: number;
+  listenerId?: string;
+  optionsJson?: string;
+  regionId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      clientToken: 'ClientToken',
+      detectThreshold: 'DetectThreshold',
+      listenerId: 'ListenerId',
+      optionsJson: 'OptionsJson',
+      regionId: 'RegionId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      clientToken: 'string',
+      detectThreshold: 'number',
+      listenerId: 'string',
+      optionsJson: 'string',
+      regionId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateBandwidthPackageRequest extends $tea.Model {
   autoPay?: boolean;
   autoUseCoupon?: string;
@@ -1787,6 +1871,72 @@ export class DeleteAclResponse extends $tea.Model {
   }
 }
 
+export class DeleteApplicationMonitorRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBandwidthPackageRequest extends $tea.Model {
   bandwidthPackageId?: string;
   clientToken?: string;
@@ -2714,6 +2864,99 @@ export class DescribeAcceleratorAutoRenewAttributeResponse extends $tea.Model {
   }
 }
 
+export class DescribeApplicationMonitorRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationMonitorResponseBody extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  detectThreshold?: string;
+  ispCityList?: DescribeApplicationMonitorResponseBodyIspCityList[];
+  listenerId?: string;
+  optionsJson?: string;
+  regionId?: string;
+  requestId?: string;
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      detectThreshold: 'DetectThreshold',
+      ispCityList: 'IspCityList',
+      listenerId: 'ListenerId',
+      optionsJson: 'OptionsJson',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      detectThreshold: 'string',
+      ispCityList: { 'type': 'array', 'itemType': DescribeApplicationMonitorResponseBodyIspCityList },
+      listenerId: 'string',
+      optionsJson: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBandwidthPackageRequest extends $tea.Model {
   bandwidthPackageId?: string;
   regionId?: string;
@@ -3365,6 +3608,138 @@ export class DetachLogStoreFromEndpointGroupResponse extends $tea.Model {
   }
 }
 
+export class DetectApplicationMonitorRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetectApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetectApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetectApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableApplicationMonitorRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DissociateAclsFromListenerRequest extends $tea.Model {
   aclIds?: string[];
   clientToken?: string;
@@ -3507,6 +3882,72 @@ export class DissociateAdditionalCertificatesFromListenerResponse extends $tea.M
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DissociateAdditionalCertificatesFromListenerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationMonitorRequest extends $tea.Model {
+  clientToken?: string;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableApplicationMonitorResponseBody,
     };
   }
 
@@ -4257,6 +4698,174 @@ export class ListAclsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListAclsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  searchValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      searchValue: 'SearchValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      searchValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorResponseBody extends $tea.Model {
+  applicationMonitors?: ListApplicationMonitorResponseBodyApplicationMonitors[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationMonitors: 'ApplicationMonitors',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationMonitors: { 'type': 'array', 'itemType': ListApplicationMonitorResponseBodyApplicationMonitors },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorDetectResultRequest extends $tea.Model {
+  beginTime?: number;
+  endTime?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorDetectResultResponseBody extends $tea.Model {
+  applicationMonitorDetectResultList?: ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationMonitorDetectResultList: 'ApplicationMonitorDetectResultList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationMonitorDetectResultList: { 'type': 'array', 'itemType': ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorDetectResultResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListApplicationMonitorDetectResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListApplicationMonitorDetectResultResponseBody,
     };
   }
 
@@ -5732,6 +6341,87 @@ export class UpdateAclAttributeResponse extends $tea.Model {
   }
 }
 
+export class UpdateApplicationMonitorRequest extends $tea.Model {
+  address?: string;
+  clientToken?: string;
+  detectThreshold?: number;
+  listenerId?: string;
+  optionsJson?: string;
+  regionId?: string;
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'Address',
+      clientToken: 'ClientToken',
+      detectThreshold: 'DetectThreshold',
+      listenerId: 'ListenerId',
+      optionsJson: 'OptionsJson',
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      clientToken: 'string',
+      detectThreshold: 'number',
+      listenerId: 'string',
+      optionsJson: 'string',
+      regionId: 'string',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationMonitorResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationMonitorResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateApplicationMonitorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateApplicationMonitorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateBandwidthPackageRequest extends $tea.Model {
   autoPay?: boolean;
   autoUseCoupon?: boolean;
@@ -7115,6 +7805,34 @@ export class DescribeAcceleratorResponseBodyCrossDomainBandwidthPackage extends 
   }
 }
 
+export class DescribeApplicationMonitorResponseBodyIspCityList extends $tea.Model {
+  city?: string;
+  cityName?: string;
+  isp?: string;
+  ispName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'City',
+      cityName: 'CityName',
+      isp: 'Isp',
+      ispName: 'IspName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      cityName: 'string',
+      isp: 'string',
+      ispName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndpointGroupResponseBodyEndpointConfigurations extends $tea.Model {
   enableClientIPPreservation?: boolean;
   endpoint?: string;
@@ -7652,6 +8370,83 @@ export class ListAclsResponseBodyAcls extends $tea.Model {
       aclName: 'string',
       aclStatus: 'string',
       addressIPVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorResponseBodyApplicationMonitors extends $tea.Model {
+  acceleratorId?: string;
+  address?: string;
+  detectThreshold?: number;
+  listenerId?: string;
+  optionsJson?: string;
+  state?: string;
+  taskId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      address: 'Address',
+      detectThreshold: 'DetectThreshold',
+      listenerId: 'ListenerId',
+      optionsJson: 'OptionsJson',
+      state: 'State',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      address: 'string',
+      detectThreshold: 'number',
+      listenerId: 'string',
+      optionsJson: 'string',
+      state: 'string',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListApplicationMonitorDetectResultResponseBodyApplicationMonitorDetectResultList extends $tea.Model {
+  acceleratorId?: string;
+  detail?: string;
+  diagStatus?: string;
+  listenerId?: string;
+  port?: string;
+  protocol?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceleratorId: 'AcceleratorId',
+      detail: 'Detail',
+      diagStatus: 'DiagStatus',
+      listenerId: 'ListenerId',
+      port: 'Port',
+      protocol: 'Protocol',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceleratorId: 'string',
+      detail: 'string',
+      diagStatus: 'string',
+      listenerId: 'string',
+      port: 'string',
+      protocol: 'string',
+      taskId: 'string',
     };
   }
 
@@ -9023,11 +9818,26 @@ export default class Client extends OpenApi {
   async addEntriesToAclWithOptions(request: AddEntriesToAclRequest, runtime: $Util.RuntimeOptions): Promise<AddEntriesToAclResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclEntries"] = request.aclEntries;
-    query["AclId"] = request.aclId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclEntries)) {
+      query["AclEntries"] = request.aclEntries;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9053,12 +9863,30 @@ export default class Client extends OpenApi {
   async associateAclsWithListenerWithOptions(request: AssociateAclsWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAclsWithListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclIds"] = request.aclIds;
-    query["AclType"] = request.aclType;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclIds)) {
+      query["AclIds"] = request.aclIds;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9084,11 +9912,26 @@ export default class Client extends OpenApi {
   async associateAdditionalCertificatesWithListenerWithOptions(request: AssociateAdditionalCertificatesWithListenerRequest, runtime: $Util.RuntimeOptions): Promise<AssociateAdditionalCertificatesWithListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["Certificates"] = request.certificates;
-    query["ClientToken"] = request.clientToken;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.certificates)) {
+      query["Certificates"] = request.certificates;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9114,10 +9957,22 @@ export default class Client extends OpenApi {
   async attachDdosToAcceleratorWithOptions(request: AttachDdosToAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<AttachDdosToAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["DdosId"] = request.ddosId;
-    query["DdosRegionId"] = request.ddosRegionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.ddosId)) {
+      query["DdosId"] = request.ddosId;
+    }
+
+    if (!Util.isUnset(request.ddosRegionId)) {
+      query["DdosRegionId"] = request.ddosRegionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9143,14 +9998,38 @@ export default class Client extends OpenApi {
   async attachLogStoreToEndpointGroupWithOptions(request: AttachLogStoreToEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<AttachLogStoreToEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["EndpointGroupIds"] = request.endpointGroupIds;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
-    query["SlsLogStoreName"] = request.slsLogStoreName;
-    query["SlsProjectName"] = request.slsProjectName;
-    query["SlsRegionId"] = request.slsRegionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupIds)) {
+      query["EndpointGroupIds"] = request.endpointGroupIds;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.slsLogStoreName)) {
+      query["SlsLogStoreName"] = request.slsLogStoreName;
+    }
+
+    if (!Util.isUnset(request.slsProjectName)) {
+      query["SlsProjectName"] = request.slsProjectName;
+    }
+
+    if (!Util.isUnset(request.slsRegionId)) {
+      query["SlsRegionId"] = request.slsRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9176,9 +10055,18 @@ export default class Client extends OpenApi {
   async bandwidthPackageAddAcceleratorWithOptions(request: BandwidthPackageAddAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageAddAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9204,9 +10092,18 @@ export default class Client extends OpenApi {
   async bandwidthPackageRemoveAcceleratorWithOptions(request: BandwidthPackageRemoveAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<BandwidthPackageRemoveAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9232,14 +10129,38 @@ export default class Client extends OpenApi {
   async configEndpointProbeWithOptions(request: ConfigEndpointProbeRequest, runtime: $Util.RuntimeOptions): Promise<ConfigEndpointProbeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Enable"] = request.enable;
-    query["Endpoint"] = request.endpoint;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["EndpointType"] = request.endpointType;
-    query["ProbePort"] = request.probePort;
-    query["ProbeProtocol"] = request.probeProtocol;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endpoint)) {
+      query["Endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.probePort)) {
+      query["ProbePort"] = request.probePort;
+    }
+
+    if (!Util.isUnset(request.probeProtocol)) {
+      query["ProbeProtocol"] = request.probeProtocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9265,16 +10186,46 @@ export default class Client extends OpenApi {
   async createAcceleratorWithOptions(request: CreateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["AutoRenew"] = request.autoRenew;
-    query["AutoRenewDuration"] = request.autoRenewDuration;
-    query["AutoUseCoupon"] = request.autoUseCoupon;
-    query["ClientToken"] = request.clientToken;
-    query["Duration"] = request.duration;
-    query["Name"] = request.name;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
-    query["Spec"] = request.spec;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      query["Spec"] = request.spec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9300,12 +10251,30 @@ export default class Client extends OpenApi {
   async createAclWithOptions(request: CreateAclRequest, runtime: $Util.RuntimeOptions): Promise<CreateAclResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclEntries"] = request.aclEntries;
-    query["AclName"] = request.aclName;
-    query["AddressIPVersion"] = request.addressIPVersion;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclEntries)) {
+      query["AclEntries"] = request.aclEntries;
+    }
+
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9328,23 +10297,122 @@ export default class Client extends OpenApi {
     return await this.createAclWithOptions(request, runtime);
   }
 
+  async createApplicationMonitorWithOptions(request: CreateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.detectThreshold)) {
+      query["DetectThreshold"] = request.detectThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.optionsJson)) {
+      query["OptionsJson"] = request.optionsJson;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApplicationMonitorResponse>(await this.callApi(params, req, runtime), new CreateApplicationMonitorResponse({}));
+  }
+
+  async createApplicationMonitor(request: CreateApplicationMonitorRequest): Promise<CreateApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApplicationMonitorWithOptions(request, runtime);
+  }
+
   async createBandwidthPackageWithOptions(request: CreateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["AutoUseCoupon"] = request.autoUseCoupon;
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthType"] = request.bandwidthType;
-    query["BillingType"] = request.billingType;
-    query["CbnGeographicRegionIdA"] = request.cbnGeographicRegionIdA;
-    query["CbnGeographicRegionIdB"] = request.cbnGeographicRegionIdB;
-    query["ChargeType"] = request.chargeType;
-    query["ClientToken"] = request.clientToken;
-    query["Duration"] = request.duration;
-    query["PricingCycle"] = request.pricingCycle;
-    query["Ratio"] = request.ratio;
-    query["RegionId"] = request.regionId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.bandwidthType)) {
+      query["BandwidthType"] = request.bandwidthType;
+    }
+
+    if (!Util.isUnset(request.billingType)) {
+      query["BillingType"] = request.billingType;
+    }
+
+    if (!Util.isUnset(request.cbnGeographicRegionIdA)) {
+      query["CbnGeographicRegionIdA"] = request.cbnGeographicRegionIdA;
+    }
+
+    if (!Util.isUnset(request.cbnGeographicRegionIdB)) {
+      query["CbnGeographicRegionIdB"] = request.cbnGeographicRegionIdB;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.ratio)) {
+      query["Ratio"] = request.ratio;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9370,14 +10438,38 @@ export default class Client extends OpenApi {
   async createBasicAcceleratorWithOptions(request: CreateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["AutoRenew"] = request.autoRenew;
-    query["AutoRenewDuration"] = request.autoRenewDuration;
-    query["AutoUseCoupon"] = request.autoUseCoupon;
-    query["ClientToken"] = request.clientToken;
-    query["Duration"] = request.duration;
-    query["PricingCycle"] = request.pricingCycle;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9403,14 +10495,38 @@ export default class Client extends OpenApi {
   async createBasicEndpointGroupWithOptions(request: CreateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EndpointAddress"] = request.endpointAddress;
-    query["EndpointGroupRegion"] = request.endpointGroupRegion;
-    query["EndpointType"] = request.endpointType;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointAddress)) {
+      query["EndpointAddress"] = request.endpointAddress;
+    }
+
+    if (!Util.isUnset(request.endpointGroupRegion)) {
+      query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9436,10 +10552,22 @@ export default class Client extends OpenApi {
   async createBasicIpSetWithOptions(request: CreateBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<CreateBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccelerateRegionId"] = request.accelerateRegionId;
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accelerateRegionId)) {
+      query["AccelerateRegionId"] = request.accelerateRegionId;
+    }
+
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9465,24 +10593,78 @@ export default class Client extends OpenApi {
   async createEndpointGroupWithOptions(request: CreateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EndpointConfigurations"] = request.endpointConfigurations;
-    query["EndpointGroupRegion"] = request.endpointGroupRegion;
-    query["EndpointGroupType"] = request.endpointGroupType;
-    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
-    query["HealthCheckEnabled"] = request.healthCheckEnabled;
-    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
-    query["HealthCheckPath"] = request.healthCheckPath;
-    query["HealthCheckPort"] = request.healthCheckPort;
-    query["HealthCheckProtocol"] = request.healthCheckProtocol;
-    query["ListenerId"] = request.listenerId;
-    query["Name"] = request.name;
-    query["PortOverrides"] = request.portOverrides;
-    query["RegionId"] = request.regionId;
-    query["ThresholdCount"] = request.thresholdCount;
-    query["TrafficPercentage"] = request.trafficPercentage;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointConfigurations)) {
+      query["EndpointConfigurations"] = request.endpointConfigurations;
+    }
+
+    if (!Util.isUnset(request.endpointGroupRegion)) {
+      query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    }
+
+    if (!Util.isUnset(request.endpointGroupType)) {
+      query["EndpointGroupType"] = request.endpointGroupType;
+    }
+
+    if (!Util.isUnset(request.endpointRequestProtocol)) {
+      query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    }
+
+    if (!Util.isUnset(request.healthCheckEnabled)) {
+      query["HealthCheckEnabled"] = request.healthCheckEnabled;
+    }
+
+    if (!Util.isUnset(request.healthCheckIntervalSeconds)) {
+      query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    }
+
+    if (!Util.isUnset(request.healthCheckPath)) {
+      query["HealthCheckPath"] = request.healthCheckPath;
+    }
+
+    if (!Util.isUnset(request.healthCheckPort)) {
+      query["HealthCheckPort"] = request.healthCheckPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckProtocol)) {
+      query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.portOverrides)) {
+      query["PortOverrides"] = request.portOverrides;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.thresholdCount)) {
+      query["ThresholdCount"] = request.thresholdCount;
+    }
+
+    if (!Util.isUnset(request.trafficPercentage)) {
+      query["TrafficPercentage"] = request.trafficPercentage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9508,12 +10690,30 @@ export default class Client extends OpenApi {
   async createEndpointGroupsWithOptions(request: CreateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<CreateEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupConfigurations)) {
+      query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9539,11 +10739,26 @@ export default class Client extends OpenApi {
   async createForwardingRulesWithOptions(request: CreateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["ForwardingRules"] = request.forwardingRules;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.forwardingRules)) {
+      query["ForwardingRules"] = request.forwardingRules;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9569,10 +10784,22 @@ export default class Client extends OpenApi {
   async createIpSetsWithOptions(request: CreateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<CreateIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccelerateRegion"] = request.accelerateRegion;
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accelerateRegion)) {
+      query["AccelerateRegion"] = request.accelerateRegion;
+    }
+
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9598,18 +10825,54 @@ export default class Client extends OpenApi {
   async createListenerWithOptions(request: CreateListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["Certificates"] = request.certificates;
-    query["ClientAffinity"] = request.clientAffinity;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["PortRanges"] = request.portRanges;
-    query["Protocol"] = request.protocol;
-    query["ProxyProtocol"] = request.proxyProtocol;
-    query["RegionId"] = request.regionId;
-    query["SecurityPolicyId"] = request.securityPolicyId;
-    query["XForwardedForConfig"] = request.XForwardedForConfig;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.certificates)) {
+      query["Certificates"] = request.certificates;
+    }
+
+    if (!Util.isUnset(request.clientAffinity)) {
+      query["ClientAffinity"] = request.clientAffinity;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.portRanges)) {
+      query["PortRanges"] = request.portRanges;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.proxyProtocol)) {
+      query["ProxyProtocol"] = request.proxyProtocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityPolicyId)) {
+      query["SecurityPolicyId"] = request.securityPolicyId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+      query["XForwardedForConfig"] = request.XForwardedForConfig;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9635,11 +10898,26 @@ export default class Client extends OpenApi {
   async createSpareIpsWithOptions(request: CreateSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["SpareIps"] = request.spareIps;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.spareIps)) {
+      query["SpareIps"] = request.spareIps;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9665,8 +10943,14 @@ export default class Client extends OpenApi {
   async deleteAcceleratorWithOptions(request: DeleteAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9692,10 +10976,22 @@ export default class Client extends OpenApi {
   async deleteAclWithOptions(request: DeleteAclRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAclResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclId"] = request.aclId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9718,12 +11014,58 @@ export default class Client extends OpenApi {
     return await this.deleteAclWithOptions(request, runtime);
   }
 
+  async deleteApplicationMonitorWithOptions(request: DeleteApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DeleteApplicationMonitorResponse({}));
+  }
+
+  async deleteApplicationMonitor(request: DeleteApplicationMonitorRequest): Promise<DeleteApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteApplicationMonitorWithOptions(request, runtime);
+  }
+
   async deleteBandwidthPackageWithOptions(request: DeleteBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["ClientToken"] = request.clientToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9749,8 +11091,14 @@ export default class Client extends OpenApi {
   async deleteBasicAcceleratorWithOptions(request: DeleteBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9776,8 +11124,14 @@ export default class Client extends OpenApi {
   async deleteBasicEndpointGroupWithOptions(request: DeleteBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["EndpointGroupId"] = request.endpointGroupId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9803,9 +11157,18 @@ export default class Client extends OpenApi {
   async deleteBasicIpSetWithOptions(request: DeleteBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["IpSetId"] = request.ipSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9831,9 +11194,18 @@ export default class Client extends OpenApi {
   async deleteEndpointGroupWithOptions(request: DeleteEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["EndpointGroupId"] = request.endpointGroupId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9859,10 +11231,22 @@ export default class Client extends OpenApi {
   async deleteEndpointGroupsWithOptions(request: DeleteEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointGroupIds"] = request.endpointGroupIds;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupIds)) {
+      query["EndpointGroupIds"] = request.endpointGroupIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9888,11 +11272,26 @@ export default class Client extends OpenApi {
   async deleteForwardingRulesWithOptions(request: DeleteForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["ForwardingRuleIds"] = request.forwardingRuleIds;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.forwardingRuleIds)) {
+      query["ForwardingRuleIds"] = request.forwardingRuleIds;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9918,10 +11317,22 @@ export default class Client extends OpenApi {
   async deleteIpSetWithOptions(request: DeleteIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["IpSetId"] = request.ipSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9947,8 +11358,14 @@ export default class Client extends OpenApi {
   async deleteIpSetsWithOptions(request: DeleteIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpSetIds"] = request.ipSetIds;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ipSetIds)) {
+      query["IpSetIds"] = request.ipSetIds;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9974,9 +11391,18 @@ export default class Client extends OpenApi {
   async deleteListenerWithOptions(request: DeleteListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["ListenerId"] = request.listenerId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10002,11 +11428,26 @@ export default class Client extends OpenApi {
   async deleteSpareIpsWithOptions(request: DeleteSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["SpareIps"] = request.spareIps;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.spareIps)) {
+      query["SpareIps"] = request.spareIps;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10032,8 +11473,14 @@ export default class Client extends OpenApi {
   async describeAcceleratorWithOptions(request: DescribeAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10059,8 +11506,14 @@ export default class Client extends OpenApi {
   async describeAcceleratorAutoRenewAttributeWithOptions(request: DescribeAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAcceleratorAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10083,11 +11536,54 @@ export default class Client extends OpenApi {
     return await this.describeAcceleratorAutoRenewAttributeWithOptions(request, runtime);
   }
 
+  async describeApplicationMonitorWithOptions(request: DescribeApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DescribeApplicationMonitorResponse({}));
+  }
+
+  async describeApplicationMonitor(request: DescribeApplicationMonitorRequest): Promise<DescribeApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApplicationMonitorWithOptions(request, runtime);
+  }
+
   async describeBandwidthPackageWithOptions(request: DescribeBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10113,8 +11609,14 @@ export default class Client extends OpenApi {
   async describeEndpointGroupWithOptions(request: DescribeEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10140,8 +11642,14 @@ export default class Client extends OpenApi {
   async describeIpSetWithOptions(request: DescribeIpSetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpSetId"] = request.ipSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10167,8 +11675,14 @@ export default class Client extends OpenApi {
   async describeListenerWithOptions(request: DescribeListenerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10194,7 +11708,10 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10220,8 +11737,14 @@ export default class Client extends OpenApi {
   async detachDdosFromAcceleratorWithOptions(request: DetachDdosFromAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<DetachDdosFromAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10247,11 +11770,26 @@ export default class Client extends OpenApi {
   async detachLogStoreFromEndpointGroupWithOptions(request: DetachLogStoreFromEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<DetachLogStoreFromEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["EndpointGroupIds"] = request.endpointGroupIds;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupIds)) {
+      query["EndpointGroupIds"] = request.endpointGroupIds;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10274,14 +11812,103 @@ export default class Client extends OpenApi {
     return await this.detachLogStoreFromEndpointGroupWithOptions(request, runtime);
   }
 
+  async detectApplicationMonitorWithOptions(request: DetectApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DetectApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetectApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DetectApplicationMonitorResponse({}));
+  }
+
+  async detectApplicationMonitor(request: DetectApplicationMonitorRequest): Promise<DetectApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detectApplicationMonitorWithOptions(request, runtime);
+  }
+
+  async disableApplicationMonitorWithOptions(request: DisableApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<DisableApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableApplicationMonitorResponse>(await this.callApi(params, req, runtime), new DisableApplicationMonitorResponse({}));
+  }
+
+  async disableApplicationMonitor(request: DisableApplicationMonitorRequest): Promise<DisableApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableApplicationMonitorWithOptions(request, runtime);
+  }
+
   async dissociateAclsFromListenerWithOptions(request: DissociateAclsFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAclsFromListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclIds"] = request.aclIds;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclIds)) {
+      query["AclIds"] = request.aclIds;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10307,11 +11934,26 @@ export default class Client extends OpenApi {
   async dissociateAdditionalCertificatesFromListenerWithOptions(request: DissociateAdditionalCertificatesFromListenerRequest, runtime: $Util.RuntimeOptions): Promise<DissociateAdditionalCertificatesFromListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["Domains"] = request.domains;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.domains)) {
+      query["Domains"] = request.domains;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10334,11 +11976,54 @@ export default class Client extends OpenApi {
     return await this.dissociateAdditionalCertificatesFromListenerWithOptions(request, runtime);
   }
 
+  async enableApplicationMonitorWithOptions(request: EnableApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<EnableApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableApplicationMonitorResponse>(await this.callApi(params, req, runtime), new EnableApplicationMonitorResponse({}));
+  }
+
+  async enableApplicationMonitor(request: EnableApplicationMonitorRequest): Promise<EnableApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableApplicationMonitorWithOptions(request, runtime);
+  }
+
   async getAclWithOptions(request: GetAclRequest, runtime: $Util.RuntimeOptions): Promise<GetAclResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclId"] = request.aclId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10364,8 +12049,14 @@ export default class Client extends OpenApi {
   async getBasicAcceleratorWithOptions(request: GetBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10391,9 +12082,18 @@ export default class Client extends OpenApi {
   async getBasicEndpointGroupWithOptions(request: GetBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10419,9 +12119,18 @@ export default class Client extends OpenApi {
   async getBasicIpSetWithOptions(request: GetBasicIpSetRequest, runtime: $Util.RuntimeOptions): Promise<GetBasicIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["IpSetId"] = request.ipSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10447,11 +12156,26 @@ export default class Client extends OpenApi {
   async getHealthStatusWithOptions(request: GetHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10477,11 +12201,26 @@ export default class Client extends OpenApi {
   async getSpareIpWithOptions(request: GetSpareIpRequest, runtime: $Util.RuntimeOptions): Promise<GetSpareIpResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["SpareIp"] = request.spareIp;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.spareIp)) {
+      query["SpareIp"] = request.spareIp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10507,7 +12246,10 @@ export default class Client extends OpenApi {
   async listAccelerateAreasWithOptions(request: ListAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAccelerateAreasResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10533,11 +12275,26 @@ export default class Client extends OpenApi {
   async listAcceleratorsWithOptions(request: ListAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAcceleratorsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["State"] = request.state;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10563,12 +12320,30 @@ export default class Client extends OpenApi {
   async listAclsWithOptions(request: ListAclsRequest, runtime: $Util.RuntimeOptions): Promise<ListAclsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclIds"] = request.aclIds;
-    query["AclName"] = request.aclName;
-    query["ClientToken"] = request.clientToken;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclIds)) {
+      query["AclIds"] = request.aclIds;
+    }
+
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10591,11 +12366,107 @@ export default class Client extends OpenApi {
     return await this.listAclsWithOptions(request, runtime);
   }
 
+  async listApplicationMonitorWithOptions(request: ListApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.searchValue)) {
+      query["SearchValue"] = request.searchValue;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationMonitorResponse>(await this.callApi(params, req, runtime), new ListApplicationMonitorResponse({}));
+  }
+
+  async listApplicationMonitor(request: ListApplicationMonitorRequest): Promise<ListApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApplicationMonitorWithOptions(request, runtime);
+  }
+
+  async listApplicationMonitorDetectResultWithOptions(request: ListApplicationMonitorDetectResultRequest, runtime: $Util.RuntimeOptions): Promise<ListApplicationMonitorDetectResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListApplicationMonitorDetectResult",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationMonitorDetectResultResponse>(await this.callApi(params, req, runtime), new ListApplicationMonitorDetectResultResponse({}));
+  }
+
+  async listApplicationMonitorDetectResult(request: ListApplicationMonitorDetectResultRequest): Promise<ListApplicationMonitorDetectResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listApplicationMonitorDetectResultWithOptions(request, runtime);
+  }
+
   async listAvailableAccelerateAreasWithOptions(request: ListAvailableAccelerateAreasRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableAccelerateAreasResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10621,8 +12492,14 @@ export default class Client extends OpenApi {
   async listAvailableBusiRegionsWithOptions(request: ListAvailableBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListAvailableBusiRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10648,12 +12525,30 @@ export default class Client extends OpenApi {
   async listBandwidthPackagesWithOptions(request: ListBandwidthPackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthPackagesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["State"] = request.state;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10679,9 +12574,18 @@ export default class Client extends OpenApi {
   async listBandwidthackagesWithOptions(request: ListBandwidthackagesRequest, runtime: $Util.RuntimeOptions): Promise<ListBandwidthackagesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10707,11 +12611,26 @@ export default class Client extends OpenApi {
   async listBasicAcceleratorsWithOptions(request: ListBasicAcceleratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListBasicAcceleratorsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["State"] = request.state;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10737,7 +12656,10 @@ export default class Client extends OpenApi {
   async listBusiRegionsWithOptions(request: ListBusiRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListBusiRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10763,14 +12685,38 @@ export default class Client extends OpenApi {
   async listEndpointGroupsWithOptions(request: ListEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["AccessLogSwitch"] = request.accessLogSwitch;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["EndpointGroupType"] = request.endpointGroupType;
-    query["ListenerId"] = request.listenerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.accessLogSwitch)) {
+      query["AccessLogSwitch"] = request.accessLogSwitch;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupType)) {
+      query["EndpointGroupType"] = request.endpointGroupType;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10796,13 +12742,34 @@ export default class Client extends OpenApi {
   async listForwardingRulesWithOptions(request: ListForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["ForwardingRuleId"] = request.forwardingRuleId;
-    query["ListenerId"] = request.listenerId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.forwardingRuleId)) {
+      query["ForwardingRuleId"] = request.forwardingRuleId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10828,10 +12795,22 @@ export default class Client extends OpenApi {
   async listIpSetsWithOptions(request: ListIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<ListIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10857,12 +12836,30 @@ export default class Client extends OpenApi {
   async listListenerCertificatesWithOptions(request: ListListenerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListListenerCertificatesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ListenerId"] = request.listenerId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["Role"] = request.role;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.role)) {
+      query["Role"] = request.role;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10888,10 +12885,22 @@ export default class Client extends OpenApi {
   async listListenersWithOptions(request: ListListenersRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10917,10 +12926,22 @@ export default class Client extends OpenApi {
   async listSpareIpsWithOptions(request: ListSpareIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListSpareIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10946,9 +12967,18 @@ export default class Client extends OpenApi {
   async listSystemSecurityPoliciesWithOptions(request: ListSystemSecurityPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListSystemSecurityPoliciesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10974,11 +13004,26 @@ export default class Client extends OpenApi {
   async removeEntriesFromAclWithOptions(request: RemoveEntriesFromAclRequest, runtime: $Util.RuntimeOptions): Promise<RemoveEntriesFromAclResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclEntries"] = request.aclEntries;
-    query["AclId"] = request.aclId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclEntries)) {
+      query["AclEntries"] = request.aclEntries;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11004,9 +13049,18 @@ export default class Client extends OpenApi {
   async replaceBandwidthPackageWithOptions(request: ReplaceBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["RegionId"] = request.regionId;
-    query["TargetBandwidthPackageId"] = request.targetBandwidthPackageId;
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.targetBandwidthPackageId)) {
+      query["TargetBandwidthPackageId"] = request.targetBandwidthPackageId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11032,14 +13086,38 @@ export default class Client extends OpenApi {
   async updateAcceleratorWithOptions(request: UpdateAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["AutoPay"] = request.autoPay;
-    query["AutoUseCoupon"] = request.autoUseCoupon;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
-    query["Spec"] = request.spec;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.spec)) {
+      query["Spec"] = request.spec;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11065,13 +13143,34 @@ export default class Client extends OpenApi {
   async updateAcceleratorAutoRenewAttributeWithOptions(request: UpdateAcceleratorAutoRenewAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorAutoRenewAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["AutoRenew"] = request.autoRenew;
-    query["AutoRenewDuration"] = request.autoRenewDuration;
-    query["ClientToken"] = request.clientToken;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
-    query["RenewalStatus"] = request.renewalStatus;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewDuration)) {
+      query["AutoRenewDuration"] = request.autoRenewDuration;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.renewalStatus)) {
+      query["RenewalStatus"] = request.renewalStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11097,8 +13196,14 @@ export default class Client extends OpenApi {
   async updateAcceleratorConfirmWithOptions(request: UpdateAcceleratorConfirmRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAcceleratorConfirmResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11124,11 +13229,26 @@ export default class Client extends OpenApi {
   async updateAclAttributeWithOptions(request: UpdateAclAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAclAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AclId"] = request.aclId;
-    query["AclName"] = request.aclName;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11151,17 +13271,98 @@ export default class Client extends OpenApi {
     return await this.updateAclAttributeWithOptions(request, runtime);
   }
 
+  async updateApplicationMonitorWithOptions(request: UpdateApplicationMonitorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationMonitorResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.detectThreshold)) {
+      query["DetectThreshold"] = request.detectThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.optionsJson)) {
+      query["OptionsJson"] = request.optionsJson;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateApplicationMonitor",
+      version: "2019-11-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationMonitorResponse>(await this.callApi(params, req, runtime), new UpdateApplicationMonitorResponse({}));
+  }
+
+  async updateApplicationMonitor(request: UpdateApplicationMonitorRequest): Promise<UpdateApplicationMonitorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateApplicationMonitorWithOptions(request, runtime);
+  }
+
   async updateBandwidthPackageWithOptions(request: UpdateBandwidthPackageRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBandwidthPackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoPay"] = request.autoPay;
-    query["AutoUseCoupon"] = request.autoUseCoupon;
-    query["Bandwidth"] = request.bandwidth;
-    query["BandwidthPackageId"] = request.bandwidthPackageId;
-    query["BandwidthType"] = request.bandwidthType;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.bandwidthPackageId)) {
+      query["BandwidthPackageId"] = request.bandwidthPackageId;
+    }
+
+    if (!Util.isUnset(request.bandwidthType)) {
+      query["BandwidthType"] = request.bandwidthType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11187,11 +13388,26 @@ export default class Client extends OpenApi {
   async updateBasicAcceleratorWithOptions(request: UpdateBasicAcceleratorRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicAcceleratorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11217,13 +13433,34 @@ export default class Client extends OpenApi {
   async updateBasicEndpointGroupWithOptions(request: UpdateBasicEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBasicEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EndpointAddress"] = request.endpointAddress;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["EndpointType"] = request.endpointType;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointAddress)) {
+      query["EndpointAddress"] = request.endpointAddress;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11249,22 +13486,70 @@ export default class Client extends OpenApi {
   async updateEndpointGroupWithOptions(request: UpdateEndpointGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EndpointConfigurations"] = request.endpointConfigurations;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["EndpointGroupRegion"] = request.endpointGroupRegion;
-    query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
-    query["HealthCheckEnabled"] = request.healthCheckEnabled;
-    query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
-    query["HealthCheckPath"] = request.healthCheckPath;
-    query["HealthCheckPort"] = request.healthCheckPort;
-    query["HealthCheckProtocol"] = request.healthCheckProtocol;
-    query["Name"] = request.name;
-    query["PortOverrides"] = request.portOverrides;
-    query["RegionId"] = request.regionId;
-    query["ThresholdCount"] = request.thresholdCount;
-    query["TrafficPercentage"] = request.trafficPercentage;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointConfigurations)) {
+      query["EndpointConfigurations"] = request.endpointConfigurations;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.endpointGroupRegion)) {
+      query["EndpointGroupRegion"] = request.endpointGroupRegion;
+    }
+
+    if (!Util.isUnset(request.endpointRequestProtocol)) {
+      query["EndpointRequestProtocol"] = request.endpointRequestProtocol;
+    }
+
+    if (!Util.isUnset(request.healthCheckEnabled)) {
+      query["HealthCheckEnabled"] = request.healthCheckEnabled;
+    }
+
+    if (!Util.isUnset(request.healthCheckIntervalSeconds)) {
+      query["HealthCheckIntervalSeconds"] = request.healthCheckIntervalSeconds;
+    }
+
+    if (!Util.isUnset(request.healthCheckPath)) {
+      query["HealthCheckPath"] = request.healthCheckPath;
+    }
+
+    if (!Util.isUnset(request.healthCheckPort)) {
+      query["HealthCheckPort"] = request.healthCheckPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckProtocol)) {
+      query["HealthCheckProtocol"] = request.healthCheckProtocol;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.portOverrides)) {
+      query["PortOverrides"] = request.portOverrides;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.thresholdCount)) {
+      query["ThresholdCount"] = request.thresholdCount;
+    }
+
+    if (!Util.isUnset(request.trafficPercentage)) {
+      query["TrafficPercentage"] = request.trafficPercentage;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11290,11 +13575,26 @@ export default class Client extends OpenApi {
   async updateEndpointGroupAttributeWithOptions(request: UpdateEndpointGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["EndpointGroupId"] = request.endpointGroupId;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endpointGroupId)) {
+      query["EndpointGroupId"] = request.endpointGroupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11320,11 +13620,26 @@ export default class Client extends OpenApi {
   async updateEndpointGroupsWithOptions(request: UpdateEndpointGroupsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateEndpointGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointGroupConfigurations)) {
+      query["EndpointGroupConfigurations"] = request.endpointGroupConfigurations;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11350,11 +13665,26 @@ export default class Client extends OpenApi {
   async updateForwardingRulesWithOptions(request: UpdateForwardingRulesRequest, runtime: $Util.RuntimeOptions): Promise<UpdateForwardingRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceleratorId"] = request.acceleratorId;
-    query["ClientToken"] = request.clientToken;
-    query["ForwardingRules"] = request.forwardingRules;
-    query["ListenerId"] = request.listenerId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceleratorId)) {
+      query["AcceleratorId"] = request.acceleratorId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.forwardingRules)) {
+      query["ForwardingRules"] = request.forwardingRules;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11380,10 +13710,22 @@ export default class Client extends OpenApi {
   async updateIpSetWithOptions(request: UpdateIpSetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["IpSetId"] = request.ipSetId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.ipSetId)) {
+      query["IpSetId"] = request.ipSetId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11409,8 +13751,14 @@ export default class Client extends OpenApi {
   async updateIpSetsWithOptions(request: UpdateIpSetsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIpSetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IpSets"] = request.ipSets;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ipSets)) {
+      query["IpSets"] = request.ipSets;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11436,19 +13784,58 @@ export default class Client extends OpenApi {
   async updateListenerWithOptions(request: UpdateListenerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateListenerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BackendPorts"] = request.backendPorts;
-    query["Certificates"] = request.certificates;
-    query["ClientAffinity"] = request.clientAffinity;
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["ListenerId"] = request.listenerId;
-    query["Name"] = request.name;
-    query["PortRanges"] = request.portRanges;
-    query["Protocol"] = request.protocol;
-    query["ProxyProtocol"] = request.proxyProtocol;
-    query["RegionId"] = request.regionId;
-    query["SecurityPolicyId"] = request.securityPolicyId;
-    query["XForwardedForConfig"] = request.XForwardedForConfig;
+    if (!Util.isUnset(request.backendPorts)) {
+      query["BackendPorts"] = request.backendPorts;
+    }
+
+    if (!Util.isUnset(request.certificates)) {
+      query["Certificates"] = request.certificates;
+    }
+
+    if (!Util.isUnset(request.clientAffinity)) {
+      query["ClientAffinity"] = request.clientAffinity;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.listenerId)) {
+      query["ListenerId"] = request.listenerId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.portRanges)) {
+      query["PortRanges"] = request.portRanges;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.proxyProtocol)) {
+      query["ProxyProtocol"] = request.proxyProtocol;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityPolicyId)) {
+      query["SecurityPolicyId"] = request.securityPolicyId;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.XForwardedForConfig))) {
+      query["XForwardedForConfig"] = request.XForwardedForConfig;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
