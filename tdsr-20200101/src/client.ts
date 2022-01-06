@@ -1105,12 +1105,16 @@ export class DetailSubSceneResponseBody extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
   id?: string;
+  imageUrl?: string;
+  layoutData?: string;
   message?: string;
   name?: string;
+  originUrl?: string;
   requestId?: string;
   resourceId?: string;
   status?: number;
   success?: boolean;
+  type?: string;
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1120,12 +1124,16 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       id: 'Id',
+      imageUrl: 'ImageUrl',
+      layoutData: 'LayoutData',
       message: 'Message',
       name: 'Name',
+      originUrl: 'OriginUrl',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
       status: 'Status',
       success: 'Success',
+      type: 'Type',
       url: 'Url',
     };
   }
@@ -1138,12 +1146,16 @@ export class DetailSubSceneResponseBody extends $tea.Model {
       gmtCreate: 'number',
       gmtModified: 'number',
       id: 'string',
+      imageUrl: 'string',
+      layoutData: 'string',
       message: 'string',
       name: 'string',
+      originUrl: 'string',
       requestId: 'string',
       resourceId: 'string',
       status: 'number',
       success: 'boolean',
+      type: 'string',
       url: 'string',
     };
   }
