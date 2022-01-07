@@ -1075,6 +1075,84 @@ export class DisableVpcEndpointConnectionResponse extends $tea.Model {
   }
 }
 
+export class DisableVpcEndpointZoneConnectionRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  endpointId?: string;
+  regionId?: string;
+  replacedResource?: boolean;
+  serviceId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+      replacedResource: 'ReplacedResource',
+      serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      endpointId: 'string',
+      regionId: 'string',
+      replacedResource: 'boolean',
+      serviceId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableVpcEndpointZoneConnectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DisableVpcEndpointZoneConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DisableVpcEndpointZoneConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableVpcEndpointConnectionRequest extends $tea.Model {
   bandwidth?: number;
   clientToken?: string;
@@ -1142,6 +1220,81 @@ export class EnableVpcEndpointConnectionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EnableVpcEndpointConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableVpcEndpointZoneConnectionRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  endpointId?: string;
+  regionId?: string;
+  serviceId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      endpointId: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableVpcEndpointZoneConnectionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableVpcEndpointZoneConnectionResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableVpcEndpointZoneConnectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableVpcEndpointZoneConnectionResponseBody,
     };
   }
 
@@ -1389,6 +1542,8 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   regionId?: string;
+  replacedResourceId?: string;
+  resourceId?: string;
   serviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1399,6 +1554,8 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      replacedResourceId: 'ReplacedResourceId',
+      resourceId: 'ResourceId',
       serviceId: 'ServiceId',
     };
   }
@@ -1412,6 +1569,8 @@ export class ListVpcEndpointConnectionsRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      replacedResourceId: 'string',
+      resourceId: 'string',
       serviceId: 'string',
     };
   }
@@ -2500,6 +2659,168 @@ export class UpdateVpcEndpointServiceAttributeResponse extends $tea.Model {
   }
 }
 
+export class UpdateVpcEndpointServiceResourceAttributeRequest extends $tea.Model {
+  autoAllocatedEnabled?: boolean;
+  clientToken?: string;
+  dryRun?: boolean;
+  regionId?: string;
+  resourceId?: string;
+  serviceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoAllocatedEnabled: 'AutoAllocatedEnabled',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      serviceId: 'ServiceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoAllocatedEnabled: 'boolean',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      regionId: 'string',
+      resourceId: 'string',
+      serviceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpcEndpointServiceResourceAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpcEndpointServiceResourceAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateVpcEndpointServiceResourceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateVpcEndpointServiceResourceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpcEndpointZoneConnectionResourceAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  dryRun?: boolean;
+  endpointId?: string;
+  regionId?: string;
+  resourceAllocateMode?: string;
+  resourceId?: string;
+  resourceReplaceMode?: string;
+  resourceType?: string;
+  serviceId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      endpointId: 'EndpointId',
+      regionId: 'RegionId',
+      resourceAllocateMode: 'ResourceAllocateMode',
+      resourceId: 'ResourceId',
+      resourceReplaceMode: 'ResourceReplaceMode',
+      resourceType: 'ResourceType',
+      serviceId: 'ServiceId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      dryRun: 'boolean',
+      endpointId: 'string',
+      regionId: 'string',
+      resourceAllocateMode: 'string',
+      resourceId: 'string',
+      resourceReplaceMode: 'string',
+      resourceType: 'string',
+      serviceId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateVpcEndpointZoneConnectionResourceAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateVpcEndpointZoneConnectionResourceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpcEndpointRequestZone extends $tea.Model {
   vSwitchId?: string;
   zoneId?: string;
@@ -2634,27 +2955,36 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
 
 export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $tea.Model {
   eniId?: string;
+  replacedEniId?: string;
+  replacedResourceId?: string;
   resourceId?: string;
   vSwitchId?: string;
   zoneDomain?: string;
   zoneId?: string;
+  zoneStatus?: string;
   static names(): { [key: string]: string } {
     return {
       eniId: 'EniId',
+      replacedEniId: 'ReplacedEniId',
+      replacedResourceId: 'ReplacedResourceId',
       resourceId: 'ResourceId',
       vSwitchId: 'VSwitchId',
       zoneDomain: 'ZoneDomain',
       zoneId: 'ZoneId',
+      zoneStatus: 'ZoneStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       eniId: 'string',
+      replacedEniId: 'string',
+      replacedResourceId: 'string',
       resourceId: 'string',
       vSwitchId: 'string',
       zoneDomain: 'string',
       zoneId: 'string',
+      zoneStatus: 'string',
     };
   }
 
@@ -2726,8 +3056,11 @@ export class ListVpcEndpointSecurityGroupsResponseBodySecurityGroups extends $te
 }
 
 export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.Model {
+  autoAllocatedEnabled?: boolean;
   ip?: string;
   regionId?: string;
+  relatedDeprecatedEndpointCount?: number;
+  relatedEndpointCount?: number;
   resourceId?: string;
   resourceType?: string;
   vSwitchId?: string;
@@ -2735,8 +3068,11 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.M
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoAllocatedEnabled: 'AutoAllocatedEnabled',
       ip: 'Ip',
       regionId: 'RegionId',
+      relatedDeprecatedEndpointCount: 'RelatedDeprecatedEndpointCount',
+      relatedEndpointCount: 'RelatedEndpointCount',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       vSwitchId: 'VSwitchId',
@@ -2747,8 +3083,11 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
+      autoAllocatedEnabled: 'boolean',
       ip: 'string',
       regionId: 'string',
+      relatedDeprecatedEndpointCount: 'number',
+      relatedEndpointCount: 'number',
       resourceId: 'string',
       resourceType: 'string',
       vSwitchId: 'string',
@@ -3009,12 +3348,30 @@ export default class Client extends OpenApi {
   async addUserToVpcEndpointServiceWithOptions(request: AddUserToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3040,14 +3397,38 @@ export default class Client extends OpenApi {
   async addZoneToVpcEndpointWithOptions(request: AddZoneToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AddZoneToVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["VSwitchId"] = request.vSwitchId;
-    query["ZoneId"] = request.zoneId;
-    query["ip"] = request.ip;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["ip"] = request.ip;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3073,13 +3454,34 @@ export default class Client extends OpenApi {
   async attachResourceToVpcEndpointServiceWithOptions(request: AttachResourceToVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<AttachResourceToVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3105,12 +3507,30 @@ export default class Client extends OpenApi {
   async attachSecurityGroupToVpcEndpointWithOptions(request: AttachSecurityGroupToVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<AttachSecurityGroupToVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["SecurityGroupId"] = request.securityGroupId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3157,20 +3577,62 @@ export default class Client extends OpenApi {
   async createVpcEndpointWithOptions(request: CreateVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointDescription"] = request.endpointDescription;
-    query["EndpointName"] = request.endpointName;
-    query["EndpointType"] = request.endpointType;
-    query["ProtectedEnabled"] = request.protectedEnabled;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["SecurityGroupId"] = request.securityGroupId;
-    query["ServiceId"] = request.serviceId;
-    query["ServiceName"] = request.serviceName;
-    query["VpcId"] = request.vpcId;
-    query["Zone"] = request.zone;
-    query["ZonePrivateIpAddressCount"] = request.zonePrivateIpAddressCount;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointDescription)) {
+      query["EndpointDescription"] = request.endpointDescription;
+    }
+
+    if (!Util.isUnset(request.endpointName)) {
+      query["EndpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.protectedEnabled)) {
+      query["ProtectedEnabled"] = request.protectedEnabled;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zone)) {
+      query["Zone"] = request.zone;
+    }
+
+    if (!Util.isUnset(request.zonePrivateIpAddressCount)) {
+      query["ZonePrivateIpAddressCount"] = request.zonePrivateIpAddressCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3196,16 +3658,46 @@ export default class Client extends OpenApi {
   async createVpcEndpointServiceWithOptions(request: CreateVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["Payer"] = request.payer;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["Resource"] = request.resource;
-    query["ServiceDescription"] = request.serviceDescription;
-    query["ServiceResourceType"] = request.serviceResourceType;
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    if (!Util.isUnset(request.autoAcceptEnabled)) {
+      query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.payer)) {
+      query["Payer"] = request.payer;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.serviceDescription)) {
+      query["ServiceDescription"] = request.serviceDescription;
+    }
+
+    if (!Util.isUnset(request.serviceResourceType)) {
+      query["ServiceResourceType"] = request.serviceResourceType;
+    }
+
+    if (!Util.isUnset(request.zoneAffinityEnabled)) {
+      query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3231,11 +3723,26 @@ export default class Client extends OpenApi {
   async deleteVpcEndpointWithOptions(request: DeleteVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3261,11 +3768,26 @@ export default class Client extends OpenApi {
   async deleteVpcEndpointServiceWithOptions(request: DeleteVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3291,8 +3813,14 @@ export default class Client extends OpenApi {
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3318,8 +3846,14 @@ export default class Client extends OpenApi {
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3345,13 +3879,34 @@ export default class Client extends OpenApi {
   async detachResourceFromVpcEndpointServiceWithOptions(request: DetachResourceFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<DetachResourceFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3377,12 +3932,30 @@ export default class Client extends OpenApi {
   async detachSecurityGroupFromVpcEndpointWithOptions(request: DetachSecurityGroupFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<DetachSecurityGroupFromVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["SecurityGroupId"] = request.securityGroupId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3408,12 +3981,30 @@ export default class Client extends OpenApi {
   async disableVpcEndpointConnectionWithOptions(request: DisableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3436,16 +4027,94 @@ export default class Client extends OpenApi {
     return await this.disableVpcEndpointConnectionWithOptions(request, runtime);
   }
 
+  async disableVpcEndpointZoneConnectionWithOptions(request: DisableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DisableVpcEndpointZoneConnectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replacedResource)) {
+      query["ReplacedResource"] = request.replacedResource;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableVpcEndpointZoneConnection",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableVpcEndpointZoneConnectionResponse>(await this.callApi(params, req, runtime), new DisableVpcEndpointZoneConnectionResponse({}));
+  }
+
+  async disableVpcEndpointZoneConnection(request: DisableVpcEndpointZoneConnectionRequest): Promise<DisableVpcEndpointZoneConnectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableVpcEndpointZoneConnectionWithOptions(request, runtime);
+  }
+
   async enableVpcEndpointConnectionWithOptions(request: EnableVpcEndpointConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3468,12 +4137,74 @@ export default class Client extends OpenApi {
     return await this.enableVpcEndpointConnectionWithOptions(request, runtime);
   }
 
+  async enableVpcEndpointZoneConnectionWithOptions(request: EnableVpcEndpointZoneConnectionRequest, runtime: $Util.RuntimeOptions): Promise<EnableVpcEndpointZoneConnectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableVpcEndpointZoneConnection",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableVpcEndpointZoneConnectionResponse>(await this.callApi(params, req, runtime), new EnableVpcEndpointZoneConnectionResponse({}));
+  }
+
+  async enableVpcEndpointZoneConnection(request: EnableVpcEndpointZoneConnectionRequest): Promise<EnableVpcEndpointZoneConnectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableVpcEndpointZoneConnectionWithOptions(request, runtime);
+  }
+
   async getVpcEndpointAttributeWithOptions(request: GetVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3499,9 +4230,18 @@ export default class Client extends OpenApi {
   async getVpcEndpointServiceAttributeWithOptions(request: GetVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<GetVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3527,15 +4267,50 @@ export default class Client extends OpenApi {
   async listVpcEndpointConnectionsWithOptions(request: ListVpcEndpointConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointConnectionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionStatus"] = request.connectionStatus;
-    query["EndpointId"] = request.endpointId;
-    query["EndpointOwnerId"] = request.endpointOwnerId;
-    query["EniId"] = request.eniId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.connectionStatus)) {
+      query["ConnectionStatus"] = request.connectionStatus;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.endpointOwnerId)) {
+      query["EndpointOwnerId"] = request.endpointOwnerId;
+    }
+
+    if (!Util.isUnset(request.eniId)) {
+      query["EniId"] = request.eniId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.replacedResourceId)) {
+      query["ReplacedResourceId"] = request.replacedResourceId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3561,11 +4336,26 @@ export default class Client extends OpenApi {
   async listVpcEndpointSecurityGroupsWithOptions(request: ListVpcEndpointSecurityGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointSecurityGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointId"] = request.endpointId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3591,11 +4381,26 @@ export default class Client extends OpenApi {
   async listVpcEndpointServiceResourcesWithOptions(request: ListVpcEndpointServiceResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3621,12 +4426,30 @@ export default class Client extends OpenApi {
   async listVpcEndpointServiceUsersWithOptions(request: ListVpcEndpointServiceUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServiceUsersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3652,17 +4475,50 @@ export default class Client extends OpenApi {
   async listVpcEndpointServicesWithOptions(request: ListVpcEndpointServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceBusinessStatus"] = request.serviceBusinessStatus;
-    query["ServiceId"] = request.serviceId;
-    query["ServiceName"] = request.serviceName;
-    query["ServiceResourceType"] = request.serviceResourceType;
-    query["ServiceStatus"] = request.serviceStatus;
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    if (!Util.isUnset(request.autoAcceptEnabled)) {
+      query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceBusinessStatus)) {
+      query["ServiceBusinessStatus"] = request.serviceBusinessStatus;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceResourceType)) {
+      query["ServiceResourceType"] = request.serviceResourceType;
+    }
+
+    if (!Util.isUnset(request.serviceStatus)) {
+      query["ServiceStatus"] = request.serviceStatus;
+    }
+
+    if (!Util.isUnset(request.zoneAffinityEnabled)) {
+      query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3688,13 +4544,34 @@ export default class Client extends OpenApi {
   async listVpcEndpointServicesByEndUserWithOptions(request: ListVpcEndpointServicesByEndUserRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointServicesByEndUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
-    query["ServiceName"] = request.serviceName;
-    query["ServiceType"] = request.serviceType;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3720,11 +4597,26 @@ export default class Client extends OpenApi {
   async listVpcEndpointZonesWithOptions(request: ListVpcEndpointZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointZonesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointId"] = request.endpointId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3750,17 +4642,50 @@ export default class Client extends OpenApi {
   async listVpcEndpointsWithOptions(request: ListVpcEndpointsRequest, runtime: $Util.RuntimeOptions): Promise<ListVpcEndpointsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionStatus"] = request.connectionStatus;
-    query["EndpointId"] = request.endpointId;
-    query["EndpointName"] = request.endpointName;
-    query["EndpointStatus"] = request.endpointStatus;
-    query["EndpointType"] = request.endpointType;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceName"] = request.serviceName;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.connectionStatus)) {
+      query["ConnectionStatus"] = request.connectionStatus;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.endpointName)) {
+      query["EndpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.endpointStatus)) {
+      query["EndpointStatus"] = request.endpointStatus;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3786,7 +4711,10 @@ export default class Client extends OpenApi {
   async openPrivateLinkServiceWithOptions(request: OpenPrivateLinkServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenPrivateLinkServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3812,12 +4740,30 @@ export default class Client extends OpenApi {
   async removeUserFromVpcEndpointServiceWithOptions(request: RemoveUserFromVpcEndpointServiceRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromVpcEndpointServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3843,12 +4789,30 @@ export default class Client extends OpenApi {
   async removeZoneFromVpcEndpointWithOptions(request: RemoveZoneFromVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<RemoveZoneFromVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3874,13 +4838,34 @@ export default class Client extends OpenApi {
   async updateVpcEndpointAttributeWithOptions(request: UpdateVpcEndpointAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointDescription"] = request.endpointDescription;
-    query["EndpointId"] = request.endpointId;
-    query["EndpointName"] = request.endpointName;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointDescription)) {
+      query["EndpointDescription"] = request.endpointDescription;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.endpointName)) {
+      query["EndpointName"] = request.endpointName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3906,13 +4891,34 @@ export default class Client extends OpenApi {
   async updateVpcEndpointConnectionAttributeWithOptions(request: UpdateVpcEndpointConnectionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointConnectionAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Bandwidth"] = request.bandwidth;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["EndpointId"] = request.endpointId;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3938,15 +4944,42 @@ export default class Client extends OpenApi {
   async updateVpcEndpointServiceAttributeWithOptions(request: UpdateVpcEndpointServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
-    query["ClientToken"] = request.clientToken;
-    query["ConnectBandwidth"] = request.connectBandwidth;
-    query["DryRun"] = request.dryRun;
-    query["RegionId"] = request.regionId;
-    query["RegionId"] = request.regionId;
-    query["ServiceDescription"] = request.serviceDescription;
-    query["ServiceId"] = request.serviceId;
-    query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    if (!Util.isUnset(request.autoAcceptEnabled)) {
+      query["AutoAcceptEnabled"] = request.autoAcceptEnabled;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectBandwidth)) {
+      query["ConnectBandwidth"] = request.connectBandwidth;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceDescription)) {
+      query["ServiceDescription"] = request.serviceDescription;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.zoneAffinityEnabled)) {
+      query["ZoneAffinityEnabled"] = request.zoneAffinityEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -3967,6 +5000,128 @@ export default class Client extends OpenApi {
   async updateVpcEndpointServiceAttribute(request: UpdateVpcEndpointServiceAttributeRequest): Promise<UpdateVpcEndpointServiceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateVpcEndpointServiceAttributeWithOptions(request, runtime);
+  }
+
+  async updateVpcEndpointServiceResourceAttributeWithOptions(request: UpdateVpcEndpointServiceResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoAllocatedEnabled)) {
+      query["AutoAllocatedEnabled"] = request.autoAllocatedEnabled;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateVpcEndpointServiceResourceAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVpcEndpointServiceResourceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointServiceResourceAttributeResponse({}));
+  }
+
+  async updateVpcEndpointServiceResourceAttribute(request: UpdateVpcEndpointServiceResourceAttributeRequest): Promise<UpdateVpcEndpointServiceResourceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateVpcEndpointServiceResourceAttributeWithOptions(request, runtime);
+  }
+
+  async updateVpcEndpointZoneConnectionResourceAttributeWithOptions(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.endpointId)) {
+      query["EndpointId"] = request.endpointId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceAllocateMode)) {
+      query["ResourceAllocateMode"] = request.resourceAllocateMode;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceReplaceMode)) {
+      query["ResourceReplaceMode"] = request.resourceReplaceMode;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateVpcEndpointZoneConnectionResourceAttribute",
+      version: "2020-04-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateVpcEndpointZoneConnectionResourceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateVpcEndpointZoneConnectionResourceAttributeResponse({}));
+  }
+
+  async updateVpcEndpointZoneConnectionResourceAttribute(request: UpdateVpcEndpointZoneConnectionResourceAttributeRequest): Promise<UpdateVpcEndpointZoneConnectionResourceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateVpcEndpointZoneConnectionResourceAttributeWithOptions(request, runtime);
   }
 
 }
