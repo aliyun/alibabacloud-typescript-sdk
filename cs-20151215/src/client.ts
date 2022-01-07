@@ -441,6 +441,7 @@ export class CreateClusterRequest extends $tea.Model {
   proxyMode?: string;
   rdsInstances?: string[];
   regionId?: string;
+  resourceGroupId?: string;
   runtime?: Runtime;
   securityGroupId?: string;
   serviceAccountIssuer?: string;
@@ -526,6 +527,7 @@ export class CreateClusterRequest extends $tea.Model {
       proxyMode: 'proxy_mode',
       rdsInstances: 'rds_instances',
       regionId: 'region_id',
+      resourceGroupId: 'resource_group_id',
       runtime: 'runtime',
       securityGroupId: 'security_group_id',
       serviceAccountIssuer: 'service_account_issuer',
@@ -614,6 +616,7 @@ export class CreateClusterRequest extends $tea.Model {
       proxyMode: 'string',
       rdsInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupId: 'string',
       runtime: Runtime,
       securityGroupId: 'string',
       serviceAccountIssuer: 'string',
@@ -5433,6 +5436,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
+  desiredSize?: number;
   imageId?: string;
   imageType?: string;
   instanceChargeType?: string;
@@ -5467,6 +5471,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
+      desiredSize: 'desired_size',
       imageId: 'image_id',
       imageType: 'image_type',
       instanceChargeType: 'instance_charge_type',
@@ -5504,6 +5509,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
+      desiredSize: 'number',
       imageId: 'string',
       imageType: 'string',
       instanceChargeType: 'string',
@@ -5862,6 +5868,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
+  desiredSize?: number;
   imageId?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
@@ -5897,6 +5904,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
+      desiredSize: 'desired_size',
       imageId: 'image_id',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
@@ -5935,6 +5943,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
+      desiredSize: 'number',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -6259,6 +6268,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
   deploymentsetId?: string;
+  desiredSize?: number;
   imageId?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
@@ -6294,6 +6304,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
       deploymentsetId: 'deploymentset_id',
+      desiredSize: 'desired_size',
       imageId: 'image_id',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
@@ -6332,6 +6343,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsScalingGroup extends $
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
       deploymentsetId: 'string',
+      desiredSize: 'number',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -8055,6 +8067,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenewPeriod?: number;
   compensateWithOnDemand?: boolean;
   dataDisks?: DataDisk[];
+  desiredSize?: number;
   imageId?: string;
   instanceChargeType?: string;
   instanceTypes?: string[];
@@ -8085,6 +8098,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       autoRenewPeriod: 'auto_renew_period',
       compensateWithOnDemand: 'compensate_with_on_demand',
       dataDisks: 'data_disks',
+      desiredSize: 'desired_size',
       imageId: 'image_id',
       instanceChargeType: 'instance_charge_type',
       instanceTypes: 'instance_types',
@@ -8118,6 +8132,7 @@ export class ModifyClusterNodePoolRequestScalingGroup extends $tea.Model {
       autoRenewPeriod: 'number',
       compensateWithOnDemand: 'boolean',
       dataDisks: { 'type': 'array', 'itemType': DataDisk },
+      desiredSize: 'number',
       imageId: 'string',
       instanceChargeType: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
@@ -8804,6 +8819,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       body["region_id"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resource_group_id"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset($tea.toMap(request.runtime))) {
