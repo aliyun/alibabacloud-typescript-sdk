@@ -4,44 +4,45 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class CreateVerifySchemeRequest extends $tea.Model {
+  appName?: string;
+  bundleId?: string;
+  osType?: string;
   ownerId?: number;
+  packName?: string;
+  packSign?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   schemeName?: string;
-  appName?: string;
-  osType?: string;
-  packName?: string;
-  packSign?: string;
-  bundleId?: string;
   static names(): { [key: string]: string } {
     return {
+      appName: 'AppName',
+      bundleId: 'BundleId',
+      osType: 'OsType',
       ownerId: 'OwnerId',
+      packName: 'PackName',
+      packSign: 'PackSign',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       schemeName: 'SchemeName',
-      appName: 'AppName',
-      osType: 'OsType',
-      packName: 'PackName',
-      packSign: 'PackSign',
-      bundleId: 'BundleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appName: 'string',
+      bundleId: 'string',
+      osType: 'string',
       ownerId: 'number',
+      packName: 'string',
+      packSign: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       schemeName: 'string',
-      appName: 'string',
-      osType: 'string',
-      packName: 'string',
-      packSign: 'string',
-      bundleId: 'string',
     };
   }
 
@@ -51,25 +52,25 @@ export class CreateVerifySchemeRequest extends $tea.Model {
 }
 
 export class CreateVerifySchemeResponseBody extends $tea.Model {
+  code?: string;
+  gateVerifySchemeDTO?: CreateVerifySchemeResponseBodyGateVerifySchemeDTO;
   message?: string;
   requestId?: string;
-  gateVerifySchemeDTO?: CreateVerifySchemeResponseBodyGateVerifySchemeDTO;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      gateVerifySchemeDTO: 'GateVerifySchemeDTO',
       message: 'Message',
       requestId: 'RequestId',
-      gateVerifySchemeDTO: 'GateVerifySchemeDTO',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      gateVerifySchemeDTO: CreateVerifySchemeResponseBodyGateVerifySchemeDTO,
       message: 'string',
       requestId: 'string',
-      gateVerifySchemeDTO: CreateVerifySchemeResponseBodyGateVerifySchemeDTO,
-      code: 'string',
     };
   }
 
@@ -101,28 +102,28 @@ export class CreateVerifySchemeResponse extends $tea.Model {
 }
 
 export class DeleteVerifySchemeRequest extends $tea.Model {
+  customerId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   schemeCode?: string;
-  customerId?: number;
   static names(): { [key: string]: string } {
     return {
+      customerId: 'CustomerId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       schemeCode: 'SchemeCode',
-      customerId: 'CustomerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customerId: 'number',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       schemeCode: 'string',
-      customerId: 'number',
     };
   }
 
@@ -132,24 +133,24 @@ export class DeleteVerifySchemeRequest extends $tea.Model {
 }
 
 export class DeleteVerifySchemeResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   result?: boolean;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       result: 'boolean',
     };
   }
@@ -182,28 +183,28 @@ export class DeleteVerifySchemeResponse extends $tea.Model {
 }
 
 export class DescribeVerifySchemeRequest extends $tea.Model {
+  customerId?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   schemeCode?: string;
-  customerId?: number;
   static names(): { [key: string]: string } {
     return {
+      customerId: 'CustomerId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       schemeCode: 'SchemeCode',
-      customerId: 'CustomerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customerId: 'number',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       schemeCode: 'string',
-      customerId: 'number',
     };
   }
 
@@ -213,24 +214,24 @@ export class DescribeVerifySchemeRequest extends $tea.Model {
 }
 
 export class DescribeVerifySchemeResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
-  code?: string;
   schemeQueryResultDTO?: DescribeVerifySchemeResponseBodySchemeQueryResultDTO;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
       schemeQueryResultDTO: 'SchemeQueryResultDTO',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
-      code: 'string',
       schemeQueryResultDTO: DescribeVerifySchemeResponseBodySchemeQueryResultDTO,
     };
   }
@@ -262,113 +263,29 @@ export class DescribeVerifySchemeResponse extends $tea.Model {
   }
 }
 
-export class GetAuthorizationUrlRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  phoneNo?: string;
-  schemeId?: number;
-  endDate?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      phoneNo: 'PhoneNo',
-      schemeId: 'SchemeId',
-      endDate: 'EndDate',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      phoneNo: 'string',
-      schemeId: 'number',
-      endDate: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthorizationUrlResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: GetAuthorizationUrlResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: GetAuthorizationUrlResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAuthorizationUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAuthorizationUrlResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAuthorizationUrlResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetAuthTokenRequest extends $tea.Model {
+  origin?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   url?: string;
-  origin?: string;
   static names(): { [key: string]: string } {
     return {
+      origin: 'Origin',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       url: 'Url',
-      origin: 'Origin',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      origin: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       url: 'string',
-      origin: 'string',
     };
   }
 
@@ -378,25 +295,25 @@ export class GetAuthTokenRequest extends $tea.Model {
 }
 
 export class GetAuthTokenResponseBody extends $tea.Model {
+  code?: string;
   message?: string;
   requestId?: string;
   tokenInfo?: GetAuthTokenResponseBodyTokenInfo;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       message: 'Message',
       requestId: 'RequestId',
       tokenInfo: 'TokenInfo',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       message: 'string',
       requestId: 'string',
       tokenInfo: GetAuthTokenResponseBodyTokenInfo,
-      code: 'string',
     };
   }
 
@@ -427,18 +344,100 @@ export class GetAuthTokenResponse extends $tea.Model {
   }
 }
 
+export class GetAuthorizationUrlRequest extends $tea.Model {
+  endDate?: string;
+  ownerId?: number;
+  phoneNo?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  schemeId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endDate: 'EndDate',
+      ownerId: 'OwnerId',
+      phoneNo: 'PhoneNo',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemeId: 'SchemeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endDate: 'string',
+      ownerId: 'number',
+      phoneNo: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemeId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAuthorizationUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAuthorizationUrlResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetAuthorizationUrlResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAuthorizationUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAuthorizationUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAuthorizationUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCertifyResultRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  productCode?: string;
   token?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      productCode: 'ProductCode',
       token: 'Token',
     };
   }
@@ -448,7 +447,6 @@ export class GetCertifyResultRequest extends $tea.Model {
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      productCode: 'string',
       token: 'string',
     };
   }
@@ -459,25 +457,25 @@ export class GetCertifyResultRequest extends $tea.Model {
 }
 
 export class GetCertifyResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCertifyResultResponseBodyData[];
   message?: string;
   requestId?: string;
-  data?: GetCertifyResultResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetCertifyResultResponseBodyData },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': GetCertifyResultResponseBodyData },
-      code: 'string',
     };
   }
 
@@ -509,28 +507,28 @@ export class GetCertifyResultResponse extends $tea.Model {
 }
 
 export class GetMobileRequest extends $tea.Model {
+  accessToken?: string;
+  outId?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  accessToken?: string;
-  outId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessToken: 'AccessToken',
+      outId: 'OutId',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      accessToken: 'AccessToken',
-      outId: 'OutId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessToken: 'string',
+      outId: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      accessToken: 'string',
-      outId: 'string',
     };
   }
 
@@ -540,25 +538,25 @@ export class GetMobileRequest extends $tea.Model {
 }
 
 export class GetMobileResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
   code?: string;
   getMobileResultDTO?: GetMobileResponseBodyGetMobileResultDTO;
+  message?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      message: 'Message',
-      requestId: 'RequestId',
       code: 'Code',
       getMobileResultDTO: 'GetMobileResultDTO',
+      message: 'Message',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      message: 'string',
-      requestId: 'string',
       code: 'string',
       getMobileResultDTO: GetMobileResponseBodyGetMobileResultDTO,
+      message: 'string',
+      requestId: 'string',
     };
   }
 
@@ -589,29 +587,47 @@ export class GetMobileResponse extends $tea.Model {
   }
 }
 
-export class TwiceTelVerifyRequest extends $tea.Model {
+export class GetSmsAuthTokensRequest extends $tea.Model {
+  bundleId?: string;
+  expire?: number;
+  osType?: string;
   ownerId?: number;
+  packageName?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  since?: string;
-  phoneNumber?: string;
+  sceneCode?: string;
+  signName?: string;
+  smsCodeExpire?: number;
+  smsTemplateCode?: string;
   static names(): { [key: string]: string } {
     return {
+      bundleId: 'BundleId',
+      expire: 'Expire',
+      osType: 'OsType',
       ownerId: 'OwnerId',
+      packageName: 'PackageName',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      since: 'Since',
-      phoneNumber: 'PhoneNumber',
+      sceneCode: 'SceneCode',
+      signName: 'SignName',
+      smsCodeExpire: 'SmsCodeExpire',
+      smsTemplateCode: 'SmsTemplateCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bundleId: 'string',
+      expire: 'number',
+      osType: 'string',
       ownerId: 'number',
+      packageName: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      since: 'string',
-      phoneNumber: 'string',
+      sceneCode: 'string',
+      signName: 'string',
+      smsCodeExpire: 'number',
+      smsTemplateCode: 'string',
     };
   }
 
@@ -620,26 +636,26 @@ export class TwiceTelVerifyRequest extends $tea.Model {
   }
 }
 
-export class TwiceTelVerifyResponseBody extends $tea.Model {
+export class GetSmsAuthTokensResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSmsAuthTokensResponseBodyData;
   message?: string;
   requestId?: string;
-  twiceTelVerifyResult?: TwiceTelVerifyResponseBodyTwiceTelVerifyResult;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      twiceTelVerifyResult: 'TwiceTelVerifyResult',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetSmsAuthTokensResponseBodyData,
       message: 'string',
       requestId: 'string',
-      twiceTelVerifyResult: TwiceTelVerifyResponseBodyTwiceTelVerifyResult,
-      code: 'string',
     };
   }
 
@@ -648,9 +664,9 @@ export class TwiceTelVerifyResponseBody extends $tea.Model {
   }
 }
 
-export class TwiceTelVerifyResponse extends $tea.Model {
+export class GetSmsAuthTokensResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: TwiceTelVerifyResponseBody;
+  body: GetSmsAuthTokensResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -661,7 +677,184 @@ export class TwiceTelVerifyResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: TwiceTelVerifyResponseBody,
+      body: GetSmsAuthTokensResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyBillingPublicRequest extends $tea.Model {
+  authenticationType?: number;
+  month?: string;
+  ownerId?: number;
+  prodCode?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationType: 'AuthenticationType',
+      month: 'Month',
+      ownerId: 'OwnerId',
+      prodCode: 'ProdCode',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationType: 'number',
+      month: 'string',
+      ownerId: 'number',
+      prodCode: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyBillingPublicResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryGateVerifyBillingPublicResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryGateVerifyBillingPublicResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyBillingPublicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGateVerifyBillingPublicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGateVerifyBillingPublicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyStatisticPublicRequest extends $tea.Model {
+  authenticationType?: number;
+  endDate?: string;
+  osType?: string;
+  ownerId?: number;
+  prodCode?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sceneCode?: string;
+  startDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authenticationType: 'AuthenticationType',
+      endDate: 'EndDate',
+      osType: 'OsType',
+      ownerId: 'OwnerId',
+      prodCode: 'ProdCode',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sceneCode: 'SceneCode',
+      startDate: 'StartDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authenticationType: 'number',
+      endDate: 'string',
+      osType: 'string',
+      ownerId: 'number',
+      prodCode: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sceneCode: 'string',
+      startDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyStatisticPublicResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryGateVerifyStatisticPublicResponseBodyData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryGateVerifyStatisticPublicResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyStatisticPublicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryGateVerifyStatisticPublicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryGateVerifyStatisticPublicResponseBody,
     };
   }
 
@@ -671,31 +864,31 @@ export class TwiceTelVerifyResponse extends $tea.Model {
 }
 
 export class VerifyMobileRequest extends $tea.Model {
+  accessCode?: string;
+  outId?: string;
   ownerId?: number;
+  phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  accessCode?: string;
-  phoneNumber?: string;
-  outId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessCode: 'AccessCode',
+      outId: 'OutId',
       ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      accessCode: 'AccessCode',
-      phoneNumber: 'PhoneNumber',
-      outId: 'OutId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessCode: 'string',
+      outId: 'string',
       ownerId: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      accessCode: 'string',
-      phoneNumber: 'string',
-      outId: 'string',
     };
   }
 
@@ -705,25 +898,25 @@ export class VerifyMobileRequest extends $tea.Model {
 }
 
 export class VerifyMobileResponseBody extends $tea.Model {
+  code?: string;
   gateVerifyResultDTO?: VerifyMobileResponseBodyGateVerifyResultDTO;
   message?: string;
   requestId?: string;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
       gateVerifyResultDTO: 'GateVerifyResultDTO',
       message: 'Message',
       requestId: 'RequestId',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       gateVerifyResultDTO: VerifyMobileResponseBodyGateVerifyResultDTO,
       message: 'string',
       requestId: 'string',
-      code: 'string',
     };
   }
 
@@ -756,16 +949,16 @@ export class VerifyMobileResponse extends $tea.Model {
 
 export class VerifyPhoneWithTokenRequest extends $tea.Model {
   ownerId?: number;
+  phoneNumber?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  phoneNumber?: string;
   spToken?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
+      phoneNumber: 'PhoneNumber',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      phoneNumber: 'PhoneNumber',
       spToken: 'SpToken',
     };
   }
@@ -773,9 +966,9 @@ export class VerifyPhoneWithTokenRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ownerId: 'number',
+      phoneNumber: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      phoneNumber: 'string',
       spToken: 'string',
     };
   }
@@ -786,25 +979,25 @@ export class VerifyPhoneWithTokenRequest extends $tea.Model {
 }
 
 export class VerifyPhoneWithTokenResponseBody extends $tea.Model {
+  code?: string;
+  gateVerify?: VerifyPhoneWithTokenResponseBodyGateVerify;
   message?: string;
   requestId?: string;
-  gateVerify?: VerifyPhoneWithTokenResponseBodyGateVerify;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      gateVerify: 'GateVerify',
       message: 'Message',
       requestId: 'RequestId',
-      gateVerify: 'GateVerify',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      gateVerify: VerifyPhoneWithTokenResponseBodyGateVerify,
       message: 'string',
       requestId: 'string',
-      gateVerify: VerifyPhoneWithTokenResponseBodyGateVerify,
-      code: 'string',
     };
   }
 
@@ -827,6 +1020,81 @@ export class VerifyPhoneWithTokenResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: VerifyPhoneWithTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySmsCodeRequest extends $tea.Model {
+  phoneNumber?: string;
+  smsCode?: string;
+  smsToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      phoneNumber: 'PhoneNumber',
+      smsCode: 'SmsCode',
+      smsToken: 'SmsToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      phoneNumber: 'string',
+      smsCode: 'string',
+      smsToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySmsCodeResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VerifySmsCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: VerifySmsCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: VerifySmsCodeResponseBody,
     };
   }
 
@@ -873,6 +1141,28 @@ export class DescribeVerifySchemeResponseBodySchemeQueryResultDTO extends $tea.M
   }
 }
 
+export class GetAuthTokenResponseBodyTokenInfo extends $tea.Model {
+  accessToken?: string;
+  jwtToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      jwtToken: 'JwtToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      jwtToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAuthorizationUrlResponseBodyData extends $tea.Model {
   authorizationUrl?: string;
   static names(): { [key: string]: string } {
@@ -892,51 +1182,29 @@ export class GetAuthorizationUrlResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetAuthTokenResponseBodyTokenInfo extends $tea.Model {
-  jwtToken?: string;
-  accessToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jwtToken: 'JwtToken',
-      accessToken: 'AccessToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jwtToken: 'string',
-      accessToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetCertifyResultResponseBodyData extends $tea.Model {
+  deviceToken?: string;
+  identityInfo?: string;
   materialInfo?: string;
   verifyDesc?: string;
-  identityInfo?: string;
   verifyResult?: string;
-  deviceToken?: string;
   static names(): { [key: string]: string } {
     return {
+      deviceToken: 'DeviceToken',
+      identityInfo: 'IdentityInfo',
       materialInfo: 'MaterialInfo',
       verifyDesc: 'VerifyDesc',
-      identityInfo: 'IdentityInfo',
       verifyResult: 'VerifyResult',
-      deviceToken: 'DeviceToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deviceToken: 'string',
+      identityInfo: 'string',
       materialInfo: 'string',
       verifyDesc: 'string',
-      identityInfo: 'string',
       verifyResult: 'string',
-      deviceToken: 'string',
     };
   }
 
@@ -964,20 +1232,147 @@ export class GetMobileResponseBodyGetMobileResultDTO extends $tea.Model {
   }
 }
 
-export class TwiceTelVerifyResponseBodyTwiceTelVerifyResult extends $tea.Model {
-  carrier?: string;
-  verifyResult?: number;
+export class GetSmsAuthTokensResponseBodyData extends $tea.Model {
+  bizToken?: string;
+  expireTime?: number;
+  stsAccessKeyId?: string;
+  stsAccessKeySecret?: string;
+  stsToken?: string;
   static names(): { [key: string]: string } {
     return {
-      carrier: 'Carrier',
-      verifyResult: 'VerifyResult',
+      bizToken: 'BizToken',
+      expireTime: 'ExpireTime',
+      stsAccessKeyId: 'StsAccessKeyId',
+      stsAccessKeySecret: 'StsAccessKeySecret',
+      stsToken: 'StsToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      carrier: 'string',
-      verifyResult: 'number',
+      bizToken: 'string',
+      expireTime: 'number',
+      stsAccessKeyId: 'string',
+      stsAccessKeySecret: 'string',
+      stsToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyBillingPublicResponseBodyDataSceneBillingList extends $tea.Model {
+  add?: string;
+  amount?: string;
+  appName?: string;
+  itemName?: string;
+  sceneCode?: string;
+  sceneName?: string;
+  singlePrice?: string;
+  static names(): { [key: string]: string } {
+    return {
+      add: 'Add',
+      amount: 'Amount',
+      appName: 'AppName',
+      itemName: 'ItemName',
+      sceneCode: 'SceneCode',
+      sceneName: 'SceneName',
+      singlePrice: 'SinglePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      add: 'string',
+      amount: 'string',
+      appName: 'string',
+      itemName: 'string',
+      sceneCode: 'string',
+      sceneName: 'string',
+      singlePrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyBillingPublicResponseBodyData extends $tea.Model {
+  amountSum?: string;
+  sceneBillingList?: QueryGateVerifyBillingPublicResponseBodyDataSceneBillingList[];
+  static names(): { [key: string]: string } {
+    return {
+      amountSum: 'AmountSum',
+      sceneBillingList: 'SceneBillingList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amountSum: 'string',
+      sceneBillingList: { 'type': 'array', 'itemType': QueryGateVerifyBillingPublicResponseBodyDataSceneBillingList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyStatisticPublicResponseBodyDataDayStatistic extends $tea.Model {
+  statisticDateStr?: string;
+  totalFail?: number;
+  totalSuccess?: number;
+  totalUnknown?: number;
+  static names(): { [key: string]: string } {
+    return {
+      statisticDateStr: 'StatisticDateStr',
+      totalFail: 'TotalFail',
+      totalSuccess: 'TotalSuccess',
+      totalUnknown: 'TotalUnknown',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      statisticDateStr: 'string',
+      totalFail: 'number',
+      totalSuccess: 'number',
+      totalUnknown: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryGateVerifyStatisticPublicResponseBodyData extends $tea.Model {
+  dayStatistic?: QueryGateVerifyStatisticPublicResponseBodyDataDayStatistic[];
+  total?: number;
+  totalFail?: number;
+  totalSuccess?: number;
+  totalUnknown?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dayStatistic: 'DayStatistic',
+      total: 'Total',
+      totalFail: 'TotalFail',
+      totalSuccess: 'TotalSuccess',
+      totalUnknown: 'TotalUnknown',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dayStatistic: { 'type': 'array', 'itemType': QueryGateVerifyStatisticPublicResponseBodyDataDayStatistic },
+      total: 'number',
+      totalFail: 'number',
+      totalSuccess: 'number',
+      totalUnknown: 'number',
     };
   }
 
@@ -987,19 +1382,19 @@ export class TwiceTelVerifyResponseBodyTwiceTelVerifyResult extends $tea.Model {
 }
 
 export class VerifyMobileResponseBodyGateVerifyResultDTO extends $tea.Model {
-  verifyResult?: string;
   verifyId?: string;
+  verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
-      verifyResult: 'VerifyResult',
       verifyId: 'VerifyId',
+      verifyResult: 'VerifyResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verifyResult: 'string',
       verifyId: 'string',
+      verifyResult: 'string',
     };
   }
 
@@ -1009,19 +1404,19 @@ export class VerifyMobileResponseBodyGateVerifyResultDTO extends $tea.Model {
 }
 
 export class VerifyPhoneWithTokenResponseBodyGateVerify extends $tea.Model {
-  verifyResult?: string;
   verifyId?: string;
+  verifyResult?: string;
   static names(): { [key: string]: string } {
     return {
-      verifyResult: 'VerifyResult',
       verifyId: 'VerifyId',
+      verifyResult: 'VerifyResult',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verifyResult: 'string',
       verifyId: 'string',
+      verifyResult: 'string',
     };
   }
 
@@ -1055,10 +1450,58 @@ export default class Client extends OpenApi {
 
   async createVerifySchemeWithOptions(request: CreateVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateVerifySchemeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.bundleId)) {
+      query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packName)) {
+      query["PackName"] = request.packName;
+    }
+
+    if (!Util.isUnset(request.packSign)) {
+      query["PackSign"] = request.packSign;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeName)) {
+      query["SchemeName"] = request.schemeName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVerifySchemeResponse>(await this.doRPCRequest("CreateVerifyScheme", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVerifySchemeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVerifyScheme",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVerifySchemeResponse>(await this.callApi(params, req, runtime), new CreateVerifySchemeResponse({}));
   }
 
   async createVerifyScheme(request: CreateVerifySchemeRequest): Promise<CreateVerifySchemeResponse> {
@@ -1068,10 +1511,42 @@ export default class Client extends OpenApi {
 
   async deleteVerifySchemeWithOptions(request: DeleteVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVerifySchemeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeCode)) {
+      query["SchemeCode"] = request.schemeCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVerifySchemeResponse>(await this.doRPCRequest("DeleteVerifyScheme", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVerifySchemeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVerifyScheme",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVerifySchemeResponse>(await this.callApi(params, req, runtime), new DeleteVerifySchemeResponse({}));
   }
 
   async deleteVerifyScheme(request: DeleteVerifySchemeRequest): Promise<DeleteVerifySchemeResponse> {
@@ -1081,10 +1556,42 @@ export default class Client extends OpenApi {
 
   async describeVerifySchemeWithOptions(request: DescribeVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifySchemeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customerId)) {
+      query["CustomerId"] = request.customerId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeCode)) {
+      query["SchemeCode"] = request.schemeCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVerifySchemeResponse>(await this.doRPCRequest("DescribeVerifyScheme", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVerifySchemeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVerifyScheme",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVerifySchemeResponse>(await this.callApi(params, req, runtime), new DescribeVerifySchemeResponse({}));
   }
 
   async describeVerifyScheme(request: DescribeVerifySchemeRequest): Promise<DescribeVerifySchemeResponse> {
@@ -1092,25 +1599,44 @@ export default class Client extends OpenApi {
     return await this.describeVerifySchemeWithOptions(request, runtime);
   }
 
-  async getAuthorizationUrlWithOptions(request: GetAuthorizationUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationUrlResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetAuthorizationUrlResponse>(await this.doRPCRequest("GetAuthorizationUrl", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetAuthorizationUrlResponse({}));
-  }
-
-  async getAuthorizationUrl(request: GetAuthorizationUrlRequest): Promise<GetAuthorizationUrlResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAuthorizationUrlWithOptions(request, runtime);
-  }
-
   async getAuthTokenWithOptions(request: GetAuthTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAuthTokenResponse>(await this.doRPCRequest("GetAuthToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetAuthTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAuthToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthTokenResponse>(await this.callApi(params, req, runtime), new GetAuthTokenResponse({}));
   }
 
   async getAuthToken(request: GetAuthTokenRequest): Promise<GetAuthTokenResponse> {
@@ -1118,12 +1644,89 @@ export default class Client extends OpenApi {
     return await this.getAuthTokenWithOptions(request, runtime);
   }
 
+  async getAuthorizationUrlWithOptions(request: GetAuthorizationUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNo)) {
+      query["PhoneNo"] = request.phoneNo;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeId)) {
+      query["SchemeId"] = request.schemeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAuthorizationUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAuthorizationUrlResponse>(await this.callApi(params, req, runtime), new GetAuthorizationUrlResponse({}));
+  }
+
+  async getAuthorizationUrl(request: GetAuthorizationUrlRequest): Promise<GetAuthorizationUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAuthorizationUrlWithOptions(request, runtime);
+  }
+
   async getCertifyResultWithOptions(request: GetCertifyResultRequest, runtime: $Util.RuntimeOptions): Promise<GetCertifyResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetCertifyResultResponse>(await this.doRPCRequest("GetCertifyResult", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetCertifyResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCertifyResult",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCertifyResultResponse>(await this.callApi(params, req, runtime), new GetCertifyResultResponse({}));
   }
 
   async getCertifyResult(request: GetCertifyResultRequest): Promise<GetCertifyResultResponse> {
@@ -1133,10 +1736,42 @@ export default class Client extends OpenApi {
 
   async getMobileWithOptions(request: GetMobileRequest, runtime: $Util.RuntimeOptions): Promise<GetMobileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetMobileResponse>(await this.doRPCRequest("GetMobile", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetMobileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetMobile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetMobileResponse>(await this.callApi(params, req, runtime), new GetMobileResponse({}));
   }
 
   async getMobile(request: GetMobileRequest): Promise<GetMobileResponse> {
@@ -1144,25 +1779,227 @@ export default class Client extends OpenApi {
     return await this.getMobileWithOptions(request, runtime);
   }
 
-  async twiceTelVerifyWithOptions(request: TwiceTelVerifyRequest, runtime: $Util.RuntimeOptions): Promise<TwiceTelVerifyResponse> {
+  async getSmsAuthTokensWithOptions(request: GetSmsAuthTokensRequest, runtime: $Util.RuntimeOptions): Promise<GetSmsAuthTokensResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bundleId)) {
+      query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.expire)) {
+      query["Expire"] = request.expire;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packageName)) {
+      query["PackageName"] = request.packageName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.signName)) {
+      query["SignName"] = request.signName;
+    }
+
+    if (!Util.isUnset(request.smsCodeExpire)) {
+      query["SmsCodeExpire"] = request.smsCodeExpire;
+    }
+
+    if (!Util.isUnset(request.smsTemplateCode)) {
+      query["SmsTemplateCode"] = request.smsTemplateCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TwiceTelVerifyResponse>(await this.doRPCRequest("TwiceTelVerify", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new TwiceTelVerifyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSmsAuthTokens",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSmsAuthTokensResponse>(await this.callApi(params, req, runtime), new GetSmsAuthTokensResponse({}));
   }
 
-  async twiceTelVerify(request: TwiceTelVerifyRequest): Promise<TwiceTelVerifyResponse> {
+  async getSmsAuthTokens(request: GetSmsAuthTokensRequest): Promise<GetSmsAuthTokensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.twiceTelVerifyWithOptions(request, runtime);
+    return await this.getSmsAuthTokensWithOptions(request, runtime);
+  }
+
+  async queryGateVerifyBillingPublicWithOptions(request: QueryGateVerifyBillingPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyBillingPublicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationType)) {
+      query["AuthenticationType"] = request.authenticationType;
+    }
+
+    if (!Util.isUnset(request.month)) {
+      query["Month"] = request.month;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGateVerifyBillingPublic",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGateVerifyBillingPublicResponse>(await this.callApi(params, req, runtime), new QueryGateVerifyBillingPublicResponse({}));
+  }
+
+  async queryGateVerifyBillingPublic(request: QueryGateVerifyBillingPublicRequest): Promise<QueryGateVerifyBillingPublicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGateVerifyBillingPublicWithOptions(request, runtime);
+  }
+
+  async queryGateVerifyStatisticPublicWithOptions(request: QueryGateVerifyStatisticPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyStatisticPublicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationType)) {
+      query["AuthenticationType"] = request.authenticationType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sceneCode)) {
+      query["SceneCode"] = request.sceneCode;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryGateVerifyStatisticPublic",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryGateVerifyStatisticPublicResponse>(await this.callApi(params, req, runtime), new QueryGateVerifyStatisticPublicResponse({}));
+  }
+
+  async queryGateVerifyStatisticPublic(request: QueryGateVerifyStatisticPublicRequest): Promise<QueryGateVerifyStatisticPublicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryGateVerifyStatisticPublicWithOptions(request, runtime);
   }
 
   async verifyMobileWithOptions(request: VerifyMobileRequest, runtime: $Util.RuntimeOptions): Promise<VerifyMobileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessCode)) {
+      query["AccessCode"] = request.accessCode;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyMobileResponse>(await this.doRPCRequest("VerifyMobile", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyMobileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyMobile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyMobileResponse>(await this.callApi(params, req, runtime), new VerifyMobileResponse({}));
   }
 
   async verifyMobile(request: VerifyMobileRequest): Promise<VerifyMobileResponse> {
@@ -1172,15 +2009,84 @@ export default class Client extends OpenApi {
 
   async verifyPhoneWithTokenWithOptions(request: VerifyPhoneWithTokenRequest, runtime: $Util.RuntimeOptions): Promise<VerifyPhoneWithTokenResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.spToken)) {
+      query["SpToken"] = request.spToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<VerifyPhoneWithTokenResponse>(await this.doRPCRequest("VerifyPhoneWithToken", "2017-05-25", "HTTPS", "POST", "AK", "json", req, runtime), new VerifyPhoneWithTokenResponse({}));
+    let params = new $OpenApi.Params({
+      action: "VerifyPhoneWithToken",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifyPhoneWithTokenResponse>(await this.callApi(params, req, runtime), new VerifyPhoneWithTokenResponse({}));
   }
 
   async verifyPhoneWithToken(request: VerifyPhoneWithTokenRequest): Promise<VerifyPhoneWithTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.verifyPhoneWithTokenWithOptions(request, runtime);
+  }
+
+  async verifySmsCodeWithOptions(request: VerifySmsCodeRequest, runtime: $Util.RuntimeOptions): Promise<VerifySmsCodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.smsCode)) {
+      query["SmsCode"] = request.smsCode;
+    }
+
+    if (!Util.isUnset(request.smsToken)) {
+      query["SmsToken"] = request.smsToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "VerifySmsCode",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<VerifySmsCodeResponse>(await this.callApi(params, req, runtime), new VerifySmsCodeResponse({}));
+  }
+
+  async verifySmsCode(request: VerifySmsCodeRequest): Promise<VerifySmsCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.verifySmsCodeWithOptions(request, runtime);
   }
 
 }
