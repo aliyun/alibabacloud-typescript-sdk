@@ -11,12 +11,10 @@ import * as $tea from '@alicloud/tea-typescript';
 export class CancelArtifactBuildTaskRequest extends $tea.Model {
   buildTaskId?: string;
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
@@ -24,7 +22,6 @@ export class CancelArtifactBuildTaskRequest extends $tea.Model {
     return {
       buildTaskId: 'string',
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -83,13 +80,11 @@ export class CancelArtifactBuildTaskResponse extends $tea.Model {
 export class CancelRepoBuildRecordRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -98,7 +93,6 @@ export class CancelRepoBuildRecordRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -158,13 +152,11 @@ export class CancelRepoBuildRecordResponse extends $tea.Model {
 export class CreateBuildRecordByRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -173,7 +165,6 @@ export class CreateBuildRecordByRuleRequest extends $tea.Model {
     return {
       buildRuleId: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -238,7 +229,6 @@ export class CreateChainRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
   name?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -247,7 +237,6 @@ export class CreateChainRequest extends $tea.Model {
       description: 'Description',
       instanceId: 'InstanceId',
       name: 'Name',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -259,7 +248,6 @@ export class CreateChainRequest extends $tea.Model {
       description: 'string',
       instanceId: 'string',
       name: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -325,14 +313,12 @@ export class CreateChartNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -342,7 +328,6 @@ export class CreateChartNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -400,7 +385,6 @@ export class CreateChartNamespaceResponse extends $tea.Model {
 
 export class CreateChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -408,7 +392,6 @@ export class CreateChartRepositoryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -419,7 +402,6 @@ export class CreateChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -488,7 +470,6 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
   entry?: string;
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       comment: 'Comment',
@@ -496,7 +477,6 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -507,7 +487,6 @@ export class CreateInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -564,16 +543,16 @@ export class CreateInstanceEndpointAclPolicyResponse extends $tea.Model {
 }
 
 export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
+  enableCreateDNSRecordInPvzt?: boolean;
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   vpcId?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      enableCreateDNSRecordInPvzt: 'EnableCreateDNSRecordInPvzt',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
     };
@@ -581,9 +560,9 @@ export class CreateInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableCreateDNSRecordInPvzt: 'boolean',
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
     };
@@ -646,14 +625,12 @@ export class CreateNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -663,7 +640,6 @@ export class CreateNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -726,7 +702,6 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
   instanceId?: string;
   pushName?: string;
   pushType?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -736,7 +711,6 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pushName: 'PushName',
       pushType: 'PushType',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -749,7 +723,6 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'string',
       pushName: 'string',
       pushType: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -817,7 +790,6 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
   disableCacheBuild?: boolean;
   instanceId?: string;
   overseaBuild?: boolean;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -828,7 +800,6 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'DisableCacheBuild',
       instanceId: 'InstanceId',
       overseaBuild: 'OverseaBuild',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -842,7 +813,6 @@ export class CreateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'boolean',
       instanceId: 'string',
       overseaBuild: 'boolean',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -902,7 +872,6 @@ export class CreateRepoSourceCodeRepoResponse extends $tea.Model {
 export class CreateRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   repoName?: string;
   syncRuleName?: string;
   syncScope?: string;
@@ -917,7 +886,6 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       syncRuleName: 'SyncRuleName',
       syncScope: 'SyncScope',
@@ -935,7 +903,6 @@ export class CreateRepoSyncRuleRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
       repoName: 'string',
       syncRuleName: 'string',
       syncScope: 'string',
@@ -1007,7 +974,6 @@ export class CreateRepoSyncRuleResponse extends $tea.Model {
 export class CreateRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
   override?: boolean;
-  regionId?: string;
   repoId?: string;
   tag?: string;
   targetInstanceId?: string;
@@ -1020,7 +986,6 @@ export class CreateRepoSyncTaskRequest extends $tea.Model {
     return {
       instanceId: 'InstanceId',
       override: 'Override',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
       targetInstanceId: 'TargetInstanceId',
@@ -1036,7 +1001,6 @@ export class CreateRepoSyncTaskRequest extends $tea.Model {
     return {
       instanceId: 'string',
       override: 'boolean',
-      regionId: 'string',
       repoId: 'string',
       tag: 'string',
       targetInstanceId: 'string',
@@ -1105,14 +1069,12 @@ export class CreateRepoSyncTaskResponse extends $tea.Model {
 
 export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   syncRuleId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       syncRuleId: 'SyncRuleId',
       tag: 'Tag',
@@ -1122,7 +1084,6 @@ export class CreateRepoSyncTaskByRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       syncRuleId: 'string',
       tag: 'string',
@@ -1188,7 +1149,6 @@ export class CreateRepoTagRequest extends $tea.Model {
   fromTag?: string;
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   repoName?: string;
   toTag?: string;
   static names(): { [key: string]: string } {
@@ -1196,7 +1156,6 @@ export class CreateRepoTagRequest extends $tea.Model {
       fromTag: 'FromTag',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       toTag: 'ToTag',
     };
@@ -1207,7 +1166,6 @@ export class CreateRepoTagRequest extends $tea.Model {
       fromTag: 'string',
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
       repoName: 'string',
       toTag: 'string',
     };
@@ -1268,7 +1226,6 @@ export class CreateRepoTagResponse extends $tea.Model {
 export class CreateRepoTagScanTaskRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   scanService?: string;
   tag?: string;
@@ -1276,7 +1233,6 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       scanService: 'ScanService',
       tag: 'Tag',
@@ -1287,7 +1243,6 @@ export class CreateRepoTagScanTaskRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       scanService: 'string',
       tag: 'string',
@@ -1348,7 +1303,6 @@ export class CreateRepoTagScanTaskResponse extends $tea.Model {
 
 export class CreateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   triggerName?: string;
   triggerTag?: string;
@@ -1357,7 +1311,6 @@ export class CreateRepoTriggerRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerName: 'TriggerName',
       triggerTag: 'TriggerTag',
@@ -1369,7 +1322,6 @@ export class CreateRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       triggerName: 'string',
       triggerTag: 'string',
@@ -1436,7 +1388,6 @@ export class CreateRepoTriggerResponse extends $tea.Model {
 export class CreateRepositoryRequest extends $tea.Model {
   detail?: string;
   instanceId?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -1446,7 +1397,6 @@ export class CreateRepositoryRequest extends $tea.Model {
     return {
       detail: 'Detail',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -1459,7 +1409,6 @@ export class CreateRepositoryRequest extends $tea.Model {
     return {
       detail: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -1526,12 +1475,10 @@ export class CreateRepositoryResponse extends $tea.Model {
 export class DeleteChainRequest extends $tea.Model {
   chainId?: string;
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainId: 'ChainId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
@@ -1539,7 +1486,6 @@ export class DeleteChainRequest extends $tea.Model {
     return {
       chainId: 'string',
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1598,12 +1544,10 @@ export class DeleteChainResponse extends $tea.Model {
 export class DeleteChartNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -1611,7 +1555,6 @@ export class DeleteChartNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1670,7 +1613,6 @@ export class DeleteChartNamespaceResponse extends $tea.Model {
 export class DeleteChartReleaseRequest extends $tea.Model {
   chart?: string;
   instanceId?: string;
-  regionId?: string;
   release?: string;
   repoName?: string;
   repoNamespaceName?: string;
@@ -1678,7 +1620,6 @@ export class DeleteChartReleaseRequest extends $tea.Model {
     return {
       chart: 'Chart',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       release: 'Release',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
@@ -1689,7 +1630,6 @@ export class DeleteChartReleaseRequest extends $tea.Model {
     return {
       chart: 'string',
       instanceId: 'string',
-      regionId: 'string',
       release: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
@@ -1750,13 +1690,11 @@ export class DeleteChartReleaseResponse extends $tea.Model {
 
 export class DeleteChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -1765,7 +1703,6 @@ export class DeleteChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -1825,12 +1762,10 @@ export class DeleteChartRepositoryResponse extends $tea.Model {
 
 export class DeleteEventCenterRuleRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       ruleId: 'RuleId',
     };
   }
@@ -1838,7 +1773,6 @@ export class DeleteEventCenterRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       ruleId: 'string',
     };
   }
@@ -1897,14 +1831,12 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
   entry?: string;
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       endpointType: 'EndpointType',
       entry: 'Entry',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -1914,7 +1846,6 @@ export class DeleteInstanceEndpointAclPolicyRequest extends $tea.Model {
       entry: 'string',
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -1973,14 +1904,12 @@ export class DeleteInstanceEndpointAclPolicyResponse extends $tea.Model {
 export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   vpcId?: string;
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
       vpcId: 'VpcId',
       vswitchId: 'VswitchId',
     };
@@ -1990,7 +1919,6 @@ export class DeleteInstanceVpcEndpointLinkedVpcRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
       vpcId: 'string',
       vswitchId: 'string',
     };
@@ -2051,12 +1979,10 @@ export class DeleteInstanceVpcEndpointLinkedVpcResponse extends $tea.Model {
 export class DeleteNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -2064,7 +1990,6 @@ export class DeleteNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2123,13 +2048,11 @@ export class DeleteNamespaceResponse extends $tea.Model {
 export class DeleteRepoBuildRuleRequest extends $tea.Model {
   buildRuleId?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRuleId: 'BuildRuleId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -2138,7 +2061,6 @@ export class DeleteRepoBuildRuleRequest extends $tea.Model {
     return {
       buildRuleId: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -2197,12 +2119,10 @@ export class DeleteRepoBuildRuleResponse extends $tea.Model {
 
 export class DeleteRepoSyncRuleRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   syncRuleId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       syncRuleId: 'SyncRuleId',
     };
   }
@@ -2210,7 +2130,6 @@ export class DeleteRepoSyncRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       syncRuleId: 'string',
     };
   }
@@ -2269,13 +2188,11 @@ export class DeleteRepoSyncRuleResponse extends $tea.Model {
 
 export class DeleteRepoTagRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
     };
@@ -2284,7 +2201,6 @@ export class DeleteRepoTagRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       tag: 'string',
     };
@@ -2344,13 +2260,11 @@ export class DeleteRepoTagResponse extends $tea.Model {
 
 export class DeleteRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   triggerId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerId: 'TriggerId',
     };
@@ -2359,7 +2273,6 @@ export class DeleteRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       triggerId: 'string',
     };
@@ -2419,12 +2332,10 @@ export class DeleteRepoTriggerResponse extends $tea.Model {
 
 export class DeleteRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -2432,7 +2343,6 @@ export class DeleteRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -2492,12 +2402,10 @@ export class DeleteRepositoryResponse extends $tea.Model {
 export class GetArtifactBuildTaskRequest extends $tea.Model {
   buildTaskId?: string;
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
@@ -2505,7 +2413,6 @@ export class GetArtifactBuildTaskRequest extends $tea.Model {
     return {
       buildTaskId: 'string',
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2587,18 +2494,15 @@ export class GetArtifactBuildTaskResponse extends $tea.Model {
 
 export class GetAuthorizationTokenRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2666,12 +2570,10 @@ export class GetAuthorizationTokenResponse extends $tea.Model {
 export class GetChainRequest extends $tea.Model {
   chainId?: string;
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainId: 'ChainId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
@@ -2679,7 +2581,6 @@ export class GetChainRequest extends $tea.Model {
     return {
       chainId: 'string',
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2765,12 +2666,10 @@ export class GetChainResponse extends $tea.Model {
 export class GetChartNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -2778,7 +2677,6 @@ export class GetChartNamespaceRequest extends $tea.Model {
     return {
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -2854,13 +2752,11 @@ export class GetChartNamespaceResponse extends $tea.Model {
 
 export class GetChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -2869,7 +2765,6 @@ export class GetChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -2956,18 +2851,15 @@ export class GetChartRepositoryResponse extends $tea.Model {
 
 export class GetInstanceRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3041,25 +2933,6 @@ export class GetInstanceResponse extends $tea.Model {
   }
 }
 
-export class GetInstanceCountRequest extends $tea.Model {
-  regionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      regionId: 'RegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      regionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetInstanceCountResponseBody extends $tea.Model {
   code?: string;
   count?: number;
@@ -3114,13 +2987,11 @@ export class GetInstanceEndpointRequest extends $tea.Model {
   endpointType?: string;
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       endpointType: 'EndpointType',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -3129,7 +3000,6 @@ export class GetInstanceEndpointRequest extends $tea.Model {
       endpointType: 'string',
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3202,18 +3072,15 @@ export class GetInstanceEndpointResponse extends $tea.Model {
 
 export class GetInstanceUsageRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3296,12 +3163,10 @@ export class GetInstanceUsageResponse extends $tea.Model {
 export class GetInstanceVpcEndpointRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -3309,7 +3174,6 @@ export class GetInstanceVpcEndpointRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3378,13 +3242,11 @@ export class GetNamespaceRequest extends $tea.Model {
   instanceId?: string;
   namespaceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -3393,7 +3255,6 @@ export class GetNamespaceRequest extends $tea.Model {
       instanceId: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3470,12 +3331,10 @@ export class GetNamespaceResponse extends $tea.Model {
 export class GetRepoBuildRecordRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
     };
   }
 
@@ -3483,7 +3342,6 @@ export class GetRepoBuildRecordRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3557,13 +3415,11 @@ export class GetRepoBuildRecordResponse extends $tea.Model {
 export class GetRepoBuildRecordStatusRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -3572,7 +3428,6 @@ export class GetRepoBuildRecordStatusRequest extends $tea.Model {
     return {
       buildRecordId: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -3634,12 +3489,10 @@ export class GetRepoBuildRecordStatusResponse extends $tea.Model {
 
 export class GetRepoSourceCodeRepoRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -3647,7 +3500,6 @@ export class GetRepoSourceCodeRepoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -3730,12 +3582,10 @@ export class GetRepoSourceCodeRepoResponse extends $tea.Model {
 
 export class GetRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   syncTaskId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       syncTaskId: 'SyncTaskId',
     };
   }
@@ -3743,7 +3593,6 @@ export class GetRepoSyncTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       syncTaskId: 'string',
     };
   }
@@ -3755,6 +3604,7 @@ export class GetRepoSyncTaskRequest extends $tea.Model {
 
 export class GetRepoSyncTaskResponseBody extends $tea.Model {
   code?: string;
+  crossUser?: boolean;
   imageFrom?: GetRepoSyncTaskResponseBodyImageFrom;
   imageTo?: GetRepoSyncTaskResponseBodyImageTo;
   isSuccess?: boolean;
@@ -3764,12 +3614,14 @@ export class GetRepoSyncTaskResponseBody extends $tea.Model {
   syncBatchTaskId?: string;
   syncRuleId?: string;
   syncTaskId?: string;
+  syncTransAccelerate?: boolean;
   syncedSize?: number;
   taskStatus?: string;
   taskTrigger?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      crossUser: 'CrossUser',
       imageFrom: 'ImageFrom',
       imageTo: 'ImageTo',
       isSuccess: 'IsSuccess',
@@ -3779,6 +3631,7 @@ export class GetRepoSyncTaskResponseBody extends $tea.Model {
       syncBatchTaskId: 'SyncBatchTaskId',
       syncRuleId: 'SyncRuleId',
       syncTaskId: 'SyncTaskId',
+      syncTransAccelerate: 'SyncTransAccelerate',
       syncedSize: 'SyncedSize',
       taskStatus: 'TaskStatus',
       taskTrigger: 'TaskTrigger',
@@ -3788,6 +3641,7 @@ export class GetRepoSyncTaskResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      crossUser: 'boolean',
       imageFrom: GetRepoSyncTaskResponseBodyImageFrom,
       imageTo: GetRepoSyncTaskResponseBodyImageTo,
       isSuccess: 'boolean',
@@ -3797,6 +3651,7 @@ export class GetRepoSyncTaskResponseBody extends $tea.Model {
       syncBatchTaskId: 'string',
       syncRuleId: 'string',
       syncTaskId: 'string',
+      syncTransAccelerate: 'boolean',
       syncedSize: 'number',
       taskStatus: 'string',
       taskTrigger: 'string',
@@ -3832,13 +3687,11 @@ export class GetRepoSyncTaskResponse extends $tea.Model {
 
 export class GetRepoTagRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
     };
@@ -3847,7 +3700,6 @@ export class GetRepoTagRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       tag: 'string',
     };
@@ -3929,14 +3781,12 @@ export class GetRepoTagResponse extends $tea.Model {
 export class GetRepoTagLayersRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       tag: 'Tag',
     };
@@ -3946,7 +3796,6 @@ export class GetRepoTagLayersRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       tag: 'string',
     };
@@ -4009,14 +3858,12 @@ export class GetRepoTagLayersResponse extends $tea.Model {
 
 export class GetRepoTagManifestRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   schemaVersion?: number;
   tag?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       schemaVersion: 'SchemaVersion',
       tag: 'Tag',
@@ -4026,7 +3873,6 @@ export class GetRepoTagManifestRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       schemaVersion: 'number',
       tag: 'string',
@@ -4091,7 +3937,6 @@ export class GetRepoTagManifestResponse extends $tea.Model {
 export class GetRepoTagScanStatusRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   tag?: string;
@@ -4099,7 +3944,6 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       tag: 'Tag',
@@ -4110,7 +3954,6 @@ export class GetRepoTagScanStatusRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       tag: 'string',
@@ -4178,7 +4021,6 @@ export class GetRepoTagScanStatusResponse extends $tea.Model {
 export class GetRepoTagScanSummaryRequest extends $tea.Model {
   digest?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   tag?: string;
@@ -4186,7 +4028,6 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
     return {
       digest: 'Digest',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       tag: 'Tag',
@@ -4197,7 +4038,6 @@ export class GetRepoTagScanSummaryRequest extends $tea.Model {
     return {
       digest: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       tag: 'string',
@@ -4273,14 +4113,12 @@ export class GetRepoTagScanSummaryResponse extends $tea.Model {
 
 export class GetRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
@@ -4290,7 +4128,6 @@ export class GetRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
@@ -4390,14 +4227,12 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
   instanceId?: string;
   page?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       buildTaskId: 'BuildTaskId',
       instanceId: 'InstanceId',
       page: 'Page',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -4407,7 +4242,6 @@ export class ListArtifactBuildTaskLogRequest extends $tea.Model {
       instanceId: 'string',
       page: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -4473,7 +4307,6 @@ export class ListChainRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4481,7 +4314,6 @@ export class ListChainRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4492,7 +4324,6 @@ export class ListChainRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4566,7 +4397,6 @@ export class ListChainInstanceRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4574,7 +4404,6 @@ export class ListChainInstanceRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4585,7 +4414,6 @@ export class ListChainInstanceRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4664,7 +4492,6 @@ export class ListChartNamespaceRequest extends $tea.Model {
   namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -4672,7 +4499,6 @@ export class ListChartNamespaceRequest extends $tea.Model {
       namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -4683,7 +4509,6 @@ export class ListChartNamespaceRequest extends $tea.Model {
       namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -4756,7 +4581,6 @@ export class ListChartReleaseRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   static names(): { [key: string]: string } {
@@ -4765,7 +4589,6 @@ export class ListChartReleaseRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
     };
@@ -4777,7 +4600,6 @@ export class ListChartReleaseRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
     };
@@ -4851,7 +4673,6 @@ export class ListChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoStatus?: string;
@@ -4860,7 +4681,6 @@ export class ListChartRepositoryRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
@@ -4872,7 +4692,6 @@ export class ListChartRepositoryRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoStatus: 'string',
@@ -4948,7 +4767,6 @@ export class ListEventCenterRecordRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4956,7 +4774,6 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       ruleId: 'RuleId',
     };
   }
@@ -4967,7 +4784,6 @@ export class ListEventCenterRecordRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       ruleId: 'string',
     };
   }
@@ -5110,14 +4926,12 @@ export class ListInstanceRequest extends $tea.Model {
   instanceStatus?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
       instanceStatus: 'InstanceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -5127,7 +4941,6 @@ export class ListInstanceRequest extends $tea.Model {
       instanceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -5198,12 +5011,10 @@ export class ListInstanceResponse extends $tea.Model {
 export class ListInstanceEndpointRequest extends $tea.Model {
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -5211,7 +5022,6 @@ export class ListInstanceEndpointRequest extends $tea.Model {
     return {
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -5272,18 +5082,15 @@ export class ListInstanceEndpointResponse extends $tea.Model {
 
 export class ListInstanceRegionRequest extends $tea.Model {
   lang?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       lang: 'Lang',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       lang: 'string',
-      regionId: 'string',
     };
   }
 
@@ -5348,7 +5155,6 @@ export class ListNamespaceRequest extends $tea.Model {
   namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -5356,7 +5162,6 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
     };
   }
 
@@ -5367,7 +5172,6 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
     };
   }
 
@@ -5439,14 +5243,12 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5456,7 +5258,6 @@ export class ListRepoBuildRecordRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5529,14 +5330,12 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
   buildRecordId?: string;
   instanceId?: string;
   offset?: number;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       buildRecordId: 'BuildRecordId',
       instanceId: 'InstanceId',
       offset: 'Offset',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5546,7 +5345,6 @@ export class ListRepoBuildRecordLogRequest extends $tea.Model {
       buildRecordId: 'string',
       instanceId: 'string',
       offset: 'number',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5619,14 +5417,12 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5636,7 +5432,6 @@ export class ListRepoBuildRuleRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5710,7 +5505,6 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
   namespaceName?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   targetInstanceId?: string;
   targetRegionId?: string;
@@ -5720,7 +5514,6 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
       namespaceName: 'NamespaceName',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       targetInstanceId: 'TargetInstanceId',
       targetRegionId: 'TargetRegionId',
@@ -5733,7 +5526,6 @@ export class ListRepoSyncRuleRequest extends $tea.Model {
       namespaceName: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       targetInstanceId: 'string',
       targetRegionId: 'string',
@@ -5808,7 +5600,6 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   syncRecordId?: string;
@@ -5818,7 +5609,6 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       syncRecordId: 'SyncRecordId',
@@ -5831,7 +5621,6 @@ export class ListRepoSyncTaskRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       syncRecordId: 'string',
@@ -5907,14 +5696,12 @@ export class ListRepoTagRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -5924,7 +5711,6 @@ export class ListRepoTagRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -5998,7 +5784,6 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoId?: string;
   scanTaskId?: string;
   severity?: string;
@@ -6009,7 +5794,6 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
       severity: 'Severity',
@@ -6023,7 +5807,6 @@ export class ListRepoTagScanResultRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoId: 'string',
       scanTaskId: 'string',
       severity: 'string',
@@ -6097,12 +5880,10 @@ export class ListRepoTagScanResultResponse extends $tea.Model {
 
 export class ListRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -6110,7 +5891,6 @@ export class ListRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -6174,7 +5954,6 @@ export class ListRepositoryRequest extends $tea.Model {
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoStatus?: string;
@@ -6183,7 +5962,6 @@ export class ListRepositoryRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
@@ -6195,7 +5973,6 @@ export class ListRepositoryRequest extends $tea.Model {
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoStatus: 'string',
@@ -6269,12 +6046,10 @@ export class ListRepositoryResponse extends $tea.Model {
 export class ResetLoginPasswordRequest extends $tea.Model {
   instanceId?: string;
   password?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       password: 'Password',
-      regionId: 'RegionId',
     };
   }
 
@@ -6282,7 +6057,6 @@ export class ResetLoginPasswordRequest extends $tea.Model {
     return {
       instanceId: 'string',
       password: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6344,7 +6118,6 @@ export class UpdateChainRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
   name?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       chainConfig: 'ChainConfig',
@@ -6352,7 +6125,6 @@ export class UpdateChainRequest extends $tea.Model {
       description: 'Description',
       instanceId: 'InstanceId',
       name: 'Name',
-      regionId: 'RegionId',
     };
   }
 
@@ -6363,7 +6135,6 @@ export class UpdateChainRequest extends $tea.Model {
       description: 'string',
       instanceId: 'string',
       name: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6424,14 +6195,12 @@ export class UpdateChartNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -6441,7 +6210,6 @@ export class UpdateChartNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6499,7 +6267,6 @@ export class UpdateChartNamespaceResponse extends $tea.Model {
 
 export class UpdateChartRepositoryRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
@@ -6507,7 +6274,6 @@ export class UpdateChartRepositoryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
@@ -6518,7 +6284,6 @@ export class UpdateChartRepositoryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
@@ -6585,7 +6350,6 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
   eventType?: string;
   instanceId?: string;
   namespaces?: string[];
-  regionId?: string;
   repoNames?: string[];
   repoTagFilterPattern?: string;
   ruleId?: string;
@@ -6598,7 +6362,6 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
       eventType: 'EventType',
       instanceId: 'InstanceId',
       namespaces: 'Namespaces',
-      regionId: 'RegionId',
       repoNames: 'RepoNames',
       repoTagFilterPattern: 'RepoTagFilterPattern',
       ruleId: 'RuleId',
@@ -6614,7 +6377,6 @@ export class UpdateEventCenterRuleRequest extends $tea.Model {
       eventType: 'string',
       instanceId: 'string',
       namespaces: { 'type': 'array', 'itemType': 'string' },
-      regionId: 'string',
       repoNames: { 'type': 'array', 'itemType': 'string' },
       repoTagFilterPattern: 'string',
       ruleId: 'string',
@@ -6634,7 +6396,6 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
   eventType?: string;
   instanceId?: string;
   namespacesShrink?: string;
-  regionId?: string;
   repoNamesShrink?: string;
   repoTagFilterPattern?: string;
   ruleId?: string;
@@ -6647,7 +6408,6 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
       eventType: 'EventType',
       instanceId: 'InstanceId',
       namespacesShrink: 'Namespaces',
-      regionId: 'RegionId',
       repoNamesShrink: 'RepoNames',
       repoTagFilterPattern: 'RepoTagFilterPattern',
       ruleId: 'RuleId',
@@ -6663,7 +6423,6 @@ export class UpdateEventCenterRuleShrinkRequest extends $tea.Model {
       eventType: 'string',
       instanceId: 'string',
       namespacesShrink: 'string',
-      regionId: 'string',
       repoNamesShrink: 'string',
       repoTagFilterPattern: 'string',
       ruleId: 'string',
@@ -6728,14 +6487,12 @@ export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
   endpointType?: string;
   instanceId?: string;
   moduleName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       enable: 'Enable',
       endpointType: 'EndpointType',
       instanceId: 'InstanceId',
       moduleName: 'ModuleName',
-      regionId: 'RegionId',
     };
   }
 
@@ -6745,7 +6502,6 @@ export class UpdateInstanceEndpointStatusRequest extends $tea.Model {
       endpointType: 'string',
       instanceId: 'string',
       moduleName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6806,14 +6562,12 @@ export class UpdateNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
-      regionId: 'RegionId',
     };
   }
 
@@ -6823,7 +6577,6 @@ export class UpdateNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
-      regionId: 'string',
     };
   }
 
@@ -6888,7 +6641,6 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
   platforms?: string[];
   pushName?: string;
   pushType?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6900,7 +6652,6 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       platforms: 'Platforms',
       pushName: 'PushName',
       pushType: 'PushType',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -6915,7 +6666,6 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
       platforms: { 'type': 'array', 'itemType': 'string' },
       pushName: 'string',
       pushType: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -6984,7 +6734,6 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
   disableCacheBuild?: string;
   instanceId?: string;
   overseaBuild?: string;
-  regionId?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6996,7 +6745,6 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'DisableCacheBuild',
       instanceId: 'InstanceId',
       overseaBuild: 'OverseaBuild',
-      regionId: 'RegionId',
       repoId: 'RepoId',
     };
   }
@@ -7011,7 +6759,6 @@ export class UpdateRepoSourceCodeRepoRequest extends $tea.Model {
       disableCacheBuild: 'string',
       instanceId: 'string',
       overseaBuild: 'string',
-      regionId: 'string',
       repoId: 'string',
     };
   }
@@ -7070,7 +6817,6 @@ export class UpdateRepoSourceCodeRepoResponse extends $tea.Model {
 
 export class UpdateRepoTriggerRequest extends $tea.Model {
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   triggerId?: string;
   triggerName?: string;
@@ -7080,7 +6826,6 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       triggerId: 'TriggerId',
       triggerName: 'TriggerName',
@@ -7093,7 +6838,6 @@ export class UpdateRepoTriggerRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       triggerId: 'string',
       triggerName: 'string',
@@ -7158,7 +6902,6 @@ export class UpdateRepoTriggerResponse extends $tea.Model {
 export class UpdateRepositoryRequest extends $tea.Model {
   detail?: string;
   instanceId?: string;
-  regionId?: string;
   repoId?: string;
   repoType?: string;
   summary?: string;
@@ -7167,7 +6910,6 @@ export class UpdateRepositoryRequest extends $tea.Model {
     return {
       detail: 'Detail',
       instanceId: 'InstanceId',
-      regionId: 'RegionId',
       repoId: 'RepoId',
       repoType: 'RepoType',
       summary: 'Summary',
@@ -7179,7 +6921,6 @@ export class UpdateRepositoryRequest extends $tea.Model {
     return {
       detail: 'string',
       instanceId: 'string',
-      regionId: 'string',
       repoId: 'string',
       repoType: 'string',
       summary: 'string',
@@ -8617,6 +8358,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
   syncBatchTaskId?: string;
   syncRuleId?: string;
   syncTaskId?: string;
+  syncTransAccelerate?: boolean;
   taskStatus?: string;
   taskTrigger?: string;
   static names(): { [key: string]: string } {
@@ -8629,6 +8371,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
       syncBatchTaskId: 'SyncBatchTaskId',
       syncRuleId: 'SyncRuleId',
       syncTaskId: 'SyncTaskId',
+      syncTransAccelerate: 'SyncTransAccelerate',
       taskStatus: 'TaskStatus',
       taskTrigger: 'TaskTrigger',
     };
@@ -8644,6 +8387,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
       syncBatchTaskId: 'string',
       syncRuleId: 'string',
       syncTaskId: 'string',
+      syncTransAccelerate: 'boolean',
       taskStatus: 'string',
       taskTrigger: 'string',
     };
@@ -8846,8 +8590,14 @@ export default class Client extends OpenApi {
   async cancelArtifactBuildTaskWithOptions(request: CancelArtifactBuildTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelArtifactBuildTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildTaskId"] = request.buildTaskId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.buildTaskId)) {
+      query["BuildTaskId"] = request.buildTaskId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8873,9 +8623,18 @@ export default class Client extends OpenApi {
   async cancelRepoBuildRecordWithOptions(request: CancelRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<CancelRepoBuildRecordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRecordId"] = request.buildRecordId;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRecordId)) {
+      query["BuildRecordId"] = request.buildRecordId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8901,9 +8660,18 @@ export default class Client extends OpenApi {
   async createBuildRecordByRuleWithOptions(request: CreateBuildRecordByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateBuildRecordByRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRuleId"] = request.buildRuleId;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRuleId)) {
+      query["BuildRuleId"] = request.buildRuleId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8929,12 +8697,30 @@ export default class Client extends OpenApi {
   async createChainWithOptions(request: CreateChainRequest, runtime: $Util.RuntimeOptions): Promise<CreateChainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChainConfig"] = request.chainConfig;
-    query["Description"] = request.description;
-    query["InstanceId"] = request.instanceId;
-    query["Name"] = request.name;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.chainConfig)) {
+      query["ChainConfig"] = request.chainConfig;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8960,10 +8746,22 @@ export default class Client extends OpenApi {
   async createChartNamespaceWithOptions(request: CreateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoCreateRepo"] = request.autoCreateRepo;
-    query["DefaultRepoType"] = request.defaultRepoType;
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.autoCreateRepo)) {
+      query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!Util.isUnset(request.defaultRepoType)) {
+      query["DefaultRepoType"] = request.defaultRepoType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8989,11 +8787,26 @@ export default class Client extends OpenApi {
   async createChartRepositoryWithOptions(request: CreateChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateChartRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["RepoType"] = request.repoType;
-    query["Summary"] = request.summary;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.repoType)) {
+      query["RepoType"] = request.repoType;
+    }
+
+    if (!Util.isUnset(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9019,11 +8832,26 @@ export default class Client extends OpenApi {
   async createInstanceEndpointAclPolicyWithOptions(request: CreateInstanceEndpointAclPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceEndpointAclPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Comment"] = request.comment;
-    query["EndpointType"] = request.endpointType;
-    query["Entry"] = request.entry;
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.entry)) {
+      query["Entry"] = request.entry;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9049,10 +8877,26 @@ export default class Client extends OpenApi {
   async createInstanceVpcEndpointLinkedVpcWithOptions(request: CreateInstanceVpcEndpointLinkedVpcRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceVpcEndpointLinkedVpcResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
-    query["VpcId"] = request.vpcId;
-    query["VswitchId"] = request.vswitchId;
+    if (!Util.isUnset(request.enableCreateDNSRecordInPvzt)) {
+      query["EnableCreateDNSRecordInPvzt"] = request.enableCreateDNSRecordInPvzt;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      query["VswitchId"] = request.vswitchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9078,10 +8922,22 @@ export default class Client extends OpenApi {
   async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoCreateRepo"] = request.autoCreateRepo;
-    query["DefaultRepoType"] = request.defaultRepoType;
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.autoCreateRepo)) {
+      query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!Util.isUnset(request.defaultRepoType)) {
+      query["DefaultRepoType"] = request.defaultRepoType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9107,13 +8963,34 @@ export default class Client extends OpenApi {
   async createRepoBuildRuleWithOptions(request: CreateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DockerfileLocation"] = request.dockerfileLocation;
-    query["DockerfileName"] = request.dockerfileName;
-    query["ImageTag"] = request.imageTag;
-    query["InstanceId"] = request.instanceId;
-    query["PushName"] = request.pushName;
-    query["PushType"] = request.pushType;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.dockerfileLocation)) {
+      query["DockerfileLocation"] = request.dockerfileLocation;
+    }
+
+    if (!Util.isUnset(request.dockerfileName)) {
+      query["DockerfileName"] = request.dockerfileName;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pushName)) {
+      query["PushName"] = request.pushName;
+    }
+
+    if (!Util.isUnset(request.pushType)) {
+      query["PushType"] = request.pushType;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9139,14 +9016,38 @@ export default class Client extends OpenApi {
   async createRepoSourceCodeRepoWithOptions(request: CreateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoBuild"] = request.autoBuild;
-    query["CodeRepoName"] = request.codeRepoName;
-    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
-    query["CodeRepoType"] = request.codeRepoType;
-    query["DisableCacheBuild"] = request.disableCacheBuild;
-    query["InstanceId"] = request.instanceId;
-    query["OverseaBuild"] = request.overseaBuild;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.autoBuild)) {
+      query["AutoBuild"] = request.autoBuild;
+    }
+
+    if (!Util.isUnset(request.codeRepoName)) {
+      query["CodeRepoName"] = request.codeRepoName;
+    }
+
+    if (!Util.isUnset(request.codeRepoNamespaceName)) {
+      query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.codeRepoType)) {
+      query["CodeRepoType"] = request.codeRepoType;
+    }
+
+    if (!Util.isUnset(request.disableCacheBuild)) {
+      query["DisableCacheBuild"] = request.disableCacheBuild;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.overseaBuild)) {
+      query["OverseaBuild"] = request.overseaBuild;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9172,18 +9073,54 @@ export default class Client extends OpenApi {
   async createRepoSyncRuleWithOptions(request: CreateRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
-    query["RepoName"] = request.repoName;
-    query["SyncRuleName"] = request.syncRuleName;
-    query["SyncScope"] = request.syncScope;
-    query["SyncTrigger"] = request.syncTrigger;
-    query["TagFilter"] = request.tagFilter;
-    query["TargetInstanceId"] = request.targetInstanceId;
-    query["TargetNamespaceName"] = request.targetNamespaceName;
-    query["TargetRegionId"] = request.targetRegionId;
-    query["TargetRepoName"] = request.targetRepoName;
-    query["TargetUserId"] = request.targetUserId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.syncRuleName)) {
+      query["SyncRuleName"] = request.syncRuleName;
+    }
+
+    if (!Util.isUnset(request.syncScope)) {
+      query["SyncScope"] = request.syncScope;
+    }
+
+    if (!Util.isUnset(request.syncTrigger)) {
+      query["SyncTrigger"] = request.syncTrigger;
+    }
+
+    if (!Util.isUnset(request.tagFilter)) {
+      query["TagFilter"] = request.tagFilter;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetNamespaceName)) {
+      query["TargetNamespaceName"] = request.targetNamespaceName;
+    }
+
+    if (!Util.isUnset(request.targetRegionId)) {
+      query["TargetRegionId"] = request.targetRegionId;
+    }
+
+    if (!Util.isUnset(request.targetRepoName)) {
+      query["TargetRepoName"] = request.targetRepoName;
+    }
+
+    if (!Util.isUnset(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9209,16 +9146,46 @@ export default class Client extends OpenApi {
   async createRepoSyncTaskWithOptions(request: CreateRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Override"] = request.override;
-    query["RepoId"] = request.repoId;
-    query["Tag"] = request.tag;
-    query["TargetInstanceId"] = request.targetInstanceId;
-    query["TargetNamespace"] = request.targetNamespace;
-    query["TargetRegionId"] = request.targetRegionId;
-    query["TargetRepoName"] = request.targetRepoName;
-    query["TargetTag"] = request.targetTag;
-    query["TargetUserId"] = request.targetUserId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.override)) {
+      query["Override"] = request.override;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetNamespace)) {
+      query["TargetNamespace"] = request.targetNamespace;
+    }
+
+    if (!Util.isUnset(request.targetRegionId)) {
+      query["TargetRegionId"] = request.targetRegionId;
+    }
+
+    if (!Util.isUnset(request.targetRepoName)) {
+      query["TargetRepoName"] = request.targetRepoName;
+    }
+
+    if (!Util.isUnset(request.targetTag)) {
+      query["TargetTag"] = request.targetTag;
+    }
+
+    if (!Util.isUnset(request.targetUserId)) {
+      query["TargetUserId"] = request.targetUserId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9244,10 +9211,22 @@ export default class Client extends OpenApi {
   async createRepoSyncTaskByRuleWithOptions(request: CreateRepoSyncTaskByRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoSyncTaskByRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["SyncRuleId"] = request.syncRuleId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.syncRuleId)) {
+      query["SyncRuleId"] = request.syncRuleId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9273,11 +9252,26 @@ export default class Client extends OpenApi {
   async createRepoTagWithOptions(request: CreateRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FromTag"] = request.fromTag;
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
-    query["RepoName"] = request.repoName;
-    query["ToTag"] = request.toTag;
+    if (!Util.isUnset(request.fromTag)) {
+      query["FromTag"] = request.fromTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.toTag)) {
+      query["ToTag"] = request.toTag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9303,11 +9297,26 @@ export default class Client extends OpenApi {
   async createRepoTagScanTaskWithOptions(request: CreateRepoTagScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTagScanTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Digest"] = request.digest;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["ScanService"] = request.scanService;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.scanService)) {
+      query["ScanService"] = request.scanService;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9333,12 +9342,30 @@ export default class Client extends OpenApi {
   async createRepoTriggerWithOptions(request: CreateRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["TriggerName"] = request.triggerName;
-    query["TriggerTag"] = request.triggerTag;
-    query["TriggerType"] = request.triggerType;
-    query["TriggerUrl"] = request.triggerUrl;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.triggerName)) {
+      query["TriggerName"] = request.triggerName;
+    }
+
+    if (!Util.isUnset(request.triggerTag)) {
+      query["TriggerTag"] = request.triggerTag;
+    }
+
+    if (!Util.isUnset(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    if (!Util.isUnset(request.triggerUrl)) {
+      query["TriggerUrl"] = request.triggerUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9364,13 +9391,34 @@ export default class Client extends OpenApi {
   async createRepositoryWithOptions(request: CreateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Detail"] = request.detail;
-    query["InstanceId"] = request.instanceId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["RepoType"] = request.repoType;
-    query["Summary"] = request.summary;
-    query["TagImmutability"] = request.tagImmutability;
+    if (!Util.isUnset(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.repoType)) {
+      query["RepoType"] = request.repoType;
+    }
+
+    if (!Util.isUnset(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
+    if (!Util.isUnset(request.tagImmutability)) {
+      query["TagImmutability"] = request.tagImmutability;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9396,8 +9444,14 @@ export default class Client extends OpenApi {
   async deleteChainWithOptions(request: DeleteChainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChainId"] = request.chainId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.chainId)) {
+      query["ChainId"] = request.chainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9423,8 +9477,14 @@ export default class Client extends OpenApi {
   async deleteChartNamespaceWithOptions(request: DeleteChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9450,11 +9510,26 @@ export default class Client extends OpenApi {
   async deleteChartReleaseWithOptions(request: DeleteChartReleaseRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartReleaseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Chart"] = request.chart;
-    query["InstanceId"] = request.instanceId;
-    query["Release"] = request.release;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.chart)) {
+      query["Chart"] = request.chart;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.release)) {
+      query["Release"] = request.release;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9480,9 +9555,18 @@ export default class Client extends OpenApi {
   async deleteChartRepositoryWithOptions(request: DeleteChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteChartRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9508,8 +9592,14 @@ export default class Client extends OpenApi {
   async deleteEventCenterRuleWithOptions(request: DeleteEventCenterRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEventCenterRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RuleId"] = request.ruleId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9535,10 +9625,22 @@ export default class Client extends OpenApi {
   async deleteInstanceEndpointAclPolicyWithOptions(request: DeleteInstanceEndpointAclPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceEndpointAclPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointType"] = request.endpointType;
-    query["Entry"] = request.entry;
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.entry)) {
+      query["Entry"] = request.entry;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9564,10 +9666,22 @@ export default class Client extends OpenApi {
   async deleteInstanceVpcEndpointLinkedVpcWithOptions(request: DeleteInstanceVpcEndpointLinkedVpcRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceVpcEndpointLinkedVpcResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
-    query["VpcId"] = request.vpcId;
-    query["VswitchId"] = request.vswitchId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.vswitchId)) {
+      query["VswitchId"] = request.vswitchId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9593,8 +9707,14 @@ export default class Client extends OpenApi {
   async deleteNamespaceWithOptions(request: DeleteNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9620,9 +9740,18 @@ export default class Client extends OpenApi {
   async deleteRepoBuildRuleWithOptions(request: DeleteRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRuleId"] = request.buildRuleId;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRuleId)) {
+      query["BuildRuleId"] = request.buildRuleId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9648,8 +9777,14 @@ export default class Client extends OpenApi {
   async deleteRepoSyncRuleWithOptions(request: DeleteRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoSyncRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SyncRuleId"] = request.syncRuleId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.syncRuleId)) {
+      query["SyncRuleId"] = request.syncRuleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9675,9 +9810,18 @@ export default class Client extends OpenApi {
   async deleteRepoTagWithOptions(request: DeleteRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoTagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9703,9 +9847,18 @@ export default class Client extends OpenApi {
   async deleteRepoTriggerWithOptions(request: DeleteRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepoTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["TriggerId"] = request.triggerId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.triggerId)) {
+      query["TriggerId"] = request.triggerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9731,8 +9884,14 @@ export default class Client extends OpenApi {
   async deleteRepositoryWithOptions(request: DeleteRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9783,7 +9942,10 @@ export default class Client extends OpenApi {
   async getAuthorizationTokenWithOptions(request: GetAuthorizationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetAuthorizationTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9809,8 +9971,14 @@ export default class Client extends OpenApi {
   async getChainWithOptions(request: GetChainRequest, runtime: $Util.RuntimeOptions): Promise<GetChainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChainId"] = request.chainId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.chainId)) {
+      query["ChainId"] = request.chainId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9836,8 +10004,14 @@ export default class Client extends OpenApi {
   async getChartNamespaceWithOptions(request: GetChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<GetChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9863,9 +10037,18 @@ export default class Client extends OpenApi {
   async getChartRepositoryWithOptions(request: GetChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<GetChartRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9891,7 +10074,10 @@ export default class Client extends OpenApi {
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9914,8 +10100,7 @@ export default class Client extends OpenApi {
     return await this.getInstanceWithOptions(request, runtime);
   }
 
-  async getInstanceCountWithOptions(request: GetInstanceCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountResponse> {
-    Util.validateModel(request);
+  async getInstanceCountWithOptions(runtime: $Util.RuntimeOptions): Promise<GetInstanceCountResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
       action: "GetInstanceCount",
@@ -9931,17 +10116,26 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceCountResponse>(await this.callApi(params, req, runtime), new GetInstanceCountResponse({}));
   }
 
-  async getInstanceCount(request: GetInstanceCountRequest): Promise<GetInstanceCountResponse> {
+  async getInstanceCount(): Promise<GetInstanceCountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.getInstanceCountWithOptions(request, runtime);
+    return await this.getInstanceCountWithOptions(runtime);
   }
 
   async getInstanceEndpointWithOptions(request: GetInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndpointType"] = request.endpointType;
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9967,7 +10161,10 @@ export default class Client extends OpenApi {
   async getInstanceUsageWithOptions(request: GetInstanceUsageRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceUsageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9993,8 +10190,14 @@ export default class Client extends OpenApi {
   async getInstanceVpcEndpointWithOptions(request: GetInstanceVpcEndpointRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceVpcEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10020,9 +10223,18 @@ export default class Client extends OpenApi {
   async getNamespaceWithOptions(request: GetNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<GetNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceId"] = request.namespaceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10048,8 +10260,14 @@ export default class Client extends OpenApi {
   async getRepoBuildRecordWithOptions(request: GetRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRecordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRecordId"] = request.buildRecordId;
-    query["InstanceId"] = request.instanceId;
+    if (!Util.isUnset(request.buildRecordId)) {
+      query["BuildRecordId"] = request.buildRecordId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10075,9 +10293,18 @@ export default class Client extends OpenApi {
   async getRepoBuildRecordStatusWithOptions(request: GetRepoBuildRecordStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoBuildRecordStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRecordId"] = request.buildRecordId;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRecordId)) {
+      query["BuildRecordId"] = request.buildRecordId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10103,8 +10330,14 @@ export default class Client extends OpenApi {
   async getRepoSourceCodeRepoWithOptions(request: GetRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10130,8 +10363,14 @@ export default class Client extends OpenApi {
   async getRepoSyncTaskWithOptions(request: GetRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoSyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["SyncTaskId"] = request.syncTaskId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.syncTaskId)) {
+      query["SyncTaskId"] = request.syncTaskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10182,10 +10421,22 @@ export default class Client extends OpenApi {
   async getRepoTagLayersWithOptions(request: GetRepoTagLayersRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagLayersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Digest"] = request.digest;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10211,10 +10462,22 @@ export default class Client extends OpenApi {
   async getRepoTagManifestWithOptions(request: GetRepoTagManifestRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagManifestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["SchemaVersion"] = request.schemaVersion;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.schemaVersion)) {
+      query["SchemaVersion"] = request.schemaVersion;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10240,11 +10503,26 @@ export default class Client extends OpenApi {
   async getRepoTagScanStatusWithOptions(request: GetRepoTagScanStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Digest"] = request.digest;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["ScanTaskId"] = request.scanTaskId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.scanTaskId)) {
+      query["ScanTaskId"] = request.scanTaskId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10270,11 +10548,26 @@ export default class Client extends OpenApi {
   async getRepoTagScanSummaryWithOptions(request: GetRepoTagScanSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetRepoTagScanSummaryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Digest"] = request.digest;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["ScanTaskId"] = request.scanTaskId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.scanTaskId)) {
+      query["ScanTaskId"] = request.scanTaskId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10300,10 +10593,22 @@ export default class Client extends OpenApi {
   async getRepositoryWithOptions(request: GetRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<GetRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10354,11 +10659,26 @@ export default class Client extends OpenApi {
   async listChainWithOptions(request: ListChainRequest, runtime: $Util.RuntimeOptions): Promise<ListChainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10384,11 +10704,26 @@ export default class Client extends OpenApi {
   async listChainInstanceWithOptions(request: ListChainInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListChainInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10414,11 +10749,26 @@ export default class Client extends OpenApi {
   async listChartNamespaceWithOptions(request: ListChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
-    query["NamespaceStatus"] = request.namespaceStatus;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.namespaceStatus)) {
+      query["NamespaceStatus"] = request.namespaceStatus;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10444,12 +10794,30 @@ export default class Client extends OpenApi {
   async listChartReleaseWithOptions(request: ListChartReleaseRequest, runtime: $Util.RuntimeOptions): Promise<ListChartReleaseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Chart"] = request.chart;
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
+    if (!Util.isUnset(request.chart)) {
+      query["Chart"] = request.chart;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10475,12 +10843,30 @@ export default class Client extends OpenApi {
   async listChartRepositoryWithOptions(request: ListChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<ListChartRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["RepoStatus"] = request.repoStatus;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.repoStatus)) {
+      query["RepoStatus"] = request.repoStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10556,10 +10942,22 @@ export default class Client extends OpenApi {
   async listInstanceWithOptions(request: ListInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceName"] = request.instanceName;
-    query["InstanceStatus"] = request.instanceStatus;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceStatus)) {
+      query["InstanceStatus"] = request.instanceStatus;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10585,8 +10983,14 @@ export default class Client extends OpenApi {
   async listInstanceEndpointWithOptions(request: ListInstanceEndpointRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceEndpointResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10612,7 +11016,10 @@ export default class Client extends OpenApi {
   async listInstanceRegionWithOptions(request: ListInstanceRegionRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceRegionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Lang"] = request.lang;
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10638,11 +11045,26 @@ export default class Client extends OpenApi {
   async listNamespaceWithOptions(request: ListNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
-    query["NamespaceStatus"] = request.namespaceStatus;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.namespaceStatus)) {
+      query["NamespaceStatus"] = request.namespaceStatus;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10668,10 +11090,22 @@ export default class Client extends OpenApi {
   async listRepoBuildRecordWithOptions(request: ListRepoBuildRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRecordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10697,10 +11131,22 @@ export default class Client extends OpenApi {
   async listRepoBuildRecordLogWithOptions(request: ListRepoBuildRecordLogRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRecordLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRecordId"] = request.buildRecordId;
-    query["InstanceId"] = request.instanceId;
-    query["Offset"] = request.offset;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRecordId)) {
+      query["BuildRecordId"] = request.buildRecordId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10726,10 +11172,22 @@ export default class Client extends OpenApi {
   async listRepoBuildRuleWithOptions(request: ListRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10755,13 +11213,34 @@ export default class Client extends OpenApi {
   async listRepoSyncRuleWithOptions(request: ListRepoSyncRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoSyncRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["TargetInstanceId"] = request.targetInstanceId;
-    query["TargetRegionId"] = request.targetRegionId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.targetInstanceId)) {
+      query["TargetInstanceId"] = request.targetInstanceId;
+    }
+
+    if (!Util.isUnset(request.targetRegionId)) {
+      query["TargetRegionId"] = request.targetRegionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10787,13 +11266,34 @@ export default class Client extends OpenApi {
   async listRepoSyncTaskWithOptions(request: ListRepoSyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoSyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["SyncRecordId"] = request.syncRecordId;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.syncRecordId)) {
+      query["SyncRecordId"] = request.syncRecordId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10819,10 +11319,22 @@ export default class Client extends OpenApi {
   async listRepoTagWithOptions(request: ListRepoTagRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTagResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10848,14 +11360,38 @@ export default class Client extends OpenApi {
   async listRepoTagScanResultWithOptions(request: ListRepoTagScanResultRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTagScanResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Digest"] = request.digest;
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoId"] = request.repoId;
-    query["ScanTaskId"] = request.scanTaskId;
-    query["Severity"] = request.severity;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.digest)) {
+      query["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.scanTaskId)) {
+      query["ScanTaskId"] = request.scanTaskId;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      query["Severity"] = request.severity;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10881,8 +11417,14 @@ export default class Client extends OpenApi {
   async listRepoTriggerWithOptions(request: ListRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<ListRepoTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10908,12 +11450,30 @@ export default class Client extends OpenApi {
   async listRepositoryWithOptions(request: ListRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<ListRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["RepoStatus"] = request.repoStatus;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.repoStatus)) {
+      query["RepoStatus"] = request.repoStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10939,8 +11499,14 @@ export default class Client extends OpenApi {
   async resetLoginPasswordWithOptions(request: ResetLoginPasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetLoginPasswordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["Password"] = request.password;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10966,11 +11532,26 @@ export default class Client extends OpenApi {
   async updateChainWithOptions(request: UpdateChainRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ChainConfig"] = request.chainConfig;
-    query["ChainId"] = request.chainId;
-    query["Description"] = request.description;
-    query["InstanceId"] = request.instanceId;
-    query["Name"] = request.name;
+    if (!Util.isUnset(request.chainConfig)) {
+      query["ChainConfig"] = request.chainConfig;
+    }
+
+    if (!Util.isUnset(request.chainId)) {
+      query["ChainId"] = request.chainId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10996,10 +11577,22 @@ export default class Client extends OpenApi {
   async updateChartNamespaceWithOptions(request: UpdateChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoCreateRepo"] = request.autoCreateRepo;
-    query["DefaultRepoType"] = request.defaultRepoType;
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.autoCreateRepo)) {
+      query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!Util.isUnset(request.defaultRepoType)) {
+      query["DefaultRepoType"] = request.defaultRepoType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11025,11 +11618,26 @@ export default class Client extends OpenApi {
   async updateChartRepositoryWithOptions(request: UpdateChartRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateChartRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoName"] = request.repoName;
-    query["RepoNamespaceName"] = request.repoNamespaceName;
-    query["RepoType"] = request.repoType;
-    query["Summary"] = request.summary;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.repoType)) {
+      query["RepoType"] = request.repoType;
+    }
+
+    if (!Util.isUnset(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11065,16 +11673,46 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["EventChannel"] = request.eventChannel;
-    query["EventConfig"] = request.eventConfig;
-    query["EventScope"] = request.eventScope;
-    query["EventType"] = request.eventType;
-    query["InstanceId"] = request.instanceId;
-    query["Namespaces"] = request.namespacesShrink;
-    query["RepoNames"] = request.repoNamesShrink;
-    query["RepoTagFilterPattern"] = request.repoTagFilterPattern;
-    query["RuleId"] = request.ruleId;
-    query["RuleName"] = request.ruleName;
+    if (!Util.isUnset(request.eventChannel)) {
+      query["EventChannel"] = request.eventChannel;
+    }
+
+    if (!Util.isUnset(request.eventConfig)) {
+      query["EventConfig"] = request.eventConfig;
+    }
+
+    if (!Util.isUnset(request.eventScope)) {
+      query["EventScope"] = request.eventScope;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespacesShrink)) {
+      query["Namespaces"] = request.namespacesShrink;
+    }
+
+    if (!Util.isUnset(request.repoNamesShrink)) {
+      query["RepoNames"] = request.repoNamesShrink;
+    }
+
+    if (!Util.isUnset(request.repoTagFilterPattern)) {
+      query["RepoTagFilterPattern"] = request.repoTagFilterPattern;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11100,10 +11738,22 @@ export default class Client extends OpenApi {
   async updateInstanceEndpointStatusWithOptions(request: UpdateInstanceEndpointStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateInstanceEndpointStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Enable"] = request.enable;
-    query["EndpointType"] = request.endpointType;
-    query["InstanceId"] = request.instanceId;
-    query["ModuleName"] = request.moduleName;
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.endpointType)) {
+      query["EndpointType"] = request.endpointType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      query["ModuleName"] = request.moduleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11129,10 +11779,22 @@ export default class Client extends OpenApi {
   async updateNamespaceWithOptions(request: UpdateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoCreateRepo"] = request.autoCreateRepo;
-    query["DefaultRepoType"] = request.defaultRepoType;
-    query["InstanceId"] = request.instanceId;
-    query["NamespaceName"] = request.namespaceName;
+    if (!Util.isUnset(request.autoCreateRepo)) {
+      query["AutoCreateRepo"] = request.autoCreateRepo;
+    }
+
+    if (!Util.isUnset(request.defaultRepoType)) {
+      query["DefaultRepoType"] = request.defaultRepoType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.namespaceName)) {
+      query["NamespaceName"] = request.namespaceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11158,15 +11820,42 @@ export default class Client extends OpenApi {
   async updateRepoBuildRuleWithOptions(request: UpdateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BuildRuleId"] = request.buildRuleId;
-    query["DockerfileLocation"] = request.dockerfileLocation;
-    query["DockerfileName"] = request.dockerfileName;
-    query["ImageTag"] = request.imageTag;
-    query["InstanceId"] = request.instanceId;
-    query["Platforms"] = request.platforms;
-    query["PushName"] = request.pushName;
-    query["PushType"] = request.pushType;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.buildRuleId)) {
+      query["BuildRuleId"] = request.buildRuleId;
+    }
+
+    if (!Util.isUnset(request.dockerfileLocation)) {
+      query["DockerfileLocation"] = request.dockerfileLocation;
+    }
+
+    if (!Util.isUnset(request.dockerfileName)) {
+      query["DockerfileName"] = request.dockerfileName;
+    }
+
+    if (!Util.isUnset(request.imageTag)) {
+      query["ImageTag"] = request.imageTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.platforms)) {
+      query["Platforms"] = request.platforms;
+    }
+
+    if (!Util.isUnset(request.pushName)) {
+      query["PushName"] = request.pushName;
+    }
+
+    if (!Util.isUnset(request.pushType)) {
+      query["PushType"] = request.pushType;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11192,15 +11881,42 @@ export default class Client extends OpenApi {
   async updateRepoSourceCodeRepoWithOptions(request: UpdateRepoSourceCodeRepoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoSourceCodeRepoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AutoBuild"] = request.autoBuild;
-    query["CodeRepoId"] = request.codeRepoId;
-    query["CodeRepoName"] = request.codeRepoName;
-    query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
-    query["CodeRepoType"] = request.codeRepoType;
-    query["DisableCacheBuild"] = request.disableCacheBuild;
-    query["InstanceId"] = request.instanceId;
-    query["OverseaBuild"] = request.overseaBuild;
-    query["RepoId"] = request.repoId;
+    if (!Util.isUnset(request.autoBuild)) {
+      query["AutoBuild"] = request.autoBuild;
+    }
+
+    if (!Util.isUnset(request.codeRepoId)) {
+      query["CodeRepoId"] = request.codeRepoId;
+    }
+
+    if (!Util.isUnset(request.codeRepoName)) {
+      query["CodeRepoName"] = request.codeRepoName;
+    }
+
+    if (!Util.isUnset(request.codeRepoNamespaceName)) {
+      query["CodeRepoNamespaceName"] = request.codeRepoNamespaceName;
+    }
+
+    if (!Util.isUnset(request.codeRepoType)) {
+      query["CodeRepoType"] = request.codeRepoType;
+    }
+
+    if (!Util.isUnset(request.disableCacheBuild)) {
+      query["DisableCacheBuild"] = request.disableCacheBuild;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.overseaBuild)) {
+      query["OverseaBuild"] = request.overseaBuild;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11226,13 +11942,34 @@ export default class Client extends OpenApi {
   async updateRepoTriggerWithOptions(request: UpdateRepoTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["TriggerId"] = request.triggerId;
-    query["TriggerName"] = request.triggerName;
-    query["TriggerTag"] = request.triggerTag;
-    query["TriggerType"] = request.triggerType;
-    query["TriggerUrl"] = request.triggerUrl;
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.triggerId)) {
+      query["TriggerId"] = request.triggerId;
+    }
+
+    if (!Util.isUnset(request.triggerName)) {
+      query["TriggerName"] = request.triggerName;
+    }
+
+    if (!Util.isUnset(request.triggerTag)) {
+      query["TriggerTag"] = request.triggerTag;
+    }
+
+    if (!Util.isUnset(request.triggerType)) {
+      query["TriggerType"] = request.triggerType;
+    }
+
+    if (!Util.isUnset(request.triggerUrl)) {
+      query["TriggerUrl"] = request.triggerUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11258,12 +11995,30 @@ export default class Client extends OpenApi {
   async updateRepositoryWithOptions(request: UpdateRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepositoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Detail"] = request.detail;
-    query["InstanceId"] = request.instanceId;
-    query["RepoId"] = request.repoId;
-    query["RepoType"] = request.repoType;
-    query["Summary"] = request.summary;
-    query["TagImmutability"] = request.tagImmutability;
+    if (!Util.isUnset(request.detail)) {
+      query["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    if (!Util.isUnset(request.repoType)) {
+      query["RepoType"] = request.repoType;
+    }
+
+    if (!Util.isUnset(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
+    if (!Util.isUnset(request.tagImmutability)) {
+      query["TagImmutability"] = request.tagImmutability;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
