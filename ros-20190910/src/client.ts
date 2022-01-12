@@ -2394,6 +2394,10 @@ export class GetStackResponseBody extends $tea.Model {
   statusReason?: string;
   tags?: GetStackResponseBodyTags[];
   templateDescription?: string;
+  templateId?: string;
+  templateScratchId?: string;
+  templateURL?: string;
+  templateVersion?: string;
   timeoutInMinutes?: number;
   updateTime?: string;
   static names(): { [key: string]: string } {
@@ -2422,6 +2426,10 @@ export class GetStackResponseBody extends $tea.Model {
       statusReason: 'StatusReason',
       tags: 'Tags',
       templateDescription: 'TemplateDescription',
+      templateId: 'TemplateId',
+      templateScratchId: 'TemplateScratchId',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
       timeoutInMinutes: 'TimeoutInMinutes',
       updateTime: 'UpdateTime',
     };
@@ -2453,6 +2461,10 @@ export class GetStackResponseBody extends $tea.Model {
       statusReason: 'string',
       tags: { 'type': 'array', 'itemType': GetStackResponseBodyTags },
       templateDescription: 'string',
+      templateId: 'string',
+      templateScratchId: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
       timeoutInMinutes: 'number',
       updateTime: 'string',
     };
@@ -6886,11 +6898,13 @@ export class GetFeatureDetailsResponseBodyTerraformSupportedVersions extends $te
   providerVersions?: GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions[];
   terraformVersion?: string;
   transform?: string;
+  updateAllowedTransforms?: string[];
   static names(): { [key: string]: string } {
     return {
       providerVersions: 'ProviderVersions',
       terraformVersion: 'TerraformVersion',
       transform: 'Transform',
+      updateAllowedTransforms: 'UpdateAllowedTransforms',
     };
   }
 
@@ -6899,6 +6913,7 @@ export class GetFeatureDetailsResponseBodyTerraformSupportedVersions extends $te
       providerVersions: { 'type': 'array', 'itemType': GetFeatureDetailsResponseBodyTerraformSupportedVersionsProviderVersions },
       terraformVersion: 'string',
       transform: 'string',
+      updateAllowedTransforms: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
