@@ -2222,14 +2222,14 @@ export class ListConnectionPoolAllIpsResponseBody extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
   requestId?: string;
-  totalCount?: number;
+  totalIpsCount?: number;
   static names(): { [key: string]: string } {
     return {
       connectionPoolIps: 'ConnectionPoolIps',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
-      totalCount: 'TotalCount',
+      totalIpsCount: 'TotalIpsCount',
     };
   }
 
@@ -2239,7 +2239,7 @@ export class ListConnectionPoolAllIpsResponseBody extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
-      totalCount: 'number',
+      totalIpsCount: 'number',
     };
   }
 
@@ -2705,6 +2705,7 @@ export class ListIoTCloudConnectorGroupsResponse extends $tea.Model {
 export class ListIoTCloudConnectorsRequest extends $tea.Model {
   APN?: string[];
   ISP?: string[];
+  ioTCloudConnectorGroupId?: string;
   ioTCloudConnectorIds?: string[];
   ioTCloudConnectorName?: string[];
   ioTCloudConnectorStatus?: string[];
@@ -2717,6 +2718,7 @@ export class ListIoTCloudConnectorsRequest extends $tea.Model {
     return {
       APN: 'APN',
       ISP: 'ISP',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
       ioTCloudConnectorIds: 'IoTCloudConnectorIds',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
       ioTCloudConnectorStatus: 'IoTCloudConnectorStatus',
@@ -2732,6 +2734,7 @@ export class ListIoTCloudConnectorsRequest extends $tea.Model {
     return {
       APN: { 'type': 'array', 'itemType': 'string' },
       ISP: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupId: 'string',
       ioTCloudConnectorIds: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorName: { 'type': 'array', 'itemType': 'string' },
       ioTCloudConnectorStatus: { 'type': 'array', 'itemType': 'string' },
@@ -3984,14 +3987,18 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
 }
 
 export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCloudConnectors extends $tea.Model {
+  APN?: string;
   createTime?: number;
+  ISP?: string;
   ioTCloudConnectorDescription?: string;
   ioTCloudConnectorId?: string;
   ioTCloudConnectorName?: string;
   ioTCloudConnectorStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      APN: 'APN',
       createTime: 'CreateTime',
+      ISP: 'ISP',
       ioTCloudConnectorDescription: 'IoTCloudConnectorDescription',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       ioTCloudConnectorName: 'IoTCloudConnectorName',
@@ -4001,7 +4008,9 @@ export class ListIoTCloudConnectorGroupsResponseBodyIoTCloudConnectorGroupsIoTCl
 
   static types(): { [key: string]: any } {
     return {
+      APN: 'string',
       createTime: 'number',
+      ISP: 'string',
       ioTCloudConnectorDescription: 'string',
       ioTCloudConnectorId: 'string',
       ioTCloudConnectorName: 'string',
@@ -4225,12 +4234,30 @@ export default class Client extends OpenApi {
   async addCidrToConnectionPoolWithOptions(request: AddCidrToConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<AddCidrToConnectionPoolResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Cidrs"] = request.cidrs;
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.cidrs)) {
+      query["Cidrs"] = request.cidrs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4256,11 +4283,26 @@ export default class Client extends OpenApi {
   async addIoTCloudConnectorToGroupWithOptions(request: AddIoTCloudConnectorToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddIoTCloudConnectorToGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4286,13 +4328,34 @@ export default class Client extends OpenApi {
   async associateIpWithConnectionPoolWithOptions(request: AssociateIpWithConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<AssociateIpWithConnectionPoolResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Ips"] = request.ips;
-    query["IpsFilePath"] = request.ipsFilePath;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ips)) {
+      query["Ips"] = request.ips;
+    }
+
+    if (!Util.isUnset(request.ipsFilePath)) {
+      query["IpsFilePath"] = request.ipsFilePath;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4318,12 +4381,30 @@ export default class Client extends OpenApi {
   async associateVSwitchWithIoTCloudConnectorWithOptions(request: AssociateVSwitchWithIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<AssociateVSwitchWithIoTCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["VSwitchList"] = request.vSwitchList;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vSwitchList)) {
+      query["VSwitchList"] = request.vSwitchList;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4349,16 +4430,46 @@ export default class Client extends OpenApi {
   async createAuthorizationRuleWithOptions(request: CreateAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["ClientToken"] = request.clientToken;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
-    query["SourceCidrs"] = request.sourceCidrs;
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrs)) {
+      query["SourceCidrs"] = request.sourceCidrs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4384,14 +4495,38 @@ export default class Client extends OpenApi {
   async createConnectionPoolWithOptions(request: CreateConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionPoolResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Cidrs"] = request.cidrs;
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolDescription"] = request.connectionPoolDescription;
-    query["ConnectionPoolName"] = request.connectionPoolName;
-    query["Count"] = request.count;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.cidrs)) {
+      query["Cidrs"] = request.cidrs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolDescription)) {
+      query["ConnectionPoolDescription"] = request.connectionPoolDescription;
+    }
+
+    if (!Util.isUnset(request.connectionPoolName)) {
+      query["ConnectionPoolName"] = request.connectionPoolName;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4417,16 +4552,46 @@ export default class Client extends OpenApi {
   async createGroupAuthorizationRuleWithOptions(request: CreateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["ClientToken"] = request.clientToken;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
-    query["SourceCidrs"] = request.sourceCidrs;
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrs)) {
+      query["SourceCidrs"] = request.sourceCidrs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4452,15 +4617,42 @@ export default class Client extends OpenApi {
   async createIoTCloudConnectorWithOptions(request: CreateIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["APN"] = request.APN;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["ISP"] = request.ISP;
-    query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
-    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
-    query["RegionId"] = request.regionId;
-    query["ResourceUid"] = request.resourceUid;
-    query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
+    if (!Util.isUnset(request.APN)) {
+      query["APN"] = request.APN;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ISP)) {
+      query["ISP"] = request.ISP;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorDescription)) {
+      query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorName)) {
+      query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.wildcardDomainEnabled)) {
+      query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4486,11 +4678,26 @@ export default class Client extends OpenApi {
   async createIoTCloudConnectorGroupWithOptions(request: CreateIoTCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DryRun"] = request.dryRun;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4516,12 +4723,30 @@ export default class Client extends OpenApi {
   async createServiceWithOptions(request: CreateServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceDescription"] = request.serviceDescription;
-    query["ServiceName"] = request.serviceName;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceDescription)) {
+      query["ServiceDescription"] = request.serviceDescription;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4547,15 +4772,42 @@ export default class Client extends OpenApi {
   async createServiceEntryWithOptions(request: CreateServiceEntryRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceEntryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceEntryDescription"] = request.serviceEntryDescription;
-    query["ServiceEntryName"] = request.serviceEntryName;
-    query["ServiceId"] = request.serviceId;
-    query["Target"] = request.target;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceEntryDescription)) {
+      query["ServiceEntryDescription"] = request.serviceEntryDescription;
+    }
+
+    if (!Util.isUnset(request.serviceEntryName)) {
+      query["ServiceEntryName"] = request.serviceEntryName;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4581,11 +4833,26 @@ export default class Client extends OpenApi {
   async deleteAuthorizationRuleWithOptions(request: DeleteAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleId"] = request.authorizationRuleId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4611,11 +4878,26 @@ export default class Client extends OpenApi {
   async deleteConnectionPoolWithOptions(request: DeleteConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionPoolResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4641,11 +4923,26 @@ export default class Client extends OpenApi {
   async deleteGroupAuthorizationRuleWithOptions(request: DeleteGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleId"] = request.authorizationRuleId;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4671,10 +4968,22 @@ export default class Client extends OpenApi {
   async deleteIoTCloudConnectorWithOptions(request: DeleteIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4700,10 +5009,22 @@ export default class Client extends OpenApi {
   async deleteIoTCloudConnectorGroupWithOptions(request: DeleteIoTCloudConnectorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4729,11 +5050,26 @@ export default class Client extends OpenApi {
   async deleteServiceWithOptions(request: DeleteServiceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4759,12 +5095,30 @@ export default class Client extends OpenApi {
   async deleteServiceEntryWithOptions(request: DeleteServiceEntryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceEntryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceEntryId"] = request.serviceEntryId;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceEntryId)) {
+      query["ServiceEntryId"] = request.serviceEntryId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4790,10 +5144,22 @@ export default class Client extends OpenApi {
   async disableIoTCloudConnectorAccessLogWithOptions(request: DisableIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<DisableIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4819,13 +5185,34 @@ export default class Client extends OpenApi {
   async dissociateIpFromConnectionPoolWithOptions(request: DissociateIpFromConnectionPoolRequest, runtime: $Util.RuntimeOptions): Promise<DissociateIpFromConnectionPoolResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Ips"] = request.ips;
-    query["IpsFilePath"] = request.ipsFilePath;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ips)) {
+      query["Ips"] = request.ips;
+    }
+
+    if (!Util.isUnset(request.ipsFilePath)) {
+      query["IpsFilePath"] = request.ipsFilePath;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4851,10 +5238,22 @@ export default class Client extends OpenApi {
   async dissociateVSwitchFromIoTCloudConnectorWithOptions(request: DissociateVSwitchFromIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DissociateVSwitchFromIoTCloudConnectorResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4880,12 +5279,30 @@ export default class Client extends OpenApi {
   async enableIoTCloudConnectorAccessLogWithOptions(request: EnableIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<EnableIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AccessLogSlsLogStore"] = request.accessLogSlsLogStore;
-    query["AccessLogSlsProject"] = request.accessLogSlsProject;
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.accessLogSlsLogStore)) {
+      query["AccessLogSlsLogStore"] = request.accessLogSlsLogStore;
+    }
+
+    if (!Util.isUnset(request.accessLogSlsProject)) {
+      query["AccessLogSlsProject"] = request.accessLogSlsProject;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4911,10 +5328,22 @@ export default class Client extends OpenApi {
   async getConnectionPoolIpOperationResultWithOptions(request: GetConnectionPoolIpOperationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionPoolIpOperationResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["QueryRequestId"] = request.queryRequestId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.queryRequestId)) {
+      query["QueryRequestId"] = request.queryRequestId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4940,10 +5369,22 @@ export default class Client extends OpenApi {
   async getIoTCloudConnectorAccessLogWithOptions(request: GetIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<GetIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4969,12 +5410,30 @@ export default class Client extends OpenApi {
   async getStsInfoAndOssPathWithOptions(request: GetStsInfoAndOssPathRequest, runtime: $Util.RuntimeOptions): Promise<GetStsInfoAndOssPathResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["DryRun"] = request.dryRun;
-    query["FileName"] = request.fileName;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5000,8 +5459,14 @@ export default class Client extends OpenApi {
   async grantVirtualBorderRouterWithOptions(request: GrantVirtualBorderRouterRequest, runtime: $Util.RuntimeOptions): Promise<GrantVirtualBorderRouterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
-    query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.virtualBorderRouterId)) {
+      query["VirtualBorderRouterId"] = request.virtualBorderRouterId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5027,11 +5492,26 @@ export default class Client extends OpenApi {
   async listAPNsWithOptions(request: ListAPNsRequest, runtime: $Util.RuntimeOptions): Promise<ListAPNsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["APN"] = request.APN;
-    query["ISP"] = request.ISP;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.APN)) {
+      query["APN"] = request.APN;
+    }
+
+    if (!Util.isUnset(request.ISP)) {
+      query["ISP"] = request.ISP;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5057,16 +5537,46 @@ export default class Client extends OpenApi {
   async listAuthorizationRulesWithOptions(request: ListAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizationRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleIds"] = request.authorizationRuleIds;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.authorizationRuleIds)) {
+      query["AuthorizationRuleIds"] = request.authorizationRuleIds;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleStatus)) {
+      query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5092,13 +5602,34 @@ export default class Client extends OpenApi {
   async listConnectionPoolAllIpsWithOptions(request: ListConnectionPoolAllIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolAllIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Ip"] = request.ip;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5124,12 +5655,30 @@ export default class Client extends OpenApi {
   async listConnectionPoolIpsWithOptions(request: ListConnectionPoolIpsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolIpsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Ip"] = request.ip;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ip)) {
+      query["Ip"] = request.ip;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5155,13 +5704,34 @@ export default class Client extends OpenApi {
   async listConnectionPoolsWithOptions(request: ListConnectionPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListConnectionPoolsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionPoolIds"] = request.connectionPoolIds;
-    query["ConnectionPoolName"] = request.connectionPoolName;
-    query["ConnectionPoolStatus"] = request.connectionPoolStatus;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.connectionPoolIds)) {
+      query["ConnectionPoolIds"] = request.connectionPoolIds;
+    }
+
+    if (!Util.isUnset(request.connectionPoolName)) {
+      query["ConnectionPoolName"] = request.connectionPoolName;
+    }
+
+    if (!Util.isUnset(request.connectionPoolStatus)) {
+      query["ConnectionPoolStatus"] = request.connectionPoolStatus;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5187,16 +5757,46 @@ export default class Client extends OpenApi {
   async listGroupAuthorizationRulesWithOptions(request: ListGroupAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupAuthorizationRulesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleIds"] = request.authorizationRuleIds;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.authorizationRuleIds)) {
+      query["AuthorizationRuleIds"] = request.authorizationRuleIds;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleStatus)) {
+      query["AuthorizationRuleStatus"] = request.authorizationRuleStatus;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5222,8 +5822,14 @@ export default class Client extends OpenApi {
   async listIoTCloudConnectorAvailableZonesWithOptions(request: ListIoTCloudConnectorAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5249,12 +5855,30 @@ export default class Client extends OpenApi {
   async listIoTCloudConnectorGroupsWithOptions(request: ListIoTCloudConnectorGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IoTCloudConnectorGroupIds"] = request.ioTCloudConnectorGroupIds;
-    query["IoTCloudConnectorGroupName"] = request.ioTCloudConnectorGroupName;
-    query["IoTCloudConnectorGroupStatus"] = request.ioTCloudConnectorGroupStatus;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.ioTCloudConnectorGroupIds)) {
+      query["IoTCloudConnectorGroupIds"] = request.ioTCloudConnectorGroupIds;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupName)) {
+      query["IoTCloudConnectorGroupName"] = request.ioTCloudConnectorGroupName;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupStatus)) {
+      query["IoTCloudConnectorGroupStatus"] = request.ioTCloudConnectorGroupStatus;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5280,16 +5904,50 @@ export default class Client extends OpenApi {
   async listIoTCloudConnectorsWithOptions(request: ListIoTCloudConnectorsRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["APN"] = request.APN;
-    query["ISP"] = request.ISP;
-    query["IoTCloudConnectorIds"] = request.ioTCloudConnectorIds;
-    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
-    query["IoTCloudConnectorStatus"] = request.ioTCloudConnectorStatus;
-    query["IsInGroup"] = request.isInGroup;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["VpcId"] = request.vpcId;
+    if (!Util.isUnset(request.APN)) {
+      query["APN"] = request.APN;
+    }
+
+    if (!Util.isUnset(request.ISP)) {
+      query["ISP"] = request.ISP;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorIds)) {
+      query["IoTCloudConnectorIds"] = request.ioTCloudConnectorIds;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorName)) {
+      query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorStatus)) {
+      query["IoTCloudConnectorStatus"] = request.ioTCloudConnectorStatus;
+    }
+
+    if (!Util.isUnset(request.isInGroup)) {
+      query["IsInGroup"] = request.isInGroup;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5315,8 +5973,14 @@ export default class Client extends OpenApi {
   async listRegionsWithOptions(request: ListRegionsRequest, runtime: $Util.RuntimeOptions): Promise<ListRegionsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AcceptLanguage"] = request.acceptLanguage;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5342,13 +6006,34 @@ export default class Client extends OpenApi {
   async listServiceWithOptions(request: ListServiceRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ResourceStatuses"] = request.resourceStatuses;
-    query["ServiceIds"] = request.serviceIds;
-    query["ServiceNames"] = request.serviceNames;
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceStatuses)) {
+      query["ResourceStatuses"] = request.resourceStatuses;
+    }
+
+    if (!Util.isUnset(request.serviceIds)) {
+      query["ServiceIds"] = request.serviceIds;
+    }
+
+    if (!Util.isUnset(request.serviceNames)) {
+      query["ServiceNames"] = request.serviceNames;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5374,16 +6059,46 @@ export default class Client extends OpenApi {
   async listServiceEntriesWithOptions(request: ListServiceEntriesRequest, runtime: $Util.RuntimeOptions): Promise<ListServiceEntriesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["RegionId"] = request.regionId;
-    query["ServiceEntryIds"] = request.serviceEntryIds;
-    query["ServiceEntryName"] = request.serviceEntryName;
-    query["ServiceEntryStatus"] = request.serviceEntryStatus;
-    query["ServiceId"] = request.serviceId;
-    query["Target"] = request.target;
-    query["TargetType"] = request.targetType;
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceEntryIds)) {
+      query["ServiceEntryIds"] = request.serviceEntryIds;
+    }
+
+    if (!Util.isUnset(request.serviceEntryName)) {
+      query["ServiceEntryName"] = request.serviceEntryName;
+    }
+
+    if (!Util.isUnset(request.serviceEntryStatus)) {
+      query["ServiceEntryStatus"] = request.serviceEntryStatus;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5409,7 +6124,10 @@ export default class Client extends OpenApi {
   async openIoTCloudConnectorServiceWithOptions(request: OpenIoTCloudConnectorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenIoTCloudConnectorServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5435,11 +6153,26 @@ export default class Client extends OpenApi {
   async removeIoTCloudConnectorFromGroupWithOptions(request: RemoveIoTCloudConnectorFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveIoTCloudConnectorFromGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5465,17 +6198,50 @@ export default class Client extends OpenApi {
   async updateAuthorizationRuleAttributeWithOptions(request: UpdateAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorizationRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
-    query["AuthorizationRuleId"] = request.authorizationRuleId;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["ClientToken"] = request.clientToken;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
-    query["SourceCidrs"] = request.sourceCidrs;
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrs)) {
+      query["SourceCidrs"] = request.sourceCidrs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5501,15 +6267,42 @@ export default class Client extends OpenApi {
   async updateConnectionPoolAttributeWithOptions(request: UpdateConnectionPoolAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionPoolAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Cidrs"] = request.cidrs;
-    query["ClientToken"] = request.clientToken;
-    query["ConnectionPoolDescription"] = request.connectionPoolDescription;
-    query["ConnectionPoolId"] = request.connectionPoolId;
-    query["ConnectionPoolName"] = request.connectionPoolName;
-    query["Count"] = request.count;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.cidrs)) {
+      query["Cidrs"] = request.cidrs;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.connectionPoolDescription)) {
+      query["ConnectionPoolDescription"] = request.connectionPoolDescription;
+    }
+
+    if (!Util.isUnset(request.connectionPoolId)) {
+      query["ConnectionPoolId"] = request.connectionPoolId;
+    }
+
+    if (!Util.isUnset(request.connectionPoolName)) {
+      query["ConnectionPoolName"] = request.connectionPoolName;
+    }
+
+    if (!Util.isUnset(request.count)) {
+      query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5535,17 +6328,50 @@ export default class Client extends OpenApi {
   async updateGroupAuthorizationRuleAttributeWithOptions(request: UpdateGroupAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupAuthorizationRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
-    query["AuthorizationRuleId"] = request.authorizationRuleId;
-    query["AuthorizationRuleName"] = request.authorizationRuleName;
-    query["ClientToken"] = request.clientToken;
-    query["Destination"] = request.destination;
-    query["DestinationType"] = request.destinationType;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["Policy"] = request.policy;
-    query["RegionId"] = request.regionId;
-    query["SourceCidrs"] = request.sourceCidrs;
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.policy)) {
+      query["Policy"] = request.policy;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sourceCidrs)) {
+      query["SourceCidrs"] = request.sourceCidrs;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5571,13 +6397,34 @@ export default class Client extends OpenApi {
   async updateIoTCloudConnectorAttributeWithOptions(request: UpdateIoTCloudConnectorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
-    query["RegionId"] = request.regionId;
-    query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorDescription)) {
+      query["IoTCloudConnectorDescription"] = request.ioTCloudConnectorDescription;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorName)) {
+      query["IoTCloudConnectorName"] = request.ioTCloudConnectorName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.wildcardDomainEnabled)) {
+      query["WildcardDomainEnabled"] = request.wildcardDomainEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5603,12 +6450,30 @@ export default class Client extends OpenApi {
   async updateIoTCloudConnectorGroupAttributeWithOptions(request: UpdateIoTCloudConnectorGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorGroupAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
-    query["Name"] = request.name;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5634,13 +6499,34 @@ export default class Client extends OpenApi {
   async updateServiceAttributeWithOptions(request: UpdateServiceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceDescription"] = request.serviceDescription;
-    query["ServiceId"] = request.serviceId;
-    query["ServiceName"] = request.serviceName;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceDescription)) {
+      query["ServiceDescription"] = request.serviceDescription;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5666,14 +6552,38 @@ export default class Client extends OpenApi {
   async updateServiceEntryAttributeWithOptions(request: UpdateServiceEntryAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateServiceEntryAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["DryRun"] = request.dryRun;
-    query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
-    query["RegionId"] = request.regionId;
-    query["ServiceEntryDescription"] = request.serviceEntryDescription;
-    query["ServiceEntryId"] = request.serviceEntryId;
-    query["ServiceEntryName"] = request.serviceEntryName;
-    query["ServiceId"] = request.serviceId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceEntryDescription)) {
+      query["ServiceEntryDescription"] = request.serviceEntryDescription;
+    }
+
+    if (!Util.isUnset(request.serviceEntryId)) {
+      query["ServiceEntryId"] = request.serviceEntryId;
+    }
+
+    if (!Util.isUnset(request.serviceEntryName)) {
+      query["ServiceEntryName"] = request.serviceEntryName;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
