@@ -3156,10 +3156,8 @@ export class DescribeDBInstancesResponse extends $tea.Model {
 }
 
 export class DescribeDBInstancesOverviewRequest extends $tea.Model {
-  architectureType?: string;
   chargeType?: string;
   engineVersion?: string;
-  expireTime?: string;
   instanceClass?: string;
   instanceIds?: string;
   instanceStatus?: string;
@@ -3167,21 +3165,17 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
-  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  searchKey?: string;
   securityToken?: string;
   vSwitchId?: string;
   vpcId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      architectureType: 'ArchitectureType',
       chargeType: 'ChargeType',
       engineVersion: 'EngineVersion',
-      expireTime: 'ExpireTime',
       instanceClass: 'InstanceClass',
       instanceIds: 'InstanceIds',
       instanceStatus: 'InstanceStatus',
@@ -3189,11 +3183,9 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
-      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      searchKey: 'SearchKey',
       securityToken: 'SecurityToken',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -3203,10 +3195,8 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      architectureType: 'string',
       chargeType: 'string',
       engineVersion: 'string',
-      expireTime: 'string',
       instanceClass: 'string',
       instanceIds: 'string',
       instanceStatus: 'string',
@@ -3214,11 +3204,9 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
       networkType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
-      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      searchKey: 'string',
       securityToken: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -3234,7 +3222,7 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
 export class DescribeDBInstancesOverviewResponseBody extends $tea.Model {
   DBInstances?: DescribeDBInstancesOverviewResponseBodyDBInstances[];
   requestId?: string;
-  totalCount?: number;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstances: 'DBInstances',
@@ -3247,7 +3235,7 @@ export class DescribeDBInstancesOverviewResponseBody extends $tea.Model {
     return {
       DBInstances: { 'type': 'array', 'itemType': DescribeDBInstancesOverviewResponseBodyDBInstances },
       requestId: 'string',
-      totalCount: 'number',
+      totalCount: 'string',
     };
   }
 
@@ -9942,6 +9930,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstancesTags extends $tea
 }
 
 export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $tea.Model {
+  capacityUnit?: string;
   chargeType?: string;
   creationTime?: string;
   DBInstanceClass?: string;
@@ -9968,6 +9957,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $tea.Mod
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      capacityUnit: 'CapacityUnit',
       chargeType: 'ChargeType',
       creationTime: 'CreationTime',
       DBInstanceClass: 'DBInstanceClass',
@@ -9997,6 +9987,7 @@ export class DescribeDBInstancesOverviewResponseBodyDBInstances extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
+      capacityUnit: 'string',
       chargeType: 'string',
       creationTime: 'string',
       DBInstanceClass: 'string',
@@ -13919,20 +13910,12 @@ export default class Client extends OpenApi {
   async describeDBInstancesOverviewWithOptions(request: DescribeDBInstancesOverviewRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancesOverviewResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.architectureType)) {
-      query["ArchitectureType"] = request.architectureType;
-    }
-
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
 
     if (!Util.isUnset(request.engineVersion)) {
       query["EngineVersion"] = request.engineVersion;
-    }
-
-    if (!Util.isUnset(request.expireTime)) {
-      query["ExpireTime"] = request.expireTime;
     }
 
     if (!Util.isUnset(request.instanceClass)) {
@@ -13963,10 +13946,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -13977,10 +13956,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.searchKey)) {
-      query["SearchKey"] = request.searchKey;
     }
 
     if (!Util.isUnset(request.securityToken)) {
