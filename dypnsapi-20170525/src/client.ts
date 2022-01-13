@@ -690,17 +690,13 @@ export class QueryGateVerifyBillingPublicRequest extends $tea.Model {
   authenticationType?: number;
   month?: string;
   ownerId?: number;
-  prodCode?: string;
   resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       authenticationType: 'AuthenticationType',
       month: 'Month',
       ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -709,9 +705,7 @@ export class QueryGateVerifyBillingPublicRequest extends $tea.Model {
       authenticationType: 'number',
       month: 'string',
       ownerId: 'number',
-      prodCode: 'string',
       resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
     };
   }
 
@@ -775,9 +769,7 @@ export class QueryGateVerifyStatisticPublicRequest extends $tea.Model {
   endDate?: string;
   osType?: string;
   ownerId?: number;
-  prodCode?: string;
   resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   sceneCode?: string;
   startDate?: string;
   static names(): { [key: string]: string } {
@@ -786,9 +778,7 @@ export class QueryGateVerifyStatisticPublicRequest extends $tea.Model {
       endDate: 'EndDate',
       osType: 'OsType',
       ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       sceneCode: 'SceneCode',
       startDate: 'StartDate',
     };
@@ -800,9 +790,7 @@ export class QueryGateVerifyStatisticPublicRequest extends $tea.Model {
       endDate: 'string',
       osType: 'string',
       ownerId: 'number',
-      prodCode: 'string',
       resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       sceneCode: 'string',
       startDate: 'string',
     };
@@ -1863,16 +1851,8 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
-      query["ProdCode"] = request.prodCode;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1916,16 +1896,8 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.prodCode)) {
-      query["ProdCode"] = request.prodCode;
-    }
-
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
     if (!Util.isUnset(request.sceneCode)) {
