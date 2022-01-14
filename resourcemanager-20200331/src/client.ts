@@ -4,6 +4,7 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
@@ -197,6 +198,72 @@ export class AttachPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: AttachPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneRequest extends $tea.Model {
+  accountId?: string;
+  secureMobilePhone?: string;
+  verificationCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      secureMobilePhone: 'SecureMobilePhone',
+      verificationCode: 'VerificationCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      secureMobilePhone: 'string',
+      verificationCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindSecureMobilePhoneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindSecureMobilePhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindSecureMobilePhoneResponseBody,
     };
   }
 
@@ -1078,66 +1145,6 @@ export class DeclineHandshakeResponse extends $tea.Model {
   }
 }
 
-export class DeleteAccountRequest extends $tea.Model {
-  accountId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountId: 'AccountId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteAccountResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteAccountResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteControlPolicyRequest extends $tea.Model {
   policyId?: string;
   static names(): { [key: string]: string } {
@@ -1886,6 +1893,78 @@ export class EnableControlPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EnableControlPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryRequest extends $tea.Model {
+  enableMode?: string;
+  MAName?: string;
+  MASecureMobilePhone?: string;
+  verificationCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableMode: 'EnableMode',
+      MAName: 'MAName',
+      MASecureMobilePhone: 'MASecureMobilePhone',
+      verificationCode: 'VerificationCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableMode: 'string',
+      MAName: 'string',
+      MASecureMobilePhone: 'string',
+      verificationCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryResponseBody extends $tea.Model {
+  requestId?: string;
+  resourceDirectory?: EnableResourceDirectoryResponseBodyResourceDirectory;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      resourceDirectory: 'ResourceDirectory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      resourceDirectory: EnableResourceDirectoryResponseBodyResourceDirectory,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableResourceDirectoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: EnableResourceDirectoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: EnableResourceDirectoryResponseBody,
     };
   }
 
@@ -3728,21 +3807,30 @@ export class ListPolicyVersionsResponse extends $tea.Model {
 }
 
 export class ListResourceGroupsRequest extends $tea.Model {
+  displayName?: string;
+  name?: string;
   pageNumber?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      displayName: 'DisplayName',
+      name: 'Name',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      displayName: 'string',
+      name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
       status: 'string',
     };
   }
@@ -4565,6 +4653,132 @@ export class ResendPromoteResourceAccountEmailResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ResendPromoteResourceAccountEmailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneRequest extends $tea.Model {
+  accountId?: string;
+  secureMobilePhone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      secureMobilePhone: 'SecureMobilePhone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+      secureMobilePhone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends $tea.Model {
+  expirationDate?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expirationDate: 'ExpirationDate',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expirationDate: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForBindSecureMobilePhoneResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendVerificationCodeForBindSecureMobilePhoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendVerificationCodeForBindSecureMobilePhoneResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDRequest extends $tea.Model {
+  secureMobilePhone?: string;
+  static names(): { [key: string]: string } {
+    return {
+      secureMobilePhone: 'SecureMobilePhone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      secureMobilePhone: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendVerificationCodeForEnableRDResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SendVerificationCodeForEnableRDResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SendVerificationCodeForEnableRDResponseBody,
     };
   }
 
@@ -5580,6 +5794,37 @@ export class DeleteResourceGroupResponseBodyResourceGroup extends $tea.Model {
   }
 }
 
+export class EnableResourceDirectoryResponseBodyResourceDirectory extends $tea.Model {
+  createTime?: string;
+  masterAccountId?: string;
+  masterAccountName?: string;
+  resourceDirectoryId?: string;
+  rootFolderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      masterAccountId: 'MasterAccountId',
+      masterAccountName: 'MasterAccountName',
+      resourceDirectoryId: 'ResourceDirectoryId',
+      rootFolderId: 'RootFolderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      masterAccountId: 'string',
+      masterAccountName: 'string',
+      resourceDirectoryId: 'string',
+      rootFolderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAccountResponseBodyAccount extends $tea.Model {
   accountId?: string;
   accountName?: string;
@@ -6185,6 +6430,7 @@ export class ListAccountsResponseBodyAccountsAccount extends $tea.Model {
   joinTime?: string;
   modifyTime?: string;
   resourceDirectoryId?: string;
+  resourceDirectoryPath?: string;
   status?: string;
   type?: string;
   static names(): { [key: string]: string } {
@@ -6196,6 +6442,7 @@ export class ListAccountsResponseBodyAccountsAccount extends $tea.Model {
       joinTime: 'JoinTime',
       modifyTime: 'ModifyTime',
       resourceDirectoryId: 'ResourceDirectoryId',
+      resourceDirectoryPath: 'ResourceDirectoryPath',
       status: 'Status',
       type: 'Type',
     };
@@ -6210,6 +6457,7 @@ export class ListAccountsResponseBodyAccountsAccount extends $tea.Model {
       joinTime: 'string',
       modifyTime: 'string',
       resourceDirectoryId: 'string',
+      resourceDirectoryPath: 'string',
       status: 'string',
       type: 'string',
     };
@@ -7593,10 +7841,26 @@ export default class Client extends OpenApi {
 
   async acceptHandshakeWithOptions(request: AcceptHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<AcceptHandshakeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.handshakeId)) {
+      query["HandshakeId"] = request.handshakeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AcceptHandshakeResponse>(await this.doRPCRequest("AcceptHandshake", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new AcceptHandshakeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AcceptHandshake",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AcceptHandshakeResponse>(await this.callApi(params, req, runtime), new AcceptHandshakeResponse({}));
   }
 
   async acceptHandshake(request: AcceptHandshakeRequest): Promise<AcceptHandshakeResponse> {
@@ -7606,10 +7870,30 @@ export default class Client extends OpenApi {
 
   async attachControlPolicyWithOptions(request: AttachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachControlPolicyResponse>(await this.doRPCRequest("AttachControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new AttachControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachControlPolicyResponse>(await this.callApi(params, req, runtime), new AttachControlPolicyResponse({}));
   }
 
   async attachControlPolicy(request: AttachControlPolicyRequest): Promise<AttachControlPolicyResponse> {
@@ -7619,10 +7903,42 @@ export default class Client extends OpenApi {
 
   async attachPolicyWithOptions(request: AttachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<AttachPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AttachPolicyResponse>(await this.doRPCRequest("AttachPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new AttachPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AttachPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachPolicyResponse>(await this.callApi(params, req, runtime), new AttachPolicyResponse({}));
   }
 
   async attachPolicy(request: AttachPolicyRequest): Promise<AttachPolicyResponse> {
@@ -7630,12 +7946,65 @@ export default class Client extends OpenApi {
     return await this.attachPolicyWithOptions(request, runtime);
   }
 
+  async bindSecureMobilePhoneWithOptions(request: BindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<BindSecureMobilePhoneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.secureMobilePhone)) {
+      query["SecureMobilePhone"] = request.secureMobilePhone;
+    }
+
+    if (!Util.isUnset(request.verificationCode)) {
+      query["VerificationCode"] = request.verificationCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindSecureMobilePhone",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new BindSecureMobilePhoneResponse({}));
+  }
+
+  async bindSecureMobilePhone(request: BindSecureMobilePhoneRequest): Promise<BindSecureMobilePhoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindSecureMobilePhoneWithOptions(request, runtime);
+  }
+
   async cancelCreateCloudAccountWithOptions(request: CancelCreateCloudAccountRequest, runtime: $Util.RuntimeOptions): Promise<CancelCreateCloudAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelCreateCloudAccountResponse>(await this.doRPCRequest("CancelCreateCloudAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CancelCreateCloudAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelCreateCloudAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelCreateCloudAccountResponse>(await this.callApi(params, req, runtime), new CancelCreateCloudAccountResponse({}));
   }
 
   async cancelCreateCloudAccount(request: CancelCreateCloudAccountRequest): Promise<CancelCreateCloudAccountResponse> {
@@ -7645,10 +8014,26 @@ export default class Client extends OpenApi {
 
   async cancelHandshakeWithOptions(request: CancelHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<CancelHandshakeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.handshakeId)) {
+      query["HandshakeId"] = request.handshakeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelHandshakeResponse>(await this.doRPCRequest("CancelHandshake", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CancelHandshakeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelHandshake",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelHandshakeResponse>(await this.callApi(params, req, runtime), new CancelHandshakeResponse({}));
   }
 
   async cancelHandshake(request: CancelHandshakeRequest): Promise<CancelHandshakeResponse> {
@@ -7658,10 +8043,26 @@ export default class Client extends OpenApi {
 
   async cancelPromoteResourceAccountWithOptions(request: CancelPromoteResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<CancelPromoteResourceAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CancelPromoteResourceAccountResponse>(await this.doRPCRequest("CancelPromoteResourceAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CancelPromoteResourceAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CancelPromoteResourceAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelPromoteResourceAccountResponse>(await this.callApi(params, req, runtime), new CancelPromoteResourceAccountResponse({}));
   }
 
   async cancelPromoteResourceAccount(request: CancelPromoteResourceAccountRequest): Promise<CancelPromoteResourceAccountResponse> {
@@ -7671,10 +8072,38 @@ export default class Client extends OpenApi {
 
   async createCloudAccountWithOptions(request: CreateCloudAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateCloudAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
+    }
+
+    if (!Util.isUnset(request.payerAccountId)) {
+      query["PayerAccountId"] = request.payerAccountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCloudAccountResponse>(await this.doRPCRequest("CreateCloudAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCloudAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCloudAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCloudAccountResponse>(await this.callApi(params, req, runtime), new CreateCloudAccountResponse({}));
   }
 
   async createCloudAccount(request: CreateCloudAccountRequest): Promise<CreateCloudAccountResponse> {
@@ -7684,10 +8113,38 @@ export default class Client extends OpenApi {
 
   async createControlPolicyWithOptions(request: CreateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.effectScope)) {
+      query["EffectScope"] = request.effectScope;
+    }
+
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateControlPolicyResponse>(await this.doRPCRequest("CreateControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateControlPolicyResponse>(await this.callApi(params, req, runtime), new CreateControlPolicyResponse({}));
   }
 
   async createControlPolicy(request: CreateControlPolicyRequest): Promise<CreateControlPolicyResponse> {
@@ -7697,10 +8154,30 @@ export default class Client extends OpenApi {
 
   async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.folderName)) {
+      query["FolderName"] = request.folderName;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateFolderResponse>(await this.doRPCRequest("CreateFolder", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateFolderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateFolder",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFolderResponse>(await this.callApi(params, req, runtime), new CreateFolderResponse({}));
   }
 
   async createFolder(request: CreateFolderRequest): Promise<CreateFolderResponse> {
@@ -7710,10 +8187,34 @@ export default class Client extends OpenApi {
 
   async createPolicyWithOptions(request: CreatePolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePolicyResponse>(await this.doRPCRequest("CreatePolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyResponse>(await this.callApi(params, req, runtime), new CreatePolicyResponse({}));
   }
 
   async createPolicy(request: CreatePolicyRequest): Promise<CreatePolicyResponse> {
@@ -7723,10 +8224,34 @@ export default class Client extends OpenApi {
 
   async createPolicyVersionWithOptions(request: CreatePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<CreatePolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyDocument)) {
+      query["PolicyDocument"] = request.policyDocument;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.setAsDefault)) {
+      query["SetAsDefault"] = request.setAsDefault;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePolicyVersionResponse>(await this.doRPCRequest("CreatePolicyVersion", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePolicyVersion",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePolicyVersionResponse>(await this.callApi(params, req, runtime), new CreatePolicyVersionResponse({}));
   }
 
   async createPolicyVersion(request: CreatePolicyVersionRequest): Promise<CreatePolicyVersionResponse> {
@@ -7736,10 +8261,38 @@ export default class Client extends OpenApi {
 
   async createResourceAccountWithOptions(request: CreateResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountNamePrefix)) {
+      query["AccountNamePrefix"] = request.accountNamePrefix;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
+    }
+
+    if (!Util.isUnset(request.payerAccountId)) {
+      query["PayerAccountId"] = request.payerAccountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateResourceAccountResponse>(await this.doRPCRequest("CreateResourceAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateResourceAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateResourceAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceAccountResponse>(await this.callApi(params, req, runtime), new CreateResourceAccountResponse({}));
   }
 
   async createResourceAccount(request: CreateResourceAccountRequest): Promise<CreateResourceAccountResponse> {
@@ -7749,10 +8302,30 @@ export default class Client extends OpenApi {
 
   async createResourceGroupWithOptions(request: CreateResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateResourceGroupResponse>(await this.doRPCRequest("CreateResourceGroup", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateResourceGroup",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateResourceGroupResponse>(await this.callApi(params, req, runtime), new CreateResourceGroupResponse({}));
   }
 
   async createResourceGroup(request: CreateResourceGroupRequest): Promise<CreateResourceGroupResponse> {
@@ -7762,10 +8335,38 @@ export default class Client extends OpenApi {
 
   async createRoleWithOptions(request: CreateRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.assumeRolePolicyDocument)) {
+      query["AssumeRolePolicyDocument"] = request.assumeRolePolicyDocument;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.maxSessionDuration)) {
+      query["MaxSessionDuration"] = request.maxSessionDuration;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRoleResponse>(await this.doRPCRequest("CreateRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRoleResponse>(await this.callApi(params, req, runtime), new CreateRoleResponse({}));
   }
 
   async createRole(request: CreateRoleRequest): Promise<CreateRoleResponse> {
@@ -7775,10 +8376,34 @@ export default class Client extends OpenApi {
 
   async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customSuffix)) {
+      query["CustomSuffix"] = request.customSuffix;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.doRPCRequest("CreateServiceLinkedRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new CreateServiceLinkedRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
   }
 
   async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
@@ -7788,10 +8413,26 @@ export default class Client extends OpenApi {
 
   async declineHandshakeWithOptions(request: DeclineHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<DeclineHandshakeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.handshakeId)) {
+      query["HandshakeId"] = request.handshakeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeclineHandshakeResponse>(await this.doRPCRequest("DeclineHandshake", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeclineHandshakeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeclineHandshake",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeclineHandshakeResponse>(await this.callApi(params, req, runtime), new DeclineHandshakeResponse({}));
   }
 
   async declineHandshake(request: DeclineHandshakeRequest): Promise<DeclineHandshakeResponse> {
@@ -7799,25 +8440,28 @@ export default class Client extends OpenApi {
     return await this.declineHandshakeWithOptions(request, runtime);
   }
 
-  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DeleteAccountResponse>(await this.doRPCRequest("DeleteAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccountResponse({}));
-  }
-
-  async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteAccountWithOptions(request, runtime);
-  }
-
   async deleteControlPolicyWithOptions(request: DeleteControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteControlPolicyResponse>(await this.doRPCRequest("DeleteControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteControlPolicyResponse>(await this.callApi(params, req, runtime), new DeleteControlPolicyResponse({}));
   }
 
   async deleteControlPolicy(request: DeleteControlPolicyRequest): Promise<DeleteControlPolicyResponse> {
@@ -7827,10 +8471,26 @@ export default class Client extends OpenApi {
 
   async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.folderId)) {
+      query["FolderId"] = request.folderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteFolderResponse>(await this.doRPCRequest("DeleteFolder", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteFolderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteFolder",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteFolderResponse>(await this.callApi(params, req, runtime), new DeleteFolderResponse({}));
   }
 
   async deleteFolder(request: DeleteFolderRequest): Promise<DeleteFolderResponse> {
@@ -7840,10 +8500,26 @@ export default class Client extends OpenApi {
 
   async deletePolicyWithOptions(request: DeletePolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePolicyResponse>(await this.doRPCRequest("DeletePolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyResponse>(await this.callApi(params, req, runtime), new DeletePolicyResponse({}));
   }
 
   async deletePolicy(request: DeletePolicyRequest): Promise<DeletePolicyResponse> {
@@ -7853,10 +8529,30 @@ export default class Client extends OpenApi {
 
   async deletePolicyVersionWithOptions(request: DeletePolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<DeletePolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeletePolicyVersionResponse>(await this.doRPCRequest("DeletePolicyVersion", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeletePolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeletePolicyVersion",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePolicyVersionResponse>(await this.callApi(params, req, runtime), new DeletePolicyVersionResponse({}));
   }
 
   async deletePolicyVersion(request: DeletePolicyVersionRequest): Promise<DeletePolicyVersionResponse> {
@@ -7866,10 +8562,26 @@ export default class Client extends OpenApi {
 
   async deleteResourceGroupWithOptions(request: DeleteResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteResourceGroupResponse>(await this.doRPCRequest("DeleteResourceGroup", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteResourceGroup",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteResourceGroupResponse>(await this.callApi(params, req, runtime), new DeleteResourceGroupResponse({}));
   }
 
   async deleteResourceGroup(request: DeleteResourceGroupRequest): Promise<DeleteResourceGroupResponse> {
@@ -7879,10 +8591,26 @@ export default class Client extends OpenApi {
 
   async deleteRoleWithOptions(request: DeleteRoleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteRoleResponse>(await this.doRPCRequest("DeleteRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRoleResponse>(await this.callApi(params, req, runtime), new DeleteRoleResponse({}));
   }
 
   async deleteRole(request: DeleteRoleRequest): Promise<DeleteRoleResponse> {
@@ -7892,10 +8620,26 @@ export default class Client extends OpenApi {
 
   async deleteServiceLinkedRoleWithOptions(request: DeleteServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServiceLinkedRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteServiceLinkedRoleResponse>(await this.doRPCRequest("DeleteServiceLinkedRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServiceLinkedRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteServiceLinkedRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new DeleteServiceLinkedRoleResponse({}));
   }
 
   async deleteServiceLinkedRole(request: DeleteServiceLinkedRoleRequest): Promise<DeleteServiceLinkedRoleResponse> {
@@ -7905,10 +8649,30 @@ export default class Client extends OpenApi {
 
   async deregisterDelegatedAdministratorWithOptions(request: DeregisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<DeregisterDelegatedAdministratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.servicePrincipal)) {
+      query["ServicePrincipal"] = request.servicePrincipal;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeregisterDelegatedAdministratorResponse>(await this.doRPCRequest("DeregisterDelegatedAdministrator", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DeregisterDelegatedAdministratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeregisterDelegatedAdministrator",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeregisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new DeregisterDelegatedAdministratorResponse({}));
   }
 
   async deregisterDelegatedAdministrator(request: DeregisterDelegatedAdministratorRequest): Promise<DeregisterDelegatedAdministratorResponse> {
@@ -7918,7 +8682,18 @@ export default class Client extends OpenApi {
 
   async destroyResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<DestroyResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DestroyResourceDirectoryResponse>(await this.doRPCRequest("DestroyResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DestroyResourceDirectoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DestroyResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DestroyResourceDirectoryResponse>(await this.callApi(params, req, runtime), new DestroyResourceDirectoryResponse({}));
   }
 
   async destroyResourceDirectory(): Promise<DestroyResourceDirectoryResponse> {
@@ -7928,10 +8703,30 @@ export default class Client extends OpenApi {
 
   async detachControlPolicyWithOptions(request: DetachControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachControlPolicyResponse>(await this.doRPCRequest("DetachControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DetachControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachControlPolicyResponse>(await this.callApi(params, req, runtime), new DetachControlPolicyResponse({}));
   }
 
   async detachControlPolicy(request: DetachControlPolicyRequest): Promise<DetachControlPolicyResponse> {
@@ -7941,10 +8736,42 @@ export default class Client extends OpenApi {
 
   async detachPolicyWithOptions(request: DetachPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DetachPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DetachPolicyResponse>(await this.doRPCRequest("DetachPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DetachPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetachPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachPolicyResponse>(await this.callApi(params, req, runtime), new DetachPolicyResponse({}));
   }
 
   async detachPolicy(request: DetachPolicyRequest): Promise<DetachPolicyResponse> {
@@ -7954,7 +8781,18 @@ export default class Client extends OpenApi {
 
   async disableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<DisableControlPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<DisableControlPolicyResponse>(await this.doRPCRequest("DisableControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new DisableControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableControlPolicyResponse>(await this.callApi(params, req, runtime), new DisableControlPolicyResponse({}));
   }
 
   async disableControlPolicy(): Promise<DisableControlPolicyResponse> {
@@ -7964,7 +8802,18 @@ export default class Client extends OpenApi {
 
   async enableControlPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<EnableControlPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<EnableControlPolicyResponse>(await this.doRPCRequest("EnableControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new EnableControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EnableControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableControlPolicyResponse>(await this.callApi(params, req, runtime), new EnableControlPolicyResponse({}));
   }
 
   async enableControlPolicy(): Promise<EnableControlPolicyResponse> {
@@ -7972,12 +8821,69 @@ export default class Client extends OpenApi {
     return await this.enableControlPolicyWithOptions(runtime);
   }
 
+  async enableResourceDirectoryWithOptions(request: EnableResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<EnableResourceDirectoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.enableMode)) {
+      query["EnableMode"] = request.enableMode;
+    }
+
+    if (!Util.isUnset(request.MAName)) {
+      query["MAName"] = request.MAName;
+    }
+
+    if (!Util.isUnset(request.MASecureMobilePhone)) {
+      query["MASecureMobilePhone"] = request.MASecureMobilePhone;
+    }
+
+    if (!Util.isUnset(request.verificationCode)) {
+      query["VerificationCode"] = request.verificationCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableResourceDirectoryResponse>(await this.callApi(params, req, runtime), new EnableResourceDirectoryResponse({}));
+  }
+
+  async enableResourceDirectory(request: EnableResourceDirectoryRequest): Promise<EnableResourceDirectoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableResourceDirectoryWithOptions(request, runtime);
+  }
+
   async getAccountWithOptions(request: GetAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAccountResponse>(await this.doRPCRequest("GetAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountResponse>(await this.callApi(params, req, runtime), new GetAccountResponse({}));
   }
 
   async getAccount(request: GetAccountRequest): Promise<GetAccountResponse> {
@@ -7987,10 +8893,30 @@ export default class Client extends OpenApi {
 
   async getControlPolicyWithOptions(request: GetControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetControlPolicyResponse>(await this.doRPCRequest("GetControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetControlPolicyResponse>(await this.callApi(params, req, runtime), new GetControlPolicyResponse({}));
   }
 
   async getControlPolicy(request: GetControlPolicyRequest): Promise<GetControlPolicyResponse> {
@@ -8000,7 +8926,18 @@ export default class Client extends OpenApi {
 
   async getControlPolicyEnablementStatusWithOptions(runtime: $Util.RuntimeOptions): Promise<GetControlPolicyEnablementStatusResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetControlPolicyEnablementStatusResponse>(await this.doRPCRequest("GetControlPolicyEnablementStatus", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetControlPolicyEnablementStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetControlPolicyEnablementStatus",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetControlPolicyEnablementStatusResponse>(await this.callApi(params, req, runtime), new GetControlPolicyEnablementStatusResponse({}));
   }
 
   async getControlPolicyEnablementStatus(): Promise<GetControlPolicyEnablementStatusResponse> {
@@ -8010,10 +8947,26 @@ export default class Client extends OpenApi {
 
   async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.folderId)) {
+      query["FolderId"] = request.folderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetFolderResponse>(await this.doRPCRequest("GetFolder", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetFolderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetFolder",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFolderResponse>(await this.callApi(params, req, runtime), new GetFolderResponse({}));
   }
 
   async getFolder(request: GetFolderRequest): Promise<GetFolderResponse> {
@@ -8023,10 +8976,26 @@ export default class Client extends OpenApi {
 
   async getHandshakeWithOptions(request: GetHandshakeRequest, runtime: $Util.RuntimeOptions): Promise<GetHandshakeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.handshakeId)) {
+      query["HandshakeId"] = request.handshakeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetHandshakeResponse>(await this.doRPCRequest("GetHandshake", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetHandshakeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetHandshake",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHandshakeResponse>(await this.callApi(params, req, runtime), new GetHandshakeResponse({}));
   }
 
   async getHandshake(request: GetHandshakeRequest): Promise<GetHandshakeResponse> {
@@ -8036,10 +9005,26 @@ export default class Client extends OpenApi {
 
   async getPayerForAccountWithOptions(request: GetPayerForAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetPayerForAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPayerForAccountResponse>(await this.doRPCRequest("GetPayerForAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetPayerForAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPayerForAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPayerForAccountResponse>(await this.callApi(params, req, runtime), new GetPayerForAccountResponse({}));
   }
 
   async getPayerForAccount(request: GetPayerForAccountRequest): Promise<GetPayerForAccountResponse> {
@@ -8049,10 +9034,34 @@ export default class Client extends OpenApi {
 
   async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPolicyResponse>(await this.doRPCRequest("GetPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
   }
 
   async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
@@ -8062,10 +9071,34 @@ export default class Client extends OpenApi {
 
   async getPolicyVersionWithOptions(request: GetPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetPolicyVersionResponse>(await this.doRPCRequest("GetPolicyVersion", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetPolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPolicyVersion",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPolicyVersionResponse>(await this.callApi(params, req, runtime), new GetPolicyVersionResponse({}));
   }
 
   async getPolicyVersion(request: GetPolicyVersionRequest): Promise<GetPolicyVersionResponse> {
@@ -8075,7 +9108,18 @@ export default class Client extends OpenApi {
 
   async getResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetResourceDirectoryResponse>(await this.doRPCRequest("GetResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetResourceDirectoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceDirectoryResponse>(await this.callApi(params, req, runtime), new GetResourceDirectoryResponse({}));
   }
 
   async getResourceDirectory(): Promise<GetResourceDirectoryResponse> {
@@ -8085,10 +9129,26 @@ export default class Client extends OpenApi {
 
   async getResourceGroupWithOptions(request: GetResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetResourceGroupResponse>(await this.doRPCRequest("GetResourceGroup", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetResourceGroup",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetResourceGroupResponse>(await this.callApi(params, req, runtime), new GetResourceGroupResponse({}));
   }
 
   async getResourceGroup(request: GetResourceGroupRequest): Promise<GetResourceGroupResponse> {
@@ -8098,10 +9158,30 @@ export default class Client extends OpenApi {
 
   async getRoleWithOptions(request: GetRoleRequest, runtime: $Util.RuntimeOptions): Promise<GetRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetRoleResponse>(await this.doRPCRequest("GetRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRoleResponse>(await this.callApi(params, req, runtime), new GetRoleResponse({}));
   }
 
   async getRole(request: GetRoleRequest): Promise<GetRoleResponse> {
@@ -8111,10 +9191,26 @@ export default class Client extends OpenApi {
 
   async getServiceLinkedRoleDeletionStatusWithOptions(request: GetServiceLinkedRoleDeletionStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceLinkedRoleDeletionStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deletionTaskId)) {
+      query["DeletionTaskId"] = request.deletionTaskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetServiceLinkedRoleDeletionStatusResponse>(await this.doRPCRequest("GetServiceLinkedRoleDeletionStatus", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new GetServiceLinkedRoleDeletionStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetServiceLinkedRoleDeletionStatus",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceLinkedRoleDeletionStatusResponse>(await this.callApi(params, req, runtime), new GetServiceLinkedRoleDeletionStatusResponse({}));
   }
 
   async getServiceLinkedRoleDeletionStatus(request: GetServiceLinkedRoleDeletionStatusRequest): Promise<GetServiceLinkedRoleDeletionStatusResponse> {
@@ -8124,7 +9220,18 @@ export default class Client extends OpenApi {
 
   async initResourceDirectoryWithOptions(runtime: $Util.RuntimeOptions): Promise<InitResourceDirectoryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<InitResourceDirectoryResponse>(await this.doRPCRequest("InitResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new InitResourceDirectoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InitResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InitResourceDirectoryResponse>(await this.callApi(params, req, runtime), new InitResourceDirectoryResponse({}));
   }
 
   async initResourceDirectory(): Promise<InitResourceDirectoryResponse> {
@@ -8134,10 +9241,34 @@ export default class Client extends OpenApi {
 
   async inviteAccountToResourceDirectoryWithOptions(request: InviteAccountToResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<InviteAccountToResourceDirectoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.targetEntity)) {
+      query["TargetEntity"] = request.targetEntity;
+    }
+
+    if (!Util.isUnset(request.targetType)) {
+      query["TargetType"] = request.targetType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<InviteAccountToResourceDirectoryResponse>(await this.doRPCRequest("InviteAccountToResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new InviteAccountToResourceDirectoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "InviteAccountToResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<InviteAccountToResourceDirectoryResponse>(await this.callApi(params, req, runtime), new InviteAccountToResourceDirectoryResponse({}));
   }
 
   async inviteAccountToResourceDirectory(request: InviteAccountToResourceDirectoryRequest): Promise<InviteAccountToResourceDirectoryResponse> {
@@ -8147,10 +9278,30 @@ export default class Client extends OpenApi {
 
   async listAccountsWithOptions(request: ListAccountsRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAccountsResponse>(await this.doRPCRequest("ListAccounts", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccountsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccounts",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccountsResponse>(await this.callApi(params, req, runtime), new ListAccountsResponse({}));
   }
 
   async listAccounts(request: ListAccountsRequest): Promise<ListAccountsResponse> {
@@ -8160,10 +9311,38 @@ export default class Client extends OpenApi {
 
   async listAccountsForParentWithOptions(request: ListAccountsForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListAccountsForParentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
+    }
+
+    if (!Util.isUnset(request.queryKeyword)) {
+      query["QueryKeyword"] = request.queryKeyword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAccountsForParentResponse>(await this.doRPCRequest("ListAccountsForParent", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccountsForParentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccountsForParent",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccountsForParentResponse>(await this.callApi(params, req, runtime), new ListAccountsForParentResponse({}));
   }
 
   async listAccountsForParent(request: ListAccountsForParentRequest): Promise<ListAccountsForParentResponse> {
@@ -8173,10 +9352,26 @@ export default class Client extends OpenApi {
 
   async listAncestorsWithOptions(request: ListAncestorsRequest, runtime: $Util.RuntimeOptions): Promise<ListAncestorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.childId)) {
+      query["ChildId"] = request.childId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAncestorsResponse>(await this.doRPCRequest("ListAncestors", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListAncestorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAncestors",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAncestorsResponse>(await this.callApi(params, req, runtime), new ListAncestorsResponse({}));
   }
 
   async listAncestors(request: ListAncestorsRequest): Promise<ListAncestorsResponse> {
@@ -8186,10 +9381,38 @@ export default class Client extends OpenApi {
 
   async listControlPoliciesWithOptions(request: ListControlPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListControlPoliciesResponse>(await this.doRPCRequest("ListControlPolicies", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListControlPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListControlPolicies",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListControlPoliciesResponse>(await this.callApi(params, req, runtime), new ListControlPoliciesResponse({}));
   }
 
   async listControlPolicies(request: ListControlPoliciesRequest): Promise<ListControlPoliciesResponse> {
@@ -8199,10 +9422,30 @@ export default class Client extends OpenApi {
 
   async listControlPolicyAttachmentsForTargetWithOptions(request: ListControlPolicyAttachmentsForTargetRequest, runtime: $Util.RuntimeOptions): Promise<ListControlPolicyAttachmentsForTargetResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.targetId)) {
+      query["TargetId"] = request.targetId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListControlPolicyAttachmentsForTargetResponse>(await this.doRPCRequest("ListControlPolicyAttachmentsForTarget", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListControlPolicyAttachmentsForTargetResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListControlPolicyAttachmentsForTarget",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListControlPolicyAttachmentsForTargetResponse>(await this.callApi(params, req, runtime), new ListControlPolicyAttachmentsForTargetResponse({}));
   }
 
   async listControlPolicyAttachmentsForTarget(request: ListControlPolicyAttachmentsForTargetRequest): Promise<ListControlPolicyAttachmentsForTargetResponse> {
@@ -8212,10 +9455,34 @@ export default class Client extends OpenApi {
 
   async listDelegatedAdministratorsWithOptions(request: ListDelegatedAdministratorsRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedAdministratorsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.servicePrincipal)) {
+      query["ServicePrincipal"] = request.servicePrincipal;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListDelegatedAdministratorsResponse>(await this.doRPCRequest("ListDelegatedAdministrators", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListDelegatedAdministratorsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDelegatedAdministrators",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDelegatedAdministratorsResponse>(await this.callApi(params, req, runtime), new ListDelegatedAdministratorsResponse({}));
   }
 
   async listDelegatedAdministrators(request: ListDelegatedAdministratorsRequest): Promise<ListDelegatedAdministratorsResponse> {
@@ -8225,10 +9492,26 @@ export default class Client extends OpenApi {
 
   async listDelegatedServicesForAccountWithOptions(request: ListDelegatedServicesForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListDelegatedServicesForAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListDelegatedServicesForAccountResponse>(await this.doRPCRequest("ListDelegatedServicesForAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListDelegatedServicesForAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListDelegatedServicesForAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDelegatedServicesForAccountResponse>(await this.callApi(params, req, runtime), new ListDelegatedServicesForAccountResponse({}));
   }
 
   async listDelegatedServicesForAccount(request: ListDelegatedServicesForAccountRequest): Promise<ListDelegatedServicesForAccountResponse> {
@@ -8238,10 +9521,38 @@ export default class Client extends OpenApi {
 
   async listFoldersForParentWithOptions(request: ListFoldersForParentRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersForParentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentFolderId)) {
+      query["ParentFolderId"] = request.parentFolderId;
+    }
+
+    if (!Util.isUnset(request.queryKeyword)) {
+      query["QueryKeyword"] = request.queryKeyword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListFoldersForParentResponse>(await this.doRPCRequest("ListFoldersForParent", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListFoldersForParentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListFoldersForParent",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListFoldersForParentResponse>(await this.callApi(params, req, runtime), new ListFoldersForParentResponse({}));
   }
 
   async listFoldersForParent(request: ListFoldersForParentRequest): Promise<ListFoldersForParentResponse> {
@@ -8251,10 +9562,30 @@ export default class Client extends OpenApi {
 
   async listHandshakesForAccountWithOptions(request: ListHandshakesForAccountRequest, runtime: $Util.RuntimeOptions): Promise<ListHandshakesForAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListHandshakesForAccountResponse>(await this.doRPCRequest("ListHandshakesForAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListHandshakesForAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListHandshakesForAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHandshakesForAccountResponse>(await this.callApi(params, req, runtime), new ListHandshakesForAccountResponse({}));
   }
 
   async listHandshakesForAccount(request: ListHandshakesForAccountRequest): Promise<ListHandshakesForAccountResponse> {
@@ -8264,10 +9595,30 @@ export default class Client extends OpenApi {
 
   async listHandshakesForResourceDirectoryWithOptions(request: ListHandshakesForResourceDirectoryRequest, runtime: $Util.RuntimeOptions): Promise<ListHandshakesForResourceDirectoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListHandshakesForResourceDirectoryResponse>(await this.doRPCRequest("ListHandshakesForResourceDirectory", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListHandshakesForResourceDirectoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListHandshakesForResourceDirectory",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListHandshakesForResourceDirectoryResponse>(await this.callApi(params, req, runtime), new ListHandshakesForResourceDirectoryResponse({}));
   }
 
   async listHandshakesForResourceDirectory(request: ListHandshakesForResourceDirectoryRequest): Promise<ListHandshakesForResourceDirectoryResponse> {
@@ -8277,10 +9628,38 @@ export default class Client extends OpenApi {
 
   async listPoliciesWithOptions(request: ListPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPoliciesResponse>(await this.doRPCRequest("ListPolicies", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPolicies",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoliciesResponse>(await this.callApi(params, req, runtime), new ListPoliciesResponse({}));
   }
 
   async listPolicies(request: ListPoliciesRequest): Promise<ListPoliciesResponse> {
@@ -8290,10 +9669,54 @@ export default class Client extends OpenApi {
 
   async listPolicyAttachmentsWithOptions(request: ListPolicyAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyAttachmentsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
+    if (!Util.isUnset(request.principalName)) {
+      query["PrincipalName"] = request.principalName;
+    }
+
+    if (!Util.isUnset(request.principalType)) {
+      query["PrincipalType"] = request.principalType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPolicyAttachmentsResponse>(await this.doRPCRequest("ListPolicyAttachments", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListPolicyAttachmentsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPolicyAttachments",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPolicyAttachmentsResponse>(await this.callApi(params, req, runtime), new ListPolicyAttachmentsResponse({}));
   }
 
   async listPolicyAttachments(request: ListPolicyAttachmentsRequest): Promise<ListPolicyAttachmentsResponse> {
@@ -8303,10 +9726,30 @@ export default class Client extends OpenApi {
 
   async listPolicyVersionsWithOptions(request: ListPolicyVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListPolicyVersionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.policyType)) {
+      query["PolicyType"] = request.policyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPolicyVersionsResponse>(await this.doRPCRequest("ListPolicyVersions", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListPolicyVersionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPolicyVersions",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPolicyVersionsResponse>(await this.callApi(params, req, runtime), new ListPolicyVersionsResponse({}));
   }
 
   async listPolicyVersions(request: ListPolicyVersionsRequest): Promise<ListPolicyVersionsResponse> {
@@ -8316,10 +9759,46 @@ export default class Client extends OpenApi {
 
   async listResourceGroupsWithOptions(request: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListResourceGroupsResponse>(await this.doRPCRequest("ListResourceGroups", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListResourceGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResourceGroups",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
   }
 
   async listResourceGroups(request: ListResourceGroupsRequest): Promise<ListResourceGroupsResponse> {
@@ -8329,10 +9808,50 @@ export default class Client extends OpenApi {
 
   async listResourcesWithOptions(request: ListResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListResourcesResponse>(await this.doRPCRequest("ListResources", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListResources",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListResourcesResponse>(await this.callApi(params, req, runtime), new ListResourcesResponse({}));
   }
 
   async listResources(request: ListResourcesRequest): Promise<ListResourcesResponse> {
@@ -8342,10 +9861,34 @@ export default class Client extends OpenApi {
 
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListRolesResponse>(await this.doRPCRequest("ListRoles", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListRolesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListRoles",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
@@ -8355,10 +9898,34 @@ export default class Client extends OpenApi {
 
   async listTargetAttachmentsForControlPolicyWithOptions(request: ListTargetAttachmentsForControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ListTargetAttachmentsForControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTargetAttachmentsForControlPolicyResponse>(await this.doRPCRequest("ListTargetAttachmentsForControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListTargetAttachmentsForControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTargetAttachmentsForControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTargetAttachmentsForControlPolicyResponse>(await this.callApi(params, req, runtime), new ListTargetAttachmentsForControlPolicyResponse({}));
   }
 
   async listTargetAttachmentsForControlPolicy(request: ListTargetAttachmentsForControlPolicyRequest): Promise<ListTargetAttachmentsForControlPolicyResponse> {
@@ -8368,10 +9935,34 @@ export default class Client extends OpenApi {
 
   async listTrustedServiceStatusWithOptions(request: ListTrustedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListTrustedServiceStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.adminAccountId)) {
+      query["AdminAccountId"] = request.adminAccountId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTrustedServiceStatusResponse>(await this.doRPCRequest("ListTrustedServiceStatus", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ListTrustedServiceStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTrustedServiceStatus",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTrustedServiceStatusResponse>(await this.callApi(params, req, runtime), new ListTrustedServiceStatusResponse({}));
   }
 
   async listTrustedServiceStatus(request: ListTrustedServiceStatusRequest): Promise<ListTrustedServiceStatusResponse> {
@@ -8381,10 +9972,30 @@ export default class Client extends OpenApi {
 
   async moveAccountWithOptions(request: MoveAccountRequest, runtime: $Util.RuntimeOptions): Promise<MoveAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.destinationFolderId)) {
+      query["DestinationFolderId"] = request.destinationFolderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<MoveAccountResponse>(await this.doRPCRequest("MoveAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new MoveAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveAccountResponse>(await this.callApi(params, req, runtime), new MoveAccountResponse({}));
   }
 
   async moveAccount(request: MoveAccountRequest): Promise<MoveAccountResponse> {
@@ -8394,10 +10005,30 @@ export default class Client extends OpenApi {
 
   async moveResourcesWithOptions(request: MoveResourcesRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<MoveResourcesResponse>(await this.doRPCRequest("MoveResources", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new MoveResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveResources",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveResourcesResponse>(await this.callApi(params, req, runtime), new MoveResourcesResponse({}));
   }
 
   async moveResources(request: MoveResourcesRequest): Promise<MoveResourcesResponse> {
@@ -8407,10 +10038,30 @@ export default class Client extends OpenApi {
 
   async promoteResourceAccountWithOptions(request: PromoteResourceAccountRequest, runtime: $Util.RuntimeOptions): Promise<PromoteResourceAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PromoteResourceAccountResponse>(await this.doRPCRequest("PromoteResourceAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new PromoteResourceAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PromoteResourceAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PromoteResourceAccountResponse>(await this.callApi(params, req, runtime), new PromoteResourceAccountResponse({}));
   }
 
   async promoteResourceAccount(request: PromoteResourceAccountRequest): Promise<PromoteResourceAccountResponse> {
@@ -8420,10 +10071,30 @@ export default class Client extends OpenApi {
 
   async registerDelegatedAdministratorWithOptions(request: RegisterDelegatedAdministratorRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDelegatedAdministratorResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.servicePrincipal)) {
+      query["ServicePrincipal"] = request.servicePrincipal;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RegisterDelegatedAdministratorResponse>(await this.doRPCRequest("RegisterDelegatedAdministrator", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new RegisterDelegatedAdministratorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RegisterDelegatedAdministrator",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterDelegatedAdministratorResponse>(await this.callApi(params, req, runtime), new RegisterDelegatedAdministratorResponse({}));
   }
 
   async registerDelegatedAdministrator(request: RegisterDelegatedAdministratorRequest): Promise<RegisterDelegatedAdministratorResponse> {
@@ -8433,10 +10104,26 @@ export default class Client extends OpenApi {
 
   async removeCloudAccountWithOptions(request: RemoveCloudAccountRequest, runtime: $Util.RuntimeOptions): Promise<RemoveCloudAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveCloudAccountResponse>(await this.doRPCRequest("RemoveCloudAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveCloudAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveCloudAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveCloudAccountResponse>(await this.callApi(params, req, runtime), new RemoveCloudAccountResponse({}));
   }
 
   async removeCloudAccount(request: RemoveCloudAccountRequest): Promise<RemoveCloudAccountResponse> {
@@ -8446,10 +10133,26 @@ export default class Client extends OpenApi {
 
   async resendCreateCloudAccountEmailWithOptions(request: ResendCreateCloudAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<ResendCreateCloudAccountEmailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ResendCreateCloudAccountEmailResponse>(await this.doRPCRequest("ResendCreateCloudAccountEmail", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ResendCreateCloudAccountEmailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResendCreateCloudAccountEmail",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResendCreateCloudAccountEmailResponse>(await this.callApi(params, req, runtime), new ResendCreateCloudAccountEmailResponse({}));
   }
 
   async resendCreateCloudAccountEmail(request: ResendCreateCloudAccountEmailRequest): Promise<ResendCreateCloudAccountEmailResponse> {
@@ -8459,10 +10162,26 @@ export default class Client extends OpenApi {
 
   async resendPromoteResourceAccountEmailWithOptions(request: ResendPromoteResourceAccountEmailRequest, runtime: $Util.RuntimeOptions): Promise<ResendPromoteResourceAccountEmailResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.recordId)) {
+      query["RecordId"] = request.recordId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ResendPromoteResourceAccountEmailResponse>(await this.doRPCRequest("ResendPromoteResourceAccountEmail", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new ResendPromoteResourceAccountEmailResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ResendPromoteResourceAccountEmail",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResendPromoteResourceAccountEmailResponse>(await this.callApi(params, req, runtime), new ResendPromoteResourceAccountEmailResponse({}));
   }
 
   async resendPromoteResourceAccountEmail(request: ResendPromoteResourceAccountEmailRequest): Promise<ResendPromoteResourceAccountEmailResponse> {
@@ -8470,12 +10189,94 @@ export default class Client extends OpenApi {
     return await this.resendPromoteResourceAccountEmailWithOptions(request, runtime);
   }
 
+  async sendVerificationCodeForBindSecureMobilePhoneWithOptions(request: SendVerificationCodeForBindSecureMobilePhoneRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.secureMobilePhone)) {
+      query["SecureMobilePhone"] = request.secureMobilePhone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendVerificationCodeForBindSecureMobilePhone",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendVerificationCodeForBindSecureMobilePhoneResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForBindSecureMobilePhoneResponse({}));
+  }
+
+  async sendVerificationCodeForBindSecureMobilePhone(request: SendVerificationCodeForBindSecureMobilePhoneRequest): Promise<SendVerificationCodeForBindSecureMobilePhoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendVerificationCodeForBindSecureMobilePhoneWithOptions(request, runtime);
+  }
+
+  async sendVerificationCodeForEnableRDWithOptions(request: SendVerificationCodeForEnableRDRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationCodeForEnableRDResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.secureMobilePhone)) {
+      query["SecureMobilePhone"] = request.secureMobilePhone;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendVerificationCodeForEnableRD",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendVerificationCodeForEnableRDResponse>(await this.callApi(params, req, runtime), new SendVerificationCodeForEnableRDResponse({}));
+  }
+
+  async sendVerificationCodeForEnableRD(request: SendVerificationCodeForEnableRDRequest): Promise<SendVerificationCodeForEnableRDResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendVerificationCodeForEnableRDWithOptions(request, runtime);
+  }
+
   async setDefaultPolicyVersionWithOptions(request: SetDefaultPolicyVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultPolicyVersionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.policyName)) {
+      query["PolicyName"] = request.policyName;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDefaultPolicyVersionResponse>(await this.doRPCRequest("SetDefaultPolicyVersion", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultPolicyVersionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDefaultPolicyVersion",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultPolicyVersionResponse>(await this.callApi(params, req, runtime), new SetDefaultPolicyVersionResponse({}));
   }
 
   async setDefaultPolicyVersion(request: SetDefaultPolicyVersionRequest): Promise<SetDefaultPolicyVersionResponse> {
@@ -8485,10 +10286,34 @@ export default class Client extends OpenApi {
 
   async updateAccountWithOptions(request: UpdateAccountRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccountResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.newAccountType)) {
+      query["NewAccountType"] = request.newAccountType;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAccountResponse>(await this.doRPCRequest("UpdateAccount", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAccountResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAccount",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccountResponse>(await this.callApi(params, req, runtime), new UpdateAccountResponse({}));
   }
 
   async updateAccount(request: UpdateAccountRequest): Promise<UpdateAccountResponse> {
@@ -8498,10 +10323,38 @@ export default class Client extends OpenApi {
 
   async updateControlPolicyWithOptions(request: UpdateControlPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateControlPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newPolicyDocument)) {
+      query["NewPolicyDocument"] = request.newPolicyDocument;
+    }
+
+    if (!Util.isUnset(request.newPolicyName)) {
+      query["NewPolicyName"] = request.newPolicyName;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateControlPolicyResponse>(await this.doRPCRequest("UpdateControlPolicy", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateControlPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateControlPolicy",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateControlPolicyResponse>(await this.callApi(params, req, runtime), new UpdateControlPolicyResponse({}));
   }
 
   async updateControlPolicy(request: UpdateControlPolicyRequest): Promise<UpdateControlPolicyResponse> {
@@ -8511,10 +10364,30 @@ export default class Client extends OpenApi {
 
   async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.folderId)) {
+      query["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.newFolderName)) {
+      query["NewFolderName"] = request.newFolderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateFolderResponse>(await this.doRPCRequest("UpdateFolder", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateFolderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateFolder",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateFolderResponse>(await this.callApi(params, req, runtime), new UpdateFolderResponse({}));
   }
 
   async updateFolder(request: UpdateFolderRequest): Promise<UpdateFolderResponse> {
@@ -8524,10 +10397,30 @@ export default class Client extends OpenApi {
 
   async updateResourceGroupWithOptions(request: UpdateResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateResourceGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateResourceGroupResponse>(await this.doRPCRequest("UpdateResourceGroup", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateResourceGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateResourceGroup",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateResourceGroupResponse>(await this.callApi(params, req, runtime), new UpdateResourceGroupResponse({}));
   }
 
   async updateResourceGroup(request: UpdateResourceGroupRequest): Promise<UpdateResourceGroupResponse> {
@@ -8537,10 +10430,38 @@ export default class Client extends OpenApi {
 
   async updateRoleWithOptions(request: UpdateRoleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRoleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newAssumeRolePolicyDocument)) {
+      query["NewAssumeRolePolicyDocument"] = request.newAssumeRolePolicyDocument;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newMaxSessionDuration)) {
+      query["NewMaxSessionDuration"] = request.newMaxSessionDuration;
+    }
+
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateRoleResponse>(await this.doRPCRequest("UpdateRole", "2020-03-31", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateRoleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateRole",
+      version: "2020-03-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateRoleResponse>(await this.callApi(params, req, runtime), new UpdateRoleResponse({}));
   }
 
   async updateRole(request: UpdateRoleRequest): Promise<UpdateRoleResponse> {
