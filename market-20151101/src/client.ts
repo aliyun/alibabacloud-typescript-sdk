@@ -1,0 +1,5572 @@
+// This file is auto-generated, don't edit it
+/**
+ *
+ */
+import Util, * as $Util from '@alicloud/tea-util';
+import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
+import EndpointUtil from '@alicloud/endpoint-util';
+import * as $tea from '@alicloud/tea-typescript';
+
+export class ActivateLicenseRequest extends $tea.Model {
+  identification?: string;
+  licenseCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identification: 'Identification',
+      licenseCode: 'LicenseCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identification: 'string',
+      licenseCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActivateLicenseResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ActivateLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ActivateLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ActivateLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindImagePackageRequest extends $tea.Model {
+  ecsInstanceId?: string;
+  imagePackageInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsInstanceId: 'EcsInstanceId',
+      imagePackageInstanceId: 'ImagePackageInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsInstanceId: 'string',
+      imagePackageInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindImagePackageResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BindImagePackageResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BindImagePackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BindImagePackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommodityRequest extends $tea.Model {
+  applicationId?: string;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommodityResponseBody extends $tea.Model {
+  commodity?: CreateCommodityResponseBodyCommodity;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      commodity: 'Commodity',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodity: CreateCommodityResponseBodyCommodity,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCommodityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCommodityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderRequest extends $tea.Model {
+  clientToken?: string;
+  commodity?: string;
+  orderSouce?: string;
+  orderType?: string;
+  ownerId?: string;
+  paymentType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      commodity: 'Commodity',
+      orderSouce: 'OrderSouce',
+      orderType: 'OrderType',
+      ownerId: 'OwnerId',
+      paymentType: 'PaymentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      commodity: 'string',
+      orderSouce: 'string',
+      orderType: 'string',
+      ownerId: 'string',
+      paymentType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderResponseBody extends $tea.Model {
+  instanceIds?: CreateOrderResponseBodyInstanceIds;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: CreateOrderResponseBodyInstanceIds,
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRateRequest extends $tea.Model {
+  content?: string;
+  orderId?: string;
+  requestId?: string;
+  score?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+      score: 'Score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      orderId: 'string',
+      requestId: 'string',
+      score: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRateResponseBody extends $tea.Model {
+  id?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCommodityRequest extends $tea.Model {
+  commodityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityId: 'CommodityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCommodityResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteCommodityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteCommodityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesRequest extends $tea.Model {
+  commodityAuditStatuses?: string;
+  commodityCategoryIds?: string;
+  commodityGmtCreatedFrom?: string;
+  commodityGmtCreatedTo?: string;
+  commodityGmtModifiedFrom?: string;
+  commodityGmtModifiedTo?: string;
+  commodityGmtPublishFrom?: string;
+  commodityGmtPublishTo?: string;
+  commodityId?: string;
+  commodityIds?: string;
+  commodityStatuses?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  properties?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityAuditStatuses: 'CommodityAuditStatuses',
+      commodityCategoryIds: 'CommodityCategoryIds',
+      commodityGmtCreatedFrom: 'CommodityGmtCreatedFrom',
+      commodityGmtCreatedTo: 'CommodityGmtCreatedTo',
+      commodityGmtModifiedFrom: 'CommodityGmtModifiedFrom',
+      commodityGmtModifiedTo: 'CommodityGmtModifiedTo',
+      commodityGmtPublishFrom: 'CommodityGmtPublishFrom',
+      commodityGmtPublishTo: 'CommodityGmtPublishTo',
+      commodityId: 'CommodityId',
+      commodityIds: 'CommodityIds',
+      commodityStatuses: 'CommodityStatuses',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityAuditStatuses: 'string',
+      commodityCategoryIds: 'string',
+      commodityGmtCreatedFrom: 'string',
+      commodityGmtCreatedTo: 'string',
+      commodityGmtModifiedFrom: 'string',
+      commodityGmtModifiedTo: 'string',
+      commodityGmtPublishFrom: 'string',
+      commodityGmtPublishTo: 'string',
+      commodityId: 'string',
+      commodityIds: 'string',
+      commodityStatuses: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      properties: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponseBody extends $tea.Model {
+  data?: DescribeCommoditiesResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeCommoditiesResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCommoditiesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCommoditiesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityRequest extends $tea.Model {
+  commodityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityId: 'CommodityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponseBody extends $tea.Model {
+  commodity?: DescribeCommodityResponseBodyCommodity;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      commodity: 'Commodity',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodity: DescribeCommodityResponseBodyCommodity,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCommodityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCommodityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCurrentNodeInfoRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCurrentNodeInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeCurrentNodeInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: DescribeCurrentNodeInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCurrentNodeInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCurrentNodeInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCurrentNodeInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceRequest extends $tea.Model {
+  instanceId?: string;
+  orderType?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderType: 'OrderType',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderType: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBody extends $tea.Model {
+  appJson?: string;
+  beganOn?: number;
+  componentJson?: string;
+  constraints?: string;
+  createdOn?: number;
+  endOn?: number;
+  extendJson?: string;
+  hostJson?: string;
+  instanceId?: number;
+  isTrial?: boolean;
+  modules?: DescribeInstanceResponseBodyModules;
+  orderId?: number;
+  productCode?: string;
+  productName?: string;
+  productSkuCode?: string;
+  productType?: string;
+  relationalData?: DescribeInstanceResponseBodyRelationalData;
+  status?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appJson: 'AppJson',
+      beganOn: 'BeganOn',
+      componentJson: 'ComponentJson',
+      constraints: 'Constraints',
+      createdOn: 'CreatedOn',
+      endOn: 'EndOn',
+      extendJson: 'ExtendJson',
+      hostJson: 'HostJson',
+      instanceId: 'InstanceId',
+      isTrial: 'IsTrial',
+      modules: 'Modules',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productType: 'ProductType',
+      relationalData: 'RelationalData',
+      status: 'Status',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appJson: 'string',
+      beganOn: 'number',
+      componentJson: 'string',
+      constraints: 'string',
+      createdOn: 'number',
+      endOn: 'number',
+      extendJson: 'string',
+      hostJson: 'string',
+      instanceId: 'number',
+      isTrial: 'boolean',
+      modules: DescribeInstanceResponseBodyModules,
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productType: 'string',
+      relationalData: DescribeInstanceResponseBodyRelationalData,
+      status: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesRequest extends $tea.Model {
+  codes?: string;
+  exceptCodes?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  productType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      codes: 'Codes',
+      exceptCodes: 'ExceptCodes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productType: 'ProductType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      codes: 'string',
+      exceptCodes: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBody extends $tea.Model {
+  instanceItems?: DescribeInstancesResponseBodyInstanceItems;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceItems: 'InstanceItems',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceItems: DescribeInstancesResponseBodyInstanceItems,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseRequest extends $tea.Model {
+  licenseCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      licenseCode: 'LicenseCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licenseCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBody extends $tea.Model {
+  license?: DescribeLicenseResponseBodyLicense;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      license: 'License',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      license: DescribeLicenseResponseBodyLicense,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderRequest extends $tea.Model {
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponseBody extends $tea.Model {
+  accountQuantity?: number;
+  aliUid?: number;
+  components?: { [key: string]: any };
+  couponPrice?: number;
+  createdOn?: number;
+  instanceIds?: DescribeOrderResponseBodyInstanceIds;
+  orderId?: number;
+  orderStatus?: string;
+  orderType?: string;
+  originalPrice?: number;
+  paidOn?: number;
+  payStatus?: string;
+  paymentPrice?: number;
+  periodType?: string;
+  productCode?: string;
+  productName?: string;
+  productSkuCode?: string;
+  quantity?: number;
+  requestId?: string;
+  supplierCompanyName?: string;
+  supplierTelephones?: DescribeOrderResponseBodySupplierTelephones;
+  totalPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountQuantity: 'AccountQuantity',
+      aliUid: 'AliUid',
+      components: 'Components',
+      couponPrice: 'CouponPrice',
+      createdOn: 'CreatedOn',
+      instanceIds: 'InstanceIds',
+      orderId: 'OrderId',
+      orderStatus: 'OrderStatus',
+      orderType: 'OrderType',
+      originalPrice: 'OriginalPrice',
+      paidOn: 'PaidOn',
+      payStatus: 'PayStatus',
+      paymentPrice: 'PaymentPrice',
+      periodType: 'PeriodType',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      quantity: 'Quantity',
+      requestId: 'RequestId',
+      supplierCompanyName: 'SupplierCompanyName',
+      supplierTelephones: 'SupplierTelephones',
+      totalPrice: 'TotalPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountQuantity: 'number',
+      aliUid: 'number',
+      components: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      couponPrice: 'number',
+      createdOn: 'number',
+      instanceIds: DescribeOrderResponseBodyInstanceIds,
+      orderId: 'number',
+      orderStatus: 'string',
+      orderType: 'string',
+      originalPrice: 'number',
+      paidOn: 'number',
+      payStatus: 'string',
+      paymentPrice: 'number',
+      periodType: 'string',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      quantity: 'number',
+      requestId: 'string',
+      supplierCompanyName: 'string',
+      supplierTelephones: DescribeOrderResponseBodySupplierTelephones,
+      totalPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceRequest extends $tea.Model {
+  commodity?: string;
+  orderType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodity: 'Commodity',
+      orderType: 'OrderType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodity: 'string',
+      orderType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBody extends $tea.Model {
+  coupons?: DescribePriceResponseBodyCoupons;
+  currency?: string;
+  cuxiao?: boolean;
+  cycle?: string;
+  discountPrice?: number;
+  duration?: number;
+  expressionCode?: string;
+  expressionMessage?: string;
+  infoTitle?: string;
+  originalPrice?: number;
+  productCode?: string;
+  promotionRules?: DescribePriceResponseBodyPromotionRules;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coupons: 'Coupons',
+      currency: 'Currency',
+      cuxiao: 'Cuxiao',
+      cycle: 'Cycle',
+      discountPrice: 'DiscountPrice',
+      duration: 'Duration',
+      expressionCode: 'ExpressionCode',
+      expressionMessage: 'ExpressionMessage',
+      infoTitle: 'InfoTitle',
+      originalPrice: 'OriginalPrice',
+      productCode: 'ProductCode',
+      promotionRules: 'PromotionRules',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coupons: DescribePriceResponseBodyCoupons,
+      currency: 'string',
+      cuxiao: 'boolean',
+      cycle: 'string',
+      discountPrice: 'number',
+      duration: 'number',
+      expressionCode: 'string',
+      expressionMessage: 'string',
+      infoTitle: 'string',
+      originalPrice: 'number',
+      productCode: 'string',
+      promotionRules: DescribePriceResponseBodyPromotionRules,
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribePriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribePriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductRequest extends $tea.Model {
+  aliUid?: string;
+  code?: string;
+  queryDraft?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      code: 'Code',
+      queryDraft: 'QueryDraft',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      code: 'string',
+      queryDraft: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBody extends $tea.Model {
+  auditFailMsg?: string;
+  auditStatus?: string;
+  auditTime?: number;
+  code?: string;
+  description?: string;
+  frontCategoryId?: number;
+  gmtCreated?: number;
+  gmtModified?: number;
+  name?: string;
+  picUrl?: string;
+  productExtras?: DescribeProductResponseBodyProductExtras;
+  productSkus?: DescribeProductResponseBodyProductSkus;
+  requestId?: string;
+  score?: number;
+  shopInfo?: DescribeProductResponseBodyShopInfo;
+  shortDescription?: string;
+  status?: string;
+  supplierPk?: number;
+  type?: string;
+  useCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      auditFailMsg: 'AuditFailMsg',
+      auditStatus: 'AuditStatus',
+      auditTime: 'AuditTime',
+      code: 'Code',
+      description: 'Description',
+      frontCategoryId: 'FrontCategoryId',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+      name: 'Name',
+      picUrl: 'PicUrl',
+      productExtras: 'ProductExtras',
+      productSkus: 'ProductSkus',
+      requestId: 'RequestId',
+      score: 'Score',
+      shopInfo: 'ShopInfo',
+      shortDescription: 'ShortDescription',
+      status: 'Status',
+      supplierPk: 'SupplierPk',
+      type: 'Type',
+      useCount: 'UseCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditFailMsg: 'string',
+      auditStatus: 'string',
+      auditTime: 'number',
+      code: 'string',
+      description: 'string',
+      frontCategoryId: 'number',
+      gmtCreated: 'number',
+      gmtModified: 'number',
+      name: 'string',
+      picUrl: 'string',
+      productExtras: DescribeProductResponseBodyProductExtras,
+      productSkus: DescribeProductResponseBodyProductSkus,
+      requestId: 'string',
+      score: 'number',
+      shopInfo: DescribeProductResponseBodyShopInfo,
+      shortDescription: 'string',
+      status: 'string',
+      supplierPk: 'number',
+      type: 'string',
+      useCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProductResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProductResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsRequest extends $tea.Model {
+  filter?: DescribeProductsRequestFilter[];
+  pageNumber?: number;
+  pageSize?: number;
+  searchTerm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchTerm: 'SearchTerm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': DescribeProductsRequestFilter },
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchTerm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  productItems?: DescribeProductsResponseBodyProductItems;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productItems: 'ProductItems',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      productItems: DescribeProductsResponseBodyProductItems,
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProductsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProductsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectAttachmentsRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectAttachmentsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeProjectAttachmentsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeProjectAttachmentsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectAttachmentsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProjectAttachmentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProjectAttachmentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectInfoRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectInfoResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeProjectInfoResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: DescribeProjectInfoResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProjectInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProjectInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectMessagesRequest extends $tea.Model {
+  instanceId?: string;
+  pageIndex?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageIndex: 'PageIndex',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageIndex: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectMessagesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeProjectMessagesResponseBodyResult[];
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeProjectMessagesResponseBodyResult },
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectMessagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProjectMessagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProjectMessagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectNodesRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectNodesResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeProjectNodesResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeProjectNodesResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectNodesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProjectNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProjectNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectOperateLogsRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectOperateLogsResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: DescribeProjectOperateLogsResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': DescribeProjectOperateLogsResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectOperateLogsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeProjectOperateLogsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeProjectOperateLogsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRateRequest extends $tea.Model {
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRateResponseBody extends $tea.Model {
+  additionalContent?: string;
+  additionalExplaintion?: string;
+  aliUid?: number;
+  content?: string;
+  explaintion?: string;
+  gmtAdditional?: number;
+  gmtAdditionalExplaintion?: number;
+  gmtCreated?: number;
+  gmtExplaintion?: number;
+  id?: number;
+  instanceId?: string;
+  orderId?: string;
+  productId?: string;
+  requestId?: string;
+  score?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalContent: 'AdditionalContent',
+      additionalExplaintion: 'AdditionalExplaintion',
+      aliUid: 'AliUid',
+      content: 'Content',
+      explaintion: 'Explaintion',
+      gmtAdditional: 'GmtAdditional',
+      gmtAdditionalExplaintion: 'GmtAdditionalExplaintion',
+      gmtCreated: 'GmtCreated',
+      gmtExplaintion: 'GmtExplaintion',
+      id: 'Id',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      productId: 'ProductId',
+      requestId: 'RequestId',
+      score: 'Score',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalContent: 'string',
+      additionalExplaintion: 'string',
+      aliUid: 'number',
+      content: 'string',
+      explaintion: 'string',
+      gmtAdditional: 'number',
+      gmtAdditionalExplaintion: 'number',
+      gmtCreated: 'number',
+      gmtExplaintion: 'number',
+      id: 'number',
+      instanceId: 'string',
+      orderId: 'string',
+      productId: 'string',
+      requestId: 'string',
+      score: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishCurrentProjectNodeRequest extends $tea.Model {
+  instanceId?: string;
+  nodeId?: number;
+  remark?: string;
+  templateForm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      remark: 'Remark',
+      templateForm: 'TemplateForm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'number',
+      remark: 'string',
+      templateForm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishCurrentProjectNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishCurrentProjectNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: FinishCurrentProjectNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: FinishCurrentProjectNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyContractEventRequest extends $tea.Model {
+  eventMessage?: string;
+  eventType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventMessage: 'EventMessage',
+      eventType: 'EventType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventMessage: 'string',
+      eventType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyContractEventResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class NotifyContractEventResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: NotifyContractEventResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: NotifyContractEventResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseProjectRequest extends $tea.Model {
+  instanceId?: string;
+  nodeId?: number;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'number',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PauseProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PauseProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataRequest extends $tea.Model {
+  metering?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metering: 'Metering',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metering: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PushMeteringDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PushMeteringDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PushMeteringDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponseBody extends $tea.Model {
+  categories?: QueryMarketCategoriesResponseBodyCategories;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: QueryMarketCategoriesResponseBodyCategories,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMarketCategoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMarketCategoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesRequest extends $tea.Model {
+  param?: string;
+  static names(): { [key: string]: string } {
+    return {
+      param: 'Param',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      param: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBody extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  result?: QueryMarketImagesResponseBodyResult;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: QueryMarketImagesResponseBodyResult,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryMarketImagesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryMarketImagesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeProjectRequest extends $tea.Model {
+  instanceId?: string;
+  nodeId?: number;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'number',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeProjectResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResumeProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResumeProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResumeProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackCurrentProjectNodeRequest extends $tea.Model {
+  instanceId?: string;
+  nodeId?: number;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'number',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackCurrentProjectNodeResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackCurrentProjectNodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RollbackCurrentProjectNodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RollbackCurrentProjectNodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCommodityRequest extends $tea.Model {
+  commodityId?: string;
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityId: 'CommodityId',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityId: 'string',
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCommodityResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCommodityResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateCommodityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateCommodityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCommodityFileRequest extends $tea.Model {
+  fileContentType?: string;
+  fileResource?: string;
+  fileResourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileContentType: 'FileContentType',
+      fileResource: 'FileResource',
+      fileResourceType: 'FileResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileContentType: 'string',
+      fileResource: 'string',
+      fileResourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCommodityFileResponseBody extends $tea.Model {
+  data?: UploadCommodityFileResponseBodyData;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UploadCommodityFileResponseBodyData,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCommodityFileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadCommodityFileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadCommodityFileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCommodityResponseBodyCommodity extends $tea.Model {
+  commodityId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityId: 'CommodityId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOrderResponseBodyInstanceIds extends $tea.Model {
+  instanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponseBodyDataCommoditiesCommodity extends $tea.Model {
+  applicationId?: string;
+  commodityId?: string;
+  properties?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      commodityId: 'CommodityId',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      commodityId: 'string',
+      properties: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponseBodyDataCommodities extends $tea.Model {
+  commodity?: DescribeCommoditiesResponseBodyDataCommoditiesCommodity[];
+  static names(): { [key: string]: string } {
+    return {
+      commodity: 'Commodity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodity: { 'type': 'array', 'itemType': DescribeCommoditiesResponseBodyDataCommoditiesCommodity },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponseBodyDataPageable extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommoditiesResponseBodyData extends $tea.Model {
+  commodities?: DescribeCommoditiesResponseBodyDataCommodities;
+  pageable?: DescribeCommoditiesResponseBodyDataPageable;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commodities: 'Commodities',
+      pageable: 'Pageable',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodities: DescribeCommoditiesResponseBodyDataCommodities,
+      pageable: DescribeCommoditiesResponseBodyDataPageable,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCommodityResponseBodyCommodity extends $tea.Model {
+  applicationId?: string;
+  commodityId?: string;
+  commoditySpecs?: string;
+  properties?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      commodityId: 'CommodityId',
+      commoditySpecs: 'CommoditySpecs',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      commodityId: 'string',
+      commoditySpecs: 'string',
+      properties: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCurrentNodeInfoResponseBodyResult extends $tea.Model {
+  allowRollbackNode?: boolean;
+  autoFinishNode?: boolean;
+  finalStepNo?: number;
+  gmtExpired?: number;
+  gmtFinished?: number;
+  gmtStart?: number;
+  needAttachment?: boolean;
+  nextNodeId?: number;
+  nodeId?: number;
+  nodeName?: string;
+  nodeStatus?: string;
+  operatorRole?: string;
+  parentNodeId?: number;
+  previousNodeId?: number;
+  stepNo?: number;
+  templateForm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowRollbackNode: 'AllowRollbackNode',
+      autoFinishNode: 'AutoFinishNode',
+      finalStepNo: 'FinalStepNo',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      gmtStart: 'GmtStart',
+      needAttachment: 'NeedAttachment',
+      nextNodeId: 'NextNodeId',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeStatus: 'NodeStatus',
+      operatorRole: 'OperatorRole',
+      parentNodeId: 'ParentNodeId',
+      previousNodeId: 'PreviousNodeId',
+      stepNo: 'StepNo',
+      templateForm: 'TemplateForm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRollbackNode: 'boolean',
+      autoFinishNode: 'boolean',
+      finalStepNo: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      gmtStart: 'number',
+      needAttachment: 'boolean',
+      nextNodeId: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      nodeStatus: 'string',
+      operatorRole: 'string',
+      parentNodeId: 'number',
+      previousNodeId: 'number',
+      stepNo: 'number',
+      templateForm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
+  displayName?: string;
+  max?: string;
+  min?: string;
+  remark?: string;
+  step?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      max: 'Max',
+      min: 'Min',
+      remark: 'Remark',
+      step: 'Step',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      max: 'string',
+      min: 'string',
+      remark: 'string',
+      step: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues extends $tea.Model {
+  propertyValue?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyValue: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModulePropertiesProperty extends $tea.Model {
+  displayUnit?: string;
+  key?: string;
+  name?: string;
+  propertyValues?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues;
+  showType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayUnit: 'DisplayUnit',
+      key: 'Key',
+      name: 'Name',
+      propertyValues: 'PropertyValues',
+      showType: 'ShowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayUnit: 'string',
+      key: 'string',
+      name: 'string',
+      propertyValues: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues,
+      showType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModuleProperties extends $tea.Model {
+  property?: DescribeInstanceResponseBodyModulesModulePropertiesProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModulePropertiesProperty },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModulesModule extends $tea.Model {
+  code?: string;
+  id?: string;
+  name?: string;
+  properties?: DescribeInstanceResponseBodyModulesModuleProperties;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      id: 'string',
+      name: 'string',
+      properties: DescribeInstanceResponseBodyModulesModuleProperties,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyModules extends $tea.Model {
+  module?: DescribeInstanceResponseBodyModulesModule[];
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: { 'type': 'array', 'itemType': DescribeInstanceResponseBodyModulesModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceResponseBodyRelationalData extends $tea.Model {
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstanceItemsInstanceItem extends $tea.Model {
+  apiJson?: string;
+  appJson?: string;
+  beganOn?: number;
+  createdOn?: number;
+  endOn?: number;
+  extendJson?: string;
+  hostJson?: string;
+  idaasJson?: string;
+  imageJson?: string;
+  instanceId?: number;
+  orderId?: number;
+  productCode?: string;
+  productName?: string;
+  productSkuCode?: string;
+  productType?: string;
+  status?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiJson: 'ApiJson',
+      appJson: 'AppJson',
+      beganOn: 'BeganOn',
+      createdOn: 'CreatedOn',
+      endOn: 'EndOn',
+      extendJson: 'ExtendJson',
+      hostJson: 'HostJson',
+      idaasJson: 'IdaasJson',
+      imageJson: 'ImageJson',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productType: 'ProductType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiJson: 'string',
+      appJson: 'string',
+      beganOn: 'number',
+      createdOn: 'number',
+      endOn: 'number',
+      extendJson: 'string',
+      hostJson: 'string',
+      idaasJson: 'string',
+      imageJson: 'string',
+      instanceId: 'number',
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productType: 'string',
+      status: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstancesResponseBodyInstanceItems extends $tea.Model {
+  instanceItem?: DescribeInstancesResponseBodyInstanceItemsInstanceItem[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceItem: 'InstanceItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceItem: { 'type': 'array', 'itemType': DescribeInstancesResponseBodyInstanceItemsInstanceItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute extends $tea.Model {
+  code?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendArray extends $tea.Model {
+  licenseAttribute?: DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute[];
+  static names(): { [key: string]: string } {
+    return {
+      licenseAttribute: 'LicenseAttribute',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      licenseAttribute: { 'type': 'array', 'itemType': DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicenseExtendInfo extends $tea.Model {
+  accountQuantity?: number;
+  aliUid?: number;
+  email?: string;
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountQuantity: 'AccountQuantity',
+      aliUid: 'AliUid',
+      email: 'Email',
+      mobile: 'Mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountQuantity: 'number',
+      aliUid: 'number',
+      email: 'string',
+      mobile: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLicenseResponseBodyLicense extends $tea.Model {
+  activateTime?: string;
+  createTime?: string;
+  expiredTime?: string;
+  extendArray?: DescribeLicenseResponseBodyLicenseExtendArray;
+  extendInfo?: DescribeLicenseResponseBodyLicenseExtendInfo;
+  instanceId?: string;
+  licenseCode?: string;
+  licenseStatus?: string;
+  productCode?: string;
+  productName?: string;
+  productSkuId?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activateTime: 'ActivateTime',
+      createTime: 'CreateTime',
+      expiredTime: 'ExpiredTime',
+      extendArray: 'ExtendArray',
+      extendInfo: 'ExtendInfo',
+      instanceId: 'InstanceId',
+      licenseCode: 'LicenseCode',
+      licenseStatus: 'LicenseStatus',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuId: 'ProductSkuId',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activateTime: 'string',
+      createTime: 'string',
+      expiredTime: 'string',
+      extendArray: DescribeLicenseResponseBodyLicenseExtendArray,
+      extendInfo: DescribeLicenseResponseBodyLicenseExtendInfo,
+      instanceId: 'string',
+      licenseCode: 'string',
+      licenseStatus: 'string',
+      productCode: 'string',
+      productName: 'string',
+      productSkuId: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponseBodyInstanceIds extends $tea.Model {
+  instanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderResponseBodySupplierTelephones extends $tea.Model {
+  telephone?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      telephone: 'Telephone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      telephone: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyCouponsCoupon extends $tea.Model {
+  canPromFee?: number;
+  couponDesc?: string;
+  couponName?: string;
+  couponOptionCode?: string;
+  couponOptionNo?: string;
+  isSelected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      canPromFee: 'CanPromFee',
+      couponDesc: 'CouponDesc',
+      couponName: 'CouponName',
+      couponOptionCode: 'CouponOptionCode',
+      couponOptionNo: 'CouponOptionNo',
+      isSelected: 'IsSelected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      canPromFee: 'number',
+      couponDesc: 'string',
+      couponName: 'string',
+      couponOptionCode: 'string',
+      couponOptionNo: 'string',
+      isSelected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyCoupons extends $tea.Model {
+  coupon?: DescribePriceResponseBodyCouponsCoupon[];
+  static names(): { [key: string]: string } {
+    return {
+      coupon: 'Coupon',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coupon: { 'type': 'array', 'itemType': DescribePriceResponseBodyCouponsCoupon },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyPromotionRulesPromotionRule extends $tea.Model {
+  name?: string;
+  ruleId?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      ruleId: 'RuleId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      ruleId: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePriceResponseBodyPromotionRules extends $tea.Model {
+  promotionRule?: DescribePriceResponseBodyPromotionRulesPromotionRule[];
+  static names(): { [key: string]: string } {
+    return {
+      promotionRule: 'PromotionRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promotionRule: { 'type': 'array', 'itemType': DescribePriceResponseBodyPromotionRulesPromotionRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductExtrasProductExtra extends $tea.Model {
+  key?: string;
+  label?: string;
+  order?: number;
+  type?: string;
+  values?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      label: 'Label',
+      order: 'Order',
+      type: 'Type',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      label: 'string',
+      order: 'number',
+      type: 'string',
+      values: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductExtras extends $tea.Model {
+  productExtra?: DescribeProductResponseBodyProductExtrasProductExtra[];
+  static names(): { [key: string]: string } {
+    return {
+      productExtra: 'ProductExtra',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productExtra: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductExtrasProductExtra },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $tea.Model {
+  displayName?: string;
+  max?: string;
+  min?: string;
+  remark?: string;
+  step?: string;
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      max: 'Max',
+      min: 'Min',
+      remark: 'Remark',
+      step: 'Step',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      max: 'string',
+      min: 'string',
+      remark: 'string',
+      step: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues extends $tea.Model {
+  propertyValue?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue[];
+  static names(): { [key: string]: string } {
+    return {
+      propertyValue: 'PropertyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      propertyValue: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty extends $tea.Model {
+  displayUnit?: string;
+  key?: string;
+  name?: string;
+  propertyValues?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues;
+  showType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayUnit: 'DisplayUnit',
+      key: 'Key',
+      name: 'Name',
+      propertyValues: 'PropertyValues',
+      showType: 'ShowType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayUnit: 'string',
+      key: 'string',
+      name: 'string',
+      propertyValues: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues,
+      showType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties extends $tea.Model {
+  property?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty[];
+  static names(): { [key: string]: string } {
+    return {
+      property: 'Property',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      property: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModulesModule extends $tea.Model {
+  code?: string;
+  id?: string;
+  name?: string;
+  properties?: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      id: 'Id',
+      name: 'Name',
+      properties: 'Properties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      id: 'string',
+      name: 'string',
+      properties: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuModules extends $tea.Model {
+  module?: DescribeProductResponseBodyProductSkusProductSkuModulesModule[];
+  static names(): { [key: string]: string } {
+    return {
+      module: 'Module',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      module: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuModulesModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod extends $tea.Model {
+  name?: string;
+  periodType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      periodType: 'PeriodType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      periodType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriods extends $tea.Model {
+  orderPeriod?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod[];
+  static names(): { [key: string]: string } {
+    return {
+      orderPeriod: 'OrderPeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderPeriod: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkusProductSku extends $tea.Model {
+  chargeType?: string;
+  code?: string;
+  constraints?: string;
+  hidden?: boolean;
+  modules?: DescribeProductResponseBodyProductSkusProductSkuModules;
+  name?: string;
+  orderPeriods?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      code: 'Code',
+      constraints: 'Constraints',
+      hidden: 'Hidden',
+      modules: 'Modules',
+      name: 'Name',
+      orderPeriods: 'OrderPeriods',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      code: 'string',
+      constraints: 'string',
+      hidden: 'boolean',
+      modules: DescribeProductResponseBodyProductSkusProductSkuModules,
+      name: 'string',
+      orderPeriods: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyProductSkus extends $tea.Model {
+  productSku?: DescribeProductResponseBodyProductSkusProductSku[];
+  static names(): { [key: string]: string } {
+    return {
+      productSku: 'ProductSku',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productSku: { 'type': 'array', 'itemType': DescribeProductResponseBodyProductSkusProductSku },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoTelephones extends $tea.Model {
+  telephone?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      telephone: 'Telephone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      telephone: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoWangWangsWangWang extends $tea.Model {
+  remark?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      remark: 'Remark',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remark: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfoWangWangs extends $tea.Model {
+  wangWang?: DescribeProductResponseBodyShopInfoWangWangsWangWang[];
+  static names(): { [key: string]: string } {
+    return {
+      wangWang: 'WangWang',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wangWang: { 'type': 'array', 'itemType': DescribeProductResponseBodyShopInfoWangWangsWangWang },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductResponseBodyShopInfo extends $tea.Model {
+  emails?: string;
+  id?: number;
+  name?: string;
+  telephones?: DescribeProductResponseBodyShopInfoTelephones;
+  wangWangs?: DescribeProductResponseBodyShopInfoWangWangs;
+  static names(): { [key: string]: string } {
+    return {
+      emails: 'Emails',
+      id: 'Id',
+      name: 'Name',
+      telephones: 'Telephones',
+      wangWangs: 'WangWangs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      emails: 'string',
+      id: 'number',
+      name: 'string',
+      telephones: DescribeProductResponseBodyShopInfoTelephones,
+      wangWangs: DescribeProductResponseBodyShopInfoWangWangs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsRequestFilter extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponseBodyProductItemsProductItem extends $tea.Model {
+  categoryId?: number;
+  code?: string;
+  deliveryDate?: string;
+  deliveryWay?: string;
+  imageUrl?: string;
+  name?: string;
+  operationSystem?: string;
+  priceInfo?: string;
+  score?: string;
+  shortDescription?: string;
+  suggestedPrice?: string;
+  supplierId?: number;
+  supplierName?: string;
+  tags?: string;
+  targetUrl?: string;
+  warrantyDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      code: 'Code',
+      deliveryDate: 'DeliveryDate',
+      deliveryWay: 'DeliveryWay',
+      imageUrl: 'ImageUrl',
+      name: 'Name',
+      operationSystem: 'OperationSystem',
+      priceInfo: 'PriceInfo',
+      score: 'Score',
+      shortDescription: 'ShortDescription',
+      suggestedPrice: 'SuggestedPrice',
+      supplierId: 'SupplierId',
+      supplierName: 'SupplierName',
+      tags: 'Tags',
+      targetUrl: 'TargetUrl',
+      warrantyDate: 'WarrantyDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'number',
+      code: 'string',
+      deliveryDate: 'string',
+      deliveryWay: 'string',
+      imageUrl: 'string',
+      name: 'string',
+      operationSystem: 'string',
+      priceInfo: 'string',
+      score: 'string',
+      shortDescription: 'string',
+      suggestedPrice: 'string',
+      supplierId: 'number',
+      supplierName: 'string',
+      tags: 'string',
+      targetUrl: 'string',
+      warrantyDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProductsResponseBodyProductItems extends $tea.Model {
+  productItem?: DescribeProductsResponseBodyProductItemsProductItem[];
+  static names(): { [key: string]: string } {
+    return {
+      productItem: 'ProductItem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      productItem: { 'type': 'array', 'itemType': DescribeProductsResponseBodyProductItemsProductItem },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectAttachmentsResponseBodyResult extends $tea.Model {
+  attachmentToken?: string;
+  attachmentType?: string;
+  content?: string;
+  fileLink?: string;
+  fileLinkGmtExpired?: number;
+  fileName?: string;
+  fileSize?: number;
+  fileSuffix?: string;
+  gmtCreate?: number;
+  nodeId?: number;
+  nodeName?: string;
+  operator?: number;
+  operatorName?: string;
+  operatorRole?: string;
+  stepNo?: number;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentToken: 'AttachmentToken',
+      attachmentType: 'AttachmentType',
+      content: 'Content',
+      fileLink: 'FileLink',
+      fileLinkGmtExpired: 'FileLinkGmtExpired',
+      fileName: 'FileName',
+      fileSize: 'FileSize',
+      fileSuffix: 'FileSuffix',
+      gmtCreate: 'GmtCreate',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+      stepNo: 'StepNo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentToken: 'string',
+      attachmentType: 'string',
+      content: 'string',
+      fileLink: 'string',
+      fileLinkGmtExpired: 'number',
+      fileName: 'string',
+      fileSize: 'number',
+      fileSuffix: 'string',
+      gmtCreate: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+      stepNo: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectInfoResponseBodyResult extends $tea.Model {
+  currentStepNo?: number;
+  customerAliUid?: number;
+  finalStepNo?: number;
+  finishType?: string;
+  gmtCreate?: number;
+  gmtExpired?: number;
+  gmtFinished?: number;
+  instanceId?: string;
+  orderId?: number;
+  productCode?: string;
+  productName?: string;
+  productSkuCode?: string;
+  productSkuName?: string;
+  projectStatus?: string;
+  supplierAliUid?: number;
+  templateId?: number;
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentStepNo: 'CurrentStepNo',
+      customerAliUid: 'CustomerAliUid',
+      finalStepNo: 'FinalStepNo',
+      finishType: 'FinishType',
+      gmtCreate: 'GmtCreate',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productSkuName: 'ProductSkuName',
+      projectStatus: 'ProjectStatus',
+      supplierAliUid: 'SupplierAliUid',
+      templateId: 'TemplateId',
+      templateType: 'TemplateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentStepNo: 'number',
+      customerAliUid: 'number',
+      finalStepNo: 'number',
+      finishType: 'string',
+      gmtCreate: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      instanceId: 'string',
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productSkuName: 'string',
+      projectStatus: 'string',
+      supplierAliUid: 'number',
+      templateId: 'number',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectMessagesResponseBodyResult extends $tea.Model {
+  content?: string;
+  gmtCreate?: number;
+  operator?: number;
+  operatorName?: string;
+  operatorRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      gmtCreate: 'GmtCreate',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      gmtCreate: 'number',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectNodesResponseBodyResult extends $tea.Model {
+  allowRollbackNode?: boolean;
+  autoFinishNode?: boolean;
+  finalStepNo?: number;
+  gmtExpired?: number;
+  gmtFinished?: number;
+  gmtStart?: number;
+  needAttachment?: boolean;
+  nextNodeId?: number;
+  nodeId?: number;
+  nodeName?: string;
+  nodeStatus?: string;
+  operatorRole?: string;
+  parentNodeId?: number;
+  previousNodeId?: number;
+  stepNo?: number;
+  templateForm?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowRollbackNode: 'AllowRollbackNode',
+      autoFinishNode: 'AutoFinishNode',
+      finalStepNo: 'FinalStepNo',
+      gmtExpired: 'GmtExpired',
+      gmtFinished: 'GmtFinished',
+      gmtStart: 'GmtStart',
+      needAttachment: 'NeedAttachment',
+      nextNodeId: 'NextNodeId',
+      nodeId: 'NodeId',
+      nodeName: 'NodeName',
+      nodeStatus: 'NodeStatus',
+      operatorRole: 'OperatorRole',
+      parentNodeId: 'ParentNodeId',
+      previousNodeId: 'PreviousNodeId',
+      stepNo: 'StepNo',
+      templateForm: 'TemplateForm',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowRollbackNode: 'boolean',
+      autoFinishNode: 'boolean',
+      finalStepNo: 'number',
+      gmtExpired: 'number',
+      gmtFinished: 'number',
+      gmtStart: 'number',
+      needAttachment: 'boolean',
+      nextNodeId: 'number',
+      nodeId: 'number',
+      nodeName: 'string',
+      nodeStatus: 'string',
+      operatorRole: 'string',
+      parentNodeId: 'number',
+      previousNodeId: 'number',
+      stepNo: 'number',
+      templateForm: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeProjectOperateLogsResponseBodyResult extends $tea.Model {
+  description?: string;
+  gmtCreate?: number;
+  operator?: number;
+  operatorName?: string;
+  operatorRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      operator: 'Operator',
+      operatorName: 'OperatorName',
+      operatorRole: 'OperatorRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      gmtCreate: 'number',
+      operator: 'number',
+      operatorName: 'string',
+      operatorRole: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategoriesChildCategory extends $tea.Model {
+  categoryCode?: string;
+  categoryName?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'CategoryCode',
+      categoryName: 'CategoryName',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'string',
+      categoryName: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategories extends $tea.Model {
+  childCategory?: QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategoriesChildCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      childCategory: 'ChildCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childCategory: { 'type': 'array', 'itemType': QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategoriesChildCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponseBodyCategoriesCategory extends $tea.Model {
+  categoryCode?: string;
+  categoryName?: string;
+  childCategories?: QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategories;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      categoryCode: 'CategoryCode',
+      categoryName: 'CategoryName',
+      childCategories: 'ChildCategories',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryCode: 'string',
+      categoryName: 'string',
+      childCategories: QueryMarketCategoriesResponseBodyCategoriesCategoryChildCategories,
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketCategoriesResponseBodyCategories extends $tea.Model {
+  category?: QueryMarketCategoriesResponseBodyCategoriesCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: { 'type': 'array', 'itemType': QueryMarketCategoriesResponseBodyCategoriesCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappingsDiskDeviceMapping extends $tea.Model {
+  device?: string;
+  diskType?: string;
+  format?: string;
+  importOSSBucket?: string;
+  importOSSObject?: string;
+  size?: number;
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      device: 'Device',
+      diskType: 'DiskType',
+      format: 'Format',
+      importOSSBucket: 'ImportOSSBucket',
+      importOSSObject: 'ImportOSSObject',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      device: 'string',
+      diskType: 'string',
+      format: 'string',
+      importOSSBucket: 'string',
+      importOSSObject: 'string',
+      size: 'number',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappings extends $tea.Model {
+  diskDeviceMapping?: QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappingsDiskDeviceMapping[];
+  static names(): { [key: string]: string } {
+    return {
+      diskDeviceMapping: 'DiskDeviceMapping',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskDeviceMapping: { 'type': 'array', 'itemType': QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappingsDiskDeviceMapping },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductImagesImage extends $tea.Model {
+  diskDeviceMappings?: QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappings;
+  imageId?: string;
+  imageSize?: number;
+  isDefault?: boolean;
+  region?: string;
+  supportIO?: boolean;
+  version?: string;
+  versionDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskDeviceMappings: 'DiskDeviceMappings',
+      imageId: 'ImageId',
+      imageSize: 'ImageSize',
+      isDefault: 'IsDefault',
+      region: 'Region',
+      supportIO: 'SupportIO',
+      version: 'Version',
+      versionDescription: 'VersionDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskDeviceMappings: QueryMarketImagesResponseBodyResultImageProductImagesImageDiskDeviceMappings,
+      imageId: 'string',
+      imageSize: 'number',
+      isDefault: 'boolean',
+      region: 'string',
+      supportIO: 'boolean',
+      version: 'string',
+      versionDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductImages extends $tea.Model {
+  image?: QueryMarketImagesResponseBodyResultImageProductImagesImage[];
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: { 'type': 'array', 'itemType': QueryMarketImagesResponseBodyResultImageProductImagesImage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductPriceInfoOrderRuleIdSet extends $tea.Model {
+  ruleId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ruleId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductPriceInfoOrder extends $tea.Model {
+  currency?: string;
+  discountPrice?: number;
+  originalPrice?: number;
+  period?: number;
+  priceUnit?: string;
+  ruleIdSet?: QueryMarketImagesResponseBodyResultImageProductPriceInfoOrderRuleIdSet;
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      period: 'Period',
+      priceUnit: 'PriceUnit',
+      ruleIdSet: 'RuleIdSet',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      period: 'number',
+      priceUnit: 'string',
+      ruleIdSet: QueryMarketImagesResponseBodyResultImageProductPriceInfoOrderRuleIdSet,
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductPriceInfoRulesRule extends $tea.Model {
+  name?: string;
+  ruleId?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      ruleId: 'RuleId',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      ruleId: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductPriceInfoRules extends $tea.Model {
+  rule?: QueryMarketImagesResponseBodyResultImageProductPriceInfoRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': QueryMarketImagesResponseBodyResultImageProductPriceInfoRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductPriceInfo extends $tea.Model {
+  order?: QueryMarketImagesResponseBodyResultImageProductPriceInfoOrder;
+  rules?: QueryMarketImagesResponseBodyResultImageProductPriceInfoRules;
+  static names(): { [key: string]: string } {
+    return {
+      order: 'Order',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      order: QueryMarketImagesResponseBodyResultImageProductPriceInfoOrder,
+      rules: QueryMarketImagesResponseBodyResultImageProductPriceInfoRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductQuota extends $tea.Model {
+  totalQuota?: number;
+  unusedQuota?: number;
+  usingQuota?: number;
+  static names(): { [key: string]: string } {
+    return {
+      totalQuota: 'TotalQuota',
+      unusedQuota: 'UnusedQuota',
+      usingQuota: 'UsingQuota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      totalQuota: 'number',
+      unusedQuota: 'number',
+      usingQuota: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProductSkuCodes extends $tea.Model {
+  skuCode?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      skuCode: 'SkuCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skuCode: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResultImageProduct extends $tea.Model {
+  agreementUrl?: string;
+  baseSystem?: string;
+  buyUrl?: string;
+  categoryName?: string;
+  createdOn?: number;
+  detailUrl?: string;
+  imageProductCode?: string;
+  images?: QueryMarketImagesResponseBodyResultImageProductImages;
+  osBit?: number;
+  osKind?: string;
+  pictureUrl?: string;
+  priceInfo?: QueryMarketImagesResponseBodyResultImageProductPriceInfo;
+  productName?: string;
+  quota?: QueryMarketImagesResponseBodyResultImageProductQuota;
+  score?: number;
+  shortDescription?: string;
+  skuCodes?: QueryMarketImagesResponseBodyResultImageProductSkuCodes;
+  smallPicUrl?: string;
+  storeUrl?: string;
+  supplierName?: string;
+  supportIO?: boolean;
+  userCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      agreementUrl: 'AgreementUrl',
+      baseSystem: 'BaseSystem',
+      buyUrl: 'BuyUrl',
+      categoryName: 'CategoryName',
+      createdOn: 'CreatedOn',
+      detailUrl: 'DetailUrl',
+      imageProductCode: 'ImageProductCode',
+      images: 'Images',
+      osBit: 'OsBit',
+      osKind: 'OsKind',
+      pictureUrl: 'PictureUrl',
+      priceInfo: 'PriceInfo',
+      productName: 'ProductName',
+      quota: 'Quota',
+      score: 'Score',
+      shortDescription: 'ShortDescription',
+      skuCodes: 'SkuCodes',
+      smallPicUrl: 'SmallPicUrl',
+      storeUrl: 'StoreUrl',
+      supplierName: 'SupplierName',
+      supportIO: 'SupportIO',
+      userCount: 'UserCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreementUrl: 'string',
+      baseSystem: 'string',
+      buyUrl: 'string',
+      categoryName: 'string',
+      createdOn: 'number',
+      detailUrl: 'string',
+      imageProductCode: 'string',
+      images: QueryMarketImagesResponseBodyResultImageProductImages,
+      osBit: 'number',
+      osKind: 'string',
+      pictureUrl: 'string',
+      priceInfo: QueryMarketImagesResponseBodyResultImageProductPriceInfo,
+      productName: 'string',
+      quota: QueryMarketImagesResponseBodyResultImageProductQuota,
+      score: 'number',
+      shortDescription: 'string',
+      skuCodes: QueryMarketImagesResponseBodyResultImageProductSkuCodes,
+      smallPicUrl: 'string',
+      storeUrl: 'string',
+      supplierName: 'string',
+      supportIO: 'boolean',
+      userCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryMarketImagesResponseBodyResult extends $tea.Model {
+  imageProduct?: QueryMarketImagesResponseBodyResultImageProduct[];
+  static names(): { [key: string]: string } {
+    return {
+      imageProduct: 'ImageProduct',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageProduct: { 'type': 'array', 'itemType': QueryMarketImagesResponseBodyResultImageProduct },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadCommodityFileResponseBodyData extends $tea.Model {
+  resource?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resource: 'Resource',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resource: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+
+export default class Client extends OpenApi {
+
+  constructor(config: $OpenApi.Config) {
+    super(config);
+    this._endpointRule = "regional";
+    this._endpointMap = {
+      'cn-hangzhou': "market.aliyuncs.com",
+      'ap-northeast-1': "market.ap-southeast-1.aliyuncs.com",
+      'ap-south-1': "market.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-2': "market.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-3': "market.ap-southeast-1.aliyuncs.com",
+      'ap-southeast-5': "market.ap-southeast-1.aliyuncs.com",
+      'cn-beijing': "market.aliyuncs.com",
+      'cn-chengdu': "market.aliyuncs.com",
+      'cn-hongkong': "market.aliyuncs.com",
+      'cn-huhehaote': "market.aliyuncs.com",
+      'cn-qingdao': "market.aliyuncs.com",
+      'cn-shanghai': "market.aliyuncs.com",
+      'cn-shenzhen': "market.aliyuncs.com",
+      'cn-zhangjiakou': "market.aliyuncs.com",
+      'eu-central-1': "market.ap-southeast-1.aliyuncs.com",
+      'eu-west-1': "market.ap-southeast-1.aliyuncs.com",
+      'me-east-1': "market.ap-southeast-1.aliyuncs.com",
+      'us-east-1': "market.ap-southeast-1.aliyuncs.com",
+      'us-west-1': "market.ap-southeast-1.aliyuncs.com",
+      'cn-hangzhou-finance': "market.aliyuncs.com",
+      'cn-shenzhen-finance-1': "market.aliyuncs.com",
+      'cn-shanghai-finance-1': "market.aliyuncs.com",
+      'cn-north-2-gov-1': "market.aliyuncs.com",
+    };
+    this.checkConfig(config);
+    this._endpoint = this.getEndpoint("market", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
+  }
+
+
+  getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
+    if (!Util.empty(endpoint)) {
+      return endpoint;
+    }
+
+    if (!Util.isUnset(endpointMap) && !Util.empty(endpointMap[regionId])) {
+      return endpointMap[regionId];
+    }
+
+    return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async activateLicenseWithOptions(request: ActivateLicenseRequest, runtime: $Util.RuntimeOptions): Promise<ActivateLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identification)) {
+      query["Identification"] = request.identification;
+    }
+
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ActivateLicense",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ActivateLicenseResponse>(await this.callApi(params, req, runtime), new ActivateLicenseResponse({}));
+  }
+
+  async activateLicense(request: ActivateLicenseRequest): Promise<ActivateLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.activateLicenseWithOptions(request, runtime);
+  }
+
+  async bindImagePackageWithOptions(request: BindImagePackageRequest, runtime: $Util.RuntimeOptions): Promise<BindImagePackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    if (!Util.isUnset(request.imagePackageInstanceId)) {
+      query["ImagePackageInstanceId"] = request.imagePackageInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BindImagePackage",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindImagePackageResponse>(await this.callApi(params, req, runtime), new BindImagePackageResponse({}));
+  }
+
+  async bindImagePackage(request: BindImagePackageRequest): Promise<BindImagePackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.bindImagePackageWithOptions(request, runtime);
+  }
+
+  async createCommodityWithOptions(request: CreateCommodityRequest, runtime: $Util.RuntimeOptions): Promise<CreateCommodityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCommodity",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCommodityResponse>(await this.callApi(params, req, runtime), new CreateCommodityResponse({}));
+  }
+
+  async createCommodity(request: CreateCommodityRequest): Promise<CreateCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCommodityWithOptions(request, runtime);
+  }
+
+  async createOrderWithOptions(request: CreateOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.commodity)) {
+      query["Commodity"] = request.commodity;
+    }
+
+    if (!Util.isUnset(request.orderSouce)) {
+      query["OrderSouce"] = request.orderSouce;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOrder",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOrderResponse>(await this.callApi(params, req, runtime), new CreateOrderResponse({}));
+  }
+
+  async createOrder(request: CreateOrderRequest): Promise<CreateOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOrderWithOptions(request, runtime);
+  }
+
+  async createRateWithOptions(request: CreateRateRequest, runtime: $Util.RuntimeOptions): Promise<CreateRateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      query["RequestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.score)) {
+      query["Score"] = request.score;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRate",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRateResponse>(await this.callApi(params, req, runtime), new CreateRateResponse({}));
+  }
+
+  async createRate(request: CreateRateRequest): Promise<CreateRateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRateWithOptions(request, runtime);
+  }
+
+  async deleteCommodityWithOptions(request: DeleteCommodityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCommodityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityId)) {
+      query["CommodityId"] = request.commodityId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCommodity",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCommodityResponse>(await this.callApi(params, req, runtime), new DeleteCommodityResponse({}));
+  }
+
+  async deleteCommodity(request: DeleteCommodityRequest): Promise<DeleteCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCommodityWithOptions(request, runtime);
+  }
+
+  async describeCommoditiesWithOptions(request: DescribeCommoditiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommoditiesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommodities",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommoditiesResponse>(await this.callApi(params, req, runtime), new DescribeCommoditiesResponse({}));
+  }
+
+  async describeCommodities(request: DescribeCommoditiesRequest): Promise<DescribeCommoditiesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommoditiesWithOptions(request, runtime);
+  }
+
+  async describeCommodityWithOptions(request: DescribeCommodityRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCommodityResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCommodity",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCommodityResponse>(await this.callApi(params, req, runtime), new DescribeCommodityResponse({}));
+  }
+
+  async describeCommodity(request: DescribeCommodityRequest): Promise<DescribeCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCommodityWithOptions(request, runtime);
+  }
+
+  async describeCurrentNodeInfoWithOptions(request: DescribeCurrentNodeInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCurrentNodeInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCurrentNodeInfo",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCurrentNodeInfoResponse>(await this.callApi(params, req, runtime), new DescribeCurrentNodeInfoResponse({}));
+  }
+
+  async describeCurrentNodeInfo(request: DescribeCurrentNodeInfoRequest): Promise<DescribeCurrentNodeInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCurrentNodeInfoWithOptions(request, runtime);
+  }
+
+  async describeInstanceWithOptions(request: DescribeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstance",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceResponse>(await this.callApi(params, req, runtime), new DescribeInstanceResponse({}));
+  }
+
+  async describeInstance(request: DescribeInstanceRequest): Promise<DescribeInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceWithOptions(request, runtime);
+  }
+
+  async describeInstancesWithOptions(request: DescribeInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstancesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.codes)) {
+      query["Codes"] = request.codes;
+    }
+
+    if (!Util.isUnset(request.exceptCodes)) {
+      query["ExceptCodes"] = request.exceptCodes;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstances",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstancesResponse>(await this.callApi(params, req, runtime), new DescribeInstancesResponse({}));
+  }
+
+  async describeInstances(request: DescribeInstancesRequest): Promise<DescribeInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstancesWithOptions(request, runtime);
+  }
+
+  async describeLicenseWithOptions(request: DescribeLicenseRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.licenseCode)) {
+      query["LicenseCode"] = request.licenseCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLicense",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLicenseResponse>(await this.callApi(params, req, runtime), new DescribeLicenseResponse({}));
+  }
+
+  async describeLicense(request: DescribeLicenseRequest): Promise<DescribeLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLicenseWithOptions(request, runtime);
+  }
+
+  async describeOrderWithOptions(request: DescribeOrderRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOrderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOrder",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOrderResponse>(await this.callApi(params, req, runtime), new DescribeOrderResponse({}));
+  }
+
+  async describeOrder(request: DescribeOrderRequest): Promise<DescribeOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOrderWithOptions(request, runtime);
+  }
+
+  async describePriceWithOptions(request: DescribePriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribePriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodity)) {
+      query["Commodity"] = request.commodity;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribePrice",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePriceResponse>(await this.callApi(params, req, runtime), new DescribePriceResponse({}));
+  }
+
+  async describePrice(request: DescribePriceRequest): Promise<DescribePriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describePriceWithOptions(request, runtime);
+  }
+
+  async describeProductWithOptions(request: DescribeProductRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliUid)) {
+      query["AliUid"] = request.aliUid;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.queryDraft)) {
+      query["QueryDraft"] = request.queryDraft;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProduct",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProductResponse>(await this.callApi(params, req, runtime), new DescribeProductResponse({}));
+  }
+
+  async describeProduct(request: DescribeProductRequest): Promise<DescribeProductResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProductWithOptions(request, runtime);
+  }
+
+  async describeProductsWithOptions(request: DescribeProductsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProductsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchTerm)) {
+      query["SearchTerm"] = request.searchTerm;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProducts",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProductsResponse>(await this.callApi(params, req, runtime), new DescribeProductsResponse({}));
+  }
+
+  async describeProducts(request: DescribeProductsRequest): Promise<DescribeProductsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProductsWithOptions(request, runtime);
+  }
+
+  async describeProjectAttachmentsWithOptions(request: DescribeProjectAttachmentsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectAttachmentsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProjectAttachments",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProjectAttachmentsResponse>(await this.callApi(params, req, runtime), new DescribeProjectAttachmentsResponse({}));
+  }
+
+  async describeProjectAttachments(request: DescribeProjectAttachmentsRequest): Promise<DescribeProjectAttachmentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProjectAttachmentsWithOptions(request, runtime);
+  }
+
+  async describeProjectInfoWithOptions(request: DescribeProjectInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProjectInfo",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProjectInfoResponse>(await this.callApi(params, req, runtime), new DescribeProjectInfoResponse({}));
+  }
+
+  async describeProjectInfo(request: DescribeProjectInfoRequest): Promise<DescribeProjectInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProjectInfoWithOptions(request, runtime);
+  }
+
+  async describeProjectMessagesWithOptions(request: DescribeProjectMessagesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectMessagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProjectMessages",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProjectMessagesResponse>(await this.callApi(params, req, runtime), new DescribeProjectMessagesResponse({}));
+  }
+
+  async describeProjectMessages(request: DescribeProjectMessagesRequest): Promise<DescribeProjectMessagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProjectMessagesWithOptions(request, runtime);
+  }
+
+  async describeProjectNodesWithOptions(request: DescribeProjectNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectNodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProjectNodes",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProjectNodesResponse>(await this.callApi(params, req, runtime), new DescribeProjectNodesResponse({}));
+  }
+
+  async describeProjectNodes(request: DescribeProjectNodesRequest): Promise<DescribeProjectNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProjectNodesWithOptions(request, runtime);
+  }
+
+  async describeProjectOperateLogsWithOptions(request: DescribeProjectOperateLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeProjectOperateLogsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeProjectOperateLogs",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeProjectOperateLogsResponse>(await this.callApi(params, req, runtime), new DescribeProjectOperateLogsResponse({}));
+  }
+
+  async describeProjectOperateLogs(request: DescribeProjectOperateLogsRequest): Promise<DescribeProjectOperateLogsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeProjectOperateLogsWithOptions(request, runtime);
+  }
+
+  async describeRateWithOptions(request: DescribeRateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRate",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRateResponse>(await this.callApi(params, req, runtime), new DescribeRateResponse({}));
+  }
+
+  async describeRate(request: DescribeRateRequest): Promise<DescribeRateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRateWithOptions(request, runtime);
+  }
+
+  async finishCurrentProjectNodeWithOptions(request: FinishCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<FinishCurrentProjectNodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!Util.isUnset(request.templateForm)) {
+      query["TemplateForm"] = request.templateForm;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "FinishCurrentProjectNode",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FinishCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new FinishCurrentProjectNodeResponse({}));
+  }
+
+  async finishCurrentProjectNode(request: FinishCurrentProjectNodeRequest): Promise<FinishCurrentProjectNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.finishCurrentProjectNodeWithOptions(request, runtime);
+  }
+
+  async notifyContractEventWithOptions(request: NotifyContractEventRequest, runtime: $Util.RuntimeOptions): Promise<NotifyContractEventResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.eventMessage)) {
+      query["EventMessage"] = request.eventMessage;
+    }
+
+    if (!Util.isUnset(request.eventType)) {
+      query["EventType"] = request.eventType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "NotifyContractEvent",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<NotifyContractEventResponse>(await this.callApi(params, req, runtime), new NotifyContractEventResponse({}));
+  }
+
+  async notifyContractEvent(request: NotifyContractEventRequest): Promise<NotifyContractEventResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.notifyContractEventWithOptions(request, runtime);
+  }
+
+  async pauseProjectWithOptions(request: PauseProjectRequest, runtime: $Util.RuntimeOptions): Promise<PauseProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PauseProject",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PauseProjectResponse>(await this.callApi(params, req, runtime), new PauseProjectResponse({}));
+  }
+
+  async pauseProject(request: PauseProjectRequest): Promise<PauseProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pauseProjectWithOptions(request, runtime);
+  }
+
+  async pushMeteringDataWithOptions(request: PushMeteringDataRequest, runtime: $Util.RuntimeOptions): Promise<PushMeteringDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.metering)) {
+      query["Metering"] = request.metering;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PushMeteringData",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+  }
+
+  async pushMeteringData(request: PushMeteringDataRequest): Promise<PushMeteringDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pushMeteringDataWithOptions(request, runtime);
+  }
+
+  async queryMarketCategoriesWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryMarketCategoriesResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "QueryMarketCategories",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMarketCategoriesResponse>(await this.callApi(params, req, runtime), new QueryMarketCategoriesResponse({}));
+  }
+
+  async queryMarketCategories(): Promise<QueryMarketCategoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMarketCategoriesWithOptions(runtime);
+  }
+
+  async queryMarketImagesWithOptions(request: QueryMarketImagesRequest, runtime: $Util.RuntimeOptions): Promise<QueryMarketImagesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryMarketImages",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryMarketImagesResponse>(await this.callApi(params, req, runtime), new QueryMarketImagesResponse({}));
+  }
+
+  async queryMarketImages(request: QueryMarketImagesRequest): Promise<QueryMarketImagesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryMarketImagesWithOptions(request, runtime);
+  }
+
+  async resumeProjectWithOptions(request: ResumeProjectRequest, runtime: $Util.RuntimeOptions): Promise<ResumeProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResumeProject",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResumeProjectResponse>(await this.callApi(params, req, runtime), new ResumeProjectResponse({}));
+  }
+
+  async resumeProject(request: ResumeProjectRequest): Promise<ResumeProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resumeProjectWithOptions(request, runtime);
+  }
+
+  async rollbackCurrentProjectNodeWithOptions(request: RollbackCurrentProjectNodeRequest, runtime: $Util.RuntimeOptions): Promise<RollbackCurrentProjectNodeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RollbackCurrentProjectNode",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackCurrentProjectNodeResponse>(await this.callApi(params, req, runtime), new RollbackCurrentProjectNodeResponse({}));
+  }
+
+  async rollbackCurrentProjectNode(request: RollbackCurrentProjectNodeRequest): Promise<RollbackCurrentProjectNodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackCurrentProjectNodeWithOptions(request, runtime);
+  }
+
+  async updateCommodityWithOptions(request: UpdateCommodityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCommodityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.commodityId)) {
+      query["CommodityId"] = request.commodityId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateCommodity",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCommodityResponse>(await this.callApi(params, req, runtime), new UpdateCommodityResponse({}));
+  }
+
+  async updateCommodity(request: UpdateCommodityRequest): Promise<UpdateCommodityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateCommodityWithOptions(request, runtime);
+  }
+
+  async uploadCommodityFileWithOptions(request: UploadCommodityFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadCommodityFileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileContentType)) {
+      query["FileContentType"] = request.fileContentType;
+    }
+
+    if (!Util.isUnset(request.fileResource)) {
+      query["FileResource"] = request.fileResource;
+    }
+
+    if (!Util.isUnset(request.fileResourceType)) {
+      query["FileResourceType"] = request.fileResourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadCommodityFile",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadCommodityFileResponse>(await this.callApi(params, req, runtime), new UploadCommodityFileResponse({}));
+  }
+
+  async uploadCommodityFile(request: UploadCommodityFileRequest): Promise<UploadCommodityFileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadCommodityFileWithOptions(request, runtime);
+  }
+
+}
