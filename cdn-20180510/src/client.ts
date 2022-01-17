@@ -18038,28 +18038,6 @@ export class DescribeTopDomainsByFlowResponseBodyTopDomains extends $tea.Model {
   }
 }
 
-export class DescribeUserConfigsResponseBodyConfigsGreenManagerConfig extends $tea.Model {
-  quota?: string;
-  ratio?: string;
-  static names(): { [key: string]: string } {
-    return {
-      quota: 'Quota',
-      ratio: 'Ratio',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      quota: 'string',
-      ratio: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUserConfigsResponseBodyConfigsOssLogConfig extends $tea.Model {
   bucket?: string;
   enable?: string;
@@ -18105,12 +18083,10 @@ export class DescribeUserConfigsResponseBodyConfigsWafConfig extends $tea.Model 
 }
 
 export class DescribeUserConfigsResponseBodyConfigs extends $tea.Model {
-  greenManagerConfig?: DescribeUserConfigsResponseBodyConfigsGreenManagerConfig;
   ossLogConfig?: DescribeUserConfigsResponseBodyConfigsOssLogConfig;
   wafConfig?: DescribeUserConfigsResponseBodyConfigsWafConfig;
   static names(): { [key: string]: string } {
     return {
-      greenManagerConfig: 'GreenManagerConfig',
       ossLogConfig: 'OssLogConfig',
       wafConfig: 'WafConfig',
     };
@@ -18118,7 +18094,6 @@ export class DescribeUserConfigsResponseBodyConfigs extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      greenManagerConfig: DescribeUserConfigsResponseBodyConfigsGreenManagerConfig,
       ossLogConfig: DescribeUserConfigsResponseBodyConfigsOssLogConfig,
       wafConfig: DescribeUserConfigsResponseBodyConfigsWafConfig,
     };
@@ -18743,19 +18718,48 @@ export default class Client extends OpenApi {
   async addCdnDomainWithOptions(request: AddCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<AddCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CdnType"] = request.cdnType;
-    query["CheckUrl"] = request.checkUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Scope"] = request.scope;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.cdnType)) {
+      query["CdnType"] = request.cdnType;
+    }
+
+    if (!Util.isUnset(request.checkUrl)) {
+      query["CheckUrl"] = request.checkUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddCdnDomain",
@@ -18765,7 +18769,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddCdnDomainResponse>(await this.callApi(params, req, runtime), new AddCdnDomainResponse({}));
@@ -18779,11 +18783,42 @@ export default class Client extends OpenApi {
   async addFCTriggerWithOptions(request: AddFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<AddFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TriggerARN"] = request.triggerARN;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.triggerARN)) {
+      query["TriggerARN"] = request.triggerARN;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.eventMetaName)) {
+      body["EventMetaName"] = request.eventMetaName;
+    }
+
+    if (!Util.isUnset(request.eventMetaVersion)) {
+      body["EventMetaVersion"] = request.eventMetaVersion;
+    }
+
+    if (!Util.isUnset(request.functionARN)) {
+      body["FunctionARN"] = request.functionARN;
+    }
+
+    if (!Util.isUnset(request.notes)) {
+      body["Notes"] = request.notes;
+    }
+
+    if (!Util.isUnset(request.roleARN)) {
+      body["RoleARN"] = request.roleARN;
+    }
+
+    if (!Util.isUnset(request.sourceARN)) {
+      body["SourceARN"] = request.sourceARN;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddFCTrigger",
@@ -18807,19 +18842,48 @@ export default class Client extends OpenApi {
   async batchAddCdnDomainWithOptions(request: BatchAddCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CdnType"] = request.cdnType;
-    query["CheckUrl"] = request.checkUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["Scope"] = request.scope;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.cdnType)) {
+      query["CdnType"] = request.cdnType;
+    }
+
+    if (!Util.isUnset(request.checkUrl)) {
+      query["CheckUrl"] = request.checkUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchAddCdnDomain",
@@ -18829,7 +18893,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchAddCdnDomainResponse>(await this.callApi(params, req, runtime), new BatchAddCdnDomainResponse({}));
@@ -18843,14 +18907,28 @@ export default class Client extends OpenApi {
   async batchDeleteCdnDomainConfigWithOptions(request: BatchDeleteCdnDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchDeleteCdnDomainConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchDeleteCdnDomainConfig",
@@ -18860,7 +18938,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchDeleteCdnDomainConfigResponse>(await this.callApi(params, req, runtime), new BatchDeleteCdnDomainConfigResponse({}));
@@ -18874,14 +18952,28 @@ export default class Client extends OpenApi {
   async batchSetCdnDomainConfigWithOptions(request: BatchSetCdnDomainConfigRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetCdnDomainConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["Functions"] = request.functions;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.functions)) {
+      query["Functions"] = request.functions;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchSetCdnDomainConfig",
@@ -18891,7 +18983,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchSetCdnDomainConfigResponse>(await this.callApi(params, req, runtime), new BatchSetCdnDomainConfigResponse({}));
@@ -18905,19 +18997,48 @@ export default class Client extends OpenApi {
   async batchSetCdnDomainServerCertificateWithOptions(request: BatchSetCdnDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<BatchSetCdnDomainServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["CertType"] = request.certType;
-    query["DomainName"] = request.domainName;
-    query["ForceSet"] = request.forceSet;
-    query["OwnerId"] = request.ownerId;
-    query["Region"] = request.region;
-    query["SSLPri"] = request.SSLPri;
-    query["SSLProtocol"] = request.SSLProtocol;
-    query["SSLPub"] = request.SSLPub;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.forceSet)) {
+      query["ForceSet"] = request.forceSet;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.SSLPri)) {
+      query["SSLPri"] = request.SSLPri;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchSetCdnDomainServerCertificate",
@@ -18927,7 +19048,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchSetCdnDomainServerCertificateResponse>(await this.callApi(params, req, runtime), new BatchSetCdnDomainServerCertificateResponse({}));
@@ -18941,12 +19062,20 @@ export default class Client extends OpenApi {
   async batchStartCdnDomainWithOptions(request: BatchStartCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStartCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchStartCdnDomain",
@@ -18956,7 +19085,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchStartCdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStartCdnDomainResponse({}));
@@ -18970,12 +19099,20 @@ export default class Client extends OpenApi {
   async batchStopCdnDomainWithOptions(request: BatchStopCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchStopCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchStopCdnDomain",
@@ -18985,7 +19122,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchStopCdnDomainResponse>(await this.callApi(params, req, runtime), new BatchStopCdnDomainResponse({}));
@@ -18999,15 +19136,32 @@ export default class Client extends OpenApi {
   async batchUpdateCdnDomainWithOptions(request: BatchUpdateCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchUpdateCdnDomain",
@@ -19017,7 +19171,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchUpdateCdnDomainResponse>(await this.callApi(params, req, runtime), new BatchUpdateCdnDomainResponse({}));
@@ -19031,18 +19185,44 @@ export default class Client extends OpenApi {
   async createCdnCertificateSigningRequestWithOptions(request: CreateCdnCertificateSigningRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnCertificateSigningRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["City"] = request.city;
-    query["CommonName"] = request.commonName;
-    query["Country"] = request.country;
-    query["Email"] = request.email;
-    query["Organization"] = request.organization;
-    query["OrganizationUnit"] = request.organizationUnit;
-    query["OwnerId"] = request.ownerId;
-    query["SANs"] = request.SANs;
-    query["State"] = request.state;
+    if (!Util.isUnset(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!Util.isUnset(request.commonName)) {
+      query["CommonName"] = request.commonName;
+    }
+
+    if (!Util.isUnset(request.country)) {
+      query["Country"] = request.country;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.organization)) {
+      query["Organization"] = request.organization;
+    }
+
+    if (!Util.isUnset(request.organizationUnit)) {
+      query["OrganizationUnit"] = request.organizationUnit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SANs)) {
+      query["SANs"] = request.SANs;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateCdnCertificateSigningRequest",
@@ -19052,7 +19232,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateCdnCertificateSigningRequestResponse>(await this.callApi(params, req, runtime), new CreateCdnCertificateSigningRequestResponse({}));
@@ -19066,10 +19246,34 @@ export default class Client extends OpenApi {
   async createCdnDeliverTaskWithOptions(request: CreateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deliver)) {
+      body["Deliver"] = request.deliver;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.reports)) {
+      body["Reports"] = request.reports;
+    }
+
+    if (!Util.isUnset(request.schedule)) {
+      body["Schedule"] = request.schedule;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateCdnDeliverTask",
@@ -19093,10 +19297,22 @@ export default class Client extends OpenApi {
   async createCdnSubTaskWithOptions(request: CreateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.reportIds)) {
+      body["ReportIds"] = request.reportIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateCdnSubTask",
@@ -19120,12 +19336,20 @@ export default class Client extends OpenApi {
   async createIllegalUrlExportTaskWithOptions(request: CreateIllegalUrlExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateIllegalUrlExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskName"] = request.taskName;
-    query["TimePoint"] = request.timePoint;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.timePoint)) {
+      query["TimePoint"] = request.timePoint;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateIllegalUrlExportTask",
@@ -19135,7 +19359,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateIllegalUrlExportTaskResponse>(await this.callApi(params, req, runtime), new CreateIllegalUrlExportTaskResponse({}));
@@ -19160,7 +19384,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRealTimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new CreateRealTimeLogDeliveryResponse({}));
@@ -19174,17 +19398,40 @@ export default class Client extends OpenApi {
   async createUsageDetailDataExportTaskWithOptions(request: CreateUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["EndTime"] = request.endTime;
-    query["Group"] = request.group;
-    query["Language"] = request.language;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TaskName"] = request.taskName;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      query["Group"] = request.group;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateUsageDetailDataExportTask",
@@ -19194,7 +19441,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateUsageDetailDataExportTaskResponse>(await this.callApi(params, req, runtime), new CreateUsageDetailDataExportTaskResponse({}));
@@ -19208,14 +19455,28 @@ export default class Client extends OpenApi {
   async createUserUsageDataExportTaskWithOptions(request: CreateUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Language"] = request.language;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TaskName"] = request.taskName;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateUserUsageDataExportTask",
@@ -19225,7 +19486,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateUserUsageDataExportTaskResponse>(await this.callApi(params, req, runtime), new CreateUserUsageDataExportTaskResponse({}));
@@ -19239,11 +19500,16 @@ export default class Client extends OpenApi {
   async deleteCdnDeliverTaskWithOptions(request: DeleteCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeliverId"] = request.deliverId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.deliverId)) {
+      query["DeliverId"] = request.deliverId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteCdnDeliverTask",
@@ -19253,7 +19519,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteCdnDeliverTaskResponse>(await this.callApi(params, req, runtime), new DeleteCdnDeliverTaskResponse({}));
@@ -19267,13 +19533,24 @@ export default class Client extends OpenApi {
   async deleteCdnDomainWithOptions(request: DeleteCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteCdnDomain",
@@ -19283,7 +19560,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteCdnDomainResponse>(await this.callApi(params, req, runtime), new DeleteCdnDomainResponse({}));
@@ -19297,10 +19574,12 @@ export default class Client extends OpenApi {
   async deleteCdnSubTaskWithOptions(request: DeleteCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteCdnSubTask",
@@ -19310,7 +19589,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteCdnSubTaskResponse>(await this.callApi(params, req, runtime), new DeleteCdnSubTaskResponse({}));
@@ -19324,11 +19603,16 @@ export default class Client extends OpenApi {
   async deleteFCTriggerWithOptions(request: DeleteFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TriggerARN"] = request.triggerARN;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.triggerARN)) {
+      query["TriggerARN"] = request.triggerARN;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFCTrigger",
@@ -19338,7 +19622,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteFCTriggerResponse>(await this.callApi(params, req, runtime), new DeleteFCTriggerResponse({}));
@@ -19363,7 +19647,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new DeleteRealtimeLogDeliveryResponse({}));
@@ -19377,13 +19661,24 @@ export default class Client extends OpenApi {
   async deleteSpecificConfigWithOptions(request: DeleteSpecificConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpecificConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSpecificConfig",
@@ -19393,7 +19688,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSpecificConfigResponse>(await this.callApi(params, req, runtime), new DeleteSpecificConfigResponse({}));
@@ -19407,13 +19702,24 @@ export default class Client extends OpenApi {
   async deleteSpecificStagingConfigWithOptions(request: DeleteSpecificStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpecificStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSpecificStagingConfig",
@@ -19423,7 +19729,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteSpecificStagingConfigResponse>(await this.callApi(params, req, runtime), new DeleteSpecificStagingConfigResponse({}));
@@ -19437,11 +19743,16 @@ export default class Client extends OpenApi {
   async deleteUsageDetailDataExportTaskWithOptions(request: DeleteUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteUsageDetailDataExportTask",
@@ -19451,7 +19762,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteUsageDetailDataExportTaskResponse>(await this.callApi(params, req, runtime), new DeleteUsageDetailDataExportTaskResponse({}));
@@ -19465,11 +19776,16 @@ export default class Client extends OpenApi {
   async deleteUserUsageDataExportTaskWithOptions(request: DeleteUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteUserUsageDataExportTask",
@@ -19479,7 +19795,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteUserUsageDataExportTaskResponse>(await this.callApi(params, req, runtime), new DeleteUserUsageDataExportTaskResponse({}));
@@ -19493,12 +19809,20 @@ export default class Client extends OpenApi {
   async describeActiveVersionOfConfigGroupWithOptions(request: DescribeActiveVersionOfConfigGroupRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveVersionOfConfigGroupResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigGroupId"] = request.configGroupId;
-    query["Env"] = request.env;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configGroupId)) {
+      query["ConfigGroupId"] = request.configGroupId;
+    }
+
+    if (!Util.isUnset(request.env)) {
+      query["Env"] = request.env;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeActiveVersionOfConfigGroup",
@@ -19508,7 +19832,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeActiveVersionOfConfigGroupResponse>(await this.callApi(params, req, runtime), new DescribeActiveVersionOfConfigGroupResponse({}));
@@ -19533,7 +19857,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeBlockedRegionsResponse>(await this.callApi(params, req, runtime), new DescribeBlockedRegionsResponse({}));
@@ -19547,12 +19871,20 @@ export default class Client extends OpenApi {
   async describeCdnCertificateDetailWithOptions(request: DescribeCdnCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnCertificateDetail",
@@ -19562,7 +19894,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnCertificateDetailResponse>(await this.callApi(params, req, runtime), new DescribeCdnCertificateDetailResponse({}));
@@ -19576,12 +19908,20 @@ export default class Client extends OpenApi {
   async describeCdnCertificateListWithOptions(request: DescribeCdnCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnCertificateList",
@@ -19591,7 +19931,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeCdnCertificateListResponse({}));
@@ -19605,12 +19945,20 @@ export default class Client extends OpenApi {
   async describeCdnDeletedDomainsWithOptions(request: DescribeCdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeletedDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDeletedDomains",
@@ -19620,7 +19968,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDeletedDomainsResponse>(await this.callApi(params, req, runtime), new DescribeCdnDeletedDomainsResponse({}));
@@ -19634,11 +19982,16 @@ export default class Client extends OpenApi {
   async describeCdnDeliverListWithOptions(request: DescribeCdnDeliverListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeliverListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeliverId"] = request.deliverId;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.deliverId)) {
+      query["DeliverId"] = request.deliverId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDeliverList",
@@ -19648,7 +20001,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDeliverListResponse>(await this.callApi(params, req, runtime), new DescribeCdnDeliverListResponse({}));
@@ -19662,11 +20015,16 @@ export default class Client extends OpenApi {
   async describeCdnDomainByCertificateWithOptions(request: DescribeCdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SSLPub"] = request.SSLPub;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLPub)) {
+      query["SSLPub"] = request.SSLPub;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDomainByCertificate",
@@ -19676,7 +20034,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDomainByCertificateResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainByCertificateResponse({}));
@@ -19690,14 +20048,28 @@ export default class Client extends OpenApi {
   async describeCdnDomainConfigsWithOptions(request: DescribeCdnDomainConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDomainConfigs",
@@ -19707,7 +20079,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDomainConfigsResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainConfigsResponse({}));
@@ -19721,12 +20093,20 @@ export default class Client extends OpenApi {
   async describeCdnDomainDetailWithOptions(request: DescribeCdnDomainDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDomainDetail",
@@ -19736,7 +20116,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDomainDetailResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainDetailResponse({}));
@@ -19750,15 +20130,32 @@ export default class Client extends OpenApi {
   async describeCdnDomainLogsWithOptions(request: DescribeCdnDomainLogsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainLogsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDomainLogs",
@@ -19768,7 +20165,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDomainLogsResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainLogsResponse({}));
@@ -19782,12 +20179,20 @@ export default class Client extends OpenApi {
   async describeCdnDomainStagingConfigWithOptions(request: DescribeCdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDomainStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionNames"] = request.functionNames;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionNames)) {
+      query["FunctionNames"] = request.functionNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnDomainStagingConfig",
@@ -19797,7 +20202,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnDomainStagingConfigResponse>(await this.callApi(params, req, runtime), new DescribeCdnDomainStagingConfigResponse({}));
@@ -19811,13 +20216,24 @@ export default class Client extends OpenApi {
   async describeCdnHttpsDomainListWithOptions(request: DescribeCdnHttpsDomainListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnHttpsDomainListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Keyword"] = request.keyword;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnHttpsDomainList",
@@ -19827,7 +20243,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnHttpsDomainListResponse>(await this.callApi(params, req, runtime), new DescribeCdnHttpsDomainListResponse({}));
@@ -19841,11 +20257,16 @@ export default class Client extends OpenApi {
   async describeCdnRegionAndIspWithOptions(request: DescribeCdnRegionAndIspRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnRegionAndIspResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnRegionAndIsp",
@@ -19855,7 +20276,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnRegionAndIspResponse>(await this.callApi(params, req, runtime), new DescribeCdnRegionAndIspResponse({}));
@@ -19869,17 +20290,40 @@ export default class Client extends OpenApi {
   async describeCdnReportWithOptions(request: DescribeCdnReportRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnReportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["HttpCode"] = request.httpCode;
-    query["IsOverseas"] = request.isOverseas;
-    query["OwnerId"] = request.ownerId;
-    query["ReportId"] = request.reportId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.httpCode)) {
+      query["HttpCode"] = request.httpCode;
+    }
+
+    if (!Util.isUnset(request.isOverseas)) {
+      query["IsOverseas"] = request.isOverseas;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnReport",
@@ -19889,7 +20333,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnReportResponse>(await this.callApi(params, req, runtime), new DescribeCdnReportResponse({}));
@@ -19903,11 +20347,16 @@ export default class Client extends OpenApi {
   async describeCdnReportListWithOptions(request: DescribeCdnReportListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnReportListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ReportId"] = request.reportId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.reportId)) {
+      query["ReportId"] = request.reportId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnReportList",
@@ -19917,7 +20366,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnReportListResponse>(await this.callApi(params, req, runtime), new DescribeCdnReportListResponse({}));
@@ -19931,12 +20380,20 @@ export default class Client extends OpenApi {
   async describeCdnSMCertificateDetailWithOptions(request: DescribeCdnSMCertificateDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSMCertificateDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertIdentifier"] = request.certIdentifier;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnSMCertificateDetail",
@@ -19946,7 +20403,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnSMCertificateDetailResponse>(await this.callApi(params, req, runtime), new DescribeCdnSMCertificateDetailResponse({}));
@@ -19960,12 +20417,20 @@ export default class Client extends OpenApi {
   async describeCdnSMCertificateListWithOptions(request: DescribeCdnSMCertificateListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSMCertificateListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnSMCertificateList",
@@ -19975,7 +20440,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnSMCertificateListResponse>(await this.callApi(params, req, runtime), new DescribeCdnSMCertificateListResponse({}));
@@ -19989,11 +20454,16 @@ export default class Client extends OpenApi {
   async describeCdnServiceWithOptions(request: DescribeCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnService",
@@ -20003,7 +20473,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnServiceResponse>(await this.callApi(params, req, runtime), new DescribeCdnServiceResponse({}));
@@ -20017,10 +20487,12 @@ export default class Client extends OpenApi {
   async describeCdnSubListWithOptions(request: DescribeCdnSubListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnSubListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnSubList",
@@ -20030,7 +20502,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnSubListResponse>(await this.callApi(params, req, runtime), new DescribeCdnSubListResponse({}));
@@ -20044,12 +20516,20 @@ export default class Client extends OpenApi {
   async describeCdnUserBillHistoryWithOptions(request: DescribeCdnUserBillHistoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillHistoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserBillHistory",
@@ -20059,7 +20539,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserBillHistoryResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserBillHistoryResponse({}));
@@ -20073,14 +20553,28 @@ export default class Client extends OpenApi {
   async describeCdnUserBillPredictionWithOptions(request: DescribeCdnUserBillPredictionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillPredictionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["Dimension"] = request.dimension;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.dimension)) {
+      query["Dimension"] = request.dimension;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserBillPrediction",
@@ -20090,7 +20584,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserBillPredictionResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserBillPredictionResponse({}));
@@ -20104,12 +20598,20 @@ export default class Client extends OpenApi {
   async describeCdnUserBillTypeWithOptions(request: DescribeCdnUserBillTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserBillTypeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserBillType",
@@ -20119,7 +20621,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserBillTypeResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserBillTypeResponse({}));
@@ -20133,11 +20635,16 @@ export default class Client extends OpenApi {
   async describeCdnUserConfigsWithOptions(request: DescribeCdnUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FunctionName"] = request.functionName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserConfigs",
@@ -20147,7 +20654,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserConfigsResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserConfigsResponse({}));
@@ -20161,14 +20668,28 @@ export default class Client extends OpenApi {
   async describeCdnUserDomainsByFuncWithOptions(request: DescribeCdnUserDomainsByFuncRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserDomainsByFuncResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FuncId"] = request.funcId;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.funcId)) {
+      query["FuncId"] = request.funcId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserDomainsByFunc",
@@ -20178,7 +20699,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserDomainsByFuncResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserDomainsByFuncResponse({}));
@@ -20192,11 +20713,16 @@ export default class Client extends OpenApi {
   async describeCdnUserQuotaWithOptions(request: DescribeCdnUserQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserQuotaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserQuota",
@@ -20206,7 +20732,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserQuotaResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserQuotaResponse({}));
@@ -20220,12 +20746,20 @@ export default class Client extends OpenApi {
   async describeCdnUserResourcePackageWithOptions(request: DescribeCdnUserResourcePackageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnUserResourcePackageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnUserResourcePackage",
@@ -20235,7 +20769,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnUserResourcePackageResponse>(await this.callApi(params, req, runtime), new DescribeCdnUserResourcePackageResponse({}));
@@ -20249,13 +20783,24 @@ export default class Client extends OpenApi {
   async describeCdnWafDomainWithOptions(request: DescribeCdnWafDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnWafDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeCdnWafDomain",
@@ -20265,7 +20810,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCdnWafDomainResponse>(await this.callApi(params, req, runtime), new DescribeCdnWafDomainResponse({}));
@@ -20290,7 +20835,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCertificateInfoByIDResponse>(await this.callApi(params, req, runtime), new DescribeCertificateInfoByIDResponse({}));
@@ -20304,12 +20849,20 @@ export default class Client extends OpenApi {
   async describeConfigGroupDetailWithOptions(request: DescribeConfigGroupDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigGroupDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigGroupId"] = request.configGroupId;
-    query["ConfigGroupName"] = request.configGroupName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configGroupId)) {
+      query["ConfigGroupId"] = request.configGroupId;
+    }
+
+    if (!Util.isUnset(request.configGroupName)) {
+      query["ConfigGroupName"] = request.configGroupName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeConfigGroupDetail",
@@ -20319,7 +20872,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeConfigGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeConfigGroupDetailResponse({}));
@@ -20333,15 +20886,32 @@ export default class Client extends OpenApi {
   async describeConfigOfVersionWithOptions(request: DescribeConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeConfigOfVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FunctionId"] = request.functionId;
-    query["FunctionName"] = request.functionName;
-    query["GroupId"] = request.groupId;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.functionId)) {
+      query["FunctionId"] = request.functionId;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeConfigOfVersion",
@@ -20351,7 +20921,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeConfigOfVersionResponse>(await this.callApi(params, req, runtime), new DescribeConfigOfVersionResponse({}));
@@ -20376,7 +20946,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeCustomLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeCustomLogConfigResponse({}));
@@ -20390,18 +20960,44 @@ export default class Client extends OpenApi {
   async describeDomainAverageResponseTimeWithOptions(request: DescribeDomainAverageResponseTimeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainAverageResponseTimeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["DomainType"] = request.domainType;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TimeMerge"] = request.timeMerge;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainType)) {
+      query["DomainType"] = request.domainType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.timeMerge)) {
+      query["TimeMerge"] = request.timeMerge;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainAverageResponseTime",
@@ -20411,7 +21007,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainAverageResponseTimeResponse>(await this.callApi(params, req, runtime), new DescribeDomainAverageResponseTimeResponse({}));
@@ -20425,16 +21021,36 @@ export default class Client extends OpenApi {
   async describeDomainBpsDataWithOptions(request: DescribeDomainBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainBpsData",
@@ -20444,7 +21060,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainBpsDataResponse({}));
@@ -20458,17 +21074,40 @@ export default class Client extends OpenApi {
   async describeDomainBpsDataByLayerWithOptions(request: DescribeDomainBpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["Layer"] = request.layer;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainBpsDataByLayer",
@@ -20478,7 +21117,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainBpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDomainBpsDataByLayerResponse({}));
@@ -20492,14 +21131,28 @@ export default class Client extends OpenApi {
   async describeDomainBpsDataByTimeStampWithOptions(request: DescribeDomainBpsDataByTimeStampRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainBpsDataByTimeStampResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["IspNames"] = request.ispNames;
-    query["LocationNames"] = request.locationNames;
-    query["OwnerId"] = request.ownerId;
-    query["TimePoint"] = request.timePoint;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ispNames)) {
+      query["IspNames"] = request.ispNames;
+    }
+
+    if (!Util.isUnset(request.locationNames)) {
+      query["LocationNames"] = request.locationNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.timePoint)) {
+      query["TimePoint"] = request.timePoint;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainBpsDataByTimeStamp",
@@ -20509,7 +21162,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainBpsDataByTimeStampResponse>(await this.callApi(params, req, runtime), new DescribeDomainBpsDataByTimeStampResponse({}));
@@ -20523,18 +21176,44 @@ export default class Client extends OpenApi {
   async describeDomainCcActivityLogWithOptions(request: DescribeDomainCcActivityLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCcActivityLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RuleName"] = request.ruleName;
-    query["StartTime"] = request.startTime;
-    query["TriggerObject"] = request.triggerObject;
-    query["Value"] = request.value;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.triggerObject)) {
+      query["TriggerObject"] = request.triggerObject;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainCcActivityLog",
@@ -20544,7 +21223,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainCcActivityLogResponse>(await this.callApi(params, req, runtime), new DescribeDomainCcActivityLogResponse({}));
@@ -20558,11 +21237,16 @@ export default class Client extends OpenApi {
   async describeDomainCertificateInfoWithOptions(request: DescribeDomainCertificateInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainCertificateInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainCertificateInfo",
@@ -20572,7 +21256,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainCertificateInfoResponse>(await this.callApi(params, req, runtime), new DescribeDomainCertificateInfoResponse({}));
@@ -20597,7 +21281,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainCustomLogConfigResponse>(await this.callApi(params, req, runtime), new DescribeDomainCustomLogConfigResponse({}));
@@ -20622,7 +21306,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainDetailDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDomainDetailDataByLayerResponse({}));
@@ -20636,14 +21320,28 @@ export default class Client extends OpenApi {
   async describeDomainFileSizeProportionDataWithOptions(request: DescribeDomainFileSizeProportionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainFileSizeProportionDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainFileSizeProportionData",
@@ -20653,7 +21351,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainFileSizeProportionDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainFileSizeProportionDataResponse({}));
@@ -20667,14 +21365,28 @@ export default class Client extends OpenApi {
   async describeDomainHitRateDataWithOptions(request: DescribeDomainHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHitRateDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainHitRateData",
@@ -20684,7 +21396,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainHitRateDataResponse({}));
@@ -20698,14 +21410,28 @@ export default class Client extends OpenApi {
   async describeDomainHttpCodeDataWithOptions(request: DescribeDomainHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainHttpCodeData",
@@ -20715,7 +21441,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainHttpCodeDataResponse({}));
@@ -20729,17 +21455,40 @@ export default class Client extends OpenApi {
   async describeDomainHttpCodeDataByLayerWithOptions(request: DescribeDomainHttpCodeDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainHttpCodeDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["Layer"] = request.layer;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainHttpCodeDataByLayer",
@@ -20749,7 +21498,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainHttpCodeDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDomainHttpCodeDataByLayerResponse({}));
@@ -20763,13 +21512,24 @@ export default class Client extends OpenApi {
   async describeDomainISPDataWithOptions(request: DescribeDomainISPDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainISPDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainISPData",
@@ -20779,7 +21539,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainISPDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainISPDataResponse({}));
@@ -20793,15 +21553,32 @@ export default class Client extends OpenApi {
   async describeDomainMax95BpsDataWithOptions(request: DescribeDomainMax95BpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainMax95BpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Cycle"] = request.cycle;
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["TimePoint"] = request.timePoint;
+    if (!Util.isUnset(request.cycle)) {
+      query["Cycle"] = request.cycle;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.timePoint)) {
+      query["TimePoint"] = request.timePoint;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainMax95BpsData",
@@ -20811,7 +21588,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainMax95BpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainMax95BpsDataResponse({}));
@@ -20825,13 +21602,24 @@ export default class Client extends OpenApi {
   async describeDomainMultiUsageDataWithOptions(request: DescribeDomainMultiUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainMultiUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainMultiUsageData",
@@ -20841,7 +21629,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainMultiUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainMultiUsageDataResponse({}));
@@ -20855,13 +21643,24 @@ export default class Client extends OpenApi {
   async describeDomainNamesOfVersionWithOptions(request: DescribeDomainNamesOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainNamesOfVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageIndex"] = request.pageIndex;
-    query["PageSize"] = request.pageSize;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainNamesOfVersion",
@@ -20871,7 +21670,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainNamesOfVersionResponse>(await this.callApi(params, req, runtime), new DescribeDomainNamesOfVersionResponse({}));
@@ -20896,7 +21695,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainPathDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainPathDataResponse({}));
@@ -20910,13 +21709,24 @@ export default class Client extends OpenApi {
   async describeDomainPvDataWithOptions(request: DescribeDomainPvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainPvDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainPvData",
@@ -20926,7 +21736,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainPvDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainPvDataResponse({}));
@@ -20940,16 +21750,36 @@ export default class Client extends OpenApi {
   async describeDomainQpsDataWithOptions(request: DescribeDomainQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainQpsData",
@@ -20959,7 +21789,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainQpsDataResponse({}));
@@ -20973,17 +21803,40 @@ export default class Client extends OpenApi {
   async describeDomainQpsDataByLayerWithOptions(request: DescribeDomainQpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainQpsDataByLayerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["Layer"] = request.layer;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainQpsDataByLayer",
@@ -20993,7 +21846,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainQpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDomainQpsDataByLayerResponse({}));
@@ -21018,7 +21871,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeBpsDataResponse({}));
@@ -21043,7 +21896,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeByteHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeByteHitRateDataResponse({}));
@@ -21068,7 +21921,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeDetailDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeDetailDataResponse({}));
@@ -21082,15 +21935,32 @@ export default class Client extends OpenApi {
   async describeDomainRealTimeHttpCodeDataWithOptions(request: DescribeDomainRealTimeHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRealTimeHttpCodeData",
@@ -21100,7 +21970,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeHttpCodeDataResponse({}));
@@ -21125,7 +21995,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeQpsDataResponse({}));
@@ -21150,7 +22020,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeReqHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeReqHitRateDataResponse({}));
@@ -21164,13 +22034,24 @@ export default class Client extends OpenApi {
   async describeDomainRealTimeSrcBpsDataWithOptions(request: DescribeDomainRealTimeSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRealTimeSrcBpsData",
@@ -21180,7 +22061,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeSrcBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeSrcBpsDataResponse({}));
@@ -21194,15 +22075,32 @@ export default class Client extends OpenApi {
   async describeDomainRealTimeSrcHttpCodeDataWithOptions(request: DescribeDomainRealTimeSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRealTimeSrcHttpCodeData",
@@ -21212,7 +22110,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeSrcHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeSrcHttpCodeDataResponse({}));
@@ -21226,13 +22124,24 @@ export default class Client extends OpenApi {
   async describeDomainRealTimeSrcTrafficDataWithOptions(request: DescribeDomainRealTimeSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeSrcTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRealTimeSrcTrafficData",
@@ -21242,7 +22151,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeSrcTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeSrcTrafficDataResponse({}));
@@ -21256,15 +22165,32 @@ export default class Client extends OpenApi {
   async describeDomainRealTimeTrafficDataWithOptions(request: DescribeDomainRealTimeTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRealTimeTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRealTimeTrafficData",
@@ -21274,7 +22200,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealTimeTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealTimeTrafficDataResponse({}));
@@ -21299,7 +22225,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new DescribeDomainRealtimeLogDeliveryResponse({}));
@@ -21313,13 +22239,24 @@ export default class Client extends OpenApi {
   async describeDomainRegionDataWithOptions(request: DescribeDomainRegionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainRegionDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainRegionData",
@@ -21329,7 +22266,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainRegionDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainRegionDataResponse({}));
@@ -21343,14 +22280,28 @@ export default class Client extends OpenApi {
   async describeDomainReqHitRateDataWithOptions(request: DescribeDomainReqHitRateDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainReqHitRateDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainReqHitRateData",
@@ -21360,7 +22311,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainReqHitRateDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainReqHitRateDataResponse({}));
@@ -21374,14 +22325,28 @@ export default class Client extends OpenApi {
   async describeDomainSrcBpsDataWithOptions(request: DescribeDomainSrcBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcBpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainSrcBpsData",
@@ -21391,7 +22356,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainSrcBpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainSrcBpsDataResponse({}));
@@ -21405,14 +22370,28 @@ export default class Client extends OpenApi {
   async describeDomainSrcHttpCodeDataWithOptions(request: DescribeDomainSrcHttpCodeDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcHttpCodeDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainSrcHttpCodeData",
@@ -21422,7 +22401,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainSrcHttpCodeDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainSrcHttpCodeDataResponse({}));
@@ -21436,14 +22415,28 @@ export default class Client extends OpenApi {
   async describeDomainSrcQpsDataWithOptions(request: DescribeDomainSrcQpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcQpsDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainSrcQpsData",
@@ -21453,7 +22446,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainSrcQpsDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainSrcQpsDataResponse({}));
@@ -21467,14 +22460,28 @@ export default class Client extends OpenApi {
   async describeDomainSrcTopUrlVisitWithOptions(request: DescribeDomainSrcTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcTopUrlVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainSrcTopUrlVisit",
@@ -21484,7 +22491,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainSrcTopUrlVisitResponse>(await this.callApi(params, req, runtime), new DescribeDomainSrcTopUrlVisitResponse({}));
@@ -21498,14 +22505,28 @@ export default class Client extends OpenApi {
   async describeDomainSrcTrafficDataWithOptions(request: DescribeDomainSrcTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainSrcTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainSrcTrafficData",
@@ -21515,7 +22536,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainSrcTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainSrcTrafficDataResponse({}));
@@ -21529,16 +22550,36 @@ export default class Client extends OpenApi {
   async describeDomainTopClientIpVisitWithOptions(request: DescribeDomainTopClientIpVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopClientIpVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Limit"] = request.limit;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainTopClientIpVisit",
@@ -21548,7 +22589,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainTopClientIpVisitResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopClientIpVisitResponse({}));
@@ -21562,15 +22603,32 @@ export default class Client extends OpenApi {
   async describeDomainTopReferVisitWithOptions(request: DescribeDomainTopReferVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopReferVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["Percent"] = request.percent;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.percent)) {
+      query["Percent"] = request.percent;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainTopReferVisit",
@@ -21580,7 +22638,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainTopReferVisitResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopReferVisitResponse({}));
@@ -21594,14 +22652,28 @@ export default class Client extends OpenApi {
   async describeDomainTopUrlVisitWithOptions(request: DescribeDomainTopUrlVisitRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTopUrlVisitResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["SortBy"] = request.sortBy;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainTopUrlVisit",
@@ -21611,7 +22683,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainTopUrlVisitResponse>(await this.callApi(params, req, runtime), new DescribeDomainTopUrlVisitResponse({}));
@@ -21625,16 +22697,36 @@ export default class Client extends OpenApi {
   async describeDomainTrafficDataWithOptions(request: DescribeDomainTrafficDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainTrafficDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["IspNameEn"] = request.ispNameEn;
-    query["LocationNameEn"] = request.locationNameEn;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainTrafficData",
@@ -21644,7 +22736,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainTrafficDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainTrafficDataResponse({}));
@@ -21658,18 +22750,44 @@ export default class Client extends OpenApi {
   async describeDomainUsageDataWithOptions(request: DescribeDomainUsageDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainUsageDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["DataProtocol"] = request.dataProtocol;
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["Field"] = request.field;
-    query["Interval"] = request.interval;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.dataProtocol)) {
+      query["DataProtocol"] = request.dataProtocol;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.field)) {
+      query["Field"] = request.field;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainUsageData",
@@ -21679,7 +22797,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainUsageDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainUsageDataResponse({}));
@@ -21693,13 +22811,24 @@ export default class Client extends OpenApi {
   async describeDomainUvDataWithOptions(request: DescribeDomainUvDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainUvDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainUvData",
@@ -21709,7 +22838,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainUvDataResponse>(await this.callApi(params, req, runtime), new DescribeDomainUvDataResponse({}));
@@ -21723,12 +22852,20 @@ export default class Client extends OpenApi {
   async describeDomainsBySourceWithOptions(request: DescribeDomainsBySourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsBySourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainsBySource",
@@ -21738,7 +22875,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainsBySourceResponse>(await this.callApi(params, req, runtime), new DescribeDomainsBySourceResponse({}));
@@ -21752,13 +22889,24 @@ export default class Client extends OpenApi {
   async describeDomainsUsageByDayWithOptions(request: DescribeDomainsUsageByDayRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainsUsageByDayResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeDomainsUsageByDay",
@@ -21768,7 +22916,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeDomainsUsageByDayResponse>(await this.callApi(params, req, runtime), new DescribeDomainsUsageByDayResponse({}));
@@ -21782,13 +22930,24 @@ export default class Client extends OpenApi {
   async describeEsExceptionDataWithOptions(request: DescribeEsExceptionDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEsExceptionDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeEsExceptionData",
@@ -21798,7 +22957,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeEsExceptionDataResponse>(await this.callApi(params, req, runtime), new DescribeEsExceptionDataResponse({}));
@@ -21812,13 +22971,24 @@ export default class Client extends OpenApi {
   async describeEsExecuteDataWithOptions(request: DescribeEsExecuteDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEsExecuteDataResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["OwnerId"] = request.ownerId;
-    query["RuleId"] = request.ruleId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeEsExecuteData",
@@ -21828,7 +22998,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeEsExecuteDataResponse>(await this.callApi(params, req, runtime), new DescribeEsExecuteDataResponse({}));
@@ -21853,7 +23023,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeFCTriggerResponse>(await this.callApi(params, req, runtime), new DescribeFCTriggerResponse({}));
@@ -21867,11 +23037,16 @@ export default class Client extends OpenApi {
   async describeIllegalUrlExportTaskWithOptions(request: DescribeIllegalUrlExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIllegalUrlExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeIllegalUrlExportTask",
@@ -21881,7 +23056,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeIllegalUrlExportTaskResponse>(await this.callApi(params, req, runtime), new DescribeIllegalUrlExportTaskResponse({}));
@@ -21895,12 +23070,20 @@ export default class Client extends OpenApi {
   async describeIpInfoWithOptions(request: DescribeIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["IP"] = request.IP;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.IP)) {
+      query["IP"] = request.IP;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeIpInfo",
@@ -21910,7 +23093,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeIpInfoResponse>(await this.callApi(params, req, runtime), new DescribeIpInfoResponse({}));
@@ -21924,12 +23107,20 @@ export default class Client extends OpenApi {
   async describeL2VipsByDomainWithOptions(request: DescribeL2VipsByDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeL2VipsByDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeL2VipsByDomain",
@@ -21939,7 +23130,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeL2VipsByDomainResponse>(await this.callApi(params, req, runtime), new DescribeL2VipsByDomainResponse({}));
@@ -21953,15 +23144,32 @@ export default class Client extends OpenApi {
   async describeRangeDataByLocateAndIspServiceWithOptions(request: DescribeRangeDataByLocateAndIspServiceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRangeDataByLocateAndIspServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainNames"] = request.domainNames;
-    query["EndTime"] = request.endTime;
-    query["IspNames"] = request.ispNames;
-    query["LocationNames"] = request.locationNames;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.domainNames)) {
+      query["DomainNames"] = request.domainNames;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ispNames)) {
+      query["IspNames"] = request.ispNames;
+    }
+
+    if (!Util.isUnset(request.locationNames)) {
+      query["LocationNames"] = request.locationNames;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRangeDataByLocateAndIspService",
@@ -21971,7 +23179,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRangeDataByLocateAndIspServiceResponse>(await this.callApi(params, req, runtime), new DescribeRangeDataByLocateAndIspServiceResponse({}));
@@ -21985,15 +23193,32 @@ export default class Client extends OpenApi {
   async describeRealtimeDeliveryAccWithOptions(request: DescribeRealtimeDeliveryAccRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRealtimeDeliveryAccResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Interval"] = request.interval;
-    query["LogStore"] = request.logStore;
-    query["OwnerId"] = request.ownerId;
-    query["Project"] = request.project;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.logStore)) {
+      query["LogStore"] = request.logStore;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.project)) {
+      query["Project"] = request.project;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRealtimeDeliveryAcc",
@@ -22003,7 +23228,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRealtimeDeliveryAccResponse>(await this.callApi(params, req, runtime), new DescribeRealtimeDeliveryAccResponse({}));
@@ -22017,11 +23242,16 @@ export default class Client extends OpenApi {
   async describeRefreshQuotaWithOptions(request: DescribeRefreshQuotaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshQuotaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRefreshQuota",
@@ -22031,7 +23261,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRefreshQuotaResponse>(await this.callApi(params, req, runtime), new DescribeRefreshQuotaResponse({}));
@@ -22045,11 +23275,16 @@ export default class Client extends OpenApi {
   async describeRefreshTaskByIdWithOptions(request: DescribeRefreshTaskByIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshTaskByIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRefreshTaskById",
@@ -22059,7 +23294,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRefreshTaskByIdResponse>(await this.callApi(params, req, runtime), new DescribeRefreshTaskByIdResponse({}));
@@ -22073,21 +23308,56 @@ export default class Client extends OpenApi {
   async describeRefreshTasksWithOptions(request: DescribeRefreshTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefreshTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["EndTime"] = request.endTime;
-    query["ObjectPath"] = request.objectPath;
-    query["ObjectType"] = request.objectType;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["StartTime"] = request.startTime;
-    query["Status"] = request.status;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeRefreshTasks",
@@ -22097,7 +23367,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeRefreshTasksResponse>(await this.callApi(params, req, runtime), new DescribeRefreshTasksResponse({}));
@@ -22111,10 +23381,12 @@ export default class Client extends OpenApi {
   async describeStagingIpWithOptions(request: DescribeStagingIpRequest, runtime: $Util.RuntimeOptions): Promise<DescribeStagingIpResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeStagingIp",
@@ -22124,7 +23396,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeStagingIpResponse>(await this.callApi(params, req, runtime), new DescribeStagingIpResponse({}));
@@ -22138,13 +23410,24 @@ export default class Client extends OpenApi {
   async describeTagResourcesWithOptions(request: DescribeTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeTagResources",
@@ -22154,7 +23437,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeTagResourcesResponse>(await this.callApi(params, req, runtime), new DescribeTagResourcesResponse({}));
@@ -22168,13 +23451,24 @@ export default class Client extends OpenApi {
   async describeTopDomainsByFlowWithOptions(request: DescribeTopDomainsByFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTopDomainsByFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Limit"] = request.limit;
-    query["OwnerId"] = request.ownerId;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeTopDomainsByFlow",
@@ -22184,7 +23478,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeTopDomainsByFlowResponse>(await this.callApi(params, req, runtime), new DescribeTopDomainsByFlowResponse({}));
@@ -22198,10 +23492,12 @@ export default class Client extends OpenApi {
   async describeUserCertificateExpireCountWithOptions(request: DescribeUserCertificateExpireCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserCertificateExpireCountResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserCertificateExpireCount",
@@ -22211,7 +23507,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserCertificateExpireCountResponse>(await this.callApi(params, req, runtime), new DescribeUserCertificateExpireCountResponse({}));
@@ -22225,12 +23521,20 @@ export default class Client extends OpenApi {
   async describeUserConfigsWithOptions(request: DescribeUserConfigsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserConfigsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Config"] = request.config;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserConfigs",
@@ -22240,7 +23544,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserConfigsResponse>(await this.callApi(params, req, runtime), new DescribeUserConfigsResponse({}));
@@ -22254,24 +23558,68 @@ export default class Client extends OpenApi {
   async describeUserDomainsWithOptions(request: DescribeUserDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDomainsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CdnType"] = request.cdnType;
-    query["ChangeEndTime"] = request.changeEndTime;
-    query["ChangeStartTime"] = request.changeStartTime;
-    query["CheckDomainShow"] = request.checkDomainShow;
-    query["Coverage"] = request.coverage;
-    query["DomainName"] = request.domainName;
-    query["DomainSearchType"] = request.domainSearchType;
-    query["DomainStatus"] = request.domainStatus;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Source"] = request.source;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.cdnType)) {
+      query["CdnType"] = request.cdnType;
+    }
+
+    if (!Util.isUnset(request.changeEndTime)) {
+      query["ChangeEndTime"] = request.changeEndTime;
+    }
+
+    if (!Util.isUnset(request.changeStartTime)) {
+      query["ChangeStartTime"] = request.changeStartTime;
+    }
+
+    if (!Util.isUnset(request.checkDomainShow)) {
+      query["CheckDomainShow"] = request.checkDomainShow;
+    }
+
+    if (!Util.isUnset(request.coverage)) {
+      query["Coverage"] = request.coverage;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.domainSearchType)) {
+      query["DomainSearchType"] = request.domainSearchType;
+    }
+
+    if (!Util.isUnset(request.domainStatus)) {
+      query["DomainStatus"] = request.domainStatus;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserDomains",
@@ -22281,7 +23629,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserDomainsResponse>(await this.callApi(params, req, runtime), new DescribeUserDomainsResponse({}));
@@ -22295,10 +23643,12 @@ export default class Client extends OpenApi {
   async describeUserTagsWithOptions(request: DescribeUserTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserTagsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserTags",
@@ -22308,7 +23658,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserTagsResponse>(await this.callApi(params, req, runtime), new DescribeUserTagsResponse({}));
@@ -22322,12 +23672,20 @@ export default class Client extends OpenApi {
   async describeUserUsageDataExportTaskWithOptions(request: DescribeUserUsageDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserUsageDataExportTask",
@@ -22337,7 +23695,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserUsageDataExportTaskResponse>(await this.callApi(params, req, runtime), new DescribeUserUsageDataExportTaskResponse({}));
@@ -22351,12 +23709,20 @@ export default class Client extends OpenApi {
   async describeUserUsageDetailDataExportTaskWithOptions(request: DescribeUserUsageDetailDataExportTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserUsageDetailDataExportTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeUserUsageDetailDataExportTask",
@@ -22366,7 +23732,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserUsageDetailDataExportTaskResponse>(await this.callApi(params, req, runtime), new DescribeUserUsageDetailDataExportTaskResponse({}));
@@ -22391,7 +23757,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeUserVipsByDomainResponse>(await this.callApi(params, req, runtime), new DescribeUserVipsByDomainResponse({}));
@@ -22405,11 +23771,16 @@ export default class Client extends OpenApi {
   async describeVerifyContentWithOptions(request: DescribeVerifyContentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVerifyContentResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DescribeVerifyContent",
@@ -22419,7 +23790,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DescribeVerifyContentResponse>(await this.callApi(params, req, runtime), new DescribeVerifyContentResponse({}));
@@ -22444,7 +23815,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DisableRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new DisableRealtimeLogDeliveryResponse({}));
@@ -22469,7 +23840,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<EnableRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new EnableRealtimeLogDeliveryResponse({}));
@@ -22494,7 +23865,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDomainsByLogConfigIdResponse>(await this.callApi(params, req, runtime), new ListDomainsByLogConfigIdResponse({}));
@@ -22519,7 +23890,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListFCTriggerResponse>(await this.callApi(params, req, runtime), new ListFCTriggerResponse({}));
@@ -22544,7 +23915,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRealtimeLogDeliveryDomainsResponse>(await this.callApi(params, req, runtime), new ListRealtimeLogDeliveryDomainsResponse({}));
@@ -22569,7 +23940,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRealtimeLogDeliveryInfosResponse>(await this.callApi(params, req, runtime), new ListRealtimeLogDeliveryInfosResponse({}));
@@ -22594,7 +23965,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListUserCustomLogConfigResponse>(await this.callApi(params, req, runtime), new ListUserCustomLogConfigResponse({}));
@@ -22608,15 +23979,32 @@ export default class Client extends OpenApi {
   async modifyCdnDomainWithOptions(request: ModifyCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["SecurityToken"] = request.securityToken;
-    query["Sources"] = request.sources;
-    query["TopLevelDomain"] = request.topLevelDomain;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sources)) {
+      query["Sources"] = request.sources;
+    }
+
+    if (!Util.isUnset(request.topLevelDomain)) {
+      query["TopLevelDomain"] = request.topLevelDomain;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyCdnDomain",
@@ -22626,7 +24014,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyCdnDomainResponse>(await this.callApi(params, req, runtime), new ModifyCdnDomainResponse({}));
@@ -22640,12 +24028,20 @@ export default class Client extends OpenApi {
   async modifyCdnDomainSchdmByPropertyWithOptions(request: ModifyCdnDomainSchdmByPropertyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCdnDomainSchdmByPropertyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["Property"] = request.property;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.property)) {
+      query["Property"] = request.property;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ModifyCdnDomainSchdmByProperty",
@@ -22655,7 +24051,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyCdnDomainSchdmByPropertyResponse>(await this.callApi(params, req, runtime), new ModifyCdnDomainSchdmByPropertyResponse({}));
@@ -22680,7 +24076,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyDomainCustomLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyDomainCustomLogConfigResponse({}));
@@ -22705,7 +24101,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new ModifyRealtimeLogDeliveryResponse({}));
@@ -22730,7 +24126,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ModifyUserCustomLogConfigResponse>(await this.callApi(params, req, runtime), new ModifyUserCustomLogConfigResponse({}));
@@ -22744,12 +24140,20 @@ export default class Client extends OpenApi {
   async openCdnServiceWithOptions(request: OpenCdnServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenCdnServiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["InternetChargeType"] = request.internetChargeType;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "OpenCdnService",
@@ -22759,7 +24163,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<OpenCdnServiceResponse>(await this.callApi(params, req, runtime), new OpenCdnServiceResponse({}));
@@ -22773,12 +24177,20 @@ export default class Client extends OpenApi {
   async publishStagingConfigToProductionWithOptions(request: PublishStagingConfigToProductionRequest, runtime: $Util.RuntimeOptions): Promise<PublishStagingConfigToProductionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionName"] = request.functionName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PublishStagingConfigToProduction",
@@ -22788,7 +24200,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PublishStagingConfigToProductionResponse>(await this.callApi(params, req, runtime), new PublishStagingConfigToProductionResponse({}));
@@ -22802,13 +24214,24 @@ export default class Client extends OpenApi {
   async pushObjectCacheWithOptions(request: PushObjectCacheRequest, runtime: $Util.RuntimeOptions): Promise<PushObjectCacheResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Area"] = request.area;
-    query["ObjectPath"] = request.objectPath;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.area)) {
+      query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "PushObjectCache",
@@ -22818,7 +24241,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<PushObjectCacheResponse>(await this.callApi(params, req, runtime), new PushObjectCacheResponse({}));
@@ -22832,13 +24255,24 @@ export default class Client extends OpenApi {
   async refreshObjectCachesWithOptions(request: RefreshObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ObjectPath"] = request.objectPath;
-    query["ObjectType"] = request.objectType;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.objectPath)) {
+      query["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      query["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RefreshObjectCaches",
@@ -22848,7 +24282,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RefreshObjectCachesResponse>(await this.callApi(params, req, runtime), new RefreshObjectCachesResponse({}));
@@ -22862,12 +24296,20 @@ export default class Client extends OpenApi {
   async rollbackStagingConfigWithOptions(request: RollbackStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<RollbackStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["FunctionName"] = request.functionName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RollbackStagingConfig",
@@ -22877,7 +24319,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RollbackStagingConfigResponse>(await this.callApi(params, req, runtime), new RollbackStagingConfigResponse({}));
@@ -22891,14 +24333,28 @@ export default class Client extends OpenApi {
   async setCcConfigWithOptions(request: SetCcConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetCcConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowIps"] = request.allowIps;
-    query["BlockIps"] = request.blockIps;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.allowIps)) {
+      query["AllowIps"] = request.allowIps;
+    }
+
+    if (!Util.isUnset(request.blockIps)) {
+      query["BlockIps"] = request.blockIps;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetCcConfig",
@@ -22908,7 +24364,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetCcConfigResponse>(await this.callApi(params, req, runtime), new SetCcConfigResponse({}));
@@ -22922,12 +24378,20 @@ export default class Client extends OpenApi {
   async setCdnDomainCSRCertificateWithOptions(request: SetCdnDomainCSRCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainCSRCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ServerCertificate"] = request.serverCertificate;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      query["ServerCertificate"] = request.serverCertificate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetCdnDomainCSRCertificate",
@@ -22937,7 +24401,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetCdnDomainCSRCertificateResponse>(await this.callApi(params, req, runtime), new SetCdnDomainCSRCertificateResponse({}));
@@ -22951,14 +24415,28 @@ export default class Client extends OpenApi {
   async setCdnDomainSMCertificateWithOptions(request: SetCdnDomainSMCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainSMCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertIdentifier"] = request.certIdentifier;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SSLProtocol"] = request.SSLProtocol;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.certIdentifier)) {
+      query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.SSLProtocol)) {
+      query["SSLProtocol"] = request.SSLProtocol;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetCdnDomainSMCertificate",
@@ -22968,7 +24446,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetCdnDomainSMCertificateResponse>(await this.callApi(params, req, runtime), new SetCdnDomainSMCertificateResponse({}));
@@ -22982,12 +24460,20 @@ export default class Client extends OpenApi {
   async setCdnDomainStagingConfigWithOptions(request: SetCdnDomainStagingConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetCdnDomainStagingConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["Functions"] = request.functions;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.functions)) {
+      query["Functions"] = request.functions;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetCdnDomainStagingConfig",
@@ -22997,7 +24483,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetCdnDomainStagingConfigResponse>(await this.callApi(params, req, runtime), new SetCdnDomainStagingConfigResponse({}));
@@ -23011,18 +24497,44 @@ export default class Client extends OpenApi {
   async setConfigOfVersionWithOptions(request: SetConfigOfVersionRequest, runtime: $Util.RuntimeOptions): Promise<SetConfigOfVersionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["FunctionArgs"] = request.functionArgs;
-    query["FunctionId"] = request.functionId;
-    query["FunctionMatches"] = request.functionMatches;
-    query["FunctionName"] = request.functionName;
-    query["OwnerAccount"] = request.ownerAccount;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["VersionId"] = request.versionId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.functionArgs)) {
+      query["FunctionArgs"] = request.functionArgs;
+    }
+
+    if (!Util.isUnset(request.functionId)) {
+      query["FunctionId"] = request.functionId;
+    }
+
+    if (!Util.isUnset(request.functionMatches)) {
+      query["FunctionMatches"] = request.functionMatches;
+    }
+
+    if (!Util.isUnset(request.functionName)) {
+      query["FunctionName"] = request.functionName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetConfigOfVersion",
@@ -23032,7 +24544,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetConfigOfVersionResponse>(await this.callApi(params, req, runtime), new SetConfigOfVersionResponse({}));
@@ -23046,12 +24558,20 @@ export default class Client extends OpenApi {
   async setDomainGreenManagerConfigWithOptions(request: SetDomainGreenManagerConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainGreenManagerConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDomainGreenManagerConfig",
@@ -23061,7 +24581,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDomainGreenManagerConfigResponse>(await this.callApi(params, req, runtime), new SetDomainGreenManagerConfigResponse({}));
@@ -23075,18 +24595,44 @@ export default class Client extends OpenApi {
   async setDomainServerCertificateWithOptions(request: SetDomainServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainServerCertificateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CertName"] = request.certName;
-    query["CertType"] = request.certType;
-    query["DomainName"] = request.domainName;
-    query["ForceSet"] = request.forceSet;
-    query["OwnerId"] = request.ownerId;
-    query["PrivateKey"] = request.privateKey;
-    query["SecurityToken"] = request.securityToken;
-    query["ServerCertificate"] = request.serverCertificate;
-    query["ServerCertificateStatus"] = request.serverCertificateStatus;
+    if (!Util.isUnset(request.certName)) {
+      query["CertName"] = request.certName;
+    }
+
+    if (!Util.isUnset(request.certType)) {
+      query["CertType"] = request.certType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.forceSet)) {
+      query["ForceSet"] = request.forceSet;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      query["ServerCertificate"] = request.serverCertificate;
+    }
+
+    if (!Util.isUnset(request.serverCertificateStatus)) {
+      query["ServerCertificateStatus"] = request.serverCertificateStatus;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDomainServerCertificate",
@@ -23096,7 +24642,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDomainServerCertificateResponse>(await this.callApi(params, req, runtime), new SetDomainServerCertificateResponse({}));
@@ -23110,14 +24656,28 @@ export default class Client extends OpenApi {
   async setErrorPageConfigWithOptions(request: SetErrorPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetErrorPageConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CustomPageUrl"] = request.customPageUrl;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["PageType"] = request.pageType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.customPageUrl)) {
+      query["CustomPageUrl"] = request.customPageUrl;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageType)) {
+      query["PageType"] = request.pageType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetErrorPageConfig",
@@ -23127,7 +24687,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetErrorPageConfigResponse>(await this.callApi(params, req, runtime), new SetErrorPageConfigResponse({}));
@@ -23141,15 +24701,32 @@ export default class Client extends OpenApi {
   async setFileCacheExpiredConfigWithOptions(request: SetFileCacheExpiredConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetFileCacheExpiredConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CacheContent"] = request.cacheContent;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["TTL"] = request.TTL;
-    query["Weight"] = request.weight;
+    if (!Util.isUnset(request.cacheContent)) {
+      query["CacheContent"] = request.cacheContent;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.TTL)) {
+      query["TTL"] = request.TTL;
+    }
+
+    if (!Util.isUnset(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetFileCacheExpiredConfig",
@@ -23159,7 +24736,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetFileCacheExpiredConfigResponse>(await this.callApi(params, req, runtime), new SetFileCacheExpiredConfigResponse({}));
@@ -23173,13 +24750,24 @@ export default class Client extends OpenApi {
   async setForceRedirectConfigWithOptions(request: SetForceRedirectConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetForceRedirectConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["RedirectType"] = request.redirectType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.redirectType)) {
+      query["RedirectType"] = request.redirectType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetForceRedirectConfig",
@@ -23189,7 +24777,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetForceRedirectConfigResponse>(await this.callApi(params, req, runtime), new SetForceRedirectConfigResponse({}));
@@ -23203,15 +24791,32 @@ export default class Client extends OpenApi {
   async setForwardSchemeConfigWithOptions(request: SetForwardSchemeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetForwardSchemeConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
-    query["SchemeOrigin"] = request.schemeOrigin;
-    query["SchemeOriginPort"] = request.schemeOriginPort;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.schemeOrigin)) {
+      query["SchemeOrigin"] = request.schemeOrigin;
+    }
+
+    if (!Util.isUnset(request.schemeOriginPort)) {
+      query["SchemeOriginPort"] = request.schemeOriginPort;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetForwardSchemeConfig",
@@ -23221,7 +24826,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetForwardSchemeConfigResponse>(await this.callApi(params, req, runtime), new SetForwardSchemeConfigResponse({}));
@@ -23235,14 +24840,28 @@ export default class Client extends OpenApi {
   async setHttpErrorPageConfigWithOptions(request: SetHttpErrorPageConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetHttpErrorPageConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["ErrorCode"] = request.errorCode;
-    query["OwnerId"] = request.ownerId;
-    query["PageUrl"] = request.pageUrl;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.errorCode)) {
+      query["ErrorCode"] = request.errorCode;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageUrl)) {
+      query["PageUrl"] = request.pageUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetHttpErrorPageConfig",
@@ -23252,7 +24871,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetHttpErrorPageConfigResponse>(await this.callApi(params, req, runtime), new SetHttpErrorPageConfigResponse({}));
@@ -23266,15 +24885,32 @@ export default class Client extends OpenApi {
   async setHttpHeaderConfigWithOptions(request: SetHttpHeaderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetHttpHeaderConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["HeaderKey"] = request.headerKey;
-    query["HeaderValue"] = request.headerValue;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.headerKey)) {
+      query["HeaderKey"] = request.headerKey;
+    }
+
+    if (!Util.isUnset(request.headerValue)) {
+      query["HeaderValue"] = request.headerValue;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetHttpHeaderConfig",
@@ -23284,7 +24920,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetHttpHeaderConfigResponse>(await this.callApi(params, req, runtime), new SetHttpHeaderConfigResponse({}));
@@ -23298,13 +24934,24 @@ export default class Client extends OpenApi {
   async setHttpsOptionConfigWithOptions(request: SetHttpsOptionConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetHttpsOptionConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Http2"] = request.http2;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.http2)) {
+      query["Http2"] = request.http2;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetHttpsOptionConfig",
@@ -23314,7 +24961,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetHttpsOptionConfigResponse>(await this.callApi(params, req, runtime), new SetHttpsOptionConfigResponse({}));
@@ -23328,15 +24975,32 @@ export default class Client extends OpenApi {
   async setIgnoreQueryStringConfigWithOptions(request: SetIgnoreQueryStringConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetIgnoreQueryStringConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["HashKeyArgs"] = request.hashKeyArgs;
-    query["KeepOssArgs"] = request.keepOssArgs;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.hashKeyArgs)) {
+      query["HashKeyArgs"] = request.hashKeyArgs;
+    }
+
+    if (!Util.isUnset(request.keepOssArgs)) {
+      query["KeepOssArgs"] = request.keepOssArgs;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetIgnoreQueryStringConfig",
@@ -23346,7 +25010,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetIgnoreQueryStringConfigResponse>(await this.callApi(params, req, runtime), new SetIgnoreQueryStringConfigResponse({}));
@@ -23360,13 +25024,24 @@ export default class Client extends OpenApi {
   async setIpAllowListConfigWithOptions(request: SetIpAllowListConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetIpAllowListConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowIps"] = request.allowIps;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.allowIps)) {
+      query["AllowIps"] = request.allowIps;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetIpAllowListConfig",
@@ -23376,7 +25051,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetIpAllowListConfigResponse>(await this.callApi(params, req, runtime), new SetIpAllowListConfigResponse({}));
@@ -23390,13 +25065,24 @@ export default class Client extends OpenApi {
   async setIpBlackListConfigWithOptions(request: SetIpBlackListConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetIpBlackListConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BlockIps"] = request.blockIps;
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.blockIps)) {
+      query["BlockIps"] = request.blockIps;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetIpBlackListConfig",
@@ -23406,7 +25092,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetIpBlackListConfigResponse>(await this.callApi(params, req, runtime), new SetIpBlackListConfigResponse({}));
@@ -23420,13 +25106,24 @@ export default class Client extends OpenApi {
   async setOptimizeConfigWithOptions(request: SetOptimizeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetOptimizeConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetOptimizeConfig",
@@ -23436,7 +25133,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetOptimizeConfigResponse>(await this.callApi(params, req, runtime), new SetOptimizeConfigResponse({}));
@@ -23450,13 +25147,24 @@ export default class Client extends OpenApi {
   async setPageCompressConfigWithOptions(request: SetPageCompressConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetPageCompressConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetPageCompressConfig",
@@ -23466,7 +25174,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetPageCompressConfigResponse>(await this.callApi(params, req, runtime), new SetPageCompressConfigResponse({}));
@@ -23480,13 +25188,24 @@ export default class Client extends OpenApi {
   async setRangeConfigWithOptions(request: SetRangeConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetRangeConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetRangeConfig",
@@ -23496,7 +25215,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetRangeConfigResponse>(await this.callApi(params, req, runtime), new SetRangeConfigResponse({}));
@@ -23510,16 +25229,36 @@ export default class Client extends OpenApi {
   async setRefererConfigWithOptions(request: SetRefererConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetRefererConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowEmpty"] = request.allowEmpty;
-    query["DisableAst"] = request.disableAst;
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["ReferList"] = request.referList;
-    query["ReferType"] = request.referType;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.allowEmpty)) {
+      query["AllowEmpty"] = request.allowEmpty;
+    }
+
+    if (!Util.isUnset(request.disableAst)) {
+      query["DisableAst"] = request.disableAst;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.referList)) {
+      query["ReferList"] = request.referList;
+    }
+
+    if (!Util.isUnset(request.referType)) {
+      query["ReferType"] = request.referType;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetRefererConfig",
@@ -23529,7 +25268,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetRefererConfigResponse>(await this.callApi(params, req, runtime), new SetRefererConfigResponse({}));
@@ -23543,14 +25282,28 @@ export default class Client extends OpenApi {
   async setRemoveQueryStringConfigWithOptions(request: SetRemoveQueryStringConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetRemoveQueryStringConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AliRemoveArgs"] = request.aliRemoveArgs;
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["KeepOssArgs"] = request.keepOssArgs;
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.aliRemoveArgs)) {
+      query["AliRemoveArgs"] = request.aliRemoveArgs;
+    }
+
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.keepOssArgs)) {
+      query["KeepOssArgs"] = request.keepOssArgs;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetRemoveQueryStringConfig",
@@ -23560,7 +25313,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetRemoveQueryStringConfigResponse>(await this.callApi(params, req, runtime), new SetRemoveQueryStringConfigResponse({}));
@@ -23574,17 +25327,40 @@ export default class Client extends OpenApi {
   async setReqAuthConfigWithOptions(request: SetReqAuthConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetReqAuthConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuthRemoteDesc"] = request.authRemoteDesc;
-    query["AuthType"] = request.authType;
-    query["DomainName"] = request.domainName;
-    query["Key1"] = request.key1;
-    query["Key2"] = request.key2;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["TimeOut"] = request.timeOut;
+    if (!Util.isUnset(request.authRemoteDesc)) {
+      query["AuthRemoteDesc"] = request.authRemoteDesc;
+    }
+
+    if (!Util.isUnset(request.authType)) {
+      query["AuthType"] = request.authType;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.key1)) {
+      query["Key1"] = request.key1;
+    }
+
+    if (!Util.isUnset(request.key2)) {
+      query["Key2"] = request.key2;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.timeOut)) {
+      query["TimeOut"] = request.timeOut;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetReqAuthConfig",
@@ -23594,7 +25370,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetReqAuthConfigResponse>(await this.callApi(params, req, runtime), new SetReqAuthConfigResponse({}));
@@ -23608,15 +25384,32 @@ export default class Client extends OpenApi {
   async setReqHeaderConfigWithOptions(request: SetReqHeaderConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetReqHeaderConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConfigId"] = request.configId;
-    query["DomainName"] = request.domainName;
-    query["Key"] = request.key;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
-    query["Value"] = request.value;
+    if (!Util.isUnset(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.value)) {
+      query["Value"] = request.value;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetReqHeaderConfig",
@@ -23626,7 +25419,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetReqHeaderConfigResponse>(await this.callApi(params, req, runtime), new SetReqHeaderConfigResponse({}));
@@ -23640,14 +25433,28 @@ export default class Client extends OpenApi {
   async setSourceHostConfigWithOptions(request: SetSourceHostConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetSourceHostConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BackSrcDomain"] = request.backSrcDomain;
-    query["DomainName"] = request.domainName;
-    query["Enable"] = request.enable;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.backSrcDomain)) {
+      query["BackSrcDomain"] = request.backSrcDomain;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetSourceHostConfig",
@@ -23657,7 +25464,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetSourceHostConfigResponse>(await this.callApi(params, req, runtime), new SetSourceHostConfigResponse({}));
@@ -23671,13 +25478,24 @@ export default class Client extends OpenApi {
   async setUserGreenManagerConfigWithOptions(request: SetUserGreenManagerConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetUserGreenManagerConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["Quota"] = request.quota;
-    query["Ratio"] = request.ratio;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.quota)) {
+      query["Quota"] = request.quota;
+    }
+
+    if (!Util.isUnset(request.ratio)) {
+      query["Ratio"] = request.ratio;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetUserGreenManagerConfig",
@@ -23687,7 +25505,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetUserGreenManagerConfigResponse>(await this.callApi(params, req, runtime), new SetUserGreenManagerConfigResponse({}));
@@ -23701,16 +25519,36 @@ export default class Client extends OpenApi {
   async setWaitingRoomConfigWithOptions(request: SetWaitingRoomConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetWaitingRoomConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AllowPct"] = request.allowPct;
-    query["DomainName"] = request.domainName;
-    query["GapTime"] = request.gapTime;
-    query["MaxTimeWait"] = request.maxTimeWait;
-    query["OwnerId"] = request.ownerId;
-    query["WaitUri"] = request.waitUri;
-    query["WaitUrl"] = request.waitUrl;
+    if (!Util.isUnset(request.allowPct)) {
+      query["AllowPct"] = request.allowPct;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.gapTime)) {
+      query["GapTime"] = request.gapTime;
+    }
+
+    if (!Util.isUnset(request.maxTimeWait)) {
+      query["MaxTimeWait"] = request.maxTimeWait;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.waitUri)) {
+      query["WaitUri"] = request.waitUri;
+    }
+
+    if (!Util.isUnset(request.waitUrl)) {
+      query["WaitUrl"] = request.waitUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetWaitingRoomConfig",
@@ -23720,7 +25558,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetWaitingRoomConfigResponse>(await this.callApi(params, req, runtime), new SetWaitingRoomConfigResponse({}));
@@ -23734,12 +25572,20 @@ export default class Client extends OpenApi {
   async startCdnDomainWithOptions(request: StartCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StartCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartCdnDomain",
@@ -23749,7 +25595,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartCdnDomainResponse>(await this.callApi(params, req, runtime), new StartCdnDomainResponse({}));
@@ -23763,12 +25609,20 @@ export default class Client extends OpenApi {
   async stopCdnDomainWithOptions(request: StopCdnDomainRequest, runtime: $Util.RuntimeOptions): Promise<StopCdnDomainResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["SecurityToken"] = request.securityToken;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopCdnDomain",
@@ -23778,7 +25632,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopCdnDomainResponse>(await this.callApi(params, req, runtime), new StopCdnDomainResponse({}));
@@ -23792,13 +25646,24 @@ export default class Client extends OpenApi {
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TagResources",
@@ -23808,7 +25673,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
@@ -23822,14 +25687,28 @@ export default class Client extends OpenApi {
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["All"] = request.all;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceId"] = request.resourceId;
-    query["ResourceType"] = request.resourceType;
-    query["TagKey"] = request.tagKey;
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UntagResources",
@@ -23839,7 +25718,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
@@ -23853,10 +25732,38 @@ export default class Client extends OpenApi {
   async updateCdnDeliverTaskWithOptions(request: UpdateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deliver)) {
+      body["Deliver"] = request.deliver;
+    }
+
+    if (!Util.isUnset(request.deliverId)) {
+      body["DeliverId"] = request.deliverId;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.reports)) {
+      body["Reports"] = request.reports;
+    }
+
+    if (!Util.isUnset(request.schedule)) {
+      body["Schedule"] = request.schedule;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateCdnDeliverTask",
@@ -23880,10 +25787,30 @@ export default class Client extends OpenApi {
   async updateCdnSubTaskWithOptions(request: UpdateCdnSubTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCdnSubTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.reportIds)) {
+      body["ReportIds"] = request.reportIds;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateCdnSubTask",
@@ -23907,11 +25834,34 @@ export default class Client extends OpenApi {
   async updateFCTriggerWithOptions(request: UpdateFCTriggerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFCTriggerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["TriggerARN"] = request.triggerARN;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.triggerARN)) {
+      query["TriggerARN"] = request.triggerARN;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.functionARN)) {
+      body["FunctionARN"] = request.functionARN;
+    }
+
+    if (!Util.isUnset(request.notes)) {
+      body["Notes"] = request.notes;
+    }
+
+    if (!Util.isUnset(request.roleARN)) {
+      body["RoleARN"] = request.roleARN;
+    }
+
+    if (!Util.isUnset(request.sourceARN)) {
+      body["SourceARN"] = request.sourceARN;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFCTrigger",
@@ -23935,12 +25885,20 @@ export default class Client extends OpenApi {
   async verifyDomainOwnerWithOptions(request: VerifyDomainOwnerRequest, runtime: $Util.RuntimeOptions): Promise<VerifyDomainOwnerResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DomainName"] = request.domainName;
-    query["OwnerId"] = request.ownerId;
-    query["VerifyType"] = request.verifyType;
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "VerifyDomainOwner",
@@ -23950,7 +25908,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<VerifyDomainOwnerResponse>(await this.callApi(params, req, runtime), new VerifyDomainOwnerResponse({}));
