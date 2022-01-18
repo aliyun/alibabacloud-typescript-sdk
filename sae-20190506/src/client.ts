@@ -499,6 +499,7 @@ export class ConfirmPipelineBatchResponse extends $tea.Model {
 
 export class CreateApplicationRequest extends $tea.Model {
   acrAssumeRoleArn?: string;
+  acrInstanceId?: string;
   appDescription?: string;
   appName?: string;
   associateEip?: boolean;
@@ -546,6 +547,7 @@ export class CreateApplicationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acrAssumeRoleArn: 'AcrAssumeRoleArn',
+      acrInstanceId: 'AcrInstanceId',
       appDescription: 'AppDescription',
       appName: 'AppName',
       associateEip: 'AssociateEip',
@@ -596,6 +598,7 @@ export class CreateApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acrAssumeRoleArn: 'string',
+      acrInstanceId: 'string',
       appDescription: 'string',
       appName: 'string',
       associateEip: 'boolean',
@@ -709,14 +712,20 @@ export class CreateApplicationResponse extends $tea.Model {
 
 export class CreateApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
+  minReadyInstanceRatio?: number;
+  minReadyInstances?: number;
   scalingRuleEnable?: boolean;
+  scalingRuleMetric?: string;
   scalingRuleName?: string;
   scalingRuleTimer?: string;
   scalingRuleType?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
+      minReadyInstances: 'MinReadyInstances',
       scalingRuleEnable: 'ScalingRuleEnable',
+      scalingRuleMetric: 'ScalingRuleMetric',
       scalingRuleName: 'ScalingRuleName',
       scalingRuleTimer: 'ScalingRuleTimer',
       scalingRuleType: 'ScalingRuleType',
@@ -726,7 +735,10 @@ export class CreateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      minReadyInstanceRatio: 'number',
+      minReadyInstances: 'number',
       scalingRuleEnable: 'boolean',
+      scalingRuleMetric: 'string',
       scalingRuleName: 'string',
       scalingRuleTimer: 'string',
       scalingRuleType: 'string',
@@ -1616,6 +1628,7 @@ export class DeployApplicationRequest extends $tea.Model {
   jarStartOptions?: string;
   jdk?: string;
   liveness?: string;
+  minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   mountDesc?: string;
   mountHost?: string;
@@ -1660,6 +1673,7 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
       liveness: 'Liveness',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
@@ -1707,6 +1721,7 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartOptions: 'string',
       jdk: 'string',
       liveness: 'string',
+      minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
       mountHost: 'string',
@@ -2222,6 +2237,75 @@ export class DescribeApplicationInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribeApplicationScalingRuleRequest extends $tea.Model {
+  appId?: string;
+  scalingRuleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      scalingRuleName: 'ScalingRuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      scalingRuleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBody extends $tea.Model {
+  data?: DescribeApplicationScalingRuleResponseBodyData;
+  requestId?: string;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeApplicationScalingRuleResponseBodyData,
+      requestId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeApplicationScalingRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeApplicationScalingRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationScalingRulesRequest extends $tea.Model {
   appId?: string;
   static names(): { [key: string]: string } {
@@ -2673,6 +2757,87 @@ export class DescribeConfigMapResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeConfigMapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceRequest extends $tea.Model {
+  cpu?: number;
+  memory?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      memory: 'Memory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      memory: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponseBody extends $tea.Model {
+  code?: string;
+  data?: DescribeConfigurationPriceResponseBodyData;
+  errorCode?: string;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: DescribeConfigurationPriceResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeConfigurationPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeConfigurationPriceResponseBody,
     };
   }
 
@@ -5020,12 +5185,14 @@ export class ReduceApplicationCapacityByInstanceIdsResponse extends $tea.Model {
 export class RescaleApplicationRequest extends $tea.Model {
   appId?: string;
   autoEnableApplicationScalingRule?: boolean;
+  minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   replicas?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
       autoEnableApplicationScalingRule: 'AutoEnableApplicationScalingRule',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       replicas: 'Replicas',
     };
@@ -5035,6 +5202,7 @@ export class RescaleApplicationRequest extends $tea.Model {
     return {
       appId: 'string',
       autoEnableApplicationScalingRule: 'boolean',
+      minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       replicas: 'number',
     };
@@ -5187,10 +5355,12 @@ export class RescaleApplicationVerticallyResponse extends $tea.Model {
 
 export class RestartApplicationRequest extends $tea.Model {
   appId?: string;
+  minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
     };
   }
@@ -5198,6 +5368,7 @@ export class RestartApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
     };
   }
@@ -5351,6 +5522,7 @@ export class RollbackApplicationRequest extends $tea.Model {
   appId?: string;
   autoEnableApplicationScalingRule?: string;
   batchWaitTime?: number;
+  minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   updateStrategy?: string;
   versionId?: string;
@@ -5359,6 +5531,7 @@ export class RollbackApplicationRequest extends $tea.Model {
       appId: 'AppId',
       autoEnableApplicationScalingRule: 'AutoEnableApplicationScalingRule',
       batchWaitTime: 'BatchWaitTime',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       updateStrategy: 'UpdateStrategy',
       versionId: 'VersionId',
@@ -5370,6 +5543,7 @@ export class RollbackApplicationRequest extends $tea.Model {
       appId: 'string',
       autoEnableApplicationScalingRule: 'string',
       batchWaitTime: 'number',
+      minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       updateStrategy: 'string',
       versionId: 'string',
@@ -5937,11 +6111,17 @@ export class UpdateAppSecurityGroupResponse extends $tea.Model {
 
 export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   appId?: string;
+  minReadyInstanceRatio?: number;
+  minReadyInstances?: number;
+  scalingRuleMetric?: string;
   scalingRuleName?: string;
   scalingRuleTimer?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
+      minReadyInstances: 'MinReadyInstances',
+      scalingRuleMetric: 'ScalingRuleMetric',
       scalingRuleName: 'ScalingRuleName',
       scalingRuleTimer: 'ScalingRuleTimer',
     };
@@ -5950,6 +6130,9 @@ export class UpdateApplicationScalingRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      minReadyInstanceRatio: 'number',
+      minReadyInstances: 'number',
+      scalingRuleMetric: 'string',
       scalingRuleName: 'string',
       scalingRuleTimer: 'string',
     };
@@ -6656,6 +6839,53 @@ export class CreateApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  metricTargetAverageUtilization?: number;
+  metricType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricTargetAverageUtilization: 'MetricTargetAverageUtilization',
+      metricType: 'MetricType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricTargetAverageUtilization: 'number',
+      metricType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  maxReplicas?: number;
+  metrics?: CreateApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  minReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicas: 'MaxReplicas',
+      metrics: 'Metrics',
+      minReplicas: 'MinReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicas: 'number',
+      metrics: { 'type': 'array', 'itemType': CreateApplicationScalingRuleResponseBodyDataMetricMetrics },
+      minReplicas: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
   atTime?: string;
   targetReplicas?: number;
@@ -6709,6 +6939,8 @@ export class CreateApplicationScalingRuleResponseBodyDataTimer extends $tea.Mode
 export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
   appId?: string;
   createTime?: number;
+  lastDisableTime?: number;
+  metric?: CreateApplicationScalingRuleResponseBodyDataMetric;
   scaleRuleEnabled?: boolean;
   scaleRuleName?: string;
   scaleRuleType?: string;
@@ -6718,6 +6950,8 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      lastDisableTime: 'LastDisableTime',
+      metric: 'Metric',
       scaleRuleEnabled: 'ScaleRuleEnabled',
       scaleRuleName: 'ScaleRuleName',
       scaleRuleType: 'ScaleRuleType',
@@ -6730,6 +6964,8 @@ export class CreateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       createTime: 'number',
+      lastDisableTime: 'number',
+      metric: CreateApplicationScalingRuleResponseBodyDataMetric,
       scaleRuleEnabled: 'boolean',
       scaleRuleName: 'string',
       scaleRuleType: 'string',
@@ -7165,6 +7401,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
   jdk?: string;
   liveness?: string;
   memory?: number;
+  minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   mountDesc?: DescribeApplicationConfigResponseBodyDataMountDesc[];
   mountHost?: string;
@@ -7219,6 +7456,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       jdk: 'Jdk',
       liveness: 'Liveness',
       memory: 'Memory',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
@@ -7276,6 +7514,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       jdk: 'string',
       liveness: 'string',
       memory: 'number',
+      minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataMountDesc },
       mountHost: 'string',
@@ -7484,6 +7723,485 @@ export class DescribeApplicationInstancesResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  metricTargetAverageUtilization?: number;
+  metricType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricTargetAverageUtilization: 'MetricTargetAverageUtilization',
+      metricType: 'MetricType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricTargetAverageUtilization: 'number',
+      metricType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics extends $tea.Model {
+  currentValue?: number;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentValue: 'CurrentValue',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentValue: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics extends $tea.Model {
+  name?: string;
+  nextScaleInAverageUtilization?: number;
+  nextScaleOutAverageUtilization?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      nextScaleInAverageUtilization: 'NextScaleInAverageUtilization',
+      nextScaleOutAverageUtilization: 'NextScaleOutAverageUtilization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      nextScaleInAverageUtilization: 'number',
+      nextScaleOutAverageUtilization: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus extends $tea.Model {
+  currentMetrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics[];
+  currentReplicas?: number;
+  desiredReplicas?: number;
+  lastScaleTime?: string;
+  nextScaleMetrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics[];
+  nextScaleTimePeriod?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentMetrics: 'CurrentMetrics',
+      currentReplicas: 'CurrentReplicas',
+      desiredReplicas: 'DesiredReplicas',
+      lastScaleTime: 'LastScaleTime',
+      nextScaleMetrics: 'NextScaleMetrics',
+      nextScaleTimePeriod: 'NextScaleTimePeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentMetrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusCurrentMetrics },
+      currentReplicas: 'number',
+      desiredReplicas: 'number',
+      lastScaleTime: 'string',
+      nextScaleMetrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatusNextScaleMetrics },
+      nextScaleTimePeriod: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules extends $tea.Model {
+  disabled?: boolean;
+  stabilizationWindowSeconds?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disabled: 'Disabled',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disabled: 'boolean',
+      stabilizationWindowSeconds: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules extends $tea.Model {
+  disabled?: boolean;
+  stabilizationWindowSeconds?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disabled: 'Disabled',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disabled: 'boolean',
+      stabilizationWindowSeconds: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  maxReplicas?: number;
+  metrics?: DescribeApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  metricsStatus?: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus;
+  minReplicas?: number;
+  scaleDownRules?: DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules;
+  scaleUpRules?: DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules;
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicas: 'MaxReplicas',
+      metrics: 'Metrics',
+      metricsStatus: 'MetricsStatus',
+      minReplicas: 'MinReplicas',
+      scaleDownRules: 'ScaleDownRules',
+      scaleUpRules: 'ScaleUpRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicas: 'number',
+      metrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRuleResponseBodyDataMetricMetrics },
+      metricsStatus: DescribeApplicationScalingRuleResponseBodyDataMetricMetricsStatus,
+      minReplicas: 'number',
+      scaleDownRules: DescribeApplicationScalingRuleResponseBodyDataMetricScaleDownRules,
+      scaleUpRules: DescribeApplicationScalingRuleResponseBodyDataMetricScaleUpRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
+  atTime?: string;
+  targetReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      atTime: 'AtTime',
+      targetReplicas: 'TargetReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      atTime: 'string',
+      targetReplicas: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyDataTimer extends $tea.Model {
+  beginDate?: string;
+  endDate?: string;
+  period?: string;
+  schedules?: DescribeApplicationScalingRuleResponseBodyDataTimerSchedules[];
+  static names(): { [key: string]: string } {
+    return {
+      beginDate: 'BeginDate',
+      endDate: 'EndDate',
+      period: 'Period',
+      schedules: 'Schedules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginDate: 'string',
+      endDate: 'string',
+      period: 'string',
+      schedules: { 'type': 'array', 'itemType': DescribeApplicationScalingRuleResponseBodyDataTimerSchedules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRuleResponseBodyData extends $tea.Model {
+  appId?: string;
+  createTime?: number;
+  lastDisableTime?: number;
+  metric?: DescribeApplicationScalingRuleResponseBodyDataMetric;
+  scaleRuleEnabled?: boolean;
+  scaleRuleName?: string;
+  scaleRuleType?: string;
+  timer?: DescribeApplicationScalingRuleResponseBodyDataTimer;
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      createTime: 'CreateTime',
+      lastDisableTime: 'LastDisableTime',
+      metric: 'Metric',
+      scaleRuleEnabled: 'ScaleRuleEnabled',
+      scaleRuleName: 'ScaleRuleName',
+      scaleRuleType: 'ScaleRuleType',
+      timer: 'Timer',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      createTime: 'number',
+      lastDisableTime: 'number',
+      metric: DescribeApplicationScalingRuleResponseBodyDataMetric,
+      scaleRuleEnabled: 'boolean',
+      scaleRuleName: 'string',
+      scaleRuleType: 'string',
+      timer: DescribeApplicationScalingRuleResponseBodyDataTimer,
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics extends $tea.Model {
+  metricTargetAverageUtilization?: number;
+  metricType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricTargetAverageUtilization: 'MetricTargetAverageUtilization',
+      metricType: 'MetricType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricTargetAverageUtilization: 'number',
+      metricType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics extends $tea.Model {
+  currentValue?: number;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentValue: 'CurrentValue',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentValue: 'number',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics extends $tea.Model {
+  name?: string;
+  nextScaleInAverageUtilization?: number;
+  nextScaleOutAverageUtilization?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      nextScaleInAverageUtilization: 'NextScaleInAverageUtilization',
+      nextScaleOutAverageUtilization: 'NextScaleOutAverageUtilization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      nextScaleInAverageUtilization: 'number',
+      nextScaleOutAverageUtilization: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus extends $tea.Model {
+  currentMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics[];
+  currentReplicas?: number;
+  desiredReplicas?: number;
+  lastScaleTime?: string;
+  maxReplicas?: number;
+  minReplicas?: number;
+  nextScaleMetrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics[];
+  nextScaleTimePeriod?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentMetrics: 'CurrentMetrics',
+      currentReplicas: 'CurrentReplicas',
+      desiredReplicas: 'DesiredReplicas',
+      lastScaleTime: 'LastScaleTime',
+      maxReplicas: 'MaxReplicas',
+      minReplicas: 'MinReplicas',
+      nextScaleMetrics: 'NextScaleMetrics',
+      nextScaleTimePeriod: 'NextScaleTimePeriod',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentMetrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusCurrentMetrics },
+      currentReplicas: 'number',
+      desiredReplicas: 'number',
+      lastScaleTime: 'string',
+      maxReplicas: 'number',
+      minReplicas: 'number',
+      nextScaleMetrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatusNextScaleMetrics },
+      nextScaleTimePeriod: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules extends $tea.Model {
+  disabled?: boolean;
+  stabilizationWindowSeconds?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disabled: 'Disabled',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disabled: 'boolean',
+      stabilizationWindowSeconds: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules extends $tea.Model {
+  disabled?: boolean;
+  stabilizationWindowSeconds?: number;
+  step?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disabled: 'Disabled',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
+      step: 'Step',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disabled: 'boolean',
+      stabilizationWindowSeconds: 'number',
+      step: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric extends $tea.Model {
+  maxReplicas?: number;
+  metrics?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics[];
+  metricsStatus?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus;
+  minReplicas?: number;
+  scaleDownRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules;
+  scaleUpRules?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules;
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicas: 'MaxReplicas',
+      metrics: 'Metrics',
+      metricsStatus: 'MetricsStatus',
+      minReplicas: 'MinReplicas',
+      scaleDownRules: 'ScaleDownRules',
+      scaleUpRules: 'ScaleUpRules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicas: 'number',
+      metrics: { 'type': 'array', 'itemType': DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetrics },
+      metricsStatus: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricMetricsStatus,
+      minReplicas: 'number',
+      scaleDownRules: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleDownRules,
+      scaleUpRules: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetricScaleUpRules,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesTimerSchedules extends $tea.Model {
   atTime?: string;
   maxReplicas?: number;
@@ -7543,6 +8261,8 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
 export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRules extends $tea.Model {
   appId?: string;
   createTime?: number;
+  lastDisableTime?: number;
+  metric?: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric;
   scaleRuleEnabled?: boolean;
   scaleRuleName?: string;
   scaleRuleType?: string;
@@ -7552,6 +8272,8 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      lastDisableTime: 'LastDisableTime',
+      metric: 'Metric',
       scaleRuleEnabled: 'ScaleRuleEnabled',
       scaleRuleName: 'ScaleRuleName',
       scaleRuleType: 'ScaleRuleType',
@@ -7564,6 +8286,8 @@ export class DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRu
     return {
       appId: 'string',
       createTime: 'number',
+      lastDisableTime: 'number',
+      metric: DescribeApplicationScalingRulesResponseBodyDataApplicationScalingRulesMetric,
       scaleRuleEnabled: 'boolean',
       scaleRuleName: 'string',
       scaleRuleType: 'string',
@@ -7702,6 +8426,7 @@ export class DescribeApplicationStatusResponseBodyData extends $tea.Model {
   createTime?: string;
   currentStatus?: string;
   enableAgent?: boolean;
+  fileSizeLimit?: number;
   lastChangeOrderId?: string;
   lastChangeOrderRunning?: boolean;
   lastChangeOrderStatus?: string;
@@ -7715,6 +8440,7 @@ export class DescribeApplicationStatusResponseBodyData extends $tea.Model {
       createTime: 'CreateTime',
       currentStatus: 'CurrentStatus',
       enableAgent: 'EnableAgent',
+      fileSizeLimit: 'FileSizeLimit',
       lastChangeOrderId: 'LastChangeOrderId',
       lastChangeOrderRunning: 'LastChangeOrderRunning',
       lastChangeOrderStatus: 'LastChangeOrderStatus',
@@ -7731,6 +8457,7 @@ export class DescribeApplicationStatusResponseBodyData extends $tea.Model {
       createTime: 'string',
       currentStatus: 'string',
       enableAgent: 'boolean',
+      fileSizeLimit: 'number',
       lastChangeOrderId: 'string',
       lastChangeOrderRunning: 'boolean',
       lastChangeOrderStatus: 'string',
@@ -7930,6 +8657,103 @@ export class DescribeConfigMapResponseBodyData extends $tea.Model {
       namespaceId: 'string',
       relateApps: { 'type': 'array', 'itemType': DescribeConfigMapResponseBodyDataRelateApps },
       updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponseBodyDataBagUsage extends $tea.Model {
+  cpu?: number;
+  mem?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cpu: 'Cpu',
+      mem: 'Mem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpu: 'number',
+      mem: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponseBodyDataOrder extends $tea.Model {
+  discountAmount?: number;
+  originalAmount?: number;
+  ruleIds?: string[];
+  tradeAmount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      discountAmount: 'DiscountAmount',
+      originalAmount: 'OriginalAmount',
+      ruleIds: 'RuleIds',
+      tradeAmount: 'TradeAmount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountAmount: 'number',
+      originalAmount: 'number',
+      ruleIds: { 'type': 'array', 'itemType': 'string' },
+      tradeAmount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponseBodyDataRules extends $tea.Model {
+  name?: string;
+  ruleDescId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      ruleDescId: 'RuleDescId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      ruleDescId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeConfigurationPriceResponseBodyData extends $tea.Model {
+  bagUsage?: DescribeConfigurationPriceResponseBodyDataBagUsage;
+  order?: DescribeConfigurationPriceResponseBodyDataOrder;
+  rules?: DescribeConfigurationPriceResponseBodyDataRules[];
+  static names(): { [key: string]: string } {
+    return {
+      bagUsage: 'BagUsage',
+      order: 'Order',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bagUsage: DescribeConfigurationPriceResponseBodyDataBagUsage,
+      order: DescribeConfigurationPriceResponseBodyDataOrder,
+      rules: { 'type': 'array', 'itemType': DescribeConfigurationPriceResponseBodyDataRules },
     };
   }
 
@@ -9854,6 +10678,53 @@ export class UnbindSlbResponseBodyData extends $tea.Model {
   }
 }
 
+export class UpdateApplicationScalingRuleResponseBodyDataMetricMetrics extends $tea.Model {
+  metricTargetAverageUtilization?: number;
+  metricType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metricTargetAverageUtilization: 'MetricTargetAverageUtilization',
+      metricType: 'MetricType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metricTargetAverageUtilization: 'number',
+      metricType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationScalingRuleResponseBodyDataMetric extends $tea.Model {
+  maxReplicas?: number;
+  metrics?: UpdateApplicationScalingRuleResponseBodyDataMetricMetrics[];
+  minReplicas?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxReplicas: 'MaxReplicas',
+      metrics: 'Metrics',
+      minReplicas: 'MinReplicas',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxReplicas: 'number',
+      metrics: { 'type': 'array', 'itemType': UpdateApplicationScalingRuleResponseBodyDataMetricMetrics },
+      minReplicas: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationScalingRuleResponseBodyDataTimerSchedules extends $tea.Model {
   atTime?: string;
   targetReplicas?: number;
@@ -9907,6 +10778,8 @@ export class UpdateApplicationScalingRuleResponseBodyDataTimer extends $tea.Mode
 export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
   appId?: string;
   createTime?: number;
+  lastDisableTime?: number;
+  metric?: UpdateApplicationScalingRuleResponseBodyDataMetric;
   scaleRuleEnabled?: boolean;
   scaleRuleName?: string;
   scaleRuleType?: string;
@@ -9916,6 +10789,8 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'AppId',
       createTime: 'CreateTime',
+      lastDisableTime: 'LastDisableTime',
+      metric: 'Metric',
       scaleRuleEnabled: 'ScaleRuleEnabled',
       scaleRuleName: 'ScaleRuleName',
       scaleRuleType: 'ScaleRuleType',
@@ -9928,6 +10803,8 @@ export class UpdateApplicationScalingRuleResponseBodyData extends $tea.Model {
     return {
       appId: 'string',
       createTime: 'number',
+      lastDisableTime: 'number',
+      metric: UpdateApplicationScalingRuleResponseBodyDataMetric,
       scaleRuleEnabled: 'boolean',
       scaleRuleName: 'string',
       scaleRuleType: 'string',
@@ -10429,6 +11306,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.acrInstanceId)) {
+      body["AcrInstanceId"] = request.acrInstanceId;
+    }
+
     if (!Util.isUnset(request.associateEip)) {
       body["AssociateEip"] = request.associateEip;
     }
@@ -10485,8 +11366,20 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
+    if (!Util.isUnset(request.minReadyInstances)) {
+      query["MinReadyInstances"] = request.minReadyInstances;
+    }
+
     if (!Util.isUnset(request.scalingRuleEnable)) {
       query["ScalingRuleEnable"] = request.scalingRuleEnable;
+    }
+
+    if (!Util.isUnset(request.scalingRuleMetric)) {
+      query["ScalingRuleMetric"] = request.scalingRuleMetric;
     }
 
     if (!Util.isUnset(request.scalingRuleName)) {
@@ -10974,6 +11867,10 @@ export default class Client extends OpenApi {
       query["Liveness"] = request.liveness;
     }
 
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
     if (!Util.isUnset(request.minReadyInstances)) {
       query["MinReadyInstances"] = request.minReadyInstances;
     }
@@ -11297,6 +12194,41 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeApplicationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationInstancesResponse({}));
   }
 
+  async describeApplicationScalingRule(request: DescribeApplicationScalingRuleRequest): Promise<DescribeApplicationScalingRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeApplicationScalingRuleWithOptions(request, headers, runtime);
+  }
+
+  async describeApplicationScalingRuleWithOptions(request: DescribeApplicationScalingRuleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeApplicationScalingRuleResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.scalingRuleName)) {
+      query["ScalingRuleName"] = request.scalingRuleName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApplicationScalingRule",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/scale/applicationScalingRule`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRuleResponse({}));
+  }
+
   async describeApplicationScalingRules(request: DescribeApplicationScalingRulesRequest): Promise<DescribeApplicationScalingRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11485,6 +12417,41 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<DescribeConfigMapResponse>(await this.callApi(params, req, runtime), new DescribeConfigMapResponse({}));
+  }
+
+  async describeConfigurationPrice(request: DescribeConfigurationPriceRequest): Promise<DescribeConfigurationPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeConfigurationPriceWithOptions(request, headers, runtime);
+  }
+
+  async describeConfigurationPriceWithOptions(request: DescribeConfigurationPriceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeConfigurationPriceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cpu)) {
+      query["Cpu"] = request.cpu;
+    }
+
+    if (!Util.isUnset(request.memory)) {
+      query["Memory"] = request.memory;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeConfigurationPrice",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/paas/configurationPrice`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeConfigurationPriceResponse>(await this.callApi(params, req, runtime), new DescribeConfigurationPriceResponse({}));
   }
 
   async describeEdasContainers(): Promise<DescribeEdasContainersResponse> {
@@ -11879,7 +12846,7 @@ export default class Client extends OpenApi {
       action: "DownloadFiles",
       version: "2019-05-06",
       protocol: "HTTPS",
-      pathname: `/pop/v1/sam/app/downloadFiles.json`,
+      pathname: `/pop/v1/sam/app/downloadFiles`,
       method: "POST",
       authType: "AK",
       style: "ROA",
@@ -12574,6 +13541,10 @@ export default class Client extends OpenApi {
       query["AutoEnableApplicationScalingRule"] = request.autoEnableApplicationScalingRule;
     }
 
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
     if (!Util.isUnset(request.minReadyInstances)) {
       query["MinReadyInstances"] = request.minReadyInstances;
     }
@@ -12652,6 +13623,10 @@ export default class Client extends OpenApi {
       query["AppId"] = request.appId;
     }
 
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
     if (!Util.isUnset(request.minReadyInstances)) {
       query["MinReadyInstances"] = request.minReadyInstances;
     }
@@ -12728,6 +13703,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.batchWaitTime)) {
       query["BatchWaitTime"] = request.batchWaitTime;
+    }
+
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
     }
 
     if (!Util.isUnset(request.minReadyInstances)) {
@@ -12997,6 +13976,18 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.minReadyInstanceRatio)) {
+      query["MinReadyInstanceRatio"] = request.minReadyInstanceRatio;
+    }
+
+    if (!Util.isUnset(request.minReadyInstances)) {
+      query["MinReadyInstances"] = request.minReadyInstances;
+    }
+
+    if (!Util.isUnset(request.scalingRuleMetric)) {
+      query["ScalingRuleMetric"] = request.scalingRuleMetric;
     }
 
     if (!Util.isUnset(request.scalingRuleName)) {
@@ -13269,7 +14260,7 @@ export default class Client extends OpenApi {
       action: "UploadFiles",
       version: "2019-05-06",
       protocol: "HTTPS",
-      pathname: `/pop/v1/sam/app/uploadFiles.json`,
+      pathname: `/pop/v1/sam/app/uploadFiles`,
       method: "POST",
       authType: "AK",
       style: "ROA",
