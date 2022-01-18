@@ -2140,6 +2140,7 @@ export class GetResourceTypeRequest extends $tea.Model {
 
 export class GetResourceTypeResponseBody extends $tea.Model {
   attributes?: { [key: string]: any };
+  entityType?: string;
   properties?: { [key: string]: any };
   requestId?: string;
   resourceType?: string;
@@ -2148,6 +2149,7 @@ export class GetResourceTypeResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       attributes: 'Attributes',
+      entityType: 'EntityType',
       properties: 'Properties',
       requestId: 'RequestId',
       resourceType: 'ResourceType',
@@ -2159,6 +2161,7 @@ export class GetResourceTypeResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      entityType: 'string',
       properties: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       resourceType: 'string',
@@ -3561,6 +3564,25 @@ export class ListChangeSetsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListChangeSetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListResourceTypesRequest extends $tea.Model {
+  entityType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      entityType: 'EntityType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      entityType: 'string',
     };
   }
 
@@ -11244,8 +11266,16 @@ export default class Client extends OpenApi {
     return await this.listChangeSetsWithOptions(request, runtime);
   }
 
-  async listResourceTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async listResourceTypesWithOptions(request: ListResourceTypesRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "ListResourceTypes",
       version: "2019-09-10",
@@ -11260,9 +11290,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListResourceTypesResponse>(await this.callApi(params, req, runtime), new ListResourceTypesResponse({}));
   }
 
-  async listResourceTypes(): Promise<ListResourceTypesResponse> {
+  async listResourceTypes(request: ListResourceTypesRequest): Promise<ListResourceTypesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.listResourceTypesWithOptions(runtime);
+    return await this.listResourceTypesWithOptions(request, runtime);
   }
 
   async listStackEventsWithOptions(request: ListStackEventsRequest, runtime: $Util.RuntimeOptions): Promise<ListStackEventsResponse> {
