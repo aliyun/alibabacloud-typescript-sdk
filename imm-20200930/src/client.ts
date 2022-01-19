@@ -335,109 +335,6 @@ export class Dataset extends $tea.Model {
   }
 }
 
-export class Face extends $tea.Model {
-  age?: number;
-  ageConfidence?: number;
-  beard?: string;
-  beardConfidence?: number;
-  boundary?: Boundary;
-  embeddingsFloat32?: number[];
-  embeddingsInt8?: number[];
-  emotion?: string;
-  emotionConfidence?: number;
-  faceClusterId?: string;
-  faceConfidence?: number;
-  faceId?: string;
-  gender?: string;
-  genderConfidence?: number;
-  glasses?: string;
-  glassesConfidence?: number;
-  hat?: string;
-  hatConfidence?: number;
-  headPose?: HeadPose;
-  leftEye?: string;
-  leftEyeConfidence?: number;
-  mask?: string;
-  maskConfidence?: number;
-  mouth?: string;
-  mouthConfidence?: number;
-  race?: string;
-  raceConfidence?: number;
-  rightEye?: string;
-  rightEyeConfidence?: number;
-  static names(): { [key: string]: string } {
-    return {
-      age: 'Age',
-      ageConfidence: 'AgeConfidence',
-      beard: 'Beard',
-      beardConfidence: 'BeardConfidence',
-      boundary: 'Boundary',
-      embeddingsFloat32: 'EmbeddingsFloat32',
-      embeddingsInt8: 'EmbeddingsInt8',
-      emotion: 'Emotion',
-      emotionConfidence: 'EmotionConfidence',
-      faceClusterId: 'FaceClusterId',
-      faceConfidence: 'FaceConfidence',
-      faceId: 'FaceId',
-      gender: 'Gender',
-      genderConfidence: 'GenderConfidence',
-      glasses: 'Glasses',
-      glassesConfidence: 'GlassesConfidence',
-      hat: 'Hat',
-      hatConfidence: 'HatConfidence',
-      headPose: 'HeadPose',
-      leftEye: 'LeftEye',
-      leftEyeConfidence: 'LeftEyeConfidence',
-      mask: 'Mask',
-      maskConfidence: 'MaskConfidence',
-      mouth: 'Mouth',
-      mouthConfidence: 'MouthConfidence',
-      race: 'Race',
-      raceConfidence: 'RaceConfidence',
-      rightEye: 'RightEye',
-      rightEyeConfidence: 'RightEyeConfidence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      age: 'number',
-      ageConfidence: 'number',
-      beard: 'string',
-      beardConfidence: 'number',
-      boundary: Boundary,
-      embeddingsFloat32: { 'type': 'array', 'itemType': 'number' },
-      embeddingsInt8: { 'type': 'array', 'itemType': 'number' },
-      emotion: 'string',
-      emotionConfidence: 'number',
-      faceClusterId: 'string',
-      faceConfidence: 'number',
-      faceId: 'string',
-      gender: 'string',
-      genderConfidence: 'number',
-      glasses: 'string',
-      glassesConfidence: 'number',
-      hat: 'string',
-      hatConfidence: 'number',
-      headPose: HeadPose,
-      leftEye: 'string',
-      leftEyeConfidence: 'number',
-      mask: 'string',
-      maskConfidence: 'number',
-      mouth: 'string',
-      mouthConfidence: 'number',
-      race: 'string',
-      raceConfidence: 'number',
-      rightEye: 'string',
-      rightEyeConfidence: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class Figure extends $tea.Model {
   age?: number;
   ageSD?: number;
@@ -550,7 +447,7 @@ export class FigureCluster extends $tea.Model {
   ownerId?: string;
   projectName?: string;
   updateTime?: string;
-  version?: string;
+  videoCount?: number;
   static names(): { [key: string]: string } {
     return {
       averageAge: 'AverageAge',
@@ -570,7 +467,7 @@ export class FigureCluster extends $tea.Model {
       ownerId: 'OwnerId',
       projectName: 'ProjectName',
       updateTime: 'UpdateTime',
-      version: 'Version',
+      videoCount: 'VideoCount',
     };
   }
 
@@ -593,7 +490,38 @@ export class FigureCluster extends $tea.Model {
       ownerId: 'string',
       projectName: 'string',
       updateTime: 'string',
-      version: 'string',
+      videoCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FigureClusterForReq extends $tea.Model {
+  cover?: FigureClusterForReqCover;
+  customId?: string;
+  customLabels?: { [key: string]: any };
+  name?: string;
+  objectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cover: 'Cover',
+      customId: 'CustomId',
+      customLabels: 'CustomLabels',
+      name: 'Name',
+      objectId: 'ObjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cover: FigureClusterForReqCover,
+      customId: 'string',
+      customLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      name: 'string',
+      objectId: 'string',
     };
   }
 
@@ -608,13 +536,9 @@ export class File extends $tea.Model {
   addresses?: Address[];
   album?: string;
   albumArtist?: string;
-  artists?: string[];
-  audioBitrate?: number;
+  artist?: string;
   audioCovers?: Image[];
-  audioDuration?: number;
-  audioLanguage?: string;
   audioStreams?: AudioStream[];
-  audioTakenTime?: string;
   cacheControl?: string;
   composer?: string;
   contentDisposition?: string;
@@ -642,6 +566,7 @@ export class File extends $tea.Model {
   imageScore?: ImageScore;
   imageWidth?: number;
   labels?: Label[];
+  language?: string;
   latLong?: string;
   mediaType?: string;
   OCRContents?: OCRContents[];
@@ -658,7 +583,7 @@ export class File extends $tea.Model {
   objectACL?: string;
   objectId?: string;
   objectType?: string;
-  orientation?: string;
+  orientation?: number;
   ownerId?: string;
   pageCount?: number;
   performer?: string;
@@ -675,12 +600,9 @@ export class File extends $tea.Model {
   travelClusterId?: string;
   URI?: string;
   updateTime?: string;
-  videoBitrate?: number;
-  videoDuration?: number;
   videoHeight?: number;
   videoStartTime?: number;
   videoStreams?: VideoStream[];
-  videoTakenTime?: string;
   videoWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -689,13 +611,9 @@ export class File extends $tea.Model {
       addresses: 'Addresses',
       album: 'Album',
       albumArtist: 'AlbumArtist',
-      artists: 'Artists',
-      audioBitrate: 'AudioBitrate',
+      artist: 'Artist',
       audioCovers: 'AudioCovers',
-      audioDuration: 'AudioDuration',
-      audioLanguage: 'AudioLanguage',
       audioStreams: 'AudioStreams',
-      audioTakenTime: 'AudioTakenTime',
       cacheControl: 'CacheControl',
       composer: 'Composer',
       contentDisposition: 'ContentDisposition',
@@ -723,6 +641,7 @@ export class File extends $tea.Model {
       imageScore: 'ImageScore',
       imageWidth: 'ImageWidth',
       labels: 'Labels',
+      language: 'Language',
       latLong: 'LatLong',
       mediaType: 'MediaType',
       OCRContents: 'OCRContents',
@@ -756,12 +675,9 @@ export class File extends $tea.Model {
       travelClusterId: 'TravelClusterId',
       URI: 'URI',
       updateTime: 'UpdateTime',
-      videoBitrate: 'VideoBitrate',
-      videoDuration: 'VideoDuration',
       videoHeight: 'VideoHeight',
       videoStartTime: 'VideoStartTime',
       videoStreams: 'VideoStreams',
-      videoTakenTime: 'VideoTakenTime',
       videoWidth: 'VideoWidth',
     };
   }
@@ -773,13 +689,9 @@ export class File extends $tea.Model {
       addresses: { 'type': 'array', 'itemType': Address },
       album: 'string',
       albumArtist: 'string',
-      artists: { 'type': 'array', 'itemType': 'string' },
-      audioBitrate: 'number',
+      artist: 'string',
       audioCovers: { 'type': 'array', 'itemType': Image },
-      audioDuration: 'number',
-      audioLanguage: 'string',
       audioStreams: { 'type': 'array', 'itemType': AudioStream },
-      audioTakenTime: 'string',
       cacheControl: 'string',
       composer: 'string',
       contentDisposition: 'string',
@@ -807,6 +719,7 @@ export class File extends $tea.Model {
       imageScore: ImageScore,
       imageWidth: 'number',
       labels: { 'type': 'array', 'itemType': Label },
+      language: 'string',
       latLong: 'string',
       mediaType: 'string',
       OCRContents: { 'type': 'array', 'itemType': OCRContents },
@@ -823,7 +736,7 @@ export class File extends $tea.Model {
       objectACL: 'string',
       objectId: 'string',
       objectType: 'string',
-      orientation: 'string',
+      orientation: 'number',
       ownerId: 'string',
       pageCount: 'number',
       performer: 'string',
@@ -840,12 +753,9 @@ export class File extends $tea.Model {
       travelClusterId: 'string',
       URI: 'string',
       updateTime: 'string',
-      videoBitrate: 'number',
-      videoDuration: 'number',
       videoHeight: 'number',
       videoStartTime: 'number',
       videoStreams: { 'type': 'array', 'itemType': VideoStream },
-      videoTakenTime: 'string',
       videoWidth: 'number',
     };
   }
@@ -1171,6 +1081,70 @@ export class SimpleQuery extends $tea.Model {
   }
 }
 
+export class Story extends $tea.Model {
+  cover?: File;
+  createTime?: string;
+  customFields?: string;
+  datasetName?: string;
+  figureClusterIds?: string[];
+  files?: File[];
+  objectId?: string;
+  objectType?: string;
+  ownerId?: string;
+  projectName?: string;
+  storyEndTime?: string;
+  storyName?: string;
+  storyStartTime?: string;
+  storySubType?: string;
+  storyType?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cover: 'Cover',
+      createTime: 'CreateTime',
+      customFields: 'CustomFields',
+      datasetName: 'DatasetName',
+      figureClusterIds: 'FigureClusterIds',
+      files: 'Files',
+      objectId: 'ObjectId',
+      objectType: 'ObjectType',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      storyEndTime: 'StoryEndTime',
+      storyName: 'StoryName',
+      storyStartTime: 'StoryStartTime',
+      storySubType: 'StorySubType',
+      storyType: 'StoryType',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cover: File,
+      createTime: 'string',
+      customFields: 'string',
+      datasetName: 'string',
+      figureClusterIds: { 'type': 'array', 'itemType': 'string' },
+      files: { 'type': 'array', 'itemType': File },
+      objectId: 'string',
+      objectType: 'string',
+      ownerId: 'string',
+      projectName: 'string',
+      storyEndTime: 'string',
+      storyName: 'string',
+      storyStartTime: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubtitleStream extends $tea.Model {
   content?: string;
   index?: number;
@@ -1236,8 +1210,30 @@ export class TaskInfo extends $tea.Model {
   }
 }
 
+export class TimeRange extends $tea.Model {
+  end?: string;
+  start?: string;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'string',
+      start: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoStream extends $tea.Model {
-  averageFrameRate?: number;
+  averageFrameRate?: string;
   bitrate?: number;
   codecLongName?: string;
   codecName?: string;
@@ -1247,14 +1243,15 @@ export class VideoStream extends $tea.Model {
   displayAspectRatio?: string;
   duration?: number;
   frameCount?: number;
-  frameRate?: number;
-  hasBFrames?: string;
+  frameRate?: string;
+  hasBFrames?: number;
   height?: number;
   index?: number;
   language?: string;
   level?: number;
   pixelFormat?: string;
   profile?: string;
+  rotate?: string;
   sampleAspectRatio?: string;
   startTime?: number;
   timeBase?: string;
@@ -1279,6 +1276,7 @@ export class VideoStream extends $tea.Model {
       level: 'Level',
       pixelFormat: 'PixelFormat',
       profile: 'Profile',
+      rotate: 'Rotate',
       sampleAspectRatio: 'SampleAspectRatio',
       startTime: 'StartTime',
       timeBase: 'TimeBase',
@@ -1288,7 +1286,7 @@ export class VideoStream extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      averageFrameRate: 'number',
+      averageFrameRate: 'string',
       bitrate: 'number',
       codecLongName: 'string',
       codecName: 'string',
@@ -1298,14 +1296,15 @@ export class VideoStream extends $tea.Model {
       displayAspectRatio: 'string',
       duration: 'number',
       frameCount: 'number',
-      frameRate: 'number',
-      hasBFrames: 'string',
+      frameRate: 'string',
+      hasBFrames: 'number',
       height: 'number',
       index: 'number',
       language: 'string',
       level: 'number',
       pixelFormat: 'string',
       profile: 'string',
+      rotate: 'string',
       sampleAspectRatio: 'string',
       startTime: 'number',
       timeBase: 'string',
@@ -1799,84 +1798,6 @@ export class BatchUpdateFileMetaResponse extends $tea.Model {
   }
 }
 
-export class ClusterFiguresRequest extends $tea.Model {
-  customMessage?: string;
-  datasetName?: string;
-  figureType?: string;
-  notifyTopicEndpoint?: string;
-  notifyTopicName?: string;
-  projectName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      customMessage: 'CustomMessage',
-      datasetName: 'DatasetName',
-      figureType: 'FigureType',
-      notifyTopicEndpoint: 'NotifyTopicEndpoint',
-      notifyTopicName: 'NotifyTopicName',
-      projectName: 'ProjectName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      customMessage: 'string',
-      datasetName: 'string',
-      figureType: 'string',
-      notifyTopicEndpoint: 'string',
-      notifyTopicName: 'string',
-      projectName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClusterFiguresResponseBody extends $tea.Model {
-  requestId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ClusterFiguresResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ClusterFiguresResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ClusterFiguresResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateBindingRequest extends $tea.Model {
   datasetName?: string;
   projectName?: string;
@@ -2034,11 +1955,15 @@ export class CreateDatasetResponse extends $tea.Model {
 }
 
 export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
   projectName?: string;
   sourceURI?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
       userData: 'UserData',
@@ -2047,6 +1972,8 @@ export class CreateDetectVideoLabelsTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
       projectName: 'string',
       sourceURI: 'string',
       userData: 'string',
@@ -2121,6 +2048,168 @@ export class CreateDetectVideoLabelsTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDetectVideoLabelsTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClusteringTaskRequest extends $tea.Model {
+  datasetName?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClusteringTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClusteringTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFigureClusteringTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFigureClusteringTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClustersMergingTaskRequest extends $tea.Model {
+  datasetName?: string;
+  from?: string;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  projectName?: string;
+  to?: string;
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      from: 'From',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      projectName: 'ProjectName',
+      to: 'To',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      from: 'string',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      projectName: 'string',
+      to: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClustersMergingTaskResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFigureClustersMergingTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateFigureClustersMergingTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateFigureClustersMergingTaskResponseBody,
     };
   }
 
@@ -2225,12 +2314,113 @@ export class CreateProjectResponse extends $tea.Model {
   }
 }
 
+export class CreateStoryRequest extends $tea.Model {
+  datasetName?: string;
+  maxFileCount?: number;
+  minFileCount?: number;
+  notifyEndpoint?: string;
+  notifyTopicName?: string;
+  objectId?: string;
+  projectName?: string;
+  storyEndTime?: string;
+  storyName?: string;
+  storyStartTime?: string;
+  storySubType?: string;
+  storyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      maxFileCount: 'MaxFileCount',
+      minFileCount: 'MinFileCount',
+      notifyEndpoint: 'NotifyEndpoint',
+      notifyTopicName: 'NotifyTopicName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      storyEndTime: 'StoryEndTime',
+      storyName: 'StoryName',
+      storyStartTime: 'StoryStartTime',
+      storySubType: 'StorySubType',
+      storyType: 'StoryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      maxFileCount: 'number',
+      minFileCount: 'number',
+      notifyEndpoint: 'string',
+      notifyTopicName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      storyEndTime: 'string',
+      storyName: 'string',
+      storyStartTime: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoryResponseBody extends $tea.Model {
+  eventId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventId: 'EventId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateStoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBindingRequest extends $tea.Model {
+  cleanup?: boolean;
   datasetName?: string;
   projectName?: string;
   URI?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanup: 'Cleanup',
       datasetName: 'DatasetName',
       projectName: 'ProjectName',
       URI: 'URI',
@@ -2239,6 +2429,7 @@ export class DeleteBindingRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cleanup: 'boolean',
       datasetName: 'string',
       projectName: 'string',
       URI: 'string',
@@ -2472,6 +2663,72 @@ export class DeleteProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryRequest extends $tea.Model {
+  datasetName?: string;
+  objectId?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteStoryResponseBody,
     };
   }
 
@@ -2866,12 +3123,12 @@ export class GetDetectVideoLabelsResultResponse extends $tea.Model {
 
 export class GetFigureClusterRequest extends $tea.Model {
   datasetName?: string;
-  figureClusterId?: string;
+  objectId?: string;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetName: 'DatasetName',
-      figureClusterId: 'FigureClusterId',
+      objectId: 'ObjectId',
       projectName: 'ProjectName',
     };
   }
@@ -2879,7 +3136,7 @@ export class GetFigureClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      figureClusterId: 'string',
+      objectId: 'string',
       projectName: 'string',
     };
   }
@@ -3002,72 +3259,6 @@ export class GetFileMetaResponse extends $tea.Model {
   }
 }
 
-export class GetFileSignedURIRequest extends $tea.Model {
-  projectName?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectName: 'ProjectName',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectName: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSignedURIResponseBody extends $tea.Model {
-  requestId?: string;
-  URI?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      URI: 'URI',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      URI: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetFileSignedURIResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetFileSignedURIResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetFileSignedURIResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetProjectRequest extends $tea.Model {
   projectName?: string;
   withStatistics?: boolean;
@@ -3126,6 +3317,75 @@ export class GetProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoryRequest extends $tea.Model {
+  datasetName?: string;
+  objectId?: string;
+  projectName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetName: 'DatasetName',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetName: 'string',
+      objectId: 'string',
+      projectName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoryResponseBody extends $tea.Model {
+  requestId?: string;
+  story?: Story;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      story: 'Story',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      story: Story,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetStoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetStoryResponseBody,
     };
   }
 
@@ -3664,90 +3924,6 @@ export class ListDatasetsResponse extends $tea.Model {
   }
 }
 
-export class ListFigureClustersRequest extends $tea.Model {
-  datasetName?: string;
-  labels?: string;
-  maxResults?: number;
-  nextToken?: string;
-  order?: string;
-  projectName?: string;
-  sort?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasetName: 'DatasetName',
-      labels: 'Labels',
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
-      order: 'Order',
-      projectName: 'ProjectName',
-      sort: 'Sort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasetName: 'string',
-      labels: 'string',
-      maxResults: 'number',
-      nextToken: 'string',
-      order: 'string',
-      projectName: 'string',
-      sort: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFigureClustersResponseBody extends $tea.Model {
-  figureClusters?: FigureCluster[];
-  nextToken?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      figureClusters: 'FigureClusters',
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      figureClusters: { 'type': 'array', 'itemType': FigureCluster },
-      nextToken: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFigureClustersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFigureClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFigureClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListProjectsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -3977,6 +4153,241 @@ export class MergeFigureClustersResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: MergeFigureClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFigureClustersRequest extends $tea.Model {
+  customLabels?: string;
+  datasetName?: string;
+  maxResults?: number;
+  nextToken?: string;
+  order?: string;
+  projectName?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customLabels: 'CustomLabels',
+      datasetName: 'DatasetName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      order: 'Order',
+      projectName: 'ProjectName',
+      sort: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customLabels: 'string',
+      datasetName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      order: 'string',
+      projectName: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFigureClustersResponseBody extends $tea.Model {
+  figureClusters?: FigureCluster[];
+  nextToken?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureClusters: 'FigureClusters',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureClusters: { 'type': 'array', 'itemType': FigureCluster },
+      nextToken: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryFigureClustersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryFigureClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryFigureClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStoriesRequest extends $tea.Model {
+  createTimeRange?: TimeRange;
+  datasetName?: string;
+  figureClusterIds?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  objectId?: string;
+  projectName?: string;
+  storyEndTimeRange?: TimeRange;
+  storyName?: string;
+  storyStartTimeRange?: TimeRange;
+  storySubType?: string;
+  storyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeRange: 'CreateTimeRange',
+      datasetName: 'DatasetName',
+      figureClusterIds: 'FigureClusterIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      storyEndTimeRange: 'StoryEndTimeRange',
+      storyName: 'StoryName',
+      storyStartTimeRange: 'StoryStartTimeRange',
+      storySubType: 'StorySubType',
+      storyType: 'StoryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeRange: TimeRange,
+      datasetName: 'string',
+      figureClusterIds: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      storyEndTimeRange: TimeRange,
+      storyName: 'string',
+      storyStartTimeRange: TimeRange,
+      storySubType: 'string',
+      storyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStoriesShrinkRequest extends $tea.Model {
+  createTimeRangeShrink?: string;
+  datasetName?: string;
+  figureClusterIdsShrink?: string;
+  maxResults?: number;
+  nextToken?: string;
+  objectId?: string;
+  projectName?: string;
+  storyEndTimeRangeShrink?: string;
+  storyName?: string;
+  storyStartTimeRangeShrink?: string;
+  storySubType?: string;
+  storyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeRangeShrink: 'CreateTimeRange',
+      datasetName: 'DatasetName',
+      figureClusterIdsShrink: 'FigureClusterIds',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      objectId: 'ObjectId',
+      projectName: 'ProjectName',
+      storyEndTimeRangeShrink: 'StoryEndTimeRange',
+      storyName: 'StoryName',
+      storyStartTimeRangeShrink: 'StoryStartTimeRange',
+      storySubType: 'StorySubType',
+      storyType: 'StoryType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeRangeShrink: 'string',
+      datasetName: 'string',
+      figureClusterIdsShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      objectId: 'string',
+      projectName: 'string',
+      storyEndTimeRangeShrink: 'string',
+      storyName: 'string',
+      storyStartTimeRangeShrink: 'string',
+      storySubType: 'string',
+      storyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStoriesResponseBody extends $tea.Model {
+  nextToken?: string;
+  requestId?: string;
+  stories?: Story[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      stories: 'Stories',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      stories: { 'type': 'array', 'itemType': Story },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryStoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryStoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryStoriesResponseBody,
     };
   }
 
@@ -4529,7 +4940,7 @@ export class UpdateDatasetResponse extends $tea.Model {
 
 export class UpdateFigureClusterRequest extends $tea.Model {
   datasetName?: string;
-  figureCluster?: FigureCluster;
+  figureCluster?: FigureClusterForReq;
   projectName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4542,7 +4953,7 @@ export class UpdateFigureClusterRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       datasetName: 'string',
-      figureCluster: FigureCluster,
+      figureCluster: FigureClusterForReq,
       projectName: 'string',
     };
   }
@@ -4843,6 +5254,44 @@ export class ClusterForReqCover extends $tea.Model {
   }
 }
 
+export class FigureClusterForReqCoverFigures extends $tea.Model {
+  figureId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      figureId: 'FigureId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FigureClusterForReqCover extends $tea.Model {
+  figures?: FigureClusterForReqCoverFigures[];
+  static names(): { [key: string]: string } {
+    return {
+      figures: 'Figures',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figures: { 'type': 'array', 'itemType': FigureClusterForReqCoverFigures },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FileForReqFigures extends $tea.Model {
   figureClusterId?: string;
   figureId?: string;
@@ -4991,7 +5440,7 @@ export class SimpleQueryResponseBodyAggregations extends $tea.Model {
   field?: string;
   groups?: SimpleQueryResponseBodyAggregationsGroups[];
   operation?: string;
-  value?: number;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       field: 'Field',
@@ -5006,7 +5455,7 @@ export class SimpleQueryResponseBodyAggregations extends $tea.Model {
       field: 'string',
       groups: { 'type': 'array', 'itemType': SimpleQueryResponseBodyAggregationsGroups },
       operation: 'string',
-      value: 'number',
+      value: 'string',
     };
   }
 
@@ -5050,9 +5499,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URIs"] = request.URIsShrink;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URIsShrink)) {
+      query["URIs"] = request.URIsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5084,9 +5542,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URIs"] = request.URIsShrink;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URIsShrink)) {
+      query["URIs"] = request.URIsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5118,11 +5585,26 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["Files"] = request.filesShrink;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.filesShrink)) {
+      query["Files"] = request.filesShrink;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5154,9 +5636,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["Files"] = request.filesShrink;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.filesShrink)) {
+      query["Files"] = request.filesShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5179,43 +5670,21 @@ export default class Client extends OpenApi {
     return await this.batchUpdateFileMetaWithOptions(request, runtime);
   }
 
-  async clusterFiguresWithOptions(request: ClusterFiguresRequest, runtime: $Util.RuntimeOptions): Promise<ClusterFiguresResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["CustomMessage"] = request.customMessage;
-    query["DatasetName"] = request.datasetName;
-    query["FigureType"] = request.figureType;
-    query["NotifyTopicEndpoint"] = request.notifyTopicEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["ProjectName"] = request.projectName;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ClusterFigures",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ClusterFiguresResponse>(await this.callApi(params, req, runtime), new ClusterFiguresResponse({}));
-  }
-
-  async clusterFigures(request: ClusterFiguresRequest): Promise<ClusterFiguresResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.clusterFiguresWithOptions(request, runtime);
-  }
-
   async createBindingWithOptions(request: CreateBindingRequest, runtime: $Util.RuntimeOptions): Promise<CreateBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5241,15 +5710,42 @@ export default class Client extends OpenApi {
   async createDatasetWithOptions(request: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
-    query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
-    query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
-    query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
-    query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
-    query["DatasetName"] = request.datasetName;
-    query["Description"] = request.description;
-    query["ProjectName"] = request.projectName;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.datasetMaxBindCount)) {
+      query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxEntityCount)) {
+      query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxFileCount)) {
+      query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxRelationCount)) {
+      query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxTotalFileSize)) {
+      query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5275,9 +5771,26 @@ export default class Client extends OpenApi {
   async createDetectVideoLabelsTaskWithOptions(request: CreateDetectVideoLabelsTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDetectVideoLabelsTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
-    query["SourceURI"] = request.sourceURI;
-    query["UserData"] = request.userData;
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5300,21 +5813,155 @@ export default class Client extends OpenApi {
     return await this.createDetectVideoLabelsTaskWithOptions(request, runtime);
   }
 
+  async createFigureClusteringTaskWithOptions(request: CreateFigureClusteringTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClusteringTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFigureClusteringTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFigureClusteringTaskResponse>(await this.callApi(params, req, runtime), new CreateFigureClusteringTaskResponse({}));
+  }
+
+  async createFigureClusteringTask(request: CreateFigureClusteringTaskRequest): Promise<CreateFigureClusteringTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFigureClusteringTaskWithOptions(request, runtime);
+  }
+
+  async createFigureClustersMergingTaskWithOptions(request: CreateFigureClustersMergingTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateFigureClustersMergingTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateFigureClustersMergingTask",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateFigureClustersMergingTaskResponse>(await this.callApi(params, req, runtime), new CreateFigureClustersMergingTaskResponse({}));
+  }
+
+  async createFigureClustersMergingTask(request: CreateFigureClustersMergingTaskRequest): Promise<CreateFigureClustersMergingTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createFigureClustersMergingTaskWithOptions(request, runtime);
+  }
+
   async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
-    query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
-    query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
-    query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
-    query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
-    query["Description"] = request.description;
-    query["EngineConcurrency"] = request.engineConcurrency;
-    query["ProjectMaxDatasetCount"] = request.projectMaxDatasetCount;
-    query["ProjectName"] = request.projectName;
-    query["ProjectQueriesPerSecond"] = request.projectQueriesPerSecond;
-    query["ServiceRole"] = request.serviceRole;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.datasetMaxBindCount)) {
+      query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxEntityCount)) {
+      query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxFileCount)) {
+      query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxRelationCount)) {
+      query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxTotalFileSize)) {
+      query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.engineConcurrency)) {
+      query["EngineConcurrency"] = request.engineConcurrency;
+    }
+
+    if (!Util.isUnset(request.projectMaxDatasetCount)) {
+      query["ProjectMaxDatasetCount"] = request.projectMaxDatasetCount;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.projectQueriesPerSecond)) {
+      query["ProjectQueriesPerSecond"] = request.projectQueriesPerSecond;
+    }
+
+    if (!Util.isUnset(request.serviceRole)) {
+      query["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5337,12 +5984,98 @@ export default class Client extends OpenApi {
     return await this.createProjectWithOptions(request, runtime);
   }
 
+  async createStoryWithOptions(request: CreateStoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateStoryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxFileCount)) {
+      body["MaxFileCount"] = request.maxFileCount;
+    }
+
+    if (!Util.isUnset(request.minFileCount)) {
+      body["MinFileCount"] = request.minFileCount;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      body["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      body["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      body["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.storyEndTime)) {
+      body["StoryEndTime"] = request.storyEndTime;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      body["StoryName"] = request.storyName;
+    }
+
+    if (!Util.isUnset(request.storyStartTime)) {
+      body["StoryStartTime"] = request.storyStartTime;
+    }
+
+    if (!Util.isUnset(request.storySubType)) {
+      body["StorySubType"] = request.storySubType;
+    }
+
+    if (!Util.isUnset(request.storyType)) {
+      body["StoryType"] = request.storyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateStory",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateStoryResponse>(await this.callApi(params, req, runtime), new CreateStoryResponse({}));
+  }
+
+  async createStory(request: CreateStoryRequest): Promise<CreateStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createStoryWithOptions(request, runtime);
+  }
+
   async deleteBindingWithOptions(request: DeleteBindingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.cleanup)) {
+      query["Cleanup"] = request.cleanup;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5368,8 +6101,14 @@ export default class Client extends OpenApi {
   async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5395,9 +6134,18 @@ export default class Client extends OpenApi {
   async deleteFileMetaWithOptions(request: DeleteFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileMetaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5423,7 +6171,10 @@ export default class Client extends OpenApi {
   async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5446,12 +6197,58 @@ export default class Client extends OpenApi {
     return await this.deleteProjectWithOptions(request, runtime);
   }
 
+  async deleteStoryWithOptions(request: DeleteStoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteStory",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteStoryResponse>(await this.callApi(params, req, runtime), new DeleteStoryResponse({}));
+  }
+
+  async deleteStory(request: DeleteStoryRequest): Promise<DeleteStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteStoryWithOptions(request, runtime);
+  }
+
   async detectImageLabelsWithOptions(request: DetectImageLabelsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageLabelsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
-    query["SourceURI"] = request.sourceURI;
-    query["Threshold"] = request.threshold;
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.threshold)) {
+      query["Threshold"] = request.threshold;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5477,11 +6274,26 @@ export default class Client extends OpenApi {
   async fuzzyQueryWithOptions(request: FuzzyQueryRequest, runtime: $Util.RuntimeOptions): Promise<FuzzyQueryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProjectName"] = request.projectName;
-    query["Query"] = request.query;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5507,9 +6319,18 @@ export default class Client extends OpenApi {
   async getBindingWithOptions(request: GetBindingRequest, runtime: $Util.RuntimeOptions): Promise<GetBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5535,9 +6356,18 @@ export default class Client extends OpenApi {
   async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["WithStatistics"] = request.withStatistics;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.withStatistics)) {
+      query["WithStatistics"] = request.withStatistics;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5563,9 +6393,18 @@ export default class Client extends OpenApi {
   async getDetectVideoLabelsResultWithOptions(request: GetDetectVideoLabelsResultRequest, runtime: $Util.RuntimeOptions): Promise<GetDetectVideoLabelsResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
-    query["TaskId"] = request.taskId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5591,9 +6430,18 @@ export default class Client extends OpenApi {
   async getFigureClusterWithOptions(request: GetFigureClusterRequest, runtime: $Util.RuntimeOptions): Promise<GetFigureClusterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["FigureClusterId"] = request.figureClusterId;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5619,9 +6467,18 @@ export default class Client extends OpenApi {
   async getFileMetaWithOptions(request: GetFileMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetFileMetaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5644,38 +6501,17 @@ export default class Client extends OpenApi {
     return await this.getFileMetaWithOptions(request, runtime);
   }
 
-  async getFileSignedURIWithOptions(request: GetFileSignedURIRequest, runtime: $Util.RuntimeOptions): Promise<GetFileSignedURIResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetFileSignedURI",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetFileSignedURIResponse>(await this.callApi(params, req, runtime), new GetFileSignedURIResponse({}));
-  }
-
-  async getFileSignedURI(request: GetFileSignedURIRequest): Promise<GetFileSignedURIResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getFileSignedURIWithOptions(request, runtime);
-  }
-
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
-    query["WithStatistics"] = request.withStatistics;
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.withStatistics)) {
+      query["WithStatistics"] = request.withStatistics;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5698,12 +6534,58 @@ export default class Client extends OpenApi {
     return await this.getProjectWithOptions(request, runtime);
   }
 
+  async getStoryWithOptions(request: GetStoryRequest, runtime: $Util.RuntimeOptions): Promise<GetStoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStory",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStoryResponse>(await this.callApi(params, req, runtime), new GetStoryResponse({}));
+  }
+
+  async getStory(request: GetStoryRequest): Promise<GetStoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStoryWithOptions(request, runtime);
+  }
+
   async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectName"] = request.projectName;
-    query["TaskId"] = request.taskId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5747,21 +6629,66 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AssumeRoleChain"] = request.assumeRoleChainShrink;
-    query["ExternalUploaded"] = request.externalUploaded;
-    query["Filename"] = request.filename;
-    query["Hidecmb"] = request.hidecmb;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["Password"] = request.password;
-    query["Permission"] = request.permissionShrink;
-    query["PreviewPages"] = request.previewPages;
-    query["ProjectName"] = request.projectName;
-    query["Referer"] = request.referer;
-    query["SourceURI"] = request.sourceURI;
-    query["User"] = request.userShrink;
-    query["UserData"] = request.userData;
-    query["Watermark"] = request.watermarkShrink;
+    if (!Util.isUnset(request.assumeRoleChainShrink)) {
+      query["AssumeRoleChain"] = request.assumeRoleChainShrink;
+    }
+
+    if (!Util.isUnset(request.externalUploaded)) {
+      query["ExternalUploaded"] = request.externalUploaded;
+    }
+
+    if (!Util.isUnset(request.filename)) {
+      query["Filename"] = request.filename;
+    }
+
+    if (!Util.isUnset(request.hidecmb)) {
+      query["Hidecmb"] = request.hidecmb;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.permissionShrink)) {
+      query["Permission"] = request.permissionShrink;
+    }
+
+    if (!Util.isUnset(request.previewPages)) {
+      query["PreviewPages"] = request.previewPages;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.referer)) {
+      query["Referer"] = request.referer;
+    }
+
+    if (!Util.isUnset(request.sourceURI)) {
+      query["SourceURI"] = request.sourceURI;
+    }
+
+    if (!Util.isUnset(request.userShrink)) {
+      query["User"] = request.userShrink;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!Util.isUnset(request.watermarkShrink)) {
+      query["Watermark"] = request.watermarkShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5793,11 +6720,26 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["File"] = request.fileShrink;
-    query["NotifyEndpoint"] = request.notifyEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.fileShrink)) {
+      query["File"] = request.fileShrink;
+    }
+
+    if (!Util.isUnset(request.notifyEndpoint)) {
+      query["NotifyEndpoint"] = request.notifyEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5823,10 +6765,22 @@ export default class Client extends OpenApi {
   async listBindingsWithOptions(request: ListBindingsRequest, runtime: $Util.RuntimeOptions): Promise<ListBindingsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5852,10 +6806,22 @@ export default class Client extends OpenApi {
   async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Prefix"] = request.prefix;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["Prefix"] = request.prefix;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5878,44 +6844,21 @@ export default class Client extends OpenApi {
     return await this.listDatasetsWithOptions(request, runtime);
   }
 
-  async listFigureClustersWithOptions(request: ListFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListFigureClustersResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["Labels"] = request.labels;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Order"] = request.order;
-    query["ProjectName"] = request.projectName;
-    query["Sort"] = request.sort;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListFigureClusters",
-      version: "2020-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListFigureClustersResponse>(await this.callApi(params, req, runtime), new ListFigureClustersResponse({}));
-  }
-
-  async listFigureClusters(request: ListFigureClustersRequest): Promise<ListFigureClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFigureClustersWithOptions(request, runtime);
-  }
-
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Prefix"] = request.prefix;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.prefix)) {
+      query["Prefix"] = request.prefix;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5941,10 +6884,22 @@ export default class Client extends OpenApi {
   async listTasksWithOptions(request: ListTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProjectName"] = request.projectName;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -5970,14 +6925,38 @@ export default class Client extends OpenApi {
   async mergeFigureClustersWithOptions(request: MergeFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<MergeFigureClustersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterIdFrom"] = request.clusterIdFrom;
-    query["ClusterIdTo"] = request.clusterIdTo;
-    query["CustomMessage"] = request.customMessage;
-    query["DatasetName"] = request.datasetName;
-    query["FigureType"] = request.figureType;
-    query["NotifyTopicEndpoint"] = request.notifyTopicEndpoint;
-    query["NotifyTopicName"] = request.notifyTopicName;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.clusterIdFrom)) {
+      query["ClusterIdFrom"] = request.clusterIdFrom;
+    }
+
+    if (!Util.isUnset(request.clusterIdTo)) {
+      query["ClusterIdTo"] = request.clusterIdTo;
+    }
+
+    if (!Util.isUnset(request.customMessage)) {
+      query["CustomMessage"] = request.customMessage;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.figureType)) {
+      query["FigureType"] = request.figureType;
+    }
+
+    if (!Util.isUnset(request.notifyTopicEndpoint)) {
+      query["NotifyTopicEndpoint"] = request.notifyTopicEndpoint;
+    }
+
+    if (!Util.isUnset(request.notifyTopicName)) {
+      query["NotifyTopicName"] = request.notifyTopicName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6000,6 +6979,150 @@ export default class Client extends OpenApi {
     return await this.mergeFigureClustersWithOptions(request, runtime);
   }
 
+  async queryFigureClustersWithOptions(request: QueryFigureClustersRequest, runtime: $Util.RuntimeOptions): Promise<QueryFigureClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customLabels)) {
+      query["CustomLabels"] = request.customLabels;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryFigureClusters",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryFigureClustersResponse>(await this.callApi(params, req, runtime), new QueryFigureClustersResponse({}));
+  }
+
+  async queryFigureClusters(request: QueryFigureClustersRequest): Promise<QueryFigureClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryFigureClustersWithOptions(request, runtime);
+  }
+
+  async queryStoriesWithOptions(tmpReq: QueryStoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryStoriesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryStoriesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset($tea.toMap(tmpReq.createTimeRange))) {
+      request.createTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.createTimeRange), "CreateTimeRange", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.figureClusterIds)) {
+      request.figureClusterIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.figureClusterIds, "FigureClusterIds", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.storyEndTimeRange))) {
+      request.storyEndTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storyEndTimeRange), "StoryEndTimeRange", "json");
+    }
+
+    if (!Util.isUnset($tea.toMap(tmpReq.storyStartTimeRange))) {
+      request.storyStartTimeRangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.storyStartTimeRange), "StoryStartTimeRange", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.createTimeRangeShrink)) {
+      query["CreateTimeRange"] = request.createTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.figureClusterIdsShrink)) {
+      query["FigureClusterIds"] = request.figureClusterIdsShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.storyEndTimeRangeShrink)) {
+      query["StoryEndTimeRange"] = request.storyEndTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.storyName)) {
+      query["StoryName"] = request.storyName;
+    }
+
+    if (!Util.isUnset(request.storyStartTimeRangeShrink)) {
+      query["StoryStartTimeRange"] = request.storyStartTimeRangeShrink;
+    }
+
+    if (!Util.isUnset(request.storySubType)) {
+      query["StorySubType"] = request.storySubType;
+    }
+
+    if (!Util.isUnset(request.storyType)) {
+      query["StoryType"] = request.storyType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryStories",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryStoriesResponse>(await this.callApi(params, req, runtime), new QueryStoriesResponse({}));
+  }
+
+  async queryStories(request: QueryStoriesRequest): Promise<QueryStoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryStoriesWithOptions(request, runtime);
+  }
+
   async refreshWebofficeTokenWithOptions(tmpReq: RefreshWebofficeTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshWebofficeTokenResponse> {
     Util.validateModel(tmpReq);
     let request = new RefreshWebofficeTokenShrinkRequest({ });
@@ -6009,10 +7132,22 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["AccessToken"] = request.accessToken;
-    query["AssumeRoleChain"] = request.assumeRoleChainShrink;
-    query["ProjectName"] = request.projectName;
-    query["RefreshToken"] = request.refreshToken;
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.assumeRoleChainShrink)) {
+      query["AssumeRoleChain"] = request.assumeRoleChainShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.refreshToken)) {
+      query["RefreshToken"] = request.refreshToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6038,9 +7173,18 @@ export default class Client extends OpenApi {
   async resumeBindingWithOptions(request: ResumeBindingRequest, runtime: $Util.RuntimeOptions): Promise<ResumeBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6066,11 +7210,26 @@ export default class Client extends OpenApi {
   async semanticQueryWithOptions(request: SemanticQueryRequest, runtime: $Util.RuntimeOptions): Promise<SemanticQueryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["ProjectName"] = request.projectName;
-    query["Query"] = request.query;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["Query"] = request.query;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6106,14 +7265,38 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["Aggregations"] = request.aggregationsShrink;
-    query["DatasetName"] = request.datasetName;
-    query["MaxResults"] = request.maxResults;
-    query["NextToken"] = request.nextToken;
-    query["Order"] = request.order;
-    query["ProjectName"] = request.projectName;
-    query["Query"] = request.queryShrink;
-    query["Sort"] = request.sort;
+    if (!Util.isUnset(request.aggregationsShrink)) {
+      query["Aggregations"] = request.aggregationsShrink;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.queryShrink)) {
+      query["Query"] = request.queryShrink;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["Sort"] = request.sort;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6139,10 +7322,22 @@ export default class Client extends OpenApi {
   async stopBindingWithOptions(request: StopBindingRequest, runtime: $Util.RuntimeOptions): Promise<StopBindingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["ProjectName"] = request.projectName;
-    query["Reason"] = request.reason;
-    query["URI"] = request.URI;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.reason)) {
+      query["Reason"] = request.reason;
+    }
+
+    if (!Util.isUnset(request.URI)) {
+      query["URI"] = request.URI;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6168,15 +7363,42 @@ export default class Client extends OpenApi {
   async updateDatasetWithOptions(request: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
-    query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
-    query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
-    query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
-    query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
-    query["DatasetName"] = request.datasetName;
-    query["Description"] = request.description;
-    query["ProjectName"] = request.projectName;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.datasetMaxBindCount)) {
+      query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxEntityCount)) {
+      query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxFileCount)) {
+      query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxRelationCount)) {
+      query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxTotalFileSize)) {
+      query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6208,9 +7430,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["FigureCluster"] = request.figureClusterShrink;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.figureClusterShrink)) {
+      query["FigureCluster"] = request.figureClusterShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6242,9 +7473,18 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["DatasetName"] = request.datasetName;
-    query["File"] = request.fileShrink;
-    query["ProjectName"] = request.projectName;
+    if (!Util.isUnset(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.fileShrink)) {
+      query["File"] = request.fileShrink;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -6270,18 +7510,54 @@ export default class Client extends OpenApi {
   async updateProjectWithOptions(request: UpdateProjectRequest, runtime: $Util.RuntimeOptions): Promise<UpdateProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
-    query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
-    query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
-    query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
-    query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
-    query["Description"] = request.description;
-    query["EngineConcurrency"] = request.engineConcurrency;
-    query["ProjectMaxDatasetCount"] = request.projectMaxDatasetCount;
-    query["ProjectName"] = request.projectName;
-    query["ProjectQueriesPerSecond"] = request.projectQueriesPerSecond;
-    query["ServiceRole"] = request.serviceRole;
-    query["TemplateId"] = request.templateId;
+    if (!Util.isUnset(request.datasetMaxBindCount)) {
+      query["DatasetMaxBindCount"] = request.datasetMaxBindCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxEntityCount)) {
+      query["DatasetMaxEntityCount"] = request.datasetMaxEntityCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxFileCount)) {
+      query["DatasetMaxFileCount"] = request.datasetMaxFileCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxRelationCount)) {
+      query["DatasetMaxRelationCount"] = request.datasetMaxRelationCount;
+    }
+
+    if (!Util.isUnset(request.datasetMaxTotalFileSize)) {
+      query["DatasetMaxTotalFileSize"] = request.datasetMaxTotalFileSize;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.engineConcurrency)) {
+      query["EngineConcurrency"] = request.engineConcurrency;
+    }
+
+    if (!Util.isUnset(request.projectMaxDatasetCount)) {
+      query["ProjectMaxDatasetCount"] = request.projectMaxDatasetCount;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.projectQueriesPerSecond)) {
+      query["ProjectQueriesPerSecond"] = request.projectQueriesPerSecond;
+    }
+
+    if (!Util.isUnset(request.serviceRole)) {
+      query["ServiceRole"] = request.serviceRole;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
