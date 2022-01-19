@@ -1757,6 +1757,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
   fsName?: string;
   instanceType?: string;
   KMSKeyId?: string;
+  lastFailed?: string;
   lastMountTime?: string;
   lastUmountTime?: string;
   payType?: string;
@@ -1783,6 +1784,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
       fsName: 'FsName',
       instanceType: 'InstanceType',
       KMSKeyId: 'KMSKeyId',
+      lastFailed: 'LastFailed',
       lastMountTime: 'LastMountTime',
       lastUmountTime: 'LastUmountTime',
       payType: 'PayType',
@@ -1812,6 +1814,7 @@ export class GetDbfsResponseBodyDBFSInfo extends $tea.Model {
       fsName: 'string',
       instanceType: 'string',
       KMSKeyId: 'string',
+      lastFailed: 'string',
       lastMountTime: 'string',
       lastUmountTime: 'string',
       payType: 'string',
@@ -1910,6 +1913,7 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
   fsName?: string;
   instanceType?: string;
   KMSKeyId?: string;
+  lastFailed?: string;
   lastMountTime?: string;
   lastUmountTime?: string;
   payType?: string;
@@ -1935,6 +1939,7 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
       fsName: 'FsName',
       instanceType: 'InstanceType',
       KMSKeyId: 'KMSKeyId',
+      lastFailed: 'LastFailed',
       lastMountTime: 'LastMountTime',
       lastUmountTime: 'LastUmountTime',
       payType: 'PayType',
@@ -1963,6 +1968,7 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
       fsName: 'string',
       instanceType: 'string',
       KMSKeyId: 'string',
+      lastFailed: 'string',
       lastMountTime: 'string',
       lastUmountTime: 'string',
       payType: 'string',
