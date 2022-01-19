@@ -686,6 +686,189 @@ export class GetSmsAuthTokensResponse extends $tea.Model {
   }
 }
 
+export class JyCreateVerifySchemeRequest extends $tea.Model {
+  appName?: string;
+  bundleId?: string;
+  cmApiCode?: number;
+  ctApiCode?: number;
+  cuApiCode?: number;
+  osType?: string;
+  ownerId?: number;
+  packName?: string;
+  packSign?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  schemeName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      bundleId: 'BundleId',
+      cmApiCode: 'CmApiCode',
+      ctApiCode: 'CtApiCode',
+      cuApiCode: 'CuApiCode',
+      osType: 'OsType',
+      ownerId: 'OwnerId',
+      packName: 'PackName',
+      packSign: 'PackSign',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemeName: 'SchemeName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      bundleId: 'string',
+      cmApiCode: 'number',
+      ctApiCode: 'number',
+      cuApiCode: 'number',
+      osType: 'string',
+      ownerId: 'number',
+      packName: 'string',
+      packSign: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemeName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeResponseBody extends $tea.Model {
+  code?: string;
+  gateVerifySchemeData?: JyCreateVerifySchemeResponseBodyGateVerifySchemeData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      gateVerifySchemeData: 'GateVerifySchemeData',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      gateVerifySchemeData: JyCreateVerifySchemeResponseBodyGateVerifySchemeData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: JyCreateVerifySchemeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: JyCreateVerifySchemeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyGetMobileRequest extends $tea.Model {
+  accessToken?: string;
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyGetMobileResponseBody extends $tea.Model {
+  code?: string;
+  getMobileResultData?: JyGetMobileResponseBodyGetMobileResultData;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      getMobileResultData: 'GetMobileResultData',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      getMobileResultData: JyGetMobileResponseBodyGetMobileResultData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyGetMobileResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: JyGetMobileResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: JyGetMobileResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryGateVerifyBillingPublicRequest extends $tea.Model {
   authenticationType?: number;
   month?: string;
@@ -1243,6 +1426,44 @@ export class GetSmsAuthTokensResponseBodyData extends $tea.Model {
       stsAccessKeyId: 'string',
       stsAccessKeySecret: 'string',
       stsToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyCreateVerifySchemeResponseBodyGateVerifySchemeData extends $tea.Model {
+  schemeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      schemeCode: 'SchemeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schemeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JyGetMobileResponseBodyGetMobileResultData extends $tea.Model {
+  mobile?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mobile: 'Mobile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mobile: 'string',
     };
   }
 
@@ -1834,6 +2055,124 @@ export default class Client extends OpenApi {
   async getSmsAuthTokens(request: GetSmsAuthTokensRequest): Promise<GetSmsAuthTokensResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSmsAuthTokensWithOptions(request, runtime);
+  }
+
+  async jyCreateVerifySchemeWithOptions(request: JyCreateVerifySchemeRequest, runtime: $Util.RuntimeOptions): Promise<JyCreateVerifySchemeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.bundleId)) {
+      query["BundleId"] = request.bundleId;
+    }
+
+    if (!Util.isUnset(request.cmApiCode)) {
+      query["CmApiCode"] = request.cmApiCode;
+    }
+
+    if (!Util.isUnset(request.ctApiCode)) {
+      query["CtApiCode"] = request.ctApiCode;
+    }
+
+    if (!Util.isUnset(request.cuApiCode)) {
+      query["CuApiCode"] = request.cuApiCode;
+    }
+
+    if (!Util.isUnset(request.osType)) {
+      query["OsType"] = request.osType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.packName)) {
+      query["PackName"] = request.packName;
+    }
+
+    if (!Util.isUnset(request.packSign)) {
+      query["PackSign"] = request.packSign;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemeName)) {
+      query["SchemeName"] = request.schemeName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "JyCreateVerifyScheme",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<JyCreateVerifySchemeResponse>(await this.callApi(params, req, runtime), new JyCreateVerifySchemeResponse({}));
+  }
+
+  async jyCreateVerifyScheme(request: JyCreateVerifySchemeRequest): Promise<JyCreateVerifySchemeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.jyCreateVerifySchemeWithOptions(request, runtime);
+  }
+
+  async jyGetMobileWithOptions(request: JyGetMobileRequest, runtime: $Util.RuntimeOptions): Promise<JyGetMobileResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "JyGetMobile",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<JyGetMobileResponse>(await this.callApi(params, req, runtime), new JyGetMobileResponse({}));
+  }
+
+  async jyGetMobile(request: JyGetMobileRequest): Promise<JyGetMobileResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.jyGetMobileWithOptions(request, runtime);
   }
 
   async queryGateVerifyBillingPublicWithOptions(request: QueryGateVerifyBillingPublicRequest, runtime: $Util.RuntimeOptions): Promise<QueryGateVerifyBillingPublicResponse> {
