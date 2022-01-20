@@ -587,6 +587,7 @@ export class ApplyNodesRequest extends $tea.Model {
   internetMaxBandWidthIn?: number;
   internetMaxBandWidthOut?: number;
   interval?: number;
+  jobQueue?: string;
   memory?: number;
   priorityStrategy?: string;
   resourceAmountType?: string;
@@ -615,6 +616,7 @@ export class ApplyNodesRequest extends $tea.Model {
       internetMaxBandWidthIn: 'InternetMaxBandWidthIn',
       internetMaxBandWidthOut: 'InternetMaxBandWidthOut',
       interval: 'Interval',
+      jobQueue: 'JobQueue',
       memory: 'Memory',
       priorityStrategy: 'PriorityStrategy',
       resourceAmountType: 'ResourceAmountType',
@@ -646,6 +648,7 @@ export class ApplyNodesRequest extends $tea.Model {
       internetMaxBandWidthIn: 'number',
       internetMaxBandWidthOut: 'number',
       interval: 'number',
+      jobQueue: 'string',
       memory: 'number',
       priorityStrategy: 'string',
       resourceAmountType: 'string',
@@ -1797,14 +1800,12 @@ export class DeleteImageRequest extends $tea.Model {
   clusterId?: string;
   containerType?: string;
   imageTag?: string;
-  regionId?: string;
   repository?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       containerType: 'ContainerType',
       imageTag: 'ImageTag',
-      regionId: 'RegionId',
       repository: 'Repository',
     };
   }
@@ -1814,7 +1815,6 @@ export class DeleteImageRequest extends $tea.Model {
       clusterId: 'string',
       containerType: 'string',
       imageTag: 'string',
-      regionId: 'string',
       repository: 'string',
     };
   }
@@ -2805,14 +2805,12 @@ export class DescribeImageRequest extends $tea.Model {
   clusterId?: string;
   containerType?: string;
   imageTag?: string;
-  regionId?: string;
   repository?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       containerType: 'ContainerType',
       imageTag: 'ImageTag',
-      regionId: 'RegionId',
       repository: 'Repository',
     };
   }
@@ -2822,7 +2820,6 @@ export class DescribeImageRequest extends $tea.Model {
       clusterId: 'string',
       containerType: 'string',
       imageTag: 'string',
-      regionId: 'string',
       repository: 'string',
     };
   }
@@ -3228,66 +3225,6 @@ export class DescribePriceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribePriceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EcdDeleteDesktopsRequest extends $tea.Model {
-  desktopId?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      desktopId: 'DesktopId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desktopId: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EcdDeleteDesktopsResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EcdDeleteDesktopsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EcdDeleteDesktopsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EcdDeleteDesktopsResponseBody,
     };
   }
 
@@ -3920,81 +3857,6 @@ export class GetGWSConnectTicketResponse extends $tea.Model {
   }
 }
 
-export class GetHealthMonitorLogsRequest extends $tea.Model {
-  clusterId?: string;
-  enableReverse?: boolean;
-  endTime?: number;
-  filter?: string;
-  startTime?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      enableReverse: 'EnableReverse',
-      endTime: 'EndTime',
-      filter: 'Filter',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      enableReverse: 'boolean',
-      endTime: 'number',
-      filter: 'string',
-      startTime: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHealthMonitorLogsResponseBody extends $tea.Model {
-  logInfo?: GetHealthMonitorLogsResponseBodyLogInfo;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      logInfo: 'LogInfo',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logInfo: GetHealthMonitorLogsResponseBodyLogInfo,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHealthMonitorLogsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetHealthMonitorLogsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetHealthMonitorLogsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetHybridClusterConfigRequest extends $tea.Model {
   clusterId?: string;
   node?: string;
@@ -4254,87 +4116,6 @@ export class GetVisualServiceStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetVisualServiceStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkbenchTokenRequest extends $tea.Model {
-  accountSessionTicket?: string;
-  accountUid?: string;
-  clusterId?: string;
-  instanceId?: string;
-  port?: number;
-  userName?: string;
-  userPassword?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accountSessionTicket: 'AccountSessionTicket',
-      accountUid: 'AccountUid',
-      clusterId: 'ClusterId',
-      instanceId: 'InstanceId',
-      port: 'Port',
-      userName: 'UserName',
-      userPassword: 'UserPassword',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountSessionTicket: 'string',
-      accountUid: 'string',
-      clusterId: 'string',
-      instanceId: 'string',
-      port: 'number',
-      userName: 'string',
-      userPassword: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkbenchTokenResponseBody extends $tea.Model {
-  requestId?: string;
-  root?: GetWorkbenchTokenResponseBodyRoot;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      root: 'root',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      root: GetWorkbenchTokenResponseBodyRoot,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkbenchTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetWorkbenchTokenResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetWorkbenchTokenResponseBody,
     };
   }
 
@@ -6079,14 +5860,12 @@ export class ListNodesByQueueResponse extends $tea.Model {
 export class ListNodesNoPagingRequest extends $tea.Model {
   clusterId?: string;
   hostName?: string;
-  onlyDetached?: boolean;
   role?: string;
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       hostName: 'HostName',
-      onlyDetached: 'OnlyDetached',
       role: 'Role',
       sequence: 'Sequence',
     };
@@ -6096,7 +5875,6 @@ export class ListNodesNoPagingRequest extends $tea.Model {
     return {
       clusterId: 'string',
       hostName: 'string',
-      onlyDetached: 'boolean',
       role: 'string',
       sequence: 'string',
     };
@@ -6843,7 +6621,6 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
   defaultRepoLocation?: string;
   imageExpirationTimeout?: string;
   pullUpdateTimeout?: number;
-  regionId?: string;
   repo?: ModifyImageGatewayConfigRequestRepo[];
   static names(): { [key: string]: string } {
     return {
@@ -6855,7 +6632,6 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
       defaultRepoLocation: 'DefaultRepoLocation',
       imageExpirationTimeout: 'ImageExpirationTimeout',
       pullUpdateTimeout: 'PullUpdateTimeout',
-      regionId: 'RegionId',
       repo: 'Repo',
     };
   }
@@ -6870,7 +6646,6 @@ export class ModifyImageGatewayConfigRequest extends $tea.Model {
       defaultRepoLocation: 'string',
       imageExpirationTimeout: 'string',
       pullUpdateTimeout: 'number',
-      regionId: 'string',
       repo: { 'type': 'array', 'itemType': ModifyImageGatewayConfigRequestRepo },
     };
   }
@@ -10994,118 +10769,6 @@ export class GetClusterVolumesResponseBodyVolumes extends $tea.Model {
   }
 }
 
-export class GetHealthMonitorLogsResponseBodyLogInfoLogsCheckListCheckList extends $tea.Model {
-  checkDescription?: string;
-  checkInfo?: string;
-  checkName?: string;
-  checkSolution?: string;
-  static names(): { [key: string]: string } {
-    return {
-      checkDescription: 'CheckDescription',
-      checkInfo: 'CheckInfo',
-      checkName: 'CheckName',
-      checkSolution: 'CheckSolution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkDescription: 'string',
-      checkInfo: 'string',
-      checkName: 'string',
-      checkSolution: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHealthMonitorLogsResponseBodyLogInfoLogsCheckList extends $tea.Model {
-  checkList?: GetHealthMonitorLogsResponseBodyLogInfoLogsCheckListCheckList[];
-  static names(): { [key: string]: string } {
-    return {
-      checkList: 'CheckList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkList: { 'type': 'array', 'itemType': GetHealthMonitorLogsResponseBodyLogInfoLogsCheckListCheckList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHealthMonitorLogsResponseBodyLogInfoLogs extends $tea.Model {
-  checkList?: GetHealthMonitorLogsResponseBodyLogInfoLogsCheckList;
-  healthId?: string;
-  hostName?: string;
-  instanceId?: string;
-  itemDescription?: string;
-  itemName?: string;
-  level?: string;
-  sceneDescription?: string;
-  sceneName?: string;
-  time?: number;
-  static names(): { [key: string]: string } {
-    return {
-      checkList: 'CheckList',
-      healthId: 'HealthId',
-      hostName: 'HostName',
-      instanceId: 'InstanceId',
-      itemDescription: 'ItemDescription',
-      itemName: 'ItemName',
-      level: 'Level',
-      sceneDescription: 'SceneDescription',
-      sceneName: 'SceneName',
-      time: 'Time',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      checkList: GetHealthMonitorLogsResponseBodyLogInfoLogsCheckList,
-      healthId: 'string',
-      hostName: 'string',
-      instanceId: 'string',
-      itemDescription: 'string',
-      itemName: 'string',
-      level: 'string',
-      sceneDescription: 'string',
-      sceneName: 'string',
-      time: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetHealthMonitorLogsResponseBodyLogInfo extends $tea.Model {
-  logs?: GetHealthMonitorLogsResponseBodyLogInfoLogs[];
-  static names(): { [key: string]: string } {
-    return {
-      logs: 'Logs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      logs: { 'type': 'array', 'itemType': GetHealthMonitorLogsResponseBodyLogInfoLogs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetSchedulerInfoRequestScheduler extends $tea.Model {
   schedName?: string;
   static names(): { [key: string]: string } {
@@ -11139,59 +10802,6 @@ export class GetSchedulerInfoResponseBodySchedInfo extends $tea.Model {
     return {
       configuration: 'string',
       schedName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkbenchTokenResponseBodyRootInstanceLoginView extends $tea.Model {
-  baseViewUrl?: string;
-  defaultViewUrl?: string;
-  fileTreeViewUrl?: string;
-  rdpViewUrl?: string;
-  terminalViewUrl?: string;
-  viewName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseViewUrl: 'baseViewUrl',
-      defaultViewUrl: 'defaultViewUrl',
-      fileTreeViewUrl: 'fileTreeViewUrl',
-      rdpViewUrl: 'rdpViewUrl',
-      terminalViewUrl: 'terminalViewUrl',
-      viewName: 'viewName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseViewUrl: 'string',
-      defaultViewUrl: 'string',
-      fileTreeViewUrl: 'string',
-      rdpViewUrl: 'string',
-      terminalViewUrl: 'string',
-      viewName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWorkbenchTokenResponseBodyRoot extends $tea.Model {
-  instanceLoginView?: GetWorkbenchTokenResponseBodyRootInstanceLoginView;
-  static names(): { [key: string]: string } {
-    return {
-      instanceLoginView: 'instanceLoginView',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceLoginView: GetWorkbenchTokenResponseBodyRootInstanceLoginView,
     };
   }
 
@@ -15050,9 +14660,18 @@ export default class Client extends OpenApi {
   async describeGWSClusterPolicyWithOptions(request: DescribeGWSClusterPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DescribeGWSClusterPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AsyncMode"] = request.asyncMode;
-    query["ClusterId"] = request.clusterId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.asyncMode)) {
+      query["AsyncMode"] = request.asyncMode;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -15300,31 +14919,6 @@ export default class Client extends OpenApi {
     return await this.describePriceWithOptions(request, runtime);
   }
 
-  async ecdDeleteDesktopsWithOptions(request: EcdDeleteDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<EcdDeleteDesktopsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "EcdDeleteDesktops",
-      version: "2018-04-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<EcdDeleteDesktopsResponse>(await this.callApi(params, req, runtime), new EcdDeleteDesktopsResponse({}));
-  }
-
-  async ecdDeleteDesktops(request: EcdDeleteDesktopsRequest): Promise<EcdDeleteDesktopsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.ecdDeleteDesktopsWithOptions(request, runtime);
-  }
-
   async editJobTemplateWithOptions(request: EditJobTemplateRequest, runtime: $Util.RuntimeOptions): Promise<EditJobTemplateResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15500,31 +15094,6 @@ export default class Client extends OpenApi {
     return await this.getGWSConnectTicketWithOptions(request, runtime);
   }
 
-  async getHealthMonitorLogsWithOptions(request: GetHealthMonitorLogsRequest, runtime: $Util.RuntimeOptions): Promise<GetHealthMonitorLogsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetHealthMonitorLogs",
-      version: "2018-04-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetHealthMonitorLogsResponse>(await this.callApi(params, req, runtime), new GetHealthMonitorLogsResponse({}));
-  }
-
-  async getHealthMonitorLogs(request: GetHealthMonitorLogsRequest): Promise<GetHealthMonitorLogsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getHealthMonitorLogsWithOptions(request, runtime);
-  }
-
   async getHybridClusterConfigWithOptions(request: GetHybridClusterConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetHybridClusterConfigResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -15623,31 +15192,6 @@ export default class Client extends OpenApi {
   async getVisualServiceStatus(request: GetVisualServiceStatusRequest): Promise<GetVisualServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getVisualServiceStatusWithOptions(request, runtime);
-  }
-
-  async getWorkbenchTokenWithOptions(request: GetWorkbenchTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkbenchTokenResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetWorkbenchToken",
-      version: "2018-04-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetWorkbenchTokenResponse>(await this.callApi(params, req, runtime), new GetWorkbenchTokenResponse({}));
-  }
-
-  async getWorkbenchToken(request: GetWorkbenchTokenRequest): Promise<GetWorkbenchTokenResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWorkbenchTokenWithOptions(request, runtime);
   }
 
   async initializeEHPCWithOptions(request: InitializeEHPCRequest, runtime: $Util.RuntimeOptions): Promise<InitializeEHPCResponse> {
@@ -16791,13 +16335,34 @@ export default class Client extends OpenApi {
   async setGWSClusterPolicyWithOptions(request: SetGWSClusterPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetGWSClusterPolicyResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AsyncMode"] = request.asyncMode;
-    query["Clipboard"] = request.clipboard;
-    query["ClusterId"] = request.clusterId;
-    query["LocalDrive"] = request.localDrive;
-    query["UdpPort"] = request.udpPort;
-    query["UsbRedirect"] = request.usbRedirect;
-    query["Watermark"] = request.watermark;
+    if (!Util.isUnset(request.asyncMode)) {
+      query["AsyncMode"] = request.asyncMode;
+    }
+
+    if (!Util.isUnset(request.clipboard)) {
+      query["Clipboard"] = request.clipboard;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.localDrive)) {
+      query["LocalDrive"] = request.localDrive;
+    }
+
+    if (!Util.isUnset(request.udpPort)) {
+      query["UdpPort"] = request.udpPort;
+    }
+
+    if (!Util.isUnset(request.usbRedirect)) {
+      query["UsbRedirect"] = request.usbRedirect;
+    }
+
+    if (!Util.isUnset(request.watermark)) {
+      query["Watermark"] = request.watermark;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
