@@ -2903,6 +2903,87 @@ export class QueryVirtualNumberRelationResponse extends $tea.Model {
   }
 }
 
+export class QueryVoiceFileAuditInfoRequest extends $tea.Model {
+  businessType?: number;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  voiceCodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'BusinessType',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      voiceCodes: 'VoiceCodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'number',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      voiceCodes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVoiceFileAuditInfoResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryVoiceFileAuditInfoResponseBodyData[];
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': QueryVoiceFileAuditInfoResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryVoiceFileAuditInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryVoiceFileAuditInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryVoiceFileAuditInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshMqttTokenRequest extends $tea.Model {
   clientId?: string;
   ownerId?: number;
@@ -4381,6 +4462,31 @@ export class QueryCallInTransferRecordResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryVoiceFileAuditInfoResponseBodyData extends $tea.Model {
+  auditState?: string;
+  rejectInfo?: string;
+  voiceCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      auditState: 'AuditState',
+      rejectInfo: 'RejectInfo',
+      voiceCode: 'VoiceCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      auditState: 'string',
+      rejectInfo: 'string',
+      voiceCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshMqttTokenResponseBodyData extends $tea.Model {
   clientId?: string;
   expireTime?: string;
@@ -4494,13 +4600,24 @@ export default class Client extends OpenApi {
   async addRtcAccountWithOptions(request: AddRtcAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddRtcAccountResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddRtcAccount",
@@ -4510,7 +4627,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddRtcAccountResponse>(await this.callApi(params, req, runtime), new AddRtcAccountResponse({}));
@@ -4524,17 +4641,40 @@ export default class Client extends OpenApi {
   async addVirtualNumberRelationWithOptions(request: AddVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<AddVirtualNumberRelationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CorpNameList"] = request.corpNameList;
-    query["NumberList"] = request.numberList;
-    query["OwnerId"] = request.ownerId;
-    query["PhoneNum"] = request.phoneNum;
-    query["ProdCode"] = request.prodCode;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteType"] = request.routeType;
+    if (!Util.isUnset(request.corpNameList)) {
+      query["CorpNameList"] = request.corpNameList;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNum)) {
+      query["PhoneNum"] = request.phoneNum;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      query["RouteType"] = request.routeType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddVirtualNumberRelation",
@@ -4544,7 +4684,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new AddVirtualNumberRelationResponse({}));
@@ -4558,23 +4698,64 @@ export default class Client extends OpenApi {
   async batchRobotSmartCallWithOptions(request: BatchRobotSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<BatchRobotSmartCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["CorpName"] = request.corpName;
-    query["DialogId"] = request.dialogId;
-    query["EarlyMediaAsr"] = request.earlyMediaAsr;
-    query["IsSelfLine"] = request.isSelfLine;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ScheduleCall"] = request.scheduleCall;
-    query["ScheduleTime"] = request.scheduleTime;
-    query["TaskName"] = request.taskName;
-    query["TtsParam"] = request.ttsParam;
-    query["TtsParamHead"] = request.ttsParamHead;
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.corpName)) {
+      query["CorpName"] = request.corpName;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.earlyMediaAsr)) {
+      query["EarlyMediaAsr"] = request.earlyMediaAsr;
+    }
+
+    if (!Util.isUnset(request.isSelfLine)) {
+      query["IsSelfLine"] = request.isSelfLine;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduleCall)) {
+      query["ScheduleCall"] = request.scheduleCall;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.ttsParam)) {
+      query["TtsParam"] = request.ttsParam;
+    }
+
+    if (!Util.isUnset(request.ttsParamHead)) {
+      query["TtsParamHead"] = request.ttsParamHead;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "BatchRobotSmartCall",
@@ -4584,7 +4765,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<BatchRobotSmartCallResponse>(await this.callApi(params, req, runtime), new BatchRobotSmartCallResponse({}));
@@ -4598,13 +4779,24 @@ export default class Client extends OpenApi {
   async cancelCallWithOptions(request: CancelCallRequest, runtime: $Util.RuntimeOptions): Promise<CancelCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelCall",
@@ -4614,7 +4806,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelCallResponse>(await this.callApi(params, req, runtime), new CancelCallResponse({}));
@@ -4628,13 +4820,24 @@ export default class Client extends OpenApi {
   async cancelOrderRobotTaskWithOptions(request: CancelOrderRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelOrderRobotTask",
@@ -4644,7 +4847,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelOrderRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelOrderRobotTaskResponse({}));
@@ -4658,13 +4861,24 @@ export default class Client extends OpenApi {
   async cancelRobotTaskWithOptions(request: CancelRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CancelRobotTask",
@@ -4674,7 +4888,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CancelRobotTaskResponse>(await this.callApi(params, req, runtime), new CancelRobotTaskResponse({}));
@@ -4688,21 +4902,56 @@ export default class Client extends OpenApi {
   async clickToDialWithOptions(request: ClickToDialRequest, runtime: $Util.RuntimeOptions): Promise<ClickToDialResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AsrFlag"] = request.asrFlag;
-    query["AsrModelId"] = request.asrModelId;
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["CallerNumber"] = request.callerNumber;
-    query["CallerShowNumber"] = request.callerShowNumber;
-    query["OutId"] = request.outId;
-    query["OwnerId"] = request.ownerId;
-    query["RecordFlag"] = request.recordFlag;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SessionTimeout"] = request.sessionTimeout;
+    if (!Util.isUnset(request.asrFlag)) {
+      query["AsrFlag"] = request.asrFlag;
+    }
+
+    if (!Util.isUnset(request.asrModelId)) {
+      query["AsrModelId"] = request.asrModelId;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!Util.isUnset(request.callerShowNumber)) {
+      query["CallerShowNumber"] = request.callerShowNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.recordFlag)) {
+      query["RecordFlag"] = request.recordFlag;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sessionTimeout)) {
+      query["SessionTimeout"] = request.sessionTimeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ClickToDial",
@@ -4712,7 +4961,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ClickToDialResponse>(await this.callApi(params, req, runtime), new ClickToDialResponse({}));
@@ -4726,23 +4975,64 @@ export default class Client extends OpenApi {
   async createCallTaskWithOptions(request: CreateCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BizType"] = request.bizType;
-    query["Data"] = request.data;
-    query["DataType"] = request.dataType;
-    query["FireTime"] = request.fireTime;
-    query["OwnerId"] = request.ownerId;
-    query["Resource"] = request.resource;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ResourceType"] = request.resourceType;
-    query["ScheduleType"] = request.scheduleType;
-    query["StopTime"] = request.stopTime;
-    query["TaskName"] = request.taskName;
-    query["TemplateCode"] = request.templateCode;
-    query["TemplateName"] = request.templateName;
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.fireTime)) {
+      query["FireTime"] = request.fireTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.scheduleType)) {
+      query["ScheduleType"] = request.scheduleType;
+    }
+
+    if (!Util.isUnset(request.stopTime)) {
+      query["StopTime"] = request.stopTime;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateCallTask",
@@ -4752,7 +5042,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateCallTaskResponse>(await this.callApi(params, req, runtime), new CreateCallTaskResponse({}));
@@ -4766,22 +5056,60 @@ export default class Client extends OpenApi {
   async createRobotTaskWithOptions(request: CreateRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Caller"] = request.caller;
-    query["CorpName"] = request.corpName;
-    query["DialogId"] = request.dialogId;
-    query["IsSelfLine"] = request.isSelfLine;
-    query["NumberStatusIdent"] = request.numberStatusIdent;
-    query["OwnerId"] = request.ownerId;
-    query["RecallInterval"] = request.recallInterval;
-    query["RecallStateCodes"] = request.recallStateCodes;
-    query["RecallTimes"] = request.recallTimes;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RetryType"] = request.retryType;
-    query["TaskName"] = request.taskName;
+    if (!Util.isUnset(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!Util.isUnset(request.corpName)) {
+      query["CorpName"] = request.corpName;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.isSelfLine)) {
+      query["IsSelfLine"] = request.isSelfLine;
+    }
+
+    if (!Util.isUnset(request.numberStatusIdent)) {
+      query["NumberStatusIdent"] = request.numberStatusIdent;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.recallInterval)) {
+      query["RecallInterval"] = request.recallInterval;
+    }
+
+    if (!Util.isUnset(request.recallStateCodes)) {
+      query["RecallStateCodes"] = request.recallStateCodes;
+    }
+
+    if (!Util.isUnset(request.recallTimes)) {
+      query["RecallTimes"] = request.recallTimes;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.retryType)) {
+      query["RetryType"] = request.retryType;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateRobotTask",
@@ -4791,7 +5119,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateRobotTaskResponse>(await this.callApi(params, req, runtime), new CreateRobotTaskResponse({}));
@@ -4805,13 +5133,24 @@ export default class Client extends OpenApi {
   async deleteRobotTaskWithOptions(request: DeleteRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRobotTask",
@@ -4821,7 +5160,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteRobotTaskResponse>(await this.callApi(params, req, runtime), new DeleteRobotTaskResponse({}));
@@ -4835,15 +5174,32 @@ export default class Client extends OpenApi {
   async executeCallTaskWithOptions(request: ExecuteCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FireTime"] = request.fireTime;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.fireTime)) {
+      query["FireTime"] = request.fireTime;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ExecuteCallTask",
@@ -4853,7 +5209,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ExecuteCallTaskResponse>(await this.callApi(params, req, runtime), new ExecuteCallTaskResponse({}));
@@ -4867,13 +5223,24 @@ export default class Client extends OpenApi {
   async getCallInfoWithOptions(request: GetCallInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCallInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RtcId"] = request.rtcId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.rtcId)) {
+      query["RtcId"] = request.rtcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetCallInfo",
@@ -4883,7 +5250,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetCallInfoResponse>(await this.callApi(params, req, runtime), new GetCallInfoResponse({}));
@@ -4897,13 +5264,24 @@ export default class Client extends OpenApi {
   async getHotlineQualificationByOrderWithOptions(request: GetHotlineQualificationByOrderRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineQualificationByOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderId"] = request.orderId;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetHotlineQualificationByOrder",
@@ -4913,7 +5291,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetHotlineQualificationByOrderResponse>(await this.callApi(params, req, runtime), new GetHotlineQualificationByOrderResponse({}));
@@ -4927,12 +5305,20 @@ export default class Client extends OpenApi {
   async getMqttTokenWithOptions(request: GetMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetMqttTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMqttToken",
@@ -4942,7 +5328,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMqttTokenResponse>(await this.callApi(params, req, runtime), new GetMqttTokenResponse({}));
@@ -4956,15 +5342,32 @@ export default class Client extends OpenApi {
   async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DeviceId"] = request.deviceId;
-    query["IsCustomAccount"] = request.isCustomAccount;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.isCustomAccount)) {
+      query["IsCustomAccount"] = request.isCustomAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetRtcToken",
@@ -4974,7 +5377,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
@@ -4988,13 +5391,24 @@ export default class Client extends OpenApi {
   async getTokenWithOptions(request: GetTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TokenType"] = request.tokenType;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetToken",
@@ -5004,7 +5418,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetTokenResponse>(await this.callApi(params, req, runtime), new GetTokenResponse({}));
@@ -5018,22 +5432,60 @@ export default class Client extends OpenApi {
   async ivrCallWithOptions(request: IvrCallRequest, runtime: $Util.RuntimeOptions): Promise<IvrCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ByeCode"] = request.byeCode;
-    query["ByeTtsParams"] = request.byeTtsParams;
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["MenuKeyMap"] = request.menuKeyMap;
-    query["OutId"] = request.outId;
-    query["OwnerId"] = request.ownerId;
-    query["PlayTimes"] = request.playTimes;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["StartCode"] = request.startCode;
-    query["StartTtsParams"] = request.startTtsParams;
-    query["Timeout"] = request.timeout;
+    if (!Util.isUnset(request.byeCode)) {
+      query["ByeCode"] = request.byeCode;
+    }
+
+    if (!Util.isUnset(request.byeTtsParams)) {
+      query["ByeTtsParams"] = request.byeTtsParams;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.menuKeyMap)) {
+      query["MenuKeyMap"] = request.menuKeyMap;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playTimes)) {
+      query["PlayTimes"] = request.playTimes;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.startCode)) {
+      query["StartCode"] = request.startCode;
+    }
+
+    if (!Util.isUnset(request.startTtsParams)) {
+      query["StartTtsParams"] = request.startTtsParams;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "IvrCall",
@@ -5043,7 +5495,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<IvrCallResponse>(await this.callApi(params, req, runtime), new IvrCallResponse({}));
@@ -5057,19 +5509,48 @@ export default class Client extends OpenApi {
   async listCallTaskWithOptions(request: ListCallTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BizType"] = request.bizType;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
-    query["TaskId"] = request.taskId;
-    query["TaskName"] = request.taskName;
-    query["TemplateName"] = request.templateName;
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListCallTask",
@@ -5079,7 +5560,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCallTaskResponse>(await this.callApi(params, req, runtime), new ListCallTaskResponse({}));
@@ -5093,17 +5574,40 @@ export default class Client extends OpenApi {
   async listCallTaskDetailWithOptions(request: ListCallTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNum"] = request.calledNum;
-    query["OwnerId"] = request.ownerId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.calledNum)) {
+      query["CalledNum"] = request.calledNum;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListCallTaskDetail",
@@ -5113,7 +5617,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCallTaskDetailResponse>(await this.callApi(params, req, runtime), new ListCallTaskDetailResponse({}));
@@ -5127,16 +5631,36 @@ export default class Client extends OpenApi {
   async listHotlineTransferNumberWithOptions(request: ListHotlineTransferNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferNumberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["HotlineNumber"] = request.hotlineNumber;
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["QualificationId"] = request.qualificationId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.hotlineNumber)) {
+      query["HotlineNumber"] = request.hotlineNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListHotlineTransferNumber",
@@ -5146,7 +5670,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListHotlineTransferNumberResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferNumberResponse({}));
@@ -5160,16 +5684,36 @@ export default class Client extends OpenApi {
   async listHotlineTransferRegisterFileWithOptions(request: ListHotlineTransferRegisterFileRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineTransferRegisterFileResponse> {
     Util.validateModel(request);
     let query = { };
-    query["HotlineNumber"] = request.hotlineNumber;
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["QualificationId"] = request.qualificationId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.hotlineNumber)) {
+      query["HotlineNumber"] = request.hotlineNumber;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListHotlineTransferRegisterFile",
@@ -5179,7 +5723,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListHotlineTransferRegisterFileResponse>(await this.callApi(params, req, runtime), new ListHotlineTransferRegisterFileResponse({}));
@@ -5193,15 +5737,32 @@ export default class Client extends OpenApi {
   async queryCallDetailByCallIdWithOptions(request: QueryCallDetailByCallIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallDetailByCallIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["OwnerId"] = request.ownerId;
-    query["ProdId"] = request.prodId;
-    query["QueryDate"] = request.queryDate;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.prodId)) {
+      query["ProdId"] = request.prodId;
+    }
+
+    if (!Util.isUnset(request.queryDate)) {
+      query["QueryDate"] = request.queryDate;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryCallDetailByCallId",
@@ -5211,7 +5772,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryCallDetailByCallIdResponse>(await this.callApi(params, req, runtime), new QueryCallDetailByCallIdResponse({}));
@@ -5225,15 +5786,32 @@ export default class Client extends OpenApi {
   async queryCallDetailByTaskIdWithOptions(request: QueryCallDetailByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallDetailByTaskIdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Callee"] = request.callee;
-    query["OwnerId"] = request.ownerId;
-    query["QueryDate"] = request.queryDate;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.queryDate)) {
+      query["QueryDate"] = request.queryDate;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryCallDetailByTaskId",
@@ -5243,7 +5821,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryCallDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new QueryCallDetailByTaskIdResponse({}));
@@ -5257,13 +5835,24 @@ export default class Client extends OpenApi {
   async queryCallInPoolTransferConfigWithOptions(request: QueryCallInPoolTransferConfigRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInPoolTransferConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PhoneNumber"] = request.phoneNumber;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryCallInPoolTransferConfig",
@@ -5273,7 +5862,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryCallInPoolTransferConfigResponse>(await this.callApi(params, req, runtime), new QueryCallInPoolTransferConfigResponse({}));
@@ -5287,17 +5876,40 @@ export default class Client extends OpenApi {
   async queryCallInTransferRecordWithOptions(request: QueryCallInTransferRecordRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallInTransferRecordResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallInCaller"] = request.callInCaller;
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["PhoneNumber"] = request.phoneNumber;
-    query["QueryDate"] = request.queryDate;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.callInCaller)) {
+      query["CallInCaller"] = request.callInCaller;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.queryDate)) {
+      query["QueryDate"] = request.queryDate;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryCallInTransferRecord",
@@ -5307,7 +5919,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryCallInTransferRecordResponse>(await this.callApi(params, req, runtime), new QueryCallInTransferRecordResponse({}));
@@ -5321,13 +5933,24 @@ export default class Client extends OpenApi {
   async queryRobotInfoListWithOptions(request: QueryRobotInfoListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotInfoListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AuditStatus"] = request.auditStatus;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.auditStatus)) {
+      query["AuditStatus"] = request.auditStatus;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotInfoList",
@@ -5337,7 +5960,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotInfoListResponse>(await this.callApi(params, req, runtime), new QueryRobotInfoListResponse({}));
@@ -5351,15 +5974,32 @@ export default class Client extends OpenApi {
   async queryRobotTaskCallDetailWithOptions(request: QueryRobotTaskCallDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Callee"] = request.callee;
-    query["OwnerId"] = request.ownerId;
-    query["QueryDate"] = request.queryDate;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.callee)) {
+      query["Callee"] = request.callee;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.queryDate)) {
+      query["QueryDate"] = request.queryDate;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotTaskCallDetail",
@@ -5369,7 +6009,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotTaskCallDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallDetailResponse({}));
@@ -5383,22 +6023,60 @@ export default class Client extends OpenApi {
   async queryRobotTaskCallListWithOptions(request: QueryRobotTaskCallListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskCallListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallResult"] = request.callResult;
-    query["Called"] = request.called;
-    query["DialogCountFrom"] = request.dialogCountFrom;
-    query["DialogCountTo"] = request.dialogCountTo;
-    query["DurationFrom"] = request.durationFrom;
-    query["DurationTo"] = request.durationTo;
-    query["HangupDirection"] = request.hangupDirection;
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.callResult)) {
+      query["CallResult"] = request.callResult;
+    }
+
+    if (!Util.isUnset(request.called)) {
+      query["Called"] = request.called;
+    }
+
+    if (!Util.isUnset(request.dialogCountFrom)) {
+      query["DialogCountFrom"] = request.dialogCountFrom;
+    }
+
+    if (!Util.isUnset(request.dialogCountTo)) {
+      query["DialogCountTo"] = request.dialogCountTo;
+    }
+
+    if (!Util.isUnset(request.durationFrom)) {
+      query["DurationFrom"] = request.durationFrom;
+    }
+
+    if (!Util.isUnset(request.durationTo)) {
+      query["DurationTo"] = request.durationTo;
+    }
+
+    if (!Util.isUnset(request.hangupDirection)) {
+      query["HangupDirection"] = request.hangupDirection;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotTaskCallList",
@@ -5408,7 +6086,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotTaskCallListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskCallListResponse({}));
@@ -5422,13 +6100,24 @@ export default class Client extends OpenApi {
   async queryRobotTaskDetailWithOptions(request: QueryRobotTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotTaskDetail",
@@ -5438,7 +6127,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskDetailResponse({}));
@@ -5452,17 +6141,40 @@ export default class Client extends OpenApi {
   async queryRobotTaskListWithOptions(request: QueryRobotTaskListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotTaskListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
-    query["TaskName"] = request.taskName;
-    query["Time"] = request.time;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.time)) {
+      query["Time"] = request.time;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotTaskList",
@@ -5472,7 +6184,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotTaskListResponse>(await this.callApi(params, req, runtime), new QueryRobotTaskListResponse({}));
@@ -5486,12 +6198,20 @@ export default class Client extends OpenApi {
   async queryRobotv2AllListWithOptions(request: QueryRobotv2AllListRequest, runtime: $Util.RuntimeOptions): Promise<QueryRobotv2AllListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryRobotv2AllList",
@@ -5501,7 +6221,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryRobotv2AllListResponse>(await this.callApi(params, req, runtime), new QueryRobotv2AllListResponse({}));
@@ -5515,16 +6235,36 @@ export default class Client extends OpenApi {
   async queryVirtualNumberWithOptions(request: QueryVirtualNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["ProdCode"] = request.prodCode;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteType"] = request.routeType;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      query["RouteType"] = request.routeType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryVirtualNumber",
@@ -5534,7 +6274,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryVirtualNumberResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberResponse({}));
@@ -5548,21 +6288,56 @@ export default class Client extends OpenApi {
   async queryVirtualNumberRelationWithOptions(request: QueryVirtualNumberRelationRequest, runtime: $Util.RuntimeOptions): Promise<QueryVirtualNumberRelationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["PageNo"] = request.pageNo;
-    query["PageSize"] = request.pageSize;
-    query["PhoneNum"] = request.phoneNum;
-    query["ProdCode"] = request.prodCode;
-    query["QualificationId"] = request.qualificationId;
-    query["RegionNameCity"] = request.regionNameCity;
-    query["RelatedNum"] = request.relatedNum;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["RouteType"] = request.routeType;
-    query["SpecId"] = request.specId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.phoneNum)) {
+      query["PhoneNum"] = request.phoneNum;
+    }
+
+    if (!Util.isUnset(request.prodCode)) {
+      query["ProdCode"] = request.prodCode;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.regionNameCity)) {
+      query["RegionNameCity"] = request.regionNameCity;
+    }
+
+    if (!Util.isUnset(request.relatedNum)) {
+      query["RelatedNum"] = request.relatedNum;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.routeType)) {
+      query["RouteType"] = request.routeType;
+    }
+
+    if (!Util.isUnset(request.specId)) {
+      query["SpecId"] = request.specId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryVirtualNumberRelation",
@@ -5572,7 +6347,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryVirtualNumberRelationResponse>(await this.callApi(params, req, runtime), new QueryVirtualNumberRelationResponse({}));
@@ -5583,16 +6358,72 @@ export default class Client extends OpenApi {
     return await this.queryVirtualNumberRelationWithOptions(request, runtime);
   }
 
+  async queryVoiceFileAuditInfoWithOptions(request: QueryVoiceFileAuditInfoRequest, runtime: $Util.RuntimeOptions): Promise<QueryVoiceFileAuditInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.businessType)) {
+      query["BusinessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.voiceCodes)) {
+      query["VoiceCodes"] = request.voiceCodes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryVoiceFileAuditInfo",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryVoiceFileAuditInfoResponse>(await this.callApi(params, req, runtime), new QueryVoiceFileAuditInfoResponse({}));
+  }
+
+  async queryVoiceFileAuditInfo(request: QueryVoiceFileAuditInfoRequest): Promise<QueryVoiceFileAuditInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryVoiceFileAuditInfoWithOptions(request, runtime);
+  }
+
   async refreshMqttTokenWithOptions(request: RefreshMqttTokenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshMqttTokenResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientId"] = request.clientId;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RefreshMqttToken",
@@ -5602,7 +6433,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RefreshMqttTokenResponse>(await this.callApi(params, req, runtime), new RefreshMqttTokenResponse({}));
@@ -5616,15 +6447,32 @@ export default class Client extends OpenApi {
   async sendVerificationWithOptions(request: SendVerificationRequest, runtime: $Util.RuntimeOptions): Promise<SendVerificationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BizType"] = request.bizType;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Target"] = request.target;
-    query["VerifyType"] = request.verifyType;
+    if (!Util.isUnset(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.target)) {
+      query["Target"] = request.target;
+    }
+
+    if (!Util.isUnset(request.verifyType)) {
+      query["VerifyType"] = request.verifyType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SendVerification",
@@ -5634,7 +6482,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SendVerificationResponse>(await this.callApi(params, req, runtime), new SendVerificationResponse({}));
@@ -5648,16 +6496,36 @@ export default class Client extends OpenApi {
   async setTransferCalleePoolConfigWithOptions(request: SetTransferCalleePoolConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetTransferCalleePoolConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledRouteMode"] = request.calledRouteMode;
-    query["Details"] = request.details;
-    query["OwnerId"] = request.ownerId;
-    query["PhoneNumber"] = request.phoneNumber;
-    query["QualificationId"] = request.qualificationId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.calledRouteMode)) {
+      query["CalledRouteMode"] = request.calledRouteMode;
+    }
+
+    if (!Util.isUnset(request.details)) {
+      query["Details"] = request.details;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetTransferCalleePoolConfig",
@@ -5667,7 +6535,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetTransferCalleePoolConfigResponse>(await this.callApi(params, req, runtime), new SetTransferCalleePoolConfigResponse({}));
@@ -5681,20 +6549,52 @@ export default class Client extends OpenApi {
   async singleCallByTtsWithOptions(request: SingleCallByTtsRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByTtsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["OutId"] = request.outId;
-    query["OwnerId"] = request.ownerId;
-    query["PlayTimes"] = request.playTimes;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Speed"] = request.speed;
-    query["TtsCode"] = request.ttsCode;
-    query["TtsParam"] = request.ttsParam;
-    query["Volume"] = request.volume;
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playTimes)) {
+      query["PlayTimes"] = request.playTimes;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.speed)) {
+      query["Speed"] = request.speed;
+    }
+
+    if (!Util.isUnset(request.ttsCode)) {
+      query["TtsCode"] = request.ttsCode;
+    }
+
+    if (!Util.isUnset(request.ttsParam)) {
+      query["TtsParam"] = request.ttsParam;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SingleCallByTts",
@@ -5704,7 +6604,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SingleCallByTtsResponse>(await this.callApi(params, req, runtime), new SingleCallByTtsResponse({}));
@@ -5718,19 +6618,48 @@ export default class Client extends OpenApi {
   async singleCallByVoiceWithOptions(request: SingleCallByVoiceRequest, runtime: $Util.RuntimeOptions): Promise<SingleCallByVoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["OutId"] = request.outId;
-    query["OwnerId"] = request.ownerId;
-    query["PlayTimes"] = request.playTimes;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Speed"] = request.speed;
-    query["VoiceCode"] = request.voiceCode;
-    query["Volume"] = request.volume;
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.playTimes)) {
+      query["PlayTimes"] = request.playTimes;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.speed)) {
+      query["Speed"] = request.speed;
+    }
+
+    if (!Util.isUnset(request.voiceCode)) {
+      query["VoiceCode"] = request.voiceCode;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SingleCallByVoice",
@@ -5740,7 +6669,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SingleCallByVoiceResponse>(await this.callApi(params, req, runtime), new SingleCallByVoiceResponse({}));
@@ -5754,38 +6683,124 @@ export default class Client extends OpenApi {
   async smartCallWithOptions(request: SmartCallRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ActionCodeBreak"] = request.actionCodeBreak;
-    query["ActionCodeTimeBreak"] = request.actionCodeTimeBreak;
-    query["AsrBaseId"] = request.asrBaseId;
-    query["AsrModelId"] = request.asrModelId;
-    query["BackgroundFileCode"] = request.backgroundFileCode;
-    query["BackgroundSpeed"] = request.backgroundSpeed;
-    query["BackgroundVolume"] = request.backgroundVolume;
-    query["CalledNumber"] = request.calledNumber;
-    query["CalledShowNumber"] = request.calledShowNumber;
-    query["DynamicId"] = request.dynamicId;
-    query["EarlyMediaAsr"] = request.earlyMediaAsr;
-    query["EnableITN"] = request.enableITN;
-    query["MuteTime"] = request.muteTime;
-    query["OutId"] = request.outId;
-    query["OwnerId"] = request.ownerId;
-    query["PauseTime"] = request.pauseTime;
-    query["RecordFlag"] = request.recordFlag;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SessionTimeout"] = request.sessionTimeout;
-    query["Speed"] = request.speed;
-    query["StreamAsr"] = request.streamAsr;
-    query["TtsConf"] = request.ttsConf;
-    query["TtsSpeed"] = request.ttsSpeed;
-    query["TtsStyle"] = request.ttsStyle;
-    query["TtsVolume"] = request.ttsVolume;
-    query["VoiceCode"] = request.voiceCode;
-    query["VoiceCodeParam"] = request.voiceCodeParam;
-    query["Volume"] = request.volume;
+    if (!Util.isUnset(request.actionCodeBreak)) {
+      query["ActionCodeBreak"] = request.actionCodeBreak;
+    }
+
+    if (!Util.isUnset(request.actionCodeTimeBreak)) {
+      query["ActionCodeTimeBreak"] = request.actionCodeTimeBreak;
+    }
+
+    if (!Util.isUnset(request.asrBaseId)) {
+      query["AsrBaseId"] = request.asrBaseId;
+    }
+
+    if (!Util.isUnset(request.asrModelId)) {
+      query["AsrModelId"] = request.asrModelId;
+    }
+
+    if (!Util.isUnset(request.backgroundFileCode)) {
+      query["BackgroundFileCode"] = request.backgroundFileCode;
+    }
+
+    if (!Util.isUnset(request.backgroundSpeed)) {
+      query["BackgroundSpeed"] = request.backgroundSpeed;
+    }
+
+    if (!Util.isUnset(request.backgroundVolume)) {
+      query["BackgroundVolume"] = request.backgroundVolume;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.calledShowNumber)) {
+      query["CalledShowNumber"] = request.calledShowNumber;
+    }
+
+    if (!Util.isUnset(request.dynamicId)) {
+      query["DynamicId"] = request.dynamicId;
+    }
+
+    if (!Util.isUnset(request.earlyMediaAsr)) {
+      query["EarlyMediaAsr"] = request.earlyMediaAsr;
+    }
+
+    if (!Util.isUnset(request.enableITN)) {
+      query["EnableITN"] = request.enableITN;
+    }
+
+    if (!Util.isUnset(request.muteTime)) {
+      query["MuteTime"] = request.muteTime;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pauseTime)) {
+      query["PauseTime"] = request.pauseTime;
+    }
+
+    if (!Util.isUnset(request.recordFlag)) {
+      query["RecordFlag"] = request.recordFlag;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sessionTimeout)) {
+      query["SessionTimeout"] = request.sessionTimeout;
+    }
+
+    if (!Util.isUnset(request.speed)) {
+      query["Speed"] = request.speed;
+    }
+
+    if (!Util.isUnset(request.streamAsr)) {
+      query["StreamAsr"] = request.streamAsr;
+    }
+
+    if (!Util.isUnset(request.ttsConf)) {
+      query["TtsConf"] = request.ttsConf;
+    }
+
+    if (!Util.isUnset(request.ttsSpeed)) {
+      query["TtsSpeed"] = request.ttsSpeed;
+    }
+
+    if (!Util.isUnset(request.ttsStyle)) {
+      query["TtsStyle"] = request.ttsStyle;
+    }
+
+    if (!Util.isUnset(request.ttsVolume)) {
+      query["TtsVolume"] = request.ttsVolume;
+    }
+
+    if (!Util.isUnset(request.voiceCode)) {
+      query["VoiceCode"] = request.voiceCode;
+    }
+
+    if (!Util.isUnset(request.voiceCodeParam)) {
+      query["VoiceCodeParam"] = request.voiceCodeParam;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      query["Volume"] = request.volume;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SmartCall",
@@ -5795,7 +6810,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SmartCallResponse>(await this.callApi(params, req, runtime), new SmartCallResponse({}));
@@ -5809,15 +6824,32 @@ export default class Client extends OpenApi {
   async smartCallOperateWithOptions(request: SmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<SmartCallOperateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CallId"] = request.callId;
-    query["Command"] = request.command;
-    query["OwnerId"] = request.ownerId;
-    query["Param"] = request.param;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!Util.isUnset(request.command)) {
+      query["Command"] = request.command;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SmartCallOperate",
@@ -5827,7 +6859,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SmartCallOperateResponse>(await this.callApi(params, req, runtime), new SmartCallOperateResponse({}));
@@ -5841,14 +6873,28 @@ export default class Client extends OpenApi {
   async startRobotTaskWithOptions(request: StartRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["ScheduleTime"] = request.scheduleTime;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartRobotTask",
@@ -5858,7 +6904,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartRobotTaskResponse>(await this.callApi(params, req, runtime), new StartRobotTaskResponse({}));
@@ -5872,13 +6918,24 @@ export default class Client extends OpenApi {
   async stopRobotTaskWithOptions(request: StopRobotTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopRobotTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TaskId"] = request.taskId;
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopRobotTask",
@@ -5888,7 +6945,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopRobotTaskResponse>(await this.callApi(params, req, runtime), new StopRobotTaskResponse({}));
@@ -5902,22 +6959,60 @@ export default class Client extends OpenApi {
   async submitHotlineTransferRegisterWithOptions(request: SubmitHotlineTransferRegisterRequest, runtime: $Util.RuntimeOptions): Promise<SubmitHotlineTransferRegisterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Agreement"] = request.agreement;
-    query["HotlineNumber"] = request.hotlineNumber;
-    query["OperatorIdentityCard"] = request.operatorIdentityCard;
-    query["OperatorMail"] = request.operatorMail;
-    query["OperatorMailVerifyCode"] = request.operatorMailVerifyCode;
-    query["OperatorMobile"] = request.operatorMobile;
-    query["OperatorMobileVerifyCode"] = request.operatorMobileVerifyCode;
-    query["OperatorName"] = request.operatorName;
-    query["OwnerId"] = request.ownerId;
-    query["QualificationId"] = request.qualificationId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TransferPhoneNumberInfos"] = request.transferPhoneNumberInfos;
+    if (!Util.isUnset(request.agreement)) {
+      query["Agreement"] = request.agreement;
+    }
+
+    if (!Util.isUnset(request.hotlineNumber)) {
+      query["HotlineNumber"] = request.hotlineNumber;
+    }
+
+    if (!Util.isUnset(request.operatorIdentityCard)) {
+      query["OperatorIdentityCard"] = request.operatorIdentityCard;
+    }
+
+    if (!Util.isUnset(request.operatorMail)) {
+      query["OperatorMail"] = request.operatorMail;
+    }
+
+    if (!Util.isUnset(request.operatorMailVerifyCode)) {
+      query["OperatorMailVerifyCode"] = request.operatorMailVerifyCode;
+    }
+
+    if (!Util.isUnset(request.operatorMobile)) {
+      query["OperatorMobile"] = request.operatorMobile;
+    }
+
+    if (!Util.isUnset(request.operatorMobileVerifyCode)) {
+      query["OperatorMobileVerifyCode"] = request.operatorMobileVerifyCode;
+    }
+
+    if (!Util.isUnset(request.operatorName)) {
+      query["OperatorName"] = request.operatorName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.transferPhoneNumberInfos)) {
+      query["TransferPhoneNumberInfos"] = request.transferPhoneNumberInfos;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SubmitHotlineTransferRegister",
@@ -5927,7 +7022,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SubmitHotlineTransferRegisterResponse>(await this.callApi(params, req, runtime), new SubmitHotlineTransferRegisterResponse({}));
@@ -5941,16 +7036,36 @@ export default class Client extends OpenApi {
   async uploadRobotTaskCalledFileWithOptions(request: UploadRobotTaskCalledFileRequest, runtime: $Util.RuntimeOptions): Promise<UploadRobotTaskCalledFileResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalledNumber"] = request.calledNumber;
-    query["Id"] = request.id;
-    query["OwnerId"] = request.ownerId;
-    query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["TtsParam"] = request.ttsParam;
-    query["TtsParamHead"] = request.ttsParamHead;
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ttsParam)) {
+      query["TtsParam"] = request.ttsParam;
+    }
+
+    if (!Util.isUnset(request.ttsParamHead)) {
+      query["TtsParamHead"] = request.ttsParamHead;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UploadRobotTaskCalledFile",
@@ -5960,7 +7075,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UploadRobotTaskCalledFileResponse>(await this.callApi(params, req, runtime), new UploadRobotTaskCalledFileResponse({}));
