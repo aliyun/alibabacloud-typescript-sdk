@@ -8359,6 +8359,84 @@ export class ModifyDataCorrectExecSQLResponse extends $tea.Model {
   }
 }
 
+export class PauseDataCorrectSQLJobRequest extends $tea.Model {
+  jobId?: number;
+  orderId?: number;
+  tid?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseDataCorrectSQLJobResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseDataCorrectSQLJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PauseDataCorrectSQLJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PauseDataCorrectSQLJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RegisterInstanceRequest extends $tea.Model {
   dataLinkName?: string;
   databasePassword?: string;
@@ -8564,6 +8642,84 @@ export class RegisterUserResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RegisterUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataCorrectSQLJobRequest extends $tea.Model {
+  jobId?: number;
+  orderId?: number;
+  tid?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataCorrectSQLJobResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataCorrectSQLJobResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RestartDataCorrectSQLJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RestartDataCorrectSQLJobResponseBody,
     };
   }
 
@@ -13079,6 +13235,7 @@ export class ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList extends $tea.
   SQLReviewQueryKey?: string;
   sqlReviewStatus?: string;
   sqlType?: string;
+  tableNames?: string;
   static names(): { [key: string]: string } {
     return {
       affectRows: 'AffectRows',
@@ -13087,6 +13244,7 @@ export class ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList extends $tea.
       SQLReviewQueryKey: 'SQLReviewQueryKey',
       sqlReviewStatus: 'SqlReviewStatus',
       sqlType: 'SqlType',
+      tableNames: 'TableNames',
     };
   }
 
@@ -13098,6 +13256,7 @@ export class ListDataCorrectPreCheckSQLResponseBodyPreCheckSQLList extends $tea.
       SQLReviewQueryKey: 'string',
       sqlReviewStatus: 'string',
       sqlType: 'string',
+      tableNames: 'string',
     };
   }
 
@@ -19445,6 +19604,47 @@ export default class Client extends OpenApi {
     return await this.modifyDataCorrectExecSQLWithOptions(request, runtime);
   }
 
+  async pauseDataCorrectSQLJobWithOptions(request: PauseDataCorrectSQLJobRequest, runtime: $Util.RuntimeOptions): Promise<PauseDataCorrectSQLJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PauseDataCorrectSQLJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PauseDataCorrectSQLJobResponse>(await this.callApi(params, req, runtime), new PauseDataCorrectSQLJobResponse({}));
+  }
+
+  async pauseDataCorrectSQLJob(request: PauseDataCorrectSQLJobRequest): Promise<PauseDataCorrectSQLJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pauseDataCorrectSQLJobWithOptions(request, runtime);
+  }
+
   async registerInstanceWithOptions(request: RegisterInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RegisterInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19601,6 +19801,47 @@ export default class Client extends OpenApi {
   async registerUser(request: RegisterUserRequest): Promise<RegisterUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerUserWithOptions(request, runtime);
+  }
+
+  async restartDataCorrectSQLJobWithOptions(request: RestartDataCorrectSQLJobRequest, runtime: $Util.RuntimeOptions): Promise<RestartDataCorrectSQLJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartDataCorrectSQLJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartDataCorrectSQLJobResponse>(await this.callApi(params, req, runtime), new RestartDataCorrectSQLJobResponse({}));
+  }
+
+  async restartDataCorrectSQLJob(request: RestartDataCorrectSQLJobRequest): Promise<RestartDataCorrectSQLJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartDataCorrectSQLJobWithOptions(request, runtime);
   }
 
   async retryDataCorrectPreCheckWithOptions(request: RetryDataCorrectPreCheckRequest, runtime: $Util.RuntimeOptions): Promise<RetryDataCorrectPreCheckResponse> {
