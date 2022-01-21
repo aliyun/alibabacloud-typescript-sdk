@@ -5715,15 +5715,21 @@ export class ListILMPoliciesResponse extends $tea.Model {
 
 export class ListIndexTemplatesRequest extends $tea.Model {
   indexTemplate?: string;
+  page?: number;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       indexTemplate: 'indexTemplate',
+      page: 'page',
+      size: 'size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       indexTemplate: 'string',
+      page: 'number',
+      size: 'number',
     };
   }
 
@@ -8232,11 +8238,13 @@ export class RunPipelinesResponse extends $tea.Model {
 }
 
 export class ShrinkNodeRequest extends $tea.Model {
+  body?: ShrinkNodeRequestBody[];
   clientToken?: string;
   ignoreStatus?: boolean;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       clientToken: 'clientToken',
       ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
@@ -8245,6 +8253,7 @@ export class ShrinkNodeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': ShrinkNodeRequestBody },
       clientToken: 'string',
       ignoreStatus: 'boolean',
       nodeType: 'string',
@@ -8644,10 +8653,12 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class TransferNodeRequest extends $tea.Model {
+  body?: TransferNodeRequestBody[];
   clientToken?: string;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       clientToken: 'clientToken',
       nodeType: 'nodeType',
     };
@@ -8655,6 +8666,7 @@ export class TransferNodeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': TransferNodeRequestBody },
       clientToken: 'string',
       nodeType: 'string',
     };
@@ -11490,10 +11502,12 @@ export class ValidateConnectionResponse extends $tea.Model {
 }
 
 export class ValidateShrinkNodesRequest extends $tea.Model {
+  body?: ValidateShrinkNodesRequestBody[];
   ignoreStatus?: boolean;
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       ignoreStatus: 'ignoreStatus',
       nodeType: 'nodeType',
     };
@@ -11501,6 +11515,7 @@ export class ValidateShrinkNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': ValidateShrinkNodesRequestBody },
       ignoreStatus: 'boolean',
       nodeType: 'string',
     };
@@ -11622,15 +11637,18 @@ export class ValidateSlrPermissionResponse extends $tea.Model {
 }
 
 export class ValidateTransferableNodesRequest extends $tea.Model {
+  body?: ValidateTransferableNodesRequestBody[];
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
+      body: 'body',
       nodeType: 'nodeType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      body: { 'type': 'array', 'itemType': ValidateTransferableNodesRequestBody },
       nodeType: 'string',
     };
   }
@@ -17720,6 +17738,31 @@ export class RestartInstanceResponseBodyResult extends $tea.Model {
   }
 }
 
+export class ShrinkNodeRequestBody extends $tea.Model {
+  host?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTags extends $tea.Model {
   key?: string;
   value?: string;
@@ -17734,6 +17777,31 @@ export class TagResourcesRequestTags extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransferNodeRequestBody extends $tea.Model {
+  host?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -18794,6 +18862,56 @@ export class UpgradeEngineVersionResponseBodyResult extends $tea.Model {
       status: 'string',
       validateResult: UpgradeEngineVersionResponseBodyResultValidateResult,
       validateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateShrinkNodesRequestBody extends $tea.Model {
+  host?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateTransferableNodesRequestBody extends $tea.Model {
+  host?: string;
+  port?: number;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      host: 'host',
+      port: 'port',
+      zoneId: 'zoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      host: 'string',
+      port: 'number',
+      zoneId: 'string',
     };
   }
 
@@ -21940,6 +22058,14 @@ export default class Client extends OpenApi {
       query["indexTemplate"] = request.indexTemplate;
     }
 
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -23374,6 +23500,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "ShrinkNode",
@@ -23595,6 +23722,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "TransferNode",
@@ -25153,6 +25281,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "ValidateShrinkNodes",
@@ -25220,6 +25349,7 @@ export default class Client extends OpenApi {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: Util.toArray(request.body),
     });
     let params = new $OpenApi.Params({
       action: "ValidateTransferableNodes",
