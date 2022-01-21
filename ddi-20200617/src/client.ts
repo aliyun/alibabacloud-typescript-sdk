@@ -4310,105 +4310,6 @@ export class ListFlowProjectsResponse extends $tea.Model {
   }
 }
 
-export class ListFlowsRequest extends $tea.Model {
-  clusterId?: string;
-  id?: string;
-  jobId?: string;
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  periodic?: boolean;
-  projectId?: string;
-  regionId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      id: 'Id',
-      jobId: 'JobId',
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      periodic: 'Periodic',
-      projectId: 'ProjectId',
-      regionId: 'RegionId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      id: 'string',
-      jobId: 'string',
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      periodic: 'boolean',
-      projectId: 'string',
-      regionId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponseBody extends $tea.Model {
-  flow?: ListFlowsResponseBodyFlow;
-  pageNumber?: number;
-  pageSize?: number;
-  requestId?: string;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      flow: 'Flow',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flow: ListFlowsResponseBodyFlow,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListFlowsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListFlowsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListMainVersionsRequest extends $tea.Model {
   regionId?: string;
   resourceGroupId?: string;
@@ -8638,101 +8539,6 @@ export class ListFlowProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
-export class ListFlowsResponseBodyFlowFlow extends $tea.Model {
-  alertConf?: string;
-  alertDingDingGroupBizId?: string;
-  alertUserGroupBizId?: string;
-  categoryId?: string;
-  clusterId?: string;
-  createCluster?: boolean;
-  cronExpr?: string;
-  description?: string;
-  endSchedule?: number;
-  gmtCreate?: number;
-  gmtModified?: number;
-  graph?: string;
-  hostName?: string;
-  id?: string;
-  name?: string;
-  periodic?: boolean;
-  projectId?: string;
-  startSchedule?: number;
-  status?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      alertConf: 'AlertConf',
-      alertDingDingGroupBizId: 'AlertDingDingGroupBizId',
-      alertUserGroupBizId: 'AlertUserGroupBizId',
-      categoryId: 'CategoryId',
-      clusterId: 'ClusterId',
-      createCluster: 'CreateCluster',
-      cronExpr: 'CronExpr',
-      description: 'Description',
-      endSchedule: 'EndSchedule',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      graph: 'Graph',
-      hostName: 'HostName',
-      id: 'Id',
-      name: 'Name',
-      periodic: 'Periodic',
-      projectId: 'ProjectId',
-      startSchedule: 'StartSchedule',
-      status: 'Status',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      alertConf: 'string',
-      alertDingDingGroupBizId: 'string',
-      alertUserGroupBizId: 'string',
-      categoryId: 'string',
-      clusterId: 'string',
-      createCluster: 'boolean',
-      cronExpr: 'string',
-      description: 'string',
-      endSchedule: 'number',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      graph: 'string',
-      hostName: 'string',
-      id: 'string',
-      name: 'string',
-      periodic: 'boolean',
-      projectId: 'string',
-      startSchedule: 'number',
-      status: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListFlowsResponseBodyFlow extends $tea.Model {
-  flow?: ListFlowsResponseBodyFlowFlow[];
-  static names(): { [key: string]: string } {
-    return {
-      flow: 'Flow',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flow: { 'type': 'array', 'itemType': ListFlowsResponseBodyFlowFlow },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListMainVersionsResponseBodyMainVersionListClusterTypeInfoList extends $tea.Model {
   clusterType?: string;
   static names(): { [key: string]: string } {
@@ -8844,9 +8650,18 @@ export default class Client extends OpenApi {
   async cloneFlowWithOptions(request: CloneFlowRequest, runtime: $Util.RuntimeOptions): Promise<CloneFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8872,10 +8687,22 @@ export default class Client extends OpenApi {
   async cloneFlowJobWithOptions(request: CloneFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<CloneFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8901,11 +8728,26 @@ export default class Client extends OpenApi {
   async commitFlowEntitySnapshotWithOptions(request: CommitFlowEntitySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CommitFlowEntitySnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityId"] = request.entityId;
-    query["EntityType"] = request.entityType;
-    query["Message"] = request.message;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8931,53 +8773,194 @@ export default class Client extends OpenApi {
   async createClusterV2WithOptions(request: CreateClusterV2Request, runtime: $Util.RuntimeOptions): Promise<CreateClusterV2Response> {
     Util.validateModel(request);
     let query = { };
-    query["AuthorizeContent"] = request.authorizeContent;
-    query["Auto"] = request.auto;
-    query["AutoPayOrder"] = request.autoPayOrder;
-    query["BootstrapAction"] = request.bootstrapAction;
-    query["ChargeType"] = request.chargeType;
-    query["ClickHouseConf"] = request.clickHouseConf;
-    query["ClientToken"] = request.clientToken;
-    query["ClusterType"] = request.clusterType;
-    query["Config"] = request.config;
-    query["Configurations"] = request.configurations;
-    query["DepositType"] = request.depositType;
-    query["EmrVer"] = request.emrVer;
-    query["EnableEas"] = request.enableEas;
-    query["EnableHighAvailability"] = request.enableHighAvailability;
-    query["EnableSsh"] = request.enableSsh;
-    query["ExtraAttributes"] = request.extraAttributes;
-    query["HostComponentInfo"] = request.hostComponentInfo;
-    query["HostGroup"] = request.hostGroup;
-    query["InitCustomHiveMetaDB"] = request.initCustomHiveMetaDB;
-    query["InstanceGeneration"] = request.instanceGeneration;
-    query["IsOpenPublicIp"] = request.isOpenPublicIp;
-    query["KeyPairName"] = request.keyPairName;
-    query["LogPath"] = request.logPath;
-    query["MachineType"] = request.machineType;
-    query["MasterPwd"] = request.masterPwd;
-    query["MetaStoreConf"] = request.metaStoreConf;
-    query["MetaStoreType"] = request.metaStoreType;
-    query["Name"] = request.name;
-    query["NetType"] = request.netType;
-    query["Period"] = request.period;
-    query["PromotionInfo"] = request.promotionInfo;
-    query["RegionId"] = request.regionId;
-    query["RelatedClusterId"] = request.relatedClusterId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["SecurityGroupId"] = request.securityGroupId;
-    query["SecurityGroupName"] = request.securityGroupName;
-    query["ServiceInfo"] = request.serviceInfo;
-    query["Tag"] = request.tag;
-    query["UseCustomHiveMetaDB"] = request.useCustomHiveMetaDB;
-    query["UseLocalMetaDb"] = request.useLocalMetaDb;
-    query["UserDefinedEmrEcsRole"] = request.userDefinedEmrEcsRole;
-    query["UserInfo"] = request.userInfo;
-    query["VSwitchId"] = request.vSwitchId;
-    query["VpcId"] = request.vpcId;
-    query["WhiteListType"] = request.whiteListType;
-    query["ZoneId"] = request.zoneId;
+    if (!Util.isUnset(request.authorizeContent)) {
+      query["AuthorizeContent"] = request.authorizeContent;
+    }
+
+    if (!Util.isUnset(request.auto)) {
+      query["Auto"] = request.auto;
+    }
+
+    if (!Util.isUnset(request.autoPayOrder)) {
+      query["AutoPayOrder"] = request.autoPayOrder;
+    }
+
+    if (!Util.isUnset(request.bootstrapAction)) {
+      query["BootstrapAction"] = request.bootstrapAction;
+    }
+
+    if (!Util.isUnset(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.clickHouseConf)) {
+      query["ClickHouseConf"] = request.clickHouseConf;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterType)) {
+      query["ClusterType"] = request.clusterType;
+    }
+
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.configurations)) {
+      query["Configurations"] = request.configurations;
+    }
+
+    if (!Util.isUnset(request.depositType)) {
+      query["DepositType"] = request.depositType;
+    }
+
+    if (!Util.isUnset(request.emrVer)) {
+      query["EmrVer"] = request.emrVer;
+    }
+
+    if (!Util.isUnset(request.enableEas)) {
+      query["EnableEas"] = request.enableEas;
+    }
+
+    if (!Util.isUnset(request.enableHighAvailability)) {
+      query["EnableHighAvailability"] = request.enableHighAvailability;
+    }
+
+    if (!Util.isUnset(request.enableSsh)) {
+      query["EnableSsh"] = request.enableSsh;
+    }
+
+    if (!Util.isUnset(request.extraAttributes)) {
+      query["ExtraAttributes"] = request.extraAttributes;
+    }
+
+    if (!Util.isUnset(request.hostComponentInfo)) {
+      query["HostComponentInfo"] = request.hostComponentInfo;
+    }
+
+    if (!Util.isUnset(request.hostGroup)) {
+      query["HostGroup"] = request.hostGroup;
+    }
+
+    if (!Util.isUnset(request.initCustomHiveMetaDB)) {
+      query["InitCustomHiveMetaDB"] = request.initCustomHiveMetaDB;
+    }
+
+    if (!Util.isUnset(request.instanceGeneration)) {
+      query["InstanceGeneration"] = request.instanceGeneration;
+    }
+
+    if (!Util.isUnset(request.isOpenPublicIp)) {
+      query["IsOpenPublicIp"] = request.isOpenPublicIp;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.logPath)) {
+      query["LogPath"] = request.logPath;
+    }
+
+    if (!Util.isUnset(request.machineType)) {
+      query["MachineType"] = request.machineType;
+    }
+
+    if (!Util.isUnset(request.masterPwd)) {
+      query["MasterPwd"] = request.masterPwd;
+    }
+
+    if (!Util.isUnset(request.metaStoreConf)) {
+      query["MetaStoreConf"] = request.metaStoreConf;
+    }
+
+    if (!Util.isUnset(request.metaStoreType)) {
+      query["MetaStoreType"] = request.metaStoreType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.netType)) {
+      query["NetType"] = request.netType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.promotionInfo)) {
+      query["PromotionInfo"] = request.promotionInfo;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.relatedClusterId)) {
+      query["RelatedClusterId"] = request.relatedClusterId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.securityGroupName)) {
+      query["SecurityGroupName"] = request.securityGroupName;
+    }
+
+    if (!Util.isUnset(request.serviceInfo)) {
+      query["ServiceInfo"] = request.serviceInfo;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.useCustomHiveMetaDB)) {
+      query["UseCustomHiveMetaDB"] = request.useCustomHiveMetaDB;
+    }
+
+    if (!Util.isUnset(request.useLocalMetaDb)) {
+      query["UseLocalMetaDb"] = request.useLocalMetaDb;
+    }
+
+    if (!Util.isUnset(request.userDefinedEmrEcsRole)) {
+      query["UserDefinedEmrEcsRole"] = request.userDefinedEmrEcsRole;
+    }
+
+    if (!Util.isUnset(request.userInfo)) {
+      query["UserInfo"] = request.userInfo;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.whiteListType)) {
+      query["WhiteListType"] = request.whiteListType;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9003,24 +8986,78 @@ export default class Client extends OpenApi {
   async createFlowWithOptions(request: CreateFlowRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AlertConf"] = request.alertConf;
-    query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
-    query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
-    query["Application"] = request.application;
-    query["ClientToken"] = request.clientToken;
-    query["ClusterId"] = request.clusterId;
-    query["CreateCluster"] = request.createCluster;
-    query["CronExpression"] = request.cronExpression;
-    query["Description"] = request.description;
-    query["EndSchedule"] = request.endSchedule;
-    query["HostName"] = request.hostName;
-    query["Name"] = request.name;
-    query["Namespace"] = request.namespace;
-    query["ParentCategory"] = request.parentCategory;
-    query["ParentFlowList"] = request.parentFlowList;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["StartSchedule"] = request.startSchedule;
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.alertDingDingGroupBizId)) {
+      query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
+    }
+
+    if (!Util.isUnset(request.alertUserGroupBizId)) {
+      query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
+    }
+
+    if (!Util.isUnset(request.application)) {
+      query["Application"] = request.application;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.createCluster)) {
+      query["CreateCluster"] = request.createCluster;
+    }
+
+    if (!Util.isUnset(request.cronExpression)) {
+      query["CronExpression"] = request.cronExpression;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endSchedule)) {
+      query["EndSchedule"] = request.endSchedule;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.parentCategory)) {
+      query["ParentCategory"] = request.parentCategory;
+    }
+
+    if (!Util.isUnset(request.parentFlowList)) {
+      query["ParentFlowList"] = request.parentFlowList;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startSchedule)) {
+      query["StartSchedule"] = request.startSchedule;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9046,12 +9083,30 @@ export default class Client extends OpenApi {
   async createFlowCategoryWithOptions(request: CreateFlowCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Name"] = request.name;
-    query["ParentId"] = request.parentId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9077,10 +9132,22 @@ export default class Client extends OpenApi {
   async createFlowEditLockWithOptions(request: CreateFlowEditLockRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowEditLockResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityId"] = request.entityId;
-    query["Force"] = request.force;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9106,26 +9173,86 @@ export default class Client extends OpenApi {
   async createFlowJobWithOptions(request: CreateFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Adhoc"] = request.adhoc;
-    query["AlertConf"] = request.alertConf;
-    query["ClientToken"] = request.clientToken;
-    query["ClusterId"] = request.clusterId;
-    query["CustomVariables"] = request.customVariables;
-    query["Description"] = request.description;
-    query["EnvConf"] = request.envConf;
-    query["FailAct"] = request.failAct;
-    query["Mode"] = request.mode;
-    query["MonitorConf"] = request.monitorConf;
-    query["Name"] = request.name;
-    query["ParamConf"] = request.paramConf;
-    query["Params"] = request.params;
-    query["ParentCategory"] = request.parentCategory;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceList"] = request.resourceList;
-    query["RetryPolicy"] = request.retryPolicy;
-    query["RunConf"] = request.runConf;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.adhoc)) {
+      query["Adhoc"] = request.adhoc;
+    }
+
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.customVariables)) {
+      query["CustomVariables"] = request.customVariables;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envConf)) {
+      query["EnvConf"] = request.envConf;
+    }
+
+    if (!Util.isUnset(request.failAct)) {
+      query["FailAct"] = request.failAct;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.monitorConf)) {
+      query["MonitorConf"] = request.monitorConf;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.paramConf)) {
+      query["ParamConf"] = request.paramConf;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.parentCategory)) {
+      query["ParentCategory"] = request.parentCategory;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceList)) {
+      query["ResourceList"] = request.resourceList;
+    }
+
+    if (!Util.isUnset(request.retryPolicy)) {
+      query["RetryPolicy"] = request.retryPolicy;
+    }
+
+    if (!Util.isUnset(request.runConf)) {
+      query["RunConf"] = request.runConf;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9151,12 +9278,30 @@ export default class Client extends OpenApi {
   async createFlowProjectWithOptions(request: CreateFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["ProductType"] = request.productType;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9182,15 +9327,42 @@ export default class Client extends OpenApi {
   async createFlowProjectClusterSettingWithOptions(request: CreateFlowProjectClusterSettingRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowProjectClusterSettingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ClusterId"] = request.clusterId;
-    query["DefaultQueue"] = request.defaultQueue;
-    query["DefaultUser"] = request.defaultUser;
-    query["HostList"] = request.hostList;
-    query["ProjectId"] = request.projectId;
-    query["QueueList"] = request.queueList;
-    query["RegionId"] = request.regionId;
-    query["UserList"] = request.userList;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.defaultQueue)) {
+      query["DefaultQueue"] = request.defaultQueue;
+    }
+
+    if (!Util.isUnset(request.defaultUser)) {
+      query["DefaultUser"] = request.defaultUser;
+    }
+
+    if (!Util.isUnset(request.hostList)) {
+      query["HostList"] = request.hostList;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.queueList)) {
+      query["QueueList"] = request.queueList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.userList)) {
+      query["UserList"] = request.userList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9216,10 +9388,22 @@ export default class Client extends OpenApi {
   async createFlowProjectUserWithOptions(request: CreateFlowProjectUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateFlowProjectUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["User"] = request.user;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9245,9 +9429,18 @@ export default class Client extends OpenApi {
   async deleteFlowWithOptions(request: DeleteFlowRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9273,9 +9466,18 @@ export default class Client extends OpenApi {
   async deleteFlowCategoryWithOptions(request: DeleteFlowCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9301,9 +9503,18 @@ export default class Client extends OpenApi {
   async deleteFlowEditLockWithOptions(request: DeleteFlowEditLockRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowEditLockResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityId"] = request.entityId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9329,8 +9540,14 @@ export default class Client extends OpenApi {
   async deleteFlowProjectWithOptions(request: DeleteFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9356,9 +9573,18 @@ export default class Client extends OpenApi {
   async deleteFlowProjectClusterSettingWithOptions(request: DeleteFlowProjectClusterSettingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowProjectClusterSettingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9384,9 +9610,18 @@ export default class Client extends OpenApi {
   async deleteFlowProjectUserWithOptions(request: DeleteFlowProjectUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFlowProjectUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["UserName"] = request.userName;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9412,9 +9647,18 @@ export default class Client extends OpenApi {
   async describeClusterV2WithOptions(request: DescribeClusterV2Request, runtime: $Util.RuntimeOptions): Promise<DescribeClusterV2Response> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9440,9 +9684,18 @@ export default class Client extends OpenApi {
   async describeFlowWithOptions(request: DescribeFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9468,12 +9721,30 @@ export default class Client extends OpenApi {
   async describeFlowCategoryTreeWithOptions(request: DescribeFlowCategoryTreeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowCategoryTreeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CategoryId"] = request.categoryId;
-    query["Keyword"] = request.keyword;
-    query["Mode"] = request.mode;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9499,9 +9770,18 @@ export default class Client extends OpenApi {
   async describeFlowInstanceWithOptions(request: DescribeFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9527,9 +9807,18 @@ export default class Client extends OpenApi {
   async describeFlowJobWithOptions(request: DescribeFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9555,9 +9844,18 @@ export default class Client extends OpenApi {
   async describeFlowNodeInstanceWithOptions(request: DescribeFlowNodeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowNodeInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9583,14 +9881,38 @@ export default class Client extends OpenApi {
   async describeFlowNodeInstanceContainerLogWithOptions(request: DescribeFlowNodeInstanceContainerLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowNodeInstanceContainerLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppId"] = request.appId;
-    query["ContainerId"] = request.containerId;
-    query["Length"] = request.length;
-    query["LogName"] = request.logName;
-    query["NodeInstanceId"] = request.nodeInstanceId;
-    query["Offset"] = request.offset;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
+    if (!Util.isUnset(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.logName)) {
+      query["LogName"] = request.logName;
+    }
+
+    if (!Util.isUnset(request.nodeInstanceId)) {
+      query["NodeInstanceId"] = request.nodeInstanceId;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9616,16 +9938,46 @@ export default class Client extends OpenApi {
   async describeFlowNodeInstanceLauncherLogWithOptions(request: DescribeFlowNodeInstanceLauncherLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowNodeInstanceLauncherLogResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["Length"] = request.length;
-    query["Lines"] = request.lines;
-    query["NodeInstanceId"] = request.nodeInstanceId;
-    query["Offset"] = request.offset;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Reverse"] = request.reverse;
-    query["Start"] = request.start;
-    query["StartTime"] = request.startTime;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.lines)) {
+      query["Lines"] = request.lines;
+    }
+
+    if (!Util.isUnset(request.nodeInstanceId)) {
+      query["NodeInstanceId"] = request.nodeInstanceId;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!Util.isUnset(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9651,8 +10003,14 @@ export default class Client extends OpenApi {
   async describeFlowProjectWithOptions(request: DescribeFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9678,9 +10036,18 @@ export default class Client extends OpenApi {
   async describeFlowProjectClusterSettingWithOptions(request: DescribeFlowProjectClusterSettingRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowProjectClusterSettingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9706,15 +10073,42 @@ export default class Client extends OpenApi {
   async describeFlowSLAWithOptions(request: DescribeFlowSLARequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowSLAResponse> {
     Util.validateModel(request);
     let query = { };
-    query["From"] = request.from;
-    query["Metrics"] = request.metrics;
-    query["PeriodType"] = request.periodType;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["To"] = request.to;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.from)) {
+      query["From"] = request.from;
+    }
+
+    if (!Util.isUnset(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
+    if (!Util.isUnset(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9740,9 +10134,18 @@ export default class Client extends OpenApi {
   async describeFlowVariableCollectionWithOptions(request: DescribeFlowVariableCollectionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFlowVariableCollectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityId"] = request.entityId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9768,21 +10171,66 @@ export default class Client extends OpenApi {
   async getFlowAuditLogsWithOptions(request: GetFlowAuditLogsRequest, runtime: $Util.RuntimeOptions): Promise<GetFlowAuditLogsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CurrentSize"] = request.currentSize;
-    query["EntityGroupId"] = request.entityGroupId;
-    query["EntityId"] = request.entityId;
-    query["EntityType"] = request.entityType;
-    query["Limit"] = request.limit;
-    query["Operation"] = request.operation;
-    query["OperatorId"] = request.operatorId;
-    query["OrderField"] = request.orderField;
-    query["OrderMode"] = request.orderMode;
-    query["PageCount"] = request.pageCount;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.currentSize)) {
+      query["CurrentSize"] = request.currentSize;
+    }
+
+    if (!Util.isUnset(request.entityGroupId)) {
+      query["EntityGroupId"] = request.entityGroupId;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!Util.isUnset(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      query["OrderField"] = request.orderField;
+    }
+
+    if (!Util.isUnset(request.orderMode)) {
+      query["OrderMode"] = request.orderMode;
+    }
+
+    if (!Util.isUnset(request.pageCount)) {
+      query["PageCount"] = request.pageCount;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9808,9 +10256,18 @@ export default class Client extends OpenApi {
   async killFlowWithOptions(request: KillFlowRequest, runtime: $Util.RuntimeOptions): Promise<KillFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowInstanceId"] = request.flowInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.flowInstanceId)) {
+      query["FlowInstanceId"] = request.flowInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9836,9 +10293,18 @@ export default class Client extends OpenApi {
   async killFlowJobWithOptions(request: KillFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<KillFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["JobInstanceId"] = request.jobInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.jobInstanceId)) {
+      query["JobInstanceId"] = request.jobInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9864,21 +10330,66 @@ export default class Client extends OpenApi {
   async listClustersWithOptions(request: ListClustersRequest, runtime: $Util.RuntimeOptions): Promise<ListClustersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterTypeList"] = request.clusterTypeList;
-    query["CreateType"] = request.createType;
-    query["DefaultStatus"] = request.defaultStatus;
-    query["DepositType"] = request.depositType;
-    query["ExpiredTagList"] = request.expiredTagList;
-    query["IsDesc"] = request.isDesc;
-    query["MachineType"] = request.machineType;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["StatusList"] = request.statusList;
-    query["Tag"] = request.tag;
+    if (!Util.isUnset(request.clusterTypeList)) {
+      query["ClusterTypeList"] = request.clusterTypeList;
+    }
+
+    if (!Util.isUnset(request.createType)) {
+      query["CreateType"] = request.createType;
+    }
+
+    if (!Util.isUnset(request.defaultStatus)) {
+      query["DefaultStatus"] = request.defaultStatus;
+    }
+
+    if (!Util.isUnset(request.depositType)) {
+      query["DepositType"] = request.depositType;
+    }
+
+    if (!Util.isUnset(request.expiredTagList)) {
+      query["ExpiredTagList"] = request.expiredTagList;
+    }
+
+    if (!Util.isUnset(request.isDesc)) {
+      query["IsDesc"] = request.isDesc;
+    }
+
+    if (!Util.isUnset(request.machineType)) {
+      query["MachineType"] = request.machineType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9904,16 +10415,46 @@ export default class Client extends OpenApi {
   async listFlowWithOptions(request: ListFlowRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["Id"] = request.id;
-    query["JobId"] = request.jobId;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Periodic"] = request.periodic;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.periodic)) {
+      query["Periodic"] = request.periodic;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9939,11 +10480,26 @@ export default class Client extends OpenApi {
   async listFlowClusterWithOptions(request: ListFlowClusterRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowClusterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9969,9 +10525,18 @@ export default class Client extends OpenApi {
   async listFlowClusterAllWithOptions(request: ListFlowClusterAllRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowClusterAllResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProductType"] = request.productType;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -9997,10 +10562,22 @@ export default class Client extends OpenApi {
   async listFlowClusterAllHostsWithOptions(request: ListFlowClusterAllHostsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowClusterAllHostsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10026,10 +10603,22 @@ export default class Client extends OpenApi {
   async listFlowClusterHostWithOptions(request: ListFlowClusterHostRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowClusterHostResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10055,20 +10644,62 @@ export default class Client extends OpenApi {
   async listFlowEntitySnapshotWithOptions(request: ListFlowEntitySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowEntitySnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CommitterId"] = request.committerId;
-    query["CurrentSize"] = request.currentSize;
-    query["EntityGroupId"] = request.entityGroupId;
-    query["EntityId"] = request.entityId;
-    query["EntityType"] = request.entityType;
-    query["Limit"] = request.limit;
-    query["OrderField"] = request.orderField;
-    query["OrderMode"] = request.orderMode;
-    query["PageCount"] = request.pageCount;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Revision"] = request.revision;
+    if (!Util.isUnset(request.committerId)) {
+      query["CommitterId"] = request.committerId;
+    }
+
+    if (!Util.isUnset(request.currentSize)) {
+      query["CurrentSize"] = request.currentSize;
+    }
+
+    if (!Util.isUnset(request.entityGroupId)) {
+      query["EntityGroupId"] = request.entityGroupId;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.orderField)) {
+      query["OrderField"] = request.orderField;
+    }
+
+    if (!Util.isUnset(request.orderMode)) {
+      query["OrderMode"] = request.orderMode;
+    }
+
+    if (!Util.isUnset(request.pageCount)) {
+      query["PageCount"] = request.pageCount;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.revision)) {
+      query["Revision"] = request.revision;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10094,19 +10725,58 @@ export default class Client extends OpenApi {
   async listFlowInstanceWithOptions(request: ListFlowInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowId"] = request.flowId;
-    query["FlowName"] = request.flowName;
-    query["Id"] = request.id;
-    query["InstanceId"] = request.instanceId;
-    query["OrderBy"] = request.orderBy;
-    query["OrderType"] = request.orderType;
-    query["Owner"] = request.owner;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["StatusList"] = request.statusList;
-    query["TimeRange"] = request.timeRange;
+    if (!Util.isUnset(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      query["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10132,15 +10802,42 @@ export default class Client extends OpenApi {
   async listFlowJobHistoryWithOptions(request: ListFlowJobHistoryRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowJobHistoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["InstanceId"] = request.instanceId;
-    query["JobType"] = request.jobType;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["StatusList"] = request.statusList;
-    query["TimeRange"] = request.timeRange;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["TimeRange"] = request.timeRange;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10166,14 +10863,38 @@ export default class Client extends OpenApi {
   async listFlowJobsWithOptions(request: ListFlowJobsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowJobsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Adhoc"] = request.adhoc;
-    query["Id"] = request.id;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Type"] = request.type;
+    if (!Util.isUnset(request.adhoc)) {
+      query["Adhoc"] = request.adhoc;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10199,11 +10920,26 @@ export default class Client extends OpenApi {
   async listFlowNodeInstanceContainerStatusWithOptions(request: ListFlowNodeInstanceContainerStatusRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowNodeInstanceContainerStatusResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NodeInstanceId"] = request.nodeInstanceId;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.nodeInstanceId)) {
+      query["NodeInstanceId"] = request.nodeInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10229,12 +10965,30 @@ export default class Client extends OpenApi {
   async listFlowNodeSqlResultWithOptions(request: ListFlowNodeSqlResultRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowNodeSqlResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Length"] = request.length;
-    query["NodeInstanceId"] = request.nodeInstanceId;
-    query["Offset"] = request.offset;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["SqlIndex"] = request.sqlIndex;
+    if (!Util.isUnset(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!Util.isUnset(request.nodeInstanceId)) {
+      query["NodeInstanceId"] = request.nodeInstanceId;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sqlIndex)) {
+      query["SqlIndex"] = request.sqlIndex;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10260,10 +11014,22 @@ export default class Client extends OpenApi {
   async listFlowProjectClusterSettingWithOptions(request: ListFlowProjectClusterSettingRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowProjectClusterSettingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10289,10 +11055,22 @@ export default class Client extends OpenApi {
   async listFlowProjectUserWithOptions(request: ListFlowProjectUserRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowProjectUserResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10318,13 +11096,34 @@ export default class Client extends OpenApi {
   async listFlowProjectsWithOptions(request: ListFlowProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowProjectsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProductType"] = request.productType;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10345,41 +11144,6 @@ export default class Client extends OpenApi {
   async listFlowProjects(request: ListFlowProjectsRequest): Promise<ListFlowProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listFlowProjectsWithOptions(request, runtime);
-  }
-
-  async listFlowsWithOptions(request: ListFlowsRequest, runtime: $Util.RuntimeOptions): Promise<ListFlowsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["Id"] = request.id;
-    query["JobId"] = request.jobId;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["Periodic"] = request.periodic;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["Status"] = request.status;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListFlows",
-      version: "2020-06-17",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListFlowsResponse>(await this.callApi(params, req, runtime), new ListFlowsResponse({}));
-  }
-
-  async listFlows(request: ListFlowsRequest): Promise<ListFlowsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listFlowsWithOptions(request, runtime);
   }
 
   async listMainVersionsWithOptions(request: ListMainVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListMainVersionsResponse> {
@@ -10410,25 +11174,82 @@ export default class Client extends OpenApi {
   async modifyFlowWithOptions(request: ModifyFlowRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AlertConf"] = request.alertConf;
-    query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
-    query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
-    query["Application"] = request.application;
-    query["ClusterId"] = request.clusterId;
-    query["CreateCluster"] = request.createCluster;
-    query["CronExpr"] = request.cronExpr;
-    query["Description"] = request.description;
-    query["EndSchedule"] = request.endSchedule;
-    query["HostName"] = request.hostName;
-    query["Id"] = request.id;
-    query["Name"] = request.name;
-    query["ParentCategory"] = request.parentCategory;
-    query["ParentFlowList"] = request.parentFlowList;
-    query["Periodic"] = request.periodic;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["StartSchedule"] = request.startSchedule;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.alertDingDingGroupBizId)) {
+      query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
+    }
+
+    if (!Util.isUnset(request.alertUserGroupBizId)) {
+      query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
+    }
+
+    if (!Util.isUnset(request.application)) {
+      query["Application"] = request.application;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.createCluster)) {
+      query["CreateCluster"] = request.createCluster;
+    }
+
+    if (!Util.isUnset(request.cronExpr)) {
+      query["CronExpr"] = request.cronExpr;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endSchedule)) {
+      query["EndSchedule"] = request.endSchedule;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentCategory)) {
+      query["ParentCategory"] = request.parentCategory;
+    }
+
+    if (!Util.isUnset(request.parentFlowList)) {
+      query["ParentFlowList"] = request.parentFlowList;
+    }
+
+    if (!Util.isUnset(request.periodic)) {
+      query["Periodic"] = request.periodic;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startSchedule)) {
+      query["StartSchedule"] = request.startSchedule;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10454,11 +11275,26 @@ export default class Client extends OpenApi {
   async modifyFlowCategoryWithOptions(request: ModifyFlowCategoryRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Id"] = request.id;
-    query["Name"] = request.name;
-    query["ParentId"] = request.parentId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10484,26 +11320,86 @@ export default class Client extends OpenApi {
   async modifyFlowForWebWithOptions(request: ModifyFlowForWebRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowForWebResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AlertConf"] = request.alertConf;
-    query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
-    query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
-    query["ClusterId"] = request.clusterId;
-    query["CreateCluster"] = request.createCluster;
-    query["CronExpr"] = request.cronExpr;
-    query["Description"] = request.description;
-    query["EndSchedule"] = request.endSchedule;
-    query["Graph"] = request.graph;
-    query["HostName"] = request.hostName;
-    query["Id"] = request.id;
-    query["Name"] = request.name;
-    query["Namespace"] = request.namespace;
-    query["ParentCategory"] = request.parentCategory;
-    query["ParentFlowList"] = request.parentFlowList;
-    query["Periodic"] = request.periodic;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["StartSchedule"] = request.startSchedule;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.alertDingDingGroupBizId)) {
+      query["AlertDingDingGroupBizId"] = request.alertDingDingGroupBizId;
+    }
+
+    if (!Util.isUnset(request.alertUserGroupBizId)) {
+      query["AlertUserGroupBizId"] = request.alertUserGroupBizId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.createCluster)) {
+      query["CreateCluster"] = request.createCluster;
+    }
+
+    if (!Util.isUnset(request.cronExpr)) {
+      query["CronExpr"] = request.cronExpr;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.endSchedule)) {
+      query["EndSchedule"] = request.endSchedule;
+    }
+
+    if (!Util.isUnset(request.graph)) {
+      query["Graph"] = request.graph;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.parentCategory)) {
+      query["ParentCategory"] = request.parentCategory;
+    }
+
+    if (!Util.isUnset(request.parentFlowList)) {
+      query["ParentFlowList"] = request.parentFlowList;
+    }
+
+    if (!Util.isUnset(request.periodic)) {
+      query["Periodic"] = request.periodic;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startSchedule)) {
+      query["StartSchedule"] = request.startSchedule;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10529,25 +11425,82 @@ export default class Client extends OpenApi {
   async modifyFlowJobWithOptions(request: ModifyFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AlertConf"] = request.alertConf;
-    query["ClusterId"] = request.clusterId;
-    query["CustomVariables"] = request.customVariables;
-    query["Description"] = request.description;
-    query["EnvConf"] = request.envConf;
-    query["FailAct"] = request.failAct;
-    query["Id"] = request.id;
-    query["KnoxPassword"] = request.knoxPassword;
-    query["KnoxUser"] = request.knoxUser;
-    query["Mode"] = request.mode;
-    query["MonitorConf"] = request.monitorConf;
-    query["Name"] = request.name;
-    query["ParamConf"] = request.paramConf;
-    query["Params"] = request.params;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
-    query["ResourceList"] = request.resourceList;
-    query["RetryPolicy"] = request.retryPolicy;
-    query["RunConf"] = request.runConf;
+    if (!Util.isUnset(request.alertConf)) {
+      query["AlertConf"] = request.alertConf;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.customVariables)) {
+      query["CustomVariables"] = request.customVariables;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envConf)) {
+      query["EnvConf"] = request.envConf;
+    }
+
+    if (!Util.isUnset(request.failAct)) {
+      query["FailAct"] = request.failAct;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.knoxPassword)) {
+      query["KnoxPassword"] = request.knoxPassword;
+    }
+
+    if (!Util.isUnset(request.knoxUser)) {
+      query["KnoxUser"] = request.knoxUser;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.monitorConf)) {
+      query["MonitorConf"] = request.monitorConf;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.paramConf)) {
+      query["ParamConf"] = request.paramConf;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceList)) {
+      query["ResourceList"] = request.resourceList;
+    }
+
+    if (!Util.isUnset(request.retryPolicy)) {
+      query["RetryPolicy"] = request.retryPolicy;
+    }
+
+    if (!Util.isUnset(request.runConf)) {
+      query["RunConf"] = request.runConf;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10573,10 +11526,22 @@ export default class Client extends OpenApi {
   async modifyFlowProjectWithOptions(request: ModifyFlowProjectRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10602,14 +11567,38 @@ export default class Client extends OpenApi {
   async modifyFlowProjectClusterSettingWithOptions(request: ModifyFlowProjectClusterSettingRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowProjectClusterSettingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["DefaultQueue"] = request.defaultQueue;
-    query["DefaultUser"] = request.defaultUser;
-    query["HostList"] = request.hostList;
-    query["ProjectId"] = request.projectId;
-    query["QueueList"] = request.queueList;
-    query["RegionId"] = request.regionId;
-    query["UserList"] = request.userList;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.defaultQueue)) {
+      query["DefaultQueue"] = request.defaultQueue;
+    }
+
+    if (!Util.isUnset(request.defaultUser)) {
+      query["DefaultUser"] = request.defaultUser;
+    }
+
+    if (!Util.isUnset(request.hostList)) {
+      query["HostList"] = request.hostList;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.queueList)) {
+      query["QueueList"] = request.queueList;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.userList)) {
+      query["UserList"] = request.userList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10635,9 +11624,18 @@ export default class Client extends OpenApi {
   async modifyFlowVariableCollectionWithOptions(request: ModifyFlowVariableCollectionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyFlowVariableCollectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Data"] = request.data;
-    query["RegionId"] = request.regionId;
-    query["ResourceGroupId"] = request.resourceGroupId;
+    if (!Util.isUnset(request.data)) {
+      query["Data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10663,10 +11661,22 @@ export default class Client extends OpenApi {
   async releaseClusterWithOptions(request: ReleaseClusterRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseClusterResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ForceRelease"] = request.forceRelease;
-    query["Id"] = request.id;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
+    if (!Util.isUnset(request.forceRelease)) {
+      query["ForceRelease"] = request.forceRelease;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10692,10 +11702,22 @@ export default class Client extends OpenApi {
   async rerunFlowWithOptions(request: RerunFlowRequest, runtime: $Util.RuntimeOptions): Promise<RerunFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowInstanceId"] = request.flowInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["ReRunFail"] = request.reRunFail;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.flowInstanceId)) {
+      query["FlowInstanceId"] = request.flowInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.reRunFail)) {
+      query["ReRunFail"] = request.reRunFail;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10721,12 +11743,30 @@ export default class Client extends OpenApi {
   async restoreFlowEntitySnapshotWithOptions(request: RestoreFlowEntitySnapshotRequest, runtime: $Util.RuntimeOptions): Promise<RestoreFlowEntitySnapshotResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EntityId"] = request.entityId;
-    query["EntityType"] = request.entityType;
-    query["OperatorId"] = request.operatorId;
-    query["RegionId"] = request.regionId;
-    query["ResourceOwnerId"] = request.resourceOwnerId;
-    query["Revision"] = request.revision;
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.operatorId)) {
+      query["OperatorId"] = request.operatorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.revision)) {
+      query["Revision"] = request.revision;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10752,9 +11792,18 @@ export default class Client extends OpenApi {
   async resumeFlowWithOptions(request: ResumeFlowRequest, runtime: $Util.RuntimeOptions): Promise<ResumeFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowInstanceId"] = request.flowInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.flowInstanceId)) {
+      query["FlowInstanceId"] = request.flowInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10780,9 +11829,18 @@ export default class Client extends OpenApi {
   async startFlowWithOptions(request: StartFlowRequest, runtime: $Util.RuntimeOptions): Promise<StartFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowInstanceId"] = request.flowInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.flowInstanceId)) {
+      query["FlowInstanceId"] = request.flowInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10808,10 +11866,22 @@ export default class Client extends OpenApi {
   async submitFlowWithOptions(request: SubmitFlowRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Conf"] = request.conf;
-    query["FlowId"] = request.flowId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.conf)) {
+      query["Conf"] = request.conf;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10837,12 +11907,30 @@ export default class Client extends OpenApi {
   async submitFlowJobWithOptions(request: SubmitFlowJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFlowJobResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["Conf"] = request.conf;
-    query["HostName"] = request.hostName;
-    query["JobId"] = request.jobId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.conf)) {
+      query["Conf"] = request.conf;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10868,9 +11956,18 @@ export default class Client extends OpenApi {
   async suspendFlowWithOptions(request: SuspendFlowRequest, runtime: $Util.RuntimeOptions): Promise<SuspendFlowResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowInstanceId"] = request.flowInstanceId;
-    query["ProjectId"] = request.projectId;
-    query["RegionId"] = request.regionId;
+    if (!Util.isUnset(request.flowInstanceId)) {
+      query["FlowInstanceId"] = request.flowInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
