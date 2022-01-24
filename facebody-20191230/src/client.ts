@@ -2101,88 +2101,6 @@ export class DetectLivingFaceResponse extends $tea.Model {
   }
 }
 
-export class DetectMaskRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMaskAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMaskResponseBody extends $tea.Model {
-  data?: DetectMaskResponseBodyData;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: DetectMaskResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectMaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectMaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectPedestrianRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -6556,28 +6474,6 @@ export class DetectLivingFaceResponseBodyData extends $tea.Model {
   }
 }
 
-export class DetectMaskResponseBodyData extends $tea.Model {
-  faceProbability?: number;
-  mask?: number;
-  static names(): { [key: string]: string } {
-    return {
-      faceProbability: 'FaceProbability',
-      mask: 'Mask',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      faceProbability: 'number',
-      mask: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DetectPedestrianResponseBodyDataElements extends $tea.Model {
   boxes?: number[];
   score?: number;
@@ -9193,8 +9089,25 @@ export default class Client extends OpenApi {
       request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbId)) {
+      body["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.extraData)) {
+      body["ExtraData"] = request.extraData;
+    }
+
+    if (!Util.isUnset(request.imagesShrink)) {
+      body["Images"] = request.imagesShrink;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddBodyTrace",
@@ -9217,8 +9130,37 @@ export default class Client extends OpenApi {
 
   async addFaceWithOptions(request: AddFaceRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.extraData)) {
+      body["ExtraData"] = request.extraData;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.qualityScoreThreshold)) {
+      body["QualityScoreThreshold"] = request.qualityScoreThreshold;
+    }
+
+    if (!Util.isUnset(request.similarityScoreThresholdBetweenEntity)) {
+      body["SimilarityScoreThresholdBetweenEntity"] = request.similarityScoreThresholdBetweenEntity;
+    }
+
+    if (!Util.isUnset(request.similarityScoreThresholdInEntity)) {
+      body["SimilarityScoreThresholdInEntity"] = request.similarityScoreThresholdInEntity;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddFace",
@@ -9315,8 +9257,21 @@ export default class Client extends OpenApi {
 
   async addFaceEntityWithOptions(request: AddFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddFaceEntity",
@@ -9339,8 +9294,17 @@ export default class Client extends OpenApi {
 
   async addFaceImageTemplateWithOptions(request: AddFaceImageTemplateRequest, runtime: $Util.RuntimeOptions): Promise<AddFaceImageTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AddFaceImageTemplate",
@@ -9443,8 +9407,33 @@ export default class Client extends OpenApi {
       request.facesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.faces, "Faces", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.facesShrink)) {
+      body["Faces"] = request.facesShrink;
+    }
+
+    if (!Util.isUnset(request.qualityScoreThreshold)) {
+      body["QualityScoreThreshold"] = request.qualityScoreThreshold;
+    }
+
+    if (!Util.isUnset(request.similarityScoreThresholdBetweenEntity)) {
+      body["SimilarityScoreThresholdBetweenEntity"] = request.similarityScoreThresholdBetweenEntity;
+    }
+
+    if (!Util.isUnset(request.similarityScoreThresholdInEntity)) {
+      body["SimilarityScoreThresholdInEntity"] = request.similarityScoreThresholdInEntity;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchAddFaces",
@@ -9485,8 +9474,57 @@ export default class Client extends OpenApi {
       request.poseListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.poseList, "PoseList", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ageRangeShrink)) {
+      body["AgeRange"] = request.ageRangeShrink;
+    }
+
+    if (!Util.isUnset(request.bodyBoxesShrink)) {
+      body["BodyBoxes"] = request.bodyBoxesShrink;
+    }
+
+    if (!Util.isUnset(request.custom)) {
+      body["Custom"] = request.custom;
+    }
+
+    if (!Util.isUnset(request.faceListShrink)) {
+      body["FaceList"] = request.faceListShrink;
+    }
+
+    if (!Util.isUnset(request.femaleLiquifyDegree)) {
+      body["FemaleLiquifyDegree"] = request.femaleLiquifyDegree;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.isPregnant)) {
+      body["IsPregnant"] = request.isPregnant;
+    }
+
+    if (!Util.isUnset(request.lengthenDegree)) {
+      body["LengthenDegree"] = request.lengthenDegree;
+    }
+
+    if (!Util.isUnset(request.maleLiquifyDegree)) {
+      body["MaleLiquifyDegree"] = request.maleLiquifyDegree;
+    }
+
+    if (!Util.isUnset(request.originalHeight)) {
+      body["OriginalHeight"] = request.originalHeight;
+    }
+
+    if (!Util.isUnset(request.originalWidth)) {
+      body["OriginalWidth"] = request.originalWidth;
+    }
+
+    if (!Util.isUnset(request.poseListShrink)) {
+      body["PoseList"] = request.poseListShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BeautifyBody",
@@ -9583,8 +9621,13 @@ export default class Client extends OpenApi {
 
   async blurFaceWithOptions(request: BlurFaceRequest, runtime: $Util.RuntimeOptions): Promise<BlurFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BlurFace",
@@ -9681,8 +9724,13 @@ export default class Client extends OpenApi {
 
   async bodyPostureWithOptions(request: BodyPostureRequest, runtime: $Util.RuntimeOptions): Promise<BodyPostureResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BodyPosture",
@@ -9779,8 +9827,29 @@ export default class Client extends OpenApi {
 
   async compareFaceWithOptions(request: CompareFaceRequest, runtime: $Util.RuntimeOptions): Promise<CompareFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageDataA)) {
+      body["ImageDataA"] = request.imageDataA;
+    }
+
+    if (!Util.isUnset(request.imageDataB)) {
+      body["ImageDataB"] = request.imageDataB;
+    }
+
+    if (!Util.isUnset(request.imageURLA)) {
+      body["ImageURLA"] = request.imageURLA;
+    }
+
+    if (!Util.isUnset(request.imageURLB)) {
+      body["ImageURLB"] = request.imageURLB;
+    }
+
+    if (!Util.isUnset(request.qualityScoreThreshold)) {
+      body["QualityScoreThreshold"] = request.qualityScoreThreshold;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CompareFace",
@@ -9803,8 +9872,17 @@ export default class Client extends OpenApi {
 
   async countCrowdWithOptions(request: CountCrowdRequest, runtime: $Util.RuntimeOptions): Promise<CountCrowdResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.isShow)) {
+      body["IsShow"] = request.isShow;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CountCrowd",
@@ -9901,8 +9979,13 @@ export default class Client extends OpenApi {
 
   async createBodyDbWithOptions(request: CreateBodyDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateBodyDbResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateBodyDb",
@@ -9925,8 +10008,17 @@ export default class Client extends OpenApi {
 
   async createBodyPersonWithOptions(request: CreateBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<CreateBodyPersonResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbId)) {
+      body["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateBodyPerson",
@@ -9949,8 +10041,13 @@ export default class Client extends OpenApi {
 
   async createFaceDbWithOptions(request: CreateFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<CreateFaceDbResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateFaceDb",
@@ -9973,8 +10070,13 @@ export default class Client extends OpenApi {
 
   async deleteBodyDbWithOptions(request: DeleteBodyDbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBodyDbResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBodyDb",
@@ -9997,8 +10099,17 @@ export default class Client extends OpenApi {
 
   async deleteBodyPersonWithOptions(request: DeleteBodyPersonRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBodyPersonResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbId)) {
+      body["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.personId)) {
+      body["PersonId"] = request.personId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBodyPerson",
@@ -10021,8 +10132,17 @@ export default class Client extends OpenApi {
 
   async deleteFaceWithOptions(request: DeleteFaceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.faceId)) {
+      body["FaceId"] = request.faceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFace",
@@ -10045,8 +10165,13 @@ export default class Client extends OpenApi {
 
   async deleteFaceDbWithOptions(request: DeleteFaceDbRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceDbResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFaceDb",
@@ -10069,8 +10194,17 @@ export default class Client extends OpenApi {
 
   async deleteFaceEntityWithOptions(request: DeleteFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFaceEntity",
@@ -10093,8 +10227,17 @@ export default class Client extends OpenApi {
 
   async deleteFaceImageTemplateWithOptions(request: DeleteFaceImageTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFaceImageTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFaceImageTemplate",
@@ -10117,8 +10260,13 @@ export default class Client extends OpenApi {
 
   async detectBodyCountWithOptions(request: DetectBodyCountRequest, runtime: $Util.RuntimeOptions): Promise<DetectBodyCountResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectBodyCount",
@@ -10215,8 +10363,13 @@ export default class Client extends OpenApi {
 
   async detectCelebrityWithOptions(request: DetectCelebrityRequest, runtime: $Util.RuntimeOptions): Promise<DetectCelebrityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectCelebrity",
@@ -10313,8 +10466,13 @@ export default class Client extends OpenApi {
 
   async detectChefCapWithOptions(request: DetectChefCapRequest, runtime: $Util.RuntimeOptions): Promise<DetectChefCapResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectChefCap",
@@ -10411,8 +10569,29 @@ export default class Client extends OpenApi {
 
   async detectFaceWithOptions(request: DetectFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.landmark)) {
+      body["Landmark"] = request.landmark;
+    }
+
+    if (!Util.isUnset(request.maxFaceNumber)) {
+      body["MaxFaceNumber"] = request.maxFaceNumber;
+    }
+
+    if (!Util.isUnset(request.pose)) {
+      body["Pose"] = request.pose;
+    }
+
+    if (!Util.isUnset(request.quality)) {
+      body["Quality"] = request.quality;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectFace",
@@ -10509,8 +10688,25 @@ export default class Client extends OpenApi {
 
   async detectIPCPedestrianWithOptions(request: DetectIPCPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectIPCPedestrianResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.height)) {
+      body["Height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.imageData)) {
+      body["ImageData"] = request.imageData;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["Width"] = request.width;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectIPCPedestrian",
@@ -10607,8 +10803,13 @@ export default class Client extends OpenApi {
 
   async detectLivingFaceWithOptions(request: DetectLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectLivingFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tasks)) {
+      body["Tasks"] = request.tasks;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectLivingFace",
@@ -10629,108 +10830,15 @@ export default class Client extends OpenApi {
     return await this.detectLivingFaceWithOptions(request, runtime);
   }
 
-  async detectMaskWithOptions(request: DetectMaskRequest, runtime: $Util.RuntimeOptions): Promise<DetectMaskResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "DetectMask",
-      version: "2019-12-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DetectMaskResponse>(await this.callApi(params, req, runtime), new DetectMaskResponse({}));
-  }
-
-  async detectMask(request: DetectMaskRequest): Promise<DetectMaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectMaskWithOptions(request, runtime);
-  }
-
-  async detectMaskAdvance(request: DetectMaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<DetectMaskResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "facebody",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let detectMaskReq = new DetectMaskRequest({ });
-    OpenApiUtil.convert(request, detectMaskReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      detectMaskReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let detectMaskResp = await this.detectMaskWithOptions(detectMaskReq, runtime);
-    return detectMaskResp;
-  }
-
   async detectPedestrianWithOptions(request: DetectPedestrianRequest, runtime: $Util.RuntimeOptions): Promise<DetectPedestrianResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectPedestrian",
@@ -10833,8 +10941,21 @@ export default class Client extends OpenApi {
       request.detectRegionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detectRegion, "DetectRegion", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.detectRegionShrink)) {
+      body["DetectRegion"] = request.detectRegionShrink;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.regionType)) {
+      body["RegionType"] = request.regionType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectPedestrianIntrusion",
@@ -10931,8 +11052,13 @@ export default class Client extends OpenApi {
 
   async detectVideoLivingFaceWithOptions(request: DetectVideoLivingFaceRequest, runtime: $Util.RuntimeOptions): Promise<DetectVideoLivingFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DetectVideoLivingFace",
@@ -11029,8 +11155,13 @@ export default class Client extends OpenApi {
 
   async enhanceFaceWithOptions(request: EnhanceFaceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "EnhanceFace",
@@ -11127,8 +11258,17 @@ export default class Client extends OpenApi {
 
   async extractFingerPrintWithOptions(request: ExtractFingerPrintRequest, runtime: $Util.RuntimeOptions): Promise<ExtractFingerPrintResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageData)) {
+      body["ImageData"] = request.imageData;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ExtractFingerPrint",
@@ -11225,8 +11365,21 @@ export default class Client extends OpenApi {
 
   async extractPedestrianFeatureAttrWithOptions(request: ExtractPedestrianFeatureAttrRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttrResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      body["ServiceVersion"] = request.serviceVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ExtractPedestrianFeatureAttr",
@@ -11323,8 +11476,21 @@ export default class Client extends OpenApi {
 
   async extractPedestrianFeatureAttributeWithOptions(request: ExtractPedestrianFeatureAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ExtractPedestrianFeatureAttributeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.urlList)) {
+      body["UrlList"] = request.urlList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ExtractPedestrianFeatureAttribute",
@@ -11347,8 +11513,25 @@ export default class Client extends OpenApi {
 
   async faceBeautyWithOptions(request: FaceBeautyRequest, runtime: $Util.RuntimeOptions): Promise<FaceBeautyResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.sharp)) {
+      body["Sharp"] = request.sharp;
+    }
+
+    if (!Util.isUnset(request.smooth)) {
+      body["Smooth"] = request.smooth;
+    }
+
+    if (!Util.isUnset(request.white)) {
+      body["White"] = request.white;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceBeauty",
@@ -11445,8 +11628,21 @@ export default class Client extends OpenApi {
 
   async faceFilterWithOptions(request: FaceFilterRequest, runtime: $Util.RuntimeOptions): Promise<FaceFilterResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.strength)) {
+      body["Strength"] = request.strength;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceFilter",
@@ -11543,8 +11739,25 @@ export default class Client extends OpenApi {
 
   async faceMakeupWithOptions(request: FaceMakeupRequest, runtime: $Util.RuntimeOptions): Promise<FaceMakeupResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.makeupType)) {
+      body["MakeupType"] = request.makeupType;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      body["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.strength)) {
+      body["Strength"] = request.strength;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceMakeup",
@@ -11641,8 +11854,21 @@ export default class Client extends OpenApi {
 
   async faceTidyupWithOptions(request: FaceTidyupRequest, runtime: $Util.RuntimeOptions): Promise<FaceTidyupResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.shapeType)) {
+      body["ShapeType"] = request.shapeType;
+    }
+
+    if (!Util.isUnset(request.strength)) {
+      body["Strength"] = request.strength;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "FaceTidyup",
@@ -11739,8 +11965,21 @@ export default class Client extends OpenApi {
 
   async genRealPersonVerificationTokenWithOptions(request: GenRealPersonVerificationTokenRequest, runtime: $Util.RuntimeOptions): Promise<GenRealPersonVerificationTokenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certificateName)) {
+      body["CertificateName"] = request.certificateName;
+    }
+
+    if (!Util.isUnset(request.certificateNumber)) {
+      body["CertificateNumber"] = request.certificateNumber;
+    }
+
+    if (!Util.isUnset(request.metaInfo)) {
+      body["MetaInfo"] = request.metaInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GenRealPersonVerificationToken",
@@ -11764,11 +12003,16 @@ export default class Client extends OpenApi {
   async generateHumanAnimeStyleWithOptions(request: GenerateHumanAnimeStyleRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanAnimeStyleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AlgoType"] = request.algoType;
-    query["ImageURL"] = request.imageURL;
+    if (!Util.isUnset(request.algoType)) {
+      query["AlgoType"] = request.algoType;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      query["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GenerateHumanAnimeStyle",
@@ -11778,7 +12022,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GenerateHumanAnimeStyleResponse>(await this.callApi(params, req, runtime), new GenerateHumanAnimeStyleResponse({}));
@@ -11865,8 +12109,17 @@ export default class Client extends OpenApi {
 
   async generateHumanSketchStyleWithOptions(request: GenerateHumanSketchStyleRequest, runtime: $Util.RuntimeOptions): Promise<GenerateHumanSketchStyleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.returnType)) {
+      body["ReturnType"] = request.returnType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GenerateHumanSketchStyle",
@@ -11975,7 +12228,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetBodyPersonResponse>(await this.callApi(params, req, runtime), new GetBodyPersonResponse({}));
@@ -11988,8 +12241,17 @@ export default class Client extends OpenApi {
 
   async getFaceEntityWithOptions(request: GetFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetFaceEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetFaceEntity",
@@ -12012,8 +12274,17 @@ export default class Client extends OpenApi {
 
   async getRealPersonVerificationResultWithOptions(request: GetRealPersonVerificationResultRequest, runtime: $Util.RuntimeOptions): Promise<GetRealPersonVerificationResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.materialHash)) {
+      body["MaterialHash"] = request.materialHash;
+    }
+
+    if (!Util.isUnset(request.verificationToken)) {
+      body["VerificationToken"] = request.verificationToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetRealPersonVerificationResult",
@@ -12036,8 +12307,13 @@ export default class Client extends OpenApi {
 
   async handPostureWithOptions(request: HandPostureRequest, runtime: $Util.RuntimeOptions): Promise<HandPostureResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "HandPosture",
@@ -12134,8 +12410,17 @@ export default class Client extends OpenApi {
 
   async liquifyFaceWithOptions(request: LiquifyFaceRequest, runtime: $Util.RuntimeOptions): Promise<LiquifyFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.slimDegree)) {
+      body["SlimDegree"] = request.slimDegree;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "LiquifyFace",
@@ -12244,7 +12529,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListBodyDbsResponse>(await this.callApi(params, req, runtime), new ListBodyDbsResponse({}));
@@ -12269,7 +12554,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListBodyPersonResponse>(await this.callApi(params, req, runtime), new ListBodyPersonResponse({}));
@@ -12290,7 +12575,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListFaceDbsResponse>(await this.callApi(params, req, runtime), new ListFaceDbsResponse({}));
@@ -12303,8 +12588,37 @@ export default class Client extends OpenApi {
 
   async listFaceEntitiesWithOptions(request: ListFaceEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<ListFaceEntitiesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityIdPrefix)) {
+      body["EntityIdPrefix"] = request.entityIdPrefix;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.offset)) {
+      body["Offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListFaceEntities",
@@ -12327,8 +12641,21 @@ export default class Client extends OpenApi {
 
   async mergeImageFaceWithOptions(request: MergeImageFaceRequest, runtime: $Util.RuntimeOptions): Promise<MergeImageFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "MergeImageFace",
@@ -12425,8 +12752,17 @@ export default class Client extends OpenApi {
 
   async monitorExaminationWithOptions(request: MonitorExaminationRequest, runtime: $Util.RuntimeOptions): Promise<MonitorExaminationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "MonitorExamination",
@@ -12523,8 +12859,13 @@ export default class Client extends OpenApi {
 
   async pedestrianDetectAttributeWithOptions(request: PedestrianDetectAttributeRequest, runtime: $Util.RuntimeOptions): Promise<PedestrianDetectAttributeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PedestrianDetectAttribute",
@@ -12633,7 +12974,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryFaceImageTemplateResponse>(await this.callApi(params, req, runtime), new QueryFaceImageTemplateResponse({}));
@@ -12646,8 +12987,25 @@ export default class Client extends OpenApi {
 
   async recognizeActionWithOptions(request: RecognizeActionRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeActionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.URLList)) {
+      body["URLList"] = request.URLList;
+    }
+
+    if (!Util.isUnset(request.videoData)) {
+      body["VideoData"] = request.videoData;
+    }
+
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RecognizeAction",
@@ -12670,8 +13028,13 @@ export default class Client extends OpenApi {
 
   async recognizeExpressionWithOptions(request: RecognizeExpressionRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExpressionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RecognizeExpression",
@@ -12768,8 +13131,49 @@ export default class Client extends OpenApi {
 
   async recognizeFaceWithOptions(request: RecognizeFaceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.age)) {
+      body["Age"] = request.age;
+    }
+
+    if (!Util.isUnset(request.beauty)) {
+      body["Beauty"] = request.beauty;
+    }
+
+    if (!Util.isUnset(request.expression)) {
+      body["Expression"] = request.expression;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["Gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.glass)) {
+      body["Glass"] = request.glass;
+    }
+
+    if (!Util.isUnset(request.hat)) {
+      body["Hat"] = request.hat;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.mask)) {
+      body["Mask"] = request.mask;
+    }
+
+    if (!Util.isUnset(request.maxFaceNumber)) {
+      body["MaxFaceNumber"] = request.maxFaceNumber;
+    }
+
+    if (!Util.isUnset(request.quality)) {
+      body["Quality"] = request.quality;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RecognizeFace",
@@ -12866,8 +13270,21 @@ export default class Client extends OpenApi {
 
   async recognizeHandGestureWithOptions(request: RecognizeHandGestureRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandGestureResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.gestureType)) {
+      body["GestureType"] = request.gestureType;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RecognizeHandGesture",
@@ -12964,8 +13381,13 @@ export default class Client extends OpenApi {
 
   async recognizePublicFaceWithOptions(request: RecognizePublicFaceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePublicFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.task)) {
+      body["Task"] = request.task;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RecognizePublicFace",
@@ -12988,8 +13410,21 @@ export default class Client extends OpenApi {
 
   async retouchBodyWithOptions(request: RetouchBodyRequest, runtime: $Util.RuntimeOptions): Promise<RetouchBodyResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.lengthenDegree)) {
+      body["LengthenDegree"] = request.lengthenDegree;
+    }
+
+    if (!Util.isUnset(request.slimDegree)) {
+      body["SlimDegree"] = request.slimDegree;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RetouchBody",
@@ -13086,8 +13521,21 @@ export default class Client extends OpenApi {
 
   async retouchSkinWithOptions(request: RetouchSkinRequest, runtime: $Util.RuntimeOptions): Promise<RetouchSkinResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.retouchDegree)) {
+      body["RetouchDegree"] = request.retouchDegree;
+    }
+
+    if (!Util.isUnset(request.whiteningDegree)) {
+      body["WhiteningDegree"] = request.whiteningDegree;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RetouchSkin",
@@ -13190,8 +13638,25 @@ export default class Client extends OpenApi {
       request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "json");
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbId)) {
+      body["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.imagesShrink)) {
+      body["Images"] = request.imagesShrink;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.minScore)) {
+      body["MinScore"] = request.minScore;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SearchBodyTrace",
@@ -13214,8 +13679,33 @@ export default class Client extends OpenApi {
 
   async searchFaceWithOptions(request: SearchFaceRequest, runtime: $Util.RuntimeOptions): Promise<SearchFaceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.dbNames)) {
+      body["DbNames"] = request.dbNames;
+    }
+
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.maxFaceNum)) {
+      body["MaxFaceNum"] = request.maxFaceNum;
+    }
+
+    if (!Util.isUnset(request.qualityScoreThreshold)) {
+      body["QualityScoreThreshold"] = request.qualityScoreThreshold;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SearchFace",
@@ -13312,8 +13802,29 @@ export default class Client extends OpenApi {
 
   async swapFacialFeaturesWithOptions(request: SwapFacialFeaturesRequest, runtime: $Util.RuntimeOptions): Promise<SwapFacialFeaturesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.editPart)) {
+      body["EditPart"] = request.editPart;
+    }
+
+    if (!Util.isUnset(request.sourceImageData)) {
+      body["SourceImageData"] = request.sourceImageData;
+    }
+
+    if (!Util.isUnset(request.sourceImageURL)) {
+      body["SourceImageURL"] = request.sourceImageURL;
+    }
+
+    if (!Util.isUnset(request.targetImageData)) {
+      body["TargetImageData"] = request.targetImageData;
+    }
+
+    if (!Util.isUnset(request.targetImageURL)) {
+      body["TargetImageURL"] = request.targetImageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SwapFacialFeatures",
@@ -13336,8 +13847,21 @@ export default class Client extends OpenApi {
 
   async updateFaceEntityWithOptions(request: UpdateFaceEntityRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFaceEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.labels)) {
+      body["Labels"] = request.labels;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFaceEntity",
@@ -13360,8 +13884,25 @@ export default class Client extends OpenApi {
 
   async verifyFaceMaskWithOptions(request: VerifyFaceMaskRequest, runtime: $Util.RuntimeOptions): Promise<VerifyFaceMaskResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageData)) {
+      body["ImageData"] = request.imageData;
+    }
+
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    if (!Util.isUnset(request.refData)) {
+      body["RefData"] = request.refData;
+    }
+
+    if (!Util.isUnset(request.refUrl)) {
+      body["RefUrl"] = request.refUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "VerifyFaceMask",
