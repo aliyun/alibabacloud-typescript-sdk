@@ -439,6 +439,8 @@ export class CreateApiRequest extends $tea.Model {
   apiName?: string;
   appCodeAuthType?: string;
   authType?: string;
+  backendEnable?: boolean;
+  backendId?: string;
   constantParameters?: string;
   description?: string;
   disableInternet?: boolean;
@@ -466,6 +468,8 @@ export class CreateApiRequest extends $tea.Model {
       apiName: 'ApiName',
       appCodeAuthType: 'AppCodeAuthType',
       authType: 'AuthType',
+      backendEnable: 'BackendEnable',
+      backendId: 'BackendId',
       constantParameters: 'ConstantParameters',
       description: 'Description',
       disableInternet: 'DisableInternet',
@@ -496,6 +500,8 @@ export class CreateApiRequest extends $tea.Model {
       apiName: 'string',
       appCodeAuthType: 'string',
       authType: 'string',
+      backendEnable: 'boolean',
+      backendId: 'string',
       constantParameters: 'string',
       description: 'string',
       disableInternet: 'boolean',
@@ -816,6 +822,156 @@ export class CreateAppResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendRequest extends $tea.Model {
+  backendName?: string;
+  backendType?: string;
+  description?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendName: 'string',
+      backendType: 'string',
+      description: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendResponseBody extends $tea.Model {
+  backendId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBackendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBackendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendModelRequest extends $tea.Model {
+  backendId?: string;
+  backendModelData?: string;
+  backendType?: string;
+  description?: string;
+  securityToken?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendModelData: 'BackendModelData',
+      backendType: 'BackendType',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendModelData: 'string',
+      backendType: 'string',
+      description: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendModelResponseBody extends $tea.Model {
+  backendModelId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendModelId: 'BackendModelId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendModelId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBackendModelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateBackendModelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateBackendModelResponseBody,
     };
   }
 
@@ -1856,6 +2012,141 @@ export class DeleteAppResponse extends $tea.Model {
   }
 }
 
+export class DeleteBackendRequest extends $tea.Model {
+  backendId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackendResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBackendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBackendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackendModelRequest extends $tea.Model {
+  backendId?: string;
+  backendModelId?: string;
+  securityToken?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendModelId: 'BackendModelId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendModelId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackendModelResponseBody extends $tea.Model {
+  operationId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackendModelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteBackendModelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteBackendModelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDomainRequest extends $tea.Model {
   domainName?: string;
   groupId?: string;
@@ -2673,6 +2964,8 @@ export class DescribeApiResponseBody extends $tea.Model {
   apiName?: string;
   appCodeAuthType?: string;
   authType?: string;
+  backendConfig?: DescribeApiResponseBodyBackendConfig;
+  backendEnable?: boolean;
   constantParameters?: DescribeApiResponseBodyConstantParameters;
   createdTime?: string;
   customSystemParameters?: DescribeApiResponseBodyCustomSystemParameters;
@@ -2709,6 +3002,8 @@ export class DescribeApiResponseBody extends $tea.Model {
       apiName: 'ApiName',
       appCodeAuthType: 'AppCodeAuthType',
       authType: 'AuthType',
+      backendConfig: 'BackendConfig',
+      backendEnable: 'BackendEnable',
       constantParameters: 'ConstantParameters',
       createdTime: 'CreatedTime',
       customSystemParameters: 'CustomSystemParameters',
@@ -2748,6 +3043,8 @@ export class DescribeApiResponseBody extends $tea.Model {
       apiName: 'string',
       appCodeAuthType: 'string',
       authType: 'string',
+      backendConfig: DescribeApiResponseBodyBackendConfig,
+      backendEnable: 'boolean',
       constantParameters: DescribeApiResponseBodyConstantParameters,
       createdTime: 'string',
       customSystemParameters: DescribeApiResponseBodyCustomSystemParameters,
@@ -3378,6 +3675,8 @@ export class DescribeApiHistoryResponseBody extends $tea.Model {
   apiName?: string;
   appCodeAuthType?: string;
   authType?: string;
+  backendConfig?: DescribeApiHistoryResponseBodyBackendConfig;
+  backendEnable?: boolean;
   constantParameters?: DescribeApiHistoryResponseBodyConstantParameters;
   customSystemParameters?: DescribeApiHistoryResponseBodyCustomSystemParameters;
   deployedTime?: string;
@@ -3413,6 +3712,8 @@ export class DescribeApiHistoryResponseBody extends $tea.Model {
       apiName: 'ApiName',
       appCodeAuthType: 'AppCodeAuthType',
       authType: 'AuthType',
+      backendConfig: 'BackendConfig',
+      backendEnable: 'BackendEnable',
       constantParameters: 'ConstantParameters',
       customSystemParameters: 'CustomSystemParameters',
       deployedTime: 'DeployedTime',
@@ -3451,6 +3752,8 @@ export class DescribeApiHistoryResponseBody extends $tea.Model {
       apiName: 'string',
       appCodeAuthType: 'string',
       authType: 'string',
+      backendConfig: DescribeApiHistoryResponseBodyBackendConfig,
+      backendEnable: 'boolean',
       constantParameters: DescribeApiHistoryResponseBodyConstantParameters,
       customSystemParameters: DescribeApiHistoryResponseBodyCustomSystemParameters,
       deployedTime: 'string',
@@ -4277,6 +4580,90 @@ export class DescribeApisByAppResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisByBackendRequest extends $tea.Model {
+  backendId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByBackendResponseBody extends $tea.Model {
+  apiInfoList?: DescribeApisByBackendResponseBodyApiInfoList;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiInfoList: 'ApiInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiInfoList: DescribeApisByBackendResponseBodyApiInfoList,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByBackendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeApisByBackendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeApisByBackendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisByIpControlRequest extends $tea.Model {
   ipControlId?: string;
   pageNumber?: number;
@@ -5031,6 +5418,156 @@ export class DescribeAuthorizedAppsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeAuthorizedAppsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoRequest extends $tea.Model {
+  backendId?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBody extends $tea.Model {
+  backendInfo?: DescribeBackendInfoResponseBodyBackendInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendInfo: 'BackendInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendInfo: DescribeBackendInfoResponseBodyBackendInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeBackendInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeBackendInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendListRequest extends $tea.Model {
+  backendName?: string;
+  backendType?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendName: 'string',
+      backendType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendListResponseBody extends $tea.Model {
+  backendInfoList?: DescribeBackendListResponseBodyBackendInfoList[];
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backendInfoList: 'BackendInfoList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendInfoList: { 'type': 'array', 'itemType': DescribeBackendListResponseBodyBackendInfoList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeBackendListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeBackendListResponseBody,
     };
   }
 
@@ -6944,6 +7481,72 @@ export class DescribeTrafficControlsByApiResponse extends $tea.Model {
   }
 }
 
+export class DescribeUpdateBackendTaskRequest extends $tea.Model {
+  operationUid?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationUid: 'OperationUid',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationUid: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdateBackendTaskResponseBody extends $tea.Model {
+  apiUpdateBackendResults?: DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResults;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiUpdateBackendResults: 'ApiUpdateBackendResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiUpdateBackendResults: DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResults,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdateBackendTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeUpdateBackendTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeUpdateBackendTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUpdateVpcInfoTaskRequest extends $tea.Model {
   operationUid?: string;
   securityToken?: string;
@@ -7501,6 +8104,8 @@ export class ModifyApiRequest extends $tea.Model {
   apiName?: string;
   appCodeAuthType?: string;
   authType?: string;
+  backendEnable?: boolean;
+  backendId?: string;
   constantParameters?: string;
   description?: string;
   disableInternet?: boolean;
@@ -7529,6 +8134,8 @@ export class ModifyApiRequest extends $tea.Model {
       apiName: 'ApiName',
       appCodeAuthType: 'AppCodeAuthType',
       authType: 'AuthType',
+      backendEnable: 'BackendEnable',
+      backendId: 'BackendId',
       constantParameters: 'ConstantParameters',
       description: 'Description',
       disableInternet: 'DisableInternet',
@@ -7560,6 +8167,8 @@ export class ModifyApiRequest extends $tea.Model {
       apiName: 'string',
       appCodeAuthType: 'string',
       authType: 'string',
+      backendEnable: 'boolean',
+      backendId: 'string',
       constantParameters: 'string',
       description: 'string',
       disableInternet: 'boolean',
@@ -7871,6 +8480,159 @@ export class ModifyAppResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyAppResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendRequest extends $tea.Model {
+  backendId?: string;
+  backendName?: string;
+  backendType?: string;
+  description?: string;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendName: 'string',
+      backendType: 'string',
+      description: 'string',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyBackendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyBackendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendModelRequest extends $tea.Model {
+  backendId?: string;
+  backendModelData?: string;
+  backendModelId?: string;
+  backendType?: string;
+  description?: string;
+  securityToken?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendModelData: 'BackendModelData',
+      backendModelId: 'BackendModelId',
+      backendType: 'BackendType',
+      description: 'Description',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendModelData: 'string',
+      backendModelId: 'string',
+      backendType: 'string',
+      description: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendModelResponseBody extends $tea.Model {
+  operationId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationId: 'OperationId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBackendModelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyBackendModelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyBackendModelResponseBody,
     };
   }
 
@@ -10671,6 +11433,31 @@ export class DescribeAbolishApiTaskResponseBodyApiAbolishResults extends $tea.Mo
   }
 }
 
+export class DescribeApiResponseBodyBackendConfig extends $tea.Model {
+  backendId?: string;
+  backendName?: string;
+  backendType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendName: 'string',
+      backendType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiResponseBodyConstantParametersConstantParameter extends $tea.Model {
   constantValue?: string;
   description?: string;
@@ -11985,6 +12772,31 @@ export class DescribeApiHistoriesResponseBodyApiHisItems extends $tea.Model {
   }
 }
 
+export class DescribeApiHistoryResponseBodyBackendConfig extends $tea.Model {
+  backendId?: string;
+  backendName?: string;
+  backendType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendName: 'string',
+      backendType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiHistoryResponseBodyConstantParametersConstantParameter extends $tea.Model {
   constantValue?: string;
   description?: string;
@@ -13200,6 +14012,62 @@ export class DescribeApisByAppResponseBodyAppApiRelationInfos extends $tea.Model
   }
 }
 
+export class DescribeApisByBackendResponseBodyApiInfoListApiInfo extends $tea.Model {
+  apiId?: string;
+  apiName?: string;
+  description?: string;
+  groupId?: string;
+  groupName?: string;
+  method?: string;
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      apiName: 'ApiName',
+      description: 'Description',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      method: 'Method',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      apiName: 'string',
+      description: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      method: 'string',
+      path: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisByBackendResponseBodyApiInfoList extends $tea.Model {
+  apiInfo?: DescribeApisByBackendResponseBodyApiInfoListApiInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      apiInfo: 'ApiInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiInfo: { 'type': 'array', 'itemType': DescribeApisByBackendResponseBodyApiInfoListApiInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisByIpControlResponseBodyApiInfosApiInfo extends $tea.Model {
   apiId?: string;
   apiName?: string;
@@ -13687,6 +14555,241 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedApps extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       authorizedApp: { 'type': 'array', 'itemType': DescribeAuthorizedAppsResponseBodyAuthorizedAppsAuthorizedApp },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig extends $tea.Model {
+  fcBaseUrl?: string;
+  fcRegionId?: string;
+  fcType?: string;
+  functionName?: string;
+  onlyBusinessPath?: boolean;
+  qualifier?: string;
+  roleArn?: string;
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fcBaseUrl: 'FcBaseUrl',
+      fcRegionId: 'FcRegionId',
+      fcType: 'FcType',
+      functionName: 'FunctionName',
+      onlyBusinessPath: 'OnlyBusinessPath',
+      qualifier: 'Qualifier',
+      roleArn: 'RoleArn',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fcBaseUrl: 'string',
+      fcRegionId: 'string',
+      fcType: 'string',
+      functionName: 'string',
+      onlyBusinessPath: 'boolean',
+      qualifier: 'string',
+      roleArn: 'string',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig extends $tea.Model {
+  bucketName?: string;
+  ossRegionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucketName: 'BucketName',
+      ossRegionId: 'OssRegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketName: 'string',
+      ossRegionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig extends $tea.Model {
+  instanceId?: string;
+  name?: string;
+  port?: number;
+  vpcAccessId?: string;
+  vpcId?: string;
+  vpcScheme?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      name: 'Name',
+      port: 'Port',
+      vpcAccessId: 'VpcAccessId',
+      vpcId: 'VpcId',
+      vpcScheme: 'VpcScheme',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      name: 'string',
+      port: 'number',
+      vpcAccessId: 'string',
+      vpcId: 'string',
+      vpcScheme: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig extends $tea.Model {
+  functionComputeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig;
+  ossConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig;
+  serviceAddress?: string;
+  type?: string;
+  vpcConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig;
+  static names(): { [key: string]: string } {
+    return {
+      functionComputeConfig: 'FunctionComputeConfig',
+      ossConfig: 'OssConfig',
+      serviceAddress: 'ServiceAddress',
+      type: 'Type',
+      vpcConfig: 'VpcConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functionComputeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig,
+      ossConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig,
+      serviceAddress: 'string',
+      type: 'string',
+      vpcConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModels extends $tea.Model {
+  backendConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig;
+  backendModelId?: string;
+  description?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  stageModeId?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendConfig: 'BackendConfig',
+      backendModelId: 'BackendModelId',
+      description: 'Description',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      stageModeId: 'StageModeId',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig,
+      backendModelId: 'string',
+      description: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      stageModeId: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendInfoResponseBodyBackendInfo extends $tea.Model {
+  backendId?: string;
+  backendModels?: DescribeBackendInfoResponseBodyBackendInfoBackendModels[];
+  backendName?: string;
+  backendType?: string;
+  createdTime?: string;
+  description?: string;
+  modifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendModels: 'BackendModels',
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      modifiedTime: 'ModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendModels: { 'type': 'array', 'itemType': DescribeBackendInfoResponseBodyBackendInfoBackendModels },
+      backendName: 'string',
+      backendType: 'string',
+      createdTime: 'string',
+      description: 'string',
+      modifiedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackendListResponseBodyBackendInfoList extends $tea.Model {
+  backendId?: string;
+  backendName?: string;
+  backendType?: string;
+  createdTime?: string;
+  description?: string;
+  modifiedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      backendName: 'BackendName',
+      backendType: 'BackendType',
+      createdTime: 'CreatedTime',
+      description: 'Description',
+      modifiedTime: 'ModifiedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      backendName: 'string',
+      backendType: 'string',
+      createdTime: 'string',
+      description: 'string',
+      modifiedTime: 'string',
     };
   }
 
@@ -15605,6 +16708,68 @@ export class DescribeTrafficControlsByApiResponseBodyTrafficControlItems extends
   }
 }
 
+export class DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResultsApiUpdateBackendResult extends $tea.Model {
+  apiName?: string;
+  apiUid?: string;
+  backendId?: string;
+  errorMsg?: string;
+  groupId?: string;
+  groupName?: string;
+  stageId?: string;
+  stageName?: string;
+  updateStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiName: 'ApiName',
+      apiUid: 'ApiUid',
+      backendId: 'BackendId',
+      errorMsg: 'ErrorMsg',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      stageId: 'StageId',
+      stageName: 'StageName',
+      updateStatus: 'UpdateStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiName: 'string',
+      apiUid: 'string',
+      backendId: 'string',
+      errorMsg: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      stageId: 'string',
+      stageName: 'string',
+      updateStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResults extends $tea.Model {
+  apiUpdateBackendResult?: DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResultsApiUpdateBackendResult[];
+  static names(): { [key: string]: string } {
+    return {
+      apiUpdateBackendResult: 'ApiUpdateBackendResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiUpdateBackendResult: { 'type': 'array', 'itemType': DescribeUpdateBackendTaskResponseBodyApiUpdateBackendResultsApiUpdateBackendResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUpdateVpcInfoTaskResponseBodyApiUpdateVpcInfoResultsApiUpdateVpcInfoResult extends $tea.Model {
   apiName?: string;
   apiUid?: string;
@@ -16650,6 +17815,14 @@ export default class Client extends OpenApi {
       query["AuthType"] = request.authType;
     }
 
+    if (!Util.isUnset(request.backendEnable)) {
+      query["BackendEnable"] = request.backendEnable;
+    }
+
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
     if (!Util.isUnset(request.constantParameters)) {
       query["ConstantParameters"] = request.constantParameters;
     }
@@ -16901,6 +18074,96 @@ export default class Client extends OpenApi {
   async createApp(request: CreateAppRequest): Promise<CreateAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAppWithOptions(request, runtime);
+  }
+
+  async createBackendWithOptions(request: CreateBackendRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendName)) {
+      query["BackendName"] = request.backendName;
+    }
+
+    if (!Util.isUnset(request.backendType)) {
+      query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBackend",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackendResponse>(await this.callApi(params, req, runtime), new CreateBackendResponse({}));
+  }
+
+  async createBackend(request: CreateBackendRequest): Promise<CreateBackendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBackendWithOptions(request, runtime);
+  }
+
+  async createBackendModelWithOptions(request: CreateBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<CreateBackendModelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.backendModelData)) {
+      query["BackendModelData"] = request.backendModelData;
+    }
+
+    if (!Util.isUnset(request.backendType)) {
+      query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateBackendModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBackendModelResponse>(await this.callApi(params, req, runtime), new CreateBackendModelResponse({}));
+  }
+
+  async createBackendModel(request: CreateBackendModelRequest): Promise<CreateBackendModelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createBackendModelWithOptions(request, runtime);
   }
 
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
@@ -17491,6 +18754,80 @@ export default class Client extends OpenApi {
   async deleteApp(request: DeleteAppRequest): Promise<DeleteAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAppWithOptions(request, runtime);
+  }
+
+  async deleteBackendWithOptions(request: DeleteBackendRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBackend",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackendResponse>(await this.callApi(params, req, runtime), new DeleteBackendResponse({}));
+  }
+
+  async deleteBackend(request: DeleteBackendRequest): Promise<DeleteBackendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBackendWithOptions(request, runtime);
+  }
+
+  async deleteBackendModelWithOptions(request: DeleteBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackendModelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.backendModelId)) {
+      query["BackendModelId"] = request.backendModelId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBackendModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackendModelResponse>(await this.callApi(params, req, runtime), new DeleteBackendModelResponse({}));
+  }
+
+  async deleteBackendModel(request: DeleteBackendModelRequest): Promise<DeleteBackendModelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBackendModelWithOptions(request, runtime);
   }
 
   async deleteDomainWithOptions(request: DeleteDomainRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainResponse> {
@@ -18685,6 +20022,51 @@ export default class Client extends OpenApi {
     return await this.describeApisByAppWithOptions(request, runtime);
   }
 
+  async describeApisByBackendWithOptions(request: DescribeApisByBackendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByBackendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisByBackend",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisByBackendResponse>(await this.callApi(params, req, runtime), new DescribeApisByBackendResponse({}));
+  }
+
+  async describeApisByBackend(request: DescribeApisByBackendRequest): Promise<DescribeApisByBackendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisByBackendWithOptions(request, runtime);
+  }
+
   async describeApisByIpControlWithOptions(request: DescribeApisByIpControlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisByIpControlResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19088,6 +20470,84 @@ export default class Client extends OpenApi {
   async describeAuthorizedApps(request: DescribeAuthorizedAppsRequest): Promise<DescribeAuthorizedAppsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAuthorizedAppsWithOptions(request, runtime);
+  }
+
+  async describeBackendInfoWithOptions(request: DescribeBackendInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackendInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackendInfo",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackendInfoResponse>(await this.callApi(params, req, runtime), new DescribeBackendInfoResponse({}));
+  }
+
+  async describeBackendInfo(request: DescribeBackendInfoRequest): Promise<DescribeBackendInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackendInfoWithOptions(request, runtime);
+  }
+
+  async describeBackendListWithOptions(request: DescribeBackendListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBackendListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendName)) {
+      query["BackendName"] = request.backendName;
+    }
+
+    if (!Util.isUnset(request.backendType)) {
+      query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeBackendList",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBackendListResponse>(await this.callApi(params, req, runtime), new DescribeBackendListResponse({}));
+  }
+
+  async describeBackendList(request: DescribeBackendListRequest): Promise<DescribeBackendListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeBackendListWithOptions(request, runtime);
   }
 
   async describeDeployApiTaskWithOptions(request: DescribeDeployApiTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDeployApiTaskResponse> {
@@ -20057,6 +21517,39 @@ export default class Client extends OpenApi {
     return await this.describeTrafficControlsByApiWithOptions(request, runtime);
   }
 
+  async describeUpdateBackendTaskWithOptions(request: DescribeUpdateBackendTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdateBackendTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.operationUid)) {
+      query["OperationUid"] = request.operationUid;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUpdateBackendTask",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUpdateBackendTaskResponse>(await this.callApi(params, req, runtime), new DescribeUpdateBackendTaskResponse({}));
+  }
+
+  async describeUpdateBackendTask(request: DescribeUpdateBackendTaskRequest): Promise<DescribeUpdateBackendTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUpdateBackendTaskWithOptions(request, runtime);
+  }
+
   async describeUpdateVpcInfoTaskWithOptions(request: DescribeUpdateVpcInfoTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUpdateVpcInfoTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20362,6 +21855,14 @@ export default class Client extends OpenApi {
       query["AuthType"] = request.authType;
     }
 
+    if (!Util.isUnset(request.backendEnable)) {
+      query["BackendEnable"] = request.backendEnable;
+    }
+
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
     if (!Util.isUnset(request.constantParameters)) {
       query["ConstantParameters"] = request.constantParameters;
     }
@@ -20625,6 +22126,104 @@ export default class Client extends OpenApi {
   async modifyApp(request: ModifyAppRequest): Promise<ModifyAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAppWithOptions(request, runtime);
+  }
+
+  async modifyBackendWithOptions(request: ModifyBackendRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.backendName)) {
+      query["BackendName"] = request.backendName;
+    }
+
+    if (!Util.isUnset(request.backendType)) {
+      query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyBackend",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackendResponse>(await this.callApi(params, req, runtime), new ModifyBackendResponse({}));
+  }
+
+  async modifyBackend(request: ModifyBackendRequest): Promise<ModifyBackendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyBackendWithOptions(request, runtime);
+  }
+
+  async modifyBackendModelWithOptions(request: ModifyBackendModelRequest, runtime: $Util.RuntimeOptions): Promise<ModifyBackendModelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendId)) {
+      query["BackendId"] = request.backendId;
+    }
+
+    if (!Util.isUnset(request.backendModelData)) {
+      query["BackendModelData"] = request.backendModelData;
+    }
+
+    if (!Util.isUnset(request.backendModelId)) {
+      query["BackendModelId"] = request.backendModelId;
+    }
+
+    if (!Util.isUnset(request.backendType)) {
+      query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyBackendModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyBackendModelResponse>(await this.callApi(params, req, runtime), new ModifyBackendModelResponse({}));
+  }
+
+  async modifyBackendModel(request: ModifyBackendModelRequest): Promise<ModifyBackendModelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyBackendModelWithOptions(request, runtime);
   }
 
   async modifyInstanceSpecWithOptions(request: ModifyInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceSpecResponse> {
