@@ -4060,13 +4060,13 @@ export class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem extends $tea
 }
 
 export class GetDiagnoseResultForSingleCardResponseBodyErrorResult extends $tea.Model {
-  errorDes?: string;
+  errorDesc?: string;
   errorLevel?: string;
   errorPart?: string;
   errorSuggestion?: string;
   static names(): { [key: string]: string } {
     return {
-      errorDes: 'ErrorDes',
+      errorDesc: 'ErrorDesc',
       errorLevel: 'ErrorLevel',
       errorPart: 'ErrorPart',
       errorSuggestion: 'ErrorSuggestion',
@@ -4075,7 +4075,7 @@ export class GetDiagnoseResultForSingleCardResponseBodyErrorResult extends $tea.
 
   static types(): { [key: string]: any } {
     return {
-      errorDes: 'string',
+      errorDesc: 'string',
       errorLevel: 'string',
       errorPart: 'string',
       errorSuggestion: 'string',
