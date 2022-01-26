@@ -1766,6 +1766,96 @@ export class GetConnectionPoolIpOperationResultResponse extends $tea.Model {
   }
 }
 
+export class GetDiagnoseResultForSingleCardRequest extends $tea.Model {
+  diagnoseTaskId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseTaskId: 'DiagnoseTaskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseTaskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
+  beginTime?: number;
+  cardIp?: string;
+  destination?: string;
+  diagnoseItem?: GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem[];
+  endTime?: number;
+  errorResult?: GetDiagnoseResultForSingleCardResponseBodyErrorResult[];
+  iccid?: string;
+  ioTCloudConnectorId?: string;
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      cardIp: 'CardIp',
+      destination: 'Destination',
+      diagnoseItem: 'DiagnoseItem',
+      endTime: 'EndTime',
+      errorResult: 'ErrorResult',
+      iccid: 'Iccid',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      requestId: 'RequestId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      cardIp: 'string',
+      destination: 'string',
+      diagnoseItem: { 'type': 'array', 'itemType': GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem },
+      endTime: 'number',
+      errorResult: { 'type': 'array', 'itemType': GetDiagnoseResultForSingleCardResponseBodyErrorResult },
+      iccid: 'string',
+      ioTCloudConnectorId: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnoseResultForSingleCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDiagnoseResultForSingleCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDiagnoseResultForSingleCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIoTCloudConnectorAccessLogRequest extends $tea.Model {
   clientToken?: string;
   dryRun?: boolean;
@@ -2439,6 +2529,90 @@ export class ListConnectionPoolsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListConnectionPoolsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnoseInfoForSingleCardRequest extends $tea.Model {
+  ioTCloudConnectorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  source?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      source: 'Source',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ioTCloudConnectorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      source: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnoseInfoForSingleCardResponseBody extends $tea.Model {
+  diagnoseInfo?: ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo[];
+  maxResults?: number;
+  nextToken?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseInfo: 'DiagnoseInfo',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseInfo: { 'type': 'array', 'itemType': ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo },
+      maxResults: 'number',
+      nextToken: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnoseInfoForSingleCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDiagnoseInfoForSingleCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDiagnoseInfoForSingleCardResponseBody,
     };
   }
 
@@ -3191,6 +3365,93 @@ export class RemoveIoTCloudConnectorFromGroupResponse extends $tea.Model {
   }
 }
 
+export class SubmitDiagnoseTaskForSingleCardRequest extends $tea.Model {
+  beginTime?: number;
+  destination?: string;
+  destinationType?: string;
+  endTime?: number;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  resourceUid?: number;
+  source?: string;
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      destination: 'Destination',
+      destinationType: 'DestinationType',
+      endTime: 'EndTime',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+      resourceUid: 'ResourceUid',
+      source: 'Source',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      destination: 'string',
+      destinationType: 'string',
+      endTime: 'number',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+      resourceUid: 'number',
+      source: 'string',
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDiagnoseTaskForSingleCardResponseBody extends $tea.Model {
+  diagnoseTaskId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diagnoseTaskId: 'DiagnoseTaskId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diagnoseTaskId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitDiagnoseTaskForSingleCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitDiagnoseTaskForSingleCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitDiagnoseTaskForSingleCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAuthorizationRuleAttributeRequest extends $tea.Model {
   authorizationRuleDescription?: string;
   authorizationRuleId?: string;
@@ -3776,6 +4037,56 @@ export class UpdateServiceEntryAttributeResponse extends $tea.Model {
   }
 }
 
+export class GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem extends $tea.Model {
+  part?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      part: 'Part',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      part: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDiagnoseResultForSingleCardResponseBodyErrorResult extends $tea.Model {
+  errorDes?: string;
+  errorLevel?: string;
+  errorPart?: string;
+  errorSuggestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDes: 'ErrorDes',
+      errorLevel: 'ErrorLevel',
+      errorPart: 'ErrorPart',
+      errorSuggestion: 'ErrorSuggestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDes: 'string',
+      errorLevel: 'string',
+      errorPart: 'string',
+      errorSuggestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAPNsResponseBodyAPNs extends $tea.Model {
   APN?: string;
   description?: string;
@@ -3935,6 +4246,43 @@ export class ListConnectionPoolsResponseBodyConnectionPools extends $tea.Model {
       connectionPoolName: 'string',
       connectionPoolStatus: 'string',
       operateResultRequestID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.Model {
+  beginTime?: number;
+  cardIp?: string;
+  destination?: string;
+  endTime?: number;
+  iccid?: string;
+  ioTCloudConnectorId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      cardIp: 'CardIp',
+      destination: 'Destination',
+      endTime: 'EndTime',
+      iccid: 'Iccid',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      cardIp: 'string',
+      destination: 'string',
+      endTime: 'number',
+      iccid: 'string',
+      ioTCloudConnectorId: 'string',
+      status: 'string',
     };
   }
 
@@ -5366,6 +5714,39 @@ export default class Client extends OpenApi {
     return await this.getConnectionPoolIpOperationResultWithOptions(request, runtime);
   }
 
+  async getDiagnoseResultForSingleCardWithOptions(request: GetDiagnoseResultForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<GetDiagnoseResultForSingleCardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diagnoseTaskId)) {
+      query["DiagnoseTaskId"] = request.diagnoseTaskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDiagnoseResultForSingleCard",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDiagnoseResultForSingleCardResponse>(await this.callApi(params, req, runtime), new GetDiagnoseResultForSingleCardResponse({}));
+  }
+
+  async getDiagnoseResultForSingleCard(request: GetDiagnoseResultForSingleCardRequest): Promise<GetDiagnoseResultForSingleCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDiagnoseResultForSingleCardWithOptions(request, runtime);
+  }
+
   async getIoTCloudConnectorAccessLogWithOptions(request: GetIoTCloudConnectorAccessLogRequest, runtime: $Util.RuntimeOptions): Promise<GetIoTCloudConnectorAccessLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5752,6 +6133,55 @@ export default class Client extends OpenApi {
   async listConnectionPools(request: ListConnectionPoolsRequest): Promise<ListConnectionPoolsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listConnectionPoolsWithOptions(request, runtime);
+  }
+
+  async listDiagnoseInfoForSingleCardWithOptions(request: ListDiagnoseInfoForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseInfoForSingleCardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDiagnoseInfoForSingleCard",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDiagnoseInfoForSingleCardResponse>(await this.callApi(params, req, runtime), new ListDiagnoseInfoForSingleCardResponse({}));
+  }
+
+  async listDiagnoseInfoForSingleCard(request: ListDiagnoseInfoForSingleCardRequest): Promise<ListDiagnoseInfoForSingleCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDiagnoseInfoForSingleCardWithOptions(request, runtime);
   }
 
   async listGroupAuthorizationRulesWithOptions(request: ListGroupAuthorizationRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupAuthorizationRulesResponse> {
@@ -6193,6 +6623,67 @@ export default class Client extends OpenApi {
   async removeIoTCloudConnectorFromGroup(request: RemoveIoTCloudConnectorFromGroupRequest): Promise<RemoveIoTCloudConnectorFromGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeIoTCloudConnectorFromGroupWithOptions(request, runtime);
+  }
+
+  async submitDiagnoseTaskForSingleCardWithOptions(request: SubmitDiagnoseTaskForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<SubmitDiagnoseTaskForSingleCardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.beginTime)) {
+      query["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceUid)) {
+      query["ResourceUid"] = request.resourceUid;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitDiagnoseTaskForSingleCard",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitDiagnoseTaskForSingleCardResponse>(await this.callApi(params, req, runtime), new SubmitDiagnoseTaskForSingleCardResponse({}));
+  }
+
+  async submitDiagnoseTaskForSingleCard(request: SubmitDiagnoseTaskForSingleCardRequest): Promise<SubmitDiagnoseTaskForSingleCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitDiagnoseTaskForSingleCardWithOptions(request, runtime);
   }
 
   async updateAuthorizationRuleAttributeWithOptions(request: UpdateAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAuthorizationRuleAttributeResponse> {
