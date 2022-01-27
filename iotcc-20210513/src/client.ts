@@ -2574,14 +2574,16 @@ export class ListDiagnoseInfoForSingleCardRequest extends $tea.Model {
 export class ListDiagnoseInfoForSingleCardResponseBody extends $tea.Model {
   diagnoseInfo?: ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo[];
   maxResults?: number;
-  nextToken?: number;
+  nextToken?: string;
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       diagnoseInfo: 'DiagnoseInfo',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -2589,8 +2591,9 @@ export class ListDiagnoseInfoForSingleCardResponseBody extends $tea.Model {
     return {
       diagnoseInfo: { 'type': 'array', 'itemType': ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo },
       maxResults: 'number',
-      nextToken: 'number',
+      nextToken: 'string',
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -4258,19 +4261,23 @@ export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.
   beginTime?: number;
   cardIp?: string;
   destination?: string;
+  diagnoseTime?: number;
   endTime?: number;
   iccid?: string;
   ioTCloudConnectorId?: string;
   status?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       beginTime: 'BeginTime',
       cardIp: 'CardIp',
       destination: 'Destination',
+      diagnoseTime: 'DiagnoseTime',
       endTime: 'EndTime',
       iccid: 'Iccid',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       status: 'Status',
+      taskId: 'TaskId',
     };
   }
 
@@ -4279,10 +4286,12 @@ export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.
       beginTime: 'number',
       cardIp: 'string',
       destination: 'string',
+      diagnoseTime: 'number',
       endTime: 'number',
       iccid: 'string',
       ioTCloudConnectorId: 'string',
       status: 'string',
+      taskId: 'string',
     };
   }
 

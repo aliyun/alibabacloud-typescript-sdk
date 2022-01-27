@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/iotcc20210513",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
