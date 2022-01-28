@@ -446,6 +446,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   databaseNames?: string;
   engine?: string;
   engineVersion?: string;
+  hiddenZoneId?: string;
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -457,6 +458,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   restoreTime?: string;
+  secondaryZoneId?: string;
   securityIPList?: string;
   securityToken?: string;
   srcDBInstanceId?: string;
@@ -480,6 +482,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       databaseNames: 'DatabaseNames',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      hiddenZoneId: 'HiddenZoneId',
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -491,6 +494,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       restoreTime: 'RestoreTime',
+      secondaryZoneId: 'SecondaryZoneId',
       securityIPList: 'SecurityIPList',
       securityToken: 'SecurityToken',
       srcDBInstanceId: 'SrcDBInstanceId',
@@ -517,6 +521,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       databaseNames: 'string',
       engine: 'string',
       engineVersion: 'string',
+      hiddenZoneId: 'string',
       networkType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -528,6 +533,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       restoreTime: 'string',
+      secondaryZoneId: 'string',
       securityIPList: 'string',
       securityToken: 'string',
       srcDBInstanceId: 'string',
@@ -3165,6 +3171,7 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
   networkType?: string;
   ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -3183,6 +3190,7 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
       networkType: 'NetworkType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -3204,6 +3212,7 @@ export class DescribeDBInstancesOverviewRequest extends $tea.Model {
       networkType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -3709,24 +3718,48 @@ export class DescribeMongoDBLogConfigRequest extends $tea.Model {
 }
 
 export class DescribeMongoDBLogConfigResponseBody extends $tea.Model {
+  enableAudit?: boolean;
   isEtlMetaExist?: number;
   isUserProjectLogstoreExist?: number;
+  preserveStorageForStandard?: number;
+  preserveStorageForTrail?: number;
   requestId?: string;
+  serviceType?: string;
+  ttlForStandard?: number;
+  ttlForTrail?: number;
+  usedStorageForStandard?: number;
+  usedStorageForTrail?: number;
   userProjectName?: string;
   static names(): { [key: string]: string } {
     return {
+      enableAudit: 'EnableAudit',
       isEtlMetaExist: 'IsEtlMetaExist',
       isUserProjectLogstoreExist: 'IsUserProjectLogstoreExist',
+      preserveStorageForStandard: 'PreserveStorageForStandard',
+      preserveStorageForTrail: 'PreserveStorageForTrail',
       requestId: 'RequestId',
+      serviceType: 'ServiceType',
+      ttlForStandard: 'TtlForStandard',
+      ttlForTrail: 'TtlForTrail',
+      usedStorageForStandard: 'UsedStorageForStandard',
+      usedStorageForTrail: 'UsedStorageForTrail',
       userProjectName: 'UserProjectName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enableAudit: 'boolean',
       isEtlMetaExist: 'number',
       isUserProjectLogstoreExist: 'number',
+      preserveStorageForStandard: 'number',
+      preserveStorageForTrail: 'number',
       requestId: 'string',
+      serviceType: 'string',
+      ttlForStandard: 'number',
+      ttlForTrail: 'number',
+      usedStorageForStandard: 'number',
+      usedStorageForTrail: 'number',
       userProjectName: 'string',
     };
   }
@@ -5727,6 +5760,7 @@ export class ModifyAuditLogFilterResponse extends $tea.Model {
 }
 
 export class ModifyAuditPolicyRequest extends $tea.Model {
+  auditLogSwitchSource?: string;
   auditStatus?: string;
   DBInstanceId?: string;
   ownerAccount?: string;
@@ -5734,9 +5768,11 @@ export class ModifyAuditPolicyRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  serviceType?: string;
   storagePeriod?: number;
   static names(): { [key: string]: string } {
     return {
+      auditLogSwitchSource: 'AuditLogSwitchSource',
       auditStatus: 'AuditStatus',
       DBInstanceId: 'DBInstanceId',
       ownerAccount: 'OwnerAccount',
@@ -5744,12 +5780,14 @@ export class ModifyAuditPolicyRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      serviceType: 'ServiceType',
       storagePeriod: 'StoragePeriod',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      auditLogSwitchSource: 'string',
       auditStatus: 'string',
       DBInstanceId: 'string',
       ownerAccount: 'string',
@@ -5757,6 +5795,7 @@ export class ModifyAuditPolicyRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      serviceType: 'string',
       storagePeriod: 'number',
     };
   }
@@ -12018,6 +12057,10 @@ export default class Client extends OpenApi {
       query["EngineVersion"] = request.engineVersion;
     }
 
+    if (!Util.isUnset(request.hiddenZoneId)) {
+      query["HiddenZoneId"] = request.hiddenZoneId;
+    }
+
     if (!Util.isUnset(request.networkType)) {
       query["NetworkType"] = request.networkType;
     }
@@ -12060,6 +12103,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.restoreTime)) {
       query["RestoreTime"] = request.restoreTime;
+    }
+
+    if (!Util.isUnset(request.secondaryZoneId)) {
+      query["SecondaryZoneId"] = request.secondaryZoneId;
     }
 
     if (!Util.isUnset(request.securityIPList)) {
@@ -13946,6 +13993,10 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -15658,6 +15709,10 @@ export default class Client extends OpenApi {
   async modifyAuditPolicyWithOptions(request: ModifyAuditPolicyRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditPolicyResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.auditLogSwitchSource)) {
+      query["AuditLogSwitchSource"] = request.auditLogSwitchSource;
+    }
+
     if (!Util.isUnset(request.auditStatus)) {
       query["AuditStatus"] = request.auditStatus;
     }
@@ -15684,6 +15739,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
     }
 
     if (!Util.isUnset(request.storagePeriod)) {
