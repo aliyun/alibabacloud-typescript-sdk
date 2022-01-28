@@ -1911,6 +1911,81 @@ export class GetCampaignResponse extends $tea.Model {
   }
 }
 
+export class GetCaseFileUploadUrlRequest extends $tea.Model {
+  fileName?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCaseFileUploadUrlResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetCaseFileUploadUrlResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCaseFileUploadUrlResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCaseFileUploadUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetCaseFileUploadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetCaseFileUploadUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistoricalCallerReportRequest extends $tea.Model {
   callingNumber?: string;
   instanceId?: string;
@@ -7401,6 +7476,87 @@ export class RegisterDeviceResponse extends $tea.Model {
   }
 }
 
+export class RegisterDevicesRequest extends $tea.Model {
+  deviceId?: string;
+  instanceId?: string;
+  password?: string;
+  userIdListJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceId: 'DeviceId',
+      instanceId: 'InstanceId',
+      password: 'Password',
+      userIdListJson: 'UserIdListJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceId: 'string',
+      instanceId: 'string',
+      password: 'string',
+      userIdListJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDevicesResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RegisterDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RegisterDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RegisterDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseCallRequest extends $tea.Model {
   channelId?: string;
   deviceId?: string;
@@ -10970,6 +11126,28 @@ export class GetCampaignResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCaseFileUploadUrlResponseBodyData extends $tea.Model {
+  caseFileKey?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseFileKey: 'CaseFileKey',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseFileKey: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
   lastCallingTime?: number;
   totalCalls?: number;
@@ -11620,24 +11798,32 @@ export class GetInstanceTrendingReportResponseBodyData extends $tea.Model {
 
 export class GetLoginDetailsResponseBodyData extends $tea.Model {
   agentServerUrl?: string;
+  deviceExt?: string;
   deviceId?: string;
+  deviceState?: string;
   displayName?: string;
   extension?: string;
   signature?: string;
+  signature2?: string;
   sipServerUrl?: string;
   userId?: string;
   userKey?: string;
+  userKey2?: string;
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
       agentServerUrl: 'AgentServerUrl',
+      deviceExt: 'DeviceExt',
       deviceId: 'DeviceId',
+      deviceState: 'DeviceState',
       displayName: 'DisplayName',
       extension: 'Extension',
       signature: 'Signature',
+      signature2: 'Signature2',
       sipServerUrl: 'SipServerUrl',
       userId: 'UserId',
       userKey: 'UserKey',
+      userKey2: 'UserKey2',
       workMode: 'WorkMode',
     };
   }
@@ -11645,13 +11831,17 @@ export class GetLoginDetailsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       agentServerUrl: 'string',
+      deviceExt: 'string',
       deviceId: 'string',
+      deviceState: 'string',
       displayName: 'string',
       extension: 'string',
       signature: 'string',
+      signature2: 'string',
       sipServerUrl: 'string',
       userId: 'string',
       userKey: 'string',
+      userKey2: 'string',
       workMode: 'string',
     };
   }
@@ -11799,6 +11989,9 @@ export class GetTurnCredentialsResponseBodyData extends $tea.Model {
 }
 
 export class GetUserResponseBodyData extends $tea.Model {
+  deviceExt?: string;
+  deviceId?: string;
+  deviceState?: string;
   displayName?: string;
   email?: string;
   extension?: string;
@@ -11811,6 +12004,9 @@ export class GetUserResponseBodyData extends $tea.Model {
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      deviceExt: 'DeviceExt',
+      deviceId: 'DeviceId',
+      deviceState: 'DeviceState',
       displayName: 'DisplayName',
       email: 'Email',
       extension: 'Extension',
@@ -11826,6 +12022,9 @@ export class GetUserResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deviceExt: 'string',
+      deviceId: 'string',
+      deviceState: 'string',
       displayName: 'string',
       email: 'string',
       extension: 'string',
@@ -16580,9 +16779,13 @@ export class ListUsersResponseBodyDataListSkillLevelList extends $tea.Model {
 }
 
 export class ListUsersResponseBodyDataList extends $tea.Model {
+  deviceExt?: string;
+  deviceId?: string;
+  deviceState?: string;
   displayId?: string;
   displayName?: string;
   email?: string;
+  extension?: string;
   loginName?: string;
   mobile?: string;
   personalOutboundNumberList?: ListUsersResponseBodyDataListPersonalOutboundNumberList[];
@@ -16595,9 +16798,13 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      deviceExt: 'DeviceExt',
+      deviceId: 'DeviceId',
+      deviceState: 'DeviceState',
       displayId: 'DisplayId',
       displayName: 'DisplayName',
       email: 'Email',
+      extension: 'Extension',
       loginName: 'LoginName',
       mobile: 'Mobile',
       personalOutboundNumberList: 'PersonalOutboundNumberList',
@@ -16613,9 +16820,13 @@ export class ListUsersResponseBodyDataList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      deviceExt: 'string',
+      deviceId: 'string',
+      deviceState: 'string',
       displayId: 'string',
       displayName: 'string',
       email: 'string',
+      extension: 'string',
       loginName: 'string',
       mobile: 'string',
       personalOutboundNumberList: { 'type': 'array', 'itemType': ListUsersResponseBodyDataListPersonalOutboundNumberList },
@@ -17560,10 +17771,12 @@ export class ReleaseCallResponseBodyDataUserContext extends $tea.Model {
 
 export class ReleaseCallResponseBodyData extends $tea.Model {
   callContext?: ReleaseCallResponseBodyDataCallContext;
+  contextId?: number;
   userContext?: ReleaseCallResponseBodyDataUserContext;
   static names(): { [key: string]: string } {
     return {
       callContext: 'CallContext',
+      contextId: 'ContextId',
       userContext: 'UserContext',
     };
   }
@@ -17571,6 +17784,7 @@ export class ReleaseCallResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callContext: ReleaseCallResponseBodyDataCallContext,
+      contextId: 'number',
       userContext: ReleaseCallResponseBodyDataUserContext,
     };
   }
@@ -19609,6 +19823,39 @@ export default class Client extends OpenApi {
   async getCampaign(request: GetCampaignRequest): Promise<GetCampaignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCampaignWithOptions(request, runtime);
+  }
+
+  async getCaseFileUploadUrlWithOptions(request: GetCaseFileUploadUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetCaseFileUploadUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCaseFileUploadUrl",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCaseFileUploadUrlResponse>(await this.callApi(params, req, runtime), new GetCaseFileUploadUrlResponse({}));
+  }
+
+  async getCaseFileUploadUrl(request: GetCaseFileUploadUrlRequest): Promise<GetCaseFileUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCaseFileUploadUrlWithOptions(request, runtime);
   }
 
   async getHistoricalCallerReportWithOptions(request: GetHistoricalCallerReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCallerReportResponse> {
@@ -22353,6 +22600,47 @@ export default class Client extends OpenApi {
   async registerDevice(request: RegisterDeviceRequest): Promise<RegisterDeviceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.registerDeviceWithOptions(request, runtime);
+  }
+
+  async registerDevicesWithOptions(request: RegisterDevicesRequest, runtime: $Util.RuntimeOptions): Promise<RegisterDevicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.userIdListJson)) {
+      query["UserIdListJson"] = request.userIdListJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RegisterDevices",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RegisterDevicesResponse>(await this.callApi(params, req, runtime), new RegisterDevicesResponse({}));
+  }
+
+  async registerDevices(request: RegisterDevicesRequest): Promise<RegisterDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.registerDevicesWithOptions(request, runtime);
   }
 
   async releaseCallWithOptions(request: ReleaseCallRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseCallResponse> {
