@@ -625,6 +625,117 @@ export class CreateVariableGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateWorkitemRequest extends $tea.Model {
+  assignedTo?: string;
+  category?: string;
+  description?: string;
+  descriptionFormat?: string;
+  fieldValueList?: CreateWorkitemRequestFieldValueList[];
+  participant?: string[];
+  space?: string;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  sprint?: string[];
+  subject?: string;
+  tracker?: string[];
+  verifier?: string[];
+  workitemType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      category: 'category',
+      description: 'description',
+      descriptionFormat: 'descriptionFormat',
+      fieldValueList: 'fieldValueList',
+      participant: 'participant',
+      space: 'space',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      sprint: 'sprint',
+      subject: 'subject',
+      tracker: 'tracker',
+      verifier: 'verifier',
+      workitemType: 'workitemType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      category: 'string',
+      description: 'string',
+      descriptionFormat: 'string',
+      fieldValueList: { 'type': 'array', 'itemType': CreateWorkitemRequestFieldValueList },
+      participant: { 'type': 'array', 'itemType': 'string' },
+      space: 'string',
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      sprint: { 'type': 'array', 'itemType': 'string' },
+      subject: 'string',
+      tracker: { 'type': 'array', 'itemType': 'string' },
+      verifier: { 'type': 'array', 'itemType': 'string' },
+      workitemType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  workitem?: CreateWorkitemResponseBodyWorkitem;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      workitem: 'workitem',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workitem: CreateWorkitemResponseBodyWorkitem,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateWorkitemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateWorkitemResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateWorkspaceRequest extends $tea.Model {
   codeUrl?: string;
   codeVersion?: string;
@@ -919,16 +1030,16 @@ export class DeletePipelineResponse extends $tea.Model {
 }
 
 export class DeleteProjectRequest extends $tea.Model {
-  projectId?: string;
+  identifier?: string;
   static names(): { [key: string]: string } {
     return {
-      projectId: 'projectId',
+      identifier: 'identifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      projectId: 'string',
+      identifier: 'string',
     };
   }
 
@@ -1747,6 +1858,59 @@ export class GetProjectInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetProjectInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSprintInfoResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  sprint?: GetSprintInfoResponseBodySprint;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      sprint: 'sprint',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      sprint: GetSprintInfoResponseBodySprint,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSprintInfoResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSprintInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSprintInfoResponseBody,
     };
   }
 
@@ -2775,6 +2939,249 @@ export class ListProjectMembersResponse extends $tea.Model {
   }
 }
 
+export class ListProjectTemplatesRequest extends $tea.Model {
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectTemplatesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  requestId?: string;
+  success?: boolean;
+  templates?: ListProjectTemplatesResponseBodyTemplates[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      requestId: 'requestId',
+      success: 'success',
+      templates: 'templates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      templates: { 'type': 'array', 'itemType': ListProjectTemplatesResponseBodyTemplates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectTemplatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectTemplatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectTemplatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectWorkitemTypesRequest extends $tea.Model {
+  category?: string;
+  spaceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      spaceType: 'spaceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      spaceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectWorkitemTypesResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  workitemTypes?: ListProjectWorkitemTypesResponseBodyWorkitemTypes[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+      workitemTypes: 'workitemTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      workitemTypes: { 'type': 'array', 'itemType': ListProjectWorkitemTypesResponseBodyWorkitemTypes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectWorkitemTypesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectWorkitemTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectWorkitemTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsRequest extends $tea.Model {
+  category?: string;
+  conditions?: string;
+  extraConditions?: string;
+  maxResults?: number;
+  nextToken?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      conditions: 'conditions',
+      extraConditions: 'extraConditions',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      scope: 'scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      conditions: 'string',
+      extraConditions: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  maxResults?: number;
+  nextToken?: string;
+  projects?: ListProjectsResponseBodyProjects[];
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      projects: 'projects',
+      requestId: 'requestId',
+      success: 'success',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      projects: { 'type': 'array', 'itemType': ListProjectsResponseBodyProjects },
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListProjectsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourceMembersResponseBody extends $tea.Model {
   errorCode?: string;
   errorMessage?: string;
@@ -2900,6 +3307,96 @@ export class ListServiceConnectionsResponse extends $tea.Model {
   }
 }
 
+export class ListSprintsRequest extends $tea.Model {
+  maxResults?: number;
+  nextToken?: string;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSprintsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  sprints?: ListSprintsResponseBodySprints[];
+  success?: boolean;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      sprints: 'sprints',
+      success: 'success',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      sprints: { 'type': 'array', 'itemType': ListSprintsResponseBodySprints },
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSprintsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSprintsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSprintsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListVariableGroupsRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -2979,6 +3476,165 @@ export class ListVariableGroupsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListVariableGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemAllFieldsRequest extends $tea.Model {
+  spaceIdentifier?: string;
+  spaceType?: string;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemAllFieldsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  fields?: ListWorkItemAllFieldsResponseBodyFields[];
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      fields: 'fields',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      fields: { 'type': 'array', 'itemType': ListWorkItemAllFieldsResponseBodyFields },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemAllFieldsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWorkItemAllFieldsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWorkItemAllFieldsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemWorkFlowStatusRequest extends $tea.Model {
+  spaceIdentifier?: string;
+  spaceType?: string;
+  workitemCategoryIdentifier?: string;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      workitemCategoryIdentifier: 'workitemCategoryIdentifier',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      workitemCategoryIdentifier: 'string',
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemWorkFlowStatusResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  statuses?: ListWorkItemWorkFlowStatusResponseBodyStatuses[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      statuses: 'statuses',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      statuses: { 'type': 'array', 'itemType': ListWorkItemWorkFlowStatusResponseBodyStatuses },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWorkItemWorkFlowStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWorkItemWorkFlowStatusResponseBody,
     };
   }
 
@@ -4508,7 +5164,6 @@ export class UpdateWorkItemResponse extends $tea.Model {
 }
 
 export class CreateProjectResponseBodyProject extends $tea.Model {
-  category?: string;
   categoryIdentifier?: string;
   creator?: string;
   customCode?: string;
@@ -4516,25 +5171,17 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
   icon?: string;
-  iconBig?: string;
-  iconGroup?: string;
-  iconSmall?: string;
-  id?: string;
   identifier?: string;
-  identifierPath?: string;
   logicalStatus?: string;
   modifier?: string;
   name?: string;
   organizationIdentifier?: string;
-  parentIdentifier?: string;
   scope?: string;
   statusIdentifier?: string;
   statusStageIdentifier?: string;
-  subType?: string;
   typeIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
-      category: 'category',
       categoryIdentifier: 'categoryIdentifier',
       creator: 'creator',
       customCode: 'customCode',
@@ -4542,28 +5189,20 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       icon: 'icon',
-      iconBig: 'iconBig',
-      iconGroup: 'iconGroup',
-      iconSmall: 'iconSmall',
-      id: 'id',
       identifier: 'identifier',
-      identifierPath: 'identifierPath',
       logicalStatus: 'logicalStatus',
       modifier: 'modifier',
       name: 'name',
       organizationIdentifier: 'organizationIdentifier',
-      parentIdentifier: 'parentIdentifier',
       scope: 'scope',
       statusIdentifier: 'statusIdentifier',
       statusStageIdentifier: 'statusStageIdentifier',
-      subType: 'subType',
       typeIdentifier: 'typeIdentifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      category: 'string',
       categoryIdentifier: 'string',
       creator: 'string',
       customCode: 'string',
@@ -4571,21 +5210,14 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
       gmtCreate: 'number',
       gmtModified: 'number',
       icon: 'string',
-      iconBig: 'string',
-      iconGroup: 'string',
-      iconSmall: 'string',
-      id: 'string',
       identifier: 'string',
-      identifierPath: 'string',
       logicalStatus: 'string',
       modifier: 'string',
       name: 'string',
       organizationIdentifier: 'string',
-      parentIdentifier: 'string',
       scope: 'string',
       statusIdentifier: 'string',
       statusStageIdentifier: 'string',
-      subType: 'string',
       typeIdentifier: 'string',
     };
   }
@@ -4661,6 +5293,104 @@ export class CreateSshKeyResponseBodySshKey extends $tea.Model {
     return {
       id: 'number',
       publicKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemRequestFieldValueList extends $tea.Model {
+  fieldIdentifier?: string;
+  value?: string;
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldIdentifier: 'fieldIdentifier',
+      value: 'value',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldIdentifier: 'string',
+      value: 'string',
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
+  assignedTo?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  document?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  logicalStatus?: string;
+  modifier?: string;
+  parentIdentifier?: string;
+  serialNumber?: string;
+  spaceIdentifier?: string;
+  spaceName?: string;
+  spaceType?: string;
+  status?: string;
+  statusStageIdentifier?: string;
+  subject?: string;
+  updateStatusAt?: number;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      document: 'document',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      logicalStatus: 'logicalStatus',
+      modifier: 'modifier',
+      parentIdentifier: 'parentIdentifier',
+      serialNumber: 'serialNumber',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceName: 'spaceName',
+      spaceType: 'spaceType',
+      status: 'status',
+      statusStageIdentifier: 'statusStageIdentifier',
+      subject: 'subject',
+      updateStatusAt: 'updateStatusAt',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      document: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      logicalStatus: 'string',
+      modifier: 'string',
+      parentIdentifier: 'string',
+      serialNumber: 'string',
+      spaceIdentifier: 'string',
+      spaceName: 'string',
+      spaceType: 'string',
+      status: 'string',
+      statusStageIdentifier: 'string',
+      subject: 'string',
+      updateStatusAt: 'number',
+      workitemTypeIdentifier: 'string',
     };
   }
 
@@ -5459,6 +6189,58 @@ export class GetProjectInfoResponseBodyProject extends $tea.Model {
       statusStageIdentifier: 'string',
       subType: 'string',
       typeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSprintInfoResponseBodySprint extends $tea.Model {
+  creator?: string;
+  description?: string;
+  endDate?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  modifier?: string;
+  name?: string;
+  scope?: string;
+  spaceIdentifier?: string;
+  startDate?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      description: 'description',
+      endDate: 'endDate',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      name: 'name',
+      scope: 'scope',
+      spaceIdentifier: 'spaceIdentifier',
+      startDate: 'startDate',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      description: 'string',
+      endDate: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      modifier: 'string',
+      name: 'string',
+      scope: 'string',
+      spaceIdentifier: 'string',
+      startDate: 'number',
+      status: 'string',
     };
   }
 
@@ -6453,6 +7235,174 @@ export class ListProjectMembersResponseBodyMembers extends $tea.Model {
   }
 }
 
+export class ListProjectTemplatesResponseBodyTemplates extends $tea.Model {
+  copyFrom?: string;
+  creator?: string;
+  description?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  icon?: string;
+  identifier?: string;
+  modifier?: string;
+  name?: string;
+  nameEn?: string;
+  resourceCategory?: string;
+  resourceType?: string;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  type?: number;
+  static names(): { [key: string]: string } {
+    return {
+      copyFrom: 'copyFrom',
+      creator: 'creator',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      icon: 'icon',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      name: 'name',
+      nameEn: 'nameEn',
+      resourceCategory: 'resourceCategory',
+      resourceType: 'resourceType',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      copyFrom: 'string',
+      creator: 'string',
+      description: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      icon: 'string',
+      identifier: 'string',
+      modifier: 'string',
+      name: 'string',
+      nameEn: 'string',
+      resourceCategory: 'string',
+      resourceType: 'string',
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+      type: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectWorkitemTypesResponseBodyWorkitemTypes extends $tea.Model {
+  addUser?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  defaultType?: boolean;
+  description?: string;
+  enable?: boolean;
+  gmtAdd?: number;
+  gmtCreate?: number;
+  identifier?: string;
+  name?: string;
+  nameEn?: string;
+  systemDefault?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      addUser: 'addUser',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      defaultType: 'defaultType',
+      description: 'description',
+      enable: 'enable',
+      gmtAdd: 'gmtAdd',
+      gmtCreate: 'gmtCreate',
+      identifier: 'identifier',
+      name: 'name',
+      nameEn: 'nameEn',
+      systemDefault: 'systemDefault',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addUser: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      defaultType: 'boolean',
+      description: 'string',
+      enable: 'boolean',
+      gmtAdd: 'number',
+      gmtCreate: 'number',
+      identifier: 'string',
+      name: 'string',
+      nameEn: 'string',
+      systemDefault: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListProjectsResponseBodyProjects extends $tea.Model {
+  categoryIdentifier?: string;
+  creator?: string;
+  customCode?: string;
+  deleteTime?: number;
+  description?: string;
+  gmtCreate?: number;
+  icon?: string;
+  identifier?: string;
+  logicalStatus?: string;
+  name?: string;
+  scope?: string;
+  statusStageIdentifier?: string;
+  typeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      customCode: 'customCode',
+      deleteTime: 'deleteTime',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      icon: 'icon',
+      identifier: 'identifier',
+      logicalStatus: 'logicalStatus',
+      name: 'name',
+      scope: 'scope',
+      statusStageIdentifier: 'statusStageIdentifier',
+      typeIdentifier: 'typeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIdentifier: 'string',
+      creator: 'string',
+      customCode: 'string',
+      deleteTime: 'number',
+      description: 'string',
+      gmtCreate: 'number',
+      icon: 'string',
+      identifier: 'string',
+      logicalStatus: 'string',
+      name: 'string',
+      scope: 'string',
+      statusStageIdentifier: 'string',
+      typeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourceMembersResponseBodyResourceMembers extends $tea.Model {
   accountId?: string;
   roleName?: string;
@@ -6501,6 +7451,58 @@ export class ListServiceConnectionsResponseBodyServiceConnections extends $tea.M
       name: 'string',
       ownerAccountId: 'number',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSprintsResponseBodySprints extends $tea.Model {
+  creator?: string;
+  description?: string;
+  endDate?: number;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  modifier?: string;
+  name?: string;
+  scope?: string;
+  spaceIdentifier?: string;
+  startDate?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      description: 'description',
+      endDate: 'endDate',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      name: 'name',
+      scope: 'scope',
+      spaceIdentifier: 'spaceIdentifier',
+      startDate: 'startDate',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      description: 'string',
+      endDate: 'number',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      modifier: 'string',
+      name: 'string',
+      scope: 'string',
+      spaceIdentifier: 'string',
+      startDate: 'number',
+      status: 'string',
     };
   }
 
@@ -6591,6 +7593,159 @@ export class ListVariableGroupsResponseBodyVariableGroups extends $tea.Model {
       relatedPipelines: { 'type': 'array', 'itemType': ListVariableGroupsResponseBodyVariableGroupsRelatedPipelines },
       updateTime: 'number',
       variables: { 'type': 'array', 'itemType': ListVariableGroupsResponseBodyVariableGroupsVariables },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemAllFieldsResponseBodyFieldsOptions extends $tea.Model {
+  displayValue?: string;
+  fieldIdentifier?: string;
+  identifier?: string;
+  level?: number;
+  position?: number;
+  value?: string;
+  valueEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'displayValue',
+      fieldIdentifier: 'fieldIdentifier',
+      identifier: 'identifier',
+      level: 'level',
+      position: 'position',
+      value: 'value',
+      valueEn: 'valueEn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      fieldIdentifier: 'string',
+      identifier: 'string',
+      level: 'number',
+      position: 'number',
+      value: 'string',
+      valueEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemAllFieldsResponseBodyFields extends $tea.Model {
+  className?: string;
+  creator?: string;
+  defaultValue?: string;
+  description?: string;
+  format?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  isRequired?: boolean;
+  isShowWhenCreate?: boolean;
+  isSystemRequired?: boolean;
+  linkWithService?: string;
+  modifier?: string;
+  name?: string;
+  options?: ListWorkItemAllFieldsResponseBodyFieldsOptions[];
+  resourceType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      className: 'className',
+      creator: 'creator',
+      defaultValue: 'defaultValue',
+      description: 'description',
+      format: 'format',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      isRequired: 'isRequired',
+      isShowWhenCreate: 'isShowWhenCreate',
+      isSystemRequired: 'isSystemRequired',
+      linkWithService: 'linkWithService',
+      modifier: 'modifier',
+      name: 'name',
+      options: 'options',
+      resourceType: 'resourceType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      className: 'string',
+      creator: 'string',
+      defaultValue: 'string',
+      description: 'string',
+      format: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      isRequired: 'boolean',
+      isShowWhenCreate: 'boolean',
+      isSystemRequired: 'boolean',
+      linkWithService: 'string',
+      modifier: 'string',
+      name: 'string',
+      options: { 'type': 'array', 'itemType': ListWorkItemAllFieldsResponseBodyFieldsOptions },
+      resourceType: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkItemWorkFlowStatusResponseBodyStatuses extends $tea.Model {
+  creator?: string;
+  description?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  modifier?: string;
+  name?: string;
+  resourceType?: string;
+  source?: string;
+  workflowStageIdentifier?: string;
+  workflowStageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      description: 'description',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      modifier: 'modifier',
+      name: 'name',
+      resourceType: 'resourceType',
+      source: 'source',
+      workflowStageIdentifier: 'workflowStageIdentifier',
+      workflowStageName: 'workflowStageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      description: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      modifier: 'string',
+      name: 'string',
+      resourceType: 'string',
+      source: 'string',
+      workflowStageIdentifier: 'string',
+      workflowStageName: 'string',
     };
   }
 
@@ -7188,6 +8343,90 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateVariableGroupResponse>(await this.callApi(params, req, runtime), new CreateVariableGroupResponse({}));
   }
 
+  async createWorkitem(organizationId: string, request: CreateWorkitemRequest): Promise<CreateWorkitemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWorkitemWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async createWorkitemWithOptions(organizationId: string, request: CreateWorkitemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateWorkitemResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.assignedTo)) {
+      body["assignedTo"] = request.assignedTo;
+    }
+
+    if (!Util.isUnset(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.descriptionFormat)) {
+      body["descriptionFormat"] = request.descriptionFormat;
+    }
+
+    if (!Util.isUnset(request.fieldValueList)) {
+      body["fieldValueList"] = request.fieldValueList;
+    }
+
+    if (!Util.isUnset(request.participant)) {
+      body["participant"] = request.participant;
+    }
+
+    if (!Util.isUnset(request.space)) {
+      body["space"] = request.space;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      body["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      body["spaceType"] = request.spaceType;
+    }
+
+    if (!Util.isUnset(request.sprint)) {
+      body["sprint"] = request.sprint;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      body["subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.tracker)) {
+      body["tracker"] = request.tracker;
+    }
+
+    if (!Util.isUnset(request.verifier)) {
+      body["verifier"] = request.verifier;
+    }
+
+    if (!Util.isUnset(request.workitemType)) {
+      body["workitemType"] = request.workitemType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateWorkitem",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/workitems/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateWorkitemResponse>(await this.callApi(params, req, runtime), new CreateWorkitemResponse({}));
+  }
+
   async createWorkspace(request: CreateWorkspaceRequest): Promise<CreateWorkspaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -7351,30 +8590,29 @@ export default class Client extends OpenApi {
     return $tea.cast<DeletePipelineResponse>(await this.callApi(params, req, runtime), new DeletePipelineResponse({}));
   }
 
-  async deleteProject(organizationId: string, projectId: string, request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
+  async deleteProject(organizationId: string, request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteProjectWithOptions(organizationId, projectId, request, headers, runtime);
+    return await this.deleteProjectWithOptions(organizationId, request, headers, runtime);
   }
 
-  async deleteProjectWithOptions(organizationId: string, projectId: string, request: DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
+  async deleteProjectWithOptions(organizationId: string, request: DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
     Util.validateModel(request);
     organizationId = OpenApiUtil.getEncodeParam(organizationId);
-    projectId = OpenApiUtil.getEncodeParam(projectId);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.projectId)) {
-      body["projectId"] = request.projectId;
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identifier)) {
+      query["identifier"] = request.identifier;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProject",
       version: "2021-06-25",
       protocol: "HTTPS",
-      pathname: `/organization/${organizationId}/projects/${projectId}/delete`,
+      pathname: `/organization/${organizationId}/projects/delete`,
       method: "DELETE",
       authType: "AK",
       style: "ROA",
@@ -7763,6 +9001,32 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetProjectInfoResponse>(await this.callApi(params, req, runtime), new GetProjectInfoResponse({}));
+  }
+
+  async getSprintInfo(organizationId: string, sprintId: string): Promise<GetSprintInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSprintInfoWithOptions(organizationId, sprintId, headers, runtime);
+  }
+
+  async getSprintInfoWithOptions(organizationId: string, sprintId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSprintInfoResponse> {
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    sprintId = OpenApiUtil.getEncodeParam(sprintId);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSprintInfo",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/sprints/${sprintId}/getSprintinfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSprintInfoResponse>(await this.callApi(params, req, runtime), new GetSprintInfoResponse({}));
   }
 
   async getVMDeployOrder(organizationId: string, pipelineId: string, deployOrderId: string): Promise<GetVMDeployOrderResponse> {
@@ -8309,6 +9573,127 @@ export default class Client extends OpenApi {
     return $tea.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
   }
 
+  async listProjectTemplates(organizationId: string, request: ListProjectTemplatesRequest): Promise<ListProjectTemplatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectTemplatesWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listProjectTemplatesWithOptions(organizationId: string, request: ListProjectTemplatesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectTemplatesResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      query["category"] = request.category;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectTemplates",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/projects/listTemplates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectTemplatesResponse>(await this.callApi(params, req, runtime), new ListProjectTemplatesResponse({}));
+  }
+
+  async listProjectWorkitemTypes(organizationId: string, projectId: string, request: ListProjectWorkitemTypesRequest): Promise<ListProjectWorkitemTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectWorkitemTypesWithOptions(organizationId, projectId, request, headers, runtime);
+  }
+
+  async listProjectWorkitemTypesWithOptions(organizationId: string, projectId: string, request: ListProjectWorkitemTypesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectWorkitemTypesResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    projectId = OpenApiUtil.getEncodeParam(projectId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      query["spaceType"] = request.spaceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjectWorkitemTypes",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/projects/${projectId}/getWorkitemType`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectWorkitemTypesResponse>(await this.callApi(params, req, runtime), new ListProjectWorkitemTypesResponse({}));
+  }
+
+  async listProjects(organizationId: string, request: ListProjectsRequest): Promise<ListProjectsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProjectsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listProjectsWithOptions(organizationId: string, request: ListProjectsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.conditions)) {
+      query["conditions"] = request.conditions;
+    }
+
+    if (!Util.isUnset(request.extraConditions)) {
+      query["extraConditions"] = request.extraConditions;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["scope"] = request.scope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListProjects",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/listProjects`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+  }
+
   async listResourceMembers(organizationId: string, resourceType: string, resourceId: string): Promise<ListResourceMembersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8368,6 +9753,50 @@ export default class Client extends OpenApi {
     return $tea.cast<ListServiceConnectionsResponse>(await this.callApi(params, req, runtime), new ListServiceConnectionsResponse({}));
   }
 
+  async listSprints(organizationId: string, request: ListSprintsRequest): Promise<ListSprintsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSprintsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listSprintsWithOptions(organizationId: string, request: ListSprintsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSprintsResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      query["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      query["spaceType"] = request.spaceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSprints",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/sprints/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSprintsResponse>(await this.callApi(params, req, runtime), new ListSprintsResponse({}));
+  }
+
   async listVariableGroups(organizationId: string, request: ListVariableGroupsRequest): Promise<ListVariableGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -8410,6 +9839,90 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListVariableGroupsResponse>(await this.callApi(params, req, runtime), new ListVariableGroupsResponse({}));
+  }
+
+  async listWorkItemAllFields(organizationId: string, request: ListWorkItemAllFieldsRequest): Promise<ListWorkItemAllFieldsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkItemAllFieldsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listWorkItemAllFieldsWithOptions(organizationId: string, request: ListWorkItemAllFieldsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkItemAllFieldsResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      query["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      query["spaceType"] = request.spaceType;
+    }
+
+    if (!Util.isUnset(request.workitemTypeIdentifier)) {
+      query["workitemTypeIdentifier"] = request.workitemTypeIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkItemAllFields",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/workitems/fields/listAll`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkItemAllFieldsResponse>(await this.callApi(params, req, runtime), new ListWorkItemAllFieldsResponse({}));
+  }
+
+  async listWorkItemWorkFlowStatus(organizationId: string, request: ListWorkItemWorkFlowStatusRequest): Promise<ListWorkItemWorkFlowStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkItemWorkFlowStatusWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listWorkItemWorkFlowStatusWithOptions(organizationId: string, request: ListWorkItemWorkFlowStatusRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkItemWorkFlowStatusResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      query["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      query["spaceType"] = request.spaceType;
+    }
+
+    if (!Util.isUnset(request.workitemCategoryIdentifier)) {
+      query["workitemCategoryIdentifier"] = request.workitemCategoryIdentifier;
+    }
+
+    if (!Util.isUnset(request.workitemTypeIdentifier)) {
+      query["workitemTypeIdentifier"] = request.workitemTypeIdentifier;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkItemWorkFlowStatus",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/workitems/workflow/listWorkflowStatus`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkItemWorkFlowStatusResponse>(await this.callApi(params, req, runtime), new ListWorkItemWorkFlowStatusResponse({}));
   }
 
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
