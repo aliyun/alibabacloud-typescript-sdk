@@ -482,6 +482,93 @@ export class CreateConnectionPoolResponse extends $tea.Model {
   }
 }
 
+export class CreateDNSServiceRuleRequest extends $tea.Model {
+  authorizationRuleDescription?: string;
+  authorizationRuleName?: string;
+  clientToken?: string;
+  destination?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleDescription: 'AuthorizationRuleDescription',
+      authorizationRuleName: 'AuthorizationRuleName',
+      clientToken: 'ClientToken',
+      destination: 'Destination',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleDescription: 'string',
+      authorizationRuleName: 'string',
+      clientToken: 'string',
+      destination: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNSServiceRuleResponseBody extends $tea.Model {
+  DNSServiceRuleId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDNSServiceRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDNSServiceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDNSServiceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateGroupAuthorizationRuleRequest extends $tea.Model {
   authorizationRuleDescription?: string;
   authorizationRuleName?: string;
@@ -567,6 +654,96 @@ export class CreateGroupAuthorizationRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupDNSServiceRuleRequest extends $tea.Model {
+  clientToken?: string;
+  DNSServiceRuleDescription?: string;
+  DNSServiceRuleName?: string;
+  destination?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DNSServiceRuleDescription: 'DNSServiceRuleDescription',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      destination: 'Destination',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DNSServiceRuleDescription: 'string',
+      DNSServiceRuleName: 'string',
+      destination: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupDNSServiceRuleResponseBody extends $tea.Model {
+  DNSServiceRuleId?: string;
+  ioTCloudConnectorGroupId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleId: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateGroupDNSServiceRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateGroupDNSServiceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateGroupDNSServiceRuleResponseBody,
     };
   }
 
@@ -1046,6 +1223,78 @@ export class DeleteConnectionPoolResponse extends $tea.Model {
   }
 }
 
+export class DeleteDNSServiceRuleRequest extends $tea.Model {
+  clientToken?: string;
+  DNSServiceRuleId?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DNSServiceRuleId: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNSServiceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDNSServiceRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDNSServiceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDNSServiceRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGroupAuthorizationRuleRequest extends $tea.Model {
   authorizationRuleId?: string;
   clientToken?: string;
@@ -1110,6 +1359,78 @@ export class DeleteGroupAuthorizationRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteGroupAuthorizationRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupDNSServiceRuleRequest extends $tea.Model {
+  clientToken?: string;
+  DNSServiceRuleId?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DNSServiceRuleId: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupDNSServiceRuleResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteGroupDNSServiceRuleResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteGroupDNSServiceRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteGroupDNSServiceRuleResponseBody,
     };
   }
 
@@ -1795,7 +2116,7 @@ export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
   diagnoseItem?: GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem[];
   endTime?: number;
   errorResult?: GetDiagnoseResultForSingleCardResponseBodyErrorResult[];
-  iccid?: string;
+  iccId?: string;
   ioTCloudConnectorId?: string;
   requestId?: string;
   status?: string;
@@ -1807,7 +2128,7 @@ export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
       diagnoseItem: 'DiagnoseItem',
       endTime: 'EndTime',
       errorResult: 'ErrorResult',
-      iccid: 'Iccid',
+      iccId: 'IccId',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
       requestId: 'RequestId',
       status: 'Status',
@@ -1822,7 +2143,7 @@ export class GetDiagnoseResultForSingleCardResponseBody extends $tea.Model {
       diagnoseItem: { 'type': 'array', 'itemType': GetDiagnoseResultForSingleCardResponseBodyDiagnoseItem },
       endTime: 'number',
       errorResult: { 'type': 'array', 'itemType': GetDiagnoseResultForSingleCardResponseBodyErrorResult },
-      iccid: 'string',
+      iccId: 'string',
       ioTCloudConnectorId: 'string',
       requestId: 'string',
       status: 'string',
@@ -2537,6 +2858,105 @@ export class ListConnectionPoolsResponse extends $tea.Model {
   }
 }
 
+export class ListDNSServiceRulesRequest extends $tea.Model {
+  DNSServiceRuleIds?: string[];
+  DNSServiceRuleName?: string[];
+  DNSServiceRuleStatus?: string[];
+  destination?: string[];
+  ioTCloudConnectorId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleIds: 'DNSServiceRuleIds',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      DNSServiceRuleStatus: 'DNSServiceRuleStatus',
+      destination: 'Destination',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleIds: { 'type': 'array', 'itemType': 'string' },
+      DNSServiceRuleName: { 'type': 'array', 'itemType': 'string' },
+      DNSServiceRuleStatus: { 'type': 'array', 'itemType': 'string' },
+      destination: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNSServiceRulesResponseBody extends $tea.Model {
+  DNSServiceRules?: ListDNSServiceRulesResponseBodyDNSServiceRules[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRules: 'DNSServiceRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRules: { 'type': 'array', 'itemType': ListDNSServiceRulesResponseBodyDNSServiceRules },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDNSServiceRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDNSServiceRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDNSServiceRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDiagnoseInfoForSingleCardRequest extends $tea.Model {
   ioTCloudConnectorId?: string;
   maxResults?: number;
@@ -2715,6 +3135,105 @@ export class ListGroupAuthorizationRulesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListGroupAuthorizationRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupDNSServiceRulesRequest extends $tea.Model {
+  DNSServiceRuleIds?: string[];
+  DNSServiceRuleName?: string[];
+  DNSServiceRuleStatus?: string[];
+  destination?: string[];
+  ioTCloudConnectorGroupId?: string;
+  maxResults?: number;
+  nextToken?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleIds: 'DNSServiceRuleIds',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      DNSServiceRuleStatus: 'DNSServiceRuleStatus',
+      destination: 'Destination',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleIds: { 'type': 'array', 'itemType': 'string' },
+      DNSServiceRuleName: { 'type': 'array', 'itemType': 'string' },
+      DNSServiceRuleStatus: { 'type': 'array', 'itemType': 'string' },
+      destination: { 'type': 'array', 'itemType': 'string' },
+      ioTCloudConnectorGroupId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupDNSServiceRulesResponseBody extends $tea.Model {
+  DNSServiceRules?: ListGroupDNSServiceRulesResponseBodyDNSServiceRules[];
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRules: 'DNSServiceRules',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRules: { 'type': 'array', 'itemType': ListGroupDNSServiceRulesResponseBodyDNSServiceRules },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupDNSServiceRulesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListGroupDNSServiceRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListGroupDNSServiceRulesResponseBody,
     };
   }
 
@@ -3236,6 +3755,150 @@ export class ListServiceEntriesResponse extends $tea.Model {
   }
 }
 
+export class MoveAuthorizationRuleToDNSServiceRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveAuthorizationRuleToDNSServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveAuthorizationRuleToDNSServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MoveAuthorizationRuleToDNSServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MoveAuthorizationRuleToDNSServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveGroupAuthorizationRuleToDNSServiceRequest extends $tea.Model {
+  authorizationRuleId?: string;
+  clientToken?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleId: 'AuthorizationRuleId',
+      clientToken: 'ClientToken',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleId: 'string',
+      clientToken: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveGroupAuthorizationRuleToDNSServiceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveGroupAuthorizationRuleToDNSServiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: MoveGroupAuthorizationRuleToDNSServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: MoveGroupAuthorizationRuleToDNSServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class OpenIoTCloudConnectorServiceRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -3629,6 +4292,93 @@ export class UpdateConnectionPoolAttributeResponse extends $tea.Model {
   }
 }
 
+export class UpdateDNSServiceRuleAttributeRequest extends $tea.Model {
+  authorizationRuleDescription?: string;
+  authorizationRuleName?: string;
+  clientToken?: string;
+  DNSServiceRuleId?: string;
+  destination?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorId?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationRuleDescription: 'AuthorizationRuleDescription',
+      authorizationRuleName: 'AuthorizationRuleName',
+      clientToken: 'ClientToken',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      destination: 'Destination',
+      dryRun: 'DryRun',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationRuleDescription: 'string',
+      authorizationRuleName: 'string',
+      clientToken: 'string',
+      DNSServiceRuleId: 'string',
+      destination: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorId: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDNSServiceRuleAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDNSServiceRuleAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateDNSServiceRuleAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateDNSServiceRuleAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGroupAuthorizationRuleAttributeRequest extends $tea.Model {
   authorizationRuleDescription?: string;
   authorizationRuleId?: string;
@@ -3717,6 +4467,93 @@ export class UpdateGroupAuthorizationRuleAttributeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateGroupAuthorizationRuleAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDNSServiceRuleAttributeRequest extends $tea.Model {
+  clientToken?: string;
+  DNSServiceRuleDescription?: string;
+  DNSServiceRuleId?: string;
+  DNSServiceRuleName?: string;
+  destination?: string;
+  dryRun?: boolean;
+  ioTCloudConnectorGroupId?: string;
+  regionId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      DNSServiceRuleDescription: 'DNSServiceRuleDescription',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      destination: 'Destination',
+      dryRun: 'DryRun',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      regionId: 'RegionId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      DNSServiceRuleDescription: 'string',
+      DNSServiceRuleId: 'string',
+      DNSServiceRuleName: 'string',
+      destination: 'string',
+      dryRun: 'boolean',
+      ioTCloudConnectorGroupId: 'string',
+      regionId: 'string',
+      serviceType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDNSServiceRuleAttributeResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGroupDNSServiceRuleAttributeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateGroupDNSServiceRuleAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateGroupDNSServiceRuleAttributeResponseBody,
     };
   }
 
@@ -4257,14 +5094,57 @@ export class ListConnectionPoolsResponseBodyConnectionPools extends $tea.Model {
   }
 }
 
+export class ListDNSServiceRulesResponseBodyDNSServiceRules extends $tea.Model {
+  DNSServiceRuleDescription?: string;
+  DNSServiceRuleId?: string;
+  DNSServiceRuleName?: string;
+  DNSServiceRuleStatus?: string;
+  destination?: string;
+  ioTCloudConnectorId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleDescription: 'DNSServiceRuleDescription',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      DNSServiceRuleStatus: 'DNSServiceRuleStatus',
+      destination: 'Destination',
+      ioTCloudConnectorId: 'IoTCloudConnectorId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleDescription: 'string',
+      DNSServiceRuleId: 'string',
+      DNSServiceRuleName: 'string',
+      DNSServiceRuleStatus: 'string',
+      destination: 'string',
+      ioTCloudConnectorId: 'string',
+      serviceType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.Model {
   beginTime?: number;
   cardIp?: string;
   destination?: string;
+  destinationType?: string;
   diagnoseTime?: number;
   endTime?: number;
-  iccid?: string;
+  iccId?: string;
   ioTCloudConnectorId?: string;
+  source?: string;
+  sourceType?: string;
   status?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -4272,10 +5152,13 @@ export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.
       beginTime: 'BeginTime',
       cardIp: 'CardIp',
       destination: 'Destination',
+      destinationType: 'DestinationType',
       diagnoseTime: 'DiagnoseTime',
       endTime: 'EndTime',
-      iccid: 'Iccid',
+      iccId: 'IccId',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
+      source: 'Source',
+      sourceType: 'SourceType',
       status: 'Status',
       taskId: 'TaskId',
     };
@@ -4286,10 +5169,13 @@ export class ListDiagnoseInfoForSingleCardResponseBodyDiagnoseInfo extends $tea.
       beginTime: 'number',
       cardIp: 'string',
       destination: 'string',
+      destinationType: 'string',
       diagnoseTime: 'number',
       endTime: 'number',
-      iccid: 'string',
+      iccId: 'string',
       ioTCloudConnectorId: 'string',
+      source: 'string',
+      sourceType: 'string',
       status: 'string',
       taskId: 'string',
     };
@@ -4335,6 +5221,46 @@ export class ListGroupAuthorizationRulesResponseBodyGroupAuthorizationRules exte
       ioTCloudConnectorGroupId: 'string',
       policy: 'string',
       sourceCidrs: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupDNSServiceRulesResponseBodyDNSServiceRules extends $tea.Model {
+  DNSServiceRuleDescription?: string;
+  DNSServiceRuleId?: string;
+  DNSServiceRuleName?: string;
+  DNSServiceRuleStatus?: string;
+  destination?: string;
+  ioTCloudConnectorGroupId?: string;
+  serviceType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DNSServiceRuleDescription: 'DNSServiceRuleDescription',
+      DNSServiceRuleId: 'DNSServiceRuleId',
+      DNSServiceRuleName: 'DNSServiceRuleName',
+      DNSServiceRuleStatus: 'DNSServiceRuleStatus',
+      destination: 'Destination',
+      ioTCloudConnectorGroupId: 'IoTCloudConnectorGroupId',
+      serviceType: 'ServiceType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DNSServiceRuleDescription: 'string',
+      DNSServiceRuleId: 'string',
+      DNSServiceRuleName: 'string',
+      DNSServiceRuleStatus: 'string',
+      destination: 'string',
+      ioTCloudConnectorGroupId: 'string',
+      serviceType: 'string',
+      source: 'string',
     };
   }
 
@@ -4906,6 +5832,67 @@ export default class Client extends OpenApi {
     return await this.createConnectionPoolWithOptions(request, runtime);
   }
 
+  async createDNSServiceRuleWithOptions(request: CreateDNSServiceRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDNSServiceRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDNSServiceRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDNSServiceRuleResponse>(await this.callApi(params, req, runtime), new CreateDNSServiceRuleResponse({}));
+  }
+
+  async createDNSServiceRule(request: CreateDNSServiceRuleRequest): Promise<CreateDNSServiceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDNSServiceRuleWithOptions(request, runtime);
+  }
+
   async createGroupAuthorizationRuleWithOptions(request: CreateGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -4969,6 +5956,67 @@ export default class Client extends OpenApi {
   async createGroupAuthorizationRule(request: CreateGroupAuthorizationRuleRequest): Promise<CreateGroupAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async createGroupDNSServiceRuleWithOptions(request: CreateGroupDNSServiceRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupDNSServiceRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleDescription)) {
+      query["DNSServiceRuleDescription"] = request.DNSServiceRuleDescription;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleName)) {
+      query["DNSServiceRuleName"] = request.DNSServiceRuleName;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateGroupDNSServiceRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupDNSServiceRuleResponse>(await this.callApi(params, req, runtime), new CreateGroupDNSServiceRuleResponse({}));
+  }
+
+  async createGroupDNSServiceRule(request: CreateGroupDNSServiceRuleRequest): Promise<CreateGroupDNSServiceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createGroupDNSServiceRuleWithOptions(request, runtime);
   }
 
   async createIoTCloudConnectorWithOptions(request: CreateIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<CreateIoTCloudConnectorResponse> {
@@ -5277,6 +6325,51 @@ export default class Client extends OpenApi {
     return await this.deleteConnectionPoolWithOptions(request, runtime);
   }
 
+  async deleteDNSServiceRuleWithOptions(request: DeleteDNSServiceRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDNSServiceRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleId)) {
+      query["DNSServiceRuleId"] = request.DNSServiceRuleId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDNSServiceRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDNSServiceRuleResponse>(await this.callApi(params, req, runtime), new DeleteDNSServiceRuleResponse({}));
+  }
+
+  async deleteDNSServiceRule(request: DeleteDNSServiceRuleRequest): Promise<DeleteDNSServiceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDNSServiceRuleWithOptions(request, runtime);
+  }
+
   async deleteGroupAuthorizationRuleWithOptions(request: DeleteGroupAuthorizationRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupAuthorizationRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -5320,6 +6413,51 @@ export default class Client extends OpenApi {
   async deleteGroupAuthorizationRule(request: DeleteGroupAuthorizationRuleRequest): Promise<DeleteGroupAuthorizationRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupAuthorizationRuleWithOptions(request, runtime);
+  }
+
+  async deleteGroupDNSServiceRuleWithOptions(request: DeleteGroupDNSServiceRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupDNSServiceRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleId)) {
+      query["DNSServiceRuleId"] = request.DNSServiceRuleId;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteGroupDNSServiceRule",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupDNSServiceRuleResponse>(await this.callApi(params, req, runtime), new DeleteGroupDNSServiceRuleResponse({}));
+  }
+
+  async deleteGroupDNSServiceRule(request: DeleteGroupDNSServiceRuleRequest): Promise<DeleteGroupDNSServiceRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteGroupDNSServiceRuleWithOptions(request, runtime);
   }
 
   async deleteIoTCloudConnectorWithOptions(request: DeleteIoTCloudConnectorRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIoTCloudConnectorResponse> {
@@ -6144,6 +7282,71 @@ export default class Client extends OpenApi {
     return await this.listConnectionPoolsWithOptions(request, runtime);
   }
 
+  async listDNSServiceRulesWithOptions(request: ListDNSServiceRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListDNSServiceRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DNSServiceRuleIds)) {
+      query["DNSServiceRuleIds"] = request.DNSServiceRuleIds;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleName)) {
+      query["DNSServiceRuleName"] = request.DNSServiceRuleName;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleStatus)) {
+      query["DNSServiceRuleStatus"] = request.DNSServiceRuleStatus;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDNSServiceRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDNSServiceRulesResponse>(await this.callApi(params, req, runtime), new ListDNSServiceRulesResponse({}));
+  }
+
+  async listDNSServiceRules(request: ListDNSServiceRulesRequest): Promise<ListDNSServiceRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDNSServiceRulesWithOptions(request, runtime);
+  }
+
   async listDiagnoseInfoForSingleCardWithOptions(request: ListDiagnoseInfoForSingleCardRequest, runtime: $Util.RuntimeOptions): Promise<ListDiagnoseInfoForSingleCardResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6256,6 +7459,71 @@ export default class Client extends OpenApi {
   async listGroupAuthorizationRules(request: ListGroupAuthorizationRulesRequest): Promise<ListGroupAuthorizationRulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupAuthorizationRulesWithOptions(request, runtime);
+  }
+
+  async listGroupDNSServiceRulesWithOptions(request: ListGroupDNSServiceRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupDNSServiceRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DNSServiceRuleIds)) {
+      query["DNSServiceRuleIds"] = request.DNSServiceRuleIds;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleName)) {
+      query["DNSServiceRuleName"] = request.DNSServiceRuleName;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleStatus)) {
+      query["DNSServiceRuleStatus"] = request.DNSServiceRuleStatus;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGroupDNSServiceRules",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupDNSServiceRulesResponse>(await this.callApi(params, req, runtime), new ListGroupDNSServiceRulesResponse({}));
+  }
+
+  async listGroupDNSServiceRules(request: ListGroupDNSServiceRulesRequest): Promise<ListGroupDNSServiceRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGroupDNSServiceRulesWithOptions(request, runtime);
   }
 
   async listIoTCloudConnectorAvailableZonesWithOptions(request: ListIoTCloudConnectorAvailableZonesRequest, runtime: $Util.RuntimeOptions): Promise<ListIoTCloudConnectorAvailableZonesResponse> {
@@ -6560,6 +7828,96 @@ export default class Client extends OpenApi {
     return await this.listServiceEntriesWithOptions(request, runtime);
   }
 
+  async moveAuthorizationRuleToDNSServiceWithOptions(request: MoveAuthorizationRuleToDNSServiceRequest, runtime: $Util.RuntimeOptions): Promise<MoveAuthorizationRuleToDNSServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MoveAuthorizationRuleToDNSService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveAuthorizationRuleToDNSServiceResponse>(await this.callApi(params, req, runtime), new MoveAuthorizationRuleToDNSServiceResponse({}));
+  }
+
+  async moveAuthorizationRuleToDNSService(request: MoveAuthorizationRuleToDNSServiceRequest): Promise<MoveAuthorizationRuleToDNSServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveAuthorizationRuleToDNSServiceWithOptions(request, runtime);
+  }
+
+  async moveGroupAuthorizationRuleToDNSServiceWithOptions(request: MoveGroupAuthorizationRuleToDNSServiceRequest, runtime: $Util.RuntimeOptions): Promise<MoveGroupAuthorizationRuleToDNSServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleId)) {
+      query["AuthorizationRuleId"] = request.authorizationRuleId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MoveGroupAuthorizationRuleToDNSService",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveGroupAuthorizationRuleToDNSServiceResponse>(await this.callApi(params, req, runtime), new MoveGroupAuthorizationRuleToDNSServiceResponse({}));
+  }
+
+  async moveGroupAuthorizationRuleToDNSService(request: MoveGroupAuthorizationRuleToDNSServiceRequest): Promise<MoveGroupAuthorizationRuleToDNSServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveGroupAuthorizationRuleToDNSServiceWithOptions(request, runtime);
+  }
+
   async openIoTCloudConnectorServiceWithOptions(request: OpenIoTCloudConnectorServiceRequest, runtime: $Util.RuntimeOptions): Promise<OpenIoTCloudConnectorServiceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6825,6 +8183,71 @@ export default class Client extends OpenApi {
     return await this.updateConnectionPoolAttributeWithOptions(request, runtime);
   }
 
+  async updateDNSServiceRuleAttributeWithOptions(request: UpdateDNSServiceRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSServiceRuleAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationRuleDescription)) {
+      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
+    }
+
+    if (!Util.isUnset(request.authorizationRuleName)) {
+      query["AuthorizationRuleName"] = request.authorizationRuleName;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleId)) {
+      query["DNSServiceRuleId"] = request.DNSServiceRuleId;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorId)) {
+      query["IoTCloudConnectorId"] = request.ioTCloudConnectorId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDNSServiceRuleAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDNSServiceRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateDNSServiceRuleAttributeResponse({}));
+  }
+
+  async updateDNSServiceRuleAttribute(request: UpdateDNSServiceRuleAttributeRequest): Promise<UpdateDNSServiceRuleAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDNSServiceRuleAttributeWithOptions(request, runtime);
+  }
+
   async updateGroupAuthorizationRuleAttributeWithOptions(request: UpdateGroupAuthorizationRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupAuthorizationRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6892,6 +8315,71 @@ export default class Client extends OpenApi {
   async updateGroupAuthorizationRuleAttribute(request: UpdateGroupAuthorizationRuleAttributeRequest): Promise<UpdateGroupAuthorizationRuleAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupAuthorizationRuleAttributeWithOptions(request, runtime);
+  }
+
+  async updateGroupDNSServiceRuleAttributeWithOptions(request: UpdateGroupDNSServiceRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupDNSServiceRuleAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleDescription)) {
+      query["DNSServiceRuleDescription"] = request.DNSServiceRuleDescription;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleId)) {
+      query["DNSServiceRuleId"] = request.DNSServiceRuleId;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleName)) {
+      query["DNSServiceRuleName"] = request.DNSServiceRuleName;
+    }
+
+    if (!Util.isUnset(request.destination)) {
+      query["Destination"] = request.destination;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.ioTCloudConnectorGroupId)) {
+      query["IoTCloudConnectorGroupId"] = request.ioTCloudConnectorGroupId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGroupDNSServiceRuleAttribute",
+      version: "2021-05-13",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupDNSServiceRuleAttributeResponse>(await this.callApi(params, req, runtime), new UpdateGroupDNSServiceRuleAttributeResponse({}));
+  }
+
+  async updateGroupDNSServiceRuleAttribute(request: UpdateGroupDNSServiceRuleAttributeRequest): Promise<UpdateGroupDNSServiceRuleAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGroupDNSServiceRuleAttributeWithOptions(request, runtime);
   }
 
   async updateIoTCloudConnectorAttributeWithOptions(request: UpdateIoTCloudConnectorAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIoTCloudConnectorAttributeResponse> {
