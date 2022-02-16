@@ -779,69 +779,6 @@ export class DeleteDatabaseResponse extends $tea.Model {
   }
 }
 
-export class DeleteInstanceSPInfoRequest extends $tea.Model {
-  DBInstanceId?: string;
-  DBInstanceInfos?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      DBInstanceInfos: 'DBInstanceInfos',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      DBInstanceInfos: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceSPInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInstanceSPInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteInstanceSPInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteInstanceSPInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAccountsRequest extends $tea.Model {
   accountName?: string;
   DBInstanceId?: string;
@@ -1116,75 +1053,6 @@ export class DescribeDBClusterNodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDBClusterNodeResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterNodesRequest extends $tea.Model {
-  DBInstanceId?: string;
-  nodeType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      nodeType: 'NodeType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      nodeType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterNodesResponseBody extends $tea.Model {
-  DBClusterId?: string;
-  nodes?: DescribeDBClusterNodesResponseBodyNodes[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      nodes: 'Nodes',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      nodes: { 'type': 'array', 'itemType': DescribeDBClusterNodesResponseBodyNodes },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeDBClusterNodesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeDBClusterNodesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeDBClusterNodesResponseBody,
     };
   }
 
@@ -1533,6 +1401,90 @@ export class DescribeDBInstanceOnECSAttributeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDBInstanceOnECSAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancePerformanceRequest extends $tea.Model {
+  DBInstanceId?: string;
+  endTime?: string;
+  key?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      endTime: 'EndTime',
+      key: 'Key',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      endTime: 'string',
+      key: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancePerformanceResponseBody extends $tea.Model {
+  DBInstanceId?: string;
+  endTime?: string;
+  engine?: string;
+  performanceKeys?: string[];
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      endTime: 'EndTime',
+      engine: 'Engine',
+      performanceKeys: 'PerformanceKeys',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      endTime: 'string',
+      engine: 'string',
+      performanceKeys: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBInstancePerformanceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDBInstancePerformanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDBInstancePerformanceResponseBody,
     };
   }
 
@@ -2692,72 +2644,6 @@ export class DescribeSQLCollectorPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSQLCollectorPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogRequest extends $tea.Model {
-  DBInstanceId?: string;
-  queryId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      queryId: 'QueryId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      queryId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogResponseBody extends $tea.Model {
-  items?: DescribeSQLLogResponseBodyItems[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'Items',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': DescribeSQLLogResponseBodyItems },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSQLLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSQLLogResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSQLLogResponseBody,
     };
   }
 
@@ -5469,25 +5355,6 @@ export class DescribeDBClusterNodeResponseBodyNodes extends $tea.Model {
   }
 }
 
-export class DescribeDBClusterNodesResponseBodyNodes extends $tea.Model {
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues extends $tea.Model {
   point?: string[];
   static names(): { [key: string]: string } {
@@ -7009,67 +6876,6 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   }
 }
 
-export class DescribeSQLLogResponseBodyItems extends $tea.Model {
-  accountName?: string;
-  DBName?: string;
-  DBRole?: string;
-  executeCost?: number;
-  executeState?: string;
-  operationClass?: string;
-  operationExecuteTime?: string;
-  operationType?: string;
-  queryId?: string;
-  returnRowCounts?: number;
-  SQLPlan?: string;
-  SQLText?: string;
-  scanRowCounts?: number;
-  sourceIP?: string;
-  sourcePort?: number;
-  static names(): { [key: string]: string } {
-    return {
-      accountName: 'AccountName',
-      DBName: 'DBName',
-      DBRole: 'DBRole',
-      executeCost: 'ExecuteCost',
-      executeState: 'ExecuteState',
-      operationClass: 'OperationClass',
-      operationExecuteTime: 'OperationExecuteTime',
-      operationType: 'OperationType',
-      queryId: 'QueryId',
-      returnRowCounts: 'ReturnRowCounts',
-      SQLPlan: 'SQLPlan',
-      SQLText: 'SQLText',
-      scanRowCounts: 'ScanRowCounts',
-      sourceIP: 'SourceIP',
-      sourcePort: 'SourcePort',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accountName: 'string',
-      DBName: 'string',
-      DBRole: 'string',
-      executeCost: 'number',
-      executeState: 'string',
-      operationClass: 'string',
-      operationExecuteTime: 'string',
-      operationType: 'string',
-      queryId: 'string',
-      returnRowCounts: 'number',
-      SQLPlan: 'string',
-      SQLText: 'string',
-      scanRowCounts: 'number',
-      sourceIP: 'string',
-      sourcePort: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSQLLogByQueryIdResponseBodyItems extends $tea.Model {
   accountName?: string;
   DBName?: string;
@@ -8281,39 +8087,6 @@ export default class Client extends OpenApi {
     return await this.deleteDatabaseWithOptions(request, runtime);
   }
 
-  async deleteInstanceSPInfoWithOptions(request: DeleteInstanceSPInfoRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceSPInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.DBInstanceInfos)) {
-      query["DBInstanceInfos"] = request.DBInstanceInfos;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteInstanceSPInfo",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteInstanceSPInfoResponse>(await this.callApi(params, req, runtime), new DeleteInstanceSPInfoResponse({}));
-  }
-
-  async deleteInstanceSPInfo(request: DeleteInstanceSPInfoRequest): Promise<DeleteInstanceSPInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteInstanceSPInfoWithOptions(request, runtime);
-  }
-
   async describeAccountsWithOptions(request: DescribeAccountsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccountsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -8444,39 +8217,6 @@ export default class Client extends OpenApi {
   async describeDBClusterNode(request: DescribeDBClusterNodeRequest): Promise<DescribeDBClusterNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBClusterNodeWithOptions(request, runtime);
-  }
-
-  async describeDBClusterNodesWithOptions(request: DescribeDBClusterNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterNodesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.nodeType)) {
-      query["NodeType"] = request.nodeType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeDBClusterNodes",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeDBClusterNodesResponse>(await this.callApi(params, req, runtime), new DescribeDBClusterNodesResponse({}));
-  }
-
-  async describeDBClusterNodes(request: DescribeDBClusterNodesRequest): Promise<DescribeDBClusterNodesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeDBClusterNodesWithOptions(request, runtime);
   }
 
   async describeDBClusterPerformanceWithOptions(request: DescribeDBClusterPerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBClusterPerformanceResponse> {
@@ -8650,6 +8390,47 @@ export default class Client extends OpenApi {
   async describeDBInstanceOnECSAttribute(request: DescribeDBInstanceOnECSAttributeRequest): Promise<DescribeDBInstanceOnECSAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDBInstanceOnECSAttributeWithOptions(request, runtime);
+  }
+
+  async describeDBInstancePerformanceWithOptions(request: DescribeDBInstancePerformanceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstancePerformanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDBInstancePerformance",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDBInstancePerformanceResponse>(await this.callApi(params, req, runtime), new DescribeDBInstancePerformanceResponse({}));
+  }
+
+  async describeDBInstancePerformance(request: DescribeDBInstancePerformanceRequest): Promise<DescribeDBInstancePerformanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDBInstancePerformanceWithOptions(request, runtime);
   }
 
   async describeDBInstanceSQLPatternsWithOptions(request: DescribeDBInstanceSQLPatternsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDBInstanceSQLPatternsResponse> {
@@ -9270,39 +9051,6 @@ export default class Client extends OpenApi {
   async describeSQLCollectorPolicy(request: DescribeSQLCollectorPolicyRequest): Promise<DescribeSQLCollectorPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSQLCollectorPolicyWithOptions(request, runtime);
-  }
-
-  async describeSQLLogWithOptions(request: DescribeSQLLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.queryId)) {
-      query["QueryId"] = request.queryId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSQLLog",
-      version: "2016-05-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSQLLogResponse>(await this.callApi(params, req, runtime), new DescribeSQLLogResponse({}));
-  }
-
-  async describeSQLLog(request: DescribeSQLLogRequest): Promise<DescribeSQLLogResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSQLLogWithOptions(request, runtime);
   }
 
   async describeSQLLogByQueryIdWithOptions(request: DescribeSQLLogByQueryIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSQLLogByQueryIdResponse> {
