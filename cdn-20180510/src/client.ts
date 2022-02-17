@@ -797,6 +797,72 @@ export class CreateCdnCertificateSigningRequestResponse extends $tea.Model {
   }
 }
 
+export class CreateCdnComputeDomainRequest extends $tea.Model {
+  coverage?: string;
+  domainName?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coverage: 'Coverage',
+      domainName: 'DomainName',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coverage: 'string',
+      domainName: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCdnComputeDomainResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCdnComputeDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCdnComputeDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCdnComputeDomainResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCdnDeliverTaskRequest extends $tea.Model {
   deliver?: string;
   domainName?: string;
@@ -2139,6 +2205,84 @@ export class DescribeCdnCertificateListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeCdnCertificateListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnComputeUserDomainRequest extends $tea.Model {
+  ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnComputeUserDomainResponseBody extends $tea.Model {
+  domains?: DescribeCdnComputeUserDomainResponseBodyDomains;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: DescribeCdnComputeUserDomainResponseBodyDomains,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnComputeUserDomainResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeCdnComputeUserDomainResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeCdnComputeUserDomainResponseBody,
     };
   }
 
@@ -13611,6 +13755,56 @@ export class DescribeCdnCertificateListResponseBodyCertificateListModel extends 
   }
 }
 
+export class DescribeCdnComputeUserDomainResponseBodyDomainsPageData extends $tea.Model {
+  cname?: string;
+  domainName?: string;
+  domainStatus?: string;
+  gmtCreated?: string;
+  gmtModified?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cname: 'Cname',
+      domainName: 'DomainName',
+      domainStatus: 'DomainStatus',
+      gmtCreated: 'GmtCreated',
+      gmtModified: 'GmtModified',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cname: 'string',
+      domainName: 'string',
+      domainStatus: 'string',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCdnComputeUserDomainResponseBodyDomains extends $tea.Model {
+  pageData?: DescribeCdnComputeUserDomainResponseBodyDomainsPageData[];
+  static names(): { [key: string]: string } {
+    return {
+      pageData: 'PageData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageData: { 'type': 'array', 'itemType': DescribeCdnComputeUserDomainResponseBodyDomainsPageData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCdnDeletedDomainsResponseBodyDomainsPageData extends $tea.Model {
   domainName?: string;
   gmtModified?: string;
@@ -19243,6 +19437,43 @@ export default class Client extends OpenApi {
     return await this.createCdnCertificateSigningRequestWithOptions(request, runtime);
   }
 
+  async createCdnComputeDomainWithOptions(request: CreateCdnComputeDomainRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnComputeDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.coverage)) {
+      query["Coverage"] = request.coverage;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCdnComputeDomain",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCdnComputeDomainResponse>(await this.callApi(params, req, runtime), new CreateCdnComputeDomainResponse({}));
+  }
+
+  async createCdnComputeDomain(request: CreateCdnComputeDomainRequest): Promise<CreateCdnComputeDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCdnComputeDomainWithOptions(request, runtime);
+  }
+
   async createCdnDeliverTaskWithOptions(request: CreateCdnDeliverTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateCdnDeliverTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19940,6 +20171,43 @@ export default class Client extends OpenApi {
   async describeCdnCertificateList(request: DescribeCdnCertificateListRequest): Promise<DescribeCdnCertificateListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCdnCertificateListWithOptions(request, runtime);
+  }
+
+  async describeCdnComputeUserDomainWithOptions(request: DescribeCdnComputeUserDomainRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnComputeUserDomainResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCdnComputeUserDomain",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCdnComputeUserDomainResponse>(await this.callApi(params, req, runtime), new DescribeCdnComputeUserDomainResponse({}));
+  }
+
+  async describeCdnComputeUserDomain(request: DescribeCdnComputeUserDomainRequest): Promise<DescribeCdnComputeUserDomainResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCdnComputeUserDomainWithOptions(request, runtime);
   }
 
   async describeCdnDeletedDomainsWithOptions(request: DescribeCdnDeletedDomainsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCdnDeletedDomainsResponse> {
