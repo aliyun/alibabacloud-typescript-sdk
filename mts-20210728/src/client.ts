@@ -470,11 +470,13 @@ export class QueryTraceMuResponse extends $tea.Model {
 export class SubmitCopyrightExtractRequest extends $tea.Model {
   callBack?: string;
   input?: string;
+  url?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
       input: 'Input',
+      url: 'Url',
       userData: 'UserData',
     };
   }
@@ -483,6 +485,7 @@ export class SubmitCopyrightExtractRequest extends $tea.Model {
     return {
       callBack: 'string',
       input: 'string',
+      url: 'string',
       userData: 'string',
     };
   }
@@ -724,6 +727,8 @@ export class SubmitTraceAbRequest extends $tea.Model {
   input?: string;
   level?: number;
   output?: string;
+  startTime?: number;
+  totalTime?: number;
   url?: string;
   userData?: string;
   static names(): { [key: string]: string } {
@@ -732,6 +737,8 @@ export class SubmitTraceAbRequest extends $tea.Model {
       input: 'Input',
       level: 'Level',
       output: 'Output',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
       url: 'Url',
       userData: 'UserData',
     };
@@ -743,6 +750,8 @@ export class SubmitTraceAbRequest extends $tea.Model {
       input: 'string',
       level: 'number',
       output: 'string',
+      startTime: 'number',
+      totalTime: 'number',
       url: 'string',
       userData: 'string',
     };
@@ -806,11 +815,13 @@ export class SubmitTraceAbResponse extends $tea.Model {
 export class SubmitTraceExtractRequest extends $tea.Model {
   callBack?: string;
   input?: string;
+  url?: string;
   userData?: string;
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
       input: 'Input',
+      url: 'Url',
       userData: 'UserData',
     };
   }
@@ -819,6 +830,7 @@ export class SubmitTraceExtractRequest extends $tea.Model {
     return {
       callBack: 'string',
       input: 'string',
+      url: 'string',
       userData: 'string',
     };
   }
@@ -1641,6 +1653,10 @@ export default class Client extends OpenApi {
       body["Input"] = request.input;
     }
 
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     if (!Util.isUnset(request.userData)) {
       body["UserData"] = request.userData;
     }
@@ -1802,6 +1818,14 @@ export default class Client extends OpenApi {
       body["Output"] = request.output;
     }
 
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      body["TotalTime"] = request.totalTime;
+    }
+
     if (!Util.isUnset(request.url)) {
       body["Url"] = request.url;
     }
@@ -1843,6 +1867,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.input)) {
       body["Input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
     }
 
     if (!Util.isUnset(request.userData)) {
