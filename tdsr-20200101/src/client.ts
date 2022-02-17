@@ -2180,6 +2180,87 @@ export class GetSceneBuildTaskStatusResponse extends $tea.Model {
   }
 }
 
+export class GetScenePreviewDataRequest extends $tea.Model {
+  domain?: string;
+  enabled?: boolean;
+  previewToken?: string;
+  showTag?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'Domain',
+      enabled: 'Enabled',
+      previewToken: 'PreviewToken',
+      showTag: 'ShowTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      enabled: 'boolean',
+      previewToken: 'string',
+      showTag: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBody extends $tea.Model {
+  code?: number;
+  data?: GetScenePreviewDataResponseBodyData;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetScenePreviewDataResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetScenePreviewDataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetScenePreviewDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetScenePreviewInfoRequest extends $tea.Model {
   domain?: string;
   enabled?: boolean;
@@ -4616,6 +4697,256 @@ export class GetHotspotSceneDataResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetScenePreviewDataResponseBodyDataModelPanoListPosition extends $tea.Model {
+  rotation?: number[];
+  spot?: number[];
+  viewpoint?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      rotation: 'Rotation',
+      spot: 'Spot',
+      viewpoint: 'Viewpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rotation: { 'type': 'array', 'itemType': 'number' },
+      spot: { 'type': 'array', 'itemType': 'number' },
+      viewpoint: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyDataModelPanoList extends $tea.Model {
+  curRoomPicList?: string[];
+  enabled?: boolean;
+  floorIdx?: string;
+  id?: string;
+  mainImage?: boolean;
+  neighbours?: string[];
+  position?: GetScenePreviewDataResponseBodyDataModelPanoListPosition;
+  rawName?: string;
+  resource?: string;
+  roomIdx?: string;
+  subSceneId?: string;
+  token?: string;
+  virtualId?: string;
+  virtualName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      curRoomPicList: 'CurRoomPicList',
+      enabled: 'Enabled',
+      floorIdx: 'FloorIdx',
+      id: 'Id',
+      mainImage: 'MainImage',
+      neighbours: 'Neighbours',
+      position: 'Position',
+      rawName: 'RawName',
+      resource: 'Resource',
+      roomIdx: 'RoomIdx',
+      subSceneId: 'SubSceneId',
+      token: 'Token',
+      virtualId: 'VirtualId',
+      virtualName: 'VirtualName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      curRoomPicList: { 'type': 'array', 'itemType': 'string' },
+      enabled: 'boolean',
+      floorIdx: 'string',
+      id: 'string',
+      mainImage: 'boolean',
+      neighbours: { 'type': 'array', 'itemType': 'string' },
+      position: GetScenePreviewDataResponseBodyDataModelPanoListPosition,
+      rawName: 'string',
+      resource: 'string',
+      roomIdx: 'string',
+      subSceneId: 'string',
+      token: 'string',
+      virtualId: 'string',
+      virtualName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyDataModel extends $tea.Model {
+  modelPath?: string;
+  panoList?: GetScenePreviewDataResponseBodyDataModelPanoList[];
+  textureModelPath?: string;
+  texturePanoPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelPath: 'ModelPath',
+      panoList: 'PanoList',
+      textureModelPath: 'TextureModelPath',
+      texturePanoPath: 'TexturePanoPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelPath: 'string',
+      panoList: { 'type': 'array', 'itemType': GetScenePreviewDataResponseBodyDataModelPanoList },
+      textureModelPath: 'string',
+      texturePanoPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig extends $tea.Model {
+  customText?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customText: 'CustomText',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customText: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyDataTagsConfig extends $tea.Model {
+  backgroundColor?: string;
+  buttonConfig?: GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig;
+  content?: string;
+  formImgSize?: number[];
+  formJumpType?: boolean;
+  formSelectImgType?: string;
+  images?: string[];
+  isTagVisibleBy3d?: boolean;
+  link?: string;
+  panoId?: string;
+  position?: number[];
+  positionPanoCube?: number[];
+  relatedPanoIds?: string[];
+  sceneId?: number;
+  title?: string;
+  video?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backgroundColor: 'BackgroundColor',
+      buttonConfig: 'ButtonConfig',
+      content: 'Content',
+      formImgSize: 'FormImgSize',
+      formJumpType: 'FormJumpType',
+      formSelectImgType: 'FormSelectImgType',
+      images: 'Images',
+      isTagVisibleBy3d: 'IsTagVisibleBy3d',
+      link: 'Link',
+      panoId: 'PanoId',
+      position: 'Position',
+      positionPanoCube: 'PositionPanoCube',
+      relatedPanoIds: 'RelatedPanoIds',
+      sceneId: 'SceneId',
+      title: 'Title',
+      video: 'Video',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backgroundColor: 'string',
+      buttonConfig: GetScenePreviewDataResponseBodyDataTagsConfigButtonConfig,
+      content: 'string',
+      formImgSize: { 'type': 'array', 'itemType': 'number' },
+      formJumpType: 'boolean',
+      formSelectImgType: 'string',
+      images: { 'type': 'array', 'itemType': 'string' },
+      isTagVisibleBy3d: 'boolean',
+      link: 'string',
+      panoId: 'string',
+      position: { 'type': 'array', 'itemType': 'number' },
+      positionPanoCube: { 'type': 'array', 'itemType': 'number' },
+      relatedPanoIds: { 'type': 'array', 'itemType': 'string' },
+      sceneId: 'number',
+      title: 'string',
+      video: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyDataTags extends $tea.Model {
+  config?: GetScenePreviewDataResponseBodyDataTagsConfig;
+  id?: string;
+  position?: number[];
+  positionPanoCube?: number[];
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      id: 'Id',
+      position: 'Position',
+      positionPanoCube: 'PositionPanoCube',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: GetScenePreviewDataResponseBodyDataTagsConfig,
+      id: 'string',
+      position: { 'type': 'array', 'itemType': 'number' },
+      positionPanoCube: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetScenePreviewDataResponseBodyData extends $tea.Model {
+  model?: GetScenePreviewDataResponseBodyDataModel;
+  tags?: GetScenePreviewDataResponseBodyDataTags[];
+  static names(): { [key: string]: string } {
+    return {
+      model: 'Model',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: GetScenePreviewDataResponseBodyDataModel,
+      tags: { 'type': 'array', 'itemType': GetScenePreviewDataResponseBodyDataTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetScenePreviewInfoResponseBodyData extends $tea.Model {
   modelPath?: string;
   panoList?: string;
@@ -5821,6 +6152,47 @@ export default class Client extends OpenApi {
   async getSceneBuildTaskStatus(request: GetSceneBuildTaskStatusRequest): Promise<GetSceneBuildTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSceneBuildTaskStatusWithOptions(request, runtime);
+  }
+
+  async getScenePreviewDataWithOptions(request: GetScenePreviewDataRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewDataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.previewToken)) {
+      query["PreviewToken"] = request.previewToken;
+    }
+
+    if (!Util.isUnset(request.showTag)) {
+      query["ShowTag"] = request.showTag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetScenePreviewData",
+      version: "2020-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetScenePreviewDataResponse>(await this.callApi(params, req, runtime), new GetScenePreviewDataResponse({}));
+  }
+
+  async getScenePreviewData(request: GetScenePreviewDataRequest): Promise<GetScenePreviewDataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getScenePreviewDataWithOptions(request, runtime);
   }
 
   async getScenePreviewInfoWithOptions(request: GetScenePreviewInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetScenePreviewInfoResponse> {
