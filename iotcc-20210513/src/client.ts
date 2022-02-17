@@ -484,8 +484,8 @@ export class CreateConnectionPoolResponse extends $tea.Model {
 
 export class CreateDNSServiceRuleRequest extends $tea.Model {
   authorizationRuleDescription?: string;
-  authorizationRuleName?: string;
   clientToken?: string;
+  DNSServiceRuleName?: string;
   destination?: string;
   dryRun?: boolean;
   ioTCloudConnectorId?: string;
@@ -495,8 +495,8 @@ export class CreateDNSServiceRuleRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       authorizationRuleDescription: 'AuthorizationRuleDescription',
-      authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
+      DNSServiceRuleName: 'DNSServiceRuleName',
       destination: 'Destination',
       dryRun: 'DryRun',
       ioTCloudConnectorId: 'IoTCloudConnectorId',
@@ -509,8 +509,8 @@ export class CreateDNSServiceRuleRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       authorizationRuleDescription: 'string',
-      authorizationRuleName: 'string',
       clientToken: 'string',
+      DNSServiceRuleName: 'string',
       destination: 'string',
       dryRun: 'boolean',
       ioTCloudConnectorId: 'string',
@@ -4293,9 +4293,9 @@ export class UpdateConnectionPoolAttributeResponse extends $tea.Model {
 }
 
 export class UpdateDNSServiceRuleAttributeRequest extends $tea.Model {
-  authorizationRuleDescription?: string;
   authorizationRuleName?: string;
   clientToken?: string;
+  DNSServiceRuleDescription?: string;
   DNSServiceRuleId?: string;
   destination?: string;
   dryRun?: boolean;
@@ -4305,9 +4305,9 @@ export class UpdateDNSServiceRuleAttributeRequest extends $tea.Model {
   source?: string;
   static names(): { [key: string]: string } {
     return {
-      authorizationRuleDescription: 'AuthorizationRuleDescription',
       authorizationRuleName: 'AuthorizationRuleName',
       clientToken: 'ClientToken',
+      DNSServiceRuleDescription: 'DNSServiceRuleDescription',
       DNSServiceRuleId: 'DNSServiceRuleId',
       destination: 'Destination',
       dryRun: 'DryRun',
@@ -4320,9 +4320,9 @@ export class UpdateDNSServiceRuleAttributeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      authorizationRuleDescription: 'string',
       authorizationRuleName: 'string',
       clientToken: 'string',
+      DNSServiceRuleDescription: 'string',
       DNSServiceRuleId: 'string',
       destination: 'string',
       dryRun: 'boolean',
@@ -5839,12 +5839,12 @@ export default class Client extends OpenApi {
       query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
     }
 
-    if (!Util.isUnset(request.authorizationRuleName)) {
-      query["AuthorizationRuleName"] = request.authorizationRuleName;
-    }
-
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleName)) {
+      query["DNSServiceRuleName"] = request.DNSServiceRuleName;
     }
 
     if (!Util.isUnset(request.destination)) {
@@ -8186,16 +8186,16 @@ export default class Client extends OpenApi {
   async updateDNSServiceRuleAttributeWithOptions(request: UpdateDNSServiceRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDNSServiceRuleAttributeResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.authorizationRuleDescription)) {
-      query["AuthorizationRuleDescription"] = request.authorizationRuleDescription;
-    }
-
     if (!Util.isUnset(request.authorizationRuleName)) {
       query["AuthorizationRuleName"] = request.authorizationRuleName;
     }
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.DNSServiceRuleDescription)) {
+      query["DNSServiceRuleDescription"] = request.DNSServiceRuleDescription;
     }
 
     if (!Util.isUnset(request.DNSServiceRuleId)) {
