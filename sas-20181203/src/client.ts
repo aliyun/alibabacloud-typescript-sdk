@@ -956,123 +956,6 @@ export class DeleteVpcHoneyPotResponse extends $tea.Model {
   }
 }
 
-export class DescribeAccessKeyLeakDetailRequest extends $tea.Model {
-  id?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccessKeyLeakDetailResponseBody extends $tea.Model {
-  accesskeyId?: string;
-  asset?: string;
-  code?: string;
-  dealTime?: string;
-  dealType?: string;
-  githubFileName?: string;
-  githubFileType?: string;
-  githubFileUpdateTime?: string;
-  githubFileUrl?: string;
-  githubRepoName?: string;
-  githubRepoUrl?: string;
-  githubUser?: string;
-  githubUserPicUrl?: string;
-  gmtCreate?: string;
-  gmtModified?: string;
-  remark?: string;
-  requestId?: string;
-  source?: string;
-  type?: string;
-  whitelistStatus?: string;
-  static names(): { [key: string]: string } {
-    return {
-      accesskeyId: 'AccesskeyId',
-      asset: 'Asset',
-      code: 'Code',
-      dealTime: 'DealTime',
-      dealType: 'DealType',
-      githubFileName: 'GithubFileName',
-      githubFileType: 'GithubFileType',
-      githubFileUpdateTime: 'GithubFileUpdateTime',
-      githubFileUrl: 'GithubFileUrl',
-      githubRepoName: 'GithubRepoName',
-      githubRepoUrl: 'GithubRepoUrl',
-      githubUser: 'GithubUser',
-      githubUserPicUrl: 'GithubUserPicUrl',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      remark: 'Remark',
-      requestId: 'RequestId',
-      source: 'Source',
-      type: 'Type',
-      whitelistStatus: 'WhitelistStatus',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      accesskeyId: 'string',
-      asset: 'string',
-      code: 'string',
-      dealTime: 'string',
-      dealType: 'string',
-      githubFileName: 'string',
-      githubFileType: 'string',
-      githubFileUpdateTime: 'string',
-      githubFileUrl: 'string',
-      githubRepoName: 'string',
-      githubRepoUrl: 'string',
-      githubUser: 'string',
-      githubUserPicUrl: 'string',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      remark: 'string',
-      requestId: 'string',
-      source: 'string',
-      type: 'string',
-      whitelistStatus: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeAccessKeyLeakDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeAccessKeyLeakDetailResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeAccessKeyLeakDetailResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeAccesskeyLeakListRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -2611,6 +2494,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
   importance?: number;
   logicalExp?: string;
   machineTypes?: string;
+  noGroupTrace?: boolean;
   pageSize?: number;
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -2620,6 +2504,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
       importance: 'Importance',
       logicalExp: 'LogicalExp',
       machineTypes: 'MachineTypes',
+      noGroupTrace: 'NoGroupTrace',
       pageSize: 'PageSize',
       regionId: 'RegionId',
     };
@@ -2632,6 +2517,7 @@ export class DescribeCloudCenterInstancesRequest extends $tea.Model {
       importance: 'number',
       logicalExp: 'string',
       machineTypes: 'string',
+      noGroupTrace: 'boolean',
       pageSize: 'number',
       regionId: 'string',
     };
@@ -2854,87 +2740,6 @@ export class DescribeContainerStatisticsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeContainerStatisticsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerTagsRequest extends $tea.Model {
-  appName?: string;
-  clusterId?: string;
-  currentPage?: number;
-  fieldName?: string;
-  fieldValue?: string;
-  namespace?: string;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      appName: 'AppName',
-      clusterId: 'ClusterId',
-      currentPage: 'CurrentPage',
-      fieldName: 'FieldName',
-      fieldValue: 'FieldValue',
-      namespace: 'Namespace',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appName: 'string',
-      clusterId: 'string',
-      currentPage: 'number',
-      fieldName: 'string',
-      fieldValue: 'string',
-      namespace: 'string',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerTagsResponseBody extends $tea.Model {
-  requestId?: string;
-  tagValues?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      tagValues: 'TagValues',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      tagValues: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerTagsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeContainerTagsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeContainerTagsResponseBody,
     };
   }
 
@@ -4531,6 +4336,87 @@ export class DescribeHoneyPotSuspStatisticsResponse extends $tea.Model {
   }
 }
 
+export class DescribeImageBaselineCheckSummaryRequest extends $tea.Model {
+  criteria?: string;
+  criteriaType?: string;
+  currentPage?: number;
+  lang?: string;
+  pageSize?: number;
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      criteria: 'Criteria',
+      criteriaType: 'CriteriaType',
+      currentPage: 'CurrentPage',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      criteria: 'string',
+      criteriaType: 'string',
+      currentPage: 'number',
+      lang: 'string',
+      pageSize: 'number',
+      riskLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageBaselineCheckSummaryResponseBody extends $tea.Model {
+  baselineResultSummary?: DescribeImageBaselineCheckSummaryResponseBodyBaselineResultSummary[];
+  pageInfo?: DescribeImageBaselineCheckSummaryResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineResultSummary: 'BaselineResultSummary',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineResultSummary: { 'type': 'array', 'itemType': DescribeImageBaselineCheckSummaryResponseBodyBaselineResultSummary },
+      pageInfo: DescribeImageBaselineCheckSummaryResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageBaselineCheckSummaryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeImageBaselineCheckSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeImageBaselineCheckSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageFixTaskRequest extends $tea.Model {
   currentPage?: number;
   endTime?: number;
@@ -4730,6 +4616,99 @@ export class DescribeImageGroupedVulListResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeImageGroupedVulListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListWithBaselineNameRequest extends $tea.Model {
+  baselineNameKey?: string;
+  criteria?: string;
+  criteriaType?: string;
+  currentPage?: number;
+  imageDigest?: string;
+  lang?: string;
+  pageSize?: number;
+  repoInstanceId?: string;
+  repoName?: string;
+  repoNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baselineNameKey: 'BaselineNameKey',
+      criteria: 'Criteria',
+      criteriaType: 'CriteriaType',
+      currentPage: 'CurrentPage',
+      imageDigest: 'ImageDigest',
+      lang: 'Lang',
+      pageSize: 'PageSize',
+      repoInstanceId: 'RepoInstanceId',
+      repoName: 'RepoName',
+      repoNamespace: 'RepoNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineNameKey: 'string',
+      criteria: 'string',
+      criteriaType: 'string',
+      currentPage: 'number',
+      imageDigest: 'string',
+      lang: 'string',
+      pageSize: 'number',
+      repoInstanceId: 'string',
+      repoName: 'string',
+      repoNamespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListWithBaselineNameResponseBody extends $tea.Model {
+  imageInfos?: DescribeImageListWithBaselineNameResponseBodyImageInfos[];
+  pageInfo?: DescribeImageListWithBaselineNameResponseBodyPageInfo;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageInfos: 'ImageInfos',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageInfos: { 'type': 'array', 'itemType': DescribeImageListWithBaselineNameResponseBodyImageInfos },
+      pageInfo: DescribeImageListWithBaselineNameResponseBodyPageInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListWithBaselineNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeImageListWithBaselineNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeImageListWithBaselineNameResponseBody,
     };
   }
 
@@ -5818,6 +5797,7 @@ export class DescribePropertyCronDetailResponse extends $tea.Model {
 }
 
 export class DescribePropertyPortDetailRequest extends $tea.Model {
+  bindIp?: string;
   currentPage?: number;
   pageSize?: number;
   port?: string;
@@ -5826,6 +5806,7 @@ export class DescribePropertyPortDetailRequest extends $tea.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      bindIp: 'BindIp',
       currentPage: 'CurrentPage',
       pageSize: 'PageSize',
       port: 'Port',
@@ -5837,6 +5818,7 @@ export class DescribePropertyPortDetailRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      bindIp: 'string',
       currentPage: 'number',
       pageSize: 'number',
       port: 'string',
@@ -5978,6 +5960,8 @@ export class DescribePropertyProcDetailRequest extends $tea.Model {
   currentPage?: number;
   name?: string;
   pageSize?: number;
+  procTimeEnd?: number;
+  procTimeStart?: number;
   remark?: string;
   user?: string;
   uuid?: string;
@@ -5987,6 +5971,8 @@ export class DescribePropertyProcDetailRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       name: 'Name',
       pageSize: 'PageSize',
+      procTimeEnd: 'ProcTimeEnd',
+      procTimeStart: 'ProcTimeStart',
       remark: 'Remark',
       user: 'User',
       uuid: 'Uuid',
@@ -5999,6 +5985,8 @@ export class DescribePropertyProcDetailRequest extends $tea.Model {
       currentPage: 'number',
       name: 'string',
       pageSize: 'number',
+      procTimeEnd: 'number',
+      procTimeStart: 'number',
       remark: 'string',
       user: 'string',
       uuid: 'string',
@@ -6133,48 +6121,72 @@ export class DescribePropertyProcItemResponse extends $tea.Model {
 }
 
 export class DescribePropertyScaDetailRequest extends $tea.Model {
+  biz?: string;
   bizType?: string;
   currentPage?: number;
   lang?: string;
   name?: number;
   pageSize?: number;
+  pid?: string;
+  port?: string;
+  processStartedEnd?: number;
+  processStartedStart?: number;
   remark?: string;
   scaName?: string;
+  scaNamePattern?: string;
+  scaVersion?: string;
   searchInfo?: string;
   searchInfoSub?: string;
   searchItem?: string;
   searchItemSub?: string;
+  user?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      biz: 'Biz',
       bizType: 'BizType',
       currentPage: 'CurrentPage',
       lang: 'Lang',
       name: 'Name',
       pageSize: 'PageSize',
+      pid: 'Pid',
+      port: 'Port',
+      processStartedEnd: 'ProcessStartedEnd',
+      processStartedStart: 'ProcessStartedStart',
       remark: 'Remark',
       scaName: 'ScaName',
+      scaNamePattern: 'ScaNamePattern',
+      scaVersion: 'ScaVersion',
       searchInfo: 'SearchInfo',
       searchInfoSub: 'SearchInfoSub',
       searchItem: 'SearchItem',
       searchItemSub: 'SearchItemSub',
+      user: 'User',
       uuid: 'Uuid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      biz: 'string',
       bizType: 'string',
       currentPage: 'number',
       lang: 'string',
       name: 'number',
       pageSize: 'number',
+      pid: 'string',
+      port: 'string',
+      processStartedEnd: 'number',
+      processStartedStart: 'number',
       remark: 'string',
       scaName: 'string',
+      scaNamePattern: 'string',
+      scaVersion: 'string',
       searchInfo: 'string',
       searchInfoSub: 'string',
       searchItem: 'string',
       searchItemSub: 'string',
+      user: 'string',
       uuid: 'string',
     };
   }
@@ -6233,6 +6245,8 @@ export class DescribePropertyScaDetailResponse extends $tea.Model {
 
 export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   currentPage?: number;
+  installTimeEnd?: number;
+  installTimeStart?: number;
   name?: string;
   pageSize?: number;
   path?: string;
@@ -6242,6 +6256,8 @@ export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      installTimeEnd: 'InstallTimeEnd',
+      installTimeStart: 'InstallTimeStart',
       name: 'Name',
       pageSize: 'PageSize',
       path: 'Path',
@@ -6254,6 +6270,8 @@ export class DescribePropertySoftwareDetailRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      installTimeEnd: 'number',
+      installTimeStart: 'number',
       name: 'string',
       pageSize: 'number',
       path: 'string',
@@ -6462,6 +6480,8 @@ export class DescribePropertyUsageNewestResponse extends $tea.Model {
 export class DescribePropertyUserDetailRequest extends $tea.Model {
   currentPage?: number;
   isRoot?: string;
+  lastLoginTimeEnd?: number;
+  lastLoginTimeStart?: number;
   pageSize?: number;
   remark?: string;
   user?: string;
@@ -6470,6 +6490,8 @@ export class DescribePropertyUserDetailRequest extends $tea.Model {
     return {
       currentPage: 'CurrentPage',
       isRoot: 'IsRoot',
+      lastLoginTimeEnd: 'LastLoginTimeEnd',
+      lastLoginTimeStart: 'LastLoginTimeStart',
       pageSize: 'PageSize',
       remark: 'Remark',
       user: 'User',
@@ -6481,6 +6503,8 @@ export class DescribePropertyUserDetailRequest extends $tea.Model {
     return {
       currentPage: 'number',
       isRoot: 'string',
+      lastLoginTimeEnd: 'number',
+      lastLoginTimeStart: 'number',
       pageSize: 'number',
       remark: 'string',
       user: 'string',
@@ -8266,102 +8290,6 @@ export class DescribeSuspEventDetailResponse extends $tea.Model {
   }
 }
 
-export class DescribeSuspEventExportInfoRequest extends $tea.Model {
-  exportId?: number;
-  from?: string;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exportId: 'ExportId',
-      from: 'From',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exportId: 'number',
-      from: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSuspEventExportInfoResponseBody extends $tea.Model {
-  exportStatus?: string;
-  fileName?: string;
-  gmtCreate?: number;
-  gmtModified?: number;
-  id?: number;
-  link?: string;
-  progress?: number;
-  properties?: string;
-  requestId?: string;
-  totalCount?: number;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      exportStatus: 'ExportStatus',
-      fileName: 'FileName',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      link: 'Link',
-      progress: 'Progress',
-      properties: 'Properties',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exportStatus: 'string',
-      fileName: 'string',
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      id: 'number',
-      link: 'string',
-      progress: 'number',
-      properties: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeSuspEventExportInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeSuspEventExportInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeSuspEventExportInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeSuspEventQuaraFilesRequest extends $tea.Model {
   currentPage?: string;
   from?: string;
@@ -8654,84 +8582,6 @@ export class DescribeSuspiciousUUIDConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeSuspiciousUUIDConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPoliciesRequest extends $tea.Model {
-  currentPage?: number;
-  pageSize?: number;
-  policyName?: string;
-  resourceOwnerId?: number;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      policyName: 'PolicyName',
-      resourceOwnerId: 'ResourceOwnerId',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      pageSize: 'number',
-      policyName: 'string',
-      resourceOwnerId: 'number',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPoliciesResponseBody extends $tea.Model {
-  pageInfo?: DescribeUniBackupPoliciesResponseBodyPageInfo;
-  requestId?: string;
-  uniBackupPolicies?: DescribeUniBackupPoliciesResponseBodyUniBackupPolicies[];
-  static names(): { [key: string]: string } {
-    return {
-      pageInfo: 'PageInfo',
-      requestId: 'RequestId',
-      uniBackupPolicies: 'UniBackupPolicies',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageInfo: DescribeUniBackupPoliciesResponseBodyPageInfo,
-      requestId: 'string',
-      uniBackupPolicies: { 'type': 'array', 'itemType': DescribeUniBackupPoliciesResponseBodyUniBackupPolicies },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeUniBackupPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeUniBackupPoliciesResponseBody,
     };
   }
 
@@ -9550,84 +9400,6 @@ export class DescribeVulListResponse extends $tea.Model {
   }
 }
 
-export class DescribeVulListPageRequest extends $tea.Model {
-  currentPage?: number;
-  cveId?: string;
-  pageSize?: number;
-  sourceIp?: string;
-  vulNameLike?: string;
-  static names(): { [key: string]: string } {
-    return {
-      currentPage: 'CurrentPage',
-      cveId: 'CveId',
-      pageSize: 'PageSize',
-      sourceIp: 'SourceIp',
-      vulNameLike: 'VulNameLike',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      currentPage: 'number',
-      cveId: 'string',
-      pageSize: 'number',
-      sourceIp: 'string',
-      vulNameLike: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVulListPageResponseBody extends $tea.Model {
-  data?: DescribeVulListPageResponseBodyData[];
-  requestId?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': DescribeVulListPageResponseBodyData },
-      requestId: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVulListPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeVulListPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeVulListPageResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeVulWhitelistRequest extends $tea.Model {
   currentPage?: number;
   pageSize?: number;
@@ -10030,114 +9802,6 @@ export class ExportRecordResponse extends $tea.Model {
   }
 }
 
-export class ExportSuspEventsRequest extends $tea.Model {
-  clusterId?: string;
-  containerFieldName?: string;
-  containerFieldValue?: string;
-  dealed?: string;
-  from?: string;
-  lang?: string;
-  levels?: string;
-  name?: string;
-  parentEventTypes?: string;
-  remark?: string;
-  sourceIp?: string;
-  status?: string;
-  targetType?: string;
-  timeEnd?: string;
-  timeStart?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      containerFieldName: 'ContainerFieldName',
-      containerFieldValue: 'ContainerFieldValue',
-      dealed: 'Dealed',
-      from: 'From',
-      lang: 'Lang',
-      levels: 'Levels',
-      name: 'Name',
-      parentEventTypes: 'ParentEventTypes',
-      remark: 'Remark',
-      sourceIp: 'SourceIp',
-      status: 'Status',
-      targetType: 'TargetType',
-      timeEnd: 'TimeEnd',
-      timeStart: 'TimeStart',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      containerFieldName: 'string',
-      containerFieldValue: 'string',
-      dealed: 'string',
-      from: 'string',
-      lang: 'string',
-      levels: 'string',
-      name: 'string',
-      parentEventTypes: 'string',
-      remark: 'string',
-      sourceIp: 'string',
-      status: 'string',
-      targetType: 'string',
-      timeEnd: 'string',
-      timeStart: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportSuspEventsResponseBody extends $tea.Model {
-  fileName?: number;
-  id?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'number',
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportSuspEventsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExportSuspEventsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExportSuspEventsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ExportVulRequest extends $tea.Model {
   aliasName?: string;
   attachTypes?: string;
@@ -10223,114 +9887,6 @@ export class ExportVulResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ExportVulResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportWarningRequest extends $tea.Model {
-  dealed?: string;
-  exportType?: string;
-  isCleartextPwd?: number;
-  isSummaryExport?: number;
-  lang?: string;
-  riskIds?: string;
-  riskLevels?: string;
-  riskName?: string;
-  sourceIp?: string;
-  statusList?: string;
-  strategyId?: number;
-  subTypeNames?: string;
-  typeName?: string;
-  typeNames?: string;
-  uuids?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dealed: 'Dealed',
-      exportType: 'ExportType',
-      isCleartextPwd: 'IsCleartextPwd',
-      isSummaryExport: 'IsSummaryExport',
-      lang: 'Lang',
-      riskIds: 'RiskIds',
-      riskLevels: 'RiskLevels',
-      riskName: 'RiskName',
-      sourceIp: 'SourceIp',
-      statusList: 'StatusList',
-      strategyId: 'StrategyId',
-      subTypeNames: 'SubTypeNames',
-      typeName: 'TypeName',
-      typeNames: 'TypeNames',
-      uuids: 'Uuids',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dealed: 'string',
-      exportType: 'string',
-      isCleartextPwd: 'number',
-      isSummaryExport: 'number',
-      lang: 'string',
-      riskIds: 'string',
-      riskLevels: 'string',
-      riskName: 'string',
-      sourceIp: 'string',
-      statusList: 'string',
-      strategyId: 'number',
-      subTypeNames: 'string',
-      typeName: 'string',
-      typeNames: 'string',
-      uuids: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportWarningResponseBody extends $tea.Model {
-  fileName?: string;
-  id?: number;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fileName: 'FileName',
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fileName: 'string',
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportWarningResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExportWarningResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExportWarningResponseBody,
     };
   }
 
@@ -11219,69 +10775,6 @@ export class ModifyBackupPolicyStatusResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyBackupPolicyStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyClearLogstoreStorageRequest extends $tea.Model {
-  from?: string;
-  lang?: string;
-  static names(): { [key: string]: string } {
-    return {
-      from: 'From',
-      lang: 'Lang',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      from: 'string',
-      lang: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyClearLogstoreStorageResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyClearLogstoreStorageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ModifyClearLogstoreStorageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyClearLogstoreStorageResponseBody,
     };
   }
 
@@ -13307,66 +12800,6 @@ export class RefreshContainerAssetsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RefreshContainerAssetsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshContainerNetworkRequest extends $tea.Model {
-  clusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshContainerNetworkResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RefreshContainerNetworkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RefreshContainerNetworkResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RefreshContainerNetworkResponseBody,
     };
   }
 
@@ -15808,6 +15241,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   exposedInstanceCount?: number;
   generalAssetCount?: number;
   groupCount?: number;
+  huaweiInstanceCount?: number;
   idcInstanceCount?: number;
   importantAssetCount?: number;
   instanceCount?: number;
@@ -15828,6 +15262,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       exposedInstanceCount: 'ExposedInstanceCount',
       generalAssetCount: 'GeneralAssetCount',
       groupCount: 'GroupCount',
+      huaweiInstanceCount: 'HuaweiInstanceCount',
       idcInstanceCount: 'IdcInstanceCount',
       importantAssetCount: 'ImportantAssetCount',
       instanceCount: 'InstanceCount',
@@ -15851,6 +15286,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
       exposedInstanceCount: 'number',
       generalAssetCount: 'number',
       groupCount: 'number',
+      huaweiInstanceCount: 'number',
       idcInstanceCount: 'number',
       importantAssetCount: 'number',
       instanceCount: 'number',
@@ -16203,6 +15639,83 @@ export class DescribeHoneyPotSuspStatisticsResponseBodySuspHoneyPotStatisticsRes
   }
 }
 
+export class DescribeImageBaselineCheckSummaryResponseBodyBaselineResultSummary extends $tea.Model {
+  baselineClassAlias?: string;
+  baselineClassKey?: string;
+  baselineNameAlias?: string;
+  baselineNameKey?: string;
+  baselineNameLevel?: string;
+  firstScanTime?: number;
+  highRiskImage?: number;
+  lastScanTime?: number;
+  lowRiskImage?: number;
+  middleRiskImage?: number;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baselineClassAlias: 'BaselineClassAlias',
+      baselineClassKey: 'BaselineClassKey',
+      baselineNameAlias: 'BaselineNameAlias',
+      baselineNameKey: 'BaselineNameKey',
+      baselineNameLevel: 'BaselineNameLevel',
+      firstScanTime: 'FirstScanTime',
+      highRiskImage: 'HighRiskImage',
+      lastScanTime: 'LastScanTime',
+      lowRiskImage: 'LowRiskImage',
+      middleRiskImage: 'MiddleRiskImage',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baselineClassAlias: 'string',
+      baselineClassKey: 'string',
+      baselineNameAlias: 'string',
+      baselineNameKey: 'string',
+      baselineNameLevel: 'string',
+      firstScanTime: 'number',
+      highRiskImage: 'number',
+      lastScanTime: 'number',
+      lowRiskImage: 'number',
+      middleRiskImage: 'number',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageBaselineCheckSummaryResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeImageFixTaskResponseBodyBuildTasks extends $tea.Model {
   buildTaskId?: string;
   finishTime?: string;
@@ -16321,6 +15834,107 @@ export class DescribeImageGroupedVulListResponseBodyGroupedVulItems extends $tea
       status: 'number',
       tags: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListWithBaselineNameResponseBodyImageInfos extends $tea.Model {
+  digest?: string;
+  highRiskImage?: number;
+  imageCreate?: number;
+  imageId?: string;
+  imageSize?: number;
+  imageUpdate?: number;
+  instanceId?: string;
+  lowRiskImage?: number;
+  middleRiskImage?: number;
+  noRiskImage?: number;
+  regionId?: string;
+  repoId?: string;
+  repoName?: string;
+  repoNamespace?: string;
+  repoType?: string;
+  riskStatus?: string;
+  tag?: string;
+  totalItemCount?: number;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      digest: 'Digest',
+      highRiskImage: 'HighRiskImage',
+      imageCreate: 'ImageCreate',
+      imageId: 'ImageId',
+      imageSize: 'ImageSize',
+      imageUpdate: 'ImageUpdate',
+      instanceId: 'InstanceId',
+      lowRiskImage: 'LowRiskImage',
+      middleRiskImage: 'MiddleRiskImage',
+      noRiskImage: 'NoRiskImage',
+      regionId: 'RegionId',
+      repoId: 'RepoId',
+      repoName: 'RepoName',
+      repoNamespace: 'RepoNamespace',
+      repoType: 'RepoType',
+      riskStatus: 'RiskStatus',
+      tag: 'Tag',
+      totalItemCount: 'TotalItemCount',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      digest: 'string',
+      highRiskImage: 'number',
+      imageCreate: 'number',
+      imageId: 'string',
+      imageSize: 'number',
+      imageUpdate: 'number',
+      instanceId: 'string',
+      lowRiskImage: 'number',
+      middleRiskImage: 'number',
+      noRiskImage: 'number',
+      regionId: 'string',
+      repoId: 'string',
+      repoName: 'string',
+      repoNamespace: 'string',
+      repoType: 'string',
+      riskStatus: 'string',
+      tag: 'string',
+      totalItemCount: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeImageListWithBaselineNameResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -16977,12 +16591,15 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model 
   instanceName?: string;
   internetIp?: string;
   intranetIp?: string;
+  isPackage?: number;
   md5?: string;
   name?: string;
   path?: string;
   pid?: string;
   pname?: string;
   startTime?: string;
+  startTimeDt?: number;
+  state?: string;
   user?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -16995,12 +16612,15 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model 
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      isPackage: 'IsPackage',
       md5: 'Md5',
       name: 'Name',
       path: 'Path',
       pid: 'Pid',
       pname: 'Pname',
       startTime: 'StartTime',
+      startTimeDt: 'StartTimeDt',
+      state: 'State',
       user: 'User',
       uuid: 'Uuid',
     };
@@ -17016,12 +16636,15 @@ export class DescribePropertyProcDetailResponseBodyPropertys extends $tea.Model 
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      isPackage: 'number',
       md5: 'string',
       name: 'string',
       path: 'string',
       pid: 'string',
       pname: 'string',
       startTime: 'string',
+      startTimeDt: 'number',
+      state: 'string',
       user: 'string',
       uuid: 'string',
     };
@@ -17242,6 +16865,7 @@ export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Mo
   create?: number;
   createTimestamp?: number;
   installTime?: string;
+  installTimeDt?: number;
   instanceId?: string;
   instanceName?: string;
   internetIp?: string;
@@ -17256,6 +16880,7 @@ export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Mo
       create: 'Create',
       createTimestamp: 'CreateTimestamp',
       installTime: 'InstallTime',
+      installTimeDt: 'InstallTimeDt',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
@@ -17273,6 +16898,7 @@ export class DescribePropertySoftwareDetailResponseBodyPropertys extends $tea.Mo
       create: 'number',
       createTimestamp: 'number',
       installTime: 'string',
+      installTimeDt: 'number',
       instanceId: 'string',
       instanceName: 'string',
       internetIp: 'string',
@@ -17400,9 +17026,15 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model 
   internetIp?: string;
   intranetIp?: string;
   ip?: string;
+  isCouldLogin?: number;
+  isPasswdExpired?: number;
+  isPasswdLocked?: number;
   isRoot?: string;
+  isSudoer?: number;
+  isUserExpired?: number;
   lastLoginIp?: string;
   lastLoginTime?: string;
+  lastLoginTimeDt?: number;
   lastLoginTimestamp?: number;
   passwordExpirationDate?: string;
   status?: string;
@@ -17419,9 +17051,15 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model 
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
       ip: 'Ip',
+      isCouldLogin: 'IsCouldLogin',
+      isPasswdExpired: 'IsPasswdExpired',
+      isPasswdLocked: 'IsPasswdLocked',
       isRoot: 'IsRoot',
+      isSudoer: 'IsSudoer',
+      isUserExpired: 'IsUserExpired',
       lastLoginIp: 'LastLoginIp',
       lastLoginTime: 'LastLoginTime',
+      lastLoginTimeDt: 'LastLoginTimeDt',
       lastLoginTimestamp: 'LastLoginTimestamp',
       passwordExpirationDate: 'PasswordExpirationDate',
       status: 'Status',
@@ -17441,9 +17079,15 @@ export class DescribePropertyUserDetailResponseBodyPropertys extends $tea.Model 
       internetIp: 'string',
       intranetIp: 'string',
       ip: 'string',
+      isCouldLogin: 'number',
+      isPasswdExpired: 'number',
+      isPasswdLocked: 'number',
       isRoot: 'string',
+      isSudoer: 'number',
+      isUserExpired: 'number',
       lastLoginIp: 'string',
       lastLoginTime: 'string',
+      lastLoginTimeDt: 'number',
       lastLoginTimestamp: 'number',
       passwordExpirationDate: 'string',
       status: 'string',
@@ -18894,104 +18538,6 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   }
 }
 
-export class DescribeUniBackupPoliciesResponseBodyPageInfo extends $tea.Model {
-  count?: number;
-  currentPage?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      count: 'Count',
-      currentPage: 'CurrentPage',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      count: 'number',
-      currentPage: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUniBackupPoliciesResponseBodyUniBackupPolicies extends $tea.Model {
-  agentErrorMessage?: string;
-  agentStatus?: string;
-  databaseName?: string;
-  databaseType?: string;
-  errorCode?: string;
-  errorMessage?: string;
-  instanceId?: string;
-  instanceName?: string;
-  instanceStatus?: string;
-  instanceUuid?: string;
-  latestBackResult?: string;
-  latestBackupTime?: string;
-  planStatus?: string;
-  policyId?: number;
-  policyName?: string;
-  policyStatus?: string;
-  uniBackUpCount?: number;
-  uniRegionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentErrorMessage: 'AgentErrorMessage',
-      agentStatus: 'AgentStatus',
-      databaseName: 'DatabaseName',
-      databaseType: 'DatabaseType',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      instanceStatus: 'InstanceStatus',
-      instanceUuid: 'InstanceUuid',
-      latestBackResult: 'LatestBackResult',
-      latestBackupTime: 'LatestBackupTime',
-      planStatus: 'PlanStatus',
-      policyId: 'PolicyId',
-      policyName: 'PolicyName',
-      policyStatus: 'PolicyStatus',
-      uniBackUpCount: 'UniBackUpCount',
-      uniRegionId: 'UniRegionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentErrorMessage: 'string',
-      agentStatus: 'string',
-      databaseName: 'string',
-      databaseType: 'string',
-      errorCode: 'string',
-      errorMessage: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      instanceStatus: 'string',
-      instanceUuid: 'string',
-      latestBackResult: 'string',
-      latestBackupTime: 'string',
-      planStatus: 'string',
-      policyId: 'number',
-      policyName: 'string',
-      policyStatus: 'string',
-      uniBackUpCount: 'number',
-      uniRegionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeUserBackupMachinesResponseBodyMachines extends $tea.Model {
   id?: number;
   policyName?: string;
@@ -19507,43 +19053,6 @@ export class DescribeVulListResponseBodyVulRecords extends $tea.Model {
       tag: 'string',
       type: 'string',
       uuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVulListPageResponseBodyData extends $tea.Model {
-  cveId?: string;
-  id?: number;
-  isAegis?: number;
-  isSas?: number;
-  otherId?: string;
-  releaseTime?: number;
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cveId: 'CveId',
-      id: 'Id',
-      isAegis: 'IsAegis',
-      isSas: 'IsSas',
-      otherId: 'OtherId',
-      releaseTime: 'ReleaseTime',
-      title: 'Title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cveId: 'string',
-      id: 'number',
-      isAegis: 'number',
-      isSas: 'number',
-      otherId: 'string',
-      releaseTime: 'number',
-      title: 'string',
     };
   }
 
@@ -20480,35 +19989,6 @@ export default class Client extends OpenApi {
     return await this.deleteVpcHoneyPotWithOptions(request, runtime);
   }
 
-  async describeAccessKeyLeakDetailWithOptions(request: DescribeAccessKeyLeakDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessKeyLeakDetailResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeAccessKeyLeakDetail",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeAccessKeyLeakDetailResponse>(await this.callApi(params, req, runtime), new DescribeAccessKeyLeakDetailResponse({}));
-  }
-
-  async describeAccessKeyLeakDetail(request: DescribeAccessKeyLeakDetailRequest): Promise<DescribeAccessKeyLeakDetailResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeAccessKeyLeakDetailWithOptions(request, runtime);
-  }
-
   async describeAccesskeyLeakListWithOptions(request: DescribeAccesskeyLeakListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccesskeyLeakListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21369,6 +20849,10 @@ export default class Client extends OpenApi {
       query["MachineTypes"] = request.machineTypes;
     }
 
+    if (!Util.isUnset(request.noGroupTrace)) {
+      query["NoGroupTrace"] = request.noGroupTrace;
+    }
+
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
     }
@@ -21476,59 +20960,6 @@ export default class Client extends OpenApi {
   async describeContainerStatistics(request: DescribeContainerStatisticsRequest): Promise<DescribeContainerStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeContainerStatisticsWithOptions(request, runtime);
-  }
-
-  async describeContainerTagsWithOptions(request: DescribeContainerTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerTagsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appName)) {
-      query["AppName"] = request.appName;
-    }
-
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
-    if (!Util.isUnset(request.fieldName)) {
-      query["FieldName"] = request.fieldName;
-    }
-
-    if (!Util.isUnset(request.fieldValue)) {
-      query["FieldValue"] = request.fieldValue;
-    }
-
-    if (!Util.isUnset(request.namespace)) {
-      query["Namespace"] = request.namespace;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeContainerTags",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeContainerTagsResponse>(await this.callApi(params, req, runtime), new DescribeContainerTagsResponse({}));
-  }
-
-  async describeContainerTags(request: DescribeContainerTagsRequest): Promise<DescribeContainerTagsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeContainerTagsWithOptions(request, runtime);
   }
 
   async describeCriteriaWithOptions(request: DescribeCriteriaRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCriteriaResponse> {
@@ -22372,6 +21803,55 @@ export default class Client extends OpenApi {
     return await this.describeHoneyPotSuspStatisticsWithOptions(request, runtime);
   }
 
+  async describeImageBaselineCheckSummaryWithOptions(request: DescribeImageBaselineCheckSummaryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageBaselineCheckSummaryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.criteriaType)) {
+      query["CriteriaType"] = request.criteriaType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageBaselineCheckSummary",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageBaselineCheckSummaryResponse>(await this.callApi(params, req, runtime), new DescribeImageBaselineCheckSummaryResponse({}));
+  }
+
+  async describeImageBaselineCheckSummary(request: DescribeImageBaselineCheckSummaryRequest): Promise<DescribeImageBaselineCheckSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageBaselineCheckSummaryWithOptions(request, runtime);
+  }
+
   async describeImageFixTaskWithOptions(request: DescribeImageFixTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageFixTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22520,6 +22000,71 @@ export default class Client extends OpenApi {
   async describeImageGroupedVulList(request: DescribeImageGroupedVulListRequest): Promise<DescribeImageGroupedVulListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeImageGroupedVulListWithOptions(request, runtime);
+  }
+
+  async describeImageListWithBaselineNameWithOptions(request: DescribeImageListWithBaselineNameRequest, runtime: $Util.RuntimeOptions): Promise<DescribeImageListWithBaselineNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baselineNameKey)) {
+      query["BaselineNameKey"] = request.baselineNameKey;
+    }
+
+    if (!Util.isUnset(request.criteria)) {
+      query["Criteria"] = request.criteria;
+    }
+
+    if (!Util.isUnset(request.criteriaType)) {
+      query["CriteriaType"] = request.criteriaType;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.imageDigest)) {
+      query["ImageDigest"] = request.imageDigest;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoInstanceId)) {
+      query["RepoInstanceId"] = request.repoInstanceId;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespace)) {
+      query["RepoNamespace"] = request.repoNamespace;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeImageListWithBaselineName",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeImageListWithBaselineNameResponse>(await this.callApi(params, req, runtime), new DescribeImageListWithBaselineNameResponse({}));
+  }
+
+  async describeImageListWithBaselineName(request: DescribeImageListWithBaselineNameRequest): Promise<DescribeImageListWithBaselineNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeImageListWithBaselineNameWithOptions(request, runtime);
   }
 
   async describeImageScanAuthCountWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeImageScanAuthCountResponse> {
@@ -23010,6 +22555,10 @@ export default class Client extends OpenApi {
   async describePropertyPortDetailWithOptions(request: DescribePropertyPortDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyPortDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.bindIp)) {
+      query["BindIp"] = request.bindIp;
+    }
+
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
@@ -23116,6 +22665,14 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.procTimeEnd)) {
+      query["ProcTimeEnd"] = request.procTimeEnd;
+    }
+
+    if (!Util.isUnset(request.procTimeStart)) {
+      query["ProcTimeStart"] = request.procTimeStart;
+    }
+
     if (!Util.isUnset(request.remark)) {
       query["Remark"] = request.remark;
     }
@@ -23194,6 +22751,10 @@ export default class Client extends OpenApi {
   async describePropertyScaDetailWithOptions(request: DescribePropertyScaDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribePropertyScaDetailResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.biz)) {
+      query["Biz"] = request.biz;
+    }
+
     if (!Util.isUnset(request.bizType)) {
       query["BizType"] = request.bizType;
     }
@@ -23214,12 +22775,36 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.pid)) {
+      query["Pid"] = request.pid;
+    }
+
+    if (!Util.isUnset(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!Util.isUnset(request.processStartedEnd)) {
+      query["ProcessStartedEnd"] = request.processStartedEnd;
+    }
+
+    if (!Util.isUnset(request.processStartedStart)) {
+      query["ProcessStartedStart"] = request.processStartedStart;
+    }
+
     if (!Util.isUnset(request.remark)) {
       query["Remark"] = request.remark;
     }
 
     if (!Util.isUnset(request.scaName)) {
       query["ScaName"] = request.scaName;
+    }
+
+    if (!Util.isUnset(request.scaNamePattern)) {
+      query["ScaNamePattern"] = request.scaNamePattern;
+    }
+
+    if (!Util.isUnset(request.scaVersion)) {
+      query["ScaVersion"] = request.scaVersion;
     }
 
     if (!Util.isUnset(request.searchInfo)) {
@@ -23236,6 +22821,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.searchItemSub)) {
       query["SearchItemSub"] = request.searchItemSub;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      query["User"] = request.user;
     }
 
     if (!Util.isUnset(request.uuid)) {
@@ -23269,6 +22858,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.installTimeEnd)) {
+      query["InstallTimeEnd"] = request.installTimeEnd;
+    }
+
+    if (!Util.isUnset(request.installTimeStart)) {
+      query["InstallTimeStart"] = request.installTimeStart;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -23396,6 +22993,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.isRoot)) {
       query["IsRoot"] = request.isRoot;
+    }
+
+    if (!Util.isUnset(request.lastLoginTimeEnd)) {
+      query["LastLoginTimeEnd"] = request.lastLoginTimeEnd;
+    }
+
+    if (!Util.isUnset(request.lastLoginTimeStart)) {
+      query["LastLoginTimeStart"] = request.lastLoginTimeStart;
     }
 
     if (!Util.isUnset(request.pageSize)) {
@@ -24347,43 +23952,6 @@ export default class Client extends OpenApi {
     return await this.describeSuspEventDetailWithOptions(request, runtime);
   }
 
-  async describeSuspEventExportInfoWithOptions(request: DescribeSuspEventExportInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventExportInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.exportId)) {
-      query["ExportId"] = request.exportId;
-    }
-
-    if (!Util.isUnset(request.from)) {
-      query["From"] = request.from;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeSuspEventExportInfo",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeSuspEventExportInfoResponse>(await this.callApi(params, req, runtime), new DescribeSuspEventExportInfoResponse({}));
-  }
-
-  async describeSuspEventExportInfo(request: DescribeSuspEventExportInfoRequest): Promise<DescribeSuspEventExportInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeSuspEventExportInfoWithOptions(request, runtime);
-  }
-
   async describeSuspEventQuaraFilesWithOptions(request: DescribeSuspEventQuaraFilesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSuspEventQuaraFilesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24581,51 +24149,6 @@ export default class Client extends OpenApi {
   async describeSuspiciousUUIDConfig(request: DescribeSuspiciousUUIDConfigRequest): Promise<DescribeSuspiciousUUIDConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSuspiciousUUIDConfigWithOptions(request, runtime);
-  }
-
-  async describeUniBackupPoliciesWithOptions(request: DescribeUniBackupPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUniBackupPoliciesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.policyName)) {
-      query["PolicyName"] = request.policyName;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeUniBackupPolicies",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeUniBackupPoliciesResponse>(await this.callApi(params, req, runtime), new DescribeUniBackupPoliciesResponse({}));
-  }
-
-  async describeUniBackupPolicies(request: DescribeUniBackupPoliciesRequest): Promise<DescribeUniBackupPoliciesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUniBackupPoliciesWithOptions(request, runtime);
   }
 
   async describeUserBackupMachinesWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeUserBackupMachinesResponse> {
@@ -25023,51 +24546,6 @@ export default class Client extends OpenApi {
     return await this.describeVulListWithOptions(request, runtime);
   }
 
-  async describeVulListPageWithOptions(request: DescribeVulListPageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulListPageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
-    if (!Util.isUnset(request.cveId)) {
-      query["CveId"] = request.cveId;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    if (!Util.isUnset(request.vulNameLike)) {
-      query["VulNameLike"] = request.vulNameLike;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeVulListPage",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVulListPageResponse>(await this.callApi(params, req, runtime), new DescribeVulListPageResponse({}));
-  }
-
-  async describeVulListPage(request: DescribeVulListPageRequest): Promise<DescribeVulListPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVulListPageWithOptions(request, runtime);
-  }
-
   async describeVulWhitelistWithOptions(request: DescribeVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVulWhitelistResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25281,91 +24759,6 @@ export default class Client extends OpenApi {
     return await this.exportRecordWithOptions(request, runtime);
   }
 
-  async exportSuspEventsWithOptions(request: ExportSuspEventsRequest, runtime: $Util.RuntimeOptions): Promise<ExportSuspEventsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.containerFieldName)) {
-      query["ContainerFieldName"] = request.containerFieldName;
-    }
-
-    if (!Util.isUnset(request.containerFieldValue)) {
-      query["ContainerFieldValue"] = request.containerFieldValue;
-    }
-
-    if (!Util.isUnset(request.dealed)) {
-      query["Dealed"] = request.dealed;
-    }
-
-    if (!Util.isUnset(request.from)) {
-      query["From"] = request.from;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.levels)) {
-      query["Levels"] = request.levels;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.parentEventTypes)) {
-      query["ParentEventTypes"] = request.parentEventTypes;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      query["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    if (!Util.isUnset(request.targetType)) {
-      query["TargetType"] = request.targetType;
-    }
-
-    if (!Util.isUnset(request.timeEnd)) {
-      query["TimeEnd"] = request.timeEnd;
-    }
-
-    if (!Util.isUnset(request.timeStart)) {
-      query["TimeStart"] = request.timeStart;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExportSuspEvents",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ExportSuspEventsResponse>(await this.callApi(params, req, runtime), new ExportSuspEventsResponse({}));
-  }
-
-  async exportSuspEvents(request: ExportSuspEventsRequest): Promise<ExportSuspEventsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.exportSuspEventsWithOptions(request, runtime);
-  }
-
   async exportVulWithOptions(request: ExportVulRequest, runtime: $Util.RuntimeOptions): Promise<ExportVulResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25429,91 +24822,6 @@ export default class Client extends OpenApi {
   async exportVul(request: ExportVulRequest): Promise<ExportVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.exportVulWithOptions(request, runtime);
-  }
-
-  async exportWarningWithOptions(request: ExportWarningRequest, runtime: $Util.RuntimeOptions): Promise<ExportWarningResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.dealed)) {
-      query["Dealed"] = request.dealed;
-    }
-
-    if (!Util.isUnset(request.exportType)) {
-      query["ExportType"] = request.exportType;
-    }
-
-    if (!Util.isUnset(request.isCleartextPwd)) {
-      query["IsCleartextPwd"] = request.isCleartextPwd;
-    }
-
-    if (!Util.isUnset(request.isSummaryExport)) {
-      query["IsSummaryExport"] = request.isSummaryExport;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.riskIds)) {
-      query["RiskIds"] = request.riskIds;
-    }
-
-    if (!Util.isUnset(request.riskLevels)) {
-      query["RiskLevels"] = request.riskLevels;
-    }
-
-    if (!Util.isUnset(request.riskName)) {
-      query["RiskName"] = request.riskName;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    if (!Util.isUnset(request.statusList)) {
-      query["StatusList"] = request.statusList;
-    }
-
-    if (!Util.isUnset(request.strategyId)) {
-      query["StrategyId"] = request.strategyId;
-    }
-
-    if (!Util.isUnset(request.subTypeNames)) {
-      query["SubTypeNames"] = request.subTypeNames;
-    }
-
-    if (!Util.isUnset(request.typeName)) {
-      query["TypeName"] = request.typeName;
-    }
-
-    if (!Util.isUnset(request.typeNames)) {
-      query["TypeNames"] = request.typeNames;
-    }
-
-    if (!Util.isUnset(request.uuids)) {
-      query["Uuids"] = request.uuids;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExportWarning",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ExportWarningResponse>(await this.callApi(params, req, runtime), new ExportWarningResponse({}));
-  }
-
-  async exportWarning(request: ExportWarningRequest): Promise<ExportWarningResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.exportWarningWithOptions(request, runtime);
   }
 
   async fixCheckWarningsWithOptions(request: FixCheckWarningsRequest, runtime: $Util.RuntimeOptions): Promise<FixCheckWarningsResponse> {
@@ -26024,39 +25332,6 @@ export default class Client extends OpenApi {
   async modifyBackupPolicyStatus(request: ModifyBackupPolicyStatusRequest): Promise<ModifyBackupPolicyStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyStatusWithOptions(request, runtime);
-  }
-
-  async modifyClearLogstoreStorageWithOptions(request: ModifyClearLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClearLogstoreStorageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.from)) {
-      query["From"] = request.from;
-    }
-
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ModifyClearLogstoreStorage",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ModifyClearLogstoreStorageResponse>(await this.callApi(params, req, runtime), new ModifyClearLogstoreStorageResponse({}));
-  }
-
-  async modifyClearLogstoreStorage(request: ModifyClearLogstoreStorageRequest): Promise<ModifyClearLogstoreStorageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyClearLogstoreStorageWithOptions(request, runtime);
   }
 
   async modifyCreateVulWhitelistWithOptions(request: ModifyCreateVulWhitelistRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCreateVulWhitelistResponse> {
@@ -27258,35 +26533,6 @@ export default class Client extends OpenApi {
   async refreshContainerAssets(request: RefreshContainerAssetsRequest): Promise<RefreshContainerAssetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.refreshContainerAssetsWithOptions(request, runtime);
-  }
-
-  async refreshContainerNetworkWithOptions(request: RefreshContainerNetworkRequest, runtime: $Util.RuntimeOptions): Promise<RefreshContainerNetworkResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RefreshContainerNetwork",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RefreshContainerNetworkResponse>(await this.callApi(params, req, runtime), new RefreshContainerNetworkResponse({}));
-  }
-
-  async refreshContainerNetwork(request: RefreshContainerNetworkRequest): Promise<RefreshContainerNetworkResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.refreshContainerNetworkWithOptions(request, runtime);
   }
 
   async rollbackSuspEventQuaraFileWithOptions(request: RollbackSuspEventQuaraFileRequest, runtime: $Util.RuntimeOptions): Promise<RollbackSuspEventQuaraFileResponse> {
