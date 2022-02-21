@@ -1430,12 +1430,12 @@ export class DeleteTriggerResponse extends $tea.Model {
 
 export class DeployPolicyInstanceRequest extends $tea.Model {
   action?: string;
-  namespace?: string;
+  namespaces?: string[];
   parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       action: 'action',
-      namespace: 'namespace',
+      namespaces: 'namespaces',
       parameters: 'parameters',
     };
   }
@@ -1443,7 +1443,7 @@ export class DeployPolicyInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       action: 'string',
-      namespace: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -4320,6 +4320,69 @@ export class RemoveWorkflowResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RepairClusterNodePoolRequest extends $tea.Model {
+  nodes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RepairClusterNodePoolResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RepairClusterNodePoolResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RepairClusterNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RepairClusterNodePoolResponseBody,
     };
   }
 
@@ -9468,8 +9531,8 @@ export default class Client extends OpenApi {
       body["action"] = request.action;
     }
 
-    if (!Util.isUnset(request.namespace)) {
-      body["namespace"] = request.namespace;
+    if (!Util.isUnset(request.namespaces)) {
+      body["namespaces"] = request.namespaces;
     }
 
     if (!Util.isUnset(request.parameters)) {
@@ -11319,6 +11382,39 @@ export default class Client extends OpenApi {
       bodyType: "none",
     });
     return $tea.cast<RemoveWorkflowResponse>(await this.callApi(params, req, runtime), new RemoveWorkflowResponse({}));
+  }
+
+  async repairClusterNodePool(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest): Promise<RepairClusterNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.repairClusterNodePoolWithOptions(clusterId, nodepoolId, request, headers, runtime);
+  }
+
+  async repairClusterNodePoolWithOptions(clusterId: string, nodepoolId: string, request: RepairClusterNodePoolRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RepairClusterNodePoolResponse> {
+    Util.validateModel(request);
+    clusterId = OpenApiUtil.getEncodeParam(clusterId);
+    nodepoolId = OpenApiUtil.getEncodeParam(nodepoolId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodes)) {
+      body["nodes"] = request.nodes;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RepairClusterNodePool",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${clusterId}/nodepools/${nodepoolId}/repair`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RepairClusterNodePoolResponse>(await this.callApi(params, req, runtime), new RepairClusterNodePoolResponse({}));
   }
 
   async resumeComponentUpgrade(clusterid: string, componentid: string): Promise<ResumeComponentUpgradeResponse> {
