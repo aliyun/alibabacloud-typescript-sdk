@@ -2378,6 +2378,7 @@ export class GetStackResponseBody extends $tea.Model {
   description?: string;
   disableRollback?: boolean;
   driftDetectionTime?: string;
+  interface?: string;
   log?: GetStackResponseBodyLog;
   notificationURLs?: string[];
   outputs?: { [key: string]: any }[];
@@ -2410,6 +2411,7 @@ export class GetStackResponseBody extends $tea.Model {
       description: 'Description',
       disableRollback: 'DisableRollback',
       driftDetectionTime: 'DriftDetectionTime',
+      interface: 'Interface',
       log: 'Log',
       notificationURLs: 'NotificationURLs',
       outputs: 'Outputs',
@@ -2445,6 +2447,7 @@ export class GetStackResponseBody extends $tea.Model {
       description: 'string',
       disableRollback: 'boolean',
       driftDetectionTime: 'string',
+      interface: 'string',
       log: GetStackResponseBodyLog,
       notificationURLs: { 'type': 'array', 'itemType': 'string' },
       outputs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
@@ -3015,6 +3018,7 @@ export class GetTemplateResponseBody extends $tea.Model {
   changeSetId?: string;
   createTime?: string;
   description?: string;
+  interface?: string;
   ownerId?: string;
   permissions?: GetTemplateResponseBodyPermissions[];
   regionId?: string;
@@ -3034,6 +3038,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       changeSetId: 'ChangeSetId',
       createTime: 'CreateTime',
       description: 'Description',
+      interface: 'Interface',
       ownerId: 'OwnerId',
       permissions: 'Permissions',
       regionId: 'RegionId',
@@ -3056,6 +3061,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       changeSetId: 'string',
       createTime: 'string',
       description: 'string',
+      interface: 'string',
       ownerId: 'string',
       permissions: { 'type': 'array', 'itemType': GetTemplateResponseBodyPermissions },
       regionId: 'string',
