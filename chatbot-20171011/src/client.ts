@@ -763,15 +763,18 @@ export class UsersayMtopDTO extends $tea.Model {
 }
 
 export class ActivatePerspectiveRequest extends $tea.Model {
+  agentKey?: string;
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       perspectiveId: 'PerspectiveId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       perspectiveId: 'string',
     };
   }
@@ -823,10 +826,12 @@ export class ActivatePerspectiveResponse extends $tea.Model {
 }
 
 export class AddSynonymRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   synonym?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
       synonym: 'Synonym',
     };
@@ -834,6 +839,7 @@ export class AddSynonymRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
       synonym: 'string',
     };
@@ -886,11 +892,13 @@ export class AddSynonymResponse extends $tea.Model {
 }
 
 export class AppendEntityMemberRequest extends $tea.Model {
+  agentKey?: string;
   applyType?: string;
   entityId?: number;
   member?: AppendEntityMemberRequestMember;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       applyType: 'ApplyType',
       entityId: 'EntityId',
       member: 'Member',
@@ -899,6 +907,7 @@ export class AppendEntityMemberRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       applyType: 'string',
       entityId: 'number',
       member: AppendEntityMemberRequestMember,
@@ -911,11 +920,13 @@ export class AppendEntityMemberRequest extends $tea.Model {
 }
 
 export class AppendEntityMemberShrinkRequest extends $tea.Model {
+  agentKey?: string;
   applyType?: string;
   entityId?: number;
   memberShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       applyType: 'ApplyType',
       entityId: 'EntityId',
       memberShrink: 'Member',
@@ -924,6 +935,7 @@ export class AppendEntityMemberShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       applyType: 'string',
       entityId: 'number',
       memberShrink: 'string',
@@ -1163,6 +1175,7 @@ export class ChatResponse extends $tea.Model {
 }
 
 export class CreateBotRequest extends $tea.Model {
+  agentKey?: string;
   avatar?: string;
   introduction?: string;
   languageCode?: string;
@@ -1170,6 +1183,7 @@ export class CreateBotRequest extends $tea.Model {
   robotType?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       avatar: 'Avatar',
       introduction: 'Introduction',
       languageCode: 'LanguageCode',
@@ -1180,6 +1194,7 @@ export class CreateBotRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       avatar: 'string',
       introduction: 'string',
       languageCode: 'string',
@@ -1238,12 +1253,14 @@ export class CreateBotResponse extends $tea.Model {
 }
 
 export class CreateCategoryRequest extends $tea.Model {
+  agentKey?: string;
   bizCode?: string;
   knowledgeType?: number;
   name?: string;
   parentCategoryId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       bizCode: 'BizCode',
       knowledgeType: 'KnowledgeType',
       name: 'Name',
@@ -1253,6 +1270,7 @@ export class CreateCategoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       bizCode: 'string',
       knowledgeType: 'number',
       name: 'string',
@@ -1313,15 +1331,18 @@ export class CreateCategoryResponse extends $tea.Model {
 }
 
 export class CreateCoreWordRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
     };
   }
@@ -1376,11 +1397,13 @@ export class CreateCoreWordResponse extends $tea.Model {
 }
 
 export class CreateDialogRequest extends $tea.Model {
+  agentKey?: string;
   description?: string;
   dialogName?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       description: 'Description',
       dialogName: 'DialogName',
       instanceId: 'InstanceId',
@@ -1389,6 +1412,7 @@ export class CreateDialogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       description: 'string',
       dialogName: 'string',
       instanceId: 'string',
@@ -1445,6 +1469,7 @@ export class CreateDialogResponse extends $tea.Model {
 }
 
 export class CreateEntityRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   entityName?: string;
   entityType?: string;
@@ -1452,6 +1477,7 @@ export class CreateEntityRequest extends $tea.Model {
   regex?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       entityName: 'EntityName',
       entityType: 'EntityType',
@@ -1462,6 +1488,7 @@ export class CreateEntityRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       entityName: 'string',
       entityType: 'string',
@@ -1476,6 +1503,7 @@ export class CreateEntityRequest extends $tea.Model {
 }
 
 export class CreateEntityShrinkRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   entityName?: string;
   entityType?: string;
@@ -1483,6 +1511,7 @@ export class CreateEntityShrinkRequest extends $tea.Model {
   regex?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       entityName: 'EntityName',
       entityType: 'EntityType',
@@ -1493,6 +1522,7 @@ export class CreateEntityShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       entityName: 'string',
       entityType: 'string',
@@ -1551,10 +1581,12 @@ export class CreateEntityResponse extends $tea.Model {
 }
 
 export class CreateIntentRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   intentDefinition?: IntentCreateDTO;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       intentDefinition: 'IntentDefinition',
     };
@@ -1562,6 +1594,7 @@ export class CreateIntentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       intentDefinition: IntentCreateDTO,
     };
@@ -1573,10 +1606,12 @@ export class CreateIntentRequest extends $tea.Model {
 }
 
 export class CreateIntentShrinkRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   intentDefinitionShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       intentDefinitionShrink: 'IntentDefinition',
     };
@@ -1584,6 +1619,7 @@ export class CreateIntentShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       intentDefinitionShrink: 'string',
     };
@@ -1639,15 +1675,18 @@ export class CreateIntentResponse extends $tea.Model {
 }
 
 export class CreateKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   knowledge?: CreateKnowledgeRequestKnowledge;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledge: 'Knowledge',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledge: CreateKnowledgeRequestKnowledge,
     };
   }
@@ -1658,15 +1697,18 @@ export class CreateKnowledgeRequest extends $tea.Model {
 }
 
 export class CreateKnowledgeShrinkRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeShrink: 'Knowledge',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeShrink: 'string',
     };
   }
@@ -1721,15 +1763,18 @@ export class CreateKnowledgeResponse extends $tea.Model {
 }
 
 export class CreatePerspectiveRequest extends $tea.Model {
+  agentKey?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       name: 'Name',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       name: 'string',
     };
   }
@@ -1784,15 +1829,18 @@ export class CreatePerspectiveResponse extends $tea.Model {
 }
 
 export class DeleteBotRequest extends $tea.Model {
+  agentKey?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       instanceId: 'string',
     };
   }
@@ -1844,15 +1892,18 @@ export class DeleteBotResponse extends $tea.Model {
 }
 
 export class DeleteCategoryRequest extends $tea.Model {
+  agentKey?: string;
   categoryId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       categoryId: 'CategoryId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       categoryId: 'number',
     };
   }
@@ -1907,15 +1958,18 @@ export class DeleteCategoryResponse extends $tea.Model {
 }
 
 export class DeleteCoreWordRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
     };
   }
@@ -1970,15 +2024,18 @@ export class DeleteCoreWordResponse extends $tea.Model {
 }
 
 export class DeleteDialogRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -2030,15 +2087,18 @@ export class DeleteDialogResponse extends $tea.Model {
 }
 
 export class DeleteEntityRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
     };
   }
@@ -2093,15 +2153,18 @@ export class DeleteEntityResponse extends $tea.Model {
 }
 
 export class DeleteIntentRequest extends $tea.Model {
+  agentKey?: string;
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       intentId: 'IntentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       intentId: 'number',
     };
   }
@@ -2156,15 +2219,18 @@ export class DeleteIntentResponse extends $tea.Model {
 }
 
 export class DeleteKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeId: 'KnowledgeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeId: 'number',
     };
   }
@@ -2216,15 +2282,18 @@ export class DeleteKnowledgeResponse extends $tea.Model {
 }
 
 export class DescribeBotRequest extends $tea.Model {
+  agentKey?: string;
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       instanceId: 'string',
     };
   }
@@ -2303,15 +2372,18 @@ export class DescribeBotResponse extends $tea.Model {
 }
 
 export class DescribeCategoryRequest extends $tea.Model {
+  agentKey?: string;
   categoryId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       categoryId: 'CategoryId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       categoryId: 'number',
     };
   }
@@ -2372,15 +2444,18 @@ export class DescribeCategoryResponse extends $tea.Model {
 }
 
 export class DescribeCoreWordRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
     };
   }
@@ -2447,15 +2522,18 @@ export class DescribeCoreWordResponse extends $tea.Model {
 }
 
 export class DescribeDialogRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -2543,15 +2621,18 @@ export class DescribeDialogResponse extends $tea.Model {
 }
 
 export class DescribeDialogFlowRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -2654,15 +2735,18 @@ export class DescribeDialogFlowResponse extends $tea.Model {
 }
 
 export class DescribeEntitiesRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
     };
   }
@@ -2747,15 +2831,18 @@ export class DescribeEntitiesResponse extends $tea.Model {
 }
 
 export class DescribeIntentRequest extends $tea.Model {
+  agentKey?: string;
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       intentId: 'IntentId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       intentId: 'number',
     };
   }
@@ -2846,15 +2933,18 @@ export class DescribeIntentResponse extends $tea.Model {
 }
 
 export class DescribeKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeId: 'KnowledgeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeId: 'number',
     };
   }
@@ -2957,15 +3047,18 @@ export class DescribeKnowledgeResponse extends $tea.Model {
 }
 
 export class DescribePerspectiveRequest extends $tea.Model {
+  agentKey?: string;
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       perspectiveId: 'PerspectiveId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       perspectiveId: 'string',
     };
   }
@@ -3044,15 +3137,18 @@ export class DescribePerspectiveResponse extends $tea.Model {
 }
 
 export class DisableDialogFlowRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -3104,15 +3200,18 @@ export class DisableDialogFlowResponse extends $tea.Model {
 }
 
 export class DisableKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeId: 'KnowledgeId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeId: 'number',
     };
   }
@@ -3164,12 +3263,14 @@ export class DisableKnowledgeResponse extends $tea.Model {
 }
 
 export class FeedbackRequest extends $tea.Model {
+  agentKey?: string;
   feedback?: string;
   instanceId?: string;
   messageId?: string;
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       feedback: 'Feedback',
       instanceId: 'InstanceId',
       messageId: 'MessageId',
@@ -3179,6 +3280,7 @@ export class FeedbackRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       feedback: 'string',
       instanceId: 'string',
       messageId: 'string',
@@ -3245,15 +3347,18 @@ export class FeedbackResponse extends $tea.Model {
 }
 
 export class GetAsyncResultRequest extends $tea.Model {
+  agentKey?: string;
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       taskId: 'string',
     };
   }
@@ -3317,11 +3422,13 @@ export class GetAsyncResultResponse extends $tea.Model {
 }
 
 export class GetBotChatDataRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       robotInstanceId: 'RobotInstanceId',
       startTime: 'StartTime',
@@ -3330,6 +3437,7 @@ export class GetBotChatDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       robotInstanceId: 'string',
       startTime: 'string',
@@ -3389,11 +3497,13 @@ export class GetBotChatDataResponse extends $tea.Model {
 }
 
 export class GetBotDsStatDataRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       robotInstanceId: 'RobotInstanceId',
       startTime: 'StartTime',
@@ -3402,6 +3512,7 @@ export class GetBotDsStatDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       robotInstanceId: 'string',
       startTime: 'string',
@@ -3461,11 +3572,13 @@ export class GetBotDsStatDataResponse extends $tea.Model {
 }
 
 export class GetBotKnowledgeStatDataRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       robotInstanceId: 'RobotInstanceId',
       startTime: 'StartTime',
@@ -3474,6 +3587,7 @@ export class GetBotKnowledgeStatDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       robotInstanceId: 'string',
       startTime: 'string',
@@ -3533,11 +3647,13 @@ export class GetBotKnowledgeStatDataResponse extends $tea.Model {
 }
 
 export class GetBotSessionDataRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       robotInstanceId: 'RobotInstanceId',
       startTime: 'StartTime',
@@ -3546,6 +3662,7 @@ export class GetBotSessionDataRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       robotInstanceId: 'string',
       startTime: 'string',
@@ -3605,6 +3722,7 @@ export class GetBotSessionDataResponse extends $tea.Model {
 }
 
 export class GetConversationListRequest extends $tea.Model {
+  agentKey?: string;
   endDate?: string;
   instanceId?: string;
   pageNumber?: string;
@@ -3614,6 +3732,7 @@ export class GetConversationListRequest extends $tea.Model {
   startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endDate: 'EndDate',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
@@ -3626,6 +3745,7 @@ export class GetConversationListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endDate: 'string',
       instanceId: 'string',
       pageNumber: 'string',
@@ -3695,12 +3815,14 @@ export class GetConversationListResponse extends $tea.Model {
 }
 
 export class ListBotChatHistorysRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -3710,6 +3832,7 @@ export class ListBotChatHistorysRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -3770,12 +3893,14 @@ export class ListBotChatHistorysResponse extends $tea.Model {
 }
 
 export class ListBotColdDsDatasRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -3785,6 +3910,7 @@ export class ListBotColdDsDatasRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -3845,12 +3971,14 @@ export class ListBotColdDsDatasResponse extends $tea.Model {
 }
 
 export class ListBotColdKnowledgesRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -3860,6 +3988,7 @@ export class ListBotColdKnowledgesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -3920,12 +4049,14 @@ export class ListBotColdKnowledgesResponse extends $tea.Model {
 }
 
 export class ListBotDsDetailsRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -3935,6 +4066,7 @@ export class ListBotDsDetailsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -3995,12 +4127,14 @@ export class ListBotDsDetailsResponse extends $tea.Model {
 }
 
 export class ListBotHotDsDatasRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -4010,6 +4144,7 @@ export class ListBotHotDsDatasRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -4070,12 +4205,14 @@ export class ListBotHotDsDatasResponse extends $tea.Model {
 }
 
 export class ListBotHotKnowledgesRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: number;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -4085,6 +4222,7 @@ export class ListBotHotKnowledgesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'number',
       robotInstanceId: 'string',
@@ -4145,12 +4283,14 @@ export class ListBotHotKnowledgesResponse extends $tea.Model {
 }
 
 export class ListBotKnowledgeDetailsRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   limit?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       limit: 'Limit',
       robotInstanceId: 'RobotInstanceId',
@@ -4160,6 +4300,7 @@ export class ListBotKnowledgeDetailsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       limit: 'string',
       robotInstanceId: 'string',
@@ -4220,11 +4361,13 @@ export class ListBotKnowledgeDetailsResponse extends $tea.Model {
 }
 
 export class ListBotReceptionDetailDatasRequest extends $tea.Model {
+  agentKey?: string;
   endTime?: string;
   robotInstanceId?: string;
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       endTime: 'EndTime',
       robotInstanceId: 'RobotInstanceId',
       startTime: 'StartTime',
@@ -4233,6 +4376,7 @@ export class ListBotReceptionDetailDatasRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       endTime: 'string',
       robotInstanceId: 'string',
       startTime: 'string',
@@ -4292,15 +4436,18 @@ export class ListBotReceptionDetailDatasResponse extends $tea.Model {
 }
 
 export class ListConversationLogsRequest extends $tea.Model {
+  agentKey?: string;
   sessionId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       sessionId: 'SessionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       sessionId: 'string',
     };
   }
@@ -4358,10 +4505,12 @@ export class ListConversationLogsResponse extends $tea.Model {
 }
 
 export class MoveKnowledgeCategoryRequest extends $tea.Model {
+  agentKey?: string;
   categoryId?: number;
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       categoryId: 'CategoryId',
       knowledgeId: 'KnowledgeId',
     };
@@ -4369,6 +4518,7 @@ export class MoveKnowledgeCategoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       categoryId: 'number',
       knowledgeId: 'number',
     };
@@ -4421,15 +4571,18 @@ export class MoveKnowledgeCategoryResponse extends $tea.Model {
 }
 
 export class PublishDialogFlowRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -4481,10 +4634,12 @@ export class PublishDialogFlowResponse extends $tea.Model {
 }
 
 export class PublishKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   async?: boolean;
   knowledgeId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       async: 'Async',
       knowledgeId: 'KnowledgeId',
     };
@@ -4492,6 +4647,7 @@ export class PublishKnowledgeRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       async: 'boolean',
       knowledgeId: 'number',
     };
@@ -4544,10 +4700,12 @@ export class PublishKnowledgeResponse extends $tea.Model {
 }
 
 export class QueryBotsRequest extends $tea.Model {
+  agentKey?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -4555,6 +4713,7 @@ export class QueryBotsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -4619,11 +4778,13 @@ export class QueryBotsResponse extends $tea.Model {
 }
 
 export class QueryCategoriesRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeType?: number;
   parentCategoryId?: number;
   showChildrens?: boolean;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeType: 'KnowledgeType',
       parentCategoryId: 'ParentCategoryId',
       showChildrens: 'ShowChildrens',
@@ -4632,6 +4793,7 @@ export class QueryCategoriesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeType: 'number',
       parentCategoryId: 'number',
       showChildrens: 'boolean',
@@ -4688,12 +4850,14 @@ export class QueryCategoriesResponse extends $tea.Model {
 }
 
 export class QueryCoreWordsRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   pageNumber?: number;
   pageSize?: number;
   synonym?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -4703,6 +4867,7 @@ export class QueryCoreWordsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -4769,12 +4934,14 @@ export class QueryCoreWordsResponse extends $tea.Model {
 }
 
 export class QueryDialogsRequest extends $tea.Model {
+  agentKey?: string;
   dialogName?: string;
   instanceId?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogName: 'DialogName',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
@@ -4784,6 +4951,7 @@ export class QueryDialogsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogName: 'string',
       instanceId: 'string',
       pageNumber: 'number',
@@ -4850,12 +5018,14 @@ export class QueryDialogsResponse extends $tea.Model {
 }
 
 export class QueryEntitiesRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   entityName?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       entityName: 'EntityName',
       pageNumber: 'PageNumber',
@@ -4865,6 +5035,7 @@ export class QueryEntitiesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       entityName: 'string',
       pageNumber: 'number',
@@ -4931,12 +5102,14 @@ export class QueryEntitiesResponse extends $tea.Model {
 }
 
 export class QueryIntentsRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   intentName?: string;
   pageNumber?: number;
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       intentName: 'IntentName',
       pageNumber: 'PageNumber',
@@ -4946,6 +5119,7 @@ export class QueryIntentsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       intentName: 'string',
       pageNumber: 'number',
@@ -5012,6 +5186,7 @@ export class QueryIntentsResponse extends $tea.Model {
 }
 
 export class QueryKnowledgesRequest extends $tea.Model {
+  agentKey?: string;
   categoryId?: number;
   coreWordName?: string;
   knowledgeTitle?: string;
@@ -5019,6 +5194,7 @@ export class QueryKnowledgesRequest extends $tea.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       categoryId: 'CategoryId',
       coreWordName: 'CoreWordName',
       knowledgeTitle: 'KnowledgeTitle',
@@ -5029,6 +5205,7 @@ export class QueryKnowledgesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       categoryId: 'number',
       coreWordName: 'string',
       knowledgeTitle: 'string',
@@ -5095,6 +5272,25 @@ export class QueryKnowledgesResponse extends $tea.Model {
   }
 }
 
+export class QueryPerspectivesRequest extends $tea.Model {
+  agentKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentKey: 'AgentKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryPerspectivesResponseBody extends $tea.Model {
   perspectives?: QueryPerspectivesResponseBodyPerspectives[];
   requestId?: string;
@@ -5140,15 +5336,18 @@ export class QueryPerspectivesResponse extends $tea.Model {
 }
 
 export class QuerySystemEntitiesRequest extends $tea.Model {
+  agentKey?: string;
   entityName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityName: 'EntityName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityName: 'string',
     };
   }
@@ -5203,11 +5402,13 @@ export class QuerySystemEntitiesResponse extends $tea.Model {
 }
 
 export class RemoveEntityMemberRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   member?: RemoveEntityMemberRequestMember;
   removeType?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
       member: 'Member',
       removeType: 'RemoveType',
@@ -5216,6 +5417,7 @@ export class RemoveEntityMemberRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
       member: RemoveEntityMemberRequestMember,
       removeType: 'string',
@@ -5228,11 +5430,13 @@ export class RemoveEntityMemberRequest extends $tea.Model {
 }
 
 export class RemoveEntityMemberShrinkRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   memberShrink?: string;
   removeType?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
       memberShrink: 'Member',
       removeType: 'RemoveType',
@@ -5241,6 +5445,7 @@ export class RemoveEntityMemberShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
       memberShrink: 'string',
       removeType: 'string',
@@ -5297,10 +5502,12 @@ export class RemoveEntityMemberResponse extends $tea.Model {
 }
 
 export class RemoveSynonymRequest extends $tea.Model {
+  agentKey?: string;
   coreWordName?: string;
   synonym?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordName: 'CoreWordName',
       synonym: 'Synonym',
     };
@@ -5308,6 +5515,7 @@ export class RemoveSynonymRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordName: 'string',
       synonym: 'string',
     };
@@ -5360,15 +5568,18 @@ export class RemoveSynonymResponse extends $tea.Model {
 }
 
 export class TestDialogFlowRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
     };
   }
@@ -5420,10 +5631,12 @@ export class TestDialogFlowResponse extends $tea.Model {
 }
 
 export class UpdateCategoryRequest extends $tea.Model {
+  agentKey?: string;
   categoryId?: number;
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       categoryId: 'CategoryId',
       name: 'Name',
     };
@@ -5431,6 +5644,7 @@ export class UpdateCategoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       categoryId: 'number',
       name: 'string',
     };
@@ -5486,10 +5700,12 @@ export class UpdateCategoryResponse extends $tea.Model {
 }
 
 export class UpdateCoreWordRequest extends $tea.Model {
+  agentKey?: string;
   coreWordCode?: string;
   coreWordName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       coreWordCode: 'CoreWordCode',
       coreWordName: 'CoreWordName',
     };
@@ -5497,6 +5713,7 @@ export class UpdateCoreWordRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       coreWordCode: 'string',
       coreWordName: 'string',
     };
@@ -5552,11 +5769,13 @@ export class UpdateCoreWordResponse extends $tea.Model {
 }
 
 export class UpdateDialogRequest extends $tea.Model {
+  agentKey?: string;
   description?: string;
   dialogId?: number;
   dialogName?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       description: 'Description',
       dialogId: 'DialogId',
       dialogName: 'DialogName',
@@ -5565,6 +5784,7 @@ export class UpdateDialogRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       description: 'string',
       dialogId: 'number',
       dialogName: 'string',
@@ -5618,10 +5838,12 @@ export class UpdateDialogResponse extends $tea.Model {
 }
 
 export class UpdateDialogFlowRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   moduleDefinition?: UpdateDialogFlowRequestModuleDefinition;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       moduleDefinition: 'ModuleDefinition',
     };
@@ -5629,6 +5851,7 @@ export class UpdateDialogFlowRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       moduleDefinition: UpdateDialogFlowRequestModuleDefinition,
     };
@@ -5640,10 +5863,12 @@ export class UpdateDialogFlowRequest extends $tea.Model {
 }
 
 export class UpdateDialogFlowShrinkRequest extends $tea.Model {
+  agentKey?: string;
   dialogId?: number;
   moduleDefinitionShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       dialogId: 'DialogId',
       moduleDefinitionShrink: 'ModuleDefinition',
     };
@@ -5651,6 +5876,7 @@ export class UpdateDialogFlowShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       dialogId: 'number',
       moduleDefinitionShrink: 'string',
     };
@@ -5703,6 +5929,7 @@ export class UpdateDialogFlowResponse extends $tea.Model {
 }
 
 export class UpdateEntityRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   entityName?: string;
   entityType?: string;
@@ -5710,6 +5937,7 @@ export class UpdateEntityRequest extends $tea.Model {
   regex?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
       entityName: 'EntityName',
       entityType: 'EntityType',
@@ -5720,6 +5948,7 @@ export class UpdateEntityRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
       entityName: 'string',
       entityType: 'string',
@@ -5734,6 +5963,7 @@ export class UpdateEntityRequest extends $tea.Model {
 }
 
 export class UpdateEntityShrinkRequest extends $tea.Model {
+  agentKey?: string;
   entityId?: number;
   entityName?: string;
   entityType?: string;
@@ -5741,6 +5971,7 @@ export class UpdateEntityShrinkRequest extends $tea.Model {
   regex?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       entityId: 'EntityId',
       entityName: 'EntityName',
       entityType: 'EntityType',
@@ -5751,6 +5982,7 @@ export class UpdateEntityShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       entityId: 'number',
       entityName: 'string',
       entityType: 'string',
@@ -5809,10 +6041,12 @@ export class UpdateEntityResponse extends $tea.Model {
 }
 
 export class UpdateIntentRequest extends $tea.Model {
+  agentKey?: string;
   intentDefinition?: IntentCreateDTO;
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       intentDefinition: 'IntentDefinition',
       intentId: 'IntentId',
     };
@@ -5820,6 +6054,7 @@ export class UpdateIntentRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       intentDefinition: IntentCreateDTO,
       intentId: 'number',
     };
@@ -5831,10 +6066,12 @@ export class UpdateIntentRequest extends $tea.Model {
 }
 
 export class UpdateIntentShrinkRequest extends $tea.Model {
+  agentKey?: string;
   intentDefinitionShrink?: string;
   intentId?: number;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       intentDefinitionShrink: 'IntentDefinition',
       intentId: 'IntentId',
     };
@@ -5842,6 +6079,7 @@ export class UpdateIntentShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       intentDefinitionShrink: 'string',
       intentId: 'number',
     };
@@ -5897,15 +6135,18 @@ export class UpdateIntentResponse extends $tea.Model {
 }
 
 export class UpdateKnowledgeRequest extends $tea.Model {
+  agentKey?: string;
   knowledge?: UpdateKnowledgeRequestKnowledge;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledge: 'Knowledge',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledge: UpdateKnowledgeRequestKnowledge,
     };
   }
@@ -5916,15 +6157,18 @@ export class UpdateKnowledgeRequest extends $tea.Model {
 }
 
 export class UpdateKnowledgeShrinkRequest extends $tea.Model {
+  agentKey?: string;
   knowledgeShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       knowledgeShrink: 'Knowledge',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       knowledgeShrink: 'string',
     };
   }
@@ -5979,10 +6223,12 @@ export class UpdateKnowledgeResponse extends $tea.Model {
 }
 
 export class UpdatePerspectiveRequest extends $tea.Model {
+  agentKey?: string;
   name?: string;
   perspectiveId?: string;
   static names(): { [key: string]: string } {
     return {
+      agentKey: 'AgentKey',
       name: 'Name',
       perspectiveId: 'PerspectiveId',
     };
@@ -5990,6 +6236,7 @@ export class UpdatePerspectiveRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentKey: 'string',
       name: 'string',
       perspectiveId: 'string',
     };
@@ -7427,10 +7674,30 @@ export default class Client extends OpenApi {
 
   async activatePerspectiveWithOptions(request: ActivatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<ActivatePerspectiveResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.perspectiveId)) {
+      query["PerspectiveId"] = request.perspectiveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ActivatePerspectiveResponse>(await this.doRPCRequest("ActivatePerspective", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ActivatePerspectiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ActivatePerspective",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ActivatePerspectiveResponse>(await this.callApi(params, req, runtime), new ActivatePerspectiveResponse({}));
   }
 
   async activatePerspective(request: ActivatePerspectiveRequest): Promise<ActivatePerspectiveResponse> {
@@ -7440,10 +7707,34 @@ export default class Client extends OpenApi {
 
   async addSynonymWithOptions(request: AddSynonymRequest, runtime: $Util.RuntimeOptions): Promise<AddSynonymResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
+    if (!Util.isUnset(request.synonym)) {
+      query["Synonym"] = request.synonym;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddSynonymResponse>(await this.doRPCRequest("AddSynonym", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new AddSynonymResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddSynonym",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddSynonymResponse>(await this.callApi(params, req, runtime), new AddSynonymResponse({}));
   }
 
   async addSynonym(request: AddSynonymRequest): Promise<AddSynonymResponse> {
@@ -7459,10 +7750,38 @@ export default class Client extends OpenApi {
       request.memberShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.member), "Member", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.applyType)) {
+      query["ApplyType"] = request.applyType;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.memberShrink)) {
+      query["Member"] = request.memberShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AppendEntityMemberResponse>(await this.doRPCRequest("AppendEntityMember", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new AppendEntityMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AppendEntityMember",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AppendEntityMemberResponse>(await this.callApi(params, req, runtime), new AppendEntityMemberResponse({}));
   }
 
   async appendEntityMember(request: AppendEntityMemberRequest): Promise<AppendEntityMemberResponse> {
@@ -7472,10 +7791,42 @@ export default class Client extends OpenApi {
 
   async associateWithOptions(request: AssociateRequest, runtime: $Util.RuntimeOptions): Promise<AssociateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.perspective)) {
+      query["Perspective"] = request.perspective;
+    }
+
+    if (!Util.isUnset(request.recommendNum)) {
+      query["RecommendNum"] = request.recommendNum;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AssociateResponse>(await this.doRPCRequest("Associate", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new AssociateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Associate",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateResponse>(await this.callApi(params, req, runtime), new AssociateResponse({}));
   }
 
   async associate(request: AssociateRequest): Promise<AssociateResponse> {
@@ -7485,10 +7836,66 @@ export default class Client extends OpenApi {
 
   async chatWithOptions(request: ChatRequest, runtime: $Util.RuntimeOptions): Promise<ChatResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.intentName)) {
+      query["IntentName"] = request.intentName;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
+    if (!Util.isUnset(request.perspective)) {
+      query["Perspective"] = request.perspective;
+    }
+
+    if (!Util.isUnset(request.recommend)) {
+      query["Recommend"] = request.recommend;
+    }
+
+    if (!Util.isUnset(request.senderId)) {
+      query["SenderId"] = request.senderId;
+    }
+
+    if (!Util.isUnset(request.senderNick)) {
+      query["SenderNick"] = request.senderNick;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    if (!Util.isUnset(request.vendorParam)) {
+      query["VendorParam"] = request.vendorParam;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChatResponse>(await this.doRPCRequest("Chat", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ChatResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Chat",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatResponse>(await this.callApi(params, req, runtime), new ChatResponse({}));
   }
 
   async chat(request: ChatRequest): Promise<ChatResponse> {
@@ -7498,10 +7905,46 @@ export default class Client extends OpenApi {
 
   async createBotWithOptions(request: CreateBotRequest, runtime: $Util.RuntimeOptions): Promise<CreateBotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.avatar)) {
+      query["Avatar"] = request.avatar;
+    }
+
+    if (!Util.isUnset(request.introduction)) {
+      query["Introduction"] = request.introduction;
+    }
+
+    if (!Util.isUnset(request.languageCode)) {
+      query["LanguageCode"] = request.languageCode;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.robotType)) {
+      query["RobotType"] = request.robotType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateBotResponse>(await this.doRPCRequest("CreateBot", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateBotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateBot",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateBotResponse>(await this.callApi(params, req, runtime), new CreateBotResponse({}));
   }
 
   async createBot(request: CreateBotRequest): Promise<CreateBotResponse> {
@@ -7511,10 +7954,42 @@ export default class Client extends OpenApi {
 
   async createCategoryWithOptions(request: CreateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateCategoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.bizCode)) {
+      query["BizCode"] = request.bizCode;
+    }
+
+    if (!Util.isUnset(request.knowledgeType)) {
+      query["KnowledgeType"] = request.knowledgeType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentCategoryId)) {
+      query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCategoryResponse>(await this.doRPCRequest("CreateCategory", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCategoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCategory",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCategoryResponse>(await this.callApi(params, req, runtime), new CreateCategoryResponse({}));
   }
 
   async createCategory(request: CreateCategoryRequest): Promise<CreateCategoryResponse> {
@@ -7524,10 +7999,30 @@ export default class Client extends OpenApi {
 
   async createCoreWordWithOptions(request: CreateCoreWordRequest, runtime: $Util.RuntimeOptions): Promise<CreateCoreWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateCoreWordResponse>(await this.doRPCRequest("CreateCoreWord", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateCoreWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateCoreWord",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCoreWordResponse>(await this.callApi(params, req, runtime), new CreateCoreWordResponse({}));
   }
 
   async createCoreWord(request: CreateCoreWordRequest): Promise<CreateCoreWordResponse> {
@@ -7537,10 +8032,38 @@ export default class Client extends OpenApi {
 
   async createDialogWithOptions(request: CreateDialogRequest, runtime: $Util.RuntimeOptions): Promise<CreateDialogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dialogName)) {
+      query["DialogName"] = request.dialogName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateDialogResponse>(await this.doRPCRequest("CreateDialog", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDialogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDialog",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDialogResponse>(await this.callApi(params, req, runtime), new CreateDialogResponse({}));
   }
 
   async createDialog(request: CreateDialogRequest): Promise<CreateDialogResponse> {
@@ -7556,10 +8079,46 @@ export default class Client extends OpenApi {
       request.membersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.members, "Members", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.membersShrink)) {
+      query["Members"] = request.membersShrink;
+    }
+
+    if (!Util.isUnset(request.regex)) {
+      query["Regex"] = request.regex;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateEntityResponse>(await this.doRPCRequest("CreateEntity", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateEntityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateEntity",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateEntityResponse>(await this.callApi(params, req, runtime), new CreateEntityResponse({}));
   }
 
   async createEntity(request: CreateEntityRequest): Promise<CreateEntityResponse> {
@@ -7575,10 +8134,34 @@ export default class Client extends OpenApi {
       request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.intentDefinition), "IntentDefinition", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.intentDefinitionShrink)) {
+      query["IntentDefinition"] = request.intentDefinitionShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateIntentResponse>(await this.doRPCRequest("CreateIntent", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateIntentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateIntent",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIntentResponse>(await this.callApi(params, req, runtime), new CreateIntentResponse({}));
   }
 
   async createIntent(request: CreateIntentRequest): Promise<CreateIntentResponse> {
@@ -7594,10 +8177,32 @@ export default class Client extends OpenApi {
       request.knowledgeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.knowledge), "Knowledge", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.knowledgeShrink)) {
+      body["Knowledge"] = request.knowledgeShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateKnowledgeResponse>(await this.doRPCRequest("CreateKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreateKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateKnowledgeResponse>(await this.callApi(params, req, runtime), new CreateKnowledgeResponse({}));
   }
 
   async createKnowledge(request: CreateKnowledgeRequest): Promise<CreateKnowledgeResponse> {
@@ -7607,10 +8212,30 @@ export default class Client extends OpenApi {
 
   async createPerspectiveWithOptions(request: CreatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<CreatePerspectiveResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreatePerspectiveResponse>(await this.doRPCRequest("CreatePerspective", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new CreatePerspectiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreatePerspective",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePerspectiveResponse>(await this.callApi(params, req, runtime), new CreatePerspectiveResponse({}));
   }
 
   async createPerspective(request: CreatePerspectiveRequest): Promise<CreatePerspectiveResponse> {
@@ -7620,10 +8245,30 @@ export default class Client extends OpenApi {
 
   async deleteBotWithOptions(request: DeleteBotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteBotResponse>(await this.doRPCRequest("DeleteBot", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteBotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteBot",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBotResponse>(await this.callApi(params, req, runtime), new DeleteBotResponse({}));
   }
 
   async deleteBot(request: DeleteBotRequest): Promise<DeleteBotResponse> {
@@ -7633,10 +8278,30 @@ export default class Client extends OpenApi {
 
   async deleteCategoryWithOptions(request: DeleteCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCategoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCategoryResponse>(await this.doRPCRequest("DeleteCategory", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCategoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCategory",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCategoryResponse>(await this.callApi(params, req, runtime), new DeleteCategoryResponse({}));
   }
 
   async deleteCategory(request: DeleteCategoryRequest): Promise<DeleteCategoryResponse> {
@@ -7646,10 +8311,30 @@ export default class Client extends OpenApi {
 
   async deleteCoreWordWithOptions(request: DeleteCoreWordRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCoreWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCoreWordResponse>(await this.doRPCRequest("DeleteCoreWord", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCoreWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCoreWord",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCoreWordResponse>(await this.callApi(params, req, runtime), new DeleteCoreWordResponse({}));
   }
 
   async deleteCoreWord(request: DeleteCoreWordRequest): Promise<DeleteCoreWordResponse> {
@@ -7659,10 +8344,30 @@ export default class Client extends OpenApi {
 
   async deleteDialogWithOptions(request: DeleteDialogRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDialogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDialogResponse>(await this.doRPCRequest("DeleteDialog", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDialogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDialog",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDialogResponse>(await this.callApi(params, req, runtime), new DeleteDialogResponse({}));
   }
 
   async deleteDialog(request: DeleteDialogRequest): Promise<DeleteDialogResponse> {
@@ -7672,10 +8377,30 @@ export default class Client extends OpenApi {
 
   async deleteEntityWithOptions(request: DeleteEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEntityResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteEntityResponse>(await this.doRPCRequest("DeleteEntity", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteEntityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteEntity",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEntityResponse>(await this.callApi(params, req, runtime), new DeleteEntityResponse({}));
   }
 
   async deleteEntity(request: DeleteEntityRequest): Promise<DeleteEntityResponse> {
@@ -7685,10 +8410,30 @@ export default class Client extends OpenApi {
 
   async deleteIntentWithOptions(request: DeleteIntentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIntentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteIntentResponse>(await this.doRPCRequest("DeleteIntent", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteIntentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteIntent",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIntentResponse>(await this.callApi(params, req, runtime), new DeleteIntentResponse({}));
   }
 
   async deleteIntent(request: DeleteIntentRequest): Promise<DeleteIntentResponse> {
@@ -7698,10 +8443,30 @@ export default class Client extends OpenApi {
 
   async deleteKnowledgeWithOptions(request: DeleteKnowledgeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteKnowledgeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteKnowledgeResponse>(await this.doRPCRequest("DeleteKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteKnowledgeResponse>(await this.callApi(params, req, runtime), new DeleteKnowledgeResponse({}));
   }
 
   async deleteKnowledge(request: DeleteKnowledgeRequest): Promise<DeleteKnowledgeResponse> {
@@ -7711,10 +8476,30 @@ export default class Client extends OpenApi {
 
   async describeBotWithOptions(request: DescribeBotRequest, runtime: $Util.RuntimeOptions): Promise<DescribeBotResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeBotResponse>(await this.doRPCRequest("DescribeBot", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeBotResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeBot",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeBotResponse>(await this.callApi(params, req, runtime), new DescribeBotResponse({}));
   }
 
   async describeBot(request: DescribeBotRequest): Promise<DescribeBotResponse> {
@@ -7724,10 +8509,30 @@ export default class Client extends OpenApi {
 
   async describeCategoryWithOptions(request: DescribeCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCategoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCategoryResponse>(await this.doRPCRequest("DescribeCategory", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCategoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCategory",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCategoryResponse>(await this.callApi(params, req, runtime), new DescribeCategoryResponse({}));
   }
 
   async describeCategory(request: DescribeCategoryRequest): Promise<DescribeCategoryResponse> {
@@ -7737,10 +8542,30 @@ export default class Client extends OpenApi {
 
   async describeCoreWordWithOptions(request: DescribeCoreWordRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCoreWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCoreWordResponse>(await this.doRPCRequest("DescribeCoreWord", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCoreWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCoreWord",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCoreWordResponse>(await this.callApi(params, req, runtime), new DescribeCoreWordResponse({}));
   }
 
   async describeCoreWord(request: DescribeCoreWordRequest): Promise<DescribeCoreWordResponse> {
@@ -7750,10 +8575,30 @@ export default class Client extends OpenApi {
 
   async describeDialogWithOptions(request: DescribeDialogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDialogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDialogResponse>(await this.doRPCRequest("DescribeDialog", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDialogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDialog",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDialogResponse>(await this.callApi(params, req, runtime), new DescribeDialogResponse({}));
   }
 
   async describeDialog(request: DescribeDialogRequest): Promise<DescribeDialogResponse> {
@@ -7763,10 +8608,30 @@ export default class Client extends OpenApi {
 
   async describeDialogFlowWithOptions(request: DescribeDialogFlowRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDialogFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDialogFlowResponse>(await this.doRPCRequest("DescribeDialogFlow", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDialogFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDialogFlow",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDialogFlowResponse>(await this.callApi(params, req, runtime), new DescribeDialogFlowResponse({}));
   }
 
   async describeDialogFlow(request: DescribeDialogFlowRequest): Promise<DescribeDialogFlowResponse> {
@@ -7776,10 +8641,30 @@ export default class Client extends OpenApi {
 
   async describeEntitiesWithOptions(request: DescribeEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEntitiesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeEntitiesResponse>(await this.doRPCRequest("DescribeEntities", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeEntitiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeEntities",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEntitiesResponse>(await this.callApi(params, req, runtime), new DescribeEntitiesResponse({}));
   }
 
   async describeEntities(request: DescribeEntitiesRequest): Promise<DescribeEntitiesResponse> {
@@ -7789,10 +8674,30 @@ export default class Client extends OpenApi {
 
   async describeIntentWithOptions(request: DescribeIntentRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIntentResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeIntentResponse>(await this.doRPCRequest("DescribeIntent", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeIntentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeIntent",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeIntentResponse>(await this.callApi(params, req, runtime), new DescribeIntentResponse({}));
   }
 
   async describeIntent(request: DescribeIntentRequest): Promise<DescribeIntentResponse> {
@@ -7802,10 +8707,30 @@ export default class Client extends OpenApi {
 
   async describeKnowledgeWithOptions(request: DescribeKnowledgeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKnowledgeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeKnowledgeResponse>(await this.doRPCRequest("DescribeKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKnowledgeResponse>(await this.callApi(params, req, runtime), new DescribeKnowledgeResponse({}));
   }
 
   async describeKnowledge(request: DescribeKnowledgeRequest): Promise<DescribeKnowledgeResponse> {
@@ -7815,10 +8740,30 @@ export default class Client extends OpenApi {
 
   async describePerspectiveWithOptions(request: DescribePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<DescribePerspectiveResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.perspectiveId)) {
+      query["PerspectiveId"] = request.perspectiveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribePerspectiveResponse>(await this.doRPCRequest("DescribePerspective", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DescribePerspectiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribePerspective",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribePerspectiveResponse>(await this.callApi(params, req, runtime), new DescribePerspectiveResponse({}));
   }
 
   async describePerspective(request: DescribePerspectiveRequest): Promise<DescribePerspectiveResponse> {
@@ -7828,10 +8773,30 @@ export default class Client extends OpenApi {
 
   async disableDialogFlowWithOptions(request: DisableDialogFlowRequest, runtime: $Util.RuntimeOptions): Promise<DisableDialogFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableDialogFlowResponse>(await this.doRPCRequest("DisableDialogFlow", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DisableDialogFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableDialogFlow",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableDialogFlowResponse>(await this.callApi(params, req, runtime), new DisableDialogFlowResponse({}));
   }
 
   async disableDialogFlow(request: DisableDialogFlowRequest): Promise<DisableDialogFlowResponse> {
@@ -7841,10 +8806,30 @@ export default class Client extends OpenApi {
 
   async disableKnowledgeWithOptions(request: DisableKnowledgeRequest, runtime: $Util.RuntimeOptions): Promise<DisableKnowledgeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableKnowledgeResponse>(await this.doRPCRequest("DisableKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new DisableKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableKnowledgeResponse>(await this.callApi(params, req, runtime), new DisableKnowledgeResponse({}));
   }
 
   async disableKnowledge(request: DisableKnowledgeRequest): Promise<DisableKnowledgeResponse> {
@@ -7854,10 +8839,42 @@ export default class Client extends OpenApi {
 
   async feedbackWithOptions(request: FeedbackRequest, runtime: $Util.RuntimeOptions): Promise<FeedbackResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      query["MessageId"] = request.messageId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<FeedbackResponse>(await this.doRPCRequest("Feedback", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new FeedbackResponse({}));
+    let params = new $OpenApi.Params({
+      action: "Feedback",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<FeedbackResponse>(await this.callApi(params, req, runtime), new FeedbackResponse({}));
   }
 
   async feedback(request: FeedbackRequest): Promise<FeedbackResponse> {
@@ -7867,10 +8884,30 @@ export default class Client extends OpenApi {
 
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAsyncResultResponse>(await this.doRPCRequest("GetAsyncResult", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncResult",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncResultResponse>(await this.callApi(params, req, runtime), new GetAsyncResultResponse({}));
   }
 
   async getAsyncResult(request: GetAsyncResultRequest): Promise<GetAsyncResultResponse> {
@@ -7880,10 +8917,38 @@ export default class Client extends OpenApi {
 
   async getBotChatDataWithOptions(request: GetBotChatDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotChatDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetBotChatDataResponse>(await this.doRPCRequest("GetBotChatData", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBotChatDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBotChatData",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBotChatDataResponse>(await this.callApi(params, req, runtime), new GetBotChatDataResponse({}));
   }
 
   async getBotChatData(request: GetBotChatDataRequest): Promise<GetBotChatDataResponse> {
@@ -7893,10 +8958,38 @@ export default class Client extends OpenApi {
 
   async getBotDsStatDataWithOptions(request: GetBotDsStatDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotDsStatDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetBotDsStatDataResponse>(await this.doRPCRequest("GetBotDsStatData", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBotDsStatDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBotDsStatData",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBotDsStatDataResponse>(await this.callApi(params, req, runtime), new GetBotDsStatDataResponse({}));
   }
 
   async getBotDsStatData(request: GetBotDsStatDataRequest): Promise<GetBotDsStatDataResponse> {
@@ -7906,10 +8999,38 @@ export default class Client extends OpenApi {
 
   async getBotKnowledgeStatDataWithOptions(request: GetBotKnowledgeStatDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotKnowledgeStatDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetBotKnowledgeStatDataResponse>(await this.doRPCRequest("GetBotKnowledgeStatData", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBotKnowledgeStatDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBotKnowledgeStatData",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBotKnowledgeStatDataResponse>(await this.callApi(params, req, runtime), new GetBotKnowledgeStatDataResponse({}));
   }
 
   async getBotKnowledgeStatData(request: GetBotKnowledgeStatDataRequest): Promise<GetBotKnowledgeStatDataResponse> {
@@ -7919,10 +9040,38 @@ export default class Client extends OpenApi {
 
   async getBotSessionDataWithOptions(request: GetBotSessionDataRequest, runtime: $Util.RuntimeOptions): Promise<GetBotSessionDataResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetBotSessionDataResponse>(await this.doRPCRequest("GetBotSessionData", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetBotSessionDataResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetBotSessionData",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetBotSessionDataResponse>(await this.callApi(params, req, runtime), new GetBotSessionDataResponse({}));
   }
 
   async getBotSessionData(request: GetBotSessionDataRequest): Promise<GetBotSessionDataResponse> {
@@ -7932,10 +9081,54 @@ export default class Client extends OpenApi {
 
   async getConversationListWithOptions(request: GetConversationListRequest, runtime: $Util.RuntimeOptions): Promise<GetConversationListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.senderId)) {
+      query["SenderId"] = request.senderId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetConversationListResponse>(await this.doRPCRequest("GetConversationList", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new GetConversationListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetConversationList",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetConversationListResponse>(await this.callApi(params, req, runtime), new GetConversationListResponse({}));
   }
 
   async getConversationList(request: GetConversationListRequest): Promise<GetConversationListResponse> {
@@ -7945,10 +9138,42 @@ export default class Client extends OpenApi {
 
   async listBotChatHistorysWithOptions(request: ListBotChatHistorysRequest, runtime: $Util.RuntimeOptions): Promise<ListBotChatHistorysResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotChatHistorysResponse>(await this.doRPCRequest("ListBotChatHistorys", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotChatHistorysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotChatHistorys",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotChatHistorysResponse>(await this.callApi(params, req, runtime), new ListBotChatHistorysResponse({}));
   }
 
   async listBotChatHistorys(request: ListBotChatHistorysRequest): Promise<ListBotChatHistorysResponse> {
@@ -7958,10 +9183,42 @@ export default class Client extends OpenApi {
 
   async listBotColdDsDatasWithOptions(request: ListBotColdDsDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListBotColdDsDatasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotColdDsDatasResponse>(await this.doRPCRequest("ListBotColdDsDatas", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotColdDsDatasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotColdDsDatas",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotColdDsDatasResponse>(await this.callApi(params, req, runtime), new ListBotColdDsDatasResponse({}));
   }
 
   async listBotColdDsDatas(request: ListBotColdDsDatasRequest): Promise<ListBotColdDsDatasResponse> {
@@ -7971,10 +9228,42 @@ export default class Client extends OpenApi {
 
   async listBotColdKnowledgesWithOptions(request: ListBotColdKnowledgesRequest, runtime: $Util.RuntimeOptions): Promise<ListBotColdKnowledgesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotColdKnowledgesResponse>(await this.doRPCRequest("ListBotColdKnowledges", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotColdKnowledgesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotColdKnowledges",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotColdKnowledgesResponse>(await this.callApi(params, req, runtime), new ListBotColdKnowledgesResponse({}));
   }
 
   async listBotColdKnowledges(request: ListBotColdKnowledgesRequest): Promise<ListBotColdKnowledgesResponse> {
@@ -7984,10 +9273,42 @@ export default class Client extends OpenApi {
 
   async listBotDsDetailsWithOptions(request: ListBotDsDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListBotDsDetailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotDsDetailsResponse>(await this.doRPCRequest("ListBotDsDetails", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotDsDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotDsDetails",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotDsDetailsResponse>(await this.callApi(params, req, runtime), new ListBotDsDetailsResponse({}));
   }
 
   async listBotDsDetails(request: ListBotDsDetailsRequest): Promise<ListBotDsDetailsResponse> {
@@ -7997,10 +9318,42 @@ export default class Client extends OpenApi {
 
   async listBotHotDsDatasWithOptions(request: ListBotHotDsDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListBotHotDsDatasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotHotDsDatasResponse>(await this.doRPCRequest("ListBotHotDsDatas", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotHotDsDatasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotHotDsDatas",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotHotDsDatasResponse>(await this.callApi(params, req, runtime), new ListBotHotDsDatasResponse({}));
   }
 
   async listBotHotDsDatas(request: ListBotHotDsDatasRequest): Promise<ListBotHotDsDatasResponse> {
@@ -8010,10 +9363,42 @@ export default class Client extends OpenApi {
 
   async listBotHotKnowledgesWithOptions(request: ListBotHotKnowledgesRequest, runtime: $Util.RuntimeOptions): Promise<ListBotHotKnowledgesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotHotKnowledgesResponse>(await this.doRPCRequest("ListBotHotKnowledges", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotHotKnowledgesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotHotKnowledges",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotHotKnowledgesResponse>(await this.callApi(params, req, runtime), new ListBotHotKnowledgesResponse({}));
   }
 
   async listBotHotKnowledges(request: ListBotHotKnowledgesRequest): Promise<ListBotHotKnowledgesResponse> {
@@ -8023,10 +9408,42 @@ export default class Client extends OpenApi {
 
   async listBotKnowledgeDetailsWithOptions(request: ListBotKnowledgeDetailsRequest, runtime: $Util.RuntimeOptions): Promise<ListBotKnowledgeDetailsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotKnowledgeDetailsResponse>(await this.doRPCRequest("ListBotKnowledgeDetails", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotKnowledgeDetailsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotKnowledgeDetails",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotKnowledgeDetailsResponse>(await this.callApi(params, req, runtime), new ListBotKnowledgeDetailsResponse({}));
   }
 
   async listBotKnowledgeDetails(request: ListBotKnowledgeDetailsRequest): Promise<ListBotKnowledgeDetailsResponse> {
@@ -8036,10 +9453,38 @@ export default class Client extends OpenApi {
 
   async listBotReceptionDetailDatasWithOptions(request: ListBotReceptionDetailDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListBotReceptionDetailDatasResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.robotInstanceId)) {
+      query["RobotInstanceId"] = request.robotInstanceId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListBotReceptionDetailDatasResponse>(await this.doRPCRequest("ListBotReceptionDetailDatas", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListBotReceptionDetailDatasResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListBotReceptionDetailDatas",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListBotReceptionDetailDatasResponse>(await this.callApi(params, req, runtime), new ListBotReceptionDetailDatasResponse({}));
   }
 
   async listBotReceptionDetailDatas(request: ListBotReceptionDetailDatasRequest): Promise<ListBotReceptionDetailDatasResponse> {
@@ -8049,10 +9494,30 @@ export default class Client extends OpenApi {
 
   async listConversationLogsWithOptions(request: ListConversationLogsRequest, runtime: $Util.RuntimeOptions): Promise<ListConversationLogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListConversationLogsResponse>(await this.doRPCRequest("ListConversationLogs", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new ListConversationLogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListConversationLogs",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListConversationLogsResponse>(await this.callApi(params, req, runtime), new ListConversationLogsResponse({}));
   }
 
   async listConversationLogs(request: ListConversationLogsRequest): Promise<ListConversationLogsResponse> {
@@ -8062,10 +9527,34 @@ export default class Client extends OpenApi {
 
   async moveKnowledgeCategoryWithOptions(request: MoveKnowledgeCategoryRequest, runtime: $Util.RuntimeOptions): Promise<MoveKnowledgeCategoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<MoveKnowledgeCategoryResponse>(await this.doRPCRequest("MoveKnowledgeCategory", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new MoveKnowledgeCategoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MoveKnowledgeCategory",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveKnowledgeCategoryResponse>(await this.callApi(params, req, runtime), new MoveKnowledgeCategoryResponse({}));
   }
 
   async moveKnowledgeCategory(request: MoveKnowledgeCategoryRequest): Promise<MoveKnowledgeCategoryResponse> {
@@ -8075,10 +9564,30 @@ export default class Client extends OpenApi {
 
   async publishDialogFlowWithOptions(request: PublishDialogFlowRequest, runtime: $Util.RuntimeOptions): Promise<PublishDialogFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PublishDialogFlowResponse>(await this.doRPCRequest("PublishDialogFlow", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new PublishDialogFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishDialogFlow",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishDialogFlowResponse>(await this.callApi(params, req, runtime), new PublishDialogFlowResponse({}));
   }
 
   async publishDialogFlow(request: PublishDialogFlowRequest): Promise<PublishDialogFlowResponse> {
@@ -8088,10 +9597,34 @@ export default class Client extends OpenApi {
 
   async publishKnowledgeWithOptions(request: PublishKnowledgeRequest, runtime: $Util.RuntimeOptions): Promise<PublishKnowledgeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.async)) {
+      query["Async"] = request.async;
+    }
+
+    if (!Util.isUnset(request.knowledgeId)) {
+      query["KnowledgeId"] = request.knowledgeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<PublishKnowledgeResponse>(await this.doRPCRequest("PublishKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new PublishKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "PublishKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PublishKnowledgeResponse>(await this.callApi(params, req, runtime), new PublishKnowledgeResponse({}));
   }
 
   async publishKnowledge(request: PublishKnowledgeRequest): Promise<PublishKnowledgeResponse> {
@@ -8101,10 +9634,34 @@ export default class Client extends OpenApi {
 
   async queryBotsWithOptions(request: QueryBotsRequest, runtime: $Util.RuntimeOptions): Promise<QueryBotsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryBotsResponse>(await this.doRPCRequest("QueryBots", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryBotsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryBots",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryBotsResponse>(await this.callApi(params, req, runtime), new QueryBotsResponse({}));
   }
 
   async queryBots(request: QueryBotsRequest): Promise<QueryBotsResponse> {
@@ -8114,10 +9671,38 @@ export default class Client extends OpenApi {
 
   async queryCategoriesWithOptions(request: QueryCategoriesRequest, runtime: $Util.RuntimeOptions): Promise<QueryCategoriesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.knowledgeType)) {
+      query["KnowledgeType"] = request.knowledgeType;
+    }
+
+    if (!Util.isUnset(request.parentCategoryId)) {
+      query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
+    if (!Util.isUnset(request.showChildrens)) {
+      query["ShowChildrens"] = request.showChildrens;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCategoriesResponse>(await this.doRPCRequest("QueryCategories", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCategoriesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCategories",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCategoriesResponse>(await this.callApi(params, req, runtime), new QueryCategoriesResponse({}));
   }
 
   async queryCategories(request: QueryCategoriesRequest): Promise<QueryCategoriesResponse> {
@@ -8127,10 +9712,42 @@ export default class Client extends OpenApi {
 
   async queryCoreWordsWithOptions(request: QueryCoreWordsRequest, runtime: $Util.RuntimeOptions): Promise<QueryCoreWordsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.synonym)) {
+      query["Synonym"] = request.synonym;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryCoreWordsResponse>(await this.doRPCRequest("QueryCoreWords", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryCoreWordsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryCoreWords",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCoreWordsResponse>(await this.callApi(params, req, runtime), new QueryCoreWordsResponse({}));
   }
 
   async queryCoreWords(request: QueryCoreWordsRequest): Promise<QueryCoreWordsResponse> {
@@ -8140,10 +9757,42 @@ export default class Client extends OpenApi {
 
   async queryDialogsWithOptions(request: QueryDialogsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDialogsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogName)) {
+      query["DialogName"] = request.dialogName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryDialogsResponse>(await this.doRPCRequest("QueryDialogs", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryDialogsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryDialogs",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDialogsResponse>(await this.callApi(params, req, runtime), new QueryDialogsResponse({}));
   }
 
   async queryDialogs(request: QueryDialogsRequest): Promise<QueryDialogsResponse> {
@@ -8153,10 +9802,42 @@ export default class Client extends OpenApi {
 
   async queryEntitiesWithOptions(request: QueryEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<QueryEntitiesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryEntitiesResponse>(await this.doRPCRequest("QueryEntities", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryEntitiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryEntities",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryEntitiesResponse>(await this.callApi(params, req, runtime), new QueryEntitiesResponse({}));
   }
 
   async queryEntities(request: QueryEntitiesRequest): Promise<QueryEntitiesResponse> {
@@ -8166,10 +9847,42 @@ export default class Client extends OpenApi {
 
   async queryIntentsWithOptions(request: QueryIntentsRequest, runtime: $Util.RuntimeOptions): Promise<QueryIntentsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.intentName)) {
+      query["IntentName"] = request.intentName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryIntentsResponse>(await this.doRPCRequest("QueryIntents", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryIntentsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryIntents",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryIntentsResponse>(await this.callApi(params, req, runtime), new QueryIntentsResponse({}));
   }
 
   async queryIntents(request: QueryIntentsRequest): Promise<QueryIntentsResponse> {
@@ -8179,10 +9892,46 @@ export default class Client extends OpenApi {
 
   async queryKnowledgesWithOptions(request: QueryKnowledgesRequest, runtime: $Util.RuntimeOptions): Promise<QueryKnowledgesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
+    if (!Util.isUnset(request.knowledgeTitle)) {
+      query["KnowledgeTitle"] = request.knowledgeTitle;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QueryKnowledgesResponse>(await this.doRPCRequest("QueryKnowledges", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryKnowledgesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QueryKnowledges",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryKnowledgesResponse>(await this.callApi(params, req, runtime), new QueryKnowledgesResponse({}));
   }
 
   async queryKnowledges(request: QueryKnowledgesRequest): Promise<QueryKnowledgesResponse> {
@@ -8190,22 +9939,61 @@ export default class Client extends OpenApi {
     return await this.queryKnowledgesWithOptions(request, runtime);
   }
 
-  async queryPerspectivesWithOptions(runtime: $Util.RuntimeOptions): Promise<QueryPerspectivesResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<QueryPerspectivesResponse>(await this.doRPCRequest("QueryPerspectives", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QueryPerspectivesResponse({}));
+  async queryPerspectivesWithOptions(request: QueryPerspectivesRequest, runtime: $Util.RuntimeOptions): Promise<QueryPerspectivesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryPerspectives",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryPerspectivesResponse>(await this.callApi(params, req, runtime), new QueryPerspectivesResponse({}));
   }
 
-  async queryPerspectives(): Promise<QueryPerspectivesResponse> {
+  async queryPerspectives(request: QueryPerspectivesRequest): Promise<QueryPerspectivesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryPerspectivesWithOptions(runtime);
+    return await this.queryPerspectivesWithOptions(request, runtime);
   }
 
   async querySystemEntitiesWithOptions(request: QuerySystemEntitiesRequest, runtime: $Util.RuntimeOptions): Promise<QuerySystemEntitiesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<QuerySystemEntitiesResponse>(await this.doRPCRequest("QuerySystemEntities", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new QuerySystemEntitiesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "QuerySystemEntities",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySystemEntitiesResponse>(await this.callApi(params, req, runtime), new QuerySystemEntitiesResponse({}));
   }
 
   async querySystemEntities(request: QuerySystemEntitiesRequest): Promise<QuerySystemEntitiesResponse> {
@@ -8221,10 +10009,38 @@ export default class Client extends OpenApi {
       request.memberShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.member), "Member", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.memberShrink)) {
+      query["Member"] = request.memberShrink;
+    }
+
+    if (!Util.isUnset(request.removeType)) {
+      query["RemoveType"] = request.removeType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveEntityMemberResponse>(await this.doRPCRequest("RemoveEntityMember", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveEntityMemberResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveEntityMember",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveEntityMemberResponse>(await this.callApi(params, req, runtime), new RemoveEntityMemberResponse({}));
   }
 
   async removeEntityMember(request: RemoveEntityMemberRequest): Promise<RemoveEntityMemberResponse> {
@@ -8234,10 +10050,34 @@ export default class Client extends OpenApi {
 
   async removeSynonymWithOptions(request: RemoveSynonymRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSynonymResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
+    if (!Util.isUnset(request.synonym)) {
+      query["Synonym"] = request.synonym;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveSynonymResponse>(await this.doRPCRequest("RemoveSynonym", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveSynonymResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveSynonym",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveSynonymResponse>(await this.callApi(params, req, runtime), new RemoveSynonymResponse({}));
   }
 
   async removeSynonym(request: RemoveSynonymRequest): Promise<RemoveSynonymResponse> {
@@ -8247,10 +10087,30 @@ export default class Client extends OpenApi {
 
   async testDialogFlowWithOptions(request: TestDialogFlowRequest, runtime: $Util.RuntimeOptions): Promise<TestDialogFlowResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TestDialogFlowResponse>(await this.doRPCRequest("TestDialogFlow", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new TestDialogFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TestDialogFlow",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TestDialogFlowResponse>(await this.callApi(params, req, runtime), new TestDialogFlowResponse({}));
   }
 
   async testDialogFlow(request: TestDialogFlowRequest): Promise<TestDialogFlowResponse> {
@@ -8260,10 +10120,34 @@ export default class Client extends OpenApi {
 
   async updateCategoryWithOptions(request: UpdateCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCategoryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateCategoryResponse>(await this.doRPCRequest("UpdateCategory", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCategoryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCategory",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCategoryResponse>(await this.callApi(params, req, runtime), new UpdateCategoryResponse({}));
   }
 
   async updateCategory(request: UpdateCategoryRequest): Promise<UpdateCategoryResponse> {
@@ -8273,10 +10157,34 @@ export default class Client extends OpenApi {
 
   async updateCoreWordWithOptions(request: UpdateCoreWordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCoreWordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.coreWordCode)) {
+      query["CoreWordCode"] = request.coreWordCode;
+    }
+
+    if (!Util.isUnset(request.coreWordName)) {
+      query["CoreWordName"] = request.coreWordName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateCoreWordResponse>(await this.doRPCRequest("UpdateCoreWord", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateCoreWordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateCoreWord",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateCoreWordResponse>(await this.callApi(params, req, runtime), new UpdateCoreWordResponse({}));
   }
 
   async updateCoreWord(request: UpdateCoreWordRequest): Promise<UpdateCoreWordResponse> {
@@ -8286,10 +10194,38 @@ export default class Client extends OpenApi {
 
   async updateDialogWithOptions(request: UpdateDialogRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDialogResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    if (!Util.isUnset(request.dialogName)) {
+      query["DialogName"] = request.dialogName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateDialogResponse>(await this.doRPCRequest("UpdateDialog", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDialogResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDialog",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDialogResponse>(await this.callApi(params, req, runtime), new UpdateDialogResponse({}));
   }
 
   async updateDialog(request: UpdateDialogRequest): Promise<UpdateDialogResponse> {
@@ -8305,10 +10241,36 @@ export default class Client extends OpenApi {
       request.moduleDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.moduleDefinition), "ModuleDefinition", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.dialogId)) {
+      query["DialogId"] = request.dialogId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.moduleDefinitionShrink)) {
+      body["ModuleDefinition"] = request.moduleDefinitionShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateDialogFlowResponse>(await this.doRPCRequest("UpdateDialogFlow", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateDialogFlowResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateDialogFlow",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDialogFlowResponse>(await this.callApi(params, req, runtime), new UpdateDialogFlowResponse({}));
   }
 
   async updateDialogFlow(request: UpdateDialogFlowRequest): Promise<UpdateDialogFlowResponse> {
@@ -8324,10 +10286,48 @@ export default class Client extends OpenApi {
       request.membersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.members, "Members", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.entityName)) {
+      query["EntityName"] = request.entityName;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.regex)) {
+      query["Regex"] = request.regex;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.membersShrink)) {
+      body["Members"] = request.membersShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateEntityResponse>(await this.doRPCRequest("UpdateEntity", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateEntityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateEntity",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateEntityResponse>(await this.callApi(params, req, runtime), new UpdateEntityResponse({}));
   }
 
   async updateEntity(request: UpdateEntityRequest): Promise<UpdateEntityResponse> {
@@ -8343,10 +10343,34 @@ export default class Client extends OpenApi {
       request.intentDefinitionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.intentDefinition), "IntentDefinition", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.intentDefinitionShrink)) {
+      query["IntentDefinition"] = request.intentDefinitionShrink;
+    }
+
+    if (!Util.isUnset(request.intentId)) {
+      query["IntentId"] = request.intentId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateIntentResponse>(await this.doRPCRequest("UpdateIntent", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateIntentResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateIntent",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIntentResponse>(await this.callApi(params, req, runtime), new UpdateIntentResponse({}));
   }
 
   async updateIntent(request: UpdateIntentRequest): Promise<UpdateIntentResponse> {
@@ -8362,10 +10386,32 @@ export default class Client extends OpenApi {
       request.knowledgeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle($tea.toMap(tmpReq.knowledge), "Knowledge", "json");
     }
 
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.knowledgeShrink)) {
+      body["Knowledge"] = request.knowledgeShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateKnowledgeResponse>(await this.doRPCRequest("UpdateKnowledge", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateKnowledgeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateKnowledge",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateKnowledgeResponse>(await this.callApi(params, req, runtime), new UpdateKnowledgeResponse({}));
   }
 
   async updateKnowledge(request: UpdateKnowledgeRequest): Promise<UpdateKnowledgeResponse> {
@@ -8375,10 +10421,34 @@ export default class Client extends OpenApi {
 
   async updatePerspectiveWithOptions(request: UpdatePerspectiveRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePerspectiveResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentKey)) {
+      query["AgentKey"] = request.agentKey;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.perspectiveId)) {
+      query["PerspectiveId"] = request.perspectiveId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdatePerspectiveResponse>(await this.doRPCRequest("UpdatePerspective", "2017-10-11", "HTTPS", "POST", "AK", "json", req, runtime), new UpdatePerspectiveResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdatePerspective",
+      version: "2017-10-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePerspectiveResponse>(await this.callApi(params, req, runtime), new UpdatePerspectiveResponse({}));
   }
 
   async updatePerspective(request: UpdatePerspectiveRequest): Promise<UpdatePerspectiveResponse> {
