@@ -4,38 +4,39 @@
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
+import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddAccessControlListEntryRequest extends $tea.Model {
+  aclEntrys?: string;
+  aclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  aclId?: string;
-  aclEntrys?: string;
   static names(): { [key: string]: string } {
     return {
+      aclEntrys: 'AclEntrys',
+      aclId: 'AclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      aclId: 'AclId',
-      aclEntrys: 'AclEntrys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclEntrys: 'string',
+      aclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      aclId: 'string',
-      aclEntrys: 'string',
     };
   }
 
@@ -86,34 +87,34 @@ export class AddAccessControlListEntryResponse extends $tea.Model {
 }
 
 export class AddBackendServersRequest extends $tea.Model {
-  regionId?: string;
+  backendServers?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  backendServers?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      backendServers: 'BackendServers',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      backendServers: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      backendServers: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -123,22 +124,22 @@ export class AddBackendServersRequest extends $tea.Model {
 }
 
 export class AddBackendServersResponseBody extends $tea.Model {
+  backendServers?: AddBackendServersResponseBodyBackendServers;
   loadBalancerId?: string;
   requestId?: string;
-  backendServers?: AddBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
       loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: AddBackendServersResponseBodyBackendServers,
       loadBalancerId: 'string',
       requestId: 'string',
-      backendServers: AddBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -170,40 +171,40 @@ export class AddBackendServersResponse extends $tea.Model {
 }
 
 export class AddListenerWhiteListItemRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
   sourceItems?: string;
-  ownerAccount?: string;
-  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
       sourceItems: 'SourceItems',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
       sourceItems: 'string',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
     };
   }
 
@@ -254,33 +255,33 @@ export class AddListenerWhiteListItemResponse extends $tea.Model {
 }
 
 export class AddTagsRequest extends $tea.Model {
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  loadBalancerId?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      loadBalancerId: 'string',
       tags: 'string',
     };
   }
@@ -332,34 +333,34 @@ export class AddTagsResponse extends $tea.Model {
 }
 
 export class AddVServerGroupBackendServersRequest extends $tea.Model {
+  backendServers?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
-  backendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
-      backendServers: 'string',
     };
   }
 
@@ -369,22 +370,22 @@ export class AddVServerGroupBackendServersRequest extends $tea.Model {
 }
 
 export class AddVServerGroupBackendServersResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  requestId?: string;
   backendServers?: AddVServerGroupBackendServersResponseBodyBackendServers;
+  requestId?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       backendServers: 'BackendServers',
+      requestId: 'RequestId',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      requestId: 'string',
       backendServers: AddVServerGroupBackendServersResponseBodyBackendServers,
+      requestId: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -416,37 +417,37 @@ export class AddVServerGroupBackendServersResponse extends $tea.Model {
 }
 
 export class CreateAccessControlListRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   aclName?: string;
   addressIPVersion?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -500,39 +501,39 @@ export class CreateAccessControlListResponse extends $tea.Model {
 }
 
 export class CreateDomainExtensionRequest extends $tea.Model {
+  domain?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  domain?: string;
   serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
+      domain: 'Domain',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      domain: 'Domain',
       serverCertificateId: 'ServerCertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domain: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      domain: 'string',
       serverCertificateId: 'string',
     };
   }
@@ -543,22 +544,22 @@ export class CreateDomainExtensionRequest extends $tea.Model {
 }
 
 export class CreateDomainExtensionResponseBody extends $tea.Model {
+  domainExtensionId?: string;
   listenerPort?: number;
   requestId?: string;
-  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainExtensionId: 'DomainExtensionId',
       listenerPort: 'ListenerPort',
       requestId: 'RequestId',
-      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainExtensionId: 'string',
       listenerPort: 'number',
       requestId: 'string',
-      domainExtensionId: 'string',
     };
   }
 
@@ -590,88 +591,88 @@ export class CreateDomainExtensionResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
+  address?: string;
+  addressIPVersion?: string;
   addressType?: string;
-  internetChargeType?: string;
+  autoPay?: boolean;
   bandwidth?: number;
   clientToken?: string;
+  deleteProtection?: string;
+  duration?: number;
+  internetChargeType?: string;
   loadBalancerName?: string;
-  vpcId?: string;
-  vSwitchId?: string;
-  ownerAccount?: string;
-  masterZoneId?: string;
-  slaveZoneId?: string;
   loadBalancerSpec?: string;
-  resourceGroupId?: string;
+  masterZoneId?: string;
+  modificationProtectionReason?: string;
+  modificationProtectionStatus?: string;
+  ownerAccount?: string;
+  ownerId?: number;
   payType?: string;
   pricingCycle?: string;
-  duration?: number;
-  autoPay?: boolean;
-  addressIPVersion?: string;
-  address?: string;
-  deleteProtection?: string;
-  modificationProtectionStatus?: string;
-  modificationProtectionReason?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  slaveZoneId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
+      address: 'Address',
+      addressIPVersion: 'AddressIPVersion',
       addressType: 'AddressType',
-      internetChargeType: 'InternetChargeType',
+      autoPay: 'AutoPay',
       bandwidth: 'Bandwidth',
       clientToken: 'ClientToken',
+      deleteProtection: 'DeleteProtection',
+      duration: 'Duration',
+      internetChargeType: 'InternetChargeType',
       loadBalancerName: 'LoadBalancerName',
-      vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
-      ownerAccount: 'OwnerAccount',
-      masterZoneId: 'MasterZoneId',
-      slaveZoneId: 'SlaveZoneId',
       loadBalancerSpec: 'LoadBalancerSpec',
-      resourceGroupId: 'ResourceGroupId',
+      masterZoneId: 'MasterZoneId',
+      modificationProtectionReason: 'ModificationProtectionReason',
+      modificationProtectionStatus: 'ModificationProtectionStatus',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
-      duration: 'Duration',
-      autoPay: 'AutoPay',
-      addressIPVersion: 'AddressIPVersion',
-      address: 'Address',
-      deleteProtection: 'DeleteProtection',
-      modificationProtectionStatus: 'ModificationProtectionStatus',
-      modificationProtectionReason: 'ModificationProtectionReason',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      slaveZoneId: 'SlaveZoneId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
+      address: 'string',
+      addressIPVersion: 'string',
       addressType: 'string',
-      internetChargeType: 'string',
+      autoPay: 'boolean',
       bandwidth: 'number',
       clientToken: 'string',
+      deleteProtection: 'string',
+      duration: 'number',
+      internetChargeType: 'string',
       loadBalancerName: 'string',
-      vpcId: 'string',
-      vSwitchId: 'string',
-      ownerAccount: 'string',
-      masterZoneId: 'string',
-      slaveZoneId: 'string',
       loadBalancerSpec: 'string',
-      resourceGroupId: 'string',
+      masterZoneId: 'string',
+      modificationProtectionReason: 'string',
+      modificationProtectionStatus: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
       payType: 'string',
       pricingCycle: 'string',
-      duration: 'number',
-      autoPay: 'boolean',
-      addressIPVersion: 'string',
-      address: 'string',
-      deleteProtection: 'string',
-      modificationProtectionStatus: 'string',
-      modificationProtectionReason: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      slaveZoneId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -681,43 +682,43 @@ export class CreateLoadBalancerRequest extends $tea.Model {
 }
 
 export class CreateLoadBalancerResponseBody extends $tea.Model {
-  vpcId?: string;
-  addressIPVersion?: string;
-  vSwitchId?: string;
-  requestId?: string;
-  loadBalancerName?: string;
-  loadBalancerId?: string;
-  resourceGroupId?: string;
   address?: string;
+  addressIPVersion?: string;
+  loadBalancerId?: string;
+  loadBalancerName?: string;
   networkType?: string;
   orderId?: number;
+  requestId?: string;
+  resourceGroupId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
-      addressIPVersion: 'AddressIPVersion',
-      vSwitchId: 'VSwitchId',
-      requestId: 'RequestId',
-      loadBalancerName: 'LoadBalancerName',
-      loadBalancerId: 'LoadBalancerId',
-      resourceGroupId: 'ResourceGroupId',
       address: 'Address',
+      addressIPVersion: 'AddressIPVersion',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
       networkType: 'NetworkType',
       orderId: 'OrderId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
-      addressIPVersion: 'string',
-      vSwitchId: 'string',
-      requestId: 'string',
-      loadBalancerName: 'string',
-      loadBalancerId: 'string',
-      resourceGroupId: 'string',
       address: 'string',
+      addressIPVersion: 'string',
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
       networkType: 'string',
       orderId: 'number',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -749,127 +750,127 @@ export class CreateLoadBalancerResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerHTTPListenerRequest extends $tea.Model {
-  regionId?: string;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
+  backendServerPort?: number;
+  bandwidth?: number;
+  cookie?: string;
+  cookieTimeout?: number;
+  description?: string;
+  forwardPort?: number;
+  gzip?: string;
+  healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  idleTimeout?: number;
+  listenerForward?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  requestTimeout?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  bandwidth?: number;
-  listenerPort?: number;
-  backendServerPort?: number;
-  XForwardedFor?: string;
   scheduler?: string;
   stickySession?: string;
   stickySessionType?: string;
-  cookieTimeout?: number;
-  cookie?: string;
-  healthCheck?: string;
-  healthCheckMethod?: string;
-  healthCheckDomain?: string;
-  healthCheckURI?: string;
-  healthyThreshold?: number;
   unhealthyThreshold?: number;
-  healthCheckTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckInterval?: number;
-  healthCheckHttpCode?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
-  XForwardedFor_SLBIP?: string;
+  XForwardedFor?: string;
   XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
   XForwardedFor_proto?: string;
-  gzip?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  description?: string;
-  listenerForward?: string;
-  forwardPort?: number;
-  idleTimeout?: number;
-  requestTimeout?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      backendServerPort: 'BackendServerPort',
+      bandwidth: 'Bandwidth',
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      forwardPort: 'ForwardPort',
+      gzip: 'Gzip',
+      healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      idleTimeout: 'IdleTimeout',
+      listenerForward: 'ListenerForward',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      requestTimeout: 'RequestTimeout',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      bandwidth: 'Bandwidth',
-      listenerPort: 'ListenerPort',
-      backendServerPort: 'BackendServerPort',
-      XForwardedFor: 'XForwardedFor',
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
-      cookieTimeout: 'CookieTimeout',
-      cookie: 'Cookie',
-      healthCheck: 'HealthCheck',
-      healthCheckMethod: 'HealthCheckMethod',
-      healthCheckDomain: 'HealthCheckDomain',
-      healthCheckURI: 'HealthCheckURI',
-      healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor: 'XForwardedFor',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_proto: 'XForwardedFor_proto',
-      gzip: 'Gzip',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      description: 'Description',
-      listenerForward: 'ListenerForward',
-      forwardPort: 'ForwardPort',
-      idleTimeout: 'IdleTimeout',
-      requestTimeout: 'RequestTimeout',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      backendServerPort: 'number',
+      bandwidth: 'number',
+      cookie: 'string',
+      cookieTimeout: 'number',
+      description: 'string',
+      forwardPort: 'number',
+      gzip: 'string',
+      healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      idleTimeout: 'number',
+      listenerForward: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      requestTimeout: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      bandwidth: 'number',
-      listenerPort: 'number',
-      backendServerPort: 'number',
-      XForwardedFor: 'string',
       scheduler: 'string',
       stickySession: 'string',
       stickySessionType: 'string',
-      cookieTimeout: 'number',
-      cookie: 'string',
-      healthCheck: 'string',
-      healthCheckMethod: 'string',
-      healthCheckDomain: 'string',
-      healthCheckURI: 'string',
-      healthyThreshold: 'number',
       unhealthyThreshold: 'number',
-      healthCheckTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckHttpCode: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
-      XForwardedFor_SLBIP: 'string',
+      XForwardedFor: 'string',
       XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
       XForwardedFor_proto: 'string',
-      gzip: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      description: 'string',
-      listenerForward: 'string',
-      forwardPort: 'number',
-      idleTimeout: 'number',
-      requestTimeout: 'number',
     };
   }
 
@@ -920,133 +921,133 @@ export class CreateLoadBalancerHTTPListenerResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerHTTPSListenerRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
-  bandwidth?: number;
-  listenerPort?: number;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
   backendServerPort?: number;
-  XForwardedFor?: string;
-  scheduler?: string;
-  stickySession?: string;
-  stickySessionType?: string;
-  cookieTimeout?: number;
+  bandwidth?: number;
+  CACertificateId?: string;
   cookie?: string;
+  cookieTimeout?: number;
+  description?: string;
+  enableHttp2?: string;
+  gzip?: string;
   healthCheck?: string;
-  healthCheckMethod?: string;
+  healthCheckConnectPort?: number;
   healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
   healthCheckURI?: string;
   healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  healthCheckTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckInterval?: number;
-  healthCheckHttpCode?: string;
-  serverCertificateId?: string;
-  ownerAccount?: string;
-  VServerGroupId?: string;
-  CACertificateId?: string;
-  XForwardedFor_SLBIP?: string;
-  XForwardedFor_SLBID?: string;
-  XForwardedFor_proto?: string;
-  gzip?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  description?: string;
   idleTimeout?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
   requestTimeout?: number;
-  enableHttp2?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scheduler?: string;
+  serverCertificateId?: string;
+  stickySession?: string;
+  stickySessionType?: string;
   TLSCipherPolicy?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
+  XForwardedFor?: string;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
+  XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      bandwidth: 'Bandwidth',
-      listenerPort: 'ListenerPort',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
-      XForwardedFor: 'XForwardedFor',
-      scheduler: 'Scheduler',
-      stickySession: 'StickySession',
-      stickySessionType: 'StickySessionType',
-      cookieTimeout: 'CookieTimeout',
+      bandwidth: 'Bandwidth',
+      CACertificateId: 'CACertificateId',
       cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      enableHttp2: 'EnableHttp2',
+      gzip: 'Gzip',
       healthCheck: 'HealthCheck',
-      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      serverCertificateId: 'ServerCertificateId',
-      ownerAccount: 'OwnerAccount',
-      VServerGroupId: 'VServerGroupId',
-      CACertificateId: 'CACertificateId',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      gzip: 'Gzip',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      description: 'Description',
       idleTimeout: 'IdleTimeout',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
       requestTimeout: 'RequestTimeout',
-      enableHttp2: 'EnableHttp2',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scheduler: 'Scheduler',
+      serverCertificateId: 'ServerCertificateId',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
       TLSCipherPolicy: 'TLSCipherPolicy',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      bandwidth: 'number',
-      listenerPort: 'number',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
       backendServerPort: 'number',
-      XForwardedFor: 'string',
-      scheduler: 'string',
-      stickySession: 'string',
-      stickySessionType: 'string',
-      cookieTimeout: 'number',
+      bandwidth: 'number',
+      CACertificateId: 'string',
       cookie: 'string',
+      cookieTimeout: 'number',
+      description: 'string',
+      enableHttp2: 'string',
+      gzip: 'string',
       healthCheck: 'string',
-      healthCheckMethod: 'string',
+      healthCheckConnectPort: 'number',
       healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      healthCheckTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckHttpCode: 'string',
-      serverCertificateId: 'string',
-      ownerAccount: 'string',
-      VServerGroupId: 'string',
-      CACertificateId: 'string',
-      XForwardedFor_SLBIP: 'string',
-      XForwardedFor_SLBID: 'string',
-      XForwardedFor_proto: 'string',
-      gzip: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      description: 'string',
       idleTimeout: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
       requestTimeout: 'number',
-      enableHttp2: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scheduler: 'string',
+      serverCertificateId: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
       TLSCipherPolicy: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
+      XForwardedFor: 'string',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
+      XForwardedFor_proto: 'string',
     };
   }
 
@@ -1097,100 +1098,100 @@ export class CreateLoadBalancerHTTPSListenerResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerTCPListenerRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
   backendServerPort?: number;
   bandwidth?: number;
-  scheduler?: string;
-  persistenceTimeout?: number;
-  establishedTimeout?: number;
-  healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  healthCheckConnectTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckInterval?: number;
-  healthCheckDomain?: string;
-  healthCheckURI?: string;
-  healthCheckHttpCode?: string;
-  healthCheckType?: string;
-  ownerAccount?: string;
-  VServerGroupId?: string;
-  masterSlaveServerGroupId?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  description?: string;
   connectionDrain?: string;
   connectionDrainTimeout?: number;
+  description?: string;
+  establishedTimeout?: number;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckType?: string;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  persistenceTimeout?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scheduler?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
+  healthCheckInterval?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
       bandwidth: 'Bandwidth',
-      scheduler: 'Scheduler',
-      persistenceTimeout: 'PersistenceTimeout',
-      establishedTimeout: 'EstablishedTimeout',
-      healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckInterval: 'healthCheckInterval',
-      healthCheckDomain: 'HealthCheckDomain',
-      healthCheckURI: 'HealthCheckURI',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      healthCheckType: 'HealthCheckType',
-      ownerAccount: 'OwnerAccount',
-      VServerGroupId: 'VServerGroupId',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      description: 'Description',
       connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
+      description: 'Description',
+      establishedTimeout: 'EstablishedTimeout',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      persistenceTimeout: 'PersistenceTimeout',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scheduler: 'Scheduler',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
+      healthCheckInterval: 'healthCheckInterval',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
       backendServerPort: 'number',
       bandwidth: 'number',
-      scheduler: 'string',
-      persistenceTimeout: 'number',
-      establishedTimeout: 'number',
-      healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      healthCheckConnectTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckDomain: 'string',
-      healthCheckURI: 'string',
-      healthCheckHttpCode: 'string',
-      healthCheckType: 'string',
-      ownerAccount: 'string',
-      VServerGroupId: 'string',
-      masterSlaveServerGroupId: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      description: 'string',
       connectionDrain: 'string',
       connectionDrainTimeout: 'number',
+      description: 'string',
+      establishedTimeout: 'number',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckType: 'string',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      persistenceTimeout: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scheduler: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
+      healthCheckInterval: 'number',
     };
   }
 
@@ -1241,82 +1242,82 @@ export class CreateLoadBalancerTCPListenerResponse extends $tea.Model {
 }
 
 export class CreateLoadBalancerUDPListenerRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
   backendServerPort?: number;
   bandwidth?: number;
-  scheduler?: string;
-  healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  healthCheckConnectTimeout?: number;
+  description?: string;
   healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scheduler?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
+  healthCheckExp?: string;
   healthCheckInterval?: number;
   healthCheckReq?: string;
-  healthCheckExp?: string;
-  ownerAccount?: string;
-  VServerGroupId?: string;
-  masterSlaveServerGroupId?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  description?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
       backendServerPort: 'BackendServerPort',
       bandwidth: 'Bandwidth',
-      scheduler: 'Scheduler',
-      healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      description: 'Description',
       healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scheduler: 'Scheduler',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
+      healthCheckExp: 'healthCheckExp',
       healthCheckInterval: 'healthCheckInterval',
       healthCheckReq: 'healthCheckReq',
-      healthCheckExp: 'healthCheckExp',
-      ownerAccount: 'OwnerAccount',
-      VServerGroupId: 'VServerGroupId',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
       backendServerPort: 'number',
       bandwidth: 'number',
-      scheduler: 'string',
-      healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      healthCheckConnectTimeout: 'number',
+      description: 'string',
       healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scheduler: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
+      healthCheckExp: 'string',
       healthCheckInterval: 'number',
       healthCheckReq: 'string',
-      healthCheckExp: 'string',
-      ownerAccount: 'string',
-      VServerGroupId: 'string',
-      masterSlaveServerGroupId: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      description: 'string',
     };
   }
 
@@ -1367,37 +1368,37 @@ export class CreateLoadBalancerUDPListenerResponse extends $tea.Model {
 }
 
 export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
+  loadBalancerId?: string;
+  masterSlaveBackendServers?: string;
+  masterSlaveServerGroupName?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  masterSlaveServerGroupName?: string;
-  masterSlaveBackendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      loadBalancerId: 'LoadBalancerId',
+      masterSlaveBackendServers: 'MasterSlaveBackendServers',
+      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
-      masterSlaveBackendServers: 'MasterSlaveBackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      loadBalancerId: 'string',
+      masterSlaveBackendServers: 'string',
+      masterSlaveServerGroupName: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      masterSlaveServerGroupName: 'string',
-      masterSlaveBackendServers: 'string',
     };
   }
 
@@ -1407,22 +1408,22 @@ export class CreateMasterSlaveServerGroupRequest extends $tea.Model {
 }
 
 export class CreateMasterSlaveServerGroupResponseBody extends $tea.Model {
+  masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers;
   masterSlaveServerGroupId?: string;
   requestId?: string;
-  masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers;
   static names(): { [key: string]: string } {
     return {
+      masterSlaveBackendServers: 'MasterSlaveBackendServers',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       requestId: 'RequestId',
-      masterSlaveBackendServers: 'MasterSlaveBackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      masterSlaveBackendServers: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers,
       masterSlaveServerGroupId: 'string',
       requestId: 'string',
-      masterSlaveBackendServers: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers,
     };
   }
 
@@ -1454,39 +1455,39 @@ export class CreateMasterSlaveServerGroupResponse extends $tea.Model {
 }
 
 export class CreateRulesRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
   listenerPort?: number;
   listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   ruleList?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
       ruleList: 'RuleList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
       listenerPort: 'number',
       listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
       ruleList: 'string',
     };
   }
@@ -1541,39 +1542,36 @@ export class CreateRulesResponse extends $tea.Model {
 }
 
 export class CreateTLSCipherPolicyRequest extends $tea.Model {
+  ciphers?: string[];
+  name?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  accessKeyId?: string;
-  name?: string;
-  ciphers?: string[];
   TLSVersions?: string[];
   static names(): { [key: string]: string } {
     return {
+      ciphers: 'Ciphers',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      name: 'Name',
-      ciphers: 'Ciphers',
       TLSVersions: 'TLSVersions',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ciphers: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      accessKeyId: 'string',
-      name: 'string',
-      ciphers: { 'type': 'array', 'itemType': 'string' },
       TLSVersions: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -1584,19 +1582,19 @@ export class CreateTLSCipherPolicyRequest extends $tea.Model {
 }
 
 export class CreateTLSCipherPolicyResponseBody extends $tea.Model {
-  TLSCipherPolicyId?: string;
   requestId?: string;
+  TLSCipherPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
-      TLSCipherPolicyId: 'TLSCipherPolicyId',
       requestId: 'RequestId',
+      TLSCipherPolicyId: 'TLSCipherPolicyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      TLSCipherPolicyId: 'string',
       requestId: 'string',
+      TLSCipherPolicyId: 'string',
     };
   }
 
@@ -1628,37 +1626,37 @@ export class CreateTLSCipherPolicyResponse extends $tea.Model {
 }
 
 export class CreateVServerGroupRequest extends $tea.Model {
+  backendServers?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
   VServerGroupName?: string;
-  backendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
       VServerGroupName: 'VServerGroupName',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
       VServerGroupName: 'string',
-      backendServers: 'string',
     };
   }
 
@@ -1668,22 +1666,22 @@ export class CreateVServerGroupRequest extends $tea.Model {
 }
 
 export class CreateVServerGroupResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  requestId?: string;
   backendServers?: CreateVServerGroupResponseBodyBackendServers;
+  requestId?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       backendServers: 'BackendServers',
+      requestId: 'RequestId',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      requestId: 'string',
       backendServers: CreateVServerGroupResponseBodyBackendServers,
+      requestId: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -1715,31 +1713,31 @@ export class CreateVServerGroupResponse extends $tea.Model {
 }
 
 export class DeleteAccessControlListRequest extends $tea.Model {
+  aclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  aclId?: string;
   static names(): { [key: string]: string } {
     return {
+      aclId: 'AclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      aclId: 'AclId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      aclId: 'string',
     };
   }
 
@@ -1790,31 +1788,31 @@ export class DeleteAccessControlListResponse extends $tea.Model {
 }
 
 export class DeleteCACertificateRequest extends $tea.Model {
+  CACertificateId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  CACertificateId?: string;
   static names(): { [key: string]: string } {
     return {
+      CACertificateId: 'CACertificateId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      CACertificateId: 'CACertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      CACertificateId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      CACertificateId: 'string',
     };
   }
 
@@ -1865,31 +1863,31 @@ export class DeleteCACertificateResponse extends $tea.Model {
 }
 
 export class DeleteDomainExtensionRequest extends $tea.Model {
+  domainExtensionId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainExtensionId: 'DomainExtensionId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainExtensionId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      domainExtensionId: 'string',
     };
   }
 
@@ -1940,31 +1938,31 @@ export class DeleteDomainExtensionResponse extends $tea.Model {
 }
 
 export class DeleteLoadBalancerRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   loadBalancerId?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       loadBalancerId: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -2015,37 +2013,37 @@ export class DeleteLoadBalancerResponse extends $tea.Model {
 }
 
 export class DeleteLoadBalancerListenerRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
   listenerPort?: number;
   listenerProtocol?: string;
+  loadBalancerId?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
       listenerPort: 'number',
       listenerProtocol: 'string',
+      loadBalancerId: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -2096,31 +2094,31 @@ export class DeleteLoadBalancerListenerResponse extends $tea.Model {
 }
 
 export class DeleteMasterSlaveServerGroupRequest extends $tea.Model {
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  masterSlaveServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      masterSlaveServerGroupId: 'string',
     };
   }
 
@@ -2171,30 +2169,30 @@ export class DeleteMasterSlaveServerGroupResponse extends $tea.Model {
 }
 
 export class DeleteRulesRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   ruleIds?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       ruleIds: 'RuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       ruleIds: 'string',
     };
   }
@@ -2246,31 +2244,31 @@ export class DeleteRulesResponse extends $tea.Model {
 }
 
 export class DeleteServerCertificateRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
   serverCertificateId?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
       serverCertificateId: 'ServerCertificateId',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
       serverCertificateId: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -2321,33 +2319,30 @@ export class DeleteServerCertificateResponse extends $tea.Model {
 }
 
 export class DeleteTLSCipherPolicyRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  accessKeyId?: string;
   TLSCipherPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       TLSCipherPolicyId: 'TLSCipherPolicyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      accessKeyId: 'string',
       TLSCipherPolicyId: 'string',
     };
   }
@@ -2399,30 +2394,30 @@ export class DeleteTLSCipherPolicyResponse extends $tea.Model {
 }
 
 export class DeleteVServerGroupRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
     };
   }
@@ -2474,34 +2469,34 @@ export class DeleteVServerGroupResponse extends $tea.Model {
 }
 
 export class DescribeAccessControlListAttributeRequest extends $tea.Model {
+  aclEntryComment?: string;
+  aclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  aclId?: string;
-  aclEntryComment?: string;
   static names(): { [key: string]: string } {
     return {
+      aclEntryComment: 'AclEntryComment',
+      aclId: 'AclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      aclId: 'AclId',
-      aclEntryComment: 'AclEntryComment',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclEntryComment: 'string',
+      aclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      aclId: 'string',
-      aclEntryComment: 'string',
     };
   }
 
@@ -2511,34 +2506,34 @@ export class DescribeAccessControlListAttributeRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListAttributeResponseBody extends $tea.Model {
+  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   aclId?: string;
+  aclName?: string;
   addressIPVersion?: string;
+  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   requestId?: string;
   resourceGroupId?: string;
-  aclName?: string;
-  aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
-  relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   static names(): { [key: string]: string } {
     return {
+      aclEntrys: 'AclEntrys',
       aclId: 'AclId',
+      aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
+      relatedListeners: 'RelatedListeners',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
-      aclName: 'AclName',
-      aclEntrys: 'AclEntrys',
-      relatedListeners: 'RelatedListeners',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
       aclId: 'string',
+      aclName: 'string',
       addressIPVersion: 'string',
+      relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
       requestId: 'string',
       resourceGroupId: 'string',
-      aclName: 'string',
-      aclEntrys: DescribeAccessControlListAttributeResponseBodyAclEntrys,
-      relatedListeners: DescribeAccessControlListAttributeResponseBodyRelatedListeners,
     };
   }
 
@@ -2570,43 +2565,43 @@ export class DescribeAccessControlListAttributeResponse extends $tea.Model {
 }
 
 export class DescribeAccessControlListsRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   aclName?: string;
   addressIPVersion?: string;
-  pageSize?: number;
+  ownerAccount?: string;
+  ownerId?: number;
   pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       aclName: 'AclName',
       addressIPVersion: 'AddressIPVersion',
-      pageSize: 'PageSize',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       aclName: 'string',
       addressIPVersion: 'string',
-      pageSize: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
       pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -2616,31 +2611,31 @@ export class DescribeAccessControlListsRequest extends $tea.Model {
 }
 
 export class DescribeAccessControlListsResponseBody extends $tea.Model {
+  acls?: DescribeAccessControlListsResponseBodyAcls;
+  count?: number;
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
   totalCount?: number;
-  count?: number;
-  acls?: DescribeAccessControlListsResponseBodyAcls;
   static names(): { [key: string]: string } {
     return {
+      acls: 'Acls',
+      count: 'Count',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      count: 'Count',
-      acls: 'Acls',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      acls: DescribeAccessControlListsResponseBodyAcls,
+      count: 'number',
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
-      count: 'number',
-      acls: DescribeAccessControlListsResponseBodyAcls,
     };
   }
 
@@ -2672,34 +2667,34 @@ export class DescribeAccessControlListsResponse extends $tea.Model {
 }
 
 export class DescribeAvailableResourceRequest extends $tea.Model {
+  addressIPVersion?: string;
+  addressType?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  addressType?: string;
-  addressIPVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      addressType: 'AddressType',
-      addressIPVersion: 'AddressIPVersion',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      addressIPVersion: 'string',
+      addressType: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      addressType: 'string',
-      addressIPVersion: 'string',
     };
   }
 
@@ -2709,19 +2704,19 @@ export class DescribeAvailableResourceRequest extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBody extends $tea.Model {
-  requestId?: string;
   availableResources?: DescribeAvailableResourceResponseBodyAvailableResources;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       availableResources: 'AvailableResources',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       availableResources: DescribeAvailableResourceResponseBodyAvailableResources,
+      requestId: 'string',
     };
   }
 
@@ -2753,34 +2748,34 @@ export class DescribeAvailableResourceResponse extends $tea.Model {
 }
 
 export class DescribeCACertificatesRequest extends $tea.Model {
+  CACertificateId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  CACertificateId?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      CACertificateId: 'CACertificateId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      CACertificateId: 'CACertificateId',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      CACertificateId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      CACertificateId: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -2790,19 +2785,19 @@ export class DescribeCACertificatesRequest extends $tea.Model {
 }
 
 export class DescribeCACertificatesResponseBody extends $tea.Model {
-  requestId?: string;
   CACertificates?: DescribeCACertificatesResponseBodyCACertificates;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       CACertificates: 'CACertificates',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       CACertificates: DescribeCACertificatesResponseBodyCACertificates,
+      requestId: 'string',
     };
   }
 
@@ -2834,31 +2829,31 @@ export class DescribeCACertificatesResponse extends $tea.Model {
 }
 
 export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
+  domainExtensionId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainExtensionId: 'DomainExtensionId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainExtensionId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      domainExtensionId: 'string',
     };
   }
 
@@ -2869,30 +2864,30 @@ export class DescribeDomainExtensionAttributeRequest extends $tea.Model {
 
 export class DescribeDomainExtensionAttributeResponseBody extends $tea.Model {
   domain?: string;
-  requestId?: string;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  serverCertificateId?: string;
   domainExtensionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  requestId?: string;
+  serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
-      requestId: 'RequestId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      serverCertificateId: 'ServerCertificateId',
       domainExtensionId: 'DomainExtensionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
+      serverCertificateId: 'ServerCertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
-      requestId: 'string',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      serverCertificateId: 'string',
       domainExtensionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      requestId: 'string',
+      serverCertificateId: 'string',
     };
   }
 
@@ -2924,37 +2919,37 @@ export class DescribeDomainExtensionAttributeResponse extends $tea.Model {
 }
 
 export class DescribeDomainExtensionsRequest extends $tea.Model {
+  domainExtensionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  domainExtensionId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainExtensionId: 'DomainExtensionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      domainExtensionId: 'DomainExtensionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainExtensionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      domainExtensionId: 'string',
     };
   }
 
@@ -2964,19 +2959,19 @@ export class DescribeDomainExtensionsRequest extends $tea.Model {
 }
 
 export class DescribeDomainExtensionsResponseBody extends $tea.Model {
-  requestId?: string;
   domainExtensions?: DescribeDomainExtensionsResponseBodyDomainExtensions;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       domainExtensions: 'DomainExtensions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       domainExtensions: DescribeDomainExtensionsResponseBodyDomainExtensions,
+      requestId: 'string',
     };
   }
 
@@ -3008,37 +3003,37 @@ export class DescribeDomainExtensionsResponse extends $tea.Model {
 }
 
 export class DescribeHealthStatusRequest extends $tea.Model {
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
-  listenerProtocol?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
-      regionId: 'string',
     };
   }
 
@@ -3048,19 +3043,19 @@ export class DescribeHealthStatusRequest extends $tea.Model {
 }
 
 export class DescribeHealthStatusResponseBody extends $tea.Model {
-  requestId?: string;
   backendServers?: DescribeHealthStatusResponseBodyBackendServers;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       backendServers: 'BackendServers',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       backendServers: DescribeHealthStatusResponseBodyBackendServers,
+      requestId: 'string',
     };
   }
 
@@ -3092,37 +3087,37 @@ export class DescribeHealthStatusResponse extends $tea.Model {
 }
 
 export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
   listenerPort?: number;
   listenerProtocol?: string;
+  loadBalancerId?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
       listenerPort: 'ListenerPort',
       listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
       listenerPort: 'number',
       listenerProtocol: 'string',
+      loadBalancerId: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -3132,22 +3127,22 @@ export class DescribeListenerAccessControlAttributeRequest extends $tea.Model {
 }
 
 export class DescribeListenerAccessControlAttributeResponseBody extends $tea.Model {
-  sourceItems?: string;
   accessControlStatus?: string;
   requestId?: string;
+  sourceItems?: string;
   static names(): { [key: string]: string } {
     return {
-      sourceItems: 'SourceItems',
       accessControlStatus: 'AccessControlStatus',
       requestId: 'RequestId',
+      sourceItems: 'SourceItems',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sourceItems: 'string',
       accessControlStatus: 'string',
       requestId: 'string',
+      sourceItems: 'string',
     };
   }
 
@@ -3179,31 +3174,31 @@ export class DescribeListenerAccessControlAttributeResponse extends $tea.Model {
 }
 
 export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   loadBalancerId?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       loadBalancerId: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -3213,115 +3208,115 @@ export class DescribeLoadBalancerAttributeRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancerAttributeResponseBody extends $tea.Model {
-  vpcId?: string;
-  createTimeStamp?: number;
-  createTime?: string;
-  loadBalancerId?: string;
-  payType?: string;
-  addressType?: string;
-  networkType?: string;
-  addressIPVersion?: string;
-  renewalCycUnit?: string;
-  requestId?: string;
-  bandwidth?: number;
-  loadBalancerName?: string;
   address?: string;
-  slaveZoneId?: string;
-  endTimeStamp?: number;
-  masterZoneId?: string;
-  loadBalancerSpec?: string;
+  addressIPVersion?: string;
+  addressType?: string;
   autoReleaseTime?: number;
-  modificationProtectionReason?: string;
-  regionId?: string;
-  modificationProtectionStatus?: string;
-  endTime?: string;
-  vSwitchId?: string;
-  loadBalancerStatus?: string;
-  resourceGroupId?: string;
-  internetChargeType?: string;
+  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
+  bandwidth?: number;
+  createTime?: string;
+  createTimeStamp?: number;
   deleteProtection?: string;
-  regionIdAlias?: string;
-  renewalStatus?: string;
-  renewalDuration?: number;
+  endTime?: string;
+  endTimeStamp?: number;
+  internetChargeType?: string;
   listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
   listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
   listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol;
-  backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
+  loadBalancerId?: string;
+  loadBalancerName?: string;
+  loadBalancerSpec?: string;
+  loadBalancerStatus?: string;
+  masterZoneId?: string;
+  modificationProtectionReason?: string;
+  modificationProtectionStatus?: string;
+  networkType?: string;
+  payType?: string;
+  regionId?: string;
+  regionIdAlias?: string;
+  renewalCycUnit?: string;
+  renewalDuration?: number;
+  renewalStatus?: string;
+  requestId?: string;
+  resourceGroupId?: string;
+  slaveZoneId?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
-      createTimeStamp: 'CreateTimeStamp',
-      createTime: 'CreateTime',
-      loadBalancerId: 'LoadBalancerId',
-      payType: 'PayType',
-      addressType: 'AddressType',
-      networkType: 'NetworkType',
-      addressIPVersion: 'AddressIPVersion',
-      renewalCycUnit: 'RenewalCycUnit',
-      requestId: 'RequestId',
-      bandwidth: 'Bandwidth',
-      loadBalancerName: 'LoadBalancerName',
       address: 'Address',
-      slaveZoneId: 'SlaveZoneId',
-      endTimeStamp: 'EndTimeStamp',
-      masterZoneId: 'MasterZoneId',
-      loadBalancerSpec: 'LoadBalancerSpec',
+      addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
       autoReleaseTime: 'AutoReleaseTime',
-      modificationProtectionReason: 'ModificationProtectionReason',
-      regionId: 'RegionId',
-      modificationProtectionStatus: 'ModificationProtectionStatus',
-      endTime: 'EndTime',
-      vSwitchId: 'VSwitchId',
-      loadBalancerStatus: 'LoadBalancerStatus',
-      resourceGroupId: 'ResourceGroupId',
-      internetChargeType: 'InternetChargeType',
+      backendServers: 'BackendServers',
+      bandwidth: 'Bandwidth',
+      createTime: 'CreateTime',
+      createTimeStamp: 'CreateTimeStamp',
       deleteProtection: 'DeleteProtection',
-      regionIdAlias: 'RegionIdAlias',
-      renewalStatus: 'RenewalStatus',
-      renewalDuration: 'RenewalDuration',
+      endTime: 'EndTime',
+      endTimeStamp: 'EndTimeStamp',
+      internetChargeType: 'InternetChargeType',
       listenerPorts: 'ListenerPorts',
       listenerPortsAndProtocal: 'ListenerPortsAndProtocal',
       listenerPortsAndProtocol: 'ListenerPortsAndProtocol',
-      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      loadBalancerStatus: 'LoadBalancerStatus',
+      masterZoneId: 'MasterZoneId',
+      modificationProtectionReason: 'ModificationProtectionReason',
+      modificationProtectionStatus: 'ModificationProtectionStatus',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      regionId: 'RegionId',
+      regionIdAlias: 'RegionIdAlias',
+      renewalCycUnit: 'RenewalCycUnit',
+      renewalDuration: 'RenewalDuration',
+      renewalStatus: 'RenewalStatus',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      slaveZoneId: 'SlaveZoneId',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
-      createTimeStamp: 'number',
-      createTime: 'string',
-      loadBalancerId: 'string',
-      payType: 'string',
-      addressType: 'string',
-      networkType: 'string',
-      addressIPVersion: 'string',
-      renewalCycUnit: 'string',
-      requestId: 'string',
-      bandwidth: 'number',
-      loadBalancerName: 'string',
       address: 'string',
-      slaveZoneId: 'string',
-      endTimeStamp: 'number',
-      masterZoneId: 'string',
-      loadBalancerSpec: 'string',
+      addressIPVersion: 'string',
+      addressType: 'string',
       autoReleaseTime: 'number',
-      modificationProtectionReason: 'string',
-      regionId: 'string',
-      modificationProtectionStatus: 'string',
-      endTime: 'string',
-      vSwitchId: 'string',
-      loadBalancerStatus: 'string',
-      resourceGroupId: 'string',
-      internetChargeType: 'string',
+      backendServers: DescribeLoadBalancerAttributeResponseBodyBackendServers,
+      bandwidth: 'number',
+      createTime: 'string',
+      createTimeStamp: 'number',
       deleteProtection: 'string',
-      regionIdAlias: 'string',
-      renewalStatus: 'string',
-      renewalDuration: 'number',
+      endTime: 'string',
+      endTimeStamp: 'number',
+      internetChargeType: 'string',
       listenerPorts: DescribeLoadBalancerAttributeResponseBodyListenerPorts,
       listenerPortsAndProtocal: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal,
       listenerPortsAndProtocol: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol,
-      backendServers: DescribeLoadBalancerAttributeResponseBodyBackendServers,
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
+      loadBalancerSpec: 'string',
+      loadBalancerStatus: 'string',
+      masterZoneId: 'string',
+      modificationProtectionReason: 'string',
+      modificationProtectionStatus: 'string',
+      networkType: 'string',
+      payType: 'string',
+      regionId: 'string',
+      regionIdAlias: 'string',
+      renewalCycUnit: 'string',
+      renewalDuration: 'number',
+      renewalStatus: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      slaveZoneId: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -3353,34 +3348,34 @@ export class DescribeLoadBalancerAttributeResponse extends $tea.Model {
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
     };
   }
 
@@ -3390,121 +3385,121 @@ export class DescribeLoadBalancerHTTPListenerAttributeRequest extends $tea.Model
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $tea.Model {
-  aclType?: string;
-  VServerGroupId?: string;
-  status?: string;
-  cookie?: string;
-  gzip?: string;
-  healthCheckConnectPort?: number;
-  requestId?: string;
-  description?: string;
-  bandwidth?: number;
-  healthCheckTimeout?: number;
-  aclStatus?: string;
-  backendServerPort?: number;
-  cookieTimeout?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  forwardPort?: number;
-  XForwardedFor_SLBID?: string;
-  securityStatus?: string;
-  healthCheckHttpCode?: string;
-  listenerForward?: string;
-  XForwardedFor?: string;
-  idleTimeout?: number;
-  requestTimeout?: number;
-  listenerPort?: number;
-  healthCheckInterval?: number;
-  healthCheckURI?: string;
-  stickySessionType?: string;
   aclId?: string;
-  scheduler?: string;
-  healthyThreshold?: number;
-  XForwardedFor_proto?: string;
-  XForwardedFor_SLBIP?: string;
-  stickySession?: string;
-  healthCheckMethod?: string;
+  aclStatus?: string;
+  aclType?: string;
+  backendServerPort?: number;
+  bandwidth?: number;
+  cookie?: string;
+  cookieTimeout?: number;
+  description?: string;
+  forwardPort?: number;
+  gzip?: string;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  idleTimeout?: number;
+  listenerForward?: string;
+  listenerPort?: number;
+  requestId?: string;
+  requestTimeout?: number;
   rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
+  scheduler?: string;
+  securityStatus?: string;
+  status?: string;
+  stickySession?: string;
+  stickySessionType?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
+  XForwardedFor?: string;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
+  XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
-      aclType: 'AclType',
-      VServerGroupId: 'VServerGroupId',
-      status: 'Status',
-      cookie: 'Cookie',
-      gzip: 'Gzip',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      requestId: 'RequestId',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      aclStatus: 'AclStatus',
-      backendServerPort: 'BackendServerPort',
-      cookieTimeout: 'CookieTimeout',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      forwardPort: 'ForwardPort',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      securityStatus: 'SecurityStatus',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      listenerForward: 'ListenerForward',
-      XForwardedFor: 'XForwardedFor',
-      idleTimeout: 'IdleTimeout',
-      requestTimeout: 'RequestTimeout',
-      listenerPort: 'ListenerPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckURI: 'HealthCheckURI',
-      stickySessionType: 'StickySessionType',
       aclId: 'AclId',
-      scheduler: 'Scheduler',
-      healthyThreshold: 'HealthyThreshold',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      stickySession: 'StickySession',
-      healthCheckMethod: 'HealthCheckMethod',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      backendServerPort: 'BackendServerPort',
+      bandwidth: 'Bandwidth',
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      forwardPort: 'ForwardPort',
+      gzip: 'Gzip',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      idleTimeout: 'IdleTimeout',
+      listenerForward: 'ListenerForward',
+      listenerPort: 'ListenerPort',
+      requestId: 'RequestId',
+      requestTimeout: 'RequestTimeout',
       rules: 'Rules',
+      scheduler: 'Scheduler',
+      securityStatus: 'SecurityStatus',
+      status: 'Status',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclType: 'string',
-      VServerGroupId: 'string',
-      status: 'string',
-      cookie: 'string',
-      gzip: 'string',
-      healthCheckConnectPort: 'number',
-      requestId: 'string',
-      description: 'string',
-      bandwidth: 'number',
-      healthCheckTimeout: 'number',
-      aclStatus: 'string',
-      backendServerPort: 'number',
-      cookieTimeout: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      forwardPort: 'number',
-      XForwardedFor_SLBID: 'string',
-      securityStatus: 'string',
-      healthCheckHttpCode: 'string',
-      listenerForward: 'string',
-      XForwardedFor: 'string',
-      idleTimeout: 'number',
-      requestTimeout: 'number',
-      listenerPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckURI: 'string',
-      stickySessionType: 'string',
       aclId: 'string',
-      scheduler: 'string',
-      healthyThreshold: 'number',
-      XForwardedFor_proto: 'string',
-      XForwardedFor_SLBIP: 'string',
-      stickySession: 'string',
-      healthCheckMethod: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      backendServerPort: 'number',
+      bandwidth: 'number',
+      cookie: 'string',
+      cookieTimeout: 'number',
+      description: 'string',
+      forwardPort: 'number',
+      gzip: 'string',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      idleTimeout: 'number',
+      listenerForward: 'string',
+      listenerPort: 'number',
+      requestId: 'string',
+      requestTimeout: 'number',
       rules: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules,
+      scheduler: 'string',
+      securityStatus: 'string',
+      status: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
+      XForwardedFor: 'string',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
+      XForwardedFor_proto: 'string',
     };
   }
 
@@ -3536,34 +3531,34 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponse extends $tea.Mode
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
     };
   }
 
@@ -3573,148 +3568,148 @@ export class DescribeLoadBalancerHTTPSListenerAttributeRequest extends $tea.Mode
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $tea.Model {
+  aclId?: string;
+  aclStatus?: string;
   aclType?: string;
-  XForwardedFor_ClientCertClientVerify?: string;
-  CACertificateId?: string;
-  requestId?: string;
-  healthCheckConnectPort?: number;
   backendServerPort?: number;
+  bandwidth?: number;
+  CACertificateId?: string;
+  cookie?: string;
   cookieTimeout?: number;
+  description?: string;
+  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
+  enableHttp2?: string;
+  gzip?: string;
+  healthCheck?: string;
+  healthCheckConnectPort?: number;
   healthCheckDomain?: string;
-  XForwardedFor?: string;
-  XForwardedFor_ClientCertFingerprint?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
   idleTimeout?: number;
   listenerPort?: number;
-  healthCheckURI?: string;
-  XForwardedFor_SLBPORT?: string;
-  stickySessionType?: string;
-  scheduler?: string;
-  XForwardedFor_proto?: string;
-  healthCheckMethod?: string;
-  TLSCipherPolicy?: string;
-  status?: string;
-  VServerGroupId?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  cookie?: string;
-  gzip?: string;
-  enableHttp2?: string;
-  bandwidth?: number;
-  description?: string;
-  healthCheckTimeout?: number;
-  aclStatus?: string;
-  unhealthyThreshold?: number;
-  XForwardedFor_SLBID?: string;
-  XForwardedFor_ClientCertSubjectDN?: string;
-  securityStatus?: string;
-  healthCheckHttpCode?: string;
+  requestId?: string;
   requestTimeout?: number;
-  healthCheckInterval?: number;
-  serverCertificateId?: string;
-  aclId?: string;
-  XForwardedFor_ClientCertIssuerDN?: string;
-  healthyThreshold?: number;
-  XForwardedFor_SLBIP?: string;
-  stickySession?: string;
-  healthCheck?: string;
   rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
-  domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
+  scheduler?: string;
+  securityStatus?: string;
+  serverCertificateId?: string;
+  status?: string;
+  stickySession?: string;
+  stickySessionType?: string;
+  TLSCipherPolicy?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
+  XForwardedFor?: string;
+  XForwardedFor_ClientCertClientVerify?: string;
+  XForwardedFor_ClientCertFingerprint?: string;
+  XForwardedFor_ClientCertIssuerDN?: string;
+  XForwardedFor_ClientCertSubjectDN?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
+  XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
       aclType: 'AclType',
-      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
-      CACertificateId: 'CACertificateId',
-      requestId: 'RequestId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
       backendServerPort: 'BackendServerPort',
+      bandwidth: 'Bandwidth',
+      CACertificateId: 'CACertificateId',
+      cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      domainExtensions: 'DomainExtensions',
+      enableHttp2: 'EnableHttp2',
+      gzip: 'Gzip',
+      healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckDomain: 'HealthCheckDomain',
-      XForwardedFor: 'XForwardedFor',
-      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
       idleTimeout: 'IdleTimeout',
       listenerPort: 'ListenerPort',
-      healthCheckURI: 'HealthCheckURI',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      stickySessionType: 'StickySessionType',
-      scheduler: 'Scheduler',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      healthCheckMethod: 'HealthCheckMethod',
-      TLSCipherPolicy: 'TLSCipherPolicy',
-      status: 'Status',
-      VServerGroupId: 'VServerGroupId',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      cookie: 'Cookie',
-      gzip: 'Gzip',
-      enableHttp2: 'EnableHttp2',
-      bandwidth: 'Bandwidth',
-      description: 'Description',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      aclStatus: 'AclStatus',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
-      securityStatus: 'SecurityStatus',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
+      requestId: 'RequestId',
       requestTimeout: 'RequestTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      serverCertificateId: 'ServerCertificateId',
-      aclId: 'AclId',
-      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
-      healthyThreshold: 'HealthyThreshold',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      stickySession: 'StickySession',
-      healthCheck: 'HealthCheck',
       rules: 'Rules',
-      domainExtensions: 'DomainExtensions',
+      scheduler: 'Scheduler',
+      securityStatus: 'SecurityStatus',
+      serverCertificateId: 'ServerCertificateId',
+      status: 'Status',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      TLSCipherPolicy: 'TLSCipherPolicy',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
+      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
+      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
+      XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclId: 'string',
+      aclStatus: 'string',
       aclType: 'string',
-      XForwardedFor_ClientCertClientVerify: 'string',
-      CACertificateId: 'string',
-      requestId: 'string',
-      healthCheckConnectPort: 'number',
       backendServerPort: 'number',
+      bandwidth: 'number',
+      CACertificateId: 'string',
+      cookie: 'string',
       cookieTimeout: 'number',
+      description: 'string',
+      domainExtensions: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions,
+      enableHttp2: 'string',
+      gzip: 'string',
+      healthCheck: 'string',
+      healthCheckConnectPort: 'number',
       healthCheckDomain: 'string',
-      XForwardedFor: 'string',
-      XForwardedFor_ClientCertFingerprint: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
       idleTimeout: 'number',
       listenerPort: 'number',
-      healthCheckURI: 'string',
-      XForwardedFor_SLBPORT: 'string',
-      stickySessionType: 'string',
-      scheduler: 'string',
-      XForwardedFor_proto: 'string',
-      healthCheckMethod: 'string',
-      TLSCipherPolicy: 'string',
-      status: 'string',
-      VServerGroupId: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      cookie: 'string',
-      gzip: 'string',
-      enableHttp2: 'string',
-      bandwidth: 'number',
-      description: 'string',
-      healthCheckTimeout: 'number',
-      aclStatus: 'string',
-      unhealthyThreshold: 'number',
-      XForwardedFor_SLBID: 'string',
-      XForwardedFor_ClientCertSubjectDN: 'string',
-      securityStatus: 'string',
-      healthCheckHttpCode: 'string',
+      requestId: 'string',
       requestTimeout: 'number',
-      healthCheckInterval: 'number',
-      serverCertificateId: 'string',
-      aclId: 'string',
-      XForwardedFor_ClientCertIssuerDN: 'string',
-      healthyThreshold: 'number',
-      XForwardedFor_SLBIP: 'string',
-      stickySession: 'string',
-      healthCheck: 'string',
       rules: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules,
-      domainExtensions: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions,
+      scheduler: 'string',
+      securityStatus: 'string',
+      serverCertificateId: 'string',
+      status: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
+      TLSCipherPolicy: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
+      XForwardedFor: 'string',
+      XForwardedFor_ClientCertClientVerify: 'string',
+      XForwardedFor_ClientCertFingerprint: 'string',
+      XForwardedFor_ClientCertIssuerDN: 'string',
+      XForwardedFor_ClientCertSubjectDN: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
+      XForwardedFor_proto: 'string',
     };
   }
 
@@ -3746,40 +3741,40 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponse extends $tea.Mod
 }
 
 export class DescribeLoadBalancerListenersRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  nextToken?: string;
-  maxResults?: number;
   listenerProtocol?: string;
   loadBalancerId?: string[];
+  maxResults?: number;
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      nextToken: 'NextToken',
-      maxResults: 'MaxResults',
       listenerProtocol: 'ListenerProtocol',
       loadBalancerId: 'LoadBalancerId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      nextToken: 'string',
-      maxResults: 'number',
       listenerProtocol: 'string',
       loadBalancerId: { 'type': 'array', 'itemType': 'string' },
+      maxResults: 'number',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -3789,28 +3784,28 @@ export class DescribeLoadBalancerListenersRequest extends $tea.Model {
 }
 
 export class DescribeLoadBalancerListenersResponseBody extends $tea.Model {
+  listeners?: DescribeLoadBalancerListenersResponseBodyListeners[];
+  maxResults?: number;
   nextToken?: string;
   requestId?: string;
   totalCount?: number;
-  maxResults?: number;
-  listeners?: DescribeLoadBalancerListenersResponseBodyListeners[];
   static names(): { [key: string]: string } {
     return {
+      listeners: 'Listeners',
+      maxResults: 'MaxResults',
       nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
-      maxResults: 'MaxResults',
-      listeners: 'Listeners',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listeners: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListeners },
+      maxResults: 'number',
       nextToken: 'string',
       requestId: 'string',
       totalCount: 'number',
-      maxResults: 'number',
-      listeners: { 'type': 'array', 'itemType': DescribeLoadBalancerListenersResponseBodyListeners },
     };
   }
 
@@ -3841,176 +3836,35 @@ export class DescribeLoadBalancerListenersResponse extends $tea.Model {
   }
 }
 
-export class DescribeLoadBalancersRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  serverId?: string;
-  addressIPVersion?: string;
-  loadBalancerStatus?: string;
-  loadBalancerId?: string;
-  loadBalancerName?: string;
-  serverIntranetAddress?: string;
-  addressType?: string;
-  internetChargeType?: string;
-  vpcId?: string;
-  vSwitchId?: string;
-  networkType?: string;
-  address?: string;
-  masterZoneId?: string;
-  slaveZoneId?: string;
-  ownerAccount?: string;
-  tags?: string;
-  payType?: string;
-  resourceGroupId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      serverId: 'ServerId',
-      addressIPVersion: 'AddressIPVersion',
-      loadBalancerStatus: 'LoadBalancerStatus',
-      loadBalancerId: 'LoadBalancerId',
-      loadBalancerName: 'LoadBalancerName',
-      serverIntranetAddress: 'ServerIntranetAddress',
-      addressType: 'AddressType',
-      internetChargeType: 'InternetChargeType',
-      vpcId: 'VpcId',
-      vSwitchId: 'VSwitchId',
-      networkType: 'NetworkType',
-      address: 'Address',
-      masterZoneId: 'MasterZoneId',
-      slaveZoneId: 'SlaveZoneId',
-      ownerAccount: 'OwnerAccount',
-      tags: 'Tags',
-      payType: 'PayType',
-      resourceGroupId: 'ResourceGroupId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      serverId: 'string',
-      addressIPVersion: 'string',
-      loadBalancerStatus: 'string',
-      loadBalancerId: 'string',
-      loadBalancerName: 'string',
-      serverIntranetAddress: 'string',
-      addressType: 'string',
-      internetChargeType: 'string',
-      vpcId: 'string',
-      vSwitchId: 'string',
-      networkType: 'string',
-      address: 'string',
-      masterZoneId: 'string',
-      slaveZoneId: 'string',
-      ownerAccount: 'string',
-      tags: 'string',
-      payType: 'string',
-      resourceGroupId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancersResponseBody extends $tea.Model {
-  requestId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      loadBalancers: 'LoadBalancers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      loadBalancers: DescribeLoadBalancersResponseBodyLoadBalancers,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeLoadBalancersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeLoadBalancersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
     };
   }
 
@@ -4020,97 +3874,97 @@ export class DescribeLoadBalancerTCPListenerAttributeRequest extends $tea.Model 
 }
 
 export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  status?: string;
-  aclType?: string;
-  connectionDrainTimeout?: number;
-  requestId?: string;
-  healthCheckConnectPort?: number;
-  description?: string;
-  bandwidth?: number;
-  healthCheckType?: string;
-  masterSlaveServerGroupId?: string;
-  backendServerPort?: number;
-  aclStatus?: string;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  healthCheckHttpCode?: string;
-  persistenceTimeout?: number;
-  listenerPort?: number;
-  healthCheckInterval?: number;
-  healthCheckURI?: string;
   aclId?: string;
-  synProxy?: string;
-  scheduler?: string;
-  establishedTimeout?: number;
-  healthCheckConnectTimeout?: number;
-  healthyThreshold?: number;
+  aclStatus?: string;
+  aclType?: string;
+  backendServerPort?: number;
+  bandwidth?: number;
   connectionDrain?: string;
-  healthCheckMethod?: string;
+  connectionDrainTimeout?: number;
+  description?: string;
+  establishedTimeout?: number;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckType?: string;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  masterSlaveServerGroupId?: string;
+  persistenceTimeout?: number;
+  requestId?: string;
+  scheduler?: string;
+  status?: string;
+  synProxy?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      status: 'Status',
-      aclType: 'AclType',
-      connectionDrainTimeout: 'ConnectionDrainTimeout',
-      requestId: 'RequestId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      healthCheckType: 'HealthCheckType',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      backendServerPort: 'BackendServerPort',
-      aclStatus: 'AclStatus',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      persistenceTimeout: 'PersistenceTimeout',
-      listenerPort: 'ListenerPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckURI: 'HealthCheckURI',
       aclId: 'AclId',
-      synProxy: 'SynProxy',
-      scheduler: 'Scheduler',
-      establishedTimeout: 'EstablishedTimeout',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      healthyThreshold: 'HealthyThreshold',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      backendServerPort: 'BackendServerPort',
+      bandwidth: 'Bandwidth',
       connectionDrain: 'ConnectionDrain',
-      healthCheckMethod: 'HealthCheckMethod',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+      description: 'Description',
+      establishedTimeout: 'EstablishedTimeout',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      persistenceTimeout: 'PersistenceTimeout',
+      requestId: 'RequestId',
+      scheduler: 'Scheduler',
+      status: 'Status',
+      synProxy: 'SynProxy',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      status: 'string',
-      aclType: 'string',
-      connectionDrainTimeout: 'number',
-      requestId: 'string',
-      healthCheckConnectPort: 'number',
-      description: 'string',
-      bandwidth: 'number',
-      healthCheckType: 'string',
-      masterSlaveServerGroupId: 'string',
-      backendServerPort: 'number',
-      aclStatus: 'string',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      healthCheckHttpCode: 'string',
-      persistenceTimeout: 'number',
-      listenerPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckURI: 'string',
       aclId: 'string',
-      synProxy: 'string',
-      scheduler: 'string',
-      establishedTimeout: 'number',
-      healthCheckConnectTimeout: 'number',
-      healthyThreshold: 'number',
+      aclStatus: 'string',
+      aclType: 'string',
+      backendServerPort: 'number',
+      bandwidth: 'number',
       connectionDrain: 'string',
-      healthCheckMethod: 'string',
+      connectionDrainTimeout: 'number',
+      description: 'string',
+      establishedTimeout: 'number',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckType: 'string',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      masterSlaveServerGroupId: 'string',
+      persistenceTimeout: 'number',
+      requestId: 'string',
+      scheduler: 'string',
+      status: 'string',
+      synProxy: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
     };
   }
 
@@ -4142,34 +3996,34 @@ export class DescribeLoadBalancerTCPListenerAttributeResponse extends $tea.Model
 }
 
 export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
     };
   }
 
@@ -4179,73 +4033,73 @@ export class DescribeLoadBalancerUDPListenerAttributeRequest extends $tea.Model 
 }
 
 export class DescribeLoadBalancerUDPListenerAttributeResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  status?: string;
-  aclType?: string;
-  requestId?: string;
-  healthCheckConnectPort?: number;
-  description?: string;
-  bandwidth?: number;
-  masterSlaveServerGroupId?: string;
-  backendServerPort?: number;
-  aclStatus?: string;
-  unhealthyThreshold?: number;
-  listenerPort?: number;
-  healthCheckInterval?: number;
-  healthCheckExp?: string;
   aclId?: string;
-  scheduler?: string;
-  healthCheckConnectTimeout?: number;
-  healthyThreshold?: number;
-  healthCheckReq?: string;
+  aclStatus?: string;
+  aclType?: string;
+  backendServerPort?: number;
+  bandwidth?: number;
+  description?: string;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckExp?: string;
+  healthCheckInterval?: number;
+  healthCheckReq?: string;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  masterSlaveServerGroupId?: string;
+  requestId?: string;
+  scheduler?: string;
+  status?: string;
+  unhealthyThreshold?: number;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      status: 'Status',
-      aclType: 'AclType',
-      requestId: 'RequestId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      description: 'Description',
-      bandwidth: 'Bandwidth',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      backendServerPort: 'BackendServerPort',
-      aclStatus: 'AclStatus',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      listenerPort: 'ListenerPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckExp: 'HealthCheckExp',
       aclId: 'AclId',
-      scheduler: 'Scheduler',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      healthyThreshold: 'HealthyThreshold',
-      healthCheckReq: 'HealthCheckReq',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      backendServerPort: 'BackendServerPort',
+      bandwidth: 'Bandwidth',
+      description: 'Description',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckExp: 'HealthCheckExp',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckReq: 'HealthCheckReq',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      requestId: 'RequestId',
+      scheduler: 'Scheduler',
+      status: 'Status',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      status: 'string',
-      aclType: 'string',
-      requestId: 'string',
-      healthCheckConnectPort: 'number',
-      description: 'string',
-      bandwidth: 'number',
-      masterSlaveServerGroupId: 'string',
-      backendServerPort: 'number',
-      aclStatus: 'string',
-      unhealthyThreshold: 'number',
-      listenerPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckExp: 'string',
       aclId: 'string',
-      scheduler: 'string',
-      healthCheckConnectTimeout: 'number',
-      healthyThreshold: 'number',
-      healthCheckReq: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      backendServerPort: 'number',
+      bandwidth: 'number',
+      description: 'string',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckExp: 'string',
+      healthCheckInterval: 'number',
+      healthCheckReq: 'string',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      masterSlaveServerGroupId: 'string',
+      requestId: 'string',
+      scheduler: 'string',
+      status: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroupId: 'string',
     };
   }
 
@@ -4276,32 +4130,173 @@ export class DescribeLoadBalancerUDPListenerAttributeResponse extends $tea.Model
   }
 }
 
-export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
+export class DescribeLoadBalancersRequest extends $tea.Model {
+  address?: string;
+  addressIPVersion?: string;
+  addressType?: string;
+  internetChargeType?: string;
+  loadBalancerId?: string;
+  loadBalancerName?: string;
+  loadBalancerStatus?: string;
+  masterZoneId?: string;
+  networkType?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  payType?: string;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  masterSlaveServerGroupId?: string;
+  serverId?: string;
+  serverIntranetAddress?: string;
+  slaveZoneId?: string;
+  tags?: string;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      address: 'Address',
+      addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
+      internetChargeType: 'InternetChargeType',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
+      loadBalancerStatus: 'LoadBalancerStatus',
+      masterZoneId: 'MasterZoneId',
+      networkType: 'NetworkType',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      payType: 'PayType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      serverId: 'ServerId',
+      serverIntranetAddress: 'ServerIntranetAddress',
+      slaveZoneId: 'SlaveZoneId',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      address: 'string',
+      addressIPVersion: 'string',
+      addressType: 'string',
+      internetChargeType: 'string',
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
+      loadBalancerStatus: 'string',
+      masterZoneId: 'string',
+      networkType: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      payType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
+      serverId: 'string',
+      serverIntranetAddress: 'string',
+      slaveZoneId: 'string',
+      tags: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancersResponseBody extends $tea.Model {
+  loadBalancers?: DescribeLoadBalancersResponseBodyLoadBalancers;
+  pageNumber?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancers: 'LoadBalancers',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancers: DescribeLoadBalancersResponseBodyLoadBalancers,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeLoadBalancersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeLoadBalancersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -4311,28 +4306,28 @@ export class DescribeMasterSlaveServerGroupAttributeRequest extends $tea.Model {
 }
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $tea.Model {
-  requestId?: string;
   loadBalancerId?: string;
-  masterSlaveServerGroupName?: string;
-  masterSlaveServerGroupId?: string;
   masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers;
+  masterSlaveServerGroupId?: string;
+  masterSlaveServerGroupName?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       loadBalancerId: 'LoadBalancerId',
-      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       masterSlaveBackendServers: 'MasterSlaveBackendServers',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       loadBalancerId: 'string',
-      masterSlaveServerGroupName: 'string',
-      masterSlaveServerGroupId: 'string',
       masterSlaveBackendServers: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers,
+      masterSlaveServerGroupId: 'string',
+      masterSlaveServerGroupName: 'string',
+      requestId: 'string',
     };
   }
 
@@ -4364,34 +4359,34 @@ export class DescribeMasterSlaveServerGroupAttributeResponse extends $tea.Model 
 }
 
 export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
+  includeListener?: boolean;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  includeListener?: boolean;
   static names(): { [key: string]: string } {
     return {
+      includeListener: 'IncludeListener',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      includeListener: 'IncludeListener',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      includeListener: 'boolean',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      includeListener: 'boolean',
     };
   }
 
@@ -4401,19 +4396,19 @@ export class DescribeMasterSlaveServerGroupsRequest extends $tea.Model {
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBody extends $tea.Model {
-  requestId?: string;
   masterSlaveServerGroups?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       masterSlaveServerGroups: 'MasterSlaveServerGroups',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       masterSlaveServerGroups: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups,
+      requestId: 'string',
     };
   }
 
@@ -4446,30 +4441,30 @@ export class DescribeMasterSlaveServerGroupsResponse extends $tea.Model {
 
 export class DescribeRegionsRequest extends $tea.Model {
   acceptLanguage?: string;
-  regionId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
-      regionId: 'RegionId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
-      regionId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
     };
   }
 
@@ -4479,19 +4474,19 @@ export class DescribeRegionsRequest extends $tea.Model {
 }
 
 export class DescribeRegionsResponseBody extends $tea.Model {
-  requestId?: string;
   regions?: DescribeRegionsResponseBodyRegions;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       regions: 'Regions',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       regions: DescribeRegionsResponseBodyRegions,
+      requestId: 'string',
     };
   }
 
@@ -4523,30 +4518,30 @@ export class DescribeRegionsResponse extends $tea.Model {
 }
 
 export class DescribeRuleAttributeRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       ruleId: 'RuleId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       ruleId: 'string',
     };
   }
@@ -4557,82 +4552,82 @@ export class DescribeRuleAttributeRequest extends $tea.Model {
 }
 
 export class DescribeRuleAttributeResponseBody extends $tea.Model {
-  VServerGroupId?: string;
   cookie?: string;
-  loadBalancerId?: string;
-  ruleId?: string;
-  requestId?: string;
-  healthCheckConnectPort?: number;
-  healthCheckTimeout?: number;
   cookieTimeout?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  healthCheckHttpCode?: string;
   domain?: string;
-  listenerPort?: string;
-  url?: string;
-  healthCheckInterval?: number;
-  healthCheckURI?: string;
-  ruleName?: string;
-  stickySessionType?: string;
-  scheduler?: string;
-  listenerSync?: string;
-  healthyThreshold?: number;
-  stickySession?: string;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerPort?: string;
+  listenerSync?: string;
+  loadBalancerId?: string;
+  requestId?: string;
+  ruleId?: string;
+  ruleName?: string;
+  scheduler?: string;
+  stickySession?: string;
+  stickySessionType?: string;
+  unhealthyThreshold?: number;
+  url?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
       cookie: 'Cookie',
-      loadBalancerId: 'LoadBalancerId',
-      ruleId: 'RuleId',
-      requestId: 'RequestId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckTimeout: 'HealthCheckTimeout',
       cookieTimeout: 'CookieTimeout',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
       domain: 'Domain',
-      listenerPort: 'ListenerPort',
-      url: 'Url',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckURI: 'HealthCheckURI',
-      ruleName: 'RuleName',
-      stickySessionType: 'StickySessionType',
-      scheduler: 'Scheduler',
-      listenerSync: 'ListenerSync',
-      healthyThreshold: 'HealthyThreshold',
-      stickySession: 'StickySession',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      listenerSync: 'ListenerSync',
+      loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      scheduler: 'Scheduler',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      url: 'Url',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
       cookie: 'string',
-      loadBalancerId: 'string',
-      ruleId: 'string',
-      requestId: 'string',
-      healthCheckConnectPort: 'number',
-      healthCheckTimeout: 'number',
       cookieTimeout: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      healthCheckHttpCode: 'string',
       domain: 'string',
-      listenerPort: 'string',
-      url: 'string',
-      healthCheckInterval: 'number',
-      healthCheckURI: 'string',
-      ruleName: 'string',
-      stickySessionType: 'string',
-      scheduler: 'string',
-      listenerSync: 'string',
-      healthyThreshold: 'number',
-      stickySession: 'string',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerPort: 'string',
+      listenerSync: 'string',
+      loadBalancerId: 'string',
+      requestId: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      scheduler: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
+      unhealthyThreshold: 'number',
+      url: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -4664,37 +4659,37 @@ export class DescribeRuleAttributeResponse extends $tea.Model {
 }
 
 export class DescribeRulesRequest extends $tea.Model {
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  listenerProtocol?: string;
-  listenerPort?: number;
   static names(): { [key: string]: string } {
     return {
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      listenerProtocol: 'ListenerProtocol',
-      listenerPort: 'ListenerPort',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      listenerProtocol: 'string',
-      listenerPort: 'number',
     };
   }
 
@@ -4748,34 +4743,34 @@ export class DescribeRulesResponse extends $tea.Model {
 }
 
 export class DescribeServerCertificatesRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
   serverCertificateId?: string;
-  ownerAccount?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
       serverCertificateId: 'ServerCertificateId',
-      ownerAccount: 'OwnerAccount',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
       serverCertificateId: 'string',
-      ownerAccount: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -4829,43 +4824,43 @@ export class DescribeServerCertificatesResponse extends $tea.Model {
 }
 
 export class DescribeTagsRequest extends $tea.Model {
+  distinctKey?: boolean;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  loadBalancerId?: string;
   tags?: string;
-  distinctKey?: boolean;
-  pageSize?: number;
-  pageNumber?: number;
   static names(): { [key: string]: string } {
     return {
+      distinctKey: 'DistinctKey',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
-      distinctKey: 'DistinctKey',
-      pageSize: 'PageSize',
-      pageNumber: 'PageNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      distinctKey: 'boolean',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      loadBalancerId: 'string',
       tags: 'string',
-      distinctKey: 'boolean',
-      pageSize: 'number',
-      pageNumber: 'number',
     };
   }
 
@@ -4875,28 +4870,28 @@ export class DescribeTagsRequest extends $tea.Model {
 }
 
 export class DescribeTagsResponseBody extends $tea.Model {
-  requestId?: string;
-  pageSize?: number;
   pageNumber?: number;
-  totalCount?: number;
+  pageSize?: number;
+  requestId?: string;
   tagSets?: DescribeTagsResponseBodyTagSets;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
-      pageSize: 'PageSize',
       pageNumber: 'PageNumber',
-      totalCount: 'TotalCount',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
       tagSets: 'TagSets',
+      totalCount: 'TotalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
-      pageSize: 'number',
       pageNumber: 'number',
-      totalCount: 'number',
+      pageSize: 'number',
+      requestId: 'string',
       tagSets: DescribeTagsResponseBodyTagSets,
+      totalCount: 'number',
     };
   }
 
@@ -4928,30 +4923,30 @@ export class DescribeTagsResponse extends $tea.Model {
 }
 
 export class DescribeVServerGroupAttributeRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
     };
   }
@@ -4962,28 +4957,28 @@ export class DescribeVServerGroupAttributeRequest extends $tea.Model {
 }
 
 export class DescribeVServerGroupAttributeResponseBody extends $tea.Model {
+  backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
+  loadBalancerId?: string;
+  requestId?: string;
   VServerGroupId?: string;
   VServerGroupName?: string;
-  requestId?: string;
-  loadBalancerId?: string;
-  backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      requestId: 'RequestId',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
-      requestId: 'RequestId',
-      loadBalancerId: 'LoadBalancerId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: DescribeVServerGroupAttributeResponseBodyBackendServers,
+      loadBalancerId: 'string',
+      requestId: 'string',
       VServerGroupId: 'string',
       VServerGroupName: 'string',
-      requestId: 'string',
-      loadBalancerId: 'string',
-      backendServers: DescribeVServerGroupAttributeResponseBodyBackendServers,
     };
   }
 
@@ -5015,37 +5010,37 @@ export class DescribeVServerGroupAttributeResponse extends $tea.Model {
 }
 
 export class DescribeVServerGroupsRequest extends $tea.Model {
+  includeListener?: boolean;
+  includeRule?: boolean;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  loadBalancerId?: string;
-  includeRule?: boolean;
-  includeListener?: boolean;
   static names(): { [key: string]: string } {
     return {
+      includeListener: 'IncludeListener',
+      includeRule: 'IncludeRule',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerId: 'LoadBalancerId',
-      includeRule: 'IncludeRule',
-      includeListener: 'IncludeListener',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      includeListener: 'boolean',
+      includeRule: 'boolean',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      loadBalancerId: 'string',
-      includeRule: 'boolean',
-      includeListener: 'boolean',
     };
   }
 
@@ -5099,28 +5094,28 @@ export class DescribeVServerGroupsResponse extends $tea.Model {
 }
 
 export class DescribeZonesRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
     };
   }
 
@@ -5173,40 +5168,139 @@ export class DescribeZonesResponse extends $tea.Model {
   }
 }
 
-export class ListTagResourcesRequest extends $tea.Model {
+export class ListTLSCipherPoliciesRequest extends $tea.Model {
+  includeListener?: boolean;
+  maxItems?: number;
+  name?: string;
+  nextToken?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  resourceType?: string;
+  TLSCipherPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeListener: 'IncludeListener',
+      maxItems: 'MaxItems',
+      name: 'Name',
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      TLSCipherPolicyId: 'TLSCipherPolicyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeListener: 'boolean',
+      maxItems: 'number',
+      name: 'string',
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      TLSCipherPolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTLSCipherPoliciesResponseBody extends $tea.Model {
+  isTruncated?: boolean;
   nextToken?: string;
+  requestId?: string;
+  TLSCipherPolicies?: ListTLSCipherPoliciesResponseBodyTLSCipherPolicies[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isTruncated: 'IsTruncated',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      TLSCipherPolicies: 'TLSCipherPolicies',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isTruncated: 'boolean',
+      nextToken: 'string',
+      requestId: 'string',
+      TLSCipherPolicies: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPolicies },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTLSCipherPoliciesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListTLSCipherPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListTLSCipherPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
   resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  resourceType?: string;
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       resourceType: 'ResourceType',
-      nextToken: 'NextToken',
-      resourceId: 'ResourceId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       resourceType: 'string',
-      nextToken: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
     };
   }
@@ -5263,140 +5357,38 @@ export class ListTagResourcesResponse extends $tea.Model {
   }
 }
 
-export class ListTLSCipherPoliciesRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  accessKeyId?: string;
-  TLSCipherPolicyId?: string;
-  name?: string;
-  includeListener?: boolean;
-  nextToken?: string;
-  maxItems?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
-      TLSCipherPolicyId: 'TLSCipherPolicyId',
-      name: 'Name',
-      includeListener: 'IncludeListener',
-      nextToken: 'NextToken',
-      maxItems: 'MaxItems',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      accessKeyId: 'string',
-      TLSCipherPolicyId: 'string',
-      name: 'string',
-      includeListener: 'boolean',
-      nextToken: 'string',
-      maxItems: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTLSCipherPoliciesResponseBody extends $tea.Model {
-  nextToken?: string;
-  requestId?: string;
-  totalCount?: number;
-  isTruncated?: boolean;
-  TLSCipherPolicies?: ListTLSCipherPoliciesResponseBodyTLSCipherPolicies[];
-  static names(): { [key: string]: string } {
-    return {
-      nextToken: 'NextToken',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      isTruncated: 'IsTruncated',
-      TLSCipherPolicies: 'TLSCipherPolicies',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nextToken: 'string',
-      requestId: 'string',
-      totalCount: 'number',
-      isTruncated: 'boolean',
-      TLSCipherPolicies: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPolicies },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTLSCipherPoliciesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTLSCipherPoliciesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTLSCipherPoliciesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyLoadBalancerInstanceSpecRequest extends $tea.Model {
-  regionId?: string;
+  autoPay?: boolean;
+  loadBalancerId?: string;
+  loadBalancerSpec?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  ownerAccount?: string;
-  loadBalancerSpec?: string;
-  autoPay?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      autoPay: 'AutoPay',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerSpec: 'LoadBalancerSpec',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      ownerAccount: 'OwnerAccount',
-      loadBalancerSpec: 'LoadBalancerSpec',
-      autoPay: 'AutoPay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      autoPay: 'boolean',
+      loadBalancerId: 'string',
+      loadBalancerSpec: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      ownerAccount: 'string',
-      loadBalancerSpec: 'string',
-      autoPay: 'boolean',
     };
   }
 
@@ -5450,40 +5442,40 @@ export class ModifyLoadBalancerInstanceSpecResponse extends $tea.Model {
 }
 
 export class ModifyLoadBalancerInternetSpecRequest extends $tea.Model {
-  regionId?: string;
+  autoPay?: boolean;
+  bandwidth?: number;
+  internetChargeType?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  internetChargeType?: string;
-  bandwidth?: number;
-  ownerAccount?: string;
-  autoPay?: boolean;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      autoPay: 'AutoPay',
+      bandwidth: 'Bandwidth',
+      internetChargeType: 'InternetChargeType',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      internetChargeType: 'InternetChargeType',
-      bandwidth: 'Bandwidth',
-      ownerAccount: 'OwnerAccount',
-      autoPay: 'AutoPay',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      autoPay: 'boolean',
+      bandwidth: 'number',
+      internetChargeType: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      internetChargeType: 'string',
-      bandwidth: 'number',
-      ownerAccount: 'string',
-      autoPay: 'boolean',
     };
   }
 
@@ -5537,43 +5529,43 @@ export class ModifyLoadBalancerInternetSpecResponse extends $tea.Model {
 }
 
 export class ModifyLoadBalancerPayTypeRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
+  autoPay?: boolean;
+  duration?: number;
   loadBalancerId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
   payType?: string;
   pricingCycle?: string;
-  duration?: number;
-  autoPay?: boolean;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
+      autoPay: 'AutoPay',
+      duration: 'Duration',
       loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
       payType: 'PayType',
       pricingCycle: 'PricingCycle',
-      duration: 'Duration',
-      autoPay: 'AutoPay',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
+      autoPay: 'boolean',
+      duration: 'number',
       loadBalancerId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
       payType: 'string',
       pricingCycle: 'string',
-      duration: 'number',
-      autoPay: 'boolean',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -5627,37 +5619,37 @@ export class ModifyLoadBalancerPayTypeResponse extends $tea.Model {
 }
 
 export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
+  newBackendServers?: string;
+  oldBackendServers?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
-  oldBackendServers?: string;
-  newBackendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      newBackendServers: 'NewBackendServers',
+      oldBackendServers: 'OldBackendServers',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
-      oldBackendServers: 'OldBackendServers',
-      newBackendServers: 'NewBackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      newBackendServers: 'string',
+      oldBackendServers: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
-      oldBackendServers: 'string',
-      newBackendServers: 'string',
     };
   }
 
@@ -5667,22 +5659,22 @@ export class ModifyVServerGroupBackendServersRequest extends $tea.Model {
 }
 
 export class ModifyVServerGroupBackendServersResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  requestId?: string;
   backendServers?: ModifyVServerGroupBackendServersResponseBodyBackendServers;
+  requestId?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       backendServers: 'BackendServers',
+      requestId: 'RequestId',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      requestId: 'string',
       backendServers: ModifyVServerGroupBackendServersResponseBodyBackendServers,
+      requestId: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -5714,34 +5706,34 @@ export class ModifyVServerGroupBackendServersResponse extends $tea.Model {
 }
 
 export class RemoveAccessControlListEntryRequest extends $tea.Model {
+  aclEntrys?: string;
+  aclId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  aclId?: string;
-  aclEntrys?: string;
   static names(): { [key: string]: string } {
     return {
+      aclEntrys: 'AclEntrys',
+      aclId: 'AclId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      aclId: 'AclId',
-      aclEntrys: 'AclEntrys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aclEntrys: 'string',
+      aclId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      aclId: 'string',
-      aclEntrys: 'string',
     };
   }
 
@@ -5792,34 +5784,34 @@ export class RemoveAccessControlListEntryResponse extends $tea.Model {
 }
 
 export class RemoveBackendServersRequest extends $tea.Model {
-  regionId?: string;
+  backendServers?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  backendServers?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      backendServers: 'BackendServers',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      backendServers: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      backendServers: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -5829,22 +5821,22 @@ export class RemoveBackendServersRequest extends $tea.Model {
 }
 
 export class RemoveBackendServersResponseBody extends $tea.Model {
+  backendServers?: RemoveBackendServersResponseBodyBackendServers;
   loadBalancerId?: string;
   requestId?: string;
-  backendServers?: RemoveBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
       loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: RemoveBackendServersResponseBodyBackendServers,
       loadBalancerId: 'string',
       requestId: 'string',
-      backendServers: RemoveBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -5876,40 +5868,40 @@ export class RemoveBackendServersResponse extends $tea.Model {
 }
 
 export class RemoveListenerWhiteListItemRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
   sourceItems?: string;
-  ownerAccount?: string;
-  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
       sourceItems: 'SourceItems',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
       sourceItems: 'string',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
     };
   }
 
@@ -5960,33 +5952,33 @@ export class RemoveListenerWhiteListItemResponse extends $tea.Model {
 }
 
 export class RemoveTagsRequest extends $tea.Model {
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
-  loadBalancerId?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
-      loadBalancerId: 'LoadBalancerId',
       tags: 'Tags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
-      loadBalancerId: 'string',
       tags: 'string',
     };
   }
@@ -6038,34 +6030,34 @@ export class RemoveTagsResponse extends $tea.Model {
 }
 
 export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
+  backendServers?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
-  backendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
-      backendServers: 'string',
     };
   }
 
@@ -6075,22 +6067,22 @@ export class RemoveVServerGroupBackendServersRequest extends $tea.Model {
 }
 
 export class RemoveVServerGroupBackendServersResponseBody extends $tea.Model {
-  VServerGroupId?: string;
-  requestId?: string;
   backendServers?: RemoveVServerGroupBackendServersResponseBodyBackendServers;
+  requestId?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      requestId: 'RequestId',
       backendServers: 'BackendServers',
+      requestId: 'RequestId',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      requestId: 'string',
       backendServers: RemoveVServerGroupBackendServersResponseBodyBackendServers,
+      requestId: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -6122,34 +6114,34 @@ export class RemoveVServerGroupBackendServersResponse extends $tea.Model {
 }
 
 export class SetAccessControlListAttributeRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   aclId?: string;
   aclName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       aclId: 'AclId',
       aclName: 'AclName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       aclId: 'string',
       aclName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -6203,34 +6195,34 @@ export class SetAccessControlListAttributeResponse extends $tea.Model {
 }
 
 export class SetBackendServersRequest extends $tea.Model {
-  regionId?: string;
+  backendServers?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  backendServers?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      backendServers: 'BackendServers',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      backendServers: 'BackendServers',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      backendServers: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      backendServers: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -6240,22 +6232,22 @@ export class SetBackendServersRequest extends $tea.Model {
 }
 
 export class SetBackendServersResponseBody extends $tea.Model {
+  backendServers?: SetBackendServersResponseBodyBackendServers;
   loadBalancerId?: string;
   requestId?: string;
-  backendServers?: SetBackendServersResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
       loadBalancerId: 'LoadBalancerId',
       requestId: 'RequestId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: SetBackendServersResponseBodyBackendServers,
       loadBalancerId: 'string',
       requestId: 'string',
-      backendServers: SetBackendServersResponseBodyBackendServers,
     };
   }
 
@@ -6287,34 +6279,34 @@ export class SetBackendServersResponse extends $tea.Model {
 }
 
 export class SetCACertificateNameRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   CACertificateId?: string;
   CACertificateName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       CACertificateId: 'CACertificateId',
       CACertificateName: 'CACertificateName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       CACertificateId: 'string',
       CACertificateName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -6365,33 +6357,33 @@ export class SetCACertificateNameResponse extends $tea.Model {
 }
 
 export class SetDomainExtensionAttributeRequest extends $tea.Model {
+  domainExtensionId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  domainExtensionId?: string;
   serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
+      domainExtensionId: 'DomainExtensionId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      domainExtensionId: 'DomainExtensionId',
       serverCertificateId: 'ServerCertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      domainExtensionId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      domainExtensionId: 'string',
       serverCertificateId: 'string',
     };
   }
@@ -6443,40 +6435,40 @@ export class SetDomainExtensionAttributeResponse extends $tea.Model {
 }
 
 export class SetListenerAccessControlStatusRequest extends $tea.Model {
-  regionId?: string;
+  accessControlStatus?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  accessControlStatus?: string;
-  ownerAccount?: string;
-  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      accessControlStatus: 'AccessControlStatus',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      accessControlStatus: 'AccessControlStatus',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      accessControlStatus: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      accessControlStatus: 'string',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
     };
   }
 
@@ -6527,34 +6519,34 @@ export class SetListenerAccessControlStatusResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerDeleteProtectionRequest extends $tea.Model {
-  regionId?: string;
+  deleteProtection?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  deleteProtection?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      deleteProtection: 'DeleteProtection',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      deleteProtection: 'DeleteProtection',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      deleteProtection: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      deleteProtection: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -6605,121 +6597,121 @@ export class SetLoadBalancerDeleteProtectionResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerHTTPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
+  bandwidth?: number;
+  cookie?: string;
+  cookieTimeout?: number;
+  description?: string;
+  gzip?: string;
+  healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  idleTimeout?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  requestTimeout?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  bandwidth?: number;
-  XForwardedFor?: string;
   scheduler?: string;
   stickySession?: string;
   stickySessionType?: string;
-  cookieTimeout?: number;
-  cookie?: string;
-  healthCheck?: string;
-  healthCheckMethod?: string;
-  healthCheckDomain?: string;
-  healthCheckURI?: string;
-  healthyThreshold?: number;
   unhealthyThreshold?: number;
-  healthCheckTimeout?: number;
-  healthCheckInterval?: number;
-  healthCheckConnectPort?: number;
-  healthCheckHttpCode?: string;
-  ownerAccount?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
-  XForwardedFor_SLBIP?: string;
+  XForwardedFor?: string;
   XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
   XForwardedFor_proto?: string;
-  gzip?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  idleTimeout?: number;
-  requestTimeout?: number;
-  description?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      bandwidth: 'Bandwidth',
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      gzip: 'Gzip',
+      healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      idleTimeout: 'IdleTimeout',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      requestTimeout: 'RequestTimeout',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      bandwidth: 'Bandwidth',
-      XForwardedFor: 'XForwardedFor',
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
-      cookieTimeout: 'CookieTimeout',
-      cookie: 'Cookie',
-      healthCheck: 'HealthCheck',
-      healthCheckMethod: 'HealthCheckMethod',
-      healthCheckDomain: 'HealthCheckDomain',
-      healthCheckURI: 'HealthCheckURI',
-      healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      ownerAccount: 'OwnerAccount',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor: 'XForwardedFor',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_proto: 'XForwardedFor_proto',
-      gzip: 'Gzip',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      idleTimeout: 'IdleTimeout',
-      requestTimeout: 'RequestTimeout',
-      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      bandwidth: 'number',
+      cookie: 'string',
+      cookieTimeout: 'number',
+      description: 'string',
+      gzip: 'string',
+      healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      idleTimeout: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      requestTimeout: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      bandwidth: 'number',
-      XForwardedFor: 'string',
       scheduler: 'string',
       stickySession: 'string',
       stickySessionType: 'string',
-      cookieTimeout: 'number',
-      cookie: 'string',
-      healthCheck: 'string',
-      healthCheckMethod: 'string',
-      healthCheckDomain: 'string',
-      healthCheckURI: 'string',
-      healthyThreshold: 'number',
       unhealthyThreshold: 'number',
-      healthCheckTimeout: 'number',
-      healthCheckInterval: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckHttpCode: 'string',
-      ownerAccount: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
-      XForwardedFor_SLBIP: 'string',
+      XForwardedFor: 'string',
       XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
       XForwardedFor_proto: 'string',
-      gzip: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      idleTimeout: 'number',
-      requestTimeout: 'number',
-      description: 'string',
     };
   }
 
@@ -6770,133 +6762,133 @@ export class SetLoadBalancerHTTPListenerAttributeResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerHTTPSListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
   bandwidth?: number;
-  XForwardedFor?: string;
-  scheduler?: string;
-  stickySession?: string;
-  stickySessionType?: string;
-  cookieTimeout?: number;
+  CACertificateId?: string;
   cookie?: string;
+  cookieTimeout?: number;
+  description?: string;
+  enableHttp2?: string;
+  gzip?: string;
   healthCheck?: string;
-  healthCheckMethod?: string;
+  healthCheckConnectPort?: number;
   healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
   healthCheckURI?: string;
   healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  healthCheckTimeout?: number;
-  healthCheckInterval?: number;
-  healthCheckConnectPort?: number;
-  healthCheckHttpCode?: string;
+  idleTimeout?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  requestTimeout?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scheduler?: string;
   serverCertificateId?: string;
-  CACertificateId?: string;
+  stickySession?: string;
+  stickySessionType?: string;
+  TLSCipherPolicy?: string;
+  unhealthyThreshold?: number;
   VServerGroup?: string;
   VServerGroupId?: string;
-  XForwardedFor_SLBIP?: string;
+  XForwardedFor?: string;
   XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
   XForwardedFor_proto?: string;
-  gzip?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  idleTimeout?: number;
-  requestTimeout?: number;
-  enableHttp2?: string;
-  TLSCipherPolicy?: string;
-  description?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
       bandwidth: 'Bandwidth',
-      XForwardedFor: 'XForwardedFor',
-      scheduler: 'Scheduler',
-      stickySession: 'StickySession',
-      stickySessionType: 'StickySessionType',
-      cookieTimeout: 'CookieTimeout',
+      CACertificateId: 'CACertificateId',
       cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      description: 'Description',
+      enableHttp2: 'EnableHttp2',
+      gzip: 'Gzip',
       healthCheck: 'HealthCheck',
-      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
       healthCheckURI: 'HealthCheckURI',
       healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
+      idleTimeout: 'IdleTimeout',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      requestTimeout: 'RequestTimeout',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scheduler: 'Scheduler',
       serverCertificateId: 'ServerCertificateId',
-      CACertificateId: 'CACertificateId',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      TLSCipherPolicy: 'TLSCipherPolicy',
+      unhealthyThreshold: 'UnhealthyThreshold',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor: 'XForwardedFor',
       XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
       XForwardedFor_proto: 'XForwardedFor_proto',
-      gzip: 'Gzip',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      idleTimeout: 'IdleTimeout',
-      requestTimeout: 'RequestTimeout',
-      enableHttp2: 'EnableHttp2',
-      TLSCipherPolicy: 'TLSCipherPolicy',
-      description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
       bandwidth: 'number',
-      XForwardedFor: 'string',
-      scheduler: 'string',
-      stickySession: 'string',
-      stickySessionType: 'string',
-      cookieTimeout: 'number',
+      CACertificateId: 'string',
       cookie: 'string',
+      cookieTimeout: 'number',
+      description: 'string',
+      enableHttp2: 'string',
+      gzip: 'string',
       healthCheck: 'string',
-      healthCheckMethod: 'string',
+      healthCheckConnectPort: 'number',
       healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckTimeout: 'number',
       healthCheckURI: 'string',
       healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      healthCheckTimeout: 'number',
-      healthCheckInterval: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckHttpCode: 'string',
+      idleTimeout: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      requestTimeout: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scheduler: 'string',
       serverCertificateId: 'string',
-      CACertificateId: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
+      TLSCipherPolicy: 'string',
+      unhealthyThreshold: 'number',
       VServerGroup: 'string',
       VServerGroupId: 'string',
-      XForwardedFor_SLBIP: 'string',
+      XForwardedFor: 'string',
       XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
       XForwardedFor_proto: 'string',
-      gzip: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      idleTimeout: 'number',
-      requestTimeout: 'number',
-      enableHttp2: 'string',
-      TLSCipherPolicy: 'string',
-      description: 'string',
     };
   }
 
@@ -6947,37 +6939,37 @@ export class SetLoadBalancerHTTPSListenerAttributeResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerModificationProtectionRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   loadBalancerId?: string;
+  modificationProtectionReason?: string;
   modificationProtectionStatus?: string;
   ownerAccount?: string;
-  modificationProtectionReason?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
+      modificationProtectionReason: 'ModificationProtectionReason',
       modificationProtectionStatus: 'ModificationProtectionStatus',
       ownerAccount: 'OwnerAccount',
-      modificationProtectionReason: 'ModificationProtectionReason',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       loadBalancerId: 'string',
+      modificationProtectionReason: 'string',
       modificationProtectionStatus: 'string',
       ownerAccount: 'string',
-      modificationProtectionReason: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -7028,34 +7020,34 @@ export class SetLoadBalancerModificationProtectionResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerNameRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   loadBalancerId?: string;
   loadBalancerName?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       loadBalancerName: 'LoadBalancerName',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       loadBalancerId: 'string',
       loadBalancerName: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -7106,34 +7098,34 @@ export class SetLoadBalancerNameResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerStatusRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   loadBalancerId?: string;
   loadBalancerStatus?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       loadBalancerId: 'LoadBalancerId',
       loadBalancerStatus: 'LoadBalancerStatus',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       loadBalancerId: 'string',
       loadBalancerStatus: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -7184,106 +7176,106 @@ export class SetLoadBalancerStatusResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerTCPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  bandwidth?: number;
-  scheduler?: string;
-  persistenceTimeout?: number;
-  establishedTimeout?: number;
-  healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  healthCheckConnectTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckInterval?: number;
-  healthCheckDomain?: string;
-  healthCheckURI?: string;
-  healthCheckHttpCode?: string;
-  healthCheckType?: string;
-  synProxy?: string;
-  ownerAccount?: string;
-  VServerGroup?: string;
-  VServerGroupId?: string;
-  masterSlaveServerGroupId?: string;
-  masterSlaveServerGroup?: string;
   aclId?: string;
-  aclType?: string;
   aclStatus?: string;
-  description?: string;
+  aclType?: string;
+  bandwidth?: number;
   connectionDrain?: string;
   connectionDrainTimeout?: number;
+  description?: string;
+  establishedTimeout?: number;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckType?: string;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  masterSlaveServerGroup?: string;
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  persistenceTimeout?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  scheduler?: string;
+  synProxy?: string;
+  unhealthyThreshold?: number;
+  VServerGroup?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      bandwidth: 'Bandwidth',
-      scheduler: 'Scheduler',
-      persistenceTimeout: 'PersistenceTimeout',
-      establishedTimeout: 'EstablishedTimeout',
-      healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckDomain: 'HealthCheckDomain',
-      healthCheckURI: 'HealthCheckURI',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      healthCheckType: 'HealthCheckType',
-      synProxy: 'SynProxy',
-      ownerAccount: 'OwnerAccount',
-      VServerGroup: 'VServerGroup',
-      VServerGroupId: 'VServerGroupId',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      masterSlaveServerGroup: 'MasterSlaveServerGroup',
       aclId: 'AclId',
-      aclType: 'AclType',
       aclStatus: 'AclStatus',
-      description: 'Description',
+      aclType: 'AclType',
+      bandwidth: 'Bandwidth',
       connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
+      description: 'Description',
+      establishedTimeout: 'EstablishedTimeout',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      masterSlaveServerGroup: 'MasterSlaveServerGroup',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      persistenceTimeout: 'PersistenceTimeout',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      scheduler: 'Scheduler',
+      synProxy: 'SynProxy',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      VServerGroup: 'VServerGroup',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      bandwidth: 'number',
-      scheduler: 'string',
-      persistenceTimeout: 'number',
-      establishedTimeout: 'number',
-      healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      healthCheckConnectTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckDomain: 'string',
-      healthCheckURI: 'string',
-      healthCheckHttpCode: 'string',
-      healthCheckType: 'string',
-      synProxy: 'string',
-      ownerAccount: 'string',
-      VServerGroup: 'string',
-      VServerGroupId: 'string',
-      masterSlaveServerGroupId: 'string',
-      masterSlaveServerGroup: 'string',
       aclId: 'string',
-      aclType: 'string',
       aclStatus: 'string',
-      description: 'string',
+      aclType: 'string',
+      bandwidth: 'number',
       connectionDrain: 'string',
       connectionDrainTimeout: 'number',
+      description: 'string',
+      establishedTimeout: 'number',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckType: 'string',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      masterSlaveServerGroup: 'string',
+      masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      persistenceTimeout: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      scheduler: 'string',
+      synProxy: 'string',
+      unhealthyThreshold: 'number',
+      VServerGroup: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -7334,85 +7326,85 @@ export class SetLoadBalancerTCPListenerAttributeResponse extends $tea.Model {
 }
 
 export class SetLoadBalancerUDPListenerAttributeRequest extends $tea.Model {
-  regionId?: string;
+  aclId?: string;
+  aclStatus?: string;
+  aclType?: string;
+  bandwidth?: number;
+  description?: string;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckInterval?: number;
+  healthyThreshold?: number;
+  listenerPort?: number;
+  loadBalancerId?: string;
+  masterSlaveServerGroup?: string;
+  masterSlaveServerGroupId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  bandwidth?: number;
   scheduler?: string;
-  healthyThreshold?: number;
   unhealthyThreshold?: number;
-  healthCheckConnectTimeout?: number;
-  healthCheckConnectPort?: number;
-  healthCheckInterval?: number;
-  healthCheckReq?: string;
-  healthCheckExp?: string;
-  ownerAccount?: string;
   VServerGroup?: string;
   VServerGroupId?: string;
-  masterSlaveServerGroupId?: string;
-  masterSlaveServerGroup?: string;
-  aclId?: string;
-  aclType?: string;
-  aclStatus?: string;
-  description?: string;
+  healthCheckExp?: string;
+  healthCheckReq?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      aclId: 'AclId',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      bandwidth: 'Bandwidth',
+      description: 'Description',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthyThreshold: 'HealthyThreshold',
+      listenerPort: 'ListenerPort',
+      loadBalancerId: 'LoadBalancerId',
+      masterSlaveServerGroup: 'MasterSlaveServerGroup',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      bandwidth: 'Bandwidth',
       scheduler: 'Scheduler',
-      healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckReq: 'healthCheckReq',
-      healthCheckExp: 'healthCheckExp',
-      ownerAccount: 'OwnerAccount',
       VServerGroup: 'VServerGroup',
       VServerGroupId: 'VServerGroupId',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      masterSlaveServerGroup: 'MasterSlaveServerGroup',
-      aclId: 'AclId',
-      aclType: 'AclType',
-      aclStatus: 'AclStatus',
-      description: 'Description',
+      healthCheckExp: 'healthCheckExp',
+      healthCheckReq: 'healthCheckReq',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      aclId: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      bandwidth: 'number',
+      description: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckInterval: 'number',
+      healthyThreshold: 'number',
+      listenerPort: 'number',
+      loadBalancerId: 'string',
+      masterSlaveServerGroup: 'string',
+      masterSlaveServerGroupId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      bandwidth: 'number',
       scheduler: 'string',
-      healthyThreshold: 'number',
       unhealthyThreshold: 'number',
-      healthCheckConnectTimeout: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckInterval: 'number',
-      healthCheckReq: 'string',
-      healthCheckExp: 'string',
-      ownerAccount: 'string',
       VServerGroup: 'string',
       VServerGroupId: 'string',
-      masterSlaveServerGroupId: 'string',
-      masterSlaveServerGroup: 'string',
-      aclId: 'string',
-      aclType: 'string',
-      aclStatus: 'string',
-      description: 'string',
+      healthCheckExp: 'string',
+      healthCheckReq: 'string',
     };
   }
 
@@ -7463,82 +7455,82 @@ export class SetLoadBalancerUDPListenerAttributeResponse extends $tea.Model {
 }
 
 export class SetRuleRequest extends $tea.Model {
+  cookie?: string;
+  cookieTimeout?: number;
+  healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerSync?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   ruleId?: string;
-  VServerGroupId?: string;
   ruleName?: string;
-  listenerSync?: string;
   scheduler?: string;
   stickySession?: string;
   stickySessionType?: string;
-  cookieTimeout?: number;
-  cookie?: string;
-  healthCheck?: string;
-  healthCheckDomain?: string;
-  healthCheckURI?: string;
-  healthyThreshold?: number;
   unhealthyThreshold?: number;
-  healthCheckTimeout?: number;
-  healthCheckInterval?: number;
-  healthCheckConnectPort?: number;
-  healthCheckHttpCode?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerSync: 'ListenerSync',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       ruleId: 'RuleId',
-      VServerGroupId: 'VServerGroupId',
       ruleName: 'RuleName',
-      listenerSync: 'ListenerSync',
       scheduler: 'Scheduler',
       stickySession: 'StickySession',
       stickySessionType: 'StickySessionType',
-      cookieTimeout: 'CookieTimeout',
-      cookie: 'Cookie',
-      healthCheck: 'HealthCheck',
-      healthCheckDomain: 'HealthCheckDomain',
-      healthCheckURI: 'HealthCheckURI',
-      healthyThreshold: 'HealthyThreshold',
       unhealthyThreshold: 'UnhealthyThreshold',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cookie: 'string',
+      cookieTimeout: 'number',
+      healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerSync: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       ruleId: 'string',
-      VServerGroupId: 'string',
       ruleName: 'string',
-      listenerSync: 'string',
       scheduler: 'string',
       stickySession: 'string',
       stickySessionType: 'string',
-      cookieTimeout: 'number',
-      cookie: 'string',
-      healthCheck: 'string',
-      healthCheckDomain: 'string',
-      healthCheckURI: 'string',
-      healthyThreshold: 'number',
       unhealthyThreshold: 'number',
-      healthCheckTimeout: 'number',
-      healthCheckInterval: 'number',
-      healthCheckConnectPort: 'number',
-      healthCheckHttpCode: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -7589,34 +7581,34 @@ export class SetRuleResponse extends $tea.Model {
 }
 
 export class SetServerCertificateNameRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
   serverCertificateId?: string;
   serverCertificateName?: string;
-  ownerAccount?: string;
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
       serverCertificateId: 'ServerCertificateId',
       serverCertificateName: 'ServerCertificateName',
-      ownerAccount: 'OwnerAccount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
       serverCertificateId: 'string',
       serverCertificateName: 'string',
-      ownerAccount: 'string',
     };
   }
 
@@ -7667,43 +7659,40 @@ export class SetServerCertificateNameResponse extends $tea.Model {
 }
 
 export class SetTLSCipherPolicyAttributeRequest extends $tea.Model {
+  ciphers?: string[];
+  name?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
-  accessKeyId?: string;
   TLSCipherPolicyId?: string;
-  name?: string;
   TLSVersions?: string[];
-  ciphers?: string[];
   static names(): { [key: string]: string } {
     return {
+      ciphers: 'Ciphers',
+      name: 'Name',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
-      accessKeyId: 'access_key_id',
       TLSCipherPolicyId: 'TLSCipherPolicyId',
-      name: 'Name',
       TLSVersions: 'TLSVersions',
-      ciphers: 'Ciphers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ciphers: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
-      accessKeyId: 'string',
       TLSCipherPolicyId: 'string',
-      name: 'string',
       TLSVersions: { 'type': 'array', 'itemType': 'string' },
-      ciphers: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7713,19 +7702,19 @@ export class SetTLSCipherPolicyAttributeRequest extends $tea.Model {
 }
 
 export class SetTLSCipherPolicyAttributeResponseBody extends $tea.Model {
-  taskId?: string;
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      taskId: 'TaskId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      taskId: 'string',
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -7757,37 +7746,37 @@ export class SetTLSCipherPolicyAttributeResponse extends $tea.Model {
 }
 
 export class SetVServerGroupAttributeRequest extends $tea.Model {
+  backendServers?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  regionId?: string;
-  ownerAccount?: string;
   VServerGroupId?: string;
   VServerGroupName?: string;
-  backendServers?: string;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
-      ownerAccount: 'OwnerAccount',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      regionId: 'string',
-      ownerAccount: 'string',
       VServerGroupId: 'string',
       VServerGroupName: 'string',
-      backendServers: 'string',
     };
   }
 
@@ -7797,25 +7786,25 @@ export class SetVServerGroupAttributeRequest extends $tea.Model {
 }
 
 export class SetVServerGroupAttributeResponseBody extends $tea.Model {
+  backendServers?: SetVServerGroupAttributeResponseBodyBackendServers;
+  requestId?: string;
   VServerGroupId?: string;
   VServerGroupName?: string;
-  requestId?: string;
-  backendServers?: SetVServerGroupAttributeResponseBodyBackendServers;
   static names(): { [key: string]: string } {
     return {
+      backendServers: 'BackendServers',
+      requestId: 'RequestId',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
-      requestId: 'RequestId',
-      backendServers: 'BackendServers',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      backendServers: SetVServerGroupAttributeResponseBodyBackendServers,
+      requestId: 'string',
       VServerGroupId: 'string',
       VServerGroupName: 'string',
-      requestId: 'string',
-      backendServers: SetVServerGroupAttributeResponseBodyBackendServers,
     };
   }
 
@@ -7847,37 +7836,37 @@ export class SetVServerGroupAttributeResponse extends $tea.Model {
 }
 
 export class StartLoadBalancerListenerRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
-  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
     };
   }
 
@@ -7928,37 +7917,37 @@ export class StartLoadBalancerListenerResponse extends $tea.Model {
 }
 
 export class StopLoadBalancerListenerRequest extends $tea.Model {
-  regionId?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  loadBalancerId?: string;
-  listenerPort?: number;
-  ownerAccount?: string;
-  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
-      ownerAccount: 'OwnerAccount',
-      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
-      ownerAccount: 'string',
-      listenerProtocol: 'string',
     };
   }
 
@@ -8009,36 +7998,36 @@ export class StopLoadBalancerListenerResponse extends $tea.Model {
 }
 
 export class TagResourcesRequest extends $tea.Model {
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   resourceType?: string;
-  resourceId?: string[];
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       resourceType: 'ResourceType',
-      resourceId: 'ResourceId',
       tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       resourceType: 'string',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
     };
   }
@@ -8090,39 +8079,39 @@ export class TagResourcesResponse extends $tea.Model {
 }
 
 export class UntagResourcesRequest extends $tea.Model {
+  all?: boolean;
+  ownerAccount?: string;
   ownerId?: number;
+  regionId?: string;
+  resourceId?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   resourceType?: string;
-  all?: boolean;
-  resourceId?: string[];
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
+      all: 'All',
+      ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       resourceType: 'ResourceType',
-      all: 'All',
-      resourceId: 'ResourceId',
       tagKey: 'TagKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      all: 'boolean',
+      ownerAccount: 'string',
       ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       resourceType: 'string',
-      all: 'boolean',
-      resourceId: { 'type': 'array', 'itemType': 'string' },
       tagKey: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -8174,37 +8163,37 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class UploadCACertificateRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  ownerAccount?: string;
-  regionId?: string;
   CACertificate?: string;
   CACertificateName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
   resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      ownerAccount: 'OwnerAccount',
-      regionId: 'RegionId',
       CACertificate: 'CACertificate',
       CACertificateName: 'CACertificateName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      ownerAccount: 'string',
-      regionId: 'string',
       CACertificate: 'string',
       CACertificateName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
     };
   }
 
@@ -8214,43 +8203,43 @@ export class UploadCACertificateRequest extends $tea.Model {
 }
 
 export class UploadCACertificateResponseBody extends $tea.Model {
-  createTimeStamp?: number;
-  requestId?: string;
-  expireTime?: string;
-  fingerprint?: string;
-  createTime?: string;
-  commonName?: string;
-  resourceGroupId?: string;
-  CACertificateName?: string;
-  expireTimeStamp?: number;
   CACertificateId?: string;
+  CACertificateName?: string;
+  commonName?: string;
+  createTime?: string;
+  createTimeStamp?: number;
+  expireTime?: string;
+  expireTimeStamp?: number;
+  fingerprint?: string;
+  requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      createTimeStamp: 'CreateTimeStamp',
-      requestId: 'RequestId',
-      expireTime: 'ExpireTime',
-      fingerprint: 'Fingerprint',
-      createTime: 'CreateTime',
-      commonName: 'CommonName',
-      resourceGroupId: 'ResourceGroupId',
-      CACertificateName: 'CACertificateName',
-      expireTimeStamp: 'ExpireTimeStamp',
       CACertificateId: 'CACertificateId',
+      CACertificateName: 'CACertificateName',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      createTimeStamp: 'CreateTimeStamp',
+      expireTime: 'ExpireTime',
+      expireTimeStamp: 'ExpireTimeStamp',
+      fingerprint: 'Fingerprint',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTimeStamp: 'number',
-      requestId: 'string',
-      expireTime: 'string',
-      fingerprint: 'string',
-      createTime: 'string',
-      commonName: 'string',
-      resourceGroupId: 'string',
-      CACertificateName: 'string',
-      expireTimeStamp: 'number',
       CACertificateId: 'string',
+      CACertificateName: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      createTimeStamp: 'number',
+      expireTime: 'string',
+      expireTimeStamp: 'number',
+      fingerprint: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8282,49 +8271,49 @@ export class UploadCACertificateResponse extends $tea.Model {
 }
 
 export class UploadServerCertificateRequest extends $tea.Model {
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  regionId?: string;
   aliCloudCertificateId?: string;
   aliCloudCertificateName?: string;
   aliCloudCertificateRegionId?: string;
-  serverCertificate?: string;
-  privateKey?: string;
-  serverCertificateName?: string;
   ownerAccount?: string;
+  ownerId?: number;
+  privateKey?: string;
+  regionId?: string;
   resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  serverCertificate?: string;
+  serverCertificateName?: string;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-      regionId: 'RegionId',
       aliCloudCertificateId: 'AliCloudCertificateId',
       aliCloudCertificateName: 'AliCloudCertificateName',
       aliCloudCertificateRegionId: 'AliCloudCertificateRegionId',
-      serverCertificate: 'ServerCertificate',
-      privateKey: 'PrivateKey',
-      serverCertificateName: 'ServerCertificateName',
       ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      privateKey: 'PrivateKey',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      serverCertificate: 'ServerCertificate',
+      serverCertificateName: 'ServerCertificateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-      regionId: 'string',
       aliCloudCertificateId: 'string',
       aliCloudCertificateName: 'string',
       aliCloudCertificateRegionId: 'string',
-      serverCertificate: 'string',
-      privateKey: 'string',
-      serverCertificateName: 'string',
       ownerAccount: 'string',
+      ownerId: 'number',
+      privateKey: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      serverCertificate: 'string',
+      serverCertificateName: 'string',
     };
   }
 
@@ -8334,57 +8323,57 @@ export class UploadServerCertificateRequest extends $tea.Model {
 }
 
 export class UploadServerCertificateResponseBody extends $tea.Model {
+  aliCloudCertificateId?: string;
   aliCloudCertificateName?: string;
+  commonName?: string;
+  createTime?: string;
   createTimeStamp?: number;
   expireTime?: string;
-  createTime?: string;
-  serverCertificateId?: string;
   expireTimeStamp?: number;
+  fingerprint?: string;
+  isAliCloudCertificate?: number;
   regionId?: string;
   requestId?: string;
-  fingerprint?: string;
-  serverCertificateName?: string;
-  commonName?: string;
   resourceGroupId?: string;
-  aliCloudCertificateId?: string;
-  isAliCloudCertificate?: number;
+  serverCertificateId?: string;
+  serverCertificateName?: string;
   subjectAlternativeNames?: UploadServerCertificateResponseBodySubjectAlternativeNames;
   static names(): { [key: string]: string } {
     return {
+      aliCloudCertificateId: 'AliCloudCertificateId',
       aliCloudCertificateName: 'AliCloudCertificateName',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
       createTimeStamp: 'CreateTimeStamp',
       expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
-      serverCertificateId: 'ServerCertificateId',
       expireTimeStamp: 'ExpireTimeStamp',
+      fingerprint: 'Fingerprint',
+      isAliCloudCertificate: 'IsAliCloudCertificate',
       regionId: 'RegionId',
       requestId: 'RequestId',
-      fingerprint: 'Fingerprint',
-      serverCertificateName: 'ServerCertificateName',
-      commonName: 'CommonName',
       resourceGroupId: 'ResourceGroupId',
-      aliCloudCertificateId: 'AliCloudCertificateId',
-      isAliCloudCertificate: 'IsAliCloudCertificate',
+      serverCertificateId: 'ServerCertificateId',
+      serverCertificateName: 'ServerCertificateName',
       subjectAlternativeNames: 'SubjectAlternativeNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aliCloudCertificateId: 'string',
       aliCloudCertificateName: 'string',
+      commonName: 'string',
+      createTime: 'string',
       createTimeStamp: 'number',
       expireTime: 'string',
-      createTime: 'string',
-      serverCertificateId: 'string',
       expireTimeStamp: 'number',
+      fingerprint: 'string',
+      isAliCloudCertificate: 'number',
       regionId: 'string',
       requestId: 'string',
-      fingerprint: 'string',
-      serverCertificateName: 'string',
-      commonName: 'string',
       resourceGroupId: 'string',
-      aliCloudCertificateId: 'string',
-      isAliCloudCertificate: 'number',
+      serverCertificateId: 'string',
+      serverCertificateName: 'string',
       subjectAlternativeNames: UploadServerCertificateResponseBodySubjectAlternativeNames,
     };
   }
@@ -8417,25 +8406,25 @@ export class UploadServerCertificateResponse extends $tea.Model {
 }
 
 export class AddBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: string;
   description?: string;
   serverId?: string;
+  type?: string;
+  weight?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'string',
       description: 'string',
       serverId: 'string',
+      type: 'string',
+      weight: 'string',
     };
   }
 
@@ -8464,28 +8453,28 @@ export class AddBackendServersResponseBodyBackendServers extends $tea.Model {
 }
 
 export class AddVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -8514,31 +8503,31 @@ export class AddVServerGroupBackendServersResponseBodyBackendServers extends $te
 }
 
 export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
   serverType?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
       serverType: 'ServerType',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
       serverType: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -8567,19 +8556,19 @@ export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers e
 }
 
 export class CreateRulesResponseBodyRulesRule extends $tea.Model {
-  ruleName?: string;
   ruleId?: string;
+  ruleName?: string;
   static names(): { [key: string]: string } {
     return {
-      ruleName: 'RuleName',
       ruleId: 'RuleId',
+      ruleName: 'RuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      ruleName: 'string',
       ruleId: 'string',
+      ruleName: 'string',
     };
   }
 
@@ -8608,28 +8597,28 @@ export class CreateRulesResponseBodyRules extends $tea.Model {
 }
 
 export class CreateVServerGroupResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -8699,25 +8688,25 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $te
 }
 
 export class DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener extends $tea.Model {
-  listenerPort?: number;
   aclType?: string;
-  protocol?: string;
+  listenerPort?: number;
   loadBalancerId?: string;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
       aclType: 'AclType',
-      protocol: 'Protocol',
+      listenerPort: 'ListenerPort',
       loadBalancerId: 'LoadBalancerId',
+      protocol: 'Protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
       aclType: 'string',
-      protocol: 'string',
+      listenerPort: 'number',
       loadBalancerId: 'string',
+      protocol: 'string',
     };
   }
 
@@ -8747,14 +8736,14 @@ export class DescribeAccessControlListAttributeResponseBodyRelatedListeners exte
 
 export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   aclId?: string;
-  addressIPVersion?: string;
   aclName?: string;
+  addressIPVersion?: string;
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
-      addressIPVersion: 'AddressIPVersion',
       aclName: 'AclName',
+      addressIPVersion: 'AddressIPVersion',
       resourceGroupId: 'ResourceGroupId',
     };
   }
@@ -8762,8 +8751,8 @@ export class DescribeAccessControlListsResponseBodyAclsAcl extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
-      addressIPVersion: 'string',
       aclName: 'string',
+      addressIPVersion: 'string',
       resourceGroupId: 'string',
     };
   }
@@ -8793,19 +8782,19 @@ export class DescribeAccessControlListsResponseBodyAcls extends $tea.Model {
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource extends $tea.Model {
-  addressType?: string;
   addressIPVersion?: string;
+  addressType?: string;
   static names(): { [key: string]: string } {
     return {
-      addressType: 'AddressType',
       addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      addressType: 'string',
       addressIPVersion: 'string',
+      addressType: 'string',
     };
   }
 
@@ -8834,21 +8823,21 @@ export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableRes
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource extends $tea.Model {
-  slaveZoneId?: string;
   masterZoneId?: string;
+  slaveZoneId?: string;
   supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources;
   static names(): { [key: string]: string } {
     return {
-      slaveZoneId: 'SlaveZoneId',
       masterZoneId: 'MasterZoneId',
+      slaveZoneId: 'SlaveZoneId',
       supportResources: 'SupportResources',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      slaveZoneId: 'string',
       masterZoneId: 'string',
+      slaveZoneId: 'string',
       supportResources: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources,
     };
   }
@@ -8878,43 +8867,43 @@ export class DescribeAvailableResourceResponseBodyAvailableResources extends $te
 }
 
 export class DescribeCACertificatesResponseBodyCACertificatesCACertificate extends $tea.Model {
+  CACertificateId?: string;
+  CACertificateName?: string;
+  commonName?: string;
+  createTime?: string;
   createTimeStamp?: number;
   expireTime?: string;
-  createTime?: string;
   expireTimeStamp?: number;
-  CACertificateId?: string;
-  regionId?: string;
   fingerprint?: string;
+  regionId?: string;
   resourceGroupId?: string;
-  commonName?: string;
-  CACertificateName?: string;
   static names(): { [key: string]: string } {
     return {
+      CACertificateId: 'CACertificateId',
+      CACertificateName: 'CACertificateName',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
       createTimeStamp: 'CreateTimeStamp',
       expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
       expireTimeStamp: 'ExpireTimeStamp',
-      CACertificateId: 'CACertificateId',
-      regionId: 'RegionId',
       fingerprint: 'Fingerprint',
+      regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
-      commonName: 'CommonName',
-      CACertificateName: 'CACertificateName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      CACertificateId: 'string',
+      CACertificateName: 'string',
+      commonName: 'string',
+      createTime: 'string',
       createTimeStamp: 'number',
       expireTime: 'string',
-      createTime: 'string',
       expireTimeStamp: 'number',
-      CACertificateId: 'string',
-      regionId: 'string',
       fingerprint: 'string',
+      regionId: 'string',
       resourceGroupId: 'string',
-      commonName: 'string',
-      CACertificateName: 'string',
     };
   }
 
@@ -8943,22 +8932,22 @@ export class DescribeCACertificatesResponseBodyCACertificates extends $tea.Model
 }
 
 export class DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
-  serverCertificateId?: string;
   domain?: string;
   domainExtensionId?: string;
+  serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
-      serverCertificateId: 'ServerCertificateId',
       domain: 'Domain',
       domainExtensionId: 'DomainExtensionId',
+      serverCertificateId: 'ServerCertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serverCertificateId: 'string',
       domain: 'string',
       domainExtensionId: 'string',
+      serverCertificateId: 'string',
     };
   }
 
@@ -8987,31 +8976,31 @@ export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $tea.M
 }
 
 export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends $tea.Model {
+  listenerPort?: number;
+  port?: number;
   protocol?: string;
   serverHealthStatus?: string;
-  listenerPort?: number;
-  serverIp?: string;
-  port?: number;
   serverId?: string;
+  serverIp?: string;
   static names(): { [key: string]: string } {
     return {
+      listenerPort: 'ListenerPort',
+      port: 'Port',
       protocol: 'Protocol',
       serverHealthStatus: 'ServerHealthStatus',
-      listenerPort: 'ListenerPort',
-      serverIp: 'ServerIp',
-      port: 'Port',
       serverId: 'ServerId',
+      serverIp: 'ServerIp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      listenerPort: 'number',
+      port: 'number',
       protocol: 'string',
       serverHealthStatus: 'string',
-      listenerPort: 'number',
-      serverIp: 'string',
-      port: 'number',
       serverId: 'string',
+      serverIp: 'string',
     };
   }
 
@@ -9031,6 +9020,53 @@ export class DescribeHealthStatusResponseBodyBackendServers extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backendServer: { 'type': 'array', 'itemType': DescribeHealthStatusResponseBodyBackendServersBackendServer },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
+  description?: string;
+  serverId?: string;
+  type?: string;
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      serverId: 'string',
+      type: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $tea.Model {
+  backendServer?: DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer[];
+  static names(): { [key: string]: string } {
+    return {
+      backendServer: 'BackendServer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendServer: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer },
     };
   }
 
@@ -9059,19 +9095,19 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPorts extends $tea
 }
 
 export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal extends $tea.Model {
-  listenerProtocal?: string;
   listenerPort?: number;
+  listenerProtocal?: string;
   static names(): { [key: string]: string } {
     return {
-      listenerProtocal: 'ListenerProtocal',
       listenerPort: 'ListenerPort',
+      listenerProtocal: 'ListenerProtocal',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerProtocal: 'string',
       listenerPort: 'number',
+      listenerProtocal: 'string',
     };
   }
 
@@ -9100,28 +9136,28 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal e
 }
 
 export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol extends $tea.Model {
-  listenerPort?: number;
-  listenerProtocol?: string;
-  listenerForward?: string;
   description?: string;
   forwardPort?: number;
+  listenerForward?: string;
+  listenerPort?: number;
+  listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
-      listenerPort: 'ListenerPort',
-      listenerProtocol: 'ListenerProtocol',
-      listenerForward: 'ListenerForward',
       description: 'Description',
       forwardPort: 'ForwardPort',
+      listenerForward: 'ListenerForward',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      listenerPort: 'number',
-      listenerProtocol: 'string',
-      listenerForward: 'string',
       description: 'string',
       forwardPort: 'number',
+      listenerForward: 'string',
+      listenerPort: 'number',
+      listenerProtocol: 'string',
     };
   }
 
@@ -9149,76 +9185,29 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol e
   }
 }
 
-export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
-  description?: string;
-  serverId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      type: 'Type',
-      weight: 'Weight',
-      description: 'Description',
-      serverId: 'ServerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      type: 'string',
-      weight: 'number',
-      description: 'string',
-      serverId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancerAttributeResponseBodyBackendServers extends $tea.Model {
-  backendServer?: DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer[];
-  static names(): { [key: string]: string } {
-    return {
-      backendServer: 'BackendServer',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendServer: { 'type': 'array', 'itemType': DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $tea.Model {
-  VServerGroupId?: string;
-  url?: string;
   domain?: string;
-  ruleName?: string;
   ruleId?: string;
+  ruleName?: string;
+  url?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      VServerGroupId: 'VServerGroupId',
-      url: 'Url',
       domain: 'Domain',
-      ruleName: 'RuleName',
       ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      url: 'Url',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      VServerGroupId: 'string',
-      url: 'string',
       domain: 'string',
-      ruleName: 'string',
       ruleId: 'string',
+      ruleName: 'string',
+      url: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -9246,73 +9235,23 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends 
   }
 }
 
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule extends $tea.Model {
-  VServerGroupId?: string;
-  url?: string;
-  domain?: string;
-  ruleName?: string;
-  ruleId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      VServerGroupId: 'VServerGroupId',
-      url: 'Url',
-      domain: 'Domain',
-      ruleName: 'RuleName',
-      ruleId: 'RuleId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      VServerGroupId: 'string',
-      url: 'string',
-      domain: 'string',
-      ruleName: 'string',
-      ruleId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends $tea.Model {
-  rule?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule[];
-  static names(): { [key: string]: string } {
-    return {
-      rule: 'Rule',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension extends $tea.Model {
-  serverCertificateId?: string;
   domain?: string;
   domainExtensionId?: string;
+  serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
-      serverCertificateId: 'ServerCertificateId',
       domain: 'Domain',
       domainExtensionId: 'DomainExtensionId',
+      serverCertificateId: 'ServerCertificateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      serverCertificateId: 'string',
       domain: 'string',
       domainExtensionId: 'string',
+      serverCertificateId: 'string',
     };
   }
 
@@ -9340,95 +9279,145 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensi
   }
 }
 
-export class DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig extends $tea.Model {
-  healthCheckHttpVersion?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  cookie?: string;
-  gzip?: string;
-  healthCheckConnectPort?: number;
-  healthCheckTimeout?: number;
-  healthCheckType?: string;
-  cookieTimeout?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  XForwardedFor_SLBID?: string;
-  forwardPort?: number;
-  healthCheckHttpCode?: string;
-  listenerForward?: string;
-  XForwardedFor?: string;
-  idleTimeout?: number;
-  requestTimeout?: number;
-  healthCheckInterval?: number;
-  XForwardedFor_SLBPORT?: string;
-  healthCheckURI?: string;
-  stickySessionType?: string;
-  healthyThreshold?: number;
-  XForwardedFor_proto?: string;
-  XForwardedFor_SLBIP?: string;
-  stickySession?: string;
-  healthCheckMethod?: string;
-  healthCheck?: string;
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule extends $tea.Model {
+  domain?: string;
+  ruleId?: string;
+  ruleName?: string;
+  url?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      healthCheckHttpVersion: 'HealthCheckHttpVersion',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      cookie: 'Cookie',
-      gzip: 'Gzip',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      healthCheckType: 'HealthCheckType',
-      cookieTimeout: 'CookieTimeout',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      forwardPort: 'ForwardPort',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      listenerForward: 'ListenerForward',
-      XForwardedFor: 'XForwardedFor',
-      idleTimeout: 'IdleTimeout',
-      requestTimeout: 'RequestTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
-      healthCheckURI: 'HealthCheckURI',
-      stickySessionType: 'StickySessionType',
-      healthyThreshold: 'HealthyThreshold',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
-      stickySession: 'StickySession',
-      healthCheckMethod: 'HealthCheckMethod',
-      healthCheck: 'HealthCheck',
+      domain: 'Domain',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      url: 'Url',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      healthCheckHttpVersion: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
+      domain: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      url: 'string',
+      VServerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends $tea.Model {
+  rule?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule[];
+  static names(): { [key: string]: string } {
+    return {
+      rule: 'Rule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      rule: { 'type': 'array', 'itemType': DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig extends $tea.Model {
+  cookie?: string;
+  cookieTimeout?: number;
+  forwardPort?: number;
+  gzip?: string;
+  healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckHttpVersion?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckTimeout?: number;
+  healthCheckType?: string;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  idleTimeout?: number;
+  listenerForward?: string;
+  requestTimeout?: number;
+  stickySession?: string;
+  stickySessionType?: string;
+  unhealthyThreshold?: number;
+  XForwardedFor?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
+  XForwardedFor_proto?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      forwardPort: 'ForwardPort',
+      gzip: 'Gzip',
+      healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      idleTimeout: 'IdleTimeout',
+      listenerForward: 'ListenerForward',
+      requestTimeout: 'RequestTimeout',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
+      XForwardedFor_proto: 'XForwardedFor_proto',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
       cookie: 'string',
+      cookieTimeout: 'number',
+      forwardPort: 'number',
       gzip: 'string',
+      healthCheck: 'string',
       healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckHttpVersion: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
       healthCheckTimeout: 'number',
       healthCheckType: 'string',
-      cookieTimeout: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      XForwardedFor_SLBID: 'string',
-      forwardPort: 'number',
-      healthCheckHttpCode: 'string',
-      listenerForward: 'string',
-      XForwardedFor: 'string',
-      idleTimeout: 'number',
-      requestTimeout: 'number',
-      healthCheckInterval: 'number',
-      XForwardedFor_SLBPORT: 'string',
       healthCheckURI: 'string',
-      stickySessionType: 'string',
       healthyThreshold: 'number',
-      XForwardedFor_proto: 'string',
-      XForwardedFor_SLBIP: 'string',
+      idleTimeout: 'number',
+      listenerForward: 'string',
+      requestTimeout: 'number',
       stickySession: 'string',
-      healthCheckMethod: 'string',
-      healthCheck: 'string',
+      stickySessionType: 'string',
+      unhealthyThreshold: 'number',
+      XForwardedFor: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
+      XForwardedFor_proto: 'string',
     };
   }
 
@@ -9438,112 +9427,112 @@ export class DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfi
 }
 
 export class DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig extends $tea.Model {
-  XForwardedFor_ClientCertClientVerify?: string;
-  healthCheckHttpVersion?: string;
-  XForwardedFor_ClientSrcPort?: string;
-  cookie?: string;
-  gzip?: string;
-  enableHttp2?: string;
   CACertificateId?: string;
+  cookie?: string;
+  cookieTimeout?: number;
+  enableHttp2?: string;
+  gzip?: string;
+  healthCheck?: string;
   healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckHttpVersion?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
   healthCheckTimeout?: number;
   healthCheckType?: string;
-  cookieTimeout?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  XForwardedFor_SLBID?: string;
-  XForwardedFor_ClientCertSubjectDN?: string;
-  healthCheckHttpCode?: string;
-  XForwardedFor_ClientCertFingerprint?: string;
-  XForwardedFor?: string;
-  requestTimeout?: number;
-  idleTimeout?: number;
-  serverCertificateId?: string;
-  healthCheckInterval?: number;
-  XForwardedFor_SLBPORT?: string;
   healthCheckURI?: string;
-  stickySessionType?: string;
-  XForwardedFor_ClientCertIssuerDN?: string;
   healthyThreshold?: number;
-  XForwardedFor_proto?: string;
-  XForwardedFor_SLBIP?: string;
+  idleTimeout?: number;
+  requestTimeout?: number;
+  serverCertificateId?: string;
   stickySession?: string;
-  healthCheckMethod?: string;
+  stickySessionType?: string;
   TLSCipherPolicy?: string;
-  healthCheck?: string;
+  unhealthyThreshold?: number;
+  XForwardedFor?: string;
+  XForwardedFor_ClientCertClientVerify?: string;
+  XForwardedFor_ClientCertFingerprint?: string;
+  XForwardedFor_ClientCertIssuerDN?: string;
+  XForwardedFor_ClientCertSubjectDN?: string;
+  XForwardedFor_ClientSrcPort?: string;
+  XForwardedFor_SLBID?: string;
+  XForwardedFor_SLBIP?: string;
+  XForwardedFor_SLBPORT?: string;
+  XForwardedFor_proto?: string;
   static names(): { [key: string]: string } {
     return {
-      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
-      healthCheckHttpVersion: 'HealthCheckHttpVersion',
-      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
-      cookie: 'Cookie',
-      gzip: 'Gzip',
-      enableHttp2: 'EnableHttp2',
       CACertificateId: 'CACertificateId',
+      cookie: 'Cookie',
+      cookieTimeout: 'CookieTimeout',
+      enableHttp2: 'EnableHttp2',
+      gzip: 'Gzip',
+      healthCheck: 'HealthCheck',
       healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckHttpVersion: 'HealthCheckHttpVersion',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
       healthCheckTimeout: 'HealthCheckTimeout',
       healthCheckType: 'HealthCheckType',
-      cookieTimeout: 'CookieTimeout',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
-      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
-      XForwardedFor: 'XForwardedFor',
-      requestTimeout: 'RequestTimeout',
-      idleTimeout: 'IdleTimeout',
-      serverCertificateId: 'ServerCertificateId',
-      healthCheckInterval: 'HealthCheckInterval',
-      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
       healthCheckURI: 'HealthCheckURI',
-      stickySessionType: 'StickySessionType',
-      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
       healthyThreshold: 'HealthyThreshold',
-      XForwardedFor_proto: 'XForwardedFor_proto',
-      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      idleTimeout: 'IdleTimeout',
+      requestTimeout: 'RequestTimeout',
+      serverCertificateId: 'ServerCertificateId',
       stickySession: 'StickySession',
-      healthCheckMethod: 'HealthCheckMethod',
+      stickySessionType: 'StickySessionType',
       TLSCipherPolicy: 'TLSCipherPolicy',
-      healthCheck: 'HealthCheck',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      XForwardedFor: 'XForwardedFor',
+      XForwardedFor_ClientCertClientVerify: 'XForwardedFor_ClientCertClientVerify',
+      XForwardedFor_ClientCertFingerprint: 'XForwardedFor_ClientCertFingerprint',
+      XForwardedFor_ClientCertIssuerDN: 'XForwardedFor_ClientCertIssuerDN',
+      XForwardedFor_ClientCertSubjectDN: 'XForwardedFor_ClientCertSubjectDN',
+      XForwardedFor_ClientSrcPort: 'XForwardedFor_ClientSrcPort',
+      XForwardedFor_SLBID: 'XForwardedFor_SLBID',
+      XForwardedFor_SLBIP: 'XForwardedFor_SLBIP',
+      XForwardedFor_SLBPORT: 'XForwardedFor_SLBPORT',
+      XForwardedFor_proto: 'XForwardedFor_proto',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      XForwardedFor_ClientCertClientVerify: 'string',
-      healthCheckHttpVersion: 'string',
-      XForwardedFor_ClientSrcPort: 'string',
-      cookie: 'string',
-      gzip: 'string',
-      enableHttp2: 'string',
       CACertificateId: 'string',
+      cookie: 'string',
+      cookieTimeout: 'number',
+      enableHttp2: 'string',
+      gzip: 'string',
+      healthCheck: 'string',
       healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckHttpVersion: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
       healthCheckTimeout: 'number',
       healthCheckType: 'string',
-      cookieTimeout: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      XForwardedFor_SLBID: 'string',
-      XForwardedFor_ClientCertSubjectDN: 'string',
-      healthCheckHttpCode: 'string',
-      XForwardedFor_ClientCertFingerprint: 'string',
-      XForwardedFor: 'string',
-      requestTimeout: 'number',
-      idleTimeout: 'number',
-      serverCertificateId: 'string',
-      healthCheckInterval: 'number',
-      XForwardedFor_SLBPORT: 'string',
       healthCheckURI: 'string',
-      stickySessionType: 'string',
-      XForwardedFor_ClientCertIssuerDN: 'string',
       healthyThreshold: 'number',
-      XForwardedFor_proto: 'string',
-      XForwardedFor_SLBIP: 'string',
+      idleTimeout: 'number',
+      requestTimeout: 'number',
+      serverCertificateId: 'string',
       stickySession: 'string',
-      healthCheckMethod: 'string',
+      stickySessionType: 'string',
       TLSCipherPolicy: 'string',
-      healthCheck: 'string',
+      unhealthyThreshold: 'number',
+      XForwardedFor: 'string',
+      XForwardedFor_ClientCertClientVerify: 'string',
+      XForwardedFor_ClientCertFingerprint: 'string',
+      XForwardedFor_ClientCertIssuerDN: 'string',
+      XForwardedFor_ClientCertSubjectDN: 'string',
+      XForwardedFor_ClientSrcPort: 'string',
+      XForwardedFor_SLBID: 'string',
+      XForwardedFor_SLBIP: 'string',
+      XForwardedFor_SLBPORT: 'string',
+      XForwardedFor_proto: 'string',
     };
   }
 
@@ -9553,61 +9542,61 @@ export class DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConf
 }
 
 export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig extends $tea.Model {
-  healthCheckHttpCode?: string;
-  connectionDrainTimeout?: number;
-  persistenceTimeout?: number;
-  healthCheckInterval?: number;
-  healthCheckURI?: string;
-  healthCheckConnectPort?: number;
-  establishedTimeout?: number;
-  healthCheckType?: string;
-  healthCheckConnectTimeout?: number;
-  masterSlaveServerGroupId?: string;
-  healthyThreshold?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
   connectionDrain?: string;
-  healthCheckMethod?: string;
+  connectionDrainTimeout?: number;
+  establishedTimeout?: number;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckConnectTimeout?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckMethod?: string;
+  healthCheckType?: string;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  masterSlaveServerGroupId?: string;
+  persistenceTimeout?: number;
+  unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      connectionDrainTimeout: 'ConnectionDrainTimeout',
-      persistenceTimeout: 'PersistenceTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckURI: 'HealthCheckURI',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      establishedTimeout: 'EstablishedTimeout',
-      healthCheckType: 'HealthCheckType',
-      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      healthyThreshold: 'HealthyThreshold',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
       connectionDrain: 'ConnectionDrain',
-      healthCheckMethod: 'HealthCheckMethod',
+      connectionDrainTimeout: 'ConnectionDrainTimeout',
+      establishedTimeout: 'EstablishedTimeout',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckMethod: 'HealthCheckMethod',
+      healthCheckType: 'HealthCheckType',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      persistenceTimeout: 'PersistenceTimeout',
+      unhealthyThreshold: 'UnhealthyThreshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      healthCheckHttpCode: 'string',
-      connectionDrainTimeout: 'number',
-      persistenceTimeout: 'number',
-      healthCheckInterval: 'number',
-      healthCheckURI: 'string',
-      healthCheckConnectPort: 'number',
-      establishedTimeout: 'number',
-      healthCheckType: 'string',
-      healthCheckConnectTimeout: 'number',
-      masterSlaveServerGroupId: 'string',
-      healthyThreshold: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
       connectionDrain: 'string',
-      healthCheckMethod: 'string',
+      connectionDrainTimeout: 'number',
+      establishedTimeout: 'number',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckConnectTimeout: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckMethod: 'string',
+      healthCheckType: 'string',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      masterSlaveServerGroupId: 'string',
+      persistenceTimeout: 'number',
+      unhealthyThreshold: 'number',
     };
   }
 
@@ -9617,46 +9606,46 @@ export class DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig
 }
 
 export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig extends $tea.Model {
+  connectionDrain?: string;
   connectionDrainTimeout?: number;
-  healthCheckInterval?: number;
-  healthCheckExp?: string;
+  healthCheck?: string;
   healthCheckConnectPort?: number;
   healthCheckConnectTimeout?: number;
-  masterSlaveServerGroupId?: string;
-  healthyThreshold?: number;
-  unhealthyThreshold?: number;
-  connectionDrain?: string;
+  healthCheckExp?: string;
+  healthCheckInterval?: number;
   healthCheckReq?: string;
-  healthCheck?: string;
+  healthyThreshold?: number;
+  masterSlaveServerGroupId?: string;
+  unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
+      connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
-      healthCheckInterval: 'HealthCheckInterval',
-      healthCheckExp: 'HealthCheckExp',
+      healthCheck: 'HealthCheck',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
-      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
-      healthyThreshold: 'HealthyThreshold',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      connectionDrain: 'ConnectionDrain',
+      healthCheckExp: 'HealthCheckExp',
+      healthCheckInterval: 'HealthCheckInterval',
       healthCheckReq: 'HealthCheckReq',
-      healthCheck: 'HealthCheck',
+      healthyThreshold: 'HealthyThreshold',
+      masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
+      unhealthyThreshold: 'UnhealthyThreshold',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      connectionDrain: 'string',
       connectionDrainTimeout: 'number',
-      healthCheckInterval: 'number',
-      healthCheckExp: 'string',
+      healthCheck: 'string',
       healthCheckConnectPort: 'number',
       healthCheckConnectTimeout: 'number',
-      masterSlaveServerGroupId: 'string',
-      healthyThreshold: 'number',
-      unhealthyThreshold: 'number',
-      connectionDrain: 'string',
+      healthCheckExp: 'string',
+      healthCheckInterval: 'number',
       healthCheckReq: 'string',
-      healthCheck: 'string',
+      healthyThreshold: 'number',
+      masterSlaveServerGroupId: 'string',
+      unhealthyThreshold: 'number',
     };
   }
 
@@ -9666,61 +9655,102 @@ export class DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig
 }
 
 export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Model {
-  aclType?: string;
-  status?: string;
-  VServerGroupId?: string;
-  listenerProtocol?: string;
-  loadBalancerId?: string;
-  listenerPort?: number;
   aclId?: string;
-  scheduler?: string;
+  aclStatus?: string;
+  aclType?: string;
+  backendServerPort?: number;
   bandwidth?: number;
   description?: string;
-  aclStatus?: string;
-  backendServerPort?: number;
   HTTPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig;
   HTTPSListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig;
+  listenerPort?: number;
+  listenerProtocol?: string;
+  loadBalancerId?: string;
+  scheduler?: string;
+  status?: string;
   TCPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig;
   UDPListenerConfig?: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      aclType: 'AclType',
-      status: 'Status',
-      VServerGroupId: 'VServerGroupId',
-      listenerProtocol: 'ListenerProtocol',
-      loadBalancerId: 'LoadBalancerId',
-      listenerPort: 'ListenerPort',
       aclId: 'AclId',
-      scheduler: 'Scheduler',
+      aclStatus: 'AclStatus',
+      aclType: 'AclType',
+      backendServerPort: 'BackendServerPort',
       bandwidth: 'Bandwidth',
       description: 'Description',
-      aclStatus: 'AclStatus',
-      backendServerPort: 'BackendServerPort',
       HTTPListenerConfig: 'HTTPListenerConfig',
       HTTPSListenerConfig: 'HTTPSListenerConfig',
+      listenerPort: 'ListenerPort',
+      listenerProtocol: 'ListenerProtocol',
+      loadBalancerId: 'LoadBalancerId',
+      scheduler: 'Scheduler',
+      status: 'Status',
       TCPListenerConfig: 'TCPListenerConfig',
       UDPListenerConfig: 'UDPListenerConfig',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      aclType: 'string',
-      status: 'string',
-      VServerGroupId: 'string',
-      listenerProtocol: 'string',
-      loadBalancerId: 'string',
-      listenerPort: 'number',
       aclId: 'string',
-      scheduler: 'string',
+      aclStatus: 'string',
+      aclType: 'string',
+      backendServerPort: 'number',
       bandwidth: 'number',
       description: 'string',
-      aclStatus: 'string',
-      backendServerPort: 'number',
       HTTPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersHTTPListenerConfig,
       HTTPSListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersHTTPSListenerConfig,
+      listenerPort: 'number',
+      listenerProtocol: 'string',
+      loadBalancerId: 'string',
+      scheduler: 'string',
+      status: 'string',
       TCPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersTCPListenerConfig,
       UDPListenerConfig: DescribeLoadBalancerListenersResponseBodyListenersUDPListenerConfig,
+      VServerGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTagsTag extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTags extends $tea.Model {
+  tag?: DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTagsTag },
     };
   }
 
@@ -9730,85 +9760,88 @@ export class DescribeLoadBalancerListenersResponseBodyListeners extends $tea.Mod
 }
 
 export class DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancer extends $tea.Model {
-  vpcId?: string;
-  createTimeStamp?: number;
-  loadBalancerId?: string;
-  createTime?: string;
-  payType?: string;
-  addressType?: string;
-  networkType?: string;
-  addressIPVersion?: string;
-  loadBalancerName?: string;
-  bandwidth?: number;
   address?: string;
-  slaveZoneId?: string;
-  masterZoneId?: string;
+  addressIPVersion?: string;
+  addressType?: string;
+  bandwidth?: number;
+  createTime?: string;
+  createTimeStamp?: number;
+  deleteProtection?: string;
+  internetChargeType?: string;
   internetChargeTypeAlias?: string;
+  loadBalancerId?: string;
+  loadBalancerName?: string;
   loadBalancerSpec?: string;
-  regionId?: string;
+  loadBalancerStatus?: string;
+  masterZoneId?: string;
   modificationProtectionReason?: string;
   modificationProtectionStatus?: string;
-  vSwitchId?: string;
-  loadBalancerStatus?: string;
-  resourceGroupId?: string;
-  internetChargeType?: string;
-  deleteProtection?: string;
+  networkType?: string;
+  payType?: string;
+  regionId?: string;
   regionIdAlias?: string;
+  resourceGroupId?: string;
+  slaveZoneId?: string;
+  tags?: DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTags;
+  vSwitchId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
-      vpcId: 'VpcId',
-      createTimeStamp: 'CreateTimeStamp',
-      loadBalancerId: 'LoadBalancerId',
-      createTime: 'CreateTime',
-      payType: 'PayType',
-      addressType: 'AddressType',
-      networkType: 'NetworkType',
-      addressIPVersion: 'AddressIPVersion',
-      loadBalancerName: 'LoadBalancerName',
-      bandwidth: 'Bandwidth',
       address: 'Address',
-      slaveZoneId: 'SlaveZoneId',
-      masterZoneId: 'MasterZoneId',
+      addressIPVersion: 'AddressIPVersion',
+      addressType: 'AddressType',
+      bandwidth: 'Bandwidth',
+      createTime: 'CreateTime',
+      createTimeStamp: 'CreateTimeStamp',
+      deleteProtection: 'DeleteProtection',
+      internetChargeType: 'InternetChargeType',
       internetChargeTypeAlias: 'InternetChargeTypeAlias',
+      loadBalancerId: 'LoadBalancerId',
+      loadBalancerName: 'LoadBalancerName',
       loadBalancerSpec: 'LoadBalancerSpec',
-      regionId: 'RegionId',
+      loadBalancerStatus: 'LoadBalancerStatus',
+      masterZoneId: 'MasterZoneId',
       modificationProtectionReason: 'ModificationProtectionReason',
       modificationProtectionStatus: 'ModificationProtectionStatus',
-      vSwitchId: 'VSwitchId',
-      loadBalancerStatus: 'LoadBalancerStatus',
-      resourceGroupId: 'ResourceGroupId',
-      internetChargeType: 'InternetChargeType',
-      deleteProtection: 'DeleteProtection',
+      networkType: 'NetworkType',
+      payType: 'PayType',
+      regionId: 'RegionId',
       regionIdAlias: 'RegionIdAlias',
+      resourceGroupId: 'ResourceGroupId',
+      slaveZoneId: 'SlaveZoneId',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      vpcId: 'string',
-      createTimeStamp: 'number',
-      loadBalancerId: 'string',
-      createTime: 'string',
-      payType: 'string',
-      addressType: 'string',
-      networkType: 'string',
-      addressIPVersion: 'string',
-      loadBalancerName: 'string',
-      bandwidth: 'number',
       address: 'string',
-      slaveZoneId: 'string',
-      masterZoneId: 'string',
+      addressIPVersion: 'string',
+      addressType: 'string',
+      bandwidth: 'number',
+      createTime: 'string',
+      createTimeStamp: 'number',
+      deleteProtection: 'string',
+      internetChargeType: 'string',
       internetChargeTypeAlias: 'string',
+      loadBalancerId: 'string',
+      loadBalancerName: 'string',
       loadBalancerSpec: 'string',
-      regionId: 'string',
+      loadBalancerStatus: 'string',
+      masterZoneId: 'string',
       modificationProtectionReason: 'string',
       modificationProtectionStatus: 'string',
-      vSwitchId: 'string',
-      loadBalancerStatus: 'string',
-      resourceGroupId: 'string',
-      internetChargeType: 'string',
-      deleteProtection: 'string',
+      networkType: 'string',
+      payType: 'string',
+      regionId: 'string',
       regionIdAlias: 'string',
+      resourceGroupId: 'string',
+      slaveZoneId: 'string',
+      tags: DescribeLoadBalancersResponseBodyLoadBalancersLoadBalancerTags,
+      vSwitchId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -9837,31 +9870,31 @@ export class DescribeLoadBalancersResponseBodyLoadBalancers extends $tea.Model {
 }
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
   serverType?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
       serverType: 'ServerType',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
       serverType: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -9950,22 +9983,22 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $tea.Model {
+  associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
   masterSlaveServerGroupId?: string;
   masterSlaveServerGroupName?: string;
-  associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
   static names(): { [key: string]: string } {
     return {
+      associatedObjects: 'AssociatedObjects',
       masterSlaveServerGroupId: 'MasterSlaveServerGroupId',
       masterSlaveServerGroupName: 'MasterSlaveServerGroupName',
-      associatedObjects: 'AssociatedObjects',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
       masterSlaveServerGroupId: 'string',
       masterSlaveServerGroupName: 'string',
-      associatedObjects: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects,
     };
   }
 
@@ -9994,21 +10027,21 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups 
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $tea.Model {
-  regionEndpoint?: string;
   localName?: string;
+  regionEndpoint?: string;
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
-      regionEndpoint: 'RegionEndpoint',
       localName: 'LocalName',
+      regionEndpoint: 'RegionEndpoint',
       regionId: 'RegionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionEndpoint: 'string',
       localName: 'string',
+      regionEndpoint: 'string',
       regionId: 'string',
     };
   }
@@ -10038,73 +10071,73 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
 }
 
 export class DescribeRulesResponseBodyRulesRule extends $tea.Model {
-  healthCheckHttpCode?: string;
-  VServerGroupId?: string;
-  domain?: string;
   cookie?: string;
-  healthCheckInterval?: number;
-  url?: string;
-  healthCheckURI?: string;
-  stickySessionType?: string;
-  ruleName?: string;
-  ruleId?: string;
-  healthCheckConnectPort?: number;
-  scheduler?: string;
-  healthCheckTimeout?: number;
-  listenerSync?: string;
-  healthyThreshold?: number;
   cookieTimeout?: number;
-  healthCheckDomain?: string;
-  unhealthyThreshold?: number;
-  stickySession?: string;
+  domain?: string;
   healthCheck?: string;
+  healthCheckConnectPort?: number;
+  healthCheckDomain?: string;
+  healthCheckHttpCode?: string;
+  healthCheckInterval?: number;
+  healthCheckTimeout?: number;
+  healthCheckURI?: string;
+  healthyThreshold?: number;
+  listenerSync?: string;
+  ruleId?: string;
+  ruleName?: string;
+  scheduler?: string;
+  stickySession?: string;
+  stickySessionType?: string;
+  unhealthyThreshold?: number;
+  url?: string;
+  VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      healthCheckHttpCode: 'HealthCheckHttpCode',
-      VServerGroupId: 'VServerGroupId',
-      domain: 'Domain',
       cookie: 'Cookie',
-      healthCheckInterval: 'HealthCheckInterval',
-      url: 'Url',
-      healthCheckURI: 'HealthCheckURI',
-      stickySessionType: 'StickySessionType',
-      ruleName: 'RuleName',
-      ruleId: 'RuleId',
-      healthCheckConnectPort: 'HealthCheckConnectPort',
-      scheduler: 'Scheduler',
-      healthCheckTimeout: 'HealthCheckTimeout',
-      listenerSync: 'ListenerSync',
-      healthyThreshold: 'HealthyThreshold',
       cookieTimeout: 'CookieTimeout',
-      healthCheckDomain: 'HealthCheckDomain',
-      unhealthyThreshold: 'UnhealthyThreshold',
-      stickySession: 'StickySession',
+      domain: 'Domain',
       healthCheck: 'HealthCheck',
+      healthCheckConnectPort: 'HealthCheckConnectPort',
+      healthCheckDomain: 'HealthCheckDomain',
+      healthCheckHttpCode: 'HealthCheckHttpCode',
+      healthCheckInterval: 'HealthCheckInterval',
+      healthCheckTimeout: 'HealthCheckTimeout',
+      healthCheckURI: 'HealthCheckURI',
+      healthyThreshold: 'HealthyThreshold',
+      listenerSync: 'ListenerSync',
+      ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      scheduler: 'Scheduler',
+      stickySession: 'StickySession',
+      stickySessionType: 'StickySessionType',
+      unhealthyThreshold: 'UnhealthyThreshold',
+      url: 'Url',
+      VServerGroupId: 'VServerGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      healthCheckHttpCode: 'string',
-      VServerGroupId: 'string',
-      domain: 'string',
       cookie: 'string',
-      healthCheckInterval: 'number',
-      url: 'string',
-      healthCheckURI: 'string',
-      stickySessionType: 'string',
-      ruleName: 'string',
-      ruleId: 'string',
-      healthCheckConnectPort: 'number',
-      scheduler: 'string',
-      healthCheckTimeout: 'number',
-      listenerSync: 'string',
-      healthyThreshold: 'number',
       cookieTimeout: 'number',
-      healthCheckDomain: 'string',
-      unhealthyThreshold: 'number',
-      stickySession: 'string',
+      domain: 'string',
       healthCheck: 'string',
+      healthCheckConnectPort: 'number',
+      healthCheckDomain: 'string',
+      healthCheckHttpCode: 'string',
+      healthCheckInterval: 'number',
+      healthCheckTimeout: 'number',
+      healthCheckURI: 'string',
+      healthyThreshold: 'number',
+      listenerSync: 'string',
+      ruleId: 'string',
+      ruleName: 'string',
+      scheduler: 'string',
+      stickySession: 'string',
+      stickySessionType: 'string',
+      unhealthyThreshold: 'number',
+      url: 'string',
+      VServerGroupId: 'string',
     };
   }
 
@@ -10152,54 +10185,54 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
 }
 
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate extends $tea.Model {
-  createTimeStamp?: number;
-  aliCloudCertificateName?: string;
-  expireTime?: string;
-  createTime?: string;
-  serverCertificateId?: string;
-  expireTimeStamp?: number;
-  regionId?: string;
-  serverCertificateName?: string;
-  fingerprint?: string;
-  commonName?: string;
-  resourceGroupId?: string;
-  isAliCloudCertificate?: number;
   aliCloudCertificateId?: string;
+  aliCloudCertificateName?: string;
+  commonName?: string;
+  createTime?: string;
+  createTimeStamp?: number;
+  expireTime?: string;
+  expireTimeStamp?: number;
+  fingerprint?: string;
+  isAliCloudCertificate?: number;
+  regionId?: string;
+  resourceGroupId?: string;
+  serverCertificateId?: string;
+  serverCertificateName?: string;
   subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
   static names(): { [key: string]: string } {
     return {
-      createTimeStamp: 'CreateTimeStamp',
-      aliCloudCertificateName: 'AliCloudCertificateName',
-      expireTime: 'ExpireTime',
-      createTime: 'CreateTime',
-      serverCertificateId: 'ServerCertificateId',
-      expireTimeStamp: 'ExpireTimeStamp',
-      regionId: 'RegionId',
-      serverCertificateName: 'ServerCertificateName',
-      fingerprint: 'Fingerprint',
-      commonName: 'CommonName',
-      resourceGroupId: 'ResourceGroupId',
-      isAliCloudCertificate: 'IsAliCloudCertificate',
       aliCloudCertificateId: 'AliCloudCertificateId',
+      aliCloudCertificateName: 'AliCloudCertificateName',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      createTimeStamp: 'CreateTimeStamp',
+      expireTime: 'ExpireTime',
+      expireTimeStamp: 'ExpireTimeStamp',
+      fingerprint: 'Fingerprint',
+      isAliCloudCertificate: 'IsAliCloudCertificate',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serverCertificateId: 'ServerCertificateId',
+      serverCertificateName: 'ServerCertificateName',
       subjectAlternativeNames: 'SubjectAlternativeNames',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createTimeStamp: 'number',
-      aliCloudCertificateName: 'string',
-      expireTime: 'string',
-      createTime: 'string',
-      serverCertificateId: 'string',
-      expireTimeStamp: 'number',
-      regionId: 'string',
-      serverCertificateName: 'string',
-      fingerprint: 'string',
-      commonName: 'string',
-      resourceGroupId: 'string',
-      isAliCloudCertificate: 'number',
       aliCloudCertificateId: 'string',
+      aliCloudCertificateName: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      createTimeStamp: 'number',
+      expireTime: 'string',
+      expireTimeStamp: 'number',
+      fingerprint: 'string',
+      isAliCloudCertificate: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serverCertificateId: 'string',
+      serverCertificateName: 'string',
       subjectAlternativeNames: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames,
     };
   }
@@ -10229,22 +10262,22 @@ export class DescribeServerCertificatesResponseBodyServerCertificates extends $t
 }
 
 export class DescribeTagsResponseBodyTagSetsTagSet extends $tea.Model {
-  tagValue?: string;
   instanceCount?: number;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
       instanceCount: 'InstanceCount',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
       instanceCount: 'number',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -10273,28 +10306,28 @@ export class DescribeTagsResponseBodyTagSets extends $tea.Model {
 }
 
 export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -10364,25 +10397,25 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule extends $tea.Model {
-  url?: string;
   domain?: string;
-  ruleName?: string;
   ruleId?: string;
+  ruleName?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
       domain: 'Domain',
-      ruleName: 'RuleName',
       ruleId: 'RuleId',
+      ruleName: 'RuleName',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
       domain: 'string',
-      ruleName: 'string',
       ruleId: 'string',
+      ruleName: 'string',
+      url: 'string',
     };
   }
 
@@ -10433,22 +10466,25 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup extends $tea.Model {
+  associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects;
+  serverCount?: number;
   VServerGroupId?: string;
   VServerGroupName?: string;
-  associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects;
   static names(): { [key: string]: string } {
     return {
+      associatedObjects: 'AssociatedObjects',
+      serverCount: 'ServerCount',
       VServerGroupId: 'VServerGroupId',
       VServerGroupName: 'VServerGroupName',
-      associatedObjects: 'AssociatedObjects',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      associatedObjects: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects,
+      serverCount: 'number',
       VServerGroupId: 'string',
       VServerGroupName: 'string',
-      associatedObjects: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects,
     };
   }
 
@@ -10477,19 +10513,19 @@ export class DescribeVServerGroupsResponseBodyVServerGroups extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZoneSlaveZonesSlaveZone extends $tea.Model {
-  zoneId?: string;
   localName?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      zoneId: 'ZoneId',
       localName: 'LocalName',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zoneId: 'string',
       localName: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -10518,22 +10554,22 @@ export class DescribeZonesResponseBodyZonesZoneSlaveZones extends $tea.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZone extends $tea.Model {
-  zoneId?: string;
   localName?: string;
   slaveZones?: DescribeZonesResponseBodyZonesZoneSlaveZones;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      zoneId: 'ZoneId',
       localName: 'LocalName',
       slaveZones: 'SlaveZones',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zoneId: 'string',
       localName: 'string',
       slaveZones: DescribeZonesResponseBodyZonesZoneSlaveZones,
+      zoneId: 'string',
     };
   }
 
@@ -10553,6 +10589,68 @@ export class DescribeZonesResponseBodyZones extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       zone: { 'type': 'array', 'itemType': DescribeZonesResponseBodyZonesZone },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners extends $tea.Model {
+  loadBalancerId?: string;
+  port?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loadBalancerId: 'LoadBalancerId',
+      port: 'Port',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loadBalancerId: 'string',
+      port: 'number',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTLSCipherPoliciesResponseBodyTLSCipherPolicies extends $tea.Model {
+  ciphers?: string[];
+  createTime?: number;
+  instanceId?: string;
+  name?: string;
+  relateListeners?: ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners[];
+  status?: string;
+  TLSVersions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ciphers: 'Ciphers',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      relateListeners: 'RelateListeners',
+      status: 'Status',
+      TLSVersions: 'TLSVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphers: { 'type': 'array', 'itemType': 'string' },
+      createTime: 'number',
+      instanceId: 'string',
+      name: 'string',
+      relateListeners: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners },
+      status: 'string',
+      TLSVersions: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -10584,25 +10682,25 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 }
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
-  tagValue?: string;
-  resourceType?: string;
   resourceId?: string;
+  resourceType?: string;
   tagKey?: string;
+  tagValue?: string;
   static names(): { [key: string]: string } {
     return {
-      tagValue: 'TagValue',
-      resourceType: 'ResourceType',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
       tagKey: 'TagKey',
+      tagValue: 'TagValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagValue: 'string',
-      resourceType: 'string',
       resourceId: 'string',
+      resourceType: 'string',
       tagKey: 'string',
+      tagValue: 'string',
     };
   }
 
@@ -10630,91 +10728,29 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   }
 }
 
-export class ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners extends $tea.Model {
-  port?: number;
-  protocol?: string;
-  loadBalancerId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      port: 'Port',
-      protocol: 'Protocol',
-      loadBalancerId: 'LoadBalancerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      port: 'number',
-      protocol: 'string',
-      loadBalancerId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTLSCipherPoliciesResponseBodyTLSCipherPolicies extends $tea.Model {
-  status?: string;
-  instanceId?: string;
-  name?: string;
-  createTime?: number;
-  relateListeners?: ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners[];
-  TLSVersions?: string[];
-  ciphers?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-      instanceId: 'InstanceId',
-      name: 'Name',
-      createTime: 'CreateTime',
-      relateListeners: 'RelateListeners',
-      TLSVersions: 'TLSVersions',
-      ciphers: 'Ciphers',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-      instanceId: 'string',
-      name: 'string',
-      createTime: 'number',
-      relateListeners: { 'type': 'array', 'itemType': ListTLSCipherPoliciesResponseBodyTLSCipherPoliciesRelateListeners },
-      TLSVersions: { 'type': 'array', 'itemType': 'string' },
-      ciphers: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ModifyVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -10743,25 +10779,25 @@ export class ModifyVServerGroupBackendServersResponseBodyBackendServers extends 
 }
 
 export class RemoveBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -10790,25 +10826,25 @@ export class RemoveBackendServersResponseBodyBackendServers extends $tea.Model {
 }
 
 export class RemoveVServerGroupBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -10837,25 +10873,25 @@ export class RemoveVServerGroupBackendServersResponseBodyBackendServers extends 
 }
 
 export class SetBackendServersResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: string;
   description?: string;
   serverId?: string;
+  type?: string;
+  weight?: string;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'string',
       description: 'string',
       serverId: 'string',
+      type: 'string',
+      weight: 'string',
     };
   }
 
@@ -10884,28 +10920,28 @@ export class SetBackendServersResponseBodyBackendServers extends $tea.Model {
 }
 
 export class SetVServerGroupAttributeResponseBodyBackendServersBackendServer extends $tea.Model {
-  type?: string;
-  weight?: number;
   description?: string;
   port?: number;
   serverId?: string;
+  type?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
-      type: 'Type',
-      weight: 'Weight',
       description: 'Description',
       port: 'Port',
       serverId: 'ServerId',
+      type: 'Type',
+      weight: 'Weight',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      type: 'string',
-      weight: 'number',
       description: 'string',
       port: 'number',
       serverId: 'string',
+      type: 'string',
+      weight: 'number',
     };
   }
 
@@ -11044,10 +11080,50 @@ export default class Client extends OpenApi {
 
   async addAccessControlListEntryWithOptions(request: AddAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<AddAccessControlListEntryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclEntrys)) {
+      query["AclEntrys"] = request.aclEntrys;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddAccessControlListEntryResponse>(await this.doRPCRequest("AddAccessControlListEntry", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddAccessControlListEntryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddAccessControlListEntry",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new AddAccessControlListEntryResponse({}));
   }
 
   async addAccessControlListEntry(request: AddAccessControlListEntryRequest): Promise<AddAccessControlListEntryResponse> {
@@ -11057,10 +11133,50 @@ export default class Client extends OpenApi {
 
   async addBackendServersWithOptions(request: AddBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddBackendServersResponse>(await this.doRPCRequest("AddBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddBackendServersResponse>(await this.callApi(params, req, runtime), new AddBackendServersResponse({}));
   }
 
   async addBackendServers(request: AddBackendServersRequest): Promise<AddBackendServersResponse> {
@@ -11070,10 +11186,58 @@ export default class Client extends OpenApi {
 
   async addListenerWhiteListItemWithOptions(request: AddListenerWhiteListItemRequest, runtime: $Util.RuntimeOptions): Promise<AddListenerWhiteListItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceItems)) {
+      query["SourceItems"] = request.sourceItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddListenerWhiteListItemResponse>(await this.doRPCRequest("AddListenerWhiteListItem", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddListenerWhiteListItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddListenerWhiteListItem",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddListenerWhiteListItemResponse>(await this.callApi(params, req, runtime), new AddListenerWhiteListItemResponse({}));
   }
 
   async addListenerWhiteListItem(request: AddListenerWhiteListItemRequest): Promise<AddListenerWhiteListItemResponse> {
@@ -11083,10 +11247,50 @@ export default class Client extends OpenApi {
 
   async addTagsWithOptions(request: AddTagsRequest, runtime: $Util.RuntimeOptions): Promise<AddTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddTagsResponse>(await this.doRPCRequest("AddTags", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddTags",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddTagsResponse>(await this.callApi(params, req, runtime), new AddTagsResponse({}));
   }
 
   async addTags(request: AddTagsRequest): Promise<AddTagsResponse> {
@@ -11096,10 +11300,50 @@ export default class Client extends OpenApi {
 
   async addVServerGroupBackendServersWithOptions(request: AddVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<AddVServerGroupBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddVServerGroupBackendServersResponse>(await this.doRPCRequest("AddVServerGroupBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddVServerGroupBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddVServerGroupBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new AddVServerGroupBackendServersResponse({}));
   }
 
   async addVServerGroupBackendServers(request: AddVServerGroupBackendServersRequest): Promise<AddVServerGroupBackendServersResponse> {
@@ -11109,10 +11353,54 @@ export default class Client extends OpenApi {
 
   async createAccessControlListWithOptions(request: CreateAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessControlListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAccessControlListResponse>(await this.doRPCRequest("CreateAccessControlList", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccessControlListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessControlList",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessControlListResponse>(await this.callApi(params, req, runtime), new CreateAccessControlListResponse({}));
   }
 
   async createAccessControlList(request: CreateAccessControlListRequest): Promise<CreateAccessControlListResponse> {
@@ -11122,10 +11410,58 @@ export default class Client extends OpenApi {
 
   async createDomainExtensionWithOptions(request: CreateDomainExtensionRequest, runtime: $Util.RuntimeOptions): Promise<CreateDomainExtensionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateDomainExtensionResponse>(await this.doRPCRequest("CreateDomainExtension", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateDomainExtensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateDomainExtension",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDomainExtensionResponse>(await this.callApi(params, req, runtime), new CreateDomainExtensionResponse({}));
   }
 
   async createDomainExtension(request: CreateDomainExtensionRequest): Promise<CreateDomainExtensionResponse> {
@@ -11135,10 +11471,122 @@ export default class Client extends OpenApi {
 
   async createLoadBalancerWithOptions(request: CreateLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deleteProtection)) {
+      query["DeleteProtection"] = request.deleteProtection;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.loadBalancerName)) {
+      query["LoadBalancerName"] = request.loadBalancerName;
+    }
+
+    if (!Util.isUnset(request.loadBalancerSpec)) {
+      query["LoadBalancerSpec"] = request.loadBalancerSpec;
+    }
+
+    if (!Util.isUnset(request.masterZoneId)) {
+      query["MasterZoneId"] = request.masterZoneId;
+    }
+
+    if (!Util.isUnset(request.modificationProtectionReason)) {
+      query["ModificationProtectionReason"] = request.modificationProtectionReason;
+    }
+
+    if (!Util.isUnset(request.modificationProtectionStatus)) {
+      query["ModificationProtectionStatus"] = request.modificationProtectionStatus;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.slaveZoneId)) {
+      query["SlaveZoneId"] = request.slaveZoneId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoadBalancerResponse>(await this.doRPCRequest("CreateLoadBalancer", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoadBalancerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoadBalancer",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoadBalancerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerResponse({}));
   }
 
   async createLoadBalancer(request: CreateLoadBalancerRequest): Promise<CreateLoadBalancerResponse> {
@@ -11148,10 +11596,174 @@ export default class Client extends OpenApi {
 
   async createLoadBalancerHTTPListenerWithOptions(request: CreateLoadBalancerHTTPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.backendServerPort)) {
+      query["BackendServerPort"] = request.backendServerPort;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.cookie)) {
+      query["Cookie"] = request.cookie;
+    }
+
+    if (!Util.isUnset(request.cookieTimeout)) {
+      query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.forwardPort)) {
+      query["ForwardPort"] = request.forwardPort;
+    }
+
+    if (!Util.isUnset(request.gzip)) {
+      query["Gzip"] = request.gzip;
+    }
+
+    if (!Util.isUnset(request.healthCheck)) {
+      query["HealthCheck"] = request.healthCheck;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckMethod)) {
+      query["HealthCheckMethod"] = request.healthCheckMethod;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      query["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
+    if (!Util.isUnset(request.listenerForward)) {
+      query["ListenerForward"] = request.listenerForward;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.stickySession)) {
+      query["StickySession"] = request.stickySession;
+    }
+
+    if (!Util.isUnset(request.stickySessionType)) {
+      query["StickySessionType"] = request.stickySessionType;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor)) {
+      query["XForwardedFor"] = request.XForwardedFor;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBID)) {
+      query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
+      query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_proto)) {
+      query["XForwardedFor_proto"] = request.XForwardedFor_proto;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoadBalancerHTTPListenerResponse>(await this.doRPCRequest("CreateLoadBalancerHTTPListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoadBalancerHTTPListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoadBalancerHTTPListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoadBalancerHTTPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerHTTPListenerResponse({}));
   }
 
   async createLoadBalancerHTTPListener(request: CreateLoadBalancerHTTPListenerRequest): Promise<CreateLoadBalancerHTTPListenerResponse> {
@@ -11161,10 +11773,182 @@ export default class Client extends OpenApi {
 
   async createLoadBalancerHTTPSListenerWithOptions(request: CreateLoadBalancerHTTPSListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerHTTPSListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.backendServerPort)) {
+      query["BackendServerPort"] = request.backendServerPort;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.CACertificateId)) {
+      query["CACertificateId"] = request.CACertificateId;
+    }
+
+    if (!Util.isUnset(request.cookie)) {
+      query["Cookie"] = request.cookie;
+    }
+
+    if (!Util.isUnset(request.cookieTimeout)) {
+      query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableHttp2)) {
+      query["EnableHttp2"] = request.enableHttp2;
+    }
+
+    if (!Util.isUnset(request.gzip)) {
+      query["Gzip"] = request.gzip;
+    }
+
+    if (!Util.isUnset(request.healthCheck)) {
+      query["HealthCheck"] = request.healthCheck;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckMethod)) {
+      query["HealthCheckMethod"] = request.healthCheckMethod;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      query["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
+    if (!Util.isUnset(request.stickySession)) {
+      query["StickySession"] = request.stickySession;
+    }
+
+    if (!Util.isUnset(request.stickySessionType)) {
+      query["StickySessionType"] = request.stickySessionType;
+    }
+
+    if (!Util.isUnset(request.TLSCipherPolicy)) {
+      query["TLSCipherPolicy"] = request.TLSCipherPolicy;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor)) {
+      query["XForwardedFor"] = request.XForwardedFor;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBID)) {
+      query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
+      query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_proto)) {
+      query["XForwardedFor_proto"] = request.XForwardedFor_proto;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoadBalancerHTTPSListenerResponse>(await this.doRPCRequest("CreateLoadBalancerHTTPSListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoadBalancerHTTPSListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoadBalancerHTTPSListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoadBalancerHTTPSListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerHTTPSListenerResponse({}));
   }
 
   async createLoadBalancerHTTPSListener(request: CreateLoadBalancerHTTPSListenerRequest): Promise<CreateLoadBalancerHTTPSListenerResponse> {
@@ -11174,10 +11958,138 @@ export default class Client extends OpenApi {
 
   async createLoadBalancerTCPListenerWithOptions(request: CreateLoadBalancerTCPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerTCPListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.backendServerPort)) {
+      query["BackendServerPort"] = request.backendServerPort;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.connectionDrain)) {
+      query["ConnectionDrain"] = request.connectionDrain;
+    }
+
+    if (!Util.isUnset(request.connectionDrainTimeout)) {
+      query["ConnectionDrainTimeout"] = request.connectionDrainTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.establishedTimeout)) {
+      query["EstablishedTimeout"] = request.establishedTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectTimeout)) {
+      query["HealthCheckConnectTimeout"] = request.healthCheckConnectTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckType)) {
+      query["HealthCheckType"] = request.healthCheckType;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.persistenceTimeout)) {
+      query["PersistenceTimeout"] = request.persistenceTimeout;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["healthCheckInterval"] = request.healthCheckInterval;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoadBalancerTCPListenerResponse>(await this.doRPCRequest("CreateLoadBalancerTCPListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoadBalancerTCPListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoadBalancerTCPListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoadBalancerTCPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerTCPListenerResponse({}));
   }
 
   async createLoadBalancerTCPListener(request: CreateLoadBalancerTCPListenerRequest): Promise<CreateLoadBalancerTCPListenerResponse> {
@@ -11187,10 +12099,114 @@ export default class Client extends OpenApi {
 
   async createLoadBalancerUDPListenerWithOptions(request: CreateLoadBalancerUDPListenerRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoadBalancerUDPListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.backendServerPort)) {
+      query["BackendServerPort"] = request.backendServerPort;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectTimeout)) {
+      query["HealthCheckConnectTimeout"] = request.healthCheckConnectTimeout;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.healthCheckExp)) {
+      query["healthCheckExp"] = request.healthCheckExp;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["healthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckReq)) {
+      query["healthCheckReq"] = request.healthCheckReq;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoadBalancerUDPListenerResponse>(await this.doRPCRequest("CreateLoadBalancerUDPListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoadBalancerUDPListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoadBalancerUDPListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoadBalancerUDPListenerResponse>(await this.callApi(params, req, runtime), new CreateLoadBalancerUDPListenerResponse({}));
   }
 
   async createLoadBalancerUDPListener(request: CreateLoadBalancerUDPListenerRequest): Promise<CreateLoadBalancerUDPListenerResponse> {
@@ -11200,10 +12216,54 @@ export default class Client extends OpenApi {
 
   async createMasterSlaveServerGroupWithOptions(request: CreateMasterSlaveServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateMasterSlaveServerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.masterSlaveBackendServers)) {
+      query["MasterSlaveBackendServers"] = request.masterSlaveBackendServers;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroupName)) {
+      query["MasterSlaveServerGroupName"] = request.masterSlaveServerGroupName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateMasterSlaveServerGroupResponse>(await this.doRPCRequest("CreateMasterSlaveServerGroup", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateMasterSlaveServerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateMasterSlaveServerGroup",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateMasterSlaveServerGroupResponse>(await this.callApi(params, req, runtime), new CreateMasterSlaveServerGroupResponse({}));
   }
 
   async createMasterSlaveServerGroup(request: CreateMasterSlaveServerGroupRequest): Promise<CreateMasterSlaveServerGroupResponse> {
@@ -11213,10 +12273,58 @@ export default class Client extends OpenApi {
 
   async createRulesWithOptions(request: CreateRulesRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleList)) {
+      query["RuleList"] = request.ruleList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateRulesResponse>(await this.doRPCRequest("CreateRules", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateRules",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRulesResponse>(await this.callApi(params, req, runtime), new CreateRulesResponse({}));
   }
 
   async createRules(request: CreateRulesRequest): Promise<CreateRulesResponse> {
@@ -11226,10 +12334,54 @@ export default class Client extends OpenApi {
 
   async createTLSCipherPolicyWithOptions(request: CreateTLSCipherPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateTLSCipherPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ciphers)) {
+      query["Ciphers"] = request.ciphers;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TLSVersions)) {
+      query["TLSVersions"] = request.TLSVersions;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateTLSCipherPolicyResponse>(await this.doRPCRequest("CreateTLSCipherPolicy", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateTLSCipherPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateTLSCipherPolicy",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTLSCipherPolicyResponse>(await this.callApi(params, req, runtime), new CreateTLSCipherPolicyResponse({}));
   }
 
   async createTLSCipherPolicy(request: CreateTLSCipherPolicyRequest): Promise<CreateTLSCipherPolicyResponse> {
@@ -11239,10 +12391,54 @@ export default class Client extends OpenApi {
 
   async createVServerGroupWithOptions(request: CreateVServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateVServerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupName)) {
+      query["VServerGroupName"] = request.VServerGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVServerGroupResponse>(await this.doRPCRequest("CreateVServerGroup", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVServerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVServerGroup",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVServerGroupResponse>(await this.callApi(params, req, runtime), new CreateVServerGroupResponse({}));
   }
 
   async createVServerGroup(request: CreateVServerGroupRequest): Promise<CreateVServerGroupResponse> {
@@ -11252,10 +12448,46 @@ export default class Client extends OpenApi {
 
   async deleteAccessControlListWithOptions(request: DeleteAccessControlListRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessControlListResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAccessControlListResponse>(await this.doRPCRequest("DeleteAccessControlList", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccessControlListResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessControlList",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessControlListResponse>(await this.callApi(params, req, runtime), new DeleteAccessControlListResponse({}));
   }
 
   async deleteAccessControlList(request: DeleteAccessControlListRequest): Promise<DeleteAccessControlListResponse> {
@@ -11265,10 +12497,46 @@ export default class Client extends OpenApi {
 
   async deleteCACertificateWithOptions(request: DeleteCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCACertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.CACertificateId)) {
+      query["CACertificateId"] = request.CACertificateId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteCACertificateResponse>(await this.doRPCRequest("DeleteCACertificate", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteCACertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteCACertificate",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCACertificateResponse>(await this.callApi(params, req, runtime), new DeleteCACertificateResponse({}));
   }
 
   async deleteCACertificate(request: DeleteCACertificateRequest): Promise<DeleteCACertificateResponse> {
@@ -11278,10 +12546,46 @@ export default class Client extends OpenApi {
 
   async deleteDomainExtensionWithOptions(request: DeleteDomainExtensionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDomainExtensionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainExtensionId)) {
+      query["DomainExtensionId"] = request.domainExtensionId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteDomainExtensionResponse>(await this.doRPCRequest("DeleteDomainExtension", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteDomainExtensionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteDomainExtension",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDomainExtensionResponse>(await this.callApi(params, req, runtime), new DeleteDomainExtensionResponse({}));
   }
 
   async deleteDomainExtension(request: DeleteDomainExtensionRequest): Promise<DeleteDomainExtensionResponse> {
@@ -11291,10 +12595,46 @@ export default class Client extends OpenApi {
 
   async deleteLoadBalancerWithOptions(request: DeleteLoadBalancerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLoadBalancerResponse>(await this.doRPCRequest("DeleteLoadBalancer", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLoadBalancerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLoadBalancer",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLoadBalancerResponse>(await this.callApi(params, req, runtime), new DeleteLoadBalancerResponse({}));
   }
 
   async deleteLoadBalancer(request: DeleteLoadBalancerRequest): Promise<DeleteLoadBalancerResponse> {
@@ -11304,10 +12644,54 @@ export default class Client extends OpenApi {
 
   async deleteLoadBalancerListenerWithOptions(request: DeleteLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoadBalancerListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLoadBalancerListenerResponse>(await this.doRPCRequest("DeleteLoadBalancerListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLoadBalancerListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLoadBalancerListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new DeleteLoadBalancerListenerResponse({}));
   }
 
   async deleteLoadBalancerListener(request: DeleteLoadBalancerListenerRequest): Promise<DeleteLoadBalancerListenerResponse> {
@@ -11317,10 +12701,46 @@ export default class Client extends OpenApi {
 
   async deleteMasterSlaveServerGroupWithOptions(request: DeleteMasterSlaveServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMasterSlaveServerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteMasterSlaveServerGroupResponse>(await this.doRPCRequest("DeleteMasterSlaveServerGroup", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteMasterSlaveServerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteMasterSlaveServerGroup",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMasterSlaveServerGroupResponse>(await this.callApi(params, req, runtime), new DeleteMasterSlaveServerGroupResponse({}));
   }
 
   async deleteMasterSlaveServerGroup(request: DeleteMasterSlaveServerGroupRequest): Promise<DeleteMasterSlaveServerGroupResponse> {
@@ -11330,10 +12750,46 @@ export default class Client extends OpenApi {
 
   async deleteRulesWithOptions(request: DeleteRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteRulesResponse>(await this.doRPCRequest("DeleteRules", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteRules",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRulesResponse>(await this.callApi(params, req, runtime), new DeleteRulesResponse({}));
   }
 
   async deleteRules(request: DeleteRulesRequest): Promise<DeleteRulesResponse> {
@@ -11343,10 +12799,46 @@ export default class Client extends OpenApi {
 
   async deleteServerCertificateWithOptions(request: DeleteServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteServerCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteServerCertificateResponse>(await this.doRPCRequest("DeleteServerCertificate", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteServerCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteServerCertificate",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteServerCertificateResponse>(await this.callApi(params, req, runtime), new DeleteServerCertificateResponse({}));
   }
 
   async deleteServerCertificate(request: DeleteServerCertificateRequest): Promise<DeleteServerCertificateResponse> {
@@ -11356,10 +12848,46 @@ export default class Client extends OpenApi {
 
   async deleteTLSCipherPolicyWithOptions(request: DeleteTLSCipherPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTLSCipherPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TLSCipherPolicyId)) {
+      query["TLSCipherPolicyId"] = request.TLSCipherPolicyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteTLSCipherPolicyResponse>(await this.doRPCRequest("DeleteTLSCipherPolicy", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteTLSCipherPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteTLSCipherPolicy",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteTLSCipherPolicyResponse>(await this.callApi(params, req, runtime), new DeleteTLSCipherPolicyResponse({}));
   }
 
   async deleteTLSCipherPolicy(request: DeleteTLSCipherPolicyRequest): Promise<DeleteTLSCipherPolicyResponse> {
@@ -11369,10 +12897,46 @@ export default class Client extends OpenApi {
 
   async deleteVServerGroupWithOptions(request: DeleteVServerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVServerGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVServerGroupResponse>(await this.doRPCRequest("DeleteVServerGroup", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVServerGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVServerGroup",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVServerGroupResponse>(await this.callApi(params, req, runtime), new DeleteVServerGroupResponse({}));
   }
 
   async deleteVServerGroup(request: DeleteVServerGroupRequest): Promise<DeleteVServerGroupResponse> {
@@ -11382,10 +12946,50 @@ export default class Client extends OpenApi {
 
   async describeAccessControlListAttributeWithOptions(request: DescribeAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclEntryComment)) {
+      query["AclEntryComment"] = request.aclEntryComment;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAccessControlListAttributeResponse>(await this.doRPCRequest("DescribeAccessControlListAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccessControlListAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessControlListAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListAttributeResponse({}));
   }
 
   async describeAccessControlListAttribute(request: DescribeAccessControlListAttributeRequest): Promise<DescribeAccessControlListAttributeResponse> {
@@ -11395,10 +12999,62 @@ export default class Client extends OpenApi {
 
   async describeAccessControlListsWithOptions(request: DescribeAccessControlListsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAccessControlListsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAccessControlListsResponse>(await this.doRPCRequest("DescribeAccessControlLists", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAccessControlListsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAccessControlLists",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAccessControlListsResponse>(await this.callApi(params, req, runtime), new DescribeAccessControlListsResponse({}));
   }
 
   async describeAccessControlLists(request: DescribeAccessControlListsRequest): Promise<DescribeAccessControlListsResponse> {
@@ -11408,10 +13064,50 @@ export default class Client extends OpenApi {
 
   async describeAvailableResourceWithOptions(request: DescribeAvailableResourceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAvailableResourceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeAvailableResourceResponse>(await this.doRPCRequest("DescribeAvailableResource", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeAvailableResourceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeAvailableResource",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeAvailableResourceResponse>(await this.callApi(params, req, runtime), new DescribeAvailableResourceResponse({}));
   }
 
   async describeAvailableResource(request: DescribeAvailableResourceRequest): Promise<DescribeAvailableResourceResponse> {
@@ -11421,10 +13117,50 @@ export default class Client extends OpenApi {
 
   async describeCACertificatesWithOptions(request: DescribeCACertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCACertificatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.CACertificateId)) {
+      query["CACertificateId"] = request.CACertificateId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeCACertificatesResponse>(await this.doRPCRequest("DescribeCACertificates", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeCACertificatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeCACertificates",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCACertificatesResponse>(await this.callApi(params, req, runtime), new DescribeCACertificatesResponse({}));
   }
 
   async describeCACertificates(request: DescribeCACertificatesRequest): Promise<DescribeCACertificatesResponse> {
@@ -11434,10 +13170,46 @@ export default class Client extends OpenApi {
 
   async describeDomainExtensionAttributeWithOptions(request: DescribeDomainExtensionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainExtensionAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainExtensionId)) {
+      query["DomainExtensionId"] = request.domainExtensionId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainExtensionAttributeResponse>(await this.doRPCRequest("DescribeDomainExtensionAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainExtensionAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainExtensionAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainExtensionAttributeResponse>(await this.callApi(params, req, runtime), new DescribeDomainExtensionAttributeResponse({}));
   }
 
   async describeDomainExtensionAttribute(request: DescribeDomainExtensionAttributeRequest): Promise<DescribeDomainExtensionAttributeResponse> {
@@ -11447,10 +13219,54 @@ export default class Client extends OpenApi {
 
   async describeDomainExtensionsWithOptions(request: DescribeDomainExtensionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDomainExtensionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainExtensionId)) {
+      query["DomainExtensionId"] = request.domainExtensionId;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeDomainExtensionsResponse>(await this.doRPCRequest("DescribeDomainExtensions", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeDomainExtensionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeDomainExtensions",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDomainExtensionsResponse>(await this.callApi(params, req, runtime), new DescribeDomainExtensionsResponse({}));
   }
 
   async describeDomainExtensions(request: DescribeDomainExtensionsRequest): Promise<DescribeDomainExtensionsResponse> {
@@ -11460,10 +13276,54 @@ export default class Client extends OpenApi {
 
   async describeHealthStatusWithOptions(request: DescribeHealthStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHealthStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeHealthStatusResponse>(await this.doRPCRequest("DescribeHealthStatus", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeHealthStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeHealthStatus",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHealthStatusResponse>(await this.callApi(params, req, runtime), new DescribeHealthStatusResponse({}));
   }
 
   async describeHealthStatus(request: DescribeHealthStatusRequest): Promise<DescribeHealthStatusResponse> {
@@ -11473,10 +13333,54 @@ export default class Client extends OpenApi {
 
   async describeListenerAccessControlAttributeWithOptions(request: DescribeListenerAccessControlAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeListenerAccessControlAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeListenerAccessControlAttributeResponse>(await this.doRPCRequest("DescribeListenerAccessControlAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeListenerAccessControlAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeListenerAccessControlAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeListenerAccessControlAttributeResponse>(await this.callApi(params, req, runtime), new DescribeListenerAccessControlAttributeResponse({}));
   }
 
   async describeListenerAccessControlAttribute(request: DescribeListenerAccessControlAttributeRequest): Promise<DescribeListenerAccessControlAttributeResponse> {
@@ -11486,10 +13390,46 @@ export default class Client extends OpenApi {
 
   async describeLoadBalancerAttributeWithOptions(request: DescribeLoadBalancerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerAttributeResponse>(await this.doRPCRequest("DescribeLoadBalancerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerAttributeResponse({}));
   }
 
   async describeLoadBalancerAttribute(request: DescribeLoadBalancerAttributeRequest): Promise<DescribeLoadBalancerAttributeResponse> {
@@ -11499,10 +13439,50 @@ export default class Client extends OpenApi {
 
   async describeLoadBalancerHTTPListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerHTTPListenerAttributeResponse>(await this.doRPCRequest("DescribeLoadBalancerHTTPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerHTTPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerHTTPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerHTTPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerHTTPListenerAttributeResponse({}));
   }
 
   async describeLoadBalancerHTTPListenerAttribute(request: DescribeLoadBalancerHTTPListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPListenerAttributeResponse> {
@@ -11512,10 +13492,50 @@ export default class Client extends OpenApi {
 
   async describeLoadBalancerHTTPSListenerAttributeWithOptions(request: DescribeLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerHTTPSListenerAttributeResponse>(await this.doRPCRequest("DescribeLoadBalancerHTTPSListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerHTTPSListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerHTTPSListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerHTTPSListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerHTTPSListenerAttributeResponse({}));
   }
 
   async describeLoadBalancerHTTPSListenerAttribute(request: DescribeLoadBalancerHTTPSListenerAttributeRequest): Promise<DescribeLoadBalancerHTTPSListenerAttributeResponse> {
@@ -11525,10 +13545,58 @@ export default class Client extends OpenApi {
 
   async describeLoadBalancerListenersWithOptions(request: DescribeLoadBalancerListenersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerListenersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerListenersResponse>(await this.doRPCRequest("DescribeLoadBalancerListeners", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerListenersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerListeners",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerListenersResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerListenersResponse({}));
   }
 
   async describeLoadBalancerListeners(request: DescribeLoadBalancerListenersRequest): Promise<DescribeLoadBalancerListenersResponse> {
@@ -11536,25 +13604,52 @@ export default class Client extends OpenApi {
     return await this.describeLoadBalancerListenersWithOptions(request, runtime);
   }
 
-  async describeLoadBalancersWithOptions(request: DescribeLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancersResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DescribeLoadBalancersResponse>(await this.doRPCRequest("DescribeLoadBalancers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancersResponse({}));
-  }
-
-  async describeLoadBalancers(request: DescribeLoadBalancersRequest): Promise<DescribeLoadBalancersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeLoadBalancersWithOptions(request, runtime);
-  }
-
   async describeLoadBalancerTCPListenerAttributeWithOptions(request: DescribeLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerTCPListenerAttributeResponse>(await this.doRPCRequest("DescribeLoadBalancerTCPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerTCPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerTCPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerTCPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerTCPListenerAttributeResponse({}));
   }
 
   async describeLoadBalancerTCPListenerAttribute(request: DescribeLoadBalancerTCPListenerAttributeRequest): Promise<DescribeLoadBalancerTCPListenerAttributeResponse> {
@@ -11564,10 +13659,50 @@ export default class Client extends OpenApi {
 
   async describeLoadBalancerUDPListenerAttributeWithOptions(request: DescribeLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeLoadBalancerUDPListenerAttributeResponse>(await this.doRPCRequest("DescribeLoadBalancerUDPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeLoadBalancerUDPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancerUDPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancerUDPListenerAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancerUDPListenerAttributeResponse({}));
   }
 
   async describeLoadBalancerUDPListenerAttribute(request: DescribeLoadBalancerUDPListenerAttributeRequest): Promise<DescribeLoadBalancerUDPListenerAttributeResponse> {
@@ -11575,12 +13710,169 @@ export default class Client extends OpenApi {
     return await this.describeLoadBalancerUDPListenerAttributeWithOptions(request, runtime);
   }
 
+  async describeLoadBalancersWithOptions(request: DescribeLoadBalancersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoadBalancersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.address)) {
+      query["Address"] = request.address;
+    }
+
+    if (!Util.isUnset(request.addressIPVersion)) {
+      query["AddressIPVersion"] = request.addressIPVersion;
+    }
+
+    if (!Util.isUnset(request.addressType)) {
+      query["AddressType"] = request.addressType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.loadBalancerName)) {
+      query["LoadBalancerName"] = request.loadBalancerName;
+    }
+
+    if (!Util.isUnset(request.loadBalancerStatus)) {
+      query["LoadBalancerStatus"] = request.loadBalancerStatus;
+    }
+
+    if (!Util.isUnset(request.masterZoneId)) {
+      query["MasterZoneId"] = request.masterZoneId;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverId)) {
+      query["ServerId"] = request.serverId;
+    }
+
+    if (!Util.isUnset(request.serverIntranetAddress)) {
+      query["ServerIntranetAddress"] = request.serverIntranetAddress;
+    }
+
+    if (!Util.isUnset(request.slaveZoneId)) {
+      query["SlaveZoneId"] = request.slaveZoneId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLoadBalancers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoadBalancersResponse>(await this.callApi(params, req, runtime), new DescribeLoadBalancersResponse({}));
+  }
+
+  async describeLoadBalancers(request: DescribeLoadBalancersRequest): Promise<DescribeLoadBalancersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoadBalancersWithOptions(request, runtime);
+  }
+
   async describeMasterSlaveServerGroupAttributeWithOptions(request: DescribeMasterSlaveServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMasterSlaveServerGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeMasterSlaveServerGroupAttributeResponse>(await this.doRPCRequest("DescribeMasterSlaveServerGroupAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMasterSlaveServerGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMasterSlaveServerGroupAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMasterSlaveServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeMasterSlaveServerGroupAttributeResponse({}));
   }
 
   async describeMasterSlaveServerGroupAttribute(request: DescribeMasterSlaveServerGroupAttributeRequest): Promise<DescribeMasterSlaveServerGroupAttributeResponse> {
@@ -11590,10 +13882,50 @@ export default class Client extends OpenApi {
 
   async describeMasterSlaveServerGroupsWithOptions(request: DescribeMasterSlaveServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeMasterSlaveServerGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.includeListener)) {
+      query["IncludeListener"] = request.includeListener;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeMasterSlaveServerGroupsResponse>(await this.doRPCRequest("DescribeMasterSlaveServerGroups", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeMasterSlaveServerGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeMasterSlaveServerGroups",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeMasterSlaveServerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeMasterSlaveServerGroupsResponse({}));
   }
 
   async describeMasterSlaveServerGroups(request: DescribeMasterSlaveServerGroupsRequest): Promise<DescribeMasterSlaveServerGroupsResponse> {
@@ -11603,10 +13935,46 @@ export default class Client extends OpenApi {
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.doRPCRequest("DescribeRegions", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRegionsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRegions",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
   }
 
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
@@ -11616,10 +13984,46 @@ export default class Client extends OpenApi {
 
   async describeRuleAttributeWithOptions(request: DescribeRuleAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRuleAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRuleAttributeResponse>(await this.doRPCRequest("DescribeRuleAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRuleAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRuleAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRuleAttributeResponse>(await this.callApi(params, req, runtime), new DescribeRuleAttributeResponse({}));
   }
 
   async describeRuleAttribute(request: DescribeRuleAttributeRequest): Promise<DescribeRuleAttributeResponse> {
@@ -11629,10 +14033,54 @@ export default class Client extends OpenApi {
 
   async describeRulesWithOptions(request: DescribeRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRulesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeRulesResponse>(await this.doRPCRequest("DescribeRules", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeRulesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeRules",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRulesResponse>(await this.callApi(params, req, runtime), new DescribeRulesResponse({}));
   }
 
   async describeRules(request: DescribeRulesRequest): Promise<DescribeRulesResponse> {
@@ -11642,10 +14090,50 @@ export default class Client extends OpenApi {
 
   async describeServerCertificatesWithOptions(request: DescribeServerCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeServerCertificatesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeServerCertificatesResponse>(await this.doRPCRequest("DescribeServerCertificates", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeServerCertificatesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeServerCertificates",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServerCertificatesResponse>(await this.callApi(params, req, runtime), new DescribeServerCertificatesResponse({}));
   }
 
   async describeServerCertificates(request: DescribeServerCertificatesRequest): Promise<DescribeServerCertificatesResponse> {
@@ -11655,10 +14143,62 @@ export default class Client extends OpenApi {
 
   async describeTagsWithOptions(request: DescribeTagsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.distinctKey)) {
+      query["DistinctKey"] = request.distinctKey;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeTagsResponse>(await this.doRPCRequest("DescribeTags", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeTags",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTagsResponse>(await this.callApi(params, req, runtime), new DescribeTagsResponse({}));
   }
 
   async describeTags(request: DescribeTagsRequest): Promise<DescribeTagsResponse> {
@@ -11668,10 +14208,46 @@ export default class Client extends OpenApi {
 
   async describeVServerGroupAttributeWithOptions(request: DescribeVServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVServerGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVServerGroupAttributeResponse>(await this.doRPCRequest("DescribeVServerGroupAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVServerGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVServerGroupAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new DescribeVServerGroupAttributeResponse({}));
   }
 
   async describeVServerGroupAttribute(request: DescribeVServerGroupAttributeRequest): Promise<DescribeVServerGroupAttributeResponse> {
@@ -11681,10 +14257,54 @@ export default class Client extends OpenApi {
 
   async describeVServerGroupsWithOptions(request: DescribeVServerGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVServerGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.includeListener)) {
+      query["IncludeListener"] = request.includeListener;
+    }
+
+    if (!Util.isUnset(request.includeRule)) {
+      query["IncludeRule"] = request.includeRule;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeVServerGroupsResponse>(await this.doRPCRequest("DescribeVServerGroups", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeVServerGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeVServerGroups",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVServerGroupsResponse>(await this.callApi(params, req, runtime), new DescribeVServerGroupsResponse({}));
   }
 
   async describeVServerGroups(request: DescribeVServerGroupsRequest): Promise<DescribeVServerGroupsResponse> {
@@ -11694,10 +14314,42 @@ export default class Client extends OpenApi {
 
   async describeZonesWithOptions(request: DescribeZonesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeZonesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DescribeZonesResponse>(await this.doRPCRequest("DescribeZones", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new DescribeZonesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DescribeZones",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeZonesResponse>(await this.callApi(params, req, runtime), new DescribeZonesResponse({}));
   }
 
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
@@ -11705,25 +14357,64 @@ export default class Client extends OpenApi {
     return await this.describeZonesWithOptions(request, runtime);
   }
 
-  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ListTagResourcesResponse>(await this.doRPCRequest("ListTagResources", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListTagResourcesResponse({}));
-  }
-
-  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTagResourcesWithOptions(request, runtime);
-  }
-
   async listTLSCipherPoliciesWithOptions(request: ListTLSCipherPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListTLSCipherPoliciesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.includeListener)) {
+      query["IncludeListener"] = request.includeListener;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TLSCipherPolicyId)) {
+      query["TLSCipherPolicyId"] = request.TLSCipherPolicyId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListTLSCipherPoliciesResponse>(await this.doRPCRequest("ListTLSCipherPolicies", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListTLSCipherPoliciesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListTLSCipherPolicies",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTLSCipherPoliciesResponse>(await this.callApi(params, req, runtime), new ListTLSCipherPoliciesResponse({}));
   }
 
   async listTLSCipherPolicies(request: ListTLSCipherPoliciesRequest): Promise<ListTLSCipherPoliciesResponse> {
@@ -11731,12 +14422,117 @@ export default class Client extends OpenApi {
     return await this.listTLSCipherPoliciesWithOptions(request, runtime);
   }
 
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
   async modifyLoadBalancerInstanceSpecWithOptions(request: ModifyLoadBalancerInstanceSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInstanceSpecResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.loadBalancerSpec)) {
+      query["LoadBalancerSpec"] = request.loadBalancerSpec;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLoadBalancerInstanceSpecResponse>(await this.doRPCRequest("ModifyLoadBalancerInstanceSpec", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLoadBalancerInstanceSpecResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLoadBalancerInstanceSpec",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoadBalancerInstanceSpecResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerInstanceSpecResponse({}));
   }
 
   async modifyLoadBalancerInstanceSpec(request: ModifyLoadBalancerInstanceSpecRequest): Promise<ModifyLoadBalancerInstanceSpecResponse> {
@@ -11746,10 +14542,58 @@ export default class Client extends OpenApi {
 
   async modifyLoadBalancerInternetSpecWithOptions(request: ModifyLoadBalancerInternetSpecRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerInternetSpecResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLoadBalancerInternetSpecResponse>(await this.doRPCRequest("ModifyLoadBalancerInternetSpec", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLoadBalancerInternetSpecResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLoadBalancerInternetSpec",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoadBalancerInternetSpecResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerInternetSpecResponse({}));
   }
 
   async modifyLoadBalancerInternetSpec(request: ModifyLoadBalancerInternetSpecRequest): Promise<ModifyLoadBalancerInternetSpecResponse> {
@@ -11759,10 +14603,62 @@ export default class Client extends OpenApi {
 
   async modifyLoadBalancerPayTypeWithOptions(request: ModifyLoadBalancerPayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLoadBalancerPayTypeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyLoadBalancerPayTypeResponse>(await this.doRPCRequest("ModifyLoadBalancerPayType", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyLoadBalancerPayTypeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyLoadBalancerPayType",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLoadBalancerPayTypeResponse>(await this.callApi(params, req, runtime), new ModifyLoadBalancerPayTypeResponse({}));
   }
 
   async modifyLoadBalancerPayType(request: ModifyLoadBalancerPayTypeRequest): Promise<ModifyLoadBalancerPayTypeResponse> {
@@ -11772,10 +14668,54 @@ export default class Client extends OpenApi {
 
   async modifyVServerGroupBackendServersWithOptions(request: ModifyVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<ModifyVServerGroupBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newBackendServers)) {
+      query["NewBackendServers"] = request.newBackendServers;
+    }
+
+    if (!Util.isUnset(request.oldBackendServers)) {
+      query["OldBackendServers"] = request.oldBackendServers;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ModifyVServerGroupBackendServersResponse>(await this.doRPCRequest("ModifyVServerGroupBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new ModifyVServerGroupBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ModifyVServerGroupBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new ModifyVServerGroupBackendServersResponse({}));
   }
 
   async modifyVServerGroupBackendServers(request: ModifyVServerGroupBackendServersRequest): Promise<ModifyVServerGroupBackendServersResponse> {
@@ -11785,10 +14725,50 @@ export default class Client extends OpenApi {
 
   async removeAccessControlListEntryWithOptions(request: RemoveAccessControlListEntryRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAccessControlListEntryResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclEntrys)) {
+      query["AclEntrys"] = request.aclEntrys;
+    }
+
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveAccessControlListEntryResponse>(await this.doRPCRequest("RemoveAccessControlListEntry", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveAccessControlListEntryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveAccessControlListEntry",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveAccessControlListEntryResponse>(await this.callApi(params, req, runtime), new RemoveAccessControlListEntryResponse({}));
   }
 
   async removeAccessControlListEntry(request: RemoveAccessControlListEntryRequest): Promise<RemoveAccessControlListEntryResponse> {
@@ -11798,10 +14778,50 @@ export default class Client extends OpenApi {
 
   async removeBackendServersWithOptions(request: RemoveBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveBackendServersResponse>(await this.doRPCRequest("RemoveBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveBackendServersResponse>(await this.callApi(params, req, runtime), new RemoveBackendServersResponse({}));
   }
 
   async removeBackendServers(request: RemoveBackendServersRequest): Promise<RemoveBackendServersResponse> {
@@ -11811,10 +14831,58 @@ export default class Client extends OpenApi {
 
   async removeListenerWhiteListItemWithOptions(request: RemoveListenerWhiteListItemRequest, runtime: $Util.RuntimeOptions): Promise<RemoveListenerWhiteListItemResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceItems)) {
+      query["SourceItems"] = request.sourceItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveListenerWhiteListItemResponse>(await this.doRPCRequest("RemoveListenerWhiteListItem", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveListenerWhiteListItemResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveListenerWhiteListItem",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveListenerWhiteListItemResponse>(await this.callApi(params, req, runtime), new RemoveListenerWhiteListItemResponse({}));
   }
 
   async removeListenerWhiteListItem(request: RemoveListenerWhiteListItemRequest): Promise<RemoveListenerWhiteListItemResponse> {
@@ -11824,10 +14892,50 @@ export default class Client extends OpenApi {
 
   async removeTagsWithOptions(request: RemoveTagsRequest, runtime: $Util.RuntimeOptions): Promise<RemoveTagsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveTagsResponse>(await this.doRPCRequest("RemoveTags", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveTagsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveTags",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveTagsResponse>(await this.callApi(params, req, runtime), new RemoveTagsResponse({}));
   }
 
   async removeTags(request: RemoveTagsRequest): Promise<RemoveTagsResponse> {
@@ -11837,10 +14945,50 @@ export default class Client extends OpenApi {
 
   async removeVServerGroupBackendServersWithOptions(request: RemoveVServerGroupBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveVServerGroupBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveVServerGroupBackendServersResponse>(await this.doRPCRequest("RemoveVServerGroupBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveVServerGroupBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveVServerGroupBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveVServerGroupBackendServersResponse>(await this.callApi(params, req, runtime), new RemoveVServerGroupBackendServersResponse({}));
   }
 
   async removeVServerGroupBackendServers(request: RemoveVServerGroupBackendServersRequest): Promise<RemoveVServerGroupBackendServersResponse> {
@@ -11850,10 +14998,50 @@ export default class Client extends OpenApi {
 
   async setAccessControlListAttributeWithOptions(request: SetAccessControlListAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetAccessControlListAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclName)) {
+      query["AclName"] = request.aclName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetAccessControlListAttributeResponse>(await this.doRPCRequest("SetAccessControlListAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetAccessControlListAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetAccessControlListAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetAccessControlListAttributeResponse>(await this.callApi(params, req, runtime), new SetAccessControlListAttributeResponse({}));
   }
 
   async setAccessControlListAttribute(request: SetAccessControlListAttributeRequest): Promise<SetAccessControlListAttributeResponse> {
@@ -11863,10 +15051,50 @@ export default class Client extends OpenApi {
 
   async setBackendServersWithOptions(request: SetBackendServersRequest, runtime: $Util.RuntimeOptions): Promise<SetBackendServersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetBackendServersResponse>(await this.doRPCRequest("SetBackendServers", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetBackendServersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetBackendServers",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetBackendServersResponse>(await this.callApi(params, req, runtime), new SetBackendServersResponse({}));
   }
 
   async setBackendServers(request: SetBackendServersRequest): Promise<SetBackendServersResponse> {
@@ -11876,10 +15104,50 @@ export default class Client extends OpenApi {
 
   async setCACertificateNameWithOptions(request: SetCACertificateNameRequest, runtime: $Util.RuntimeOptions): Promise<SetCACertificateNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.CACertificateId)) {
+      query["CACertificateId"] = request.CACertificateId;
+    }
+
+    if (!Util.isUnset(request.CACertificateName)) {
+      query["CACertificateName"] = request.CACertificateName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetCACertificateNameResponse>(await this.doRPCRequest("SetCACertificateName", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetCACertificateNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetCACertificateName",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetCACertificateNameResponse>(await this.callApi(params, req, runtime), new SetCACertificateNameResponse({}));
   }
 
   async setCACertificateName(request: SetCACertificateNameRequest): Promise<SetCACertificateNameResponse> {
@@ -11889,10 +15157,50 @@ export default class Client extends OpenApi {
 
   async setDomainExtensionAttributeWithOptions(request: SetDomainExtensionAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetDomainExtensionAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainExtensionId)) {
+      query["DomainExtensionId"] = request.domainExtensionId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDomainExtensionAttributeResponse>(await this.doRPCRequest("SetDomainExtensionAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetDomainExtensionAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDomainExtensionAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDomainExtensionAttributeResponse>(await this.callApi(params, req, runtime), new SetDomainExtensionAttributeResponse({}));
   }
 
   async setDomainExtensionAttribute(request: SetDomainExtensionAttributeRequest): Promise<SetDomainExtensionAttributeResponse> {
@@ -11902,10 +15210,58 @@ export default class Client extends OpenApi {
 
   async setListenerAccessControlStatusWithOptions(request: SetListenerAccessControlStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetListenerAccessControlStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessControlStatus)) {
+      query["AccessControlStatus"] = request.accessControlStatus;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetListenerAccessControlStatusResponse>(await this.doRPCRequest("SetListenerAccessControlStatus", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetListenerAccessControlStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetListenerAccessControlStatus",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetListenerAccessControlStatusResponse>(await this.callApi(params, req, runtime), new SetListenerAccessControlStatusResponse({}));
   }
 
   async setListenerAccessControlStatus(request: SetListenerAccessControlStatusRequest): Promise<SetListenerAccessControlStatusResponse> {
@@ -11915,10 +15271,50 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerDeleteProtectionWithOptions(request: SetLoadBalancerDeleteProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerDeleteProtectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteProtection)) {
+      query["DeleteProtection"] = request.deleteProtection;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerDeleteProtectionResponse>(await this.doRPCRequest("SetLoadBalancerDeleteProtection", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerDeleteProtectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerDeleteProtection",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerDeleteProtectionResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerDeleteProtectionResponse({}));
   }
 
   async setLoadBalancerDeleteProtection(request: SetLoadBalancerDeleteProtectionRequest): Promise<SetLoadBalancerDeleteProtectionResponse> {
@@ -11928,10 +15324,166 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerHTTPListenerAttributeWithOptions(request: SetLoadBalancerHTTPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.cookie)) {
+      query["Cookie"] = request.cookie;
+    }
+
+    if (!Util.isUnset(request.cookieTimeout)) {
+      query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.gzip)) {
+      query["Gzip"] = request.gzip;
+    }
+
+    if (!Util.isUnset(request.healthCheck)) {
+      query["HealthCheck"] = request.healthCheck;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckMethod)) {
+      query["HealthCheckMethod"] = request.healthCheckMethod;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      query["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.stickySession)) {
+      query["StickySession"] = request.stickySession;
+    }
+
+    if (!Util.isUnset(request.stickySessionType)) {
+      query["StickySessionType"] = request.stickySessionType;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroup)) {
+      query["VServerGroup"] = request.VServerGroup;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor)) {
+      query["XForwardedFor"] = request.XForwardedFor;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBID)) {
+      query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
+      query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_proto)) {
+      query["XForwardedFor_proto"] = request.XForwardedFor_proto;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerHTTPListenerAttributeResponse>(await this.doRPCRequest("SetLoadBalancerHTTPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerHTTPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerHTTPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerHTTPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerHTTPListenerAttributeResponse({}));
   }
 
   async setLoadBalancerHTTPListenerAttribute(request: SetLoadBalancerHTTPListenerAttributeRequest): Promise<SetLoadBalancerHTTPListenerAttributeResponse> {
@@ -11941,10 +15493,182 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerHTTPSListenerAttributeWithOptions(request: SetLoadBalancerHTTPSListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.CACertificateId)) {
+      query["CACertificateId"] = request.CACertificateId;
+    }
+
+    if (!Util.isUnset(request.cookie)) {
+      query["Cookie"] = request.cookie;
+    }
+
+    if (!Util.isUnset(request.cookieTimeout)) {
+      query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableHttp2)) {
+      query["EnableHttp2"] = request.enableHttp2;
+    }
+
+    if (!Util.isUnset(request.gzip)) {
+      query["Gzip"] = request.gzip;
+    }
+
+    if (!Util.isUnset(request.healthCheck)) {
+      query["HealthCheck"] = request.healthCheck;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckMethod)) {
+      query["HealthCheckMethod"] = request.healthCheckMethod;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      query["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.idleTimeout)) {
+      query["IdleTimeout"] = request.idleTimeout;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestTimeout)) {
+      query["RequestTimeout"] = request.requestTimeout;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
+    if (!Util.isUnset(request.stickySession)) {
+      query["StickySession"] = request.stickySession;
+    }
+
+    if (!Util.isUnset(request.stickySessionType)) {
+      query["StickySessionType"] = request.stickySessionType;
+    }
+
+    if (!Util.isUnset(request.TLSCipherPolicy)) {
+      query["TLSCipherPolicy"] = request.TLSCipherPolicy;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroup)) {
+      query["VServerGroup"] = request.VServerGroup;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor)) {
+      query["XForwardedFor"] = request.XForwardedFor;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBID)) {
+      query["XForwardedFor_SLBID"] = request.XForwardedFor_SLBID;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_SLBIP)) {
+      query["XForwardedFor_SLBIP"] = request.XForwardedFor_SLBIP;
+    }
+
+    if (!Util.isUnset(request.XForwardedFor_proto)) {
+      query["XForwardedFor_proto"] = request.XForwardedFor_proto;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerHTTPSListenerAttributeResponse>(await this.doRPCRequest("SetLoadBalancerHTTPSListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerHTTPSListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerHTTPSListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerHTTPSListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerHTTPSListenerAttributeResponse({}));
   }
 
   async setLoadBalancerHTTPSListenerAttribute(request: SetLoadBalancerHTTPSListenerAttributeRequest): Promise<SetLoadBalancerHTTPSListenerAttributeResponse> {
@@ -11954,10 +15678,54 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerModificationProtectionWithOptions(request: SetLoadBalancerModificationProtectionRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerModificationProtectionResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.modificationProtectionReason)) {
+      query["ModificationProtectionReason"] = request.modificationProtectionReason;
+    }
+
+    if (!Util.isUnset(request.modificationProtectionStatus)) {
+      query["ModificationProtectionStatus"] = request.modificationProtectionStatus;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerModificationProtectionResponse>(await this.doRPCRequest("SetLoadBalancerModificationProtection", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerModificationProtectionResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerModificationProtection",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerModificationProtectionResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerModificationProtectionResponse({}));
   }
 
   async setLoadBalancerModificationProtection(request: SetLoadBalancerModificationProtectionRequest): Promise<SetLoadBalancerModificationProtectionResponse> {
@@ -11967,10 +15735,50 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerNameWithOptions(request: SetLoadBalancerNameRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.loadBalancerName)) {
+      query["LoadBalancerName"] = request.loadBalancerName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerNameResponse>(await this.doRPCRequest("SetLoadBalancerName", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerName",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerNameResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerNameResponse({}));
   }
 
   async setLoadBalancerName(request: SetLoadBalancerNameRequest): Promise<SetLoadBalancerNameResponse> {
@@ -11980,10 +15788,50 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerStatusWithOptions(request: SetLoadBalancerStatusRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerStatusResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.loadBalancerStatus)) {
+      query["LoadBalancerStatus"] = request.loadBalancerStatus;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerStatusResponse>(await this.doRPCRequest("SetLoadBalancerStatus", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerStatus",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerStatusResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerStatusResponse({}));
   }
 
   async setLoadBalancerStatus(request: SetLoadBalancerStatusRequest): Promise<SetLoadBalancerStatusResponse> {
@@ -11993,10 +15841,146 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerTCPListenerAttributeWithOptions(request: SetLoadBalancerTCPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.connectionDrain)) {
+      query["ConnectionDrain"] = request.connectionDrain;
+    }
+
+    if (!Util.isUnset(request.connectionDrainTimeout)) {
+      query["ConnectionDrainTimeout"] = request.connectionDrainTimeout;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.establishedTimeout)) {
+      query["EstablishedTimeout"] = request.establishedTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectTimeout)) {
+      query["HealthCheckConnectTimeout"] = request.healthCheckConnectTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckType)) {
+      query["HealthCheckType"] = request.healthCheckType;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroup)) {
+      query["MasterSlaveServerGroup"] = request.masterSlaveServerGroup;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.persistenceTimeout)) {
+      query["PersistenceTimeout"] = request.persistenceTimeout;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.synProxy)) {
+      query["SynProxy"] = request.synProxy;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroup)) {
+      query["VServerGroup"] = request.VServerGroup;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerTCPListenerAttributeResponse>(await this.doRPCRequest("SetLoadBalancerTCPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerTCPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerTCPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerTCPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerTCPListenerAttributeResponse({}));
   }
 
   async setLoadBalancerTCPListenerAttribute(request: SetLoadBalancerTCPListenerAttributeRequest): Promise<SetLoadBalancerTCPListenerAttributeResponse> {
@@ -12006,10 +15990,118 @@ export default class Client extends OpenApi {
 
   async setLoadBalancerUDPListenerAttributeWithOptions(request: SetLoadBalancerUDPListenerAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aclId)) {
+      query["AclId"] = request.aclId;
+    }
+
+    if (!Util.isUnset(request.aclStatus)) {
+      query["AclStatus"] = request.aclStatus;
+    }
+
+    if (!Util.isUnset(request.aclType)) {
+      query["AclType"] = request.aclType;
+    }
+
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectTimeout)) {
+      query["HealthCheckConnectTimeout"] = request.healthCheckConnectTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroup)) {
+      query["MasterSlaveServerGroup"] = request.masterSlaveServerGroup;
+    }
+
+    if (!Util.isUnset(request.masterSlaveServerGroupId)) {
+      query["MasterSlaveServerGroupId"] = request.masterSlaveServerGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroup)) {
+      query["VServerGroup"] = request.VServerGroup;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.healthCheckExp)) {
+      query["healthCheckExp"] = request.healthCheckExp;
+    }
+
+    if (!Util.isUnset(request.healthCheckReq)) {
+      query["healthCheckReq"] = request.healthCheckReq;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetLoadBalancerUDPListenerAttributeResponse>(await this.doRPCRequest("SetLoadBalancerUDPListenerAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetLoadBalancerUDPListenerAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetLoadBalancerUDPListenerAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetLoadBalancerUDPListenerAttributeResponse>(await this.callApi(params, req, runtime), new SetLoadBalancerUDPListenerAttributeResponse({}));
   }
 
   async setLoadBalancerUDPListenerAttribute(request: SetLoadBalancerUDPListenerAttributeRequest): Promise<SetLoadBalancerUDPListenerAttributeResponse> {
@@ -12019,10 +16111,114 @@ export default class Client extends OpenApi {
 
   async setRuleWithOptions(request: SetRuleRequest, runtime: $Util.RuntimeOptions): Promise<SetRuleResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cookie)) {
+      query["Cookie"] = request.cookie;
+    }
+
+    if (!Util.isUnset(request.cookieTimeout)) {
+      query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheck)) {
+      query["HealthCheck"] = request.healthCheck;
+    }
+
+    if (!Util.isUnset(request.healthCheckConnectPort)) {
+      query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
+    }
+
+    if (!Util.isUnset(request.healthCheckDomain)) {
+      query["HealthCheckDomain"] = request.healthCheckDomain;
+    }
+
+    if (!Util.isUnset(request.healthCheckHttpCode)) {
+      query["HealthCheckHttpCode"] = request.healthCheckHttpCode;
+    }
+
+    if (!Util.isUnset(request.healthCheckInterval)) {
+      query["HealthCheckInterval"] = request.healthCheckInterval;
+    }
+
+    if (!Util.isUnset(request.healthCheckTimeout)) {
+      query["HealthCheckTimeout"] = request.healthCheckTimeout;
+    }
+
+    if (!Util.isUnset(request.healthCheckURI)) {
+      query["HealthCheckURI"] = request.healthCheckURI;
+    }
+
+    if (!Util.isUnset(request.healthyThreshold)) {
+      query["HealthyThreshold"] = request.healthyThreshold;
+    }
+
+    if (!Util.isUnset(request.listenerSync)) {
+      query["ListenerSync"] = request.listenerSync;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.scheduler)) {
+      query["Scheduler"] = request.scheduler;
+    }
+
+    if (!Util.isUnset(request.stickySession)) {
+      query["StickySession"] = request.stickySession;
+    }
+
+    if (!Util.isUnset(request.stickySessionType)) {
+      query["StickySessionType"] = request.stickySessionType;
+    }
+
+    if (!Util.isUnset(request.unhealthyThreshold)) {
+      query["UnhealthyThreshold"] = request.unhealthyThreshold;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetRuleResponse>(await this.doRPCRequest("SetRule", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetRuleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetRule",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetRuleResponse>(await this.callApi(params, req, runtime), new SetRuleResponse({}));
   }
 
   async setRule(request: SetRuleRequest): Promise<SetRuleResponse> {
@@ -12032,10 +16228,50 @@ export default class Client extends OpenApi {
 
   async setServerCertificateNameWithOptions(request: SetServerCertificateNameRequest, runtime: $Util.RuntimeOptions): Promise<SetServerCertificateNameResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateId)) {
+      query["ServerCertificateId"] = request.serverCertificateId;
+    }
+
+    if (!Util.isUnset(request.serverCertificateName)) {
+      query["ServerCertificateName"] = request.serverCertificateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetServerCertificateNameResponse>(await this.doRPCRequest("SetServerCertificateName", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetServerCertificateNameResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetServerCertificateName",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetServerCertificateNameResponse>(await this.callApi(params, req, runtime), new SetServerCertificateNameResponse({}));
   }
 
   async setServerCertificateName(request: SetServerCertificateNameRequest): Promise<SetServerCertificateNameResponse> {
@@ -12045,10 +16281,58 @@ export default class Client extends OpenApi {
 
   async setTLSCipherPolicyAttributeWithOptions(request: SetTLSCipherPolicyAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetTLSCipherPolicyAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ciphers)) {
+      query["Ciphers"] = request.ciphers;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.TLSCipherPolicyId)) {
+      query["TLSCipherPolicyId"] = request.TLSCipherPolicyId;
+    }
+
+    if (!Util.isUnset(request.TLSVersions)) {
+      query["TLSVersions"] = request.TLSVersions;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetTLSCipherPolicyAttributeResponse>(await this.doRPCRequest("SetTLSCipherPolicyAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetTLSCipherPolicyAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetTLSCipherPolicyAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetTLSCipherPolicyAttributeResponse>(await this.callApi(params, req, runtime), new SetTLSCipherPolicyAttributeResponse({}));
   }
 
   async setTLSCipherPolicyAttribute(request: SetTLSCipherPolicyAttributeRequest): Promise<SetTLSCipherPolicyAttributeResponse> {
@@ -12058,10 +16342,54 @@ export default class Client extends OpenApi {
 
   async setVServerGroupAttributeWithOptions(request: SetVServerGroupAttributeRequest, runtime: $Util.RuntimeOptions): Promise<SetVServerGroupAttributeResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backendServers)) {
+      query["BackendServers"] = request.backendServers;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupId)) {
+      query["VServerGroupId"] = request.VServerGroupId;
+    }
+
+    if (!Util.isUnset(request.VServerGroupName)) {
+      query["VServerGroupName"] = request.VServerGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetVServerGroupAttributeResponse>(await this.doRPCRequest("SetVServerGroupAttribute", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetVServerGroupAttributeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetVServerGroupAttribute",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetVServerGroupAttributeResponse>(await this.callApi(params, req, runtime), new SetVServerGroupAttributeResponse({}));
   }
 
   async setVServerGroupAttribute(request: SetVServerGroupAttributeRequest): Promise<SetVServerGroupAttributeResponse> {
@@ -12071,10 +16399,54 @@ export default class Client extends OpenApi {
 
   async startLoadBalancerListenerWithOptions(request: StartLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StartLoadBalancerListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StartLoadBalancerListenerResponse>(await this.doRPCRequest("StartLoadBalancerListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new StartLoadBalancerListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StartLoadBalancerListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new StartLoadBalancerListenerResponse({}));
   }
 
   async startLoadBalancerListener(request: StartLoadBalancerListenerRequest): Promise<StartLoadBalancerListenerResponse> {
@@ -12084,10 +16456,54 @@ export default class Client extends OpenApi {
 
   async stopLoadBalancerListenerWithOptions(request: StopLoadBalancerListenerRequest, runtime: $Util.RuntimeOptions): Promise<StopLoadBalancerListenerResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.listenerPort)) {
+      query["ListenerPort"] = request.listenerPort;
+    }
+
+    if (!Util.isUnset(request.listenerProtocol)) {
+      query["ListenerProtocol"] = request.listenerProtocol;
+    }
+
+    if (!Util.isUnset(request.loadBalancerId)) {
+      query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<StopLoadBalancerListenerResponse>(await this.doRPCRequest("StopLoadBalancerListener", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new StopLoadBalancerListenerResponse({}));
+    let params = new $OpenApi.Params({
+      action: "StopLoadBalancerListener",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopLoadBalancerListenerResponse>(await this.callApi(params, req, runtime), new StopLoadBalancerListenerResponse({}));
   }
 
   async stopLoadBalancerListener(request: StopLoadBalancerListenerRequest): Promise<StopLoadBalancerListenerResponse> {
@@ -12097,10 +16513,54 @@ export default class Client extends OpenApi {
 
   async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<TagResourcesResponse>(await this.doRPCRequest("TagResources", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new TagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
   }
 
   async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
@@ -12110,10 +16570,58 @@ export default class Client extends OpenApi {
 
   async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UntagResourcesResponse>(await this.doRPCRequest("UntagResources", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new UntagResourcesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
   async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
@@ -12123,10 +16631,54 @@ export default class Client extends OpenApi {
 
   async uploadCACertificateWithOptions(request: UploadCACertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadCACertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.CACertificate)) {
+      query["CACertificate"] = request.CACertificate;
+    }
+
+    if (!Util.isUnset(request.CACertificateName)) {
+      query["CACertificateName"] = request.CACertificateName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UploadCACertificateResponse>(await this.doRPCRequest("UploadCACertificate", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new UploadCACertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UploadCACertificate",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadCACertificateResponse>(await this.callApi(params, req, runtime), new UploadCACertificateResponse({}));
   }
 
   async uploadCACertificate(request: UploadCACertificateRequest): Promise<UploadCACertificateResponse> {
@@ -12136,10 +16688,70 @@ export default class Client extends OpenApi {
 
   async uploadServerCertificateWithOptions(request: UploadServerCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadServerCertificateResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.aliCloudCertificateId)) {
+      query["AliCloudCertificateId"] = request.aliCloudCertificateId;
+    }
+
+    if (!Util.isUnset(request.aliCloudCertificateName)) {
+      query["AliCloudCertificateName"] = request.aliCloudCertificateName;
+    }
+
+    if (!Util.isUnset(request.aliCloudCertificateRegionId)) {
+      query["AliCloudCertificateRegionId"] = request.aliCloudCertificateRegionId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.privateKey)) {
+      query["PrivateKey"] = request.privateKey;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serverCertificate)) {
+      query["ServerCertificate"] = request.serverCertificate;
+    }
+
+    if (!Util.isUnset(request.serverCertificateName)) {
+      query["ServerCertificateName"] = request.serverCertificateName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UploadServerCertificateResponse>(await this.doRPCRequest("UploadServerCertificate", "2014-05-15", "HTTPS", "POST", "AK", "json", req, runtime), new UploadServerCertificateResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UploadServerCertificate",
+      version: "2014-05-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadServerCertificateResponse>(await this.callApi(params, req, runtime), new UploadServerCertificateResponse({}));
   }
 
   async uploadServerCertificate(request: UploadServerCertificateRequest): Promise<UploadServerCertificateResponse> {
