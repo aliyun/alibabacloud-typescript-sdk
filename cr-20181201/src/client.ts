@@ -5781,36 +5781,45 @@ export class ListRepoTagResponse extends $tea.Model {
 
 export class ListRepoTagScanResultRequest extends $tea.Model {
   digest?: string;
+  filterValue?: string;
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
   repoId?: string;
   scanTaskId?: string;
+  scanType?: string;
   severity?: string;
   tag?: string;
+  vulQueryKey?: string;
   static names(): { [key: string]: string } {
     return {
       digest: 'Digest',
+      filterValue: 'FilterValue',
       instanceId: 'InstanceId',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       repoId: 'RepoId',
       scanTaskId: 'ScanTaskId',
+      scanType: 'ScanType',
       severity: 'Severity',
       tag: 'Tag',
+      vulQueryKey: 'VulQueryKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       digest: 'string',
+      filterValue: 'string',
       instanceId: 'string',
       pageNo: 'number',
       pageSize: 'number',
       repoId: 'string',
       scanTaskId: 'string',
+      scanType: 'string',
       severity: 'string',
       tag: 'string',
+      vulQueryKey: 'string',
     };
   }
 
@@ -8437,11 +8446,14 @@ export class ListRepoTagResponseBodyImages extends $tea.Model {
 
 export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model {
   addedBy?: string;
+  aliasName?: string;
   cveLink?: string;
+  cveLocation?: string;
   cveName?: string;
   description?: string;
   feature?: string;
   fixCmd?: string;
+  scanType?: string;
   severity?: string;
   version?: string;
   versionFixed?: string;
@@ -8449,11 +8461,14 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       addedBy: 'AddedBy',
+      aliasName: 'AliasName',
       cveLink: 'CveLink',
+      cveLocation: 'CveLocation',
       cveName: 'CveName',
       description: 'Description',
       feature: 'Feature',
       fixCmd: 'FixCmd',
+      scanType: 'ScanType',
       severity: 'Severity',
       version: 'Version',
       versionFixed: 'VersionFixed',
@@ -8464,11 +8479,14 @@ export class ListRepoTagScanResultResponseBodyVulnerabilities extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       addedBy: 'string',
+      aliasName: 'string',
       cveLink: 'string',
+      cveLocation: 'string',
       cveName: 'string',
       description: 'string',
       feature: 'string',
       fixCmd: 'string',
+      scanType: 'string',
       severity: 'string',
       version: 'string',
       versionFixed: 'string',
@@ -11364,6 +11382,10 @@ export default class Client extends OpenApi {
       query["Digest"] = request.digest;
     }
 
+    if (!Util.isUnset(request.filterValue)) {
+      query["FilterValue"] = request.filterValue;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -11384,12 +11406,20 @@ export default class Client extends OpenApi {
       query["ScanTaskId"] = request.scanTaskId;
     }
 
+    if (!Util.isUnset(request.scanType)) {
+      query["ScanType"] = request.scanType;
+    }
+
     if (!Util.isUnset(request.severity)) {
       query["Severity"] = request.severity;
     }
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vulQueryKey)) {
+      query["VulQueryKey"] = request.vulQueryKey;
     }
 
     let req = new $OpenApi.OpenApiRequest({
