@@ -3795,50 +3795,50 @@ export default class Client extends OpenApi {
 
   async listMessagesWithOptions(request: ListMessagesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListMessagesResponse> {
     Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
+    let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.datetime)) {
-      body["Datetime"] = request.datetime;
+      query["Datetime"] = request.datetime;
     }
 
     if (!Util.isUnset(request.groupId)) {
-      body["GroupId"] = request.groupId;
+      query["GroupId"] = request.groupId;
     }
 
     if (!Util.isUnset(request.messageId)) {
-      body["MessageId"] = request.messageId;
+      query["MessageId"] = request.messageId;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
+      query["PageNumber"] = request.pageNumber;
     }
 
     if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.phoneNumber)) {
-      body["PhoneNumber"] = request.phoneNumber;
+      query["PhoneNumber"] = request.phoneNumber;
     }
 
     if (!Util.isUnset(request.requestId)) {
-      body["RequestId"] = request.requestId;
+      query["RequestId"] = request.requestId;
     }
 
     if (!Util.isUnset(request.scheduleId)) {
-      body["ScheduleId"] = request.scheduleId;
+      query["ScheduleId"] = request.scheduleId;
     }
 
     if (!Util.isUnset(request.signature)) {
-      body["Signature"] = request.signature;
+      query["Signature"] = request.signature;
     }
 
     if (!Util.isUnset(request.templateCode)) {
-      body["TemplateCode"] = request.templateCode;
+      query["TemplateCode"] = request.templateCode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
-      body: OpenApiUtil.parseToMap(body),
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "ListMessages",
