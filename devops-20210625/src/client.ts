@@ -3643,6 +3643,99 @@ export class ListWorkItemWorkFlowStatusResponse extends $tea.Model {
   }
 }
 
+export class ListWorkitemsRequest extends $tea.Model {
+  category?: string;
+  maxResults?: string;
+  nextToken?: string;
+  spaceIdentifier?: string;
+  spaceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'category',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceType: 'spaceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
+      spaceIdentifier: 'string',
+      spaceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemsResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
+  maxResults?: number;
+  nextToken?: string;
+  requestId?: string;
+  success?: boolean;
+  totalCount?: number;
+  workitems?: ListWorkitemsResponseBodyWorkitems[];
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMsg: 'errorMsg',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      success: 'success',
+      totalCount: 'totalCount',
+      workitems: 'workitems',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMsg: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      workitems: { 'type': 'array', 'itemType': ListWorkitemsResponseBodyWorkitems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListWorkitemsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListWorkitemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListWorkitemsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesRequest extends $tea.Model {
   maxResults?: number;
   nextToken?: string;
@@ -5086,11 +5179,13 @@ export class UpdateVariableGroupResponse extends $tea.Model {
 }
 
 export class UpdateWorkItemRequest extends $tea.Model {
+  fieldType?: string;
   identifier?: string;
   propertyKey?: string;
   propertyValue?: string;
   static names(): { [key: string]: string } {
     return {
+      fieldType: 'fieldType',
       identifier: 'identifier',
       propertyKey: 'propertyKey',
       propertyValue: 'propertyValue',
@@ -5099,6 +5194,7 @@ export class UpdateWorkItemRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fieldType: 'string',
       identifier: 'string',
       propertyKey: 'string',
       propertyValue: 'string',
@@ -5342,6 +5438,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
   spaceName?: string;
   spaceType?: string;
   status?: string;
+  statusIdentifier?: string;
   statusStageIdentifier?: string;
   subject?: string;
   updateStatusAt?: number;
@@ -5363,6 +5460,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
       spaceName: 'spaceName',
       spaceType: 'spaceType',
       status: 'status',
+      statusIdentifier: 'statusIdentifier',
       statusStageIdentifier: 'statusStageIdentifier',
       subject: 'subject',
       updateStatusAt: 'updateStatusAt',
@@ -5387,6 +5485,7 @@ export class CreateWorkitemResponseBodyWorkitem extends $tea.Model {
       spaceName: 'string',
       spaceType: 'string',
       status: 'string',
+      statusIdentifier: 'string',
       statusStageIdentifier: 'string',
       subject: 'string',
       updateStatusAt: 'number',
@@ -6568,10 +6667,85 @@ export class GetWorkItemActivityResponseBodyActivities extends $tea.Model {
   }
 }
 
+export class GetWorkItemInfoResponseBodyWorkitemCustomFieldsValueList extends $tea.Model {
+  displayValue?: string;
+  identifier?: string;
+  level?: number;
+  value?: string;
+  valueEn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayValue: 'displayValue',
+      identifier: 'identifier',
+      level: 'level',
+      value: 'value',
+      valueEn: 'valueEn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayValue: 'string',
+      identifier: 'string',
+      level: 'number',
+      value: 'string',
+      valueEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWorkItemInfoResponseBodyWorkitemCustomFields extends $tea.Model {
+  fieldClassName?: string;
+  fieldFormat?: string;
+  fieldIdentifier?: string;
+  level?: number;
+  objectValue?: string;
+  position?: number;
+  value?: string;
+  valueList?: GetWorkItemInfoResponseBodyWorkitemCustomFieldsValueList[];
+  workitemIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldClassName: 'fieldClassName',
+      fieldFormat: 'fieldFormat',
+      fieldIdentifier: 'fieldIdentifier',
+      level: 'level',
+      objectValue: 'objectValue',
+      position: 'position',
+      value: 'value',
+      valueList: 'valueList',
+      workitemIdentifier: 'workitemIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldClassName: 'string',
+      fieldFormat: 'string',
+      fieldIdentifier: 'string',
+      level: 'number',
+      objectValue: 'string',
+      position: 'number',
+      value: 'string',
+      valueList: { 'type': 'array', 'itemType': GetWorkItemInfoResponseBodyWorkitemCustomFieldsValueList },
+      workitemIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   assignedTo?: string;
   categoryIdentifier?: string;
   creator?: string;
+  customFields?: GetWorkItemInfoResponseBodyWorkitemCustomFields[];
   document?: string;
   gmtCreate?: number;
   gmtModified?: number;
@@ -6579,20 +6753,27 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
   logicalStatus?: string;
   modifier?: string;
   parentIdentifier?: string;
+  participant?: string[];
   serialNumber?: string;
   spaceIdentifier?: string;
   spaceName?: string;
   spaceType?: string;
+  sprint?: string[];
   status?: string;
+  statusIdentifier?: string;
   statusStageIdentifier?: string;
   subject?: string;
+  tag?: string[];
+  tracker?: string[];
   updateStatusAt?: number;
+  verifier?: string[];
   workitemTypeIdentifier?: string;
   static names(): { [key: string]: string } {
     return {
       assignedTo: 'assignedTo',
       categoryIdentifier: 'categoryIdentifier',
       creator: 'creator',
+      customFields: 'customFields',
       document: 'document',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
@@ -6600,14 +6781,20 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       logicalStatus: 'logicalStatus',
       modifier: 'modifier',
       parentIdentifier: 'parentIdentifier',
+      participant: 'participant',
       serialNumber: 'serialNumber',
       spaceIdentifier: 'spaceIdentifier',
       spaceName: 'spaceName',
       spaceType: 'spaceType',
+      sprint: 'sprint',
       status: 'status',
+      statusIdentifier: 'statusIdentifier',
       statusStageIdentifier: 'statusStageIdentifier',
       subject: 'subject',
+      tag: 'tag',
+      tracker: 'tracker',
       updateStatusAt: 'updateStatusAt',
+      verifier: 'verifier',
       workitemTypeIdentifier: 'workitemTypeIdentifier',
     };
   }
@@ -6617,6 +6804,7 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       assignedTo: 'string',
       categoryIdentifier: 'string',
       creator: 'string',
+      customFields: { 'type': 'array', 'itemType': GetWorkItemInfoResponseBodyWorkitemCustomFields },
       document: 'string',
       gmtCreate: 'number',
       gmtModified: 'number',
@@ -6624,14 +6812,20 @@ export class GetWorkItemInfoResponseBodyWorkitem extends $tea.Model {
       logicalStatus: 'string',
       modifier: 'string',
       parentIdentifier: 'string',
+      participant: { 'type': 'array', 'itemType': 'string' },
       serialNumber: 'string',
       spaceIdentifier: 'string',
       spaceName: 'string',
       spaceType: 'string',
+      sprint: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
+      statusIdentifier: 'string',
       statusStageIdentifier: 'string',
       subject: 'string',
+      tag: { 'type': 'array', 'itemType': 'string' },
+      tracker: { 'type': 'array', 'itemType': 'string' },
       updateStatusAt: 'number',
+      verifier: { 'type': 'array', 'itemType': 'string' },
       workitemTypeIdentifier: 'string',
     };
   }
@@ -7754,6 +7948,82 @@ export class ListWorkItemWorkFlowStatusResponseBodyStatuses extends $tea.Model {
   }
 }
 
+export class ListWorkitemsResponseBodyWorkitems extends $tea.Model {
+  assignedTo?: string;
+  categoryIdentifier?: string;
+  creator?: string;
+  document?: string;
+  gmtCreate?: number;
+  gmtModified?: number;
+  identifier?: string;
+  logicalStatus?: string;
+  modifier?: string;
+  parentIdentifier?: string;
+  serialNumber?: string;
+  spaceIdentifier?: string;
+  spaceName?: string;
+  spaceType?: string;
+  status?: string;
+  statusIdentifier?: string;
+  statusStageIdentifier?: string;
+  subject?: string;
+  updateStatusAt?: number;
+  workitemTypeIdentifier?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assignedTo: 'assignedTo',
+      categoryIdentifier: 'categoryIdentifier',
+      creator: 'creator',
+      document: 'document',
+      gmtCreate: 'gmtCreate',
+      gmtModified: 'gmtModified',
+      identifier: 'identifier',
+      logicalStatus: 'logicalStatus',
+      modifier: 'modifier',
+      parentIdentifier: 'parentIdentifier',
+      serialNumber: 'serialNumber',
+      spaceIdentifier: 'spaceIdentifier',
+      spaceName: 'spaceName',
+      spaceType: 'spaceType',
+      status: 'status',
+      statusIdentifier: 'statusIdentifier',
+      statusStageIdentifier: 'statusStageIdentifier',
+      subject: 'subject',
+      updateStatusAt: 'updateStatusAt',
+      workitemTypeIdentifier: 'workitemTypeIdentifier',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assignedTo: 'string',
+      categoryIdentifier: 'string',
+      creator: 'string',
+      document: 'string',
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      identifier: 'string',
+      logicalStatus: 'string',
+      modifier: 'string',
+      parentIdentifier: 'string',
+      serialNumber: 'string',
+      spaceIdentifier: 'string',
+      spaceName: 'string',
+      spaceType: 'string',
+      status: 'string',
+      statusIdentifier: 'string',
+      statusStageIdentifier: 'string',
+      subject: 'string',
+      updateStatusAt: 'number',
+      workitemTypeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesResponseBodyWorkspaces extends $tea.Model {
   codeUrl?: string;
   codeVersion?: string;
@@ -7928,6 +8198,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
   spaceName?: string;
   spaceType?: string;
   status?: string;
+  statusIdentifier?: string;
   statusStageIdentifier?: string;
   subject?: string;
   updateStatusAt?: number;
@@ -7949,6 +8220,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
       spaceName: 'spaceName',
       spaceType: 'spaceType',
       status: 'status',
+      statusIdentifier: 'statusIdentifier',
       statusStageIdentifier: 'statusStageIdentifier',
       subject: 'subject',
       updateStatusAt: 'updateStatusAt',
@@ -7973,6 +8245,7 @@ export class UpdateWorkItemResponseBodyWorkitem extends $tea.Model {
       spaceName: 'string',
       spaceType: 'string',
       status: 'string',
+      statusIdentifier: 'string',
       statusStageIdentifier: 'string',
       subject: 'string',
       updateStatusAt: 'number',
@@ -9925,6 +10198,54 @@ export default class Client extends OpenApi {
     return $tea.cast<ListWorkItemWorkFlowStatusResponse>(await this.callApi(params, req, runtime), new ListWorkItemWorkFlowStatusResponse({}));
   }
 
+  async listWorkitems(organizationId: string, request: ListWorkitemsRequest): Promise<ListWorkitemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWorkitemsWithOptions(organizationId, request, headers, runtime);
+  }
+
+  async listWorkitemsWithOptions(organizationId: string, request: ListWorkitemsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListWorkitemsResponse> {
+    Util.validateModel(request);
+    organizationId = OpenApiUtil.getEncodeParam(organizationId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.category)) {
+      query["category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.spaceIdentifier)) {
+      query["spaceIdentifier"] = request.spaceIdentifier;
+    }
+
+    if (!Util.isUnset(request.spaceType)) {
+      query["spaceType"] = request.spaceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListWorkitems",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/organization/${organizationId}/listWorkitems`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListWorkitemsResponse>(await this.callApi(params, req, runtime), new ListWorkitemsResponse({}));
+  }
+
   async listWorkspaces(request: ListWorkspacesRequest): Promise<ListWorkspacesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -10713,6 +11034,10 @@ export default class Client extends OpenApi {
     Util.validateModel(request);
     organizationId = OpenApiUtil.getEncodeParam(organizationId);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fieldType)) {
+      body["fieldType"] = request.fieldType;
+    }
+
     if (!Util.isUnset(request.identifier)) {
       body["identifier"] = request.identifier;
     }
