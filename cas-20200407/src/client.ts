@@ -590,6 +590,90 @@ export class DescribePackageStateResponse extends $tea.Model {
   }
 }
 
+export class ListUserCertificateOrderRequest extends $tea.Model {
+  currentPage?: number;
+  keyword?: string;
+  orderType?: string;
+  showSize?: number;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      keyword: 'Keyword',
+      orderType: 'OrderType',
+      showSize: 'ShowSize',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      keyword: 'string',
+      orderType: 'string',
+      showSize: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserCertificateOrderResponseBody extends $tea.Model {
+  certificateOrderList?: string;
+  currentPage?: number;
+  requestId?: string;
+  showSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certificateOrderList: 'CertificateOrderList',
+      currentPage: 'CurrentPage',
+      requestId: 'RequestId',
+      showSize: 'ShowSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateOrderList: 'string',
+      currentPage: 'number',
+      requestId: 'string',
+      showSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserCertificateOrderResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListUserCertificateOrderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListUserCertificateOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RenewCertificateOrderForPackageRequestRequest extends $tea.Model {
   csr?: string;
   orderId?: number;
@@ -733,7 +817,10 @@ export default class Client extends OpenApi {
   async cancelCertificateForPackageRequestWithOptions(request: CancelCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelCertificateForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -759,7 +846,10 @@ export default class Client extends OpenApi {
   async cancelOrderRequestWithOptions(request: CancelOrderRequestRequest, runtime: $Util.RuntimeOptions): Promise<CancelOrderRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -785,14 +875,38 @@ export default class Client extends OpenApi {
   async createCertificateForPackageRequestWithOptions(request: CreateCertificateForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CompanyName"] = request.companyName;
-    query["Csr"] = request.csr;
-    query["Domain"] = request.domain;
-    query["Email"] = request.email;
-    query["Phone"] = request.phone;
-    query["ProductCode"] = request.productCode;
-    query["Username"] = request.username;
-    query["ValidateType"] = request.validateType;
+    if (!Util.isUnset(request.companyName)) {
+      query["CompanyName"] = request.companyName;
+    }
+
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!Util.isUnset(request.validateType)) {
+      query["ValidateType"] = request.validateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -818,12 +932,30 @@ export default class Client extends OpenApi {
   async createCertificateRequestWithOptions(request: CreateCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Domain"] = request.domain;
-    query["Email"] = request.email;
-    query["Phone"] = request.phone;
-    query["ProductCode"] = request.productCode;
-    query["Username"] = request.username;
-    query["ValidateType"] = request.validateType;
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!Util.isUnset(request.validateType)) {
+      query["ValidateType"] = request.validateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -849,12 +981,30 @@ export default class Client extends OpenApi {
   async createCertificateWithCsrRequestWithOptions(request: CreateCertificateWithCsrRequestRequest, runtime: $Util.RuntimeOptions): Promise<CreateCertificateWithCsrRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Csr"] = request.csr;
-    query["Email"] = request.email;
-    query["Phone"] = request.phone;
-    query["ProductCode"] = request.productCode;
-    query["Username"] = request.username;
-    query["ValidateType"] = request.validateType;
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.phone)) {
+      query["Phone"] = request.phone;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!Util.isUnset(request.validateType)) {
+      query["ValidateType"] = request.validateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -880,7 +1030,10 @@ export default class Client extends OpenApi {
   async deleteCertificateRequestWithOptions(request: DeleteCertificateRequestRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -906,7 +1059,10 @@ export default class Client extends OpenApi {
   async describeCertificateStateWithOptions(request: DescribeCertificateStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCertificateStateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -932,7 +1088,10 @@ export default class Client extends OpenApi {
   async describePackageStateWithOptions(request: DescribePackageStateRequest, runtime: $Util.RuntimeOptions): Promise<DescribePackageStateResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProductCode"] = request.productCode;
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -955,11 +1114,62 @@ export default class Client extends OpenApi {
     return await this.describePackageStateWithOptions(request, runtime);
   }
 
+  async listUserCertificateOrderWithOptions(request: ListUserCertificateOrderRequest, runtime: $Util.RuntimeOptions): Promise<ListUserCertificateOrderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.showSize)) {
+      query["ShowSize"] = request.showSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListUserCertificateOrder",
+      version: "2020-04-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserCertificateOrderResponse>(await this.callApi(params, req, runtime), new ListUserCertificateOrderResponse({}));
+  }
+
+  async listUserCertificateOrder(request: ListUserCertificateOrderRequest): Promise<ListUserCertificateOrderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listUserCertificateOrderWithOptions(request, runtime);
+  }
+
   async renewCertificateOrderForPackageRequestWithOptions(request: RenewCertificateOrderForPackageRequestRequest, runtime: $Util.RuntimeOptions): Promise<RenewCertificateOrderForPackageRequestResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Csr"] = request.csr;
-    query["OrderId"] = request.orderId;
+    if (!Util.isUnset(request.csr)) {
+      query["Csr"] = request.csr;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
