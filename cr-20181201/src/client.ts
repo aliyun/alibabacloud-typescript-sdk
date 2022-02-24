@@ -696,19 +696,23 @@ export class CreateNamespaceResponse extends $tea.Model {
 }
 
 export class CreateRepoBuildRuleRequest extends $tea.Model {
+  buildArgs?: string[];
   dockerfileLocation?: string;
   dockerfileName?: string;
   imageTag?: string;
   instanceId?: string;
+  platforms?: string[];
   pushName?: string;
   pushType?: string;
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildArgs: 'BuildArgs',
       dockerfileLocation: 'DockerfileLocation',
       dockerfileName: 'DockerfileName',
       imageTag: 'ImageTag',
       instanceId: 'InstanceId',
+      platforms: 'Platforms',
       pushName: 'PushName',
       pushType: 'PushType',
       repoId: 'RepoId',
@@ -717,10 +721,12 @@ export class CreateRepoBuildRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      buildArgs: { 'type': 'array', 'itemType': 'string' },
       dockerfileLocation: 'string',
       dockerfileName: 'string',
       imageTag: 'string',
       instanceId: 'string',
+      platforms: { 'type': 'array', 'itemType': 'string' },
       pushName: 'string',
       pushType: 'string',
       repoId: 'string',
@@ -8981,6 +8987,10 @@ export default class Client extends OpenApi {
   async createRepoBuildRuleWithOptions(request: CreateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.buildArgs)) {
+      query["BuildArgs"] = request.buildArgs;
+    }
+
     if (!Util.isUnset(request.dockerfileLocation)) {
       query["DockerfileLocation"] = request.dockerfileLocation;
     }
@@ -8995,6 +9005,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.platforms)) {
+      query["Platforms"] = request.platforms;
     }
 
     if (!Util.isUnset(request.pushName)) {
