@@ -324,6 +324,240 @@ export class CreateBackupPolicyResponse extends $tea.Model {
   }
 }
 
+export class CreateJenkinsImageRegistryRequest extends $tea.Model {
+  domainName?: string;
+  extraParam?: string;
+  netType?: number;
+  password?: string;
+  persistenceDay?: number;
+  protocolType?: number;
+  regionId?: string;
+  registryHostIp?: string;
+  registryName?: string;
+  registryType?: string;
+  registryVersion?: string;
+  sourceIp?: string;
+  transPerHour?: number;
+  userName?: string;
+  vpcId?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      extraParam: 'ExtraParam',
+      netType: 'NetType',
+      password: 'Password',
+      persistenceDay: 'PersistenceDay',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      registryHostIp: 'RegistryHostIp',
+      registryName: 'RegistryName',
+      registryType: 'RegistryType',
+      registryVersion: 'RegistryVersion',
+      sourceIp: 'SourceIp',
+      transPerHour: 'TransPerHour',
+      userName: 'UserName',
+      vpcId: 'VpcId',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      extraParam: 'string',
+      netType: 'number',
+      password: 'string',
+      persistenceDay: 'number',
+      protocolType: 'number',
+      regionId: 'string',
+      registryHostIp: 'string',
+      registryName: 'string',
+      registryType: 'string',
+      registryVersion: 'string',
+      sourceIp: 'string',
+      transPerHour: 'number',
+      userName: 'string',
+      vpcId: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageRegistryResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateJenkinsImageRegistryResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateJenkinsImageRegistryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageRegistryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateJenkinsImageRegistryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateJenkinsImageRegistryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageScanTaskRequest extends $tea.Model {
+  digest?: string;
+  imageCreate?: number;
+  imageId?: string;
+  imageSize?: number;
+  imageUpdate?: number;
+  jenkinsEnv?: string;
+  namespace?: string;
+  repoName?: string;
+  sourceIp?: string;
+  tag?: string;
+  token?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      digest: 'Digest',
+      imageCreate: 'ImageCreate',
+      imageId: 'ImageId',
+      imageSize: 'ImageSize',
+      imageUpdate: 'ImageUpdate',
+      jenkinsEnv: 'JenkinsEnv',
+      namespace: 'Namespace',
+      repoName: 'RepoName',
+      sourceIp: 'SourceIp',
+      tag: 'Tag',
+      token: 'Token',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      digest: 'string',
+      imageCreate: 'number',
+      imageId: 'string',
+      imageSize: 'number',
+      imageUpdate: 'number',
+      jenkinsEnv: 'string',
+      namespace: 'string',
+      repoName: 'string',
+      sourceIp: 'string',
+      tag: 'string',
+      token: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageScanTaskResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateJenkinsImageScanTaskResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateJenkinsImageScanTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageScanTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateJenkinsImageScanTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateJenkinsImageScanTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateAssetGroupRequest extends $tea.Model {
   groupId?: number;
   groupName?: string;
@@ -5654,37 +5888,49 @@ export class DescribePropertyCountRequest extends $tea.Model {
 }
 
 export class DescribePropertyCountResponseBody extends $tea.Model {
-  autoRun?: number;
+  autorun?: number;
   cron?: number;
+  database?: number;
+  lkm?: number;
   port?: number;
   process?: number;
   requestId?: string;
   sca?: number;
   software?: number;
   user?: number;
+  web?: number;
+  webserver?: number;
   static names(): { [key: string]: string } {
     return {
-      autoRun: 'AutoRun',
+      autorun: 'Autorun',
       cron: 'Cron',
+      database: 'Database',
+      lkm: 'Lkm',
       port: 'Port',
       process: 'Process',
       requestId: 'RequestId',
       sca: 'Sca',
       software: 'Software',
       user: 'User',
+      web: 'Web',
+      webserver: 'Webserver',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      autoRun: 'number',
+      autorun: 'number',
       cron: 'number',
+      database: 'number',
+      lkm: 'number',
       port: 'number',
       process: 'number',
       requestId: 'string',
       sca: 'number',
       software: 'number',
       user: 'number',
+      web: 'number',
+      webserver: 'number',
     };
   }
 
@@ -10458,6 +10704,93 @@ export class InstallBackupClientResponse extends $tea.Model {
   }
 }
 
+export class ListImageAnalysisRuleProjectRequest extends $tea.Model {
+  sourceIp?: string;
+  taskId?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+      taskId: 'TaskId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+      taskId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageAnalysisRuleProjectResponseBody extends $tea.Model {
+  code?: string;
+  count?: number;
+  data?: ListImageAnalysisRuleProjectResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+      data: { 'type': 'array', 'itemType': ListImageAnalysisRuleProjectResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListImageAnalysisRuleProjectResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListImageAnalysisRuleProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListImageAnalysisRuleProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAntiBruteForceRuleRequest extends $tea.Model {
   defaultRule?: boolean;
   failCount?: number;
@@ -12559,6 +12892,96 @@ export class OperationSuspEventsResponse extends $tea.Model {
   }
 }
 
+export class PageImageRegistryRequest extends $tea.Model {
+  currentPage?: number;
+  pageSize?: number;
+  registryNameLike?: string;
+  registryTypeInList?: string[];
+  registryTypeNotInList?: string[];
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      registryNameLike: 'RegistryNameLike',
+      registryTypeInList: 'RegistryTypeInList',
+      registryTypeNotInList: 'RegistryTypeNotInList',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      registryNameLike: 'string',
+      registryTypeInList: { 'type': 'array', 'itemType': 'string' },
+      registryTypeNotInList: { 'type': 'array', 'itemType': 'string' },
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageImageRegistryResponseBody extends $tea.Model {
+  code?: string;
+  list?: PageImageRegistryResponseBodyList[];
+  message?: string;
+  pageInfo?: PageImageRegistryResponseBodyPageInfo;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      list: 'List',
+      message: 'Message',
+      pageInfo: 'PageInfo',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      list: { 'type': 'array', 'itemType': PageImageRegistryResponseBodyList },
+      message: 'string',
+      pageInfo: PageImageRegistryResponseBodyPageInfo,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageImageRegistryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: PageImageRegistryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: PageImageRegistryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PauseClientRequest extends $tea.Model {
   uuids?: string;
   value?: string;
@@ -12680,6 +13103,84 @@ export class QueryGroupIdByGroupNameResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryGroupIdByGroupNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryJenkinsImageRegistryPersistenceDayRequest extends $tea.Model {
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryJenkinsImageRegistryPersistenceDayResponseBody extends $tea.Model {
+  code?: string;
+  data?: number;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryJenkinsImageRegistryPersistenceDayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryJenkinsImageRegistryPersistenceDayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryJenkinsImageRegistryPersistenceDayResponseBody,
     };
   }
 
@@ -13159,6 +13660,99 @@ export class StartVirusScanTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitImageAnalysisOutputRequest extends $tea.Model {
+  body?: string;
+  isCompress?: boolean;
+  isEncrypt?: boolean;
+  sourceIp?: string;
+  taskId?: string;
+  token?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      isCompress: 'IsCompress',
+      isEncrypt: 'IsEncrypt',
+      sourceIp: 'SourceIp',
+      taskId: 'TaskId',
+      token: 'Token',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      isCompress: 'boolean',
+      isEncrypt: 'boolean',
+      sourceIp: 'string',
+      taskId: 'string',
+      token: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageAnalysisOutputResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitImageAnalysisOutputResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubmitImageAnalysisOutputResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubmitImageAnalysisOutputResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindAegisRequest extends $tea.Model {
   uuids?: string;
   static names(): { [key: string]: string } {
@@ -13285,6 +13879,351 @@ export class UninstallBackupClientResponse extends $tea.Model {
   }
 }
 
+export class UpdateJenkinsImageRegistryNameRequest extends $tea.Model {
+  registryId?: number;
+  registryName?: string;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      registryId: 'RegistryId',
+      registryName: 'RegistryName',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      registryId: 'number',
+      registryName: 'string',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageRegistryNameResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageRegistryNameResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateJenkinsImageRegistryNameResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateJenkinsImageRegistryNameResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageRegistryPersistenceDayRequest extends $tea.Model {
+  persistenceDay?: number;
+  registryId?: number;
+  sourceIp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      persistenceDay: 'PersistenceDay',
+      registryId: 'RegistryId',
+      sourceIp: 'SourceIp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      persistenceDay: 'number',
+      registryId: 'number',
+      sourceIp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends $tea.Model {
+  code?: string;
+  data?: boolean;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageRegistryPersistenceDayResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateJenkinsImageRegistryPersistenceDayResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateJenkinsImageRegistryPersistenceDayResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageScanTaskStatusRequest extends $tea.Model {
+  result?: string;
+  sourceIp?: string;
+  status?: string;
+  taskId?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+      sourceIp: 'SourceIp',
+      status: 'Status',
+      taskId: 'TaskId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'string',
+      sourceIp: 'string',
+      status: 'string',
+      taskId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageScanTaskStatusResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJenkinsImageScanTaskStatusResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateJenkinsImageScanTaskStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateJenkinsImageScanTaskStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadAnalyzerRuntimeLogRequest extends $tea.Model {
+  content?: string;
+  extendedContent?: { [key: string]: any };
+  level?: string;
+  sourceIp?: string;
+  taskId?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      extendedContent: 'ExtendedContent',
+      level: 'Level',
+      sourceIp: 'SourceIp',
+      taskId: 'TaskId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      extendedContent: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      level: 'string',
+      sourceIp: 'string',
+      taskId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadAnalyzerRuntimeLogResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  timeCost?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      timeCost: 'TimeCost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadAnalyzerRuntimeLogResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UploadAnalyzerRuntimeLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UploadAnalyzerRuntimeLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateHcWarningsRequest extends $tea.Model {
   riskIds?: string;
   sourceIp?: string;
@@ -13362,6 +14301,113 @@ export class CreateAntiBruteForceRuleResponseBodyCreateAntiBruteForceRule extend
   static types(): { [key: string]: any } {
     return {
       ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageRegistryResponseBodyData extends $tea.Model {
+  aliUid?: number;
+  blackList?: string;
+  domainName?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  netType?: number;
+  password?: string;
+  persistenceDay?: number;
+  protocolType?: number;
+  regionId?: string;
+  registryHostIp?: string;
+  registryName?: string;
+  registryType?: string;
+  token?: string;
+  transPerHour?: number;
+  userName?: string;
+  vpcId?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      blackList: 'BlackList',
+      domainName: 'DomainName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      netType: 'NetType',
+      password: 'Password',
+      persistenceDay: 'PersistenceDay',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      registryHostIp: 'RegistryHostIp',
+      registryName: 'RegistryName',
+      registryType: 'RegistryType',
+      token: 'Token',
+      transPerHour: 'TransPerHour',
+      userName: 'UserName',
+      vpcId: 'VpcId',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      blackList: 'string',
+      domainName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      netType: 'number',
+      password: 'string',
+      persistenceDay: 'number',
+      protocolType: 'number',
+      regionId: 'string',
+      registryHostIp: 'string',
+      registryName: 'string',
+      registryType: 'string',
+      token: 'string',
+      transPerHour: 'number',
+      userName: 'string',
+      vpcId: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJenkinsImageScanTaskResponseBodyData extends $tea.Model {
+  imageScanCapacity?: number;
+  repoId?: string;
+  repoInstanceId?: string;
+  repoRegionId?: string;
+  taskId?: string;
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageScanCapacity: 'ImageScanCapacity',
+      repoId: 'RepoId',
+      repoInstanceId: 'RepoInstanceId',
+      repoRegionId: 'RepoRegionId',
+      taskId: 'TaskId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageScanCapacity: 'number',
+      repoId: 'string',
+      repoInstanceId: 'string',
+      repoRegionId: 'string',
+      taskId: 'string',
+      uuid: 'string',
     };
   }
 
@@ -19301,6 +20347,49 @@ export class HandleSecurityEventsResponseBodyHandleSecurityEventsResponse extend
   }
 }
 
+export class ListImageAnalysisRuleProjectResponseBodyData extends $tea.Model {
+  content?: string;
+  isCompress?: boolean;
+  isEncrypt?: boolean;
+  name?: string;
+  outputConfig?: string;
+  outputHandler?: string;
+  project?: string;
+  status?: number;
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      isCompress: 'IsCompress',
+      isEncrypt: 'IsEncrypt',
+      name: 'Name',
+      outputConfig: 'OutputConfig',
+      outputHandler: 'OutputHandler',
+      project: 'Project',
+      status: 'Status',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      isCompress: 'boolean',
+      isEncrypt: 'boolean',
+      name: 'string',
+      outputConfig: 'string',
+      outputHandler: 'string',
+      project: 'string',
+      status: 'number',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPushAllTaskResponseBodyPushTaskRspPushTaskResultList extends $tea.Model {
   groupId?: number;
   instanceId?: string;
@@ -19383,6 +20472,113 @@ export class OperateAgentClientInstallResponseBodyAegisCelintInstallResposeList 
       instanceId: 'string',
       recordId: 'number',
       uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageImageRegistryResponseBodyList extends $tea.Model {
+  aliUid?: number;
+  blackList?: string;
+  domainName?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  id?: number;
+  imageCount?: number;
+  jenkinsEnv?: string;
+  netType?: number;
+  password?: string;
+  persistenceDay?: number;
+  protocolType?: number;
+  regionId?: string;
+  registryHostIp?: string;
+  registryName?: string;
+  registryType?: string;
+  token?: string;
+  transPerHour?: number;
+  userName?: string;
+  vpcId?: string;
+  whiteList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      blackList: 'BlackList',
+      domainName: 'DomainName',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      imageCount: 'ImageCount',
+      jenkinsEnv: 'JenkinsEnv',
+      netType: 'NetType',
+      password: 'Password',
+      persistenceDay: 'PersistenceDay',
+      protocolType: 'ProtocolType',
+      regionId: 'RegionId',
+      registryHostIp: 'RegistryHostIp',
+      registryName: 'RegistryName',
+      registryType: 'RegistryType',
+      token: 'Token',
+      transPerHour: 'TransPerHour',
+      userName: 'UserName',
+      vpcId: 'VpcId',
+      whiteList: 'WhiteList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'number',
+      blackList: 'string',
+      domainName: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      imageCount: 'number',
+      jenkinsEnv: 'string',
+      netType: 'number',
+      password: 'string',
+      persistenceDay: 'number',
+      protocolType: 'number',
+      regionId: 'string',
+      registryHostIp: 'string',
+      registryName: 'string',
+      registryType: 'string',
+      token: 'string',
+      transPerHour: 'number',
+      userName: 'string',
+      vpcId: 'string',
+      whiteList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PageImageRegistryResponseBodyPageInfo extends $tea.Model {
+  count?: number;
+  currentPage?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      currentPage: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -19645,6 +20841,172 @@ export default class Client extends OpenApi {
   async createBackupPolicy(request: CreateBackupPolicyRequest): Promise<CreateBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createBackupPolicyWithOptions(request, runtime);
+  }
+
+  async createJenkinsImageRegistryWithOptions(request: CreateJenkinsImageRegistryRequest, runtime: $Util.RuntimeOptions): Promise<CreateJenkinsImageRegistryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.extraParam)) {
+      body["ExtraParam"] = request.extraParam;
+    }
+
+    if (!Util.isUnset(request.netType)) {
+      body["NetType"] = request.netType;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.persistenceDay)) {
+      body["PersistenceDay"] = request.persistenceDay;
+    }
+
+    if (!Util.isUnset(request.protocolType)) {
+      body["ProtocolType"] = request.protocolType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.registryHostIp)) {
+      body["RegistryHostIp"] = request.registryHostIp;
+    }
+
+    if (!Util.isUnset(request.registryName)) {
+      body["RegistryName"] = request.registryName;
+    }
+
+    if (!Util.isUnset(request.registryType)) {
+      body["RegistryType"] = request.registryType;
+    }
+
+    if (!Util.isUnset(request.registryVersion)) {
+      body["RegistryVersion"] = request.registryVersion;
+    }
+
+    if (!Util.isUnset(request.transPerHour)) {
+      body["TransPerHour"] = request.transPerHour;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      body["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.whiteList)) {
+      body["WhiteList"] = request.whiteList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateJenkinsImageRegistry",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateJenkinsImageRegistryResponse>(await this.callApi(params, req, runtime), new CreateJenkinsImageRegistryResponse({}));
+  }
+
+  async createJenkinsImageRegistry(request: CreateJenkinsImageRegistryRequest): Promise<CreateJenkinsImageRegistryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createJenkinsImageRegistryWithOptions(request, runtime);
+  }
+
+  async createJenkinsImageScanTaskWithOptions(request: CreateJenkinsImageScanTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateJenkinsImageScanTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jenkinsEnv)) {
+      query["JenkinsEnv"] = request.jenkinsEnv;
+    }
+
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.digest)) {
+      body["Digest"] = request.digest;
+    }
+
+    if (!Util.isUnset(request.imageCreate)) {
+      body["ImageCreate"] = request.imageCreate;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.imageSize)) {
+      body["ImageSize"] = request.imageSize;
+    }
+
+    if (!Util.isUnset(request.imageUpdate)) {
+      body["ImageUpdate"] = request.imageUpdate;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      body["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      body["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateJenkinsImageScanTask",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateJenkinsImageScanTaskResponse>(await this.callApi(params, req, runtime), new CreateJenkinsImageScanTaskResponse({}));
+  }
+
+  async createJenkinsImageScanTask(request: CreateJenkinsImageScanTaskRequest): Promise<CreateJenkinsImageScanTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createJenkinsImageScanTaskWithOptions(request, runtime);
   }
 
   async createOrUpdateAssetGroupWithOptions(request: CreateOrUpdateAssetGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateOrUpdateAssetGroupResponse> {
@@ -25144,6 +26506,45 @@ export default class Client extends OpenApi {
     return await this.installBackupClientWithOptions(request, runtime);
   }
 
+  async listImageAnalysisRuleProjectWithOptions(request: ListImageAnalysisRuleProjectRequest, runtime: $Util.RuntimeOptions): Promise<ListImageAnalysisRuleProjectResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListImageAnalysisRuleProject",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListImageAnalysisRuleProjectResponse>(await this.callApi(params, req, runtime), new ListImageAnalysisRuleProjectResponse({}));
+  }
+
+  async listImageAnalysisRuleProject(request: ListImageAnalysisRuleProjectRequest): Promise<ListImageAnalysisRuleProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listImageAnalysisRuleProjectWithOptions(request, runtime);
+  }
+
   async modifyAntiBruteForceRuleWithOptions(request: ModifyAntiBruteForceRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAntiBruteForceRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26411,6 +27812,57 @@ export default class Client extends OpenApi {
     return await this.operationSuspEventsWithOptions(request, runtime);
   }
 
+  async pageImageRegistryWithOptions(request: PageImageRegistryRequest, runtime: $Util.RuntimeOptions): Promise<PageImageRegistryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.registryNameLike)) {
+      body["RegistryNameLike"] = request.registryNameLike;
+    }
+
+    if (!Util.isUnset(request.registryTypeInList)) {
+      body["RegistryTypeInList"] = request.registryTypeInList;
+    }
+
+    if (!Util.isUnset(request.registryTypeNotInList)) {
+      body["RegistryTypeNotInList"] = request.registryTypeNotInList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "PageImageRegistry",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PageImageRegistryResponse>(await this.callApi(params, req, runtime), new PageImageRegistryResponse({}));
+  }
+
+  async pageImageRegistry(request: PageImageRegistryRequest): Promise<PageImageRegistryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pageImageRegistryWithOptions(request, runtime);
+  }
+
   async pauseClientWithOptions(request: PauseClientRequest, runtime: $Util.RuntimeOptions): Promise<PauseClientResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26475,6 +27927,35 @@ export default class Client extends OpenApi {
   async queryGroupIdByGroupName(request: QueryGroupIdByGroupNameRequest): Promise<QueryGroupIdByGroupNameResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryGroupIdByGroupNameWithOptions(request, runtime);
+  }
+
+  async queryJenkinsImageRegistryPersistenceDayWithOptions(request: QueryJenkinsImageRegistryPersistenceDayRequest, runtime: $Util.RuntimeOptions): Promise<QueryJenkinsImageRegistryPersistenceDayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryJenkinsImageRegistryPersistenceDay",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryJenkinsImageRegistryPersistenceDayResponse>(await this.callApi(params, req, runtime), new QueryJenkinsImageRegistryPersistenceDayResponse({}));
+  }
+
+  async queryJenkinsImageRegistryPersistenceDay(request: QueryJenkinsImageRegistryPersistenceDayRequest): Promise<QueryJenkinsImageRegistryPersistenceDayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
   }
 
   async refreshAssetsWithOptions(request: RefreshAssetsRequest, runtime: $Util.RuntimeOptions): Promise<RefreshAssetsResponse> {
@@ -26740,6 +28221,61 @@ export default class Client extends OpenApi {
     return await this.startVirusScanTaskWithOptions(request, runtime);
   }
 
+  async submitImageAnalysisOutputWithOptions(request: SubmitImageAnalysisOutputRequest, runtime: $Util.RuntimeOptions): Promise<SubmitImageAnalysisOutputResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.body)) {
+      body["Body"] = request.body;
+    }
+
+    if (!Util.isUnset(request.isCompress)) {
+      body["IsCompress"] = request.isCompress;
+    }
+
+    if (!Util.isUnset(request.isEncrypt)) {
+      body["IsEncrypt"] = request.isEncrypt;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitImageAnalysisOutput",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitImageAnalysisOutputResponse>(await this.callApi(params, req, runtime), new SubmitImageAnalysisOutputResponse({}));
+  }
+
+  async submitImageAnalysisOutput(request: SubmitImageAnalysisOutputRequest): Promise<SubmitImageAnalysisOutputResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitImageAnalysisOutputWithOptions(request, runtime);
+  }
+
   async unbindAegisWithOptions(request: UnbindAegisRequest, runtime: $Util.RuntimeOptions): Promise<UnbindAegisResponse> {
     Util.validateModel(request);
     let query = { };
@@ -26804,6 +28340,187 @@ export default class Client extends OpenApi {
   async uninstallBackupClient(request: UninstallBackupClientRequest): Promise<UninstallBackupClientResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.uninstallBackupClientWithOptions(request, runtime);
+  }
+
+  async updateJenkinsImageRegistryNameWithOptions(request: UpdateJenkinsImageRegistryNameRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJenkinsImageRegistryNameResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.registryId)) {
+      body["RegistryId"] = request.registryId;
+    }
+
+    if (!Util.isUnset(request.registryName)) {
+      body["RegistryName"] = request.registryName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateJenkinsImageRegistryName",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateJenkinsImageRegistryNameResponse>(await this.callApi(params, req, runtime), new UpdateJenkinsImageRegistryNameResponse({}));
+  }
+
+  async updateJenkinsImageRegistryName(request: UpdateJenkinsImageRegistryNameRequest): Promise<UpdateJenkinsImageRegistryNameResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateJenkinsImageRegistryNameWithOptions(request, runtime);
+  }
+
+  async updateJenkinsImageRegistryPersistenceDayWithOptions(request: UpdateJenkinsImageRegistryPersistenceDayRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.persistenceDay)) {
+      body["PersistenceDay"] = request.persistenceDay;
+    }
+
+    if (!Util.isUnset(request.registryId)) {
+      body["RegistryId"] = request.registryId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateJenkinsImageRegistryPersistenceDay",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateJenkinsImageRegistryPersistenceDayResponse>(await this.callApi(params, req, runtime), new UpdateJenkinsImageRegistryPersistenceDayResponse({}));
+  }
+
+  async updateJenkinsImageRegistryPersistenceDay(request: UpdateJenkinsImageRegistryPersistenceDayRequest): Promise<UpdateJenkinsImageRegistryPersistenceDayResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateJenkinsImageRegistryPersistenceDayWithOptions(request, runtime);
+  }
+
+  async updateJenkinsImageScanTaskStatusWithOptions(request: UpdateJenkinsImageScanTaskStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJenkinsImageScanTaskStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.result)) {
+      body["Result"] = request.result;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateJenkinsImageScanTaskStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateJenkinsImageScanTaskStatusResponse>(await this.callApi(params, req, runtime), new UpdateJenkinsImageScanTaskStatusResponse({}));
+  }
+
+  async updateJenkinsImageScanTaskStatus(request: UpdateJenkinsImageScanTaskStatusRequest): Promise<UpdateJenkinsImageScanTaskStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateJenkinsImageScanTaskStatusWithOptions(request, runtime);
+  }
+
+  async uploadAnalyzerRuntimeLogWithOptions(request: UploadAnalyzerRuntimeLogRequest, runtime: $Util.RuntimeOptions): Promise<UploadAnalyzerRuntimeLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.extendedContent)) {
+      bodyFlat["ExtendedContent"] = request.extendedContent;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      body["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      body["Token"] = request.token;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadAnalyzerRuntimeLog",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadAnalyzerRuntimeLogResponse>(await this.callApi(params, req, runtime), new UploadAnalyzerRuntimeLogResponse({}));
+  }
+
+  async uploadAnalyzerRuntimeLog(request: UploadAnalyzerRuntimeLogRequest): Promise<UploadAnalyzerRuntimeLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadAnalyzerRuntimeLogWithOptions(request, runtime);
   }
 
   async validateHcWarningsWithOptions(request: ValidateHcWarningsRequest, runtime: $Util.RuntimeOptions): Promise<ValidateHcWarningsResponse> {
