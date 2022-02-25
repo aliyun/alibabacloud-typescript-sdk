@@ -3722,21 +3722,21 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
   allowUserToChangePassword?: boolean;
   allowUserToManageAccessKeys?: boolean;
   allowUserToManageMFADevices?: boolean;
+  allowUserToManagePersonalDingTalk?: boolean;
   enableSaveMFATicket?: boolean;
   enforceMFAForLogin?: boolean;
   loginNetworkMasks?: string;
   loginSessionDuration?: number;
-  verificationTypes?: string[];
   static names(): { [key: string]: string } {
     return {
       allowUserToChangePassword: 'AllowUserToChangePassword',
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
       enableSaveMFATicket: 'EnableSaveMFATicket',
       enforceMFAForLogin: 'EnforceMFAForLogin',
       loginNetworkMasks: 'LoginNetworkMasks',
       loginSessionDuration: 'LoginSessionDuration',
-      verificationTypes: 'VerificationTypes',
     };
   }
 
@@ -3745,51 +3745,11 @@ export class SetSecurityPreferenceRequest extends $tea.Model {
       allowUserToChangePassword: 'boolean',
       allowUserToManageAccessKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
+      allowUserToManagePersonalDingTalk: 'boolean',
       enableSaveMFATicket: 'boolean',
       enforceMFAForLogin: 'boolean',
       loginNetworkMasks: 'string',
       loginSessionDuration: 'number',
-      verificationTypes: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetSecurityPreferenceShrinkRequest extends $tea.Model {
-  allowUserToChangePassword?: boolean;
-  allowUserToManageAccessKeys?: boolean;
-  allowUserToManageMFADevices?: boolean;
-  enableSaveMFATicket?: boolean;
-  enforceMFAForLogin?: boolean;
-  loginNetworkMasks?: string;
-  loginSessionDuration?: number;
-  verificationTypesShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowUserToChangePassword: 'AllowUserToChangePassword',
-      allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
-      allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
-      enableSaveMFATicket: 'EnableSaveMFATicket',
-      enforceMFAForLogin: 'EnforceMFAForLogin',
-      loginNetworkMasks: 'LoginNetworkMasks',
-      loginSessionDuration: 'LoginSessionDuration',
-      verificationTypesShrink: 'VerificationTypes',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowUserToChangePassword: 'boolean',
-      allowUserToManageAccessKeys: 'boolean',
-      allowUserToManageMFADevices: 'boolean',
-      enableSaveMFATicket: 'boolean',
-      enforceMFAForLogin: 'boolean',
-      loginNetworkMasks: 'string',
-      loginSessionDuration: 'number',
-      verificationTypesShrink: 'string',
     };
   }
 
@@ -4493,22 +4453,26 @@ export class UpdateUserResponse extends $tea.Model {
 export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -4516,12 +4480,14 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4533,22 +4499,26 @@ export class AddClientIdToOIDCProviderResponseBodyOIDCProvider extends $tea.Mode
 export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -4556,12 +4526,14 @@ export class AddFingerprintToOIDCProviderResponseBodyOIDCProvider extends $tea.M
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -4828,22 +4800,26 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -4851,12 +4827,14 @@ export class CreateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5360,22 +5338,26 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
 export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -5383,12 +5365,14 @@ export class GetOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -5549,17 +5533,17 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
-export class GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
-  verificationTypes?: string[];
+export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
+  allowUserToManagePersonalDingTalk?: boolean;
   static names(): { [key: string]: string } {
     return {
-      verificationTypes: 'VerificationTypes',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+      allowUserToManagePersonalDingTalk: 'boolean',
     };
   }
 
@@ -5572,13 +5556,13 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
   accessKeyPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
-  verificationPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
+  personalInfoPreference?: GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
-      verificationPreference: 'VerificationPreference',
+      personalInfoPreference: 'PersonalInfoPreference',
     };
   }
 
@@ -5587,7 +5571,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
-      verificationPreference: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
+      personalInfoPreference: GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
     };
   }
 
@@ -6036,22 +6020,26 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
 export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -6059,12 +6047,14 @@ export class ListOIDCProvidersResponseBodyOIDCProvidersOIDCProvider extends $tea
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6408,22 +6398,26 @@ export class ListVirtualMFADevicesResponseBodyVirtualMFADevices extends $tea.Mod
 export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -6431,12 +6425,14 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6448,22 +6444,26 @@ export class RemoveClientIdFromOIDCProviderResponseBodyOIDCProvider extends $tea
 export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -6471,12 +6471,14 @@ export class RemoveFingerprintFromOIDCProviderResponseBodyOIDCProvider extends $
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -6603,17 +6605,17 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
-export class SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference extends $tea.Model {
-  verificationTypes?: string[];
+export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
+  allowUserToManagePersonalDingTalk?: boolean;
   static names(): { [key: string]: string } {
     return {
-      verificationTypes: 'VerificationTypes',
+      allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      verificationTypes: { 'type': 'array', 'itemType': 'string' },
+      allowUserToManagePersonalDingTalk: 'boolean',
     };
   }
 
@@ -6626,13 +6628,13 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
   accessKeyPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference;
   loginProfilePreference?: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference;
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
-  verificationPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference;
+  personalInfoPreference?: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference;
   static names(): { [key: string]: string } {
     return {
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
-      verificationPreference: 'VerificationPreference',
+      personalInfoPreference: 'PersonalInfoPreference',
     };
   }
 
@@ -6641,7 +6643,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
-      verificationPreference: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
+      personalInfoPreference: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
     };
   }
 
@@ -6896,22 +6898,26 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
   arn?: string;
   clientIds?: string;
+  createDate?: string;
   description?: string;
   fingerprints?: string;
   gmtCreate?: string;
   gmtModified?: string;
   issuerUrl?: string;
   OIDCProviderName?: string;
+  updateDate?: string;
   static names(): { [key: string]: string } {
     return {
       arn: 'Arn',
       clientIds: 'ClientIds',
+      createDate: 'CreateDate',
       description: 'Description',
       fingerprints: 'Fingerprints',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       issuerUrl: 'IssuerUrl',
       OIDCProviderName: 'OIDCProviderName',
+      updateDate: 'UpdateDate',
     };
   }
 
@@ -6919,12 +6925,14 @@ export class UpdateOIDCProviderResponseBodyOIDCProvider extends $tea.Model {
     return {
       arn: 'string',
       clientIds: 'string',
+      createDate: 'string',
       description: 'string',
       fingerprints: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       issuerUrl: 'string',
       OIDCProviderName: 'string',
+      updateDate: 'string',
     };
   }
 
@@ -7032,10 +7040,30 @@ export default class Client extends OpenApi {
 
   async addClientIdToOIDCProviderWithOptions(request: AddClientIdToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddClientIdToOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddClientIdToOIDCProviderResponse>(await this.doRPCRequest("AddClientIdToOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddClientIdToOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddClientIdToOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddClientIdToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddClientIdToOIDCProviderResponse({}));
   }
 
   async addClientIdToOIDCProvider(request: AddClientIdToOIDCProviderRequest): Promise<AddClientIdToOIDCProviderResponse> {
@@ -7045,10 +7073,30 @@ export default class Client extends OpenApi {
 
   async addFingerprintToOIDCProviderWithOptions(request: AddFingerprintToOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<AddFingerprintToOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fingerprint)) {
+      query["Fingerprint"] = request.fingerprint;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddFingerprintToOIDCProviderResponse>(await this.doRPCRequest("AddFingerprintToOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddFingerprintToOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddFingerprintToOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddFingerprintToOIDCProviderResponse>(await this.callApi(params, req, runtime), new AddFingerprintToOIDCProviderResponse({}));
   }
 
   async addFingerprintToOIDCProvider(request: AddFingerprintToOIDCProviderRequest): Promise<AddFingerprintToOIDCProviderResponse> {
@@ -7058,10 +7106,30 @@ export default class Client extends OpenApi {
 
   async addUserToGroupWithOptions(request: AddUserToGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddUserToGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<AddUserToGroupResponse>(await this.doRPCRequest("AddUserToGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new AddUserToGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "AddUserToGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddUserToGroupResponse>(await this.callApi(params, req, runtime), new AddUserToGroupResponse({}));
   }
 
   async addUserToGroup(request: AddUserToGroupRequest): Promise<AddUserToGroupResponse> {
@@ -7071,10 +7139,38 @@ export default class Client extends OpenApi {
 
   async bindMFADeviceWithOptions(request: BindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<BindMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authenticationCode1)) {
+      query["AuthenticationCode1"] = request.authenticationCode1;
+    }
+
+    if (!Util.isUnset(request.authenticationCode2)) {
+      query["AuthenticationCode2"] = request.authenticationCode2;
+    }
+
+    if (!Util.isUnset(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<BindMFADeviceResponse>(await this.doRPCRequest("BindMFADevice", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new BindMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "BindMFADevice",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BindMFADeviceResponse>(await this.callApi(params, req, runtime), new BindMFADeviceResponse({}));
   }
 
   async bindMFADevice(request: BindMFADeviceRequest): Promise<BindMFADeviceResponse> {
@@ -7084,10 +7180,30 @@ export default class Client extends OpenApi {
 
   async changePasswordWithOptions(request: ChangePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ChangePasswordResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newPassword)) {
+      query["NewPassword"] = request.newPassword;
+    }
+
+    if (!Util.isUnset(request.oldPassword)) {
+      query["OldPassword"] = request.oldPassword;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ChangePasswordResponse>(await this.doRPCRequest("ChangePassword", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ChangePasswordResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangePassword",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangePasswordResponse>(await this.callApi(params, req, runtime), new ChangePasswordResponse({}));
   }
 
   async changePassword(request: ChangePasswordRequest): Promise<ChangePasswordResponse> {
@@ -7097,10 +7213,26 @@ export default class Client extends OpenApi {
 
   async createAccessKeyWithOptions(request: CreateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAccessKeyResponse>(await this.doRPCRequest("CreateAccessKey", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAccessKey",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAccessKeyResponse>(await this.callApi(params, req, runtime), new CreateAccessKeyResponse({}));
   }
 
   async createAccessKey(request: CreateAccessKeyRequest): Promise<CreateAccessKeyResponse> {
@@ -7110,10 +7242,26 @@ export default class Client extends OpenApi {
 
   async createAppSecretWithOptions(request: CreateAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<CreateAppSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateAppSecretResponse>(await this.doRPCRequest("CreateAppSecret", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateAppSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateAppSecret",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAppSecretResponse>(await this.callApi(params, req, runtime), new CreateAppSecretResponse({}));
   }
 
   async createAppSecret(request: CreateAppSecretRequest): Promise<CreateAppSecretResponse> {
@@ -7123,10 +7271,58 @@ export default class Client extends OpenApi {
 
   async createApplicationWithOptions(request: CreateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accessTokenValidity)) {
+      query["AccessTokenValidity"] = request.accessTokenValidity;
+    }
+
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.isMultiTenant)) {
+      query["IsMultiTenant"] = request.isMultiTenant;
+    }
+
+    if (!Util.isUnset(request.predefinedScopes)) {
+      query["PredefinedScopes"] = request.predefinedScopes;
+    }
+
+    if (!Util.isUnset(request.redirectUris)) {
+      query["RedirectUris"] = request.redirectUris;
+    }
+
+    if (!Util.isUnset(request.refreshTokenValidity)) {
+      query["RefreshTokenValidity"] = request.refreshTokenValidity;
+    }
+
+    if (!Util.isUnset(request.secretRequired)) {
+      query["SecretRequired"] = request.secretRequired;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateApplicationResponse>(await this.doRPCRequest("CreateApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateApplication",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
   }
 
   async createApplication(request: CreateApplicationRequest): Promise<CreateApplicationResponse> {
@@ -7136,10 +7332,34 @@ export default class Client extends OpenApi {
 
   async createGroupWithOptions(request: CreateGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateGroupResponse>(await this.doRPCRequest("CreateGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
@@ -7149,10 +7369,42 @@ export default class Client extends OpenApi {
 
   async createLoginProfileWithOptions(request: CreateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<CreateLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.MFABindRequired)) {
+      query["MFABindRequired"] = request.MFABindRequired;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordResetRequired)) {
+      query["PasswordResetRequired"] = request.passwordResetRequired;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateLoginProfileResponse>(await this.doRPCRequest("CreateLoginProfile", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateLoginProfile",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLoginProfileResponse>(await this.callApi(params, req, runtime), new CreateLoginProfileResponse({}));
   }
 
   async createLoginProfile(request: CreateLoginProfileRequest): Promise<CreateLoginProfileResponse> {
@@ -7162,10 +7414,42 @@ export default class Client extends OpenApi {
 
   async createOIDCProviderWithOptions(request: CreateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIds)) {
+      query["ClientIds"] = request.clientIds;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.fingerprints)) {
+      query["Fingerprints"] = request.fingerprints;
+    }
+
+    if (!Util.isUnset(request.issuerUrl)) {
+      query["IssuerUrl"] = request.issuerUrl;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateOIDCProviderResponse>(await this.doRPCRequest("CreateOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOIDCProviderResponse>(await this.callApi(params, req, runtime), new CreateOIDCProviderResponse({}));
   }
 
   async createOIDCProvider(request: CreateOIDCProviderRequest): Promise<CreateOIDCProviderResponse> {
@@ -7175,10 +7459,34 @@ export default class Client extends OpenApi {
 
   async createSAMLProviderWithOptions(request: CreateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateSAMLProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.encodedSAMLMetadataDocument)) {
+      query["EncodedSAMLMetadataDocument"] = request.encodedSAMLMetadataDocument;
+    }
+
+    if (!Util.isUnset(request.SAMLProviderName)) {
+      query["SAMLProviderName"] = request.SAMLProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateSAMLProviderResponse>(await this.doRPCRequest("CreateSAMLProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSAMLProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSAMLProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSAMLProviderResponse>(await this.callApi(params, req, runtime), new CreateSAMLProviderResponse({}));
   }
 
   async createSAMLProvider(request: CreateSAMLProviderRequest): Promise<CreateSAMLProviderResponse> {
@@ -7188,10 +7496,42 @@ export default class Client extends OpenApi {
 
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.comments)) {
+      query["Comments"] = request.comments;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!Util.isUnset(request.mobilePhone)) {
+      query["MobilePhone"] = request.mobilePhone;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateUserResponse>(await this.doRPCRequest("CreateUser", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateUser",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
   }
 
   async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
@@ -7201,10 +7541,26 @@ export default class Client extends OpenApi {
 
   async createVirtualMFADeviceWithOptions(request: CreateVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<CreateVirtualMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.virtualMFADeviceName)) {
+      query["VirtualMFADeviceName"] = request.virtualMFADeviceName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<CreateVirtualMFADeviceResponse>(await this.doRPCRequest("CreateVirtualMFADevice", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new CreateVirtualMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateVirtualMFADevice",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new CreateVirtualMFADeviceResponse({}));
   }
 
   async createVirtualMFADevice(request: CreateVirtualMFADeviceRequest): Promise<CreateVirtualMFADeviceResponse> {
@@ -7214,10 +7570,30 @@ export default class Client extends OpenApi {
 
   async deleteAccessKeyWithOptions(request: DeleteAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAccessKeyResponse>(await this.doRPCRequest("DeleteAccessKey", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAccessKey",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccessKeyResponse>(await this.callApi(params, req, runtime), new DeleteAccessKeyResponse({}));
   }
 
   async deleteAccessKey(request: DeleteAccessKeyRequest): Promise<DeleteAccessKeyResponse> {
@@ -7227,10 +7603,30 @@ export default class Client extends OpenApi {
 
   async deleteAppSecretWithOptions(request: DeleteAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAppSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appSecretId)) {
+      query["AppSecretId"] = request.appSecretId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteAppSecretResponse>(await this.doRPCRequest("DeleteAppSecret", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteAppSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteAppSecret",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAppSecretResponse>(await this.callApi(params, req, runtime), new DeleteAppSecretResponse({}));
   }
 
   async deleteAppSecret(request: DeleteAppSecretRequest): Promise<DeleteAppSecretResponse> {
@@ -7240,10 +7636,26 @@ export default class Client extends OpenApi {
 
   async deleteApplicationWithOptions(request: DeleteApplicationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteApplicationResponse>(await this.doRPCRequest("DeleteApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteApplication",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
   }
 
   async deleteApplication(request: DeleteApplicationRequest): Promise<DeleteApplicationResponse> {
@@ -7253,10 +7665,26 @@ export default class Client extends OpenApi {
 
   async deleteGroupWithOptions(request: DeleteGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteGroupResponse>(await this.doRPCRequest("DeleteGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
@@ -7266,10 +7694,26 @@ export default class Client extends OpenApi {
 
   async deleteLoginProfileWithOptions(request: DeleteLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteLoginProfileResponse>(await this.doRPCRequest("DeleteLoginProfile", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteLoginProfile",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteLoginProfileResponse>(await this.callApi(params, req, runtime), new DeleteLoginProfileResponse({}));
   }
 
   async deleteLoginProfile(request: DeleteLoginProfileRequest): Promise<DeleteLoginProfileResponse> {
@@ -7279,10 +7723,26 @@ export default class Client extends OpenApi {
 
   async deleteOIDCProviderWithOptions(request: DeleteOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteOIDCProviderResponse>(await this.doRPCRequest("DeleteOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOIDCProviderResponse>(await this.callApi(params, req, runtime), new DeleteOIDCProviderResponse({}));
   }
 
   async deleteOIDCProvider(request: DeleteOIDCProviderRequest): Promise<DeleteOIDCProviderResponse> {
@@ -7292,10 +7752,26 @@ export default class Client extends OpenApi {
 
   async deleteSAMLProviderWithOptions(request: DeleteSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSAMLProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.SAMLProviderName)) {
+      query["SAMLProviderName"] = request.SAMLProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteSAMLProviderResponse>(await this.doRPCRequest("DeleteSAMLProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteSAMLProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteSAMLProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSAMLProviderResponse>(await this.callApi(params, req, runtime), new DeleteSAMLProviderResponse({}));
   }
 
   async deleteSAMLProvider(request: DeleteSAMLProviderRequest): Promise<DeleteSAMLProviderResponse> {
@@ -7305,10 +7781,30 @@ export default class Client extends OpenApi {
 
   async deleteUserWithOptions(request: DeleteUserRequest, runtime: $Util.RuntimeOptions): Promise<DeleteUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteUserResponse>(await this.doRPCRequest("DeleteUser", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteUser",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteUserResponse>(await this.callApi(params, req, runtime), new DeleteUserResponse({}));
   }
 
   async deleteUser(request: DeleteUserRequest): Promise<DeleteUserResponse> {
@@ -7318,10 +7814,26 @@ export default class Client extends OpenApi {
 
   async deleteVirtualMFADeviceWithOptions(request: DeleteVirtualMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteVirtualMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.serialNumber)) {
+      query["SerialNumber"] = request.serialNumber;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.doRPCRequest("DeleteVirtualMFADevice", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DeleteVirtualMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DeleteVirtualMFADevice",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteVirtualMFADeviceResponse>(await this.callApi(params, req, runtime), new DeleteVirtualMFADeviceResponse({}));
   }
 
   async deleteVirtualMFADevice(request: DeleteVirtualMFADeviceRequest): Promise<DeleteVirtualMFADeviceResponse> {
@@ -7331,10 +7843,26 @@ export default class Client extends OpenApi {
 
   async disableVirtualMFAWithOptions(request: DisableVirtualMFARequest, runtime: $Util.RuntimeOptions): Promise<DisableVirtualMFAResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<DisableVirtualMFAResponse>(await this.doRPCRequest("DisableVirtualMFA", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new DisableVirtualMFAResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DisableVirtualMFA",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableVirtualMFAResponse>(await this.callApi(params, req, runtime), new DisableVirtualMFAResponse({}));
   }
 
   async disableVirtualMFA(request: DisableVirtualMFARequest): Promise<DisableVirtualMFAResponse> {
@@ -7344,7 +7872,18 @@ export default class Client extends OpenApi {
 
   async generateCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GenerateCredentialReportResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GenerateCredentialReportResponse>(await this.doRPCRequest("GenerateCredentialReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GenerateCredentialReportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GenerateCredentialReport",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateCredentialReportResponse>(await this.callApi(params, req, runtime), new GenerateCredentialReportResponse({}));
   }
 
   async generateCredentialReport(): Promise<GenerateCredentialReportResponse> {
@@ -7354,10 +7893,30 @@ export default class Client extends OpenApi {
 
   async getAccessKeyLastUsedWithOptions(request: GetAccessKeyLastUsedRequest, runtime: $Util.RuntimeOptions): Promise<GetAccessKeyLastUsedResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAccessKeyLastUsedResponse>(await this.doRPCRequest("GetAccessKeyLastUsed", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccessKeyLastUsedResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccessKeyLastUsed",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccessKeyLastUsedResponse>(await this.callApi(params, req, runtime), new GetAccessKeyLastUsedResponse({}));
   }
 
   async getAccessKeyLastUsed(request: GetAccessKeyLastUsedRequest): Promise<GetAccessKeyLastUsedResponse> {
@@ -7367,7 +7926,18 @@ export default class Client extends OpenApi {
 
   async getAccountMFAInfoWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountMFAInfoResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetAccountMFAInfoResponse>(await this.doRPCRequest("GetAccountMFAInfo", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountMFAInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccountMFAInfo",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountMFAInfoResponse>(await this.callApi(params, req, runtime), new GetAccountMFAInfoResponse({}));
   }
 
   async getAccountMFAInfo(): Promise<GetAccountMFAInfoResponse> {
@@ -7377,7 +7947,18 @@ export default class Client extends OpenApi {
 
   async getAccountSecurityPracticeReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSecurityPracticeReportResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetAccountSecurityPracticeReportResponse>(await this.doRPCRequest("GetAccountSecurityPracticeReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountSecurityPracticeReportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccountSecurityPracticeReport",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountSecurityPracticeReportResponse>(await this.callApi(params, req, runtime), new GetAccountSecurityPracticeReportResponse({}));
   }
 
   async getAccountSecurityPracticeReport(): Promise<GetAccountSecurityPracticeReportResponse> {
@@ -7387,7 +7968,18 @@ export default class Client extends OpenApi {
 
   async getAccountSummaryWithOptions(runtime: $Util.RuntimeOptions): Promise<GetAccountSummaryResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetAccountSummaryResponse>(await this.doRPCRequest("GetAccountSummary", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAccountSummaryResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAccountSummary",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountSummaryResponse>(await this.callApi(params, req, runtime), new GetAccountSummaryResponse({}));
   }
 
   async getAccountSummary(): Promise<GetAccountSummaryResponse> {
@@ -7397,10 +7989,30 @@ export default class Client extends OpenApi {
 
   async getAppSecretWithOptions(request: GetAppSecretRequest, runtime: $Util.RuntimeOptions): Promise<GetAppSecretResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.appSecretId)) {
+      query["AppSecretId"] = request.appSecretId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetAppSecretResponse>(await this.doRPCRequest("GetAppSecret", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetAppSecretResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAppSecret",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppSecretResponse>(await this.callApi(params, req, runtime), new GetAppSecretResponse({}));
   }
 
   async getAppSecret(request: GetAppSecretRequest): Promise<GetAppSecretResponse> {
@@ -7410,10 +8022,26 @@ export default class Client extends OpenApi {
 
   async getApplicationWithOptions(request: GetApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetApplicationResponse>(await this.doRPCRequest("GetApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetApplication",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
   }
 
   async getApplication(request: GetApplicationRequest): Promise<GetApplicationResponse> {
@@ -7423,7 +8051,18 @@ export default class Client extends OpenApi {
 
   async getCredentialReportWithOptions(runtime: $Util.RuntimeOptions): Promise<GetCredentialReportResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetCredentialReportResponse>(await this.doRPCRequest("GetCredentialReport", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetCredentialReportResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetCredentialReport",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCredentialReportResponse>(await this.callApi(params, req, runtime), new GetCredentialReportResponse({}));
   }
 
   async getCredentialReport(): Promise<GetCredentialReportResponse> {
@@ -7433,7 +8072,18 @@ export default class Client extends OpenApi {
 
   async getDefaultDomainWithOptions(runtime: $Util.RuntimeOptions): Promise<GetDefaultDomainResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetDefaultDomainResponse>(await this.doRPCRequest("GetDefaultDomain", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetDefaultDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetDefaultDomain",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDefaultDomainResponse>(await this.callApi(params, req, runtime), new GetDefaultDomainResponse({}));
   }
 
   async getDefaultDomain(): Promise<GetDefaultDomainResponse> {
@@ -7443,10 +8093,26 @@ export default class Client extends OpenApi {
 
   async getGroupWithOptions(request: GetGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetGroupResponse>(await this.doRPCRequest("GetGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
@@ -7456,10 +8122,26 @@ export default class Client extends OpenApi {
 
   async getLoginProfileWithOptions(request: GetLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<GetLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetLoginProfileResponse>(await this.doRPCRequest("GetLoginProfile", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetLoginProfile",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetLoginProfileResponse>(await this.callApi(params, req, runtime), new GetLoginProfileResponse({}));
   }
 
   async getLoginProfile(request: GetLoginProfileRequest): Promise<GetLoginProfileResponse> {
@@ -7469,10 +8151,26 @@ export default class Client extends OpenApi {
 
   async getOIDCProviderWithOptions(request: GetOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetOIDCProviderResponse>(await this.doRPCRequest("GetOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOIDCProviderResponse>(await this.callApi(params, req, runtime), new GetOIDCProviderResponse({}));
   }
 
   async getOIDCProvider(request: GetOIDCProviderRequest): Promise<GetOIDCProviderResponse> {
@@ -7482,7 +8180,18 @@ export default class Client extends OpenApi {
 
   async getPasswordPolicyWithOptions(runtime: $Util.RuntimeOptions): Promise<GetPasswordPolicyResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetPasswordPolicyResponse>(await this.doRPCRequest("GetPasswordPolicy", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetPasswordPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetPasswordPolicy",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new GetPasswordPolicyResponse({}));
   }
 
   async getPasswordPolicy(): Promise<GetPasswordPolicyResponse> {
@@ -7492,10 +8201,26 @@ export default class Client extends OpenApi {
 
   async getSAMLProviderWithOptions(request: GetSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetSAMLProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.SAMLProviderName)) {
+      query["SAMLProviderName"] = request.SAMLProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetSAMLProviderResponse>(await this.doRPCRequest("GetSAMLProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetSAMLProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSAMLProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSAMLProviderResponse>(await this.callApi(params, req, runtime), new GetSAMLProviderResponse({}));
   }
 
   async getSAMLProvider(request: GetSAMLProviderRequest): Promise<GetSAMLProviderResponse> {
@@ -7505,7 +8230,18 @@ export default class Client extends OpenApi {
 
   async getSecurityPreferenceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSecurityPreferenceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetSecurityPreferenceResponse>(await this.doRPCRequest("GetSecurityPreference", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetSecurityPreferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetSecurityPreference",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new GetSecurityPreferenceResponse({}));
   }
 
   async getSecurityPreference(): Promise<GetSecurityPreferenceResponse> {
@@ -7515,10 +8251,34 @@ export default class Client extends OpenApi {
 
   async getUserWithOptions(request: GetUserRequest, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetUserResponse>(await this.doRPCRequest("GetUser", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUser",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
   async getUser(request: GetUserRequest): Promise<GetUserResponse> {
@@ -7528,10 +8288,26 @@ export default class Client extends OpenApi {
 
   async getUserMFAInfoWithOptions(request: GetUserMFAInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetUserMFAInfoResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<GetUserMFAInfoResponse>(await this.doRPCRequest("GetUserMFAInfo", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserMFAInfoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserMFAInfo",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserMFAInfoResponse>(await this.callApi(params, req, runtime), new GetUserMFAInfoResponse({}));
   }
 
   async getUserMFAInfo(request: GetUserMFAInfoRequest): Promise<GetUserMFAInfoResponse> {
@@ -7541,7 +8317,18 @@ export default class Client extends OpenApi {
 
   async getUserSsoSettingsWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserSsoSettingsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetUserSsoSettingsResponse>(await this.doRPCRequest("GetUserSsoSettings", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserSsoSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserSsoSettings",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new GetUserSsoSettingsResponse({}));
   }
 
   async getUserSsoSettings(): Promise<GetUserSsoSettingsResponse> {
@@ -7551,10 +8338,26 @@ export default class Client extends OpenApi {
 
   async listAccessKeysWithOptions(request: ListAccessKeysRequest, runtime: $Util.RuntimeOptions): Promise<ListAccessKeysResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAccessKeysResponse>(await this.doRPCRequest("ListAccessKeys", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListAccessKeysResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAccessKeys",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAccessKeysResponse>(await this.callApi(params, req, runtime), new ListAccessKeysResponse({}));
   }
 
   async listAccessKeys(request: ListAccessKeysRequest): Promise<ListAccessKeysResponse> {
@@ -7564,10 +8367,26 @@ export default class Client extends OpenApi {
 
   async listAppSecretIdsWithOptions(request: ListAppSecretIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListAppSecretIdsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListAppSecretIdsResponse>(await this.doRPCRequest("ListAppSecretIds", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListAppSecretIdsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListAppSecretIds",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAppSecretIdsResponse>(await this.callApi(params, req, runtime), new ListAppSecretIdsResponse({}));
   }
 
   async listAppSecretIds(request: ListAppSecretIdsRequest): Promise<ListAppSecretIdsResponse> {
@@ -7577,7 +8396,18 @@ export default class Client extends OpenApi {
 
   async listApplicationsWithOptions(runtime: $Util.RuntimeOptions): Promise<ListApplicationsResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListApplicationsResponse>(await this.doRPCRequest("ListApplications", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListApplicationsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListApplications",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
   }
 
   async listApplications(): Promise<ListApplicationsResponse> {
@@ -7587,10 +8417,30 @@ export default class Client extends OpenApi {
 
   async listGroupsWithOptions(request: ListGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListGroupsResponse>(await this.doRPCRequest("ListGroups", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListGroupsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListGroups",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
@@ -7600,10 +8450,26 @@ export default class Client extends OpenApi {
 
   async listGroupsForUserWithOptions(request: ListGroupsForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListGroupsForUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListGroupsForUserResponse>(await this.doRPCRequest("ListGroupsForUser", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListGroupsForUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListGroupsForUser",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGroupsForUserResponse>(await this.callApi(params, req, runtime), new ListGroupsForUserResponse({}));
   }
 
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
@@ -7613,10 +8479,30 @@ export default class Client extends OpenApi {
 
   async listOIDCProvidersWithOptions(request: ListOIDCProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListOIDCProvidersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListOIDCProvidersResponse>(await this.doRPCRequest("ListOIDCProviders", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListOIDCProvidersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListOIDCProviders",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListOIDCProvidersResponse>(await this.callApi(params, req, runtime), new ListOIDCProvidersResponse({}));
   }
 
   async listOIDCProviders(request: ListOIDCProvidersRequest): Promise<ListOIDCProvidersResponse> {
@@ -7626,10 +8512,26 @@ export default class Client extends OpenApi {
 
   async listPredefinedScopesWithOptions(request: ListPredefinedScopesRequest, runtime: $Util.RuntimeOptions): Promise<ListPredefinedScopesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appType)) {
+      query["AppType"] = request.appType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListPredefinedScopesResponse>(await this.doRPCRequest("ListPredefinedScopes", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListPredefinedScopesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPredefinedScopes",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPredefinedScopesResponse>(await this.callApi(params, req, runtime), new ListPredefinedScopesResponse({}));
   }
 
   async listPredefinedScopes(request: ListPredefinedScopesRequest): Promise<ListPredefinedScopesResponse> {
@@ -7639,10 +8541,30 @@ export default class Client extends OpenApi {
 
   async listSAMLProvidersWithOptions(request: ListSAMLProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListSAMLProvidersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListSAMLProvidersResponse>(await this.doRPCRequest("ListSAMLProviders", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListSAMLProvidersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListSAMLProviders",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSAMLProvidersResponse>(await this.callApi(params, req, runtime), new ListSAMLProvidersResponse({}));
   }
 
   async listSAMLProviders(request: ListSAMLProvidersRequest): Promise<ListSAMLProvidersResponse> {
@@ -7652,10 +8574,30 @@ export default class Client extends OpenApi {
 
   async listUserBasicInfosWithOptions(request: ListUserBasicInfosRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBasicInfosResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUserBasicInfosResponse>(await this.doRPCRequest("ListUserBasicInfos", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListUserBasicInfosResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUserBasicInfos",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserBasicInfosResponse>(await this.callApi(params, req, runtime), new ListUserBasicInfosResponse({}));
   }
 
   async listUserBasicInfos(request: ListUserBasicInfosRequest): Promise<ListUserBasicInfosResponse> {
@@ -7665,10 +8607,30 @@ export default class Client extends OpenApi {
 
   async listUsersWithOptions(request: ListUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsersResponse>(await this.doRPCRequest("ListUsers", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsersResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsers",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersResponse>(await this.callApi(params, req, runtime), new ListUsersResponse({}));
   }
 
   async listUsers(request: ListUsersRequest): Promise<ListUsersResponse> {
@@ -7678,10 +8640,34 @@ export default class Client extends OpenApi {
 
   async listUsersForGroupWithOptions(request: ListUsersForGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListUsersForGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListUsersForGroupResponse>(await this.doRPCRequest("ListUsersForGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListUsersForGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUsersForGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUsersForGroupResponse>(await this.callApi(params, req, runtime), new ListUsersForGroupResponse({}));
   }
 
   async listUsersForGroup(request: ListUsersForGroupRequest): Promise<ListUsersForGroupResponse> {
@@ -7691,10 +8677,30 @@ export default class Client extends OpenApi {
 
   async listVirtualMFADevicesWithOptions(request: ListVirtualMFADevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListVirtualMFADevicesResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.marker)) {
+      query["Marker"] = request.marker;
+    }
+
+    if (!Util.isUnset(request.maxItems)) {
+      query["MaxItems"] = request.maxItems;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<ListVirtualMFADevicesResponse>(await this.doRPCRequest("ListVirtualMFADevices", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new ListVirtualMFADevicesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListVirtualMFADevices",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListVirtualMFADevicesResponse>(await this.callApi(params, req, runtime), new ListVirtualMFADevicesResponse({}));
   }
 
   async listVirtualMFADevices(request: ListVirtualMFADevicesRequest): Promise<ListVirtualMFADevicesResponse> {
@@ -7704,10 +8710,30 @@ export default class Client extends OpenApi {
 
   async removeClientIdFromOIDCProviderWithOptions(request: RemoveClientIdFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveClientIdFromOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveClientIdFromOIDCProviderResponse>(await this.doRPCRequest("RemoveClientIdFromOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveClientIdFromOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveClientIdFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveClientIdFromOIDCProviderResponse({}));
   }
 
   async removeClientIdFromOIDCProvider(request: RemoveClientIdFromOIDCProviderRequest): Promise<RemoveClientIdFromOIDCProviderResponse> {
@@ -7717,10 +8743,30 @@ export default class Client extends OpenApi {
 
   async removeFingerprintFromOIDCProviderWithOptions(request: RemoveFingerprintFromOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<RemoveFingerprintFromOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fingerprint)) {
+      query["Fingerprint"] = request.fingerprint;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.doRPCRequest("RemoveFingerprintFromOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveFingerprintFromOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveFingerprintFromOIDCProviderResponse>(await this.callApi(params, req, runtime), new RemoveFingerprintFromOIDCProviderResponse({}));
   }
 
   async removeFingerprintFromOIDCProvider(request: RemoveFingerprintFromOIDCProviderRequest): Promise<RemoveFingerprintFromOIDCProviderResponse> {
@@ -7730,10 +8776,30 @@ export default class Client extends OpenApi {
 
   async removeUserFromGroupWithOptions(request: RemoveUserFromGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveUserFromGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<RemoveUserFromGroupResponse>(await this.doRPCRequest("RemoveUserFromGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new RemoveUserFromGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RemoveUserFromGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveUserFromGroupResponse>(await this.callApi(params, req, runtime), new RemoveUserFromGroupResponse({}));
   }
 
   async removeUserFromGroup(request: RemoveUserFromGroupRequest): Promise<RemoveUserFromGroupResponse> {
@@ -7743,10 +8809,26 @@ export default class Client extends OpenApi {
 
   async setDefaultDomainWithOptions(request: SetDefaultDomainRequest, runtime: $Util.RuntimeOptions): Promise<SetDefaultDomainResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultDomainName)) {
+      query["DefaultDomainName"] = request.defaultDomainName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetDefaultDomainResponse>(await this.doRPCRequest("SetDefaultDomain", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetDefaultDomainResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetDefaultDomain",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetDefaultDomainResponse>(await this.callApi(params, req, runtime), new SetDefaultDomainResponse({}));
   }
 
   async setDefaultDomain(request: SetDefaultDomainRequest): Promise<SetDefaultDomainResponse> {
@@ -7756,10 +8838,66 @@ export default class Client extends OpenApi {
 
   async setPasswordPolicyWithOptions(request: SetPasswordPolicyRequest, runtime: $Util.RuntimeOptions): Promise<SetPasswordPolicyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hardExpire)) {
+      query["HardExpire"] = request.hardExpire;
+    }
+
+    if (!Util.isUnset(request.maxLoginAttemps)) {
+      query["MaxLoginAttemps"] = request.maxLoginAttemps;
+    }
+
+    if (!Util.isUnset(request.maxPasswordAge)) {
+      query["MaxPasswordAge"] = request.maxPasswordAge;
+    }
+
+    if (!Util.isUnset(request.minimumPasswordDifferentCharacter)) {
+      query["MinimumPasswordDifferentCharacter"] = request.minimumPasswordDifferentCharacter;
+    }
+
+    if (!Util.isUnset(request.minimumPasswordLength)) {
+      query["MinimumPasswordLength"] = request.minimumPasswordLength;
+    }
+
+    if (!Util.isUnset(request.passwordNotContainUserName)) {
+      query["PasswordNotContainUserName"] = request.passwordNotContainUserName;
+    }
+
+    if (!Util.isUnset(request.passwordReusePrevention)) {
+      query["PasswordReusePrevention"] = request.passwordReusePrevention;
+    }
+
+    if (!Util.isUnset(request.requireLowercaseCharacters)) {
+      query["RequireLowercaseCharacters"] = request.requireLowercaseCharacters;
+    }
+
+    if (!Util.isUnset(request.requireNumbers)) {
+      query["RequireNumbers"] = request.requireNumbers;
+    }
+
+    if (!Util.isUnset(request.requireSymbols)) {
+      query["RequireSymbols"] = request.requireSymbols;
+    }
+
+    if (!Util.isUnset(request.requireUppercaseCharacters)) {
+      query["RequireUppercaseCharacters"] = request.requireUppercaseCharacters;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetPasswordPolicyResponse>(await this.doRPCRequest("SetPasswordPolicy", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetPasswordPolicyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetPasswordPolicy",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetPasswordPolicyResponse>(await this.callApi(params, req, runtime), new SetPasswordPolicyResponse({}));
   }
 
   async setPasswordPolicy(request: SetPasswordPolicyRequest): Promise<SetPasswordPolicyResponse> {
@@ -7767,18 +8905,56 @@ export default class Client extends OpenApi {
     return await this.setPasswordPolicyWithOptions(request, runtime);
   }
 
-  async setSecurityPreferenceWithOptions(tmpReq: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
-    Util.validateModel(tmpReq);
-    let request = new SetSecurityPreferenceShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.verificationTypes)) {
-      request.verificationTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.verificationTypes, "VerificationTypes", "json");
+  async setSecurityPreferenceWithOptions(request: SetSecurityPreferenceRequest, runtime: $Util.RuntimeOptions): Promise<SetSecurityPreferenceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowUserToChangePassword)) {
+      query["AllowUserToChangePassword"] = request.allowUserToChangePassword;
+    }
+
+    if (!Util.isUnset(request.allowUserToManageAccessKeys)) {
+      query["AllowUserToManageAccessKeys"] = request.allowUserToManageAccessKeys;
+    }
+
+    if (!Util.isUnset(request.allowUserToManageMFADevices)) {
+      query["AllowUserToManageMFADevices"] = request.allowUserToManageMFADevices;
+    }
+
+    if (!Util.isUnset(request.allowUserToManagePersonalDingTalk)) {
+      query["AllowUserToManagePersonalDingTalk"] = request.allowUserToManagePersonalDingTalk;
+    }
+
+    if (!Util.isUnset(request.enableSaveMFATicket)) {
+      query["EnableSaveMFATicket"] = request.enableSaveMFATicket;
+    }
+
+    if (!Util.isUnset(request.enforceMFAForLogin)) {
+      query["EnforceMFAForLogin"] = request.enforceMFAForLogin;
+    }
+
+    if (!Util.isUnset(request.loginNetworkMasks)) {
+      query["LoginNetworkMasks"] = request.loginNetworkMasks;
+    }
+
+    if (!Util.isUnset(request.loginSessionDuration)) {
+      query["LoginSessionDuration"] = request.loginSessionDuration;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetSecurityPreferenceResponse>(await this.doRPCRequest("SetSecurityPreference", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetSecurityPreferenceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetSecurityPreference",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSecurityPreferenceResponse>(await this.callApi(params, req, runtime), new SetSecurityPreferenceResponse({}));
   }
 
   async setSecurityPreference(request: SetSecurityPreferenceRequest): Promise<SetSecurityPreferenceResponse> {
@@ -7788,10 +8964,34 @@ export default class Client extends OpenApi {
 
   async setUserSsoSettingsWithOptions(request: SetUserSsoSettingsRequest, runtime: $Util.RuntimeOptions): Promise<SetUserSsoSettingsResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.auxiliaryDomain)) {
+      query["AuxiliaryDomain"] = request.auxiliaryDomain;
+    }
+
+    if (!Util.isUnset(request.metadataDocument)) {
+      query["MetadataDocument"] = request.metadataDocument;
+    }
+
+    if (!Util.isUnset(request.ssoEnabled)) {
+      query["SsoEnabled"] = request.ssoEnabled;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SetUserSsoSettingsResponse>(await this.doRPCRequest("SetUserSsoSettings", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new SetUserSsoSettingsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SetUserSsoSettings",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetUserSsoSettingsResponse>(await this.callApi(params, req, runtime), new SetUserSsoSettingsResponse({}));
   }
 
   async setUserSsoSettings(request: SetUserSsoSettingsRequest): Promise<SetUserSsoSettingsResponse> {
@@ -7801,10 +9001,26 @@ export default class Client extends OpenApi {
 
   async unbindMFADeviceWithOptions(request: UnbindMFADeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnbindMFADeviceResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UnbindMFADeviceResponse>(await this.doRPCRequest("UnbindMFADevice", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UnbindMFADeviceResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UnbindMFADevice",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnbindMFADeviceResponse>(await this.callApi(params, req, runtime), new UnbindMFADeviceResponse({}));
   }
 
   async unbindMFADevice(request: UnbindMFADeviceRequest): Promise<UnbindMFADeviceResponse> {
@@ -7814,10 +9030,34 @@ export default class Client extends OpenApi {
 
   async updateAccessKeyWithOptions(request: UpdateAccessKeyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAccessKeyResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userAccessKeyId)) {
+      query["UserAccessKeyId"] = request.userAccessKeyId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateAccessKeyResponse>(await this.doRPCRequest("UpdateAccessKey", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateAccessKeyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateAccessKey",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAccessKeyResponse>(await this.callApi(params, req, runtime), new UpdateAccessKeyResponse({}));
   }
 
   async updateAccessKey(request: UpdateAccessKeyRequest): Promise<UpdateAccessKeyResponse> {
@@ -7827,10 +9067,54 @@ export default class Client extends OpenApi {
 
   async updateApplicationWithOptions(request: UpdateApplicationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateApplicationResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.newAccessTokenValidity)) {
+      query["NewAccessTokenValidity"] = request.newAccessTokenValidity;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.newIsMultiTenant)) {
+      query["NewIsMultiTenant"] = request.newIsMultiTenant;
+    }
+
+    if (!Util.isUnset(request.newPredefinedScopes)) {
+      query["NewPredefinedScopes"] = request.newPredefinedScopes;
+    }
+
+    if (!Util.isUnset(request.newRedirectUris)) {
+      query["NewRedirectUris"] = request.newRedirectUris;
+    }
+
+    if (!Util.isUnset(request.newRefreshTokenValidity)) {
+      query["NewRefreshTokenValidity"] = request.newRefreshTokenValidity;
+    }
+
+    if (!Util.isUnset(request.newSecretRequired)) {
+      query["NewSecretRequired"] = request.newSecretRequired;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateApplicationResponse>(await this.doRPCRequest("UpdateApplication", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateApplicationResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateApplication",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateApplicationResponse>(await this.callApi(params, req, runtime), new UpdateApplicationResponse({}));
   }
 
   async updateApplication(request: UpdateApplicationRequest): Promise<UpdateApplicationResponse> {
@@ -7840,10 +9124,38 @@ export default class Client extends OpenApi {
 
   async updateGroupWithOptions(request: UpdateGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGroupResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.newComments)) {
+      query["NewComments"] = request.newComments;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.newGroupName)) {
+      query["NewGroupName"] = request.newGroupName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateGroupResponse>(await this.doRPCRequest("UpdateGroup", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateGroupResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateGroup",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGroupResponse>(await this.callApi(params, req, runtime), new UpdateGroupResponse({}));
   }
 
   async updateGroup(request: UpdateGroupRequest): Promise<UpdateGroupResponse> {
@@ -7853,10 +9165,42 @@ export default class Client extends OpenApi {
 
   async updateLoginProfileWithOptions(request: UpdateLoginProfileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateLoginProfileResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.MFABindRequired)) {
+      query["MFABindRequired"] = request.MFABindRequired;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.passwordResetRequired)) {
+      query["PasswordResetRequired"] = request.passwordResetRequired;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateLoginProfileResponse>(await this.doRPCRequest("UpdateLoginProfile", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateLoginProfileResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateLoginProfile",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateLoginProfileResponse>(await this.callApi(params, req, runtime), new UpdateLoginProfileResponse({}));
   }
 
   async updateLoginProfile(request: UpdateLoginProfileRequest): Promise<UpdateLoginProfileResponse> {
@@ -7866,10 +9210,34 @@ export default class Client extends OpenApi {
 
   async updateOIDCProviderWithOptions(request: UpdateOIDCProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOIDCProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientIds)) {
+      query["ClientIds"] = request.clientIds;
+    }
+
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.OIDCProviderName)) {
+      query["OIDCProviderName"] = request.OIDCProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateOIDCProviderResponse>(await this.doRPCRequest("UpdateOIDCProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateOIDCProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateOIDCProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOIDCProviderResponse>(await this.callApi(params, req, runtime), new UpdateOIDCProviderResponse({}));
   }
 
   async updateOIDCProvider(request: UpdateOIDCProviderRequest): Promise<UpdateOIDCProviderResponse> {
@@ -7879,10 +9247,34 @@ export default class Client extends OpenApi {
 
   async updateSAMLProviderWithOptions(request: UpdateSAMLProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSAMLProviderResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newDescription)) {
+      query["NewDescription"] = request.newDescription;
+    }
+
+    if (!Util.isUnset(request.newEncodedSAMLMetadataDocument)) {
+      query["NewEncodedSAMLMetadataDocument"] = request.newEncodedSAMLMetadataDocument;
+    }
+
+    if (!Util.isUnset(request.SAMLProviderName)) {
+      query["SAMLProviderName"] = request.SAMLProviderName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateSAMLProviderResponse>(await this.doRPCRequest("UpdateSAMLProvider", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateSAMLProviderResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateSAMLProvider",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSAMLProviderResponse>(await this.callApi(params, req, runtime), new UpdateSAMLProviderResponse({}));
   }
 
   async updateSAMLProvider(request: UpdateSAMLProviderRequest): Promise<UpdateSAMLProviderResponse> {
@@ -7892,10 +9284,50 @@ export default class Client extends OpenApi {
 
   async updateUserWithOptions(request: UpdateUserRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.newComments)) {
+      query["NewComments"] = request.newComments;
+    }
+
+    if (!Util.isUnset(request.newDisplayName)) {
+      query["NewDisplayName"] = request.newDisplayName;
+    }
+
+    if (!Util.isUnset(request.newEmail)) {
+      query["NewEmail"] = request.newEmail;
+    }
+
+    if (!Util.isUnset(request.newMobilePhone)) {
+      query["NewMobilePhone"] = request.newMobilePhone;
+    }
+
+    if (!Util.isUnset(request.newUserPrincipalName)) {
+      query["NewUserPrincipalName"] = request.newUserPrincipalName;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userPrincipalName)) {
+      query["UserPrincipalName"] = request.userPrincipalName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<UpdateUserResponse>(await this.doRPCRequest("UpdateUser", "2019-08-15", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateUserResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateUser",
+      version: "2019-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserResponse>(await this.callApi(params, req, runtime), new UpdateUserResponse({}));
   }
 
   async updateUser(request: UpdateUserRequest): Promise<UpdateUserResponse> {
