@@ -311,141 +311,6 @@ export class ApprovePermissionApplyOrderResponse extends $tea.Model {
   }
 }
 
-export class CheckEngineMetaPartitionRequest extends $tea.Model {
-  dataSourceType?: string;
-  partition?: string;
-  tableGuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'DataSourceType',
-      partition: 'Partition',
-      tableGuid: 'TableGuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      partition: 'string',
-      tableGuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckEngineMetaPartitionResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckEngineMetaPartitionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckEngineMetaPartitionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckEngineMetaPartitionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckEngineMetaTableRequest extends $tea.Model {
-  dataSourceType?: string;
-  tableGuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'DataSourceType',
-      tableGuid: 'TableGuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      tableGuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckEngineMetaTableResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckEngineMetaTableResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckEngineMetaTableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckEngineMetaTableResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CheckFileDeploymentRequest extends $tea.Model {
   checkDetailUrl?: string;
   checkerInstanceId?: string;
@@ -669,50 +534,6 @@ export class CheckMetaTableResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CheckMetaTableResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMetaTableTaskResponseBody extends $tea.Model {
-  data?: boolean;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'boolean',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckMetaTableTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckMetaTableTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckMetaTableTaskResponseBody,
     };
   }
 
@@ -1685,6 +1506,7 @@ export class CreateExportMigrationResponse extends $tea.Model {
 }
 
 export class CreateFileRequest extends $tea.Model {
+  advancedSettings?: string;
   autoParsing?: boolean;
   autoRerunIntervalMillis?: number;
   autoRerunTimes?: number;
@@ -1709,9 +1531,11 @@ export class CreateFileRequest extends $tea.Model {
   resourceGroupIdentifier?: string;
   schedulerType?: string;
   startEffectDate?: number;
+  startImmediately?: boolean;
   stop?: boolean;
   static names(): { [key: string]: string } {
     return {
+      advancedSettings: 'AdvancedSettings',
       autoParsing: 'AutoParsing',
       autoRerunIntervalMillis: 'AutoRerunIntervalMillis',
       autoRerunTimes: 'AutoRerunTimes',
@@ -1736,12 +1560,14 @@ export class CreateFileRequest extends $tea.Model {
       resourceGroupIdentifier: 'ResourceGroupIdentifier',
       schedulerType: 'SchedulerType',
       startEffectDate: 'StartEffectDate',
+      startImmediately: 'StartImmediately',
       stop: 'Stop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      advancedSettings: 'string',
       autoParsing: 'boolean',
       autoRerunIntervalMillis: 'number',
       autoRerunTimes: 'number',
@@ -1766,6 +1592,7 @@ export class CreateFileRequest extends $tea.Model {
       resourceGroupIdentifier: 'string',
       schedulerType: 'string',
       startEffectDate: 'number',
+      startImmediately: 'boolean',
       stop: 'boolean',
     };
   }
@@ -3275,93 +3102,6 @@ export class CreateUdfFileResponse extends $tea.Model {
   }
 }
 
-export class CreateViewRequest extends $tea.Model {
-  appGuid?: string;
-  clientToken?: string;
-  comment?: string;
-  selectColumn?: string;
-  selectSQL?: string;
-  selectTableName?: string;
-  selectWhere?: string;
-  viewColumn?: CreateViewRequestViewColumn[];
-  viewName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appGuid: 'AppGuid',
-      clientToken: 'ClientToken',
-      comment: 'Comment',
-      selectColumn: 'SelectColumn',
-      selectSQL: 'SelectSQL',
-      selectTableName: 'SelectTableName',
-      selectWhere: 'SelectWhere',
-      viewColumn: 'ViewColumn',
-      viewName: 'ViewName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appGuid: 'string',
-      clientToken: 'string',
-      comment: 'string',
-      selectColumn: 'string',
-      selectSQL: 'string',
-      selectTableName: 'string',
-      selectWhere: 'string',
-      viewColumn: { 'type': 'array', 'itemType': CreateViewRequestViewColumn },
-      viewName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateViewResponseBody extends $tea.Model {
-  requestId?: string;
-  taskInfo?: CreateViewResponseBodyTaskInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskInfo: CreateViewResponseBodyTaskInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateViewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateViewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateViewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteBusinessRequest extends $tea.Model {
   businessId?: number;
   projectId?: number;
@@ -4802,72 +4542,6 @@ export class DeleteTableThemeResponse extends $tea.Model {
   }
 }
 
-export class DeleteViewRequest extends $tea.Model {
-  appGuid?: string;
-  viewName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      appGuid: 'AppGuid',
-      viewName: 'ViewName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appGuid: 'string',
-      viewName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteViewResponseBody extends $tea.Model {
-  requestId?: string;
-  taskInfo?: DeleteViewResponseBodyTaskInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      taskInfo: DeleteViewResponseBodyTaskInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteViewResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteViewResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteViewResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeployDISyncTaskRequest extends $tea.Model {
   fileId?: number;
   projectId?: number;
@@ -5169,165 +4843,6 @@ export class EstablishRelationTableToBusinessResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: EstablishRelationTableToBusinessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportConnectionsRequest extends $tea.Model {
-  dataSourceType?: string;
-  envType?: number;
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: number;
-  subType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dataSourceType: 'DataSourceType',
-      envType: 'EnvType',
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      subType: 'SubType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSourceType: 'string',
-      envType: 'number',
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'number',
-      subType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportConnectionsResponseBody extends $tea.Model {
-  data?: ExportConnectionsResponseBodyData;
-  httpStatusCode?: number;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      httpStatusCode: 'HttpStatusCode',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ExportConnectionsResponseBodyData,
-      httpStatusCode: 'number',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExportConnectionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExportConnectionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportDISyncTasksRequest extends $tea.Model {
-  projectId?: number;
-  taskParam?: string;
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      taskParam: 'TaskParam',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'number',
-      taskParam: 'string',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportDISyncTasksResponseBody extends $tea.Model {
-  data?: ExportDISyncTasksResponseBodyData;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-      requestId: 'requestId',
-      success: 'success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ExportDISyncTasksResponseBodyData,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportDISyncTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ExportDISyncTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ExportDISyncTasksResponseBody,
     };
   }
 
@@ -5886,84 +5401,6 @@ export class GetBusinessResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetBusinessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionMetaRequest extends $tea.Model {
-  datasourceName?: string;
-  envType?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      datasourceName: 'DatasourceName',
-      envType: 'EnvType',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasourceName: 'string',
-      envType: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionMetaResponseBody extends $tea.Model {
-  data?: GetConnectionMetaResponseBodyData;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetConnectionMetaResponseBodyData,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionMetaResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetConnectionMetaResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetConnectionMetaResponseBody,
     };
   }
 
@@ -10595,150 +10032,6 @@ export class GetTopicInfluenceResponse extends $tea.Model {
   }
 }
 
-export class ImportConnectionsRequest extends $tea.Model {
-  connections?: string;
-  projectId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      connections: 'Connections',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      connections: 'string',
-      projectId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportConnectionsResponseBody extends $tea.Model {
-  data?: ImportConnectionsResponseBodyData;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ImportConnectionsResponseBodyData,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportConnectionsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ImportConnectionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ImportConnectionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDISyncTasksRequest extends $tea.Model {
-  projectId?: number;
-  taskParam?: string;
-  taskType?: string;
-  body?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-      taskParam: 'TaskParam',
-      taskType: 'TaskType',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'number',
-      taskParam: 'string',
-      taskType: 'string',
-      body: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDISyncTasksResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  taskInfo?: ImportDISyncTasksResponseBodyTaskInfo;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      taskInfo: 'TaskInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      taskInfo: ImportDISyncTasksResponseBodyTaskInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDISyncTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ImportDISyncTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ImportDISyncTasksResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportDataSourcesRequest extends $tea.Model {
   dataSources?: string;
   projectId?: number;
@@ -11427,81 +10720,6 @@ export class ListDIProjectConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListDIProjectConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDISyncTasksRequest extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  projectId?: number;
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      projectId: 'ProjectId',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      projectId: 'number',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDISyncTasksResponseBody extends $tea.Model {
-  requestId?: string;
-  success?: boolean;
-  taskList?: ListDISyncTasksResponseBodyTaskList;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      success: 'Success',
-      taskList: 'TaskList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      success: 'boolean',
-      taskList: ListDISyncTasksResponseBodyTaskList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDISyncTasksResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListDISyncTasksResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListDISyncTasksResponseBody,
     };
   }
 
@@ -15896,84 +15114,6 @@ export class SearchNodesByOutputResponse extends $tea.Model {
   }
 }
 
-export class SetConnectionShareRequest extends $tea.Model {
-  datasourceName?: string;
-  envType?: string;
-  projectId?: number;
-  projectPermissions?: string;
-  userPermissions?: string;
-  static names(): { [key: string]: string } {
-    return {
-      datasourceName: 'DatasourceName',
-      envType: 'EnvType',
-      projectId: 'ProjectId',
-      projectPermissions: 'ProjectPermissions',
-      userPermissions: 'UserPermissions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      datasourceName: 'string',
-      envType: 'string',
-      projectId: 'number',
-      projectPermissions: 'string',
-      userPermissions: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetConnectionShareResponseBody extends $tea.Model {
-  data?: SetConnectionShareResponseBodyData;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SetConnectionShareResponseBodyData,
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetConnectionShareResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SetConnectionShareResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SetConnectionShareResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetDataSourceShareRequest extends $tea.Model {
   datasourceName?: string;
   envType?: string;
@@ -17382,6 +16522,7 @@ export class UpdateDataSourceResponse extends $tea.Model {
 }
 
 export class UpdateFileRequest extends $tea.Model {
+  advancedSettings?: string;
   autoParsing?: boolean;
   autoRerunIntervalMillis?: number;
   autoRerunTimes?: number;
@@ -17406,9 +16547,11 @@ export class UpdateFileRequest extends $tea.Model {
   resourceGroupIdentifier?: string;
   schedulerType?: string;
   startEffectDate?: number;
+  startImmediately?: boolean;
   stop?: boolean;
   static names(): { [key: string]: string } {
     return {
+      advancedSettings: 'AdvancedSettings',
       autoParsing: 'AutoParsing',
       autoRerunIntervalMillis: 'AutoRerunIntervalMillis',
       autoRerunTimes: 'AutoRerunTimes',
@@ -17433,12 +16576,14 @@ export class UpdateFileRequest extends $tea.Model {
       resourceGroupIdentifier: 'ResourceGroupIdentifier',
       schedulerType: 'SchedulerType',
       startEffectDate: 'StartEffectDate',
+      startImmediately: 'StartImmediately',
       stop: 'Stop',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      advancedSettings: 'string',
       autoParsing: 'boolean',
       autoRerunIntervalMillis: 'number',
       autoRerunTimes: 'number',
@@ -17463,6 +16608,7 @@ export class UpdateFileRequest extends $tea.Model {
       resourceGroupIdentifier: 'string',
       schedulerType: 'string',
       startEffectDate: 'number',
+      startImmediately: 'boolean',
       stop: 'boolean',
     };
   }
@@ -19092,56 +18238,6 @@ export class CreateTableResponseBodyTaskInfo extends $tea.Model {
   }
 }
 
-export class CreateViewRequestViewColumn extends $tea.Model {
-  columnName?: string;
-  comment?: string;
-  static names(): { [key: string]: string } {
-    return {
-      columnName: 'ColumnName',
-      comment: 'Comment',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      columnName: 'string',
-      comment: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateViewResponseBodyTaskInfo extends $tea.Model {
-  content?: string;
-  nextTaskId?: string;
-  status?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      nextTaskId: 'NextTaskId',
-      status: 'Status',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      nextTaskId: 'string',
-      status: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteDISyncTaskResponseBodyData extends $tea.Model {
   message?: string;
   status?: string;
@@ -19192,34 +18288,6 @@ export class DeleteTableResponseBodyTaskInfo extends $tea.Model {
   }
 }
 
-export class DeleteViewResponseBodyTaskInfo extends $tea.Model {
-  content?: string;
-  nextTaskId?: string;
-  status?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      nextTaskId: 'NextTaskId',
-      status: 'Status',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      nextTaskId: 'string',
-      status: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeployDISyncTaskResponseBodyData extends $tea.Model {
   message?: string;
   status?: string;
@@ -19234,123 +18302,6 @@ export class DeployDISyncTaskResponseBodyData extends $tea.Model {
     return {
       message: 'string',
       status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportConnectionsResponseBodyDataDataSources extends $tea.Model {
-  bindingCalcEngineId?: number;
-  connectStatus?: number;
-  content?: string;
-  dataSourceType?: string;
-  defaultEngine?: boolean;
-  description?: string;
-  envType?: number;
-  gmtCreate?: string;
-  gmtModified?: string;
-  id?: number;
-  name?: string;
-  operator?: string;
-  projectId?: number;
-  sequence?: number;
-  shared?: boolean;
-  status?: number;
-  subType?: string;
-  tenantId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bindingCalcEngineId: 'BindingCalcEngineId',
-      connectStatus: 'ConnectStatus',
-      content: 'Content',
-      dataSourceType: 'DataSourceType',
-      defaultEngine: 'DefaultEngine',
-      description: 'Description',
-      envType: 'EnvType',
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      id: 'Id',
-      name: 'Name',
-      operator: 'Operator',
-      projectId: 'ProjectId',
-      sequence: 'Sequence',
-      shared: 'Shared',
-      status: 'Status',
-      subType: 'SubType',
-      tenantId: 'TenantId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bindingCalcEngineId: 'number',
-      connectStatus: 'number',
-      content: 'string',
-      dataSourceType: 'string',
-      defaultEngine: 'boolean',
-      description: 'string',
-      envType: 'number',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
-      name: 'string',
-      operator: 'string',
-      projectId: 'number',
-      sequence: 'number',
-      shared: 'boolean',
-      status: 'number',
-      subType: 'string',
-      tenantId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportConnectionsResponseBodyData extends $tea.Model {
-  dataSources?: ExportConnectionsResponseBodyDataDataSources[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dataSources: 'DataSources',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataSources: { 'type': 'array', 'itemType': ExportConnectionsResponseBodyDataDataSources },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportDISyncTasksResponseBodyData extends $tea.Model {
-  realTimeSolution?: string;
-  static names(): { [key: string]: string } {
-    return {
-      realTimeSolution: 'realTimeSolution',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      realTimeSolution: 'string',
     };
   }
 
@@ -19873,25 +18824,6 @@ export class GetBusinessResponseBodyData extends $tea.Model {
       owner: 'string',
       projectId: 'string',
       useType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetConnectionMetaResponseBodyData extends $tea.Model {
-  meta?: string;
-  static names(): { [key: string]: string } {
-    return {
-      meta: 'Meta',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      meta: 'string',
     };
   }
 
@@ -21327,6 +20259,7 @@ export class GetDeploymentResponseBodyData extends $tea.Model {
 }
 
 export class GetFileResponseBodyDataFile extends $tea.Model {
+  advancedSettings?: string;
   autoParsing?: boolean;
   bizId?: number;
   businessId?: number;
@@ -21350,6 +20283,7 @@ export class GetFileResponseBodyDataFile extends $tea.Model {
   useType?: string;
   static names(): { [key: string]: string } {
     return {
+      advancedSettings: 'AdvancedSettings',
       autoParsing: 'AutoParsing',
       bizId: 'BizId',
       businessId: 'BusinessId',
@@ -21376,6 +20310,7 @@ export class GetFileResponseBodyDataFile extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      advancedSettings: 'string',
       autoParsing: 'boolean',
       bizId: 'number',
       businessId: 'number',
@@ -21464,6 +20399,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
   resourceGroupId?: number;
   schedulerType?: string;
   startEffectDate?: number;
+  startImmediately?: boolean;
   stop?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -21481,6 +20417,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       schedulerType: 'SchedulerType',
       startEffectDate: 'StartEffectDate',
+      startImmediately: 'StartImmediately',
       stop: 'Stop',
     };
   }
@@ -21501,6 +20438,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       resourceGroupId: 'number',
       schedulerType: 'string',
       startEffectDate: 'number',
+      startImmediately: 'boolean',
       stop: 'boolean',
     };
   }
@@ -24599,47 +23537,6 @@ export class GetTopicInfluenceResponseBodyData extends $tea.Model {
   }
 }
 
-export class ImportConnectionsResponseBodyData extends $tea.Model {
-  message?: string;
-  status?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      status: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ImportDISyncTasksResponseBodyTaskInfo extends $tea.Model {
-  taskId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportDataSourcesResponseBodyData extends $tea.Model {
   message?: string;
   status?: boolean;
@@ -25301,65 +24198,6 @@ export class ListDIProjectConfigResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       config: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDISyncTasksResponseBodyTaskListRealTimeSolutionList extends $tea.Model {
-  createTime?: number;
-  processId?: number;
-  processName?: string;
-  taskStatus?: string;
-  taskType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createTime: 'CreateTime',
-      processId: 'ProcessId',
-      processName: 'ProcessName',
-      taskStatus: 'TaskStatus',
-      taskType: 'TaskType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTime: 'number',
-      processId: 'number',
-      processName: 'string',
-      taskStatus: 'string',
-      taskType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListDISyncTasksResponseBodyTaskList extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  realTimeSolutionList?: ListDISyncTasksResponseBodyTaskListRealTimeSolutionList[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      realTimeSolutionList: 'RealTimeSolutionList',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      realTimeSolutionList: { 'type': 'array', 'itemType': ListDISyncTasksResponseBodyTaskListRealTimeSolutionList },
-      totalCount: 'number',
     };
   }
 
@@ -29299,25 +28137,6 @@ export class SearchMetaTablesResponseBodyData extends $tea.Model {
   }
 }
 
-export class SetConnectionShareResponseBodyData extends $tea.Model {
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SetDataSourceShareResponseBodyData extends $tea.Model {
   message?: string;
   status?: string;
@@ -29778,8 +28597,21 @@ export default class Client extends OpenApi {
 
   async abolishDataServiceApiWithOptions(request: AbolishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<AbolishDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "AbolishDataServiceApi",
@@ -29803,13 +28635,24 @@ export default class Client extends OpenApi {
   async addProjectMemberToRoleWithOptions(request: AddProjectMemberToRoleRequest, runtime: $Util.RuntimeOptions): Promise<AddProjectMemberToRoleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["RoleCode"] = request.roleCode;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCode)) {
+      query["RoleCode"] = request.roleCode;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddProjectMemberToRole",
@@ -29819,7 +28662,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddProjectMemberToRoleResponse>(await this.callApi(params, req, runtime), new AddProjectMemberToRoleResponse({}));
@@ -29833,11 +28676,16 @@ export default class Client extends OpenApi {
   async addToMetaCategoryWithOptions(request: AddToMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<AddToMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CategoryId"] = request.categoryId;
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "AddToMetaCategory",
@@ -29847,7 +28695,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<AddToMetaCategoryResponse>(await this.callApi(params, req, runtime), new AddToMetaCategoryResponse({}));
@@ -29861,12 +28709,20 @@ export default class Client extends OpenApi {
   async approvePermissionApplyOrderWithOptions(request: ApprovePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<ApprovePermissionApplyOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApproveAction"] = request.approveAction;
-    query["ApproveComment"] = request.approveComment;
-    query["FlowId"] = request.flowId;
+    if (!Util.isUnset(request.approveAction)) {
+      query["ApproveAction"] = request.approveAction;
+    }
+
+    if (!Util.isUnset(request.approveComment)) {
+      query["ApproveComment"] = request.approveComment;
+    }
+
+    if (!Util.isUnset(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ApprovePermissionApplyOrder",
@@ -29876,7 +28732,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ApprovePermissionApplyOrderResponse>(await this.callApi(params, req, runtime), new ApprovePermissionApplyOrderResponse({}));
@@ -29887,67 +28743,23 @@ export default class Client extends OpenApi {
     return await this.approvePermissionApplyOrderWithOptions(request, runtime);
   }
 
-  async checkEngineMetaPartitionWithOptions(request: CheckEngineMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckEngineMetaPartitionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DataSourceType"] = request.dataSourceType;
-    query["Partition"] = request.partition;
-    query["TableGuid"] = request.tableGuid;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "CheckEngineMetaPartition",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CheckEngineMetaPartitionResponse>(await this.callApi(params, req, runtime), new CheckEngineMetaPartitionResponse({}));
-  }
-
-  async checkEngineMetaPartition(request: CheckEngineMetaPartitionRequest): Promise<CheckEngineMetaPartitionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkEngineMetaPartitionWithOptions(request, runtime);
-  }
-
-  async checkEngineMetaTableWithOptions(request: CheckEngineMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckEngineMetaTableResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DataSourceType"] = request.dataSourceType;
-    query["TableGuid"] = request.tableGuid;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "CheckEngineMetaTable",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CheckEngineMetaTableResponse>(await this.callApi(params, req, runtime), new CheckEngineMetaTableResponse({}));
-  }
-
-  async checkEngineMetaTable(request: CheckEngineMetaTableRequest): Promise<CheckEngineMetaTableResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkEngineMetaTableWithOptions(request, runtime);
-  }
-
   async checkFileDeploymentWithOptions(request: CheckFileDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CheckFileDeploymentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkDetailUrl)) {
+      body["CheckDetailUrl"] = request.checkDetailUrl;
+    }
+
+    if (!Util.isUnset(request.checkerInstanceId)) {
+      body["CheckerInstanceId"] = request.checkerInstanceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CheckFileDeployment",
@@ -29971,15 +28783,32 @@ export default class Client extends OpenApi {
   async checkMetaPartitionWithOptions(request: CheckMetaPartitionRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaPartitionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["Partition"] = request.partition;
-    query["TableGuid"] = request.tableGuid;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.partition)) {
+      query["Partition"] = request.partition;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CheckMetaPartition",
@@ -29989,7 +28818,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CheckMetaPartitionResponse>(await this.callApi(params, req, runtime), new CheckMetaPartitionResponse({}));
@@ -30003,14 +28832,28 @@ export default class Client extends OpenApi {
   async checkMetaTableWithOptions(request: CheckMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<CheckMetaTableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["TableGuid"] = request.tableGuid;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CheckMetaTable",
@@ -30020,7 +28863,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CheckMetaTableResponse>(await this.callApi(params, req, runtime), new CheckMetaTableResponse({}));
@@ -30031,31 +28874,35 @@ export default class Client extends OpenApi {
     return await this.checkMetaTableWithOptions(request, runtime);
   }
 
-  async checkMetaTableTaskWithOptions(runtime: $Util.RuntimeOptions): Promise<CheckMetaTableTaskResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "CheckMetaTableTask",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CheckMetaTableTaskResponse>(await this.callApi(params, req, runtime), new CheckMetaTableTaskResponse({}));
-  }
-
-  async checkMetaTableTask(): Promise<CheckMetaTableTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkMetaTableTaskWithOptions(runtime);
-  }
-
   async createBusinessWithOptions(request: CreateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<CreateBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessName)) {
+      body["BusinessName"] = request.businessName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.useType)) {
+      body["UseType"] = request.useType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateBusiness",
@@ -30079,16 +28926,36 @@ export default class Client extends OpenApi {
   async createConnectionWithOptions(request: CreateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionType"] = request.connectionType;
-    query["Content"] = request.content;
-    query["Description"] = request.description;
-    query["EnvType"] = request.envType;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["SubType"] = request.subType;
+    if (!Util.isUnset(request.connectionType)) {
+      query["ConnectionType"] = request.connectionType;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.subType)) {
+      query["SubType"] = request.subType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateConnection",
@@ -30098,7 +28965,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateConnectionResponse>(await this.callApi(params, req, runtime), new CreateConnectionResponse({}));
@@ -30112,15 +28979,32 @@ export default class Client extends OpenApi {
   async createDISyncTaskWithOptions(request: CreateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["TaskContent"] = request.taskContent;
-    query["TaskName"] = request.taskName;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskContent)) {
+      query["TaskContent"] = request.taskContent;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!Util.isUnset(request.taskParam)) {
+      query["TaskParam"] = request.taskParam;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDISyncTask",
@@ -30130,7 +29014,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDISyncTaskResponse>(await this.callApi(params, req, runtime), new CreateDISyncTaskResponse({}));
@@ -30143,8 +29027,53 @@ export default class Client extends OpenApi {
 
   async createDagComplementWithOptions(request: CreateDagComplementRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagComplementResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizBeginTime)) {
+      body["BizBeginTime"] = request.bizBeginTime;
+    }
+
+    if (!Util.isUnset(request.bizEndTime)) {
+      body["BizEndTime"] = request.bizEndTime;
+    }
+
+    if (!Util.isUnset(request.endBizDate)) {
+      body["EndBizDate"] = request.endBizDate;
+    }
+
+    if (!Util.isUnset(request.excludeNodeIds)) {
+      body["ExcludeNodeIds"] = request.excludeNodeIds;
+    }
+
+    if (!Util.isUnset(request.includeNodeIds)) {
+      body["IncludeNodeIds"] = request.includeNodeIds;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nodeParams)) {
+      body["NodeParams"] = request.nodeParams;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      body["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.rootNodeId)) {
+      body["RootNodeId"] = request.rootNodeId;
+    }
+
+    if (!Util.isUnset(request.startBizDate)) {
+      body["StartBizDate"] = request.startBizDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDagComplement",
@@ -30167,8 +29096,29 @@ export default class Client extends OpenApi {
 
   async createDagTestWithOptions(request: CreateDagTestRequest, runtime: $Util.RuntimeOptions): Promise<CreateDagTestResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.nodeParams)) {
+      body["NodeParams"] = request.nodeParams;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDagTest",
@@ -30191,8 +29141,73 @@ export default class Client extends OpenApi {
 
   async createDataServiceApiWithOptions(request: CreateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiDescription)) {
+      body["ApiDescription"] = request.apiDescription;
+    }
+
+    if (!Util.isUnset(request.apiMode)) {
+      body["ApiMode"] = request.apiMode;
+    }
+
+    if (!Util.isUnset(request.apiName)) {
+      body["ApiName"] = request.apiName;
+    }
+
+    if (!Util.isUnset(request.apiPath)) {
+      body["ApiPath"] = request.apiPath;
+    }
+
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.protocols)) {
+      body["Protocols"] = request.protocols;
+    }
+
+    if (!Util.isUnset(request.registrationDetails)) {
+      body["RegistrationDetails"] = request.registrationDetails;
+    }
+
+    if (!Util.isUnset(request.requestMethod)) {
+      body["RequestMethod"] = request.requestMethod;
+    }
+
+    if (!Util.isUnset(request.responseContentType)) {
+      body["ResponseContentType"] = request.responseContentType;
+    }
+
+    if (!Util.isUnset(request.scriptDetails)) {
+      body["ScriptDetails"] = request.scriptDetails;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.visibleRange)) {
+      body["VisibleRange"] = request.visibleRange;
+    }
+
+    if (!Util.isUnset(request.wizardDetails)) {
+      body["WizardDetails"] = request.wizardDetails;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataServiceApi",
@@ -30215,8 +29230,29 @@ export default class Client extends OpenApi {
 
   async createDataServiceApiAuthorityWithOptions(request: CreateDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.authorizedProjectId)) {
+      body["AuthorizedProjectId"] = request.authorizedProjectId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataServiceApiAuthority",
@@ -30239,8 +29275,29 @@ export default class Client extends OpenApi {
 
   async createDataServiceFolderWithOptions(request: CreateDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderName)) {
+      body["FolderName"] = request.folderName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      body["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataServiceFolder",
@@ -30263,8 +29320,29 @@ export default class Client extends OpenApi {
 
   async createDataServiceGroupWithOptions(request: CreateDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataServiceGroupResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiGatewayGroupId)) {
+      body["ApiGatewayGroupId"] = request.apiGatewayGroupId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      body["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataServiceGroup",
@@ -30288,16 +29366,36 @@ export default class Client extends OpenApi {
   async createDataSourceWithOptions(request: CreateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Content"] = request.content;
-    query["DataSourceType"] = request.dataSourceType;
-    query["Description"] = request.description;
-    query["EnvType"] = request.envType;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["SubType"] = request.subType;
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.subType)) {
+      query["SubType"] = request.subType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataSource",
@@ -30307,7 +29405,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateDataSourceResponse>(await this.callApi(params, req, runtime), new CreateDataSourceResponse({}));
@@ -30320,8 +29418,33 @@ export default class Client extends OpenApi {
 
   async createExportMigrationWithOptions(request: CreateExportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateExportMigrationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.exportMode)) {
+      body["ExportMode"] = request.exportMode;
+    }
+
+    if (!Util.isUnset(request.exportObjectStatus)) {
+      body["ExportObjectStatus"] = request.exportObjectStatus;
+    }
+
+    if (!Util.isUnset(request.incrementalSince)) {
+      body["IncrementalSince"] = request.incrementalSince;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateExportMigration",
@@ -30344,8 +29467,117 @@ export default class Client extends OpenApi {
 
   async createFileWithOptions(request: CreateFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.advancedSettings)) {
+      body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!Util.isUnset(request.autoParsing)) {
+      body["AutoParsing"] = request.autoParsing;
+    }
+
+    if (!Util.isUnset(request.autoRerunIntervalMillis)) {
+      body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis;
+    }
+
+    if (!Util.isUnset(request.autoRerunTimes)) {
+      body["AutoRerunTimes"] = request.autoRerunTimes;
+    }
+
+    if (!Util.isUnset(request.connectionName)) {
+      body["ConnectionName"] = request.connectionName;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.cronExpress)) {
+      body["CronExpress"] = request.cronExpress;
+    }
+
+    if (!Util.isUnset(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!Util.isUnset(request.dependentNodeIdList)) {
+      body["DependentNodeIdList"] = request.dependentNodeIdList;
+    }
+
+    if (!Util.isUnset(request.dependentType)) {
+      body["DependentType"] = request.dependentType;
+    }
+
+    if (!Util.isUnset(request.endEffectDate)) {
+      body["EndEffectDate"] = request.endEffectDate;
+    }
+
+    if (!Util.isUnset(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    if (!Util.isUnset(request.inputList)) {
+      body["InputList"] = request.inputList;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.paraValue)) {
+      body["ParaValue"] = request.paraValue;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.rerunMode)) {
+      body["RerunMode"] = request.rerunMode;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!Util.isUnset(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
+    if (!Util.isUnset(request.startEffectDate)) {
+      body["StartEffectDate"] = request.startEffectDate;
+    }
+
+    if (!Util.isUnset(request.startImmediately)) {
+      body["StartImmediately"] = request.startImmediately;
+    }
+
+    if (!Util.isUnset(request.stop)) {
+      body["Stop"] = request.stop;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateFile",
@@ -30368,8 +29600,21 @@ export default class Client extends OpenApi {
 
   async createFolderWithOptions(request: CreateFolderRequest, runtime: $Util.RuntimeOptions): Promise<CreateFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderPath)) {
+      body["FolderPath"] = request.folderPath;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateFolder",
@@ -30392,8 +29637,45 @@ export default class Client extends OpenApi {
 
   async createImportMigrationWithOptions(request: CreateImportMigrationRequest, runtime: $Util.RuntimeOptions): Promise<CreateImportMigrationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.calculateEngineMap)) {
+      body["CalculateEngineMap"] = request.calculateEngineMap;
+    }
+
+    if (!Util.isUnset(request.commitRule)) {
+      body["CommitRule"] = request.commitRule;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.packageFile)) {
+      body["PackageFile"] = request.packageFile;
+    }
+
+    if (!Util.isUnset(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupMap)) {
+      body["ResourceGroupMap"] = request.resourceGroupMap;
+    }
+
+    if (!Util.isUnset(request.workspaceMap)) {
+      body["WorkspaceMap"] = request.workspaceMap;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateImportMigration",
@@ -30490,8 +29772,41 @@ export default class Client extends OpenApi {
 
   async createManualDagWithOptions(request: CreateManualDagRequest, runtime: $Util.RuntimeOptions): Promise<CreateManualDagResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!Util.isUnset(request.dagParameters)) {
+      body["DagParameters"] = request.dagParameters;
+    }
+
+    if (!Util.isUnset(request.excludeNodeIds)) {
+      body["ExcludeNodeIds"] = request.excludeNodeIds;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.includeNodeIds)) {
+      body["IncludeNodeIds"] = request.includeNodeIds;
+    }
+
+    if (!Util.isUnset(request.nodeParameters)) {
+      body["NodeParameters"] = request.nodeParameters;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateManualDag",
@@ -30514,8 +29829,21 @@ export default class Client extends OpenApi {
 
   async createMetaCategoryWithOptions(request: CreateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<CreateMetaCategoryResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      body["ParentId"] = request.parentId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateMetaCategory",
@@ -30539,17 +29867,40 @@ export default class Client extends OpenApi {
   async createPermissionApplyOrderWithOptions(request: CreatePermissionApplyOrderRequest, runtime: $Util.RuntimeOptions): Promise<CreatePermissionApplyOrderResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ApplyObject"] = request.applyObject;
-    query["ApplyReason"] = request.applyReason;
-    query["ApplyUserIds"] = request.applyUserIds;
-    query["Deadline"] = request.deadline;
-    query["EngineType"] = request.engineType;
-    query["MaxComputeProjectName"] = request.maxComputeProjectName;
-    query["OrderType"] = request.orderType;
-    query["WorkspaceId"] = request.workspaceId;
+    if (!Util.isUnset(request.applyObject)) {
+      query["ApplyObject"] = request.applyObject;
+    }
+
+    if (!Util.isUnset(request.applyReason)) {
+      query["ApplyReason"] = request.applyReason;
+    }
+
+    if (!Util.isUnset(request.applyUserIds)) {
+      query["ApplyUserIds"] = request.applyUserIds;
+    }
+
+    if (!Util.isUnset(request.deadline)) {
+      query["Deadline"] = request.deadline;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectName)) {
+      query["MaxComputeProjectName"] = request.maxComputeProjectName;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreatePermissionApplyOrder",
@@ -30559,7 +29910,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreatePermissionApplyOrderResponse>(await this.callApi(params, req, runtime), new CreatePermissionApplyOrderResponse({}));
@@ -30573,13 +29924,24 @@ export default class Client extends OpenApi {
   async createProjectMemberWithOptions(request: CreateProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectMemberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["RoleCode"] = request.roleCode;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCode)) {
+      query["RoleCode"] = request.roleCode;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateProjectMember",
@@ -30589,7 +29951,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateProjectMemberResponse>(await this.callApi(params, req, runtime), new CreateProjectMemberResponse({}));
@@ -30602,8 +29964,29 @@ export default class Client extends OpenApi {
 
   async createQualityEntityWithOptions(request: CreateQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityLevel)) {
+      body["EntityLevel"] = request.entityLevel;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.matchExpression)) {
+      body["MatchExpression"] = request.matchExpression;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      body["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateQualityEntity",
@@ -30626,8 +30009,25 @@ export default class Client extends OpenApi {
 
   async createQualityFollowerWithOptions(request: CreateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityFollowerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmMode)) {
+      body["AlarmMode"] = request.alarmMode;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.follower)) {
+      body["Follower"] = request.follower;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateQualityFollower",
@@ -30650,8 +30050,41 @@ export default class Client extends OpenApi {
 
   async createQualityRelativeNodeWithOptions(request: CreateQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRelativeNodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.matchExpression)) {
+      body["MatchExpression"] = request.matchExpression;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      body["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.targetNodeProjectId)) {
+      body["TargetNodeProjectId"] = request.targetNodeProjectId;
+    }
+
+    if (!Util.isUnset(request.targetNodeProjectName)) {
+      body["TargetNodeProjectName"] = request.targetNodeProjectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateQualityRelativeNode",
@@ -30674,8 +30107,81 @@ export default class Client extends OpenApi {
 
   async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.blockType)) {
+      body["BlockType"] = request.blockType;
+    }
+
+    if (!Util.isUnset(request.checker)) {
+      body["Checker"] = request.checker;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.criticalThreshold)) {
+      body["CriticalThreshold"] = request.criticalThreshold;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.expectValue)) {
+      body["ExpectValue"] = request.expectValue;
+    }
+
+    if (!Util.isUnset(request.methodName)) {
+      body["MethodName"] = request.methodName;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      body["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.predictType)) {
+      body["PredictType"] = request.predictType;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.property)) {
+      body["Property"] = request.property;
+    }
+
+    if (!Util.isUnset(request.propertyType)) {
+      body["PropertyType"] = request.propertyType;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      body["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      body["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.trend)) {
+      body["Trend"] = request.trend;
+    }
+
+    if (!Util.isUnset(request.warningThreshold)) {
+      body["WarningThreshold"] = request.warningThreshold;
+    }
+
+    if (!Util.isUnset(request.whereCondition)) {
+      body["WhereCondition"] = request.whereCondition;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateQualityRule",
@@ -30698,8 +30204,69 @@ export default class Client extends OpenApi {
 
   async createRemindWithOptions(request: CreateRemindRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemindResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertInterval)) {
+      body["AlertInterval"] = request.alertInterval;
+    }
+
+    if (!Util.isUnset(request.alertMethods)) {
+      body["AlertMethods"] = request.alertMethods;
+    }
+
+    if (!Util.isUnset(request.alertTargets)) {
+      body["AlertTargets"] = request.alertTargets;
+    }
+
+    if (!Util.isUnset(request.alertUnit)) {
+      body["AlertUnit"] = request.alertUnit;
+    }
+
+    if (!Util.isUnset(request.baselineIds)) {
+      body["BaselineIds"] = request.baselineIds;
+    }
+
+    if (!Util.isUnset(request.bizProcessIds)) {
+      body["BizProcessIds"] = request.bizProcessIds;
+    }
+
+    if (!Util.isUnset(request.detail)) {
+      body["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.dndEnd)) {
+      body["DndEnd"] = request.dndEnd;
+    }
+
+    if (!Util.isUnset(request.maxAlertTimes)) {
+      body["MaxAlertTimes"] = request.maxAlertTimes;
+    }
+
+    if (!Util.isUnset(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.remindName)) {
+      body["RemindName"] = request.remindName;
+    }
+
+    if (!Util.isUnset(request.remindType)) {
+      body["RemindType"] = request.remindType;
+    }
+
+    if (!Util.isUnset(request.remindUnit)) {
+      body["RemindUnit"] = request.remindUnit;
+    }
+
+    if (!Util.isUnset(request.robotUrls)) {
+      body["RobotUrls"] = request.robotUrls;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateRemind",
@@ -30723,24 +30290,86 @@ export default class Client extends OpenApi {
   async createTableWithOptions(request: CreateTableRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["CategoryId"] = request.categoryId;
-    query["ClientToken"] = request.clientToken;
-    query["Comment"] = request.comment;
-    query["ExternalTableType"] = request.externalTableType;
-    query["HasPart"] = request.hasPart;
-    query["IsView"] = request.isView;
-    query["LifeCycle"] = request.lifeCycle;
-    query["Location"] = request.location;
-    query["LogicalLevelId"] = request.logicalLevelId;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicsLevelId"] = request.physicsLevelId;
-    query["ProjectId"] = request.projectId;
-    query["TableName"] = request.tableName;
-    query["Visibility"] = request.visibility;
+    if (!Util.isUnset(request.appGuid)) {
+      query["AppGuid"] = request.appGuid;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.externalTableType)) {
+      query["ExternalTableType"] = request.externalTableType;
+    }
+
+    if (!Util.isUnset(request.hasPart)) {
+      query["HasPart"] = request.hasPart;
+    }
+
+    if (!Util.isUnset(request.isView)) {
+      query["IsView"] = request.isView;
+    }
+
+    if (!Util.isUnset(request.lifeCycle)) {
+      query["LifeCycle"] = request.lifeCycle;
+    }
+
+    if (!Util.isUnset(request.location)) {
+      query["Location"] = request.location;
+    }
+
+    if (!Util.isUnset(request.logicalLevelId)) {
+      query["LogicalLevelId"] = request.logicalLevelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.physicsLevelId)) {
+      query["PhysicsLevelId"] = request.physicsLevelId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.columns)) {
+      body["Columns"] = request.columns;
+    }
+
+    if (!Util.isUnset(request.endpoint)) {
+      body["Endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.themes)) {
+      body["Themes"] = request.themes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateTable",
@@ -30764,13 +30393,24 @@ export default class Client extends OpenApi {
   async createTableLevelWithOptions(request: CreateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["LevelType"] = request.levelType;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.levelType)) {
+      query["LevelType"] = request.levelType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateTableLevel",
@@ -30780,7 +30420,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateTableLevelResponse>(await this.callApi(params, req, runtime), new CreateTableLevelResponse({}));
@@ -30794,13 +30434,24 @@ export default class Client extends OpenApi {
   async createTableThemeWithOptions(request: CreateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<CreateTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Level"] = request.level;
-    query["Name"] = request.name;
-    query["ParentId"] = request.parentId;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.parentId)) {
+      query["ParentId"] = request.parentId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "CreateTableTheme",
@@ -30810,7 +30461,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<CreateTableThemeResponse>(await this.callApi(params, req, runtime), new CreateTableThemeResponse({}));
@@ -30823,8 +30474,57 @@ export default class Client extends OpenApi {
 
   async createUdfFileWithOptions(request: CreateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<CreateUdfFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.className)) {
+      body["ClassName"] = request.className;
+    }
+
+    if (!Util.isUnset(request.cmdDescription)) {
+      body["CmdDescription"] = request.cmdDescription;
+    }
+
+    if (!Util.isUnset(request.example)) {
+      body["Example"] = request.example;
+    }
+
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.functionType)) {
+      body["FunctionType"] = request.functionType;
+    }
+
+    if (!Util.isUnset(request.parameterDescription)) {
+      body["ParameterDescription"] = request.parameterDescription;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.returnValue)) {
+      body["ReturnValue"] = request.returnValue;
+    }
+
+    if (!Util.isUnset(request.udfDescription)) {
+      body["UdfDescription"] = request.udfDescription;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateUdfFile",
@@ -30845,34 +30545,23 @@ export default class Client extends OpenApi {
     return await this.createUdfFileWithOptions(request, runtime);
   }
 
-  async createViewWithOptions(request: CreateViewRequest, runtime: $Util.RuntimeOptions): Promise<CreateViewResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateView",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateViewResponse>(await this.callApi(params, req, runtime), new CreateViewResponse({}));
-  }
-
-  async createView(request: CreateViewRequest): Promise<CreateViewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createViewWithOptions(request, runtime);
-  }
-
   async deleteBusinessWithOptions(request: DeleteBusinessRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteBusiness",
@@ -30896,10 +30585,12 @@ export default class Client extends OpenApi {
   async deleteConnectionWithOptions(request: DeleteConnectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionId"] = request.connectionId;
+    if (!Util.isUnset(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteConnection",
@@ -30909,7 +30600,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteConnectionResponse>(await this.callApi(params, req, runtime), new DeleteConnectionResponse({}));
@@ -30923,12 +30614,20 @@ export default class Client extends OpenApi {
   async deleteDISyncTaskWithOptions(request: DeleteDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDISyncTask",
@@ -30938,7 +30637,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDISyncTaskResponse>(await this.callApi(params, req, runtime), new DeleteDISyncTaskResponse({}));
@@ -30951,8 +30650,21 @@ export default class Client extends OpenApi {
 
   async deleteDataServiceApiWithOptions(request: DeleteDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataServiceApi",
@@ -30975,8 +30687,25 @@ export default class Client extends OpenApi {
 
   async deleteDataServiceApiAuthorityWithOptions(request: DeleteDataServiceApiAuthorityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataServiceApiAuthorityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.authorizedProjectId)) {
+      body["AuthorizedProjectId"] = request.authorizedProjectId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataServiceApiAuthority",
@@ -31000,10 +30729,12 @@ export default class Client extends OpenApi {
   async deleteDataSourceWithOptions(request: DeleteDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DataSourceId"] = request.dataSourceId;
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteDataSource",
@@ -31013,7 +30744,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteDataSourceResponse({}));
@@ -31026,8 +30757,21 @@ export default class Client extends OpenApi {
 
   async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFile",
@@ -31050,8 +30794,21 @@ export default class Client extends OpenApi {
 
   async deleteFolderWithOptions(request: DeleteFolderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFolder",
@@ -31075,11 +30832,16 @@ export default class Client extends OpenApi {
   async deleteFromMetaCategoryWithOptions(request: DeleteFromMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFromMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CategoryId"] = request.categoryId;
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteFromMetaCategory",
@@ -31089,7 +30851,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteFromMetaCategoryResponse>(await this.callApi(params, req, runtime), new DeleteFromMetaCategoryResponse({}));
@@ -31114,7 +30876,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteMetaCategoryResponse>(await this.callApi(params, req, runtime), new DeleteMetaCategoryResponse({}));
@@ -31128,11 +30890,16 @@ export default class Client extends OpenApi {
   async deleteProjectMemberWithOptions(request: DeleteProjectMemberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectMemberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteProjectMember",
@@ -31142,7 +30909,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteProjectMemberResponse>(await this.callApi(params, req, runtime), new DeleteProjectMemberResponse({}));
@@ -31155,8 +30922,21 @@ export default class Client extends OpenApi {
 
   async deleteQualityEntityWithOptions(request: DeleteQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteQualityEntity",
@@ -31179,8 +30959,17 @@ export default class Client extends OpenApi {
 
   async deleteQualityFollowerWithOptions(request: DeleteQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityFollowerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.followerId)) {
+      body["FollowerId"] = request.followerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteQualityFollower",
@@ -31203,8 +30992,41 @@ export default class Client extends OpenApi {
 
   async deleteQualityRelativeNodeWithOptions(request: DeleteQualityRelativeNodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRelativeNodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.matchExpression)) {
+      body["MatchExpression"] = request.matchExpression;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      body["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.targetNodeProjectId)) {
+      body["TargetNodeProjectId"] = request.targetNodeProjectId;
+    }
+
+    if (!Util.isUnset(request.targetNodeProjectName)) {
+      body["TargetNodeProjectName"] = request.targetNodeProjectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteQualityRelativeNode",
@@ -31227,8 +31049,17 @@ export default class Client extends OpenApi {
 
   async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteQualityRule",
@@ -31251,8 +31082,13 @@ export default class Client extends OpenApi {
 
   async deleteRemindWithOptions(request: DeleteRemindRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemindResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.remindId)) {
+      body["RemindId"] = request.remindId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteRemind",
@@ -31276,13 +31112,24 @@ export default class Client extends OpenApi {
   async deleteTableWithOptions(request: DeleteTableRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["EnvType"] = request.envType;
-    query["ProjectId"] = request.projectId;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.appGuid)) {
+      query["AppGuid"] = request.appGuid;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTable",
@@ -31292,7 +31139,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTableResponse>(await this.callApi(params, req, runtime), new DeleteTableResponse({}));
@@ -31306,11 +31153,16 @@ export default class Client extends OpenApi {
   async deleteTableLevelWithOptions(request: DeleteTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["LevelId"] = request.levelId;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.levelId)) {
+      query["LevelId"] = request.levelId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTableLevel",
@@ -31320,7 +31172,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTableLevelResponse>(await this.callApi(params, req, runtime), new DeleteTableLevelResponse({}));
@@ -31334,11 +31186,16 @@ export default class Client extends OpenApi {
   async deleteTableThemeWithOptions(request: DeleteTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["ThemeId"] = request.themeId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeleteTableTheme",
@@ -31348,7 +31205,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeleteTableThemeResponse>(await this.callApi(params, req, runtime), new DeleteTableThemeResponse({}));
@@ -31359,43 +31216,23 @@ export default class Client extends OpenApi {
     return await this.deleteTableThemeWithOptions(request, runtime);
   }
 
-  async deleteViewWithOptions(request: DeleteViewRequest, runtime: $Util.RuntimeOptions): Promise<DeleteViewResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["ViewName"] = request.viewName;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteView",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteViewResponse>(await this.callApi(params, req, runtime), new DeleteViewResponse({}));
-  }
-
-  async deleteView(request: DeleteViewRequest): Promise<DeleteViewResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteViewWithOptions(request, runtime);
-  }
-
   async deployDISyncTaskWithOptions(request: DeployDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeployDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "DeployDISyncTask",
@@ -31405,7 +31242,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<DeployDISyncTaskResponse>(await this.callApi(params, req, runtime), new DeployDISyncTaskResponse({}));
@@ -31418,8 +31255,29 @@ export default class Client extends OpenApi {
 
   async deployFileWithOptions(request: DeployFileRequest, runtime: $Util.RuntimeOptions): Promise<DeployFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeployFile",
@@ -31467,8 +31325,29 @@ export default class Client extends OpenApi {
 
   async establishRelationTableToBusinessWithOptions(request: EstablishRelationTableToBusinessRequest, runtime: $Util.RuntimeOptions): Promise<EstablishRelationTableToBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      body["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "EstablishRelationTableToBusiness",
@@ -31489,60 +31368,6 @@ export default class Client extends OpenApi {
     return await this.establishRelationTableToBusinessWithOptions(request, runtime);
   }
 
-  async exportConnectionsWithOptions(request: ExportConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ExportConnectionsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExportConnections",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ExportConnectionsResponse>(await this.callApi(params, req, runtime), new ExportConnectionsResponse({}));
-  }
-
-  async exportConnections(request: ExportConnectionsRequest): Promise<ExportConnectionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.exportConnectionsWithOptions(request, runtime);
-  }
-
-  async exportDISyncTasksWithOptions(request: ExportDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ExportDISyncTasksResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["ProjectId"] = request.projectId;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExportDISyncTasks",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ExportDISyncTasksResponse>(await this.callApi(params, req, runtime), new ExportDISyncTasksResponse({}));
-  }
-
-  async exportDISyncTasks(request: ExportDISyncTasksRequest): Promise<ExportDISyncTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.exportDISyncTasksWithOptions(request, runtime);
-  }
-
   async exportDataSourcesWithOptions(request: ExportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ExportDataSourcesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31557,7 +31382,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ExportDataSourcesResponse>(await this.callApi(params, req, runtime), new ExportDataSourcesResponse({}));
@@ -31571,13 +31396,24 @@ export default class Client extends OpenApi {
   async generateDISyncTaskConfigForCreatingWithOptions(request: GenerateDISyncTaskConfigForCreatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForCreatingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskParam)) {
+      query["TaskParam"] = request.taskParam;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GenerateDISyncTaskConfigForCreating",
@@ -31587,7 +31423,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GenerateDISyncTaskConfigForCreatingResponse>(await this.callApi(params, req, runtime), new GenerateDISyncTaskConfigForCreatingResponse({}));
@@ -31601,14 +31437,28 @@ export default class Client extends OpenApi {
   async generateDISyncTaskConfigForUpdatingWithOptions(request: GenerateDISyncTaskConfigForUpdatingRequest, runtime: $Util.RuntimeOptions): Promise<GenerateDISyncTaskConfigForUpdatingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClientToken"] = request.clientToken;
-    query["ProjectId"] = request.projectId;
-    query["TaskId"] = request.taskId;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskParam)) {
+      query["TaskParam"] = request.taskParam;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GenerateDISyncTaskConfigForUpdating",
@@ -31618,7 +31468,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GenerateDISyncTaskConfigForUpdatingResponse>(await this.callApi(params, req, runtime), new GenerateDISyncTaskConfigForUpdatingResponse({}));
@@ -31631,8 +31481,13 @@ export default class Client extends OpenApi {
 
   async getBaselineConfigWithOptions(request: GetBaselineConfigRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetBaselineConfig",
@@ -31655,8 +31510,21 @@ export default class Client extends OpenApi {
 
   async getBaselineKeyPathWithOptions(request: GetBaselineKeyPathRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineKeyPathResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.inGroupId)) {
+      body["InGroupId"] = request.inGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetBaselineKeyPath",
@@ -31679,8 +31547,21 @@ export default class Client extends OpenApi {
 
   async getBaselineStatusWithOptions(request: GetBaselineStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetBaselineStatusResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.inGroupId)) {
+      body["InGroupId"] = request.inGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetBaselineStatus",
@@ -31703,8 +31584,21 @@ export default class Client extends OpenApi {
 
   async getBusinessWithOptions(request: GetBusinessRequest, runtime: $Util.RuntimeOptions): Promise<GetBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetBusiness",
@@ -31725,37 +31619,6 @@ export default class Client extends OpenApi {
     return await this.getBusinessWithOptions(request, runtime);
   }
 
-  async getConnectionMetaWithOptions(request: GetConnectionMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetConnectionMetaResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["EnvType"] = request.envType;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetConnectionMeta",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetConnectionMetaResponse>(await this.callApi(params, req, runtime), new GetConnectionMetaResponse({}));
-  }
-
-  async getConnectionMeta(request: GetConnectionMetaRequest): Promise<GetConnectionMetaResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getConnectionMetaWithOptions(request, runtime);
-  }
-
   async getDDLJobStatusWithOptions(request: GetDDLJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDDLJobStatusResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -31770,7 +31633,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDDLJobStatusResponse>(await this.callApi(params, req, runtime), new GetDDLJobStatusResponse({}));
@@ -31784,12 +31647,20 @@ export default class Client extends OpenApi {
   async getDISyncInstanceInfoWithOptions(request: GetDISyncInstanceInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncInstanceInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDISyncInstanceInfo",
@@ -31799,7 +31670,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDISyncInstanceInfoResponse>(await this.callApi(params, req, runtime), new GetDISyncInstanceInfoResponse({}));
@@ -31813,12 +31684,20 @@ export default class Client extends OpenApi {
   async getDISyncTaskWithOptions(request: GetDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDISyncTask",
@@ -31828,7 +31707,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDISyncTaskResponse>(await this.callApi(params, req, runtime), new GetDISyncTaskResponse({}));
@@ -31853,7 +31732,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDISyncTaskMetricInfoResponse>(await this.callApi(params, req, runtime), new GetDISyncTaskMetricInfoResponse({}));
@@ -31866,8 +31745,17 @@ export default class Client extends OpenApi {
 
   async getDagWithOptions(request: GetDagRequest, runtime: $Util.RuntimeOptions): Promise<GetDagResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dagId)) {
+      body["DagId"] = request.dagId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDag",
@@ -31890,8 +31778,21 @@ export default class Client extends OpenApi {
 
   async getDataServiceApiWithOptions(request: GetDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataServiceApi",
@@ -31914,8 +31815,21 @@ export default class Client extends OpenApi {
 
   async getDataServiceApplicationWithOptions(request: GetDataServiceApplicationRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceApplicationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationId)) {
+      body["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataServiceApplication",
@@ -31938,8 +31852,21 @@ export default class Client extends OpenApi {
 
   async getDataServiceFolderWithOptions(request: GetDataServiceFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataServiceFolder",
@@ -31962,8 +31889,21 @@ export default class Client extends OpenApi {
 
   async getDataServiceGroupWithOptions(request: GetDataServiceGroupRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServiceGroupResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataServiceGroup",
@@ -31986,8 +31926,21 @@ export default class Client extends OpenApi {
 
   async getDataServicePublishedApiWithOptions(request: GetDataServicePublishedApiRequest, runtime: $Util.RuntimeOptions): Promise<GetDataServicePublishedApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataServicePublishedApi",
@@ -32011,14 +31964,28 @@ export default class Client extends OpenApi {
   async getDataSourceMetaWithOptions(request: GetDataSourceMetaRequest, runtime: $Util.RuntimeOptions): Promise<GetDataSourceMetaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["EnvType"] = request.envType;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.datasourceName)) {
+      query["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetDataSourceMeta",
@@ -32028,7 +31995,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetDataSourceMetaResponse>(await this.callApi(params, req, runtime), new GetDataSourceMetaResponse({}));
@@ -32041,8 +32008,21 @@ export default class Client extends OpenApi {
 
   async getDeploymentWithOptions(request: GetDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<GetDeploymentResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deploymentId)) {
+      body["DeploymentId"] = request.deploymentId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDeployment",
@@ -32065,8 +32045,25 @@ export default class Client extends OpenApi {
 
   async getFileWithOptions(request: GetFileRequest, runtime: $Util.RuntimeOptions): Promise<GetFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetFile",
@@ -32089,8 +32086,17 @@ export default class Client extends OpenApi {
 
   async getFileTypeStatisticWithOptions(request: GetFileTypeStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetFileTypeStatisticResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetFileTypeStatistic",
@@ -32113,8 +32119,25 @@ export default class Client extends OpenApi {
 
   async getFileVersionWithOptions(request: GetFileVersionRequest, runtime: $Util.RuntimeOptions): Promise<GetFileVersionResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.fileVersion)) {
+      body["FileVersion"] = request.fileVersion;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetFileVersion",
@@ -32137,8 +32160,25 @@ export default class Client extends OpenApi {
 
   async getFolderWithOptions(request: GetFolderRequest, runtime: $Util.RuntimeOptions): Promise<GetFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.folderPath)) {
+      body["FolderPath"] = request.folderPath;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetFolder",
@@ -32161,8 +32201,17 @@ export default class Client extends OpenApi {
 
   async getIDEEventDetailWithOptions(request: GetIDEEventDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetIDEEventDetailResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetIDEEventDetail",
@@ -32185,8 +32234,17 @@ export default class Client extends OpenApi {
 
   async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstance",
@@ -32209,8 +32267,17 @@ export default class Client extends OpenApi {
 
   async getInstanceConsumeTimeRankWithOptions(request: GetInstanceConsumeTimeRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceConsumeTimeRankResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceConsumeTimeRank",
@@ -32233,8 +32300,21 @@ export default class Client extends OpenApi {
 
   async getInstanceCountTrendWithOptions(request: GetInstanceCountTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceCountTrendResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceCountTrend",
@@ -32257,8 +32337,13 @@ export default class Client extends OpenApi {
 
   async getInstanceErrorRankWithOptions(request: GetInstanceErrorRankRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceErrorRankResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceErrorRank",
@@ -32281,8 +32366,17 @@ export default class Client extends OpenApi {
 
   async getInstanceLogWithOptions(request: GetInstanceLogRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceLogResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceLog",
@@ -32305,8 +32399,21 @@ export default class Client extends OpenApi {
 
   async getInstanceStatusCountWithOptions(request: GetInstanceStatusCountRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusCountResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceStatusCount",
@@ -32329,8 +32436,29 @@ export default class Client extends OpenApi {
 
   async getInstanceStatusStatisticWithOptions(request: GetInstanceStatusStatisticRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceStatusStatisticResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!Util.isUnset(request.dagType)) {
+      body["DagType"] = request.dagType;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetInstanceStatusStatistic",
@@ -32353,8 +32481,21 @@ export default class Client extends OpenApi {
 
   async getManualDagInstancesWithOptions(request: GetManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<GetManualDagInstancesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dagId)) {
+      body["DagId"] = request.dagId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetManualDagInstances",
@@ -32378,12 +32519,20 @@ export default class Client extends OpenApi {
   async getMetaCategoryWithOptions(request: GetMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaCategoryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["ParentCategoryId"] = request.parentCategoryId;
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentCategoryId)) {
+      query["ParentCategoryId"] = request.parentCategoryId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaCategory",
@@ -32393,7 +32542,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaCategoryResponse>(await this.callApi(params, req, runtime), new GetMetaCategoryResponse({}));
@@ -32407,18 +32556,44 @@ export default class Client extends OpenApi {
   async getMetaColumnLineageWithOptions(request: GetMetaColumnLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaColumnLineageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["ColumnGuid"] = request.columnGuid;
-    query["ColumnName"] = request.columnName;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["Direction"] = request.direction;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.columnGuid)) {
+      query["ColumnGuid"] = request.columnGuid;
+    }
+
+    if (!Util.isUnset(request.columnName)) {
+      query["ColumnName"] = request.columnName;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaColumnLineage",
@@ -32428,7 +32603,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaColumnLineageResponse>(await this.callApi(params, req, runtime), new GetMetaColumnLineageResponse({}));
@@ -32453,7 +32628,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaDBInfoResponse>(await this.callApi(params, req, runtime), new GetMetaDBInfoResponse({}));
@@ -32467,15 +32642,32 @@ export default class Client extends OpenApi {
   async getMetaDBTableListWithOptions(request: GetMetaDBTableListRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaDBTableListResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.appGuid)) {
+      query["AppGuid"] = request.appGuid;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaDBTableList",
@@ -32485,7 +32677,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaDBTableListResponse>(await this.callApi(params, req, runtime), new GetMetaDBTableListResponse({}));
@@ -32510,7 +32702,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableBasicInfoResponse>(await this.callApi(params, req, runtime), new GetMetaTableBasicInfoResponse({}));
@@ -32523,8 +32715,37 @@ export default class Client extends OpenApi {
 
   async getMetaTableChangeLogWithOptions(request: GetMetaTableChangeLogRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableChangeLogResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.changeType)) {
+      body["ChangeType"] = request.changeType;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      body["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaTableChangeLog",
@@ -32559,7 +32780,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableColumnResponse>(await this.callApi(params, req, runtime), new GetMetaTableColumnResponse({}));
@@ -32584,7 +32805,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableFullInfoResponse>(await this.callApi(params, req, runtime), new GetMetaTableFullInfoResponse({}));
@@ -32598,11 +32819,16 @@ export default class Client extends OpenApi {
   async getMetaTableIntroWikiWithOptions(request: GetMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TableGuid"] = request.tableGuid;
-    query["WikiVersion"] = request.wikiVersion;
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.wikiVersion)) {
+      query["WikiVersion"] = request.wikiVersion;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaTableIntroWiki",
@@ -32612,7 +32838,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableIntroWikiResponse>(await this.callApi(params, req, runtime), new GetMetaTableIntroWikiResponse({}));
@@ -32626,17 +32852,40 @@ export default class Client extends OpenApi {
   async getMetaTableLineageWithOptions(request: GetMetaTableLineageRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableLineageResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["Direction"] = request.direction;
-    query["NextPrimaryKey"] = request.nextPrimaryKey;
-    query["PageSize"] = request.pageSize;
-    query["TableGuid"] = request.tableGuid;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!Util.isUnset(request.nextPrimaryKey)) {
+      query["NextPrimaryKey"] = request.nextPrimaryKey;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaTableLineage",
@@ -32646,7 +32895,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableLineageResponse>(await this.callApi(params, req, runtime), new GetMetaTableLineageResponse({}));
@@ -32671,7 +32920,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableListByCategoryResponse>(await this.callApi(params, req, runtime), new GetMetaTableListByCategoryResponse({}));
@@ -32685,14 +32934,28 @@ export default class Client extends OpenApi {
   async getMetaTableOutputWithOptions(request: GetMetaTableOutputRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTableOutputResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndDate"] = request.endDate;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["StartDate"] = request.startDate;
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaTableOutput",
@@ -32702,7 +32965,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableOutputResponse>(await this.callApi(params, req, runtime), new GetMetaTableOutputResponse({}));
@@ -32716,16 +32979,36 @@ export default class Client extends OpenApi {
   async getMetaTablePartitionWithOptions(request: GetMetaTablePartitionRequest, runtime: $Util.RuntimeOptions): Promise<GetMetaTablePartitionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["DatabaseName"] = request.databaseName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["TableGuid"] = request.tableGuid;
-    query["TableName"] = request.tableName;
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetMetaTablePartition",
@@ -32735,7 +33018,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTablePartitionResponse>(await this.callApi(params, req, runtime), new GetMetaTablePartitionResponse({}));
@@ -32760,7 +33043,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetMetaTableThemeLevelResponse>(await this.callApi(params, req, runtime), new GetMetaTableThemeLevelResponse({}));
@@ -32773,8 +33056,17 @@ export default class Client extends OpenApi {
 
   async getMigrationProcessWithOptions(request: GetMigrationProcessRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationProcessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.migrationId)) {
+      body["MigrationId"] = request.migrationId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetMigrationProcess",
@@ -32797,8 +33089,17 @@ export default class Client extends OpenApi {
 
   async getMigrationSummaryWithOptions(request: GetMigrationSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetMigrationSummaryResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.migrationId)) {
+      body["MigrationId"] = request.migrationId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetMigrationSummary",
@@ -32821,8 +33122,17 @@ export default class Client extends OpenApi {
 
   async getNodeWithOptions(request: GetNodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNode",
@@ -32845,8 +33155,17 @@ export default class Client extends OpenApi {
 
   async getNodeChildrenWithOptions(request: GetNodeChildrenRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeChildrenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNodeChildren",
@@ -32869,8 +33188,17 @@ export default class Client extends OpenApi {
 
   async getNodeCodeWithOptions(request: GetNodeCodeRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeCodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNodeCode",
@@ -32893,8 +33221,13 @@ export default class Client extends OpenApi {
 
   async getNodeOnBaselineWithOptions(request: GetNodeOnBaselineRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeOnBaselineResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNodeOnBaseline",
@@ -32917,8 +33250,17 @@ export default class Client extends OpenApi {
 
   async getNodeParentsWithOptions(request: GetNodeParentsRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeParentsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNodeParents",
@@ -32941,8 +33283,33 @@ export default class Client extends OpenApi {
 
   async getNodeTypeListInfoWithOptions(request: GetNodeTypeListInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetNodeTypeListInfoResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      body["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetNodeTypeListInfo",
@@ -32977,7 +33344,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetOpRiskDataResponse>(await this.callApi(params, req, runtime), new GetOpRiskDataResponse({}));
@@ -33002,7 +33369,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetOpSensitiveDataResponse>(await this.callApi(params, req, runtime), new GetOpSensitiveDataResponse({}));
@@ -33016,10 +33383,12 @@ export default class Client extends OpenApi {
   async getPermissionApplyOrderDetailWithOptions(request: GetPermissionApplyOrderDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetPermissionApplyOrderDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FlowId"] = request.flowId;
+    if (!Util.isUnset(request.flowId)) {
+      query["FlowId"] = request.flowId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetPermissionApplyOrderDetail",
@@ -33029,7 +33398,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetPermissionApplyOrderDetailResponse>(await this.callApi(params, req, runtime), new GetPermissionApplyOrderDetailResponse({}));
@@ -33043,10 +33412,12 @@ export default class Client extends OpenApi {
   async getProjectWithOptions(request: GetProjectRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetProject",
@@ -33056,7 +33427,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetProjectResponse>(await this.callApi(params, req, runtime), new GetProjectResponse({}));
@@ -33070,10 +33441,12 @@ export default class Client extends OpenApi {
   async getProjectDetailWithOptions(request: GetProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetProjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "GetProjectDetail",
@@ -33083,7 +33456,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetProjectDetailResponse>(await this.callApi(params, req, runtime), new GetProjectDetailResponse({}));
@@ -33096,8 +33469,25 @@ export default class Client extends OpenApi {
 
   async getQualityEntityWithOptions(request: GetQualityEntityRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.matchExpression)) {
+      body["MatchExpression"] = request.matchExpression;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      body["TableName"] = request.tableName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetQualityEntity",
@@ -33120,8 +33510,17 @@ export default class Client extends OpenApi {
 
   async getQualityFollowerWithOptions(request: GetQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityFollowerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetQualityFollower",
@@ -33144,8 +33543,17 @@ export default class Client extends OpenApi {
 
   async getQualityRuleWithOptions(request: GetQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetQualityRule",
@@ -33168,8 +33576,13 @@ export default class Client extends OpenApi {
 
   async getRemindWithOptions(request: GetRemindRequest, runtime: $Util.RuntimeOptions): Promise<GetRemindResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.remindId)) {
+      body["RemindId"] = request.remindId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetRemind",
@@ -33204,7 +33617,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<GetSensitiveDataResponse>(await this.callApi(params, req, runtime), new GetSensitiveDataResponse({}));
@@ -33217,8 +33630,13 @@ export default class Client extends OpenApi {
 
   async getSuccessInstanceTrendWithOptions(request: GetSuccessInstanceTrendRequest, runtime: $Util.RuntimeOptions): Promise<GetSuccessInstanceTrendResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetSuccessInstanceTrend",
@@ -33241,8 +33659,13 @@ export default class Client extends OpenApi {
 
   async getTopicWithOptions(request: GetTopicRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.topicId)) {
+      body["TopicId"] = request.topicId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetTopic",
@@ -33265,8 +33688,13 @@ export default class Client extends OpenApi {
 
   async getTopicInfluenceWithOptions(request: GetTopicInfluenceRequest, runtime: $Util.RuntimeOptions): Promise<GetTopicInfluenceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.topicId)) {
+      body["TopicId"] = request.topicId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetTopicInfluence",
@@ -33287,71 +33715,19 @@ export default class Client extends OpenApi {
     return await this.getTopicInfluenceWithOptions(request, runtime);
   }
 
-  async importConnectionsWithOptions(request: ImportConnectionsRequest, runtime: $Util.RuntimeOptions): Promise<ImportConnectionsResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["Connections"] = request.connections;
-    query["ProjectId"] = request.projectId;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ImportConnections",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ImportConnectionsResponse>(await this.callApi(params, req, runtime), new ImportConnectionsResponse({}));
-  }
-
-  async importConnections(request: ImportConnectionsRequest): Promise<ImportConnectionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importConnectionsWithOptions(request, runtime);
-  }
-
-  async importDISyncTasksWithOptions(request: ImportDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ImportDISyncTasksResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["ProjectId"] = request.projectId;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ImportDISyncTasks",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ImportDISyncTasksResponse>(await this.callApi(params, req, runtime), new ImportDISyncTasksResponse({}));
-  }
-
-  async importDISyncTasks(request: ImportDISyncTasksRequest): Promise<ImportDISyncTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.importDISyncTasksWithOptions(request, runtime);
-  }
-
   async importDataSourcesWithOptions(request: ImportDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ImportDataSourcesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DataSources"] = request.dataSources;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.dataSources)) {
+      query["DataSources"] = request.dataSources;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ImportDataSources",
@@ -33361,7 +33737,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ImportDataSourcesResponse>(await this.callApi(params, req, runtime), new ImportDataSourcesResponse({}));
@@ -33374,8 +33750,41 @@ export default class Client extends OpenApi {
 
   async listAlertMessagesWithOptions(request: ListAlertMessagesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertMessagesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertMethods)) {
+      body["AlertMethods"] = request.alertMethods;
+    }
+
+    if (!Util.isUnset(request.alertRuleTypes)) {
+      body["AlertRuleTypes"] = request.alertRuleTypes;
+    }
+
+    if (!Util.isUnset(request.alertUser)) {
+      body["AlertUser"] = request.alertUser;
+    }
+
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remindId)) {
+      body["RemindId"] = request.remindId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListAlertMessages",
@@ -33398,8 +33807,41 @@ export default class Client extends OpenApi {
 
   async listBaselineConfigsWithOptions(request: ListBaselineConfigsRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineConfigsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineTypes)) {
+      body["BaselineTypes"] = request.baselineTypes;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.searchText)) {
+      body["SearchText"] = request.searchText;
+    }
+
+    if (!Util.isUnset(request.useflag)) {
+      body["Useflag"] = request.useflag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListBaselineConfigs",
@@ -33422,8 +33864,49 @@ export default class Client extends OpenApi {
 
   async listBaselineStatusesWithOptions(request: ListBaselineStatusesRequest, runtime: $Util.RuntimeOptions): Promise<ListBaselineStatusesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineTypes)) {
+      body["BaselineTypes"] = request.baselineTypes;
+    }
+
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.finishStatus)) {
+      body["FinishStatus"] = request.finishStatus;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.searchText)) {
+      body["SearchText"] = request.searchText;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.topicId)) {
+      body["TopicId"] = request.topicId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListBaselineStatuses",
@@ -33446,8 +33929,29 @@ export default class Client extends OpenApi {
 
   async listBusinessWithOptions(request: ListBusinessRequest, runtime: $Util.RuntimeOptions): Promise<ListBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListBusiness",
@@ -33471,15 +33975,32 @@ export default class Client extends OpenApi {
   async listCalcEnginesWithOptions(request: ListCalcEnginesRequest, runtime: $Util.RuntimeOptions): Promise<ListCalcEnginesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CalcEngineType"] = request.calcEngineType;
-    query["EnvType"] = request.envType;
-    query["Name"] = request.name;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.calcEngineType)) {
+      query["CalcEngineType"] = request.calcEngineType;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListCalcEngines",
@@ -33489,7 +34010,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListCalcEnginesResponse>(await this.callApi(params, req, runtime), new ListCalcEnginesResponse({}));
@@ -33514,7 +34035,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListConnectionsResponse>(await this.callApi(params, req, runtime), new ListConnectionsResponse({}));
@@ -33528,12 +34049,20 @@ export default class Client extends OpenApi {
   async listDIProjectConfigWithOptions(request: ListDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DestinationType"] = request.destinationType;
-    query["ProjectId"] = request.projectId;
-    query["SourceType"] = request.sourceType;
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListDIProjectConfig",
@@ -33543,7 +34072,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDIProjectConfigResponse>(await this.callApi(params, req, runtime), new ListDIProjectConfigResponse({}));
@@ -33554,40 +34083,19 @@ export default class Client extends OpenApi {
     return await this.listDIProjectConfigWithOptions(request, runtime);
   }
 
-  async listDISyncTasksWithOptions(request: ListDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListDISyncTasksResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListDISyncTasks",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListDISyncTasksResponse>(await this.callApi(params, req, runtime), new ListDISyncTasksResponse({}));
-  }
-
-  async listDISyncTasks(request: ListDISyncTasksRequest): Promise<ListDISyncTasksResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listDISyncTasksWithOptions(request, runtime);
-  }
-
   async listDagsWithOptions(request: ListDagsRequest, runtime: $Util.RuntimeOptions): Promise<ListDagsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.opSeq)) {
+      body["OpSeq"] = request.opSeq;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDags",
@@ -33611,11 +34119,30 @@ export default class Client extends OpenApi {
   async listDataServiceApiAuthoritiesWithOptions(request: ListDataServiceApiAuthoritiesRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApiAuthoritiesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiNameKeyword)) {
+      body["ApiNameKeyword"] = request.apiNameKeyword;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceApiAuthorities",
@@ -33638,8 +34165,37 @@ export default class Client extends OpenApi {
 
   async listDataServiceApisWithOptions(request: ListDataServiceApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApisResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiNameKeyword)) {
+      body["ApiNameKeyword"] = request.apiNameKeyword;
+    }
+
+    if (!Util.isUnset(request.apiPathKeyword)) {
+      body["ApiPathKeyword"] = request.apiPathKeyword;
+    }
+
+    if (!Util.isUnset(request.creatorId)) {
+      body["CreatorId"] = request.creatorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceApis",
@@ -33662,8 +34218,25 @@ export default class Client extends OpenApi {
 
   async listDataServiceApplicationsWithOptions(request: ListDataServiceApplicationsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceApplicationsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectIdList)) {
+      body["ProjectIdList"] = request.projectIdList;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceApplications",
@@ -33687,11 +34260,30 @@ export default class Client extends OpenApi {
   async listDataServiceAuthorizedApisWithOptions(request: ListDataServiceAuthorizedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceAuthorizedApisResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiNameKeyword)) {
+      body["ApiNameKeyword"] = request.apiNameKeyword;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceAuthorizedApis",
@@ -33714,8 +34306,33 @@ export default class Client extends OpenApi {
 
   async listDataServiceFoldersWithOptions(request: ListDataServiceFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceFoldersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderNameKeyword)) {
+      body["FolderNameKeyword"] = request.folderNameKeyword;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      body["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceFolders",
@@ -33738,8 +34355,29 @@ export default class Client extends OpenApi {
 
   async listDataServiceGroupsWithOptions(request: ListDataServiceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServiceGroupsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.groupNameKeyword)) {
+      body["GroupNameKeyword"] = request.groupNameKeyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServiceGroups",
@@ -33762,8 +34400,37 @@ export default class Client extends OpenApi {
 
   async listDataServicePublishedApisWithOptions(request: ListDataServicePublishedApisRequest, runtime: $Util.RuntimeOptions): Promise<ListDataServicePublishedApisResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiNameKeyword)) {
+      body["ApiNameKeyword"] = request.apiNameKeyword;
+    }
+
+    if (!Util.isUnset(request.apiPathKeyword)) {
+      body["ApiPathKeyword"] = request.apiPathKeyword;
+    }
+
+    if (!Util.isUnset(request.creatorId)) {
+      body["CreatorId"] = request.creatorId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDataServicePublishedApis",
@@ -33798,7 +34465,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListDataSourcesResponse>(await this.callApi(params, req, runtime), new ListDataSourcesResponse({}));
@@ -33811,8 +34478,49 @@ export default class Client extends OpenApi {
 
   async listDeploymentsWithOptions(request: ListDeploymentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDeploymentsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.creator)) {
+      body["Creator"] = request.creator;
+    }
+
+    if (!Util.isUnset(request.endCreateTime)) {
+      body["EndCreateTime"] = request.endCreateTime;
+    }
+
+    if (!Util.isUnset(request.endExecuteTime)) {
+      body["EndExecuteTime"] = request.endExecuteTime;
+    }
+
+    if (!Util.isUnset(request.executor)) {
+      body["Executor"] = request.executor;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDeployments",
@@ -33835,8 +34543,33 @@ export default class Client extends OpenApi {
 
   async listFileTypeWithOptions(request: ListFileTypeRequest, runtime: $Util.RuntimeOptions): Promise<ListFileTypeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.locale)) {
+      body["Locale"] = request.locale;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListFileType",
@@ -33859,8 +34592,29 @@ export default class Client extends OpenApi {
 
   async listFileVersionsWithOptions(request: ListFileVersionsRequest, runtime: $Util.RuntimeOptions): Promise<ListFileVersionsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListFileVersions",
@@ -33883,8 +34637,49 @@ export default class Client extends OpenApi {
 
   async listFilesWithOptions(request: ListFilesRequest, runtime: $Util.RuntimeOptions): Promise<ListFilesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileTypes)) {
+      body["FileTypes"] = request.fileTypes;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.useType)) {
+      body["UseType"] = request.useType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListFiles",
@@ -33907,8 +34702,29 @@ export default class Client extends OpenApi {
 
   async listFoldersWithOptions(request: ListFoldersRequest, runtime: $Util.RuntimeOptions): Promise<ListFoldersResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.parentFolderPath)) {
+      body["ParentFolderPath"] = request.parentFolderPath;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListFolders",
@@ -33931,8 +34747,21 @@ export default class Client extends OpenApi {
 
   async listInstanceAmountWithOptions(request: ListInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListInstanceAmountResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListInstanceAmount",
@@ -33955,8 +34784,61 @@ export default class Client extends OpenApi {
 
   async listInstancesWithOptions(request: ListInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginBizdate)) {
+      body["BeginBizdate"] = request.beginBizdate;
+    }
+
+    if (!Util.isUnset(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.dagId)) {
+      body["DagId"] = request.dagId;
+    }
+
+    if (!Util.isUnset(request.endBizdate)) {
+      body["EndBizdate"] = request.endBizdate;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.nodeName)) {
+      body["NodeName"] = request.nodeName;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.programType)) {
+      body["ProgramType"] = request.programType;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListInstances",
@@ -33979,8 +34861,21 @@ export default class Client extends OpenApi {
 
   async listManualDagInstancesWithOptions(request: ListManualDagInstancesRequest, runtime: $Util.RuntimeOptions): Promise<ListManualDagInstancesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dagId)) {
+      body["DagId"] = request.dagId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListManualDagInstances",
@@ -34015,7 +34910,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListMetaDBResponse>(await this.callApi(params, req, runtime), new ListMetaDBResponse({}));
@@ -34028,8 +34923,21 @@ export default class Client extends OpenApi {
 
   async listNodeIOWithOptions(request: ListNodeIORequest, runtime: $Util.RuntimeOptions): Promise<ListNodeIOResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ioType)) {
+      body["IoType"] = request.ioType;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListNodeIO",
@@ -34052,8 +34960,21 @@ export default class Client extends OpenApi {
 
   async listNodeInputOrOutputWithOptions(request: ListNodeInputOrOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodeInputOrOutputResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ioType)) {
+      body["IoType"] = request.ioType;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListNodeInputOrOutput",
@@ -34076,8 +34997,41 @@ export default class Client extends OpenApi {
 
   async listNodesWithOptions(request: ListNodesRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizName)) {
+      body["BizName"] = request.bizName;
+    }
+
+    if (!Util.isUnset(request.nodeName)) {
+      body["NodeName"] = request.nodeName;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.programType)) {
+      body["ProgramType"] = request.programType;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListNodes",
@@ -34100,8 +35054,13 @@ export default class Client extends OpenApi {
 
   async listNodesByBaselineWithOptions(request: ListNodesByBaselineRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByBaselineResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baselineId)) {
+      body["BaselineId"] = request.baselineId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListNodesByBaseline",
@@ -34124,8 +35083,17 @@ export default class Client extends OpenApi {
 
   async listNodesByOutputWithOptions(request: ListNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<ListNodesByOutputResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.outputs)) {
+      body["Outputs"] = request.outputs;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListNodesByOutput",
@@ -34149,20 +35117,52 @@ export default class Client extends OpenApi {
   async listPermissionApplyOrdersWithOptions(request: ListPermissionApplyOrdersRequest, runtime: $Util.RuntimeOptions): Promise<ListPermissionApplyOrdersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["EndTime"] = request.endTime;
-    query["EngineType"] = request.engineType;
-    query["FlowStatus"] = request.flowStatus;
-    query["MaxComputeProjectName"] = request.maxComputeProjectName;
-    query["OrderType"] = request.orderType;
-    query["PageNum"] = request.pageNum;
-    query["PageSize"] = request.pageSize;
-    query["QueryType"] = request.queryType;
-    query["StartTime"] = request.startTime;
-    query["TableName"] = request.tableName;
-    query["WorkspaceId"] = request.workspaceId;
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.engineType)) {
+      query["EngineType"] = request.engineType;
+    }
+
+    if (!Util.isUnset(request.flowStatus)) {
+      query["FlowStatus"] = request.flowStatus;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectName)) {
+      query["MaxComputeProjectName"] = request.maxComputeProjectName;
+    }
+
+    if (!Util.isUnset(request.orderType)) {
+      query["OrderType"] = request.orderType;
+    }
+
+    if (!Util.isUnset(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListPermissionApplyOrders",
@@ -34172,7 +35172,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListPermissionApplyOrdersResponse>(await this.callApi(params, req, runtime), new ListPermissionApplyOrdersResponse({}));
@@ -34185,8 +35185,17 @@ export default class Client extends OpenApi {
 
   async listProgramTypeCountWithOptions(request: ListProgramTypeCountRequest, runtime: $Util.RuntimeOptions): Promise<ListProgramTypeCountResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListProgramTypeCount",
@@ -34210,10 +35219,12 @@ export default class Client extends OpenApi {
   async listProjectIdsWithOptions(request: ListProjectIdsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectIdsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProjectIds",
@@ -34223,7 +35234,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectIdsResponse>(await this.callApi(params, req, runtime), new ListProjectIdsResponse({}));
@@ -34237,12 +35248,20 @@ export default class Client extends OpenApi {
   async listProjectMembersWithOptions(request: ListProjectMembersRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectMembersResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProjectMembers",
@@ -34252,7 +35271,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectMembersResponse>(await this.callApi(params, req, runtime), new ListProjectMembersResponse({}));
@@ -34266,10 +35285,12 @@ export default class Client extends OpenApi {
   async listProjectRolesWithOptions(request: ListProjectRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectRolesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProjectRoles",
@@ -34279,7 +35300,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectRolesResponse>(await this.callApi(params, req, runtime), new ListProjectRolesResponse({}));
@@ -34293,11 +35314,16 @@ export default class Client extends OpenApi {
   async listProjectsWithOptions(request: ListProjectsRequest, runtime: $Util.RuntimeOptions): Promise<ListProjectsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListProjects",
@@ -34307,7 +35333,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
@@ -34320,8 +35346,33 @@ export default class Client extends OpenApi {
 
   async listQualityResultsByEntityWithOptions(request: ListQualityResultsByEntityRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByEntityResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListQualityResultsByEntity",
@@ -34344,8 +35395,33 @@ export default class Client extends OpenApi {
 
   async listQualityResultsByRuleWithOptions(request: ListQualityResultsByRuleRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityResultsByRuleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      body["RuleId"] = request.ruleId;
+    }
+
+    if (!Util.isUnset(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListQualityResultsByRule",
@@ -34368,8 +35444,25 @@ export default class Client extends OpenApi {
 
   async listQualityRulesWithOptions(request: ListQualityRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListQualityRulesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListQualityRules",
@@ -34393,15 +35486,32 @@ export default class Client extends OpenApi {
   async listRefDISyncTasksWithOptions(request: ListRefDISyncTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListRefDISyncTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
-    query["ProjectId"] = request.projectId;
-    query["RefType"] = request.refType;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.datasourceName)) {
+      query["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.refType)) {
+      query["RefType"] = request.refType;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListRefDISyncTasks",
@@ -34411,7 +35521,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListRefDISyncTasksResponse>(await this.callApi(params, req, runtime), new ListRefDISyncTasksResponse({}));
@@ -34424,8 +35534,37 @@ export default class Client extends OpenApi {
 
   async listRemindsWithOptions(request: ListRemindsRequest, runtime: $Util.RuntimeOptions): Promise<ListRemindsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertTarget)) {
+      body["AlertTarget"] = request.alertTarget;
+    }
+
+    if (!Util.isUnset(request.founder)) {
+      body["Founder"] = request.founder;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.remindTypes)) {
+      body["RemindTypes"] = request.remindTypes;
+    }
+
+    if (!Util.isUnset(request.searchText)) {
+      body["SearchText"] = request.searchText;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListReminds",
@@ -34449,12 +35588,20 @@ export default class Client extends OpenApi {
   async listResourceGroupsWithOptions(request: ListResourceGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListResourceGroupsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["BizExtKey"] = request.bizExtKey;
-    query["Keyword"] = request.keyword;
-    query["ResourceGroupType"] = request.resourceGroupType;
+    if (!Util.isUnset(request.bizExtKey)) {
+      query["BizExtKey"] = request.bizExtKey;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.resourceGroupType)) {
+      query["ResourceGroupType"] = request.resourceGroupType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "ListResourceGroups",
@@ -34464,7 +35611,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListResourceGroupsResponse>(await this.callApi(params, req, runtime), new ListResourceGroupsResponse({}));
@@ -34477,8 +35624,13 @@ export default class Client extends OpenApi {
 
   async listSuccessInstanceAmountWithOptions(request: ListSuccessInstanceAmountRequest, runtime: $Util.RuntimeOptions): Promise<ListSuccessInstanceAmountResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListSuccessInstanceAmount",
@@ -34513,7 +35665,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTableLevelResponse>(await this.callApi(params, req, runtime), new ListTableLevelResponse({}));
@@ -34538,7 +35690,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ListTableThemeResponse>(await this.callApi(params, req, runtime), new ListTableThemeResponse({}));
@@ -34551,8 +35703,45 @@ export default class Client extends OpenApi {
 
   async listTopicsWithOptions(request: ListTopicsRequest, runtime: $Util.RuntimeOptions): Promise<ListTopicsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beginTime)) {
+      body["BeginTime"] = request.beginTime;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.topicStatuses)) {
+      body["TopicStatuses"] = request.topicStatuses;
+    }
+
+    if (!Util.isUnset(request.topicTypes)) {
+      body["TopicTypes"] = request.topicTypes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListTopics",
@@ -34575,8 +35764,21 @@ export default class Client extends OpenApi {
 
   async publishDataServiceApiWithOptions(request: PublishDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<PublishDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PublishDataServiceApi",
@@ -34600,12 +35802,20 @@ export default class Client extends OpenApi {
   async queryDISyncTaskConfigProcessResultWithOptions(request: QueryDISyncTaskConfigProcessResultRequest, runtime: $Util.RuntimeOptions): Promise<QueryDISyncTaskConfigProcessResultResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AsyncProcessId"] = request.asyncProcessId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.asyncProcessId)) {
+      query["AsyncProcessId"] = request.asyncProcessId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "QueryDISyncTaskConfigProcessResult",
@@ -34615,7 +35825,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<QueryDISyncTaskConfigProcessResultResponse>(await this.callApi(params, req, runtime), new QueryDISyncTaskConfigProcessResultResponse({}));
@@ -34628,8 +35838,17 @@ export default class Client extends OpenApi {
 
   async queryPublicModelEngineWithOptions(request: QueryPublicModelEngineRequest, runtime: $Util.RuntimeOptions): Promise<QueryPublicModelEngineResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QueryPublicModelEngine",
@@ -34653,12 +35872,20 @@ export default class Client extends OpenApi {
   async removeProjectMemberFromRoleWithOptions(request: RemoveProjectMemberFromRoleRequest, runtime: $Util.RuntimeOptions): Promise<RemoveProjectMemberFromRoleResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ProjectId"] = request.projectId;
-    query["RoleCode"] = request.roleCode;
-    query["UserId"] = request.userId;
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.roleCode)) {
+      query["RoleCode"] = request.roleCode;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RemoveProjectMemberFromRole",
@@ -34668,7 +35895,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RemoveProjectMemberFromRoleResponse>(await this.callApi(params, req, runtime), new RemoveProjectMemberFromRoleResponse({}));
@@ -34681,8 +35908,17 @@ export default class Client extends OpenApi {
 
   async restartInstanceWithOptions(request: RestartInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RestartInstance",
@@ -34705,8 +35941,17 @@ export default class Client extends OpenApi {
 
   async resumeInstanceWithOptions(request: ResumeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ResumeInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ResumeInstance",
@@ -34730,15 +35975,32 @@ export default class Client extends OpenApi {
   async revokeColumnPermissionWithOptions(request: RevokeColumnPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeColumnPermissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Columns"] = request.columns;
-    query["MaxComputeProjectName"] = request.maxComputeProjectName;
-    query["RevokeUserId"] = request.revokeUserId;
-    query["RevokeUserName"] = request.revokeUserName;
-    query["TableName"] = request.tableName;
-    query["WorkspaceId"] = request.workspaceId;
+    if (!Util.isUnset(request.columns)) {
+      query["Columns"] = request.columns;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectName)) {
+      query["MaxComputeProjectName"] = request.maxComputeProjectName;
+    }
+
+    if (!Util.isUnset(request.revokeUserId)) {
+      query["RevokeUserId"] = request.revokeUserId;
+    }
+
+    if (!Util.isUnset(request.revokeUserName)) {
+      query["RevokeUserName"] = request.revokeUserName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RevokeColumnPermission",
@@ -34748,7 +36010,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RevokeColumnPermissionResponse>(await this.callApi(params, req, runtime), new RevokeColumnPermissionResponse({}));
@@ -34762,15 +36024,32 @@ export default class Client extends OpenApi {
   async revokeTablePermissionWithOptions(request: RevokeTablePermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeTablePermissionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Actions"] = request.actions;
-    query["MaxComputeProjectName"] = request.maxComputeProjectName;
-    query["RevokeUserId"] = request.revokeUserId;
-    query["RevokeUserName"] = request.revokeUserName;
-    query["TableName"] = request.tableName;
-    query["WorkspaceId"] = request.workspaceId;
+    if (!Util.isUnset(request.actions)) {
+      query["Actions"] = request.actions;
+    }
+
+    if (!Util.isUnset(request.maxComputeProjectName)) {
+      query["MaxComputeProjectName"] = request.maxComputeProjectName;
+    }
+
+    if (!Util.isUnset(request.revokeUserId)) {
+      query["RevokeUserId"] = request.revokeUserId;
+    }
+
+    if (!Util.isUnset(request.revokeUserName)) {
+      query["RevokeUserName"] = request.revokeUserName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "RevokeTablePermission",
@@ -34780,7 +36059,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RevokeTablePermissionResponse>(await this.callApi(params, req, runtime), new RevokeTablePermissionResponse({}));
@@ -34793,8 +36072,53 @@ export default class Client extends OpenApi {
 
   async runCycleDagNodesWithOptions(request: RunCycleDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunCycleDagNodesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizBeginTime)) {
+      body["BizBeginTime"] = request.bizBeginTime;
+    }
+
+    if (!Util.isUnset(request.bizEndTime)) {
+      body["BizEndTime"] = request.bizEndTime;
+    }
+
+    if (!Util.isUnset(request.endBizDate)) {
+      body["EndBizDate"] = request.endBizDate;
+    }
+
+    if (!Util.isUnset(request.excludeNodeIds)) {
+      body["ExcludeNodeIds"] = request.excludeNodeIds;
+    }
+
+    if (!Util.isUnset(request.includeNodeIds)) {
+      body["IncludeNodeIds"] = request.includeNodeIds;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nodeParams)) {
+      body["NodeParams"] = request.nodeParams;
+    }
+
+    if (!Util.isUnset(request.parallelism)) {
+      body["Parallelism"] = request.parallelism;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.rootNodeId)) {
+      body["RootNodeId"] = request.rootNodeId;
+    }
+
+    if (!Util.isUnset(request.startBizDate)) {
+      body["StartBizDate"] = request.startBizDate;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RunCycleDagNodes",
@@ -34817,8 +36141,45 @@ export default class Client extends OpenApi {
 
   async runManualDagNodesWithOptions(request: RunManualDagNodesRequest, runtime: $Util.RuntimeOptions): Promise<RunManualDagNodesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!Util.isUnset(request.dagParameters)) {
+      body["DagParameters"] = request.dagParameters;
+    }
+
+    if (!Util.isUnset(request.excludeNodeIds)) {
+      body["ExcludeNodeIds"] = request.excludeNodeIds;
+    }
+
+    if (!Util.isUnset(request.flowName)) {
+      body["FlowName"] = request.flowName;
+    }
+
+    if (!Util.isUnset(request.includeNodeIds)) {
+      body["IncludeNodeIds"] = request.includeNodeIds;
+    }
+
+    if (!Util.isUnset(request.nodeParameters)) {
+      body["NodeParameters"] = request.nodeParameters;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RunManualDagNodes",
@@ -34841,8 +36202,29 @@ export default class Client extends OpenApi {
 
   async runSmokeTestWithOptions(request: RunSmokeTestRequest, runtime: $Util.RuntimeOptions): Promise<RunSmokeTestResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.bizdate)) {
+      body["Bizdate"] = request.bizdate;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.nodeParams)) {
+      body["NodeParams"] = request.nodeParams;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RunSmokeTest",
@@ -34865,8 +36247,25 @@ export default class Client extends OpenApi {
 
   async runTriggerNodeWithOptions(request: RunTriggerNodeRequest, runtime: $Util.RuntimeOptions): Promise<RunTriggerNodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.bizDate)) {
+      body["BizDate"] = request.bizDate;
+    }
+
+    if (!Util.isUnset(request.cycleTime)) {
+      body["CycleTime"] = request.cycleTime;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RunTriggerNode",
@@ -34901,7 +36300,7 @@ export default class Client extends OpenApi {
       method: "GET",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<ScanSensitiveDataResponse>(await this.callApi(params, req, runtime), new ScanSensitiveDataResponse({}));
@@ -34915,16 +36314,36 @@ export default class Client extends OpenApi {
   async searchMetaTablesWithOptions(request: SearchMetaTablesRequest, runtime: $Util.RuntimeOptions): Promise<SearchMetaTablesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["ClusterId"] = request.clusterId;
-    query["DataSourceType"] = request.dataSourceType;
-    query["EntityType"] = request.entityType;
-    query["Keyword"] = request.keyword;
-    query["PageNumber"] = request.pageNumber;
-    query["PageSize"] = request.pageSize;
+    if (!Util.isUnset(request.appGuid)) {
+      query["AppGuid"] = request.appGuid;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!Util.isUnset(request.entityType)) {
+      query["EntityType"] = request.entityType;
+    }
+
+    if (!Util.isUnset(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SearchMetaTables",
@@ -34934,7 +36353,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SearchMetaTablesResponse>(await this.callApi(params, req, runtime), new SearchMetaTablesResponse({}));
@@ -34947,8 +36366,17 @@ export default class Client extends OpenApi {
 
   async searchNodesByOutputWithOptions(request: SearchNodesByOutputRequest, runtime: $Util.RuntimeOptions): Promise<SearchNodesByOutputResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.outputs)) {
+      body["Outputs"] = request.outputs;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SearchNodesByOutput",
@@ -34969,48 +36397,31 @@ export default class Client extends OpenApi {
     return await this.searchNodesByOutputWithOptions(request, runtime);
   }
 
-  async setConnectionShareWithOptions(request: SetConnectionShareRequest, runtime: $Util.RuntimeOptions): Promise<SetConnectionShareResponse> {
-    Util.validateModel(request);
-    let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["EnvType"] = request.envType;
-    query["ProjectId"] = request.projectId;
-    query["ProjectPermissions"] = request.projectPermissions;
-    query["UserPermissions"] = request.userPermissions;
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetConnectionShare",
-      version: "2020-05-18",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<SetConnectionShareResponse>(await this.callApi(params, req, runtime), new SetConnectionShareResponse({}));
-  }
-
-  async setConnectionShare(request: SetConnectionShareRequest): Promise<SetConnectionShareResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setConnectionShareWithOptions(request, runtime);
-  }
-
   async setDataSourceShareWithOptions(request: SetDataSourceShareRequest, runtime: $Util.RuntimeOptions): Promise<SetDataSourceShareResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["EnvType"] = request.envType;
-    query["ProjectId"] = request.projectId;
-    query["ProjectPermissions"] = request.projectPermissions;
-    query["UserPermissions"] = request.userPermissions;
+    if (!Util.isUnset(request.datasourceName)) {
+      query["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectPermissions)) {
+      query["ProjectPermissions"] = request.projectPermissions;
+    }
+
+    if (!Util.isUnset(request.userPermissions)) {
+      query["UserPermissions"] = request.userPermissions;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "SetDataSourceShare",
@@ -35020,7 +36431,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<SetDataSourceShareResponse>(await this.callApi(params, req, runtime), new SetDataSourceShareResponse({}));
@@ -35033,8 +36444,17 @@ export default class Client extends OpenApi {
 
   async setSuccessInstanceWithOptions(request: SetSuccessInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SetSuccessInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SetSuccessInstance",
@@ -35058,13 +36478,24 @@ export default class Client extends OpenApi {
   async startDISyncInstanceWithOptions(request: StartDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["StartParam"] = request.startParam;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.startParam)) {
+      query["StartParam"] = request.startParam;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StartDISyncInstance",
@@ -35074,7 +36505,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StartDISyncInstanceResponse>(await this.callApi(params, req, runtime), new StartDISyncInstanceResponse({}));
@@ -35087,8 +36518,17 @@ export default class Client extends OpenApi {
 
   async startMigrationWithOptions(request: StartMigrationRequest, runtime: $Util.RuntimeOptions): Promise<StartMigrationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.migrationId)) {
+      body["MigrationId"] = request.migrationId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StartMigration",
@@ -35112,12 +36552,20 @@ export default class Client extends OpenApi {
   async stopDISyncInstanceWithOptions(request: StopDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "StopDISyncInstance",
@@ -35127,7 +36575,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<StopDISyncInstanceResponse>(await this.callApi(params, req, runtime), new StopDISyncInstanceResponse({}));
@@ -35140,8 +36588,17 @@ export default class Client extends OpenApi {
 
   async stopInstanceWithOptions(request: StopInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "StopInstance",
@@ -35164,8 +36621,25 @@ export default class Client extends OpenApi {
 
   async submitFileWithOptions(request: SubmitFileRequest, runtime: $Util.RuntimeOptions): Promise<SubmitFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SubmitFile",
@@ -35188,8 +36662,17 @@ export default class Client extends OpenApi {
 
   async suspendInstanceWithOptions(request: SuspendInstanceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SuspendInstance",
@@ -35213,12 +36696,20 @@ export default class Client extends OpenApi {
   async terminateDISyncInstanceWithOptions(request: TerminateDISyncInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TerminateDISyncInstanceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TerminateDISyncInstance",
@@ -35228,7 +36719,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TerminateDISyncInstanceResponse>(await this.callApi(params, req, runtime), new TerminateDISyncInstanceResponse({}));
@@ -35242,13 +36733,24 @@ export default class Client extends OpenApi {
   async testNetworkConnectionWithOptions(request: TestNetworkConnectionRequest, runtime: $Util.RuntimeOptions): Promise<TestNetworkConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DatasourceName"] = request.datasourceName;
-    query["EnvType"] = request.envType;
-    query["ProjectId"] = request.projectId;
-    query["ResourceGroup"] = request.resourceGroup;
+    if (!Util.isUnset(request.datasourceName)) {
+      query["DatasourceName"] = request.datasourceName;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.resourceGroup)) {
+      query["ResourceGroup"] = request.resourceGroup;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "TestNetworkConnection",
@@ -35258,7 +36760,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<TestNetworkConnectionResponse>(await this.callApi(params, req, runtime), new TestNetworkConnectionResponse({}));
@@ -35271,8 +36773,13 @@ export default class Client extends OpenApi {
 
   async topTenElapsedTimeInstanceWithOptions(request: TopTenElapsedTimeInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenElapsedTimeInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "TopTenElapsedTimeInstance",
@@ -35295,8 +36802,13 @@ export default class Client extends OpenApi {
 
   async topTenErrorTimesInstanceWithOptions(request: TopTenErrorTimesInstanceRequest, runtime: $Util.RuntimeOptions): Promise<TopTenErrorTimesInstanceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "TopTenErrorTimesInstance",
@@ -35319,8 +36831,33 @@ export default class Client extends OpenApi {
 
   async updateBusinessWithOptions(request: UpdateBusinessRequest, runtime: $Util.RuntimeOptions): Promise<UpdateBusinessResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessId)) {
+      body["BusinessId"] = request.businessId;
+    }
+
+    if (!Util.isUnset(request.businessName)) {
+      body["BusinessName"] = request.businessName;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateBusiness",
@@ -35344,14 +36881,28 @@ export default class Client extends OpenApi {
   async updateConnectionWithOptions(request: UpdateConnectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConnectionResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ConnectionId"] = request.connectionId;
-    query["Content"] = request.content;
-    query["Description"] = request.description;
-    query["EnvType"] = request.envType;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.connectionId)) {
+      query["ConnectionId"] = request.connectionId;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateConnection",
@@ -35361,7 +36912,7 @@ export default class Client extends OpenApi {
       method: "PUT",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateConnectionResponse>(await this.callApi(params, req, runtime), new UpdateConnectionResponse({}));
@@ -35375,13 +36926,24 @@ export default class Client extends OpenApi {
   async updateDIProjectConfigWithOptions(request: UpdateDIProjectConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDIProjectConfigResponse> {
     Util.validateModel(request);
     let query = { };
-    query["DestinationType"] = request.destinationType;
-    query["ProjectConfig"] = request.projectConfig;
-    query["ProjectId"] = request.projectId;
-    query["SourceType"] = request.sourceType;
+    if (!Util.isUnset(request.destinationType)) {
+      query["DestinationType"] = request.destinationType;
+    }
+
+    if (!Util.isUnset(request.projectConfig)) {
+      query["ProjectConfig"] = request.projectConfig;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDIProjectConfig",
@@ -35391,7 +36953,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDIProjectConfigResponse>(await this.callApi(params, req, runtime), new UpdateDIProjectConfigResponse({}));
@@ -35405,14 +36967,28 @@ export default class Client extends OpenApi {
   async updateDISyncTaskWithOptions(request: UpdateDISyncTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDISyncTaskResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FileId"] = request.fileId;
-    query["ProjectId"] = request.projectId;
-    query["TaskContent"] = request.taskContent;
-    query["TaskParam"] = request.taskParam;
-    query["TaskType"] = request.taskType;
+    if (!Util.isUnset(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskContent)) {
+      query["TaskContent"] = request.taskContent;
+    }
+
+    if (!Util.isUnset(request.taskParam)) {
+      query["TaskParam"] = request.taskParam;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDISyncTask",
@@ -35422,7 +36998,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDISyncTaskResponse>(await this.callApi(params, req, runtime), new UpdateDISyncTaskResponse({}));
@@ -35435,8 +37011,61 @@ export default class Client extends OpenApi {
 
   async updateDataServiceApiWithOptions(request: UpdateDataServiceApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataServiceApiResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiDescription)) {
+      body["ApiDescription"] = request.apiDescription;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      body["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiPath)) {
+      body["ApiPath"] = request.apiPath;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.protocols)) {
+      body["Protocols"] = request.protocols;
+    }
+
+    if (!Util.isUnset(request.registrationDetails)) {
+      body["RegistrationDetails"] = request.registrationDetails;
+    }
+
+    if (!Util.isUnset(request.requestMethod)) {
+      body["RequestMethod"] = request.requestMethod;
+    }
+
+    if (!Util.isUnset(request.responseContentType)) {
+      body["ResponseContentType"] = request.responseContentType;
+    }
+
+    if (!Util.isUnset(request.scriptDetails)) {
+      body["ScriptDetails"] = request.scriptDetails;
+    }
+
+    if (!Util.isUnset(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    if (!Util.isUnset(request.visibleRange)) {
+      body["VisibleRange"] = request.visibleRange;
+    }
+
+    if (!Util.isUnset(request.wizardDetails)) {
+      body["WizardDetails"] = request.wizardDetails;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDataServiceApi",
@@ -35460,14 +37089,28 @@ export default class Client extends OpenApi {
   async updateDataSourceWithOptions(request: UpdateDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataSourceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Content"] = request.content;
-    query["DataSourceId"] = request.dataSourceId;
-    query["Description"] = request.description;
-    query["EnvType"] = request.envType;
-    query["Status"] = request.status;
+    if (!Util.isUnset(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateDataSource",
@@ -35477,7 +37120,7 @@ export default class Client extends OpenApi {
       method: "PUT",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new UpdateDataSourceResponse({}));
@@ -35490,8 +37133,117 @@ export default class Client extends OpenApi {
 
   async updateFileWithOptions(request: UpdateFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.advancedSettings)) {
+      body["AdvancedSettings"] = request.advancedSettings;
+    }
+
+    if (!Util.isUnset(request.autoParsing)) {
+      body["AutoParsing"] = request.autoParsing;
+    }
+
+    if (!Util.isUnset(request.autoRerunIntervalMillis)) {
+      body["AutoRerunIntervalMillis"] = request.autoRerunIntervalMillis;
+    }
+
+    if (!Util.isUnset(request.autoRerunTimes)) {
+      body["AutoRerunTimes"] = request.autoRerunTimes;
+    }
+
+    if (!Util.isUnset(request.connectionName)) {
+      body["ConnectionName"] = request.connectionName;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.cronExpress)) {
+      body["CronExpress"] = request.cronExpress;
+    }
+
+    if (!Util.isUnset(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!Util.isUnset(request.dependentNodeIdList)) {
+      body["DependentNodeIdList"] = request.dependentNodeIdList;
+    }
+
+    if (!Util.isUnset(request.dependentType)) {
+      body["DependentType"] = request.dependentType;
+    }
+
+    if (!Util.isUnset(request.endEffectDate)) {
+      body["EndEffectDate"] = request.endEffectDate;
+    }
+
+    if (!Util.isUnset(request.fileDescription)) {
+      body["FileDescription"] = request.fileDescription;
+    }
+
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.inputList)) {
+      body["InputList"] = request.inputList;
+    }
+
+    if (!Util.isUnset(request.outputList)) {
+      body["OutputList"] = request.outputList;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.paraValue)) {
+      body["ParaValue"] = request.paraValue;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.rerunMode)) {
+      body["RerunMode"] = request.rerunMode;
+    }
+
+    if (!Util.isUnset(request.resourceGroupIdentifier)) {
+      body["ResourceGroupIdentifier"] = request.resourceGroupIdentifier;
+    }
+
+    if (!Util.isUnset(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
+    if (!Util.isUnset(request.startEffectDate)) {
+      body["StartEffectDate"] = request.startEffectDate;
+    }
+
+    if (!Util.isUnset(request.startImmediately)) {
+      body["StartImmediately"] = request.startImmediately;
+    }
+
+    if (!Util.isUnset(request.stop)) {
+      body["Stop"] = request.stop;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFile",
@@ -35514,8 +37266,25 @@ export default class Client extends OpenApi {
 
   async updateFolderWithOptions(request: UpdateFolderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateFolderResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!Util.isUnset(request.folderName)) {
+      body["FolderName"] = request.folderName;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateFolder",
@@ -35538,8 +37307,25 @@ export default class Client extends OpenApi {
 
   async updateIDEEventResultWithOptions(request: UpdateIDEEventResultRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIDEEventResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkResult)) {
+      body["CheckResult"] = request.checkResult;
+    }
+
+    if (!Util.isUnset(request.checkResultTip)) {
+      body["CheckResultTip"] = request.checkResultTip;
+    }
+
+    if (!Util.isUnset(request.extensionCode)) {
+      body["ExtensionCode"] = request.extensionCode;
+    }
+
+    if (!Util.isUnset(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateIDEEventResult",
@@ -35562,8 +37348,21 @@ export default class Client extends OpenApi {
 
   async updateMetaCategoryWithOptions(request: UpdateMetaCategoryRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaCategoryResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateMetaCategory",
@@ -35587,17 +37386,50 @@ export default class Client extends OpenApi {
   async updateMetaTableWithOptions(request: UpdateMetaTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Caption"] = request.caption;
-    query["CategoryId"] = request.categoryId;
-    query["EnvType"] = request.envType;
-    query["NewOwnerId"] = request.newOwnerId;
-    query["ProjectId"] = request.projectId;
-    query["TableGuid"] = request.tableGuid;
-    query["TableName"] = request.tableName;
-    query["Visibility"] = request.visibility;
+    if (!Util.isUnset(request.caption)) {
+      query["Caption"] = request.caption;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.newOwnerId)) {
+      query["NewOwnerId"] = request.newOwnerId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.addedLabels)) {
+      body["AddedLabels"] = request.addedLabels;
+    }
+
+    if (!Util.isUnset(request.removedLabels)) {
+      body["RemovedLabels"] = request.removedLabels;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateMetaTable",
@@ -35621,10 +37453,18 @@ export default class Client extends OpenApi {
   async updateMetaTableIntroWikiWithOptions(request: UpdateMetaTableIntroWikiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateMetaTableIntroWikiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateMetaTableIntroWiki",
@@ -35647,8 +37487,21 @@ export default class Client extends OpenApi {
 
   async updateNodeOwnerWithOptions(request: UpdateNodeOwnerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNodeOwnerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateNodeOwner",
@@ -35671,8 +37524,21 @@ export default class Client extends OpenApi {
 
   async updateNodeRunModeWithOptions(request: UpdateNodeRunModeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateNodeRunModeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.projectEnv)) {
+      body["ProjectEnv"] = request.projectEnv;
+    }
+
+    if (!Util.isUnset(request.schedulerType)) {
+      body["SchedulerType"] = request.schedulerType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateNodeRunMode",
@@ -35695,8 +37561,25 @@ export default class Client extends OpenApi {
 
   async updateQualityFollowerWithOptions(request: UpdateQualityFollowerRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityFollowerResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alarmMode)) {
+      body["AlarmMode"] = request.alarmMode;
+    }
+
+    if (!Util.isUnset(request.follower)) {
+      body["Follower"] = request.follower;
+    }
+
+    if (!Util.isUnset(request.followerId)) {
+      body["FollowerId"] = request.followerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateQualityFollower",
@@ -35719,8 +37602,85 @@ export default class Client extends OpenApi {
 
   async updateQualityRuleWithOptions(request: UpdateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateQualityRuleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.blockType)) {
+      body["BlockType"] = request.blockType;
+    }
+
+    if (!Util.isUnset(request.checker)) {
+      body["Checker"] = request.checker;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.criticalThreshold)) {
+      body["CriticalThreshold"] = request.criticalThreshold;
+    }
+
+    if (!Util.isUnset(request.entityId)) {
+      body["EntityId"] = request.entityId;
+    }
+
+    if (!Util.isUnset(request.expectValue)) {
+      body["ExpectValue"] = request.expectValue;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.methodName)) {
+      body["MethodName"] = request.methodName;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      body["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.predictType)) {
+      body["PredictType"] = request.predictType;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.property)) {
+      body["Property"] = request.property;
+    }
+
+    if (!Util.isUnset(request.propertyType)) {
+      body["PropertyType"] = request.propertyType;
+    }
+
+    if (!Util.isUnset(request.ruleName)) {
+      body["RuleName"] = request.ruleName;
+    }
+
+    if (!Util.isUnset(request.ruleType)) {
+      body["RuleType"] = request.ruleType;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.trend)) {
+      body["Trend"] = request.trend;
+    }
+
+    if (!Util.isUnset(request.warningThreshold)) {
+      body["WarningThreshold"] = request.warningThreshold;
+    }
+
+    if (!Util.isUnset(request.whereCondition)) {
+      body["WhereCondition"] = request.whereCondition;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateQualityRule",
@@ -35743,8 +37703,77 @@ export default class Client extends OpenApi {
 
   async updateRemindWithOptions(request: UpdateRemindRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRemindResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertInterval)) {
+      body["AlertInterval"] = request.alertInterval;
+    }
+
+    if (!Util.isUnset(request.alertMethods)) {
+      body["AlertMethods"] = request.alertMethods;
+    }
+
+    if (!Util.isUnset(request.alertTargets)) {
+      body["AlertTargets"] = request.alertTargets;
+    }
+
+    if (!Util.isUnset(request.alertUnit)) {
+      body["AlertUnit"] = request.alertUnit;
+    }
+
+    if (!Util.isUnset(request.baselineIds)) {
+      body["BaselineIds"] = request.baselineIds;
+    }
+
+    if (!Util.isUnset(request.bizProcessIds)) {
+      body["BizProcessIds"] = request.bizProcessIds;
+    }
+
+    if (!Util.isUnset(request.detail)) {
+      body["Detail"] = request.detail;
+    }
+
+    if (!Util.isUnset(request.dndEnd)) {
+      body["DndEnd"] = request.dndEnd;
+    }
+
+    if (!Util.isUnset(request.maxAlertTimes)) {
+      body["MaxAlertTimes"] = request.maxAlertTimes;
+    }
+
+    if (!Util.isUnset(request.nodeIds)) {
+      body["NodeIds"] = request.nodeIds;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.remindId)) {
+      body["RemindId"] = request.remindId;
+    }
+
+    if (!Util.isUnset(request.remindName)) {
+      body["RemindName"] = request.remindName;
+    }
+
+    if (!Util.isUnset(request.remindType)) {
+      body["RemindType"] = request.remindType;
+    }
+
+    if (!Util.isUnset(request.remindUnit)) {
+      body["RemindUnit"] = request.remindUnit;
+    }
+
+    if (!Util.isUnset(request.robotUrls)) {
+      body["RobotUrls"] = request.robotUrls;
+    }
+
+    if (!Util.isUnset(request.useFlag)) {
+      body["UseFlag"] = request.useFlag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRemind",
@@ -35768,24 +37797,86 @@ export default class Client extends OpenApi {
   async updateTableWithOptions(request: UpdateTableRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableResponse> {
     Util.validateModel(request);
     let query = { };
-    query["AppGuid"] = request.appGuid;
-    query["CategoryId"] = request.categoryId;
-    query["Comment"] = request.comment;
-    query["CreateIfNotExists"] = request.createIfNotExists;
-    query["ExternalTableType"] = request.externalTableType;
-    query["HasPart"] = request.hasPart;
-    query["IsView"] = request.isView;
-    query["LifeCycle"] = request.lifeCycle;
-    query["Location"] = request.location;
-    query["LogicalLevelId"] = request.logicalLevelId;
-    query["OwnerId"] = request.ownerId;
-    query["PhysicsLevelId"] = request.physicsLevelId;
-    query["ProjectId"] = request.projectId;
-    query["TableName"] = request.tableName;
-    query["Visibility"] = request.visibility;
+    if (!Util.isUnset(request.appGuid)) {
+      query["AppGuid"] = request.appGuid;
+    }
+
+    if (!Util.isUnset(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.createIfNotExists)) {
+      query["CreateIfNotExists"] = request.createIfNotExists;
+    }
+
+    if (!Util.isUnset(request.externalTableType)) {
+      query["ExternalTableType"] = request.externalTableType;
+    }
+
+    if (!Util.isUnset(request.hasPart)) {
+      query["HasPart"] = request.hasPart;
+    }
+
+    if (!Util.isUnset(request.isView)) {
+      query["IsView"] = request.isView;
+    }
+
+    if (!Util.isUnset(request.lifeCycle)) {
+      query["LifeCycle"] = request.lifeCycle;
+    }
+
+    if (!Util.isUnset(request.location)) {
+      query["Location"] = request.location;
+    }
+
+    if (!Util.isUnset(request.logicalLevelId)) {
+      query["LogicalLevelId"] = request.logicalLevelId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.physicsLevelId)) {
+      query["PhysicsLevelId"] = request.physicsLevelId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.visibility)) {
+      query["Visibility"] = request.visibility;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.columns)) {
+      body["Columns"] = request.columns;
+    }
+
+    if (!Util.isUnset(request.endpoint)) {
+      body["Endpoint"] = request.endpoint;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      body["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.themes)) {
+      body["Themes"] = request.themes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTable",
@@ -35809,10 +37900,18 @@ export default class Client extends OpenApi {
   async updateTableAddColumnWithOptions(request: UpdateTableAddColumnRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableAddColumnResponse> {
     Util.validateModel(request);
     let query = { };
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.column)) {
+      body["Column"] = request.column;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTableAddColumn",
@@ -35836,14 +37935,28 @@ export default class Client extends OpenApi {
   async updateTableLevelWithOptions(request: UpdateTableLevelRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableLevelResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Description"] = request.description;
-    query["LevelId"] = request.levelId;
-    query["LevelType"] = request.levelType;
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.levelId)) {
+      query["LevelId"] = request.levelId;
+    }
+
+    if (!Util.isUnset(request.levelType)) {
+      query["LevelType"] = request.levelType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTableLevel",
@@ -35853,7 +37966,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTableLevelResponse>(await this.callApi(params, req, runtime), new UpdateTableLevelResponse({}));
@@ -35867,14 +37980,28 @@ export default class Client extends OpenApi {
   async updateTableModelInfoWithOptions(request: UpdateTableModelInfoRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableModelInfoResponse> {
     Util.validateModel(request);
     let query = { };
-    query["FirstLevelThemeId"] = request.firstLevelThemeId;
-    query["LevelId"] = request.levelId;
-    query["LevelType"] = request.levelType;
-    query["SecondLevelThemeId"] = request.secondLevelThemeId;
-    query["TableGuid"] = request.tableGuid;
+    if (!Util.isUnset(request.firstLevelThemeId)) {
+      query["FirstLevelThemeId"] = request.firstLevelThemeId;
+    }
+
+    if (!Util.isUnset(request.levelId)) {
+      query["LevelId"] = request.levelId;
+    }
+
+    if (!Util.isUnset(request.levelType)) {
+      query["LevelType"] = request.levelType;
+    }
+
+    if (!Util.isUnset(request.secondLevelThemeId)) {
+      query["SecondLevelThemeId"] = request.secondLevelThemeId;
+    }
+
+    if (!Util.isUnset(request.tableGuid)) {
+      query["TableGuid"] = request.tableGuid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTableModelInfo",
@@ -35884,7 +38011,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTableModelInfoResponse>(await this.callApi(params, req, runtime), new UpdateTableModelInfoResponse({}));
@@ -35898,12 +38025,20 @@ export default class Client extends OpenApi {
   async updateTableThemeWithOptions(request: UpdateTableThemeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateTableThemeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Name"] = request.name;
-    query["ProjectId"] = request.projectId;
-    query["ThemeId"] = request.themeId;
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.themeId)) {
+      query["ThemeId"] = request.themeId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
     });
     let params = new $OpenApi.Params({
       action: "UpdateTableTheme",
@@ -35913,7 +38048,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<UpdateTableThemeResponse>(await this.callApi(params, req, runtime), new UpdateTableThemeResponse({}));
@@ -35926,8 +38061,57 @@ export default class Client extends OpenApi {
 
   async updateUdfFileWithOptions(request: UpdateUdfFileRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUdfFileResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.className)) {
+      body["ClassName"] = request.className;
+    }
+
+    if (!Util.isUnset(request.cmdDescription)) {
+      body["CmdDescription"] = request.cmdDescription;
+    }
+
+    if (!Util.isUnset(request.example)) {
+      body["Example"] = request.example;
+    }
+
+    if (!Util.isUnset(request.fileFolderPath)) {
+      body["FileFolderPath"] = request.fileFolderPath;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
+    if (!Util.isUnset(request.functionType)) {
+      body["FunctionType"] = request.functionType;
+    }
+
+    if (!Util.isUnset(request.parameterDescription)) {
+      body["ParameterDescription"] = request.parameterDescription;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.projectIdentifier)) {
+      body["ProjectIdentifier"] = request.projectIdentifier;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      body["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.returnValue)) {
+      body["ReturnValue"] = request.returnValue;
+    }
+
+    if (!Util.isUnset(request.udfDescription)) {
+      body["UdfDescription"] = request.udfDescription;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateUdfFile",
