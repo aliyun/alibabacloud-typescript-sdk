@@ -2390,6 +2390,8 @@ export class GetStackResponseBody extends $tea.Model {
   resourceGroupId?: string;
   resourceProgress?: GetStackResponseBodyResourceProgress;
   rootStackId?: string;
+  serviceManaged?: boolean;
+  serviceName?: string;
   stackDriftStatus?: string;
   stackId?: string;
   stackName?: string;
@@ -2423,6 +2425,8 @@ export class GetStackResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceProgress: 'ResourceProgress',
       rootStackId: 'RootStackId',
+      serviceManaged: 'ServiceManaged',
+      serviceName: 'ServiceName',
       stackDriftStatus: 'StackDriftStatus',
       stackId: 'StackId',
       stackName: 'StackName',
@@ -2459,6 +2463,8 @@ export class GetStackResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       resourceProgress: GetStackResponseBodyResourceProgress,
       rootStackId: 'string',
+      serviceManaged: 'boolean',
+      serviceName: 'string',
       stackDriftStatus: 'string',
       stackId: 'string',
       stackName: 'string',
@@ -7062,6 +7068,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision exte
 
 export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Model {
   autoEnableService?: boolean;
+  dependentServiceNames?: string[];
   enableURL?: string;
   roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
   serviceName?: string;
@@ -7070,6 +7077,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       autoEnableService: 'AutoEnableService',
+      dependentServiceNames: 'DependentServiceNames',
       enableURL: 'EnableURL',
       roleProvision: 'RoleProvision',
       serviceName: 'ServiceName',
@@ -7081,6 +7089,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       autoEnableService: 'boolean',
+      dependentServiceNames: { 'type': 'array', 'itemType': 'string' },
       enableURL: 'string',
       roleProvision: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision,
       serviceName: 'string',
@@ -8451,6 +8460,8 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
   parentStackId?: string;
   regionId?: string;
   resourceGroupId?: string;
+  serviceManaged?: boolean;
+  serviceName?: string;
   stackDriftStatus?: string;
   stackId?: string;
   stackName?: string;
@@ -8468,6 +8479,8 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
       parentStackId: 'ParentStackId',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      serviceManaged: 'ServiceManaged',
+      serviceName: 'ServiceName',
       stackDriftStatus: 'StackDriftStatus',
       stackId: 'StackId',
       stackName: 'StackName',
@@ -8488,6 +8501,8 @@ export class ListStacksResponseBodyStacks extends $tea.Model {
       parentStackId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      serviceManaged: 'boolean',
+      serviceName: 'string',
       stackDriftStatus: 'string',
       stackId: 'string',
       stackName: 'string',
