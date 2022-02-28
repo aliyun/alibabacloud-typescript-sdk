@@ -12,16 +12,24 @@ import * as $tea from '@alicloud/tea-typescript';
 export class RecognizeAdvancedRequest extends $tea.Model {
   needRotate?: boolean;
   needSortPage?: boolean;
+  noStamp?: boolean;
   outputCharInfo?: boolean;
+  outputFigure?: boolean;
   outputTable?: boolean;
+  paragraph?: boolean;
+  row?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
       needSortPage: 'NeedSortPage',
+      noStamp: 'NoStamp',
       outputCharInfo: 'OutputCharInfo',
+      outputFigure: 'OutputFigure',
       outputTable: 'OutputTable',
+      paragraph: 'Paragraph',
+      row: 'Row',
       url: 'Url',
       body: 'body',
     };
@@ -31,8 +39,12 @@ export class RecognizeAdvancedRequest extends $tea.Model {
     return {
       needRotate: 'boolean',
       needSortPage: 'boolean',
+      noStamp: 'boolean',
       outputCharInfo: 'boolean',
+      outputFigure: 'boolean',
       outputTable: 'boolean',
+      paragraph: 'boolean',
+      row: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -381,6 +393,96 @@ export class RecognizeBasicResponse extends $tea.Model {
   }
 }
 
+export class RecognizeBatchRecognizeRequest extends $tea.Model {
+  imageName?: string;
+  imageOp?: string;
+  imageOssKey?: string;
+  needRotate?: boolean;
+  needSortPage?: boolean;
+  outputCharInfo?: boolean;
+  outputTable?: boolean;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageName: 'ImageName',
+      imageOp: 'ImageOp',
+      imageOssKey: 'ImageOssKey',
+      needRotate: 'NeedRotate',
+      needSortPage: 'NeedSortPage',
+      outputCharInfo: 'OutputCharInfo',
+      outputTable: 'OutputTable',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageName: 'string',
+      imageOp: 'string',
+      imageOssKey: 'string',
+      needRotate: 'boolean',
+      needSortPage: 'boolean',
+      outputCharInfo: 'boolean',
+      outputTable: 'boolean',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBatchRecognizeResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBatchRecognizeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeBatchRecognizeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeBatchRecognizeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeBirthCertificationRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -445,6 +547,78 @@ export class RecognizeBirthCertificationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeBirthCertificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusShipTicketRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusShipTicketResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeBusShipTicketResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeBusShipTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeBusShipTicketResponseBody,
     };
   }
 
@@ -741,6 +915,225 @@ export class RecognizeCarVinCodeResponse extends $tea.Model {
   }
 }
 
+export class RecognizeChinesePassportRequest extends $tea.Model {
+  outputFigure?: boolean;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      outputFigure: 'OutputFigure',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFigure: 'boolean',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeChinesePassportResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeChinesePassportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeChinesePassportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeChinesePassportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCommonPrintedInvoiceRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCommonPrintedInvoiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCommonPrintedInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeCommonPrintedInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeCommonPrintedInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCosmeticProduceLicenseRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCosmeticProduceLicenseResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeCosmeticProduceLicenseResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeCosmeticProduceLicenseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeCosmeticProduceLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeCtwoMedicalDeviceManageLicenseRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -805,6 +1198,75 @@ export class RecognizeCtwoMedicalDeviceManageLicenseResponse extends $tea.Model 
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeCtwoMedicalDeviceManageLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDeleteExcelRecordRequest extends $tea.Model {
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDeleteExcelRecordResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeDeleteExcelRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeDeleteExcelRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeDeleteExcelRecordResponseBody,
     };
   }
 
@@ -1193,11 +1655,13 @@ export class RecognizeEduPaperOcrResponse extends $tea.Model {
 
 export class RecognizeEduPaperStructedRequest extends $tea.Model {
   needRotate?: boolean;
+  subject?: string;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
+      subject: 'Subject',
       url: 'Url',
       body: 'body',
     };
@@ -1206,6 +1670,7 @@ export class RecognizeEduPaperStructedRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       needRotate: 'boolean',
+      subject: 'string',
       url: 'string',
       body: 'Readable',
     };
@@ -1483,6 +1948,309 @@ export class RecognizeEstateCertificationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeEstateCertificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelExportRequest extends $tea.Model {
+  fileName?: string;
+  imageOp?: string;
+  ocrImageCount?: number;
+  ocrResult?: string;
+  ocrType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      imageOp: 'ImageOp',
+      ocrImageCount: 'OcrImageCount',
+      ocrResult: 'OcrResult',
+      ocrType: 'OcrType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      imageOp: 'string',
+      ocrImageCount: 'number',
+      ocrResult: 'string',
+      ocrType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelExportResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelExportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeExcelExportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeExcelExportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelRecordRequest extends $tea.Model {
+  currPage?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currPage: 'CurrPage',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currPage: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelRecordResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExcelRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeExcelRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeExcelRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToHKRequest extends $tea.Model {
+  outputFigure?: boolean;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      outputFigure: 'OutputFigure',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFigure: 'boolean',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToHKResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToHKResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeExitEntryPermitToHKResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeExitEntryPermitToHKResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToMainlandRequest extends $tea.Model {
+  outputFigure?: boolean;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      outputFigure: 'OutputFigure',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFigure: 'boolean',
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToMainlandResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeExitEntryPermitToMainlandResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeExitEntryPermitToMainlandResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeExitEntryPermitToMainlandResponseBody,
     };
   }
 
@@ -1791,6 +2559,78 @@ export class RecognizeHandwritingResponse extends $tea.Model {
   }
 }
 
+export class RecognizeHotelConsumeRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHotelConsumeResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeHotelConsumeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeHotelConsumeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeHotelConsumeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeHouseholdRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -1864,10 +2704,12 @@ export class RecognizeHouseholdResponse extends $tea.Model {
 }
 
 export class RecognizeIdcardRequest extends $tea.Model {
+  outputFigure?: boolean;
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
+      outputFigure: 'OutputFigure',
       url: 'Url',
       body: 'body',
     };
@@ -1875,6 +2717,7 @@ export class RecognizeIdcardRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      outputFigure: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -2590,6 +3433,78 @@ export class RecognizeMultiLanguageResponse extends $tea.Model {
   }
 }
 
+export class RecognizeNonTaxInvoiceRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeNonTaxInvoiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeNonTaxInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeNonTaxInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeNonTaxInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizePassportRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -2662,6 +3577,150 @@ export class RecognizePassportResponse extends $tea.Model {
   }
 }
 
+export class RecognizePaymentRecordRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePaymentRecordResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePaymentRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizePaymentRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizePaymentRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePurchaseRecordRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePurchaseRecordResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizePurchaseRecordResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizePurchaseRecordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizePurchaseRecordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeQuotaInvoiceRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -2726,6 +3785,78 @@ export class RecognizeQuotaInvoiceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeQuotaInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRideHailingItineraryRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRideHailingItineraryResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeRideHailingItineraryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeRideHailingItineraryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeRideHailingItineraryResponseBody,
     };
   }
 
@@ -2887,7 +4018,7 @@ export class RecognizeRussianResponse extends $tea.Model {
   }
 }
 
-export class RecognizeTableOcrRequest extends $tea.Model {
+export class RecognizeSocialSecurityCardRequest extends $tea.Model {
   url?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
@@ -2899,6 +4030,87 @@ export class RecognizeTableOcrRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeSocialSecurityCardResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeSocialSecurityCardResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeSocialSecurityCardResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeSocialSecurityCardResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTableOcrRequest extends $tea.Model {
+  lineLess?: boolean;
+  needRotate?: boolean;
+  skipDetection?: boolean;
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      lineLess: 'LineLess',
+      needRotate: 'NeedRotate',
+      skipDetection: 'SkipDetection',
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lineLess: 'boolean',
+      needRotate: 'boolean',
+      skipDetection: 'boolean',
       url: 'string',
       body: 'Readable',
     };
@@ -2951,6 +4163,78 @@ export class RecognizeTableOcrResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeTableOcrResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxClearanceCertificateRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxClearanceCertificateResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTaxClearanceCertificateResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTaxClearanceCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTaxClearanceCertificateResponseBody,
     };
   }
 
@@ -3112,6 +4396,78 @@ export class RecognizeThaiResponse extends $tea.Model {
   }
 }
 
+export class RecognizeTollInvoiceRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTollInvoiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeTollInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeTollInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeTollInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeTradeMarkCertificationRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -3256,6 +4612,150 @@ export class RecognizeTrainInvoiceResponse extends $tea.Model {
   }
 }
 
+export class RecognizeUsedCarInvoiceRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeUsedCarInvoiceResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeUsedCarInvoiceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeUsedCarInvoiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeUsedCarInvoiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleCertificationRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleCertificationResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleCertificationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVehicleCertificationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVehicleCertificationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeVehicleLicenseRequest extends $tea.Model {
   url?: string;
   body?: Readable;
@@ -3320,6 +4820,78 @@ export class RecognizeVehicleLicenseResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeVehicleLicenseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleRegistrationRequest extends $tea.Model {
+  url?: string;
+  body?: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+      body: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleRegistrationResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVehicleRegistrationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVehicleRegistrationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVehicleRegistrationResponseBody,
     };
   }
 
@@ -3426,14 +4998,45 @@ export default class Client extends OpenApi {
   async recognizeAdvancedWithOptions(request: RecognizeAdvancedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAdvancedResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["NeedSortPage"] = request.needSortPage;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.needSortPage)) {
+      query["NeedSortPage"] = request.needSortPage;
+    }
+
+    if (!Util.isUnset(request.noStamp)) {
+      query["NoStamp"] = request.noStamp;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.paragraph)) {
+      query["Paragraph"] = request.paragraph;
+    }
+
+    if (!Util.isUnset(request.row)) {
+      query["Row"] = request.row;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3444,7 +5047,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeAdvancedResponse>(await this.callApi(params, req, runtime), new RecognizeAdvancedResponse({}));
@@ -3458,10 +5061,13 @@ export default class Client extends OpenApi {
   async recognizeAirItineraryWithOptions(request: RecognizeAirItineraryRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeAirItineraryResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3472,7 +5078,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeAirItineraryResponse>(await this.callApi(params, req, runtime), new RecognizeAirItineraryResponse({}));
@@ -3486,10 +5092,13 @@ export default class Client extends OpenApi {
   async recognizeBankAccountLicenseWithOptions(request: RecognizeBankAccountLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankAccountLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3500,7 +5109,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeBankAccountLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBankAccountLicenseResponse({}));
@@ -3514,10 +5123,13 @@ export default class Client extends OpenApi {
   async recognizeBankCardWithOptions(request: RecognizeBankCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3528,7 +5140,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeBankCardResponse>(await this.callApi(params, req, runtime), new RecognizeBankCardResponse({}));
@@ -3542,10 +5154,13 @@ export default class Client extends OpenApi {
   async recognizeBasicWithOptions(request: RecognizeBasicRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBasicResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3556,7 +5171,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeBasicResponse>(await this.callApi(params, req, runtime), new RecognizeBasicResponse({}));
@@ -3567,13 +5182,73 @@ export default class Client extends OpenApi {
     return await this.recognizeBasicWithOptions(request, runtime);
   }
 
+  async recognizeBatchRecognizeWithOptions(request: RecognizeBatchRecognizeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBatchRecognizeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!Util.isUnset(request.imageOp)) {
+      query["ImageOp"] = request.imageOp;
+    }
+
+    if (!Util.isUnset(request.imageOssKey)) {
+      query["ImageOssKey"] = request.imageOssKey;
+    }
+
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.needSortPage)) {
+      query["NeedSortPage"] = request.needSortPage;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeBatchRecognize",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBatchRecognizeResponse>(await this.callApi(params, req, runtime), new RecognizeBatchRecognizeResponse({}));
+  }
+
+  async recognizeBatchRecognize(request: RecognizeBatchRecognizeRequest): Promise<RecognizeBatchRecognizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeBatchRecognizeWithOptions(request, runtime);
+  }
+
   async recognizeBirthCertificationWithOptions(request: RecognizeBirthCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBirthCertificationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3584,7 +5259,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeBirthCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeBirthCertificationResponse({}));
@@ -3595,13 +5270,47 @@ export default class Client extends OpenApi {
     return await this.recognizeBirthCertificationWithOptions(request, runtime);
   }
 
+  async recognizeBusShipTicketWithOptions(request: RecognizeBusShipTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusShipTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeBusShipTicket",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeBusShipTicketResponse>(await this.callApi(params, req, runtime), new RecognizeBusShipTicketResponse({}));
+  }
+
+  async recognizeBusShipTicket(request: RecognizeBusShipTicketRequest): Promise<RecognizeBusShipTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeBusShipTicketWithOptions(request, runtime);
+  }
+
   async recognizeBusinessLicenseWithOptions(request: RecognizeBusinessLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3612,7 +5321,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeBusinessLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeBusinessLicenseResponse({}));
@@ -3626,10 +5335,13 @@ export default class Client extends OpenApi {
   async recognizeCarInvoiceWithOptions(request: RecognizeCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3640,7 +5352,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeCarInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeCarInvoiceResponse({}));
@@ -3654,10 +5366,13 @@ export default class Client extends OpenApi {
   async recognizeCarNumberWithOptions(request: RecognizeCarNumberRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarNumberResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3668,7 +5383,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeCarNumberResponse>(await this.callApi(params, req, runtime), new RecognizeCarNumberResponse({}));
@@ -3682,10 +5397,13 @@ export default class Client extends OpenApi {
   async recognizeCarVinCodeWithOptions(request: RecognizeCarVinCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCarVinCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3696,7 +5414,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeCarVinCodeResponse>(await this.callApi(params, req, runtime), new RecognizeCarVinCodeResponse({}));
@@ -3707,13 +5425,113 @@ export default class Client extends OpenApi {
     return await this.recognizeCarVinCodeWithOptions(request, runtime);
   }
 
+  async recognizeChinesePassportWithOptions(request: RecognizeChinesePassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeChinesePassportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeChinesePassport",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeChinesePassportResponse>(await this.callApi(params, req, runtime), new RecognizeChinesePassportResponse({}));
+  }
+
+  async recognizeChinesePassport(request: RecognizeChinesePassportRequest): Promise<RecognizeChinesePassportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeChinesePassportWithOptions(request, runtime);
+  }
+
+  async recognizeCommonPrintedInvoiceWithOptions(request: RecognizeCommonPrintedInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCommonPrintedInvoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeCommonPrintedInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCommonPrintedInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeCommonPrintedInvoiceResponse({}));
+  }
+
+  async recognizeCommonPrintedInvoice(request: RecognizeCommonPrintedInvoiceRequest): Promise<RecognizeCommonPrintedInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeCommonPrintedInvoiceWithOptions(request, runtime);
+  }
+
+  async recognizeCosmeticProduceLicenseWithOptions(request: RecognizeCosmeticProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCosmeticProduceLicenseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeCosmeticProduceLicense",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeCosmeticProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeCosmeticProduceLicenseResponse({}));
+  }
+
+  async recognizeCosmeticProduceLicense(request: RecognizeCosmeticProduceLicenseRequest): Promise<RecognizeCosmeticProduceLicenseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeCosmeticProduceLicenseWithOptions(request, runtime);
+  }
+
   async recognizeCtwoMedicalDeviceManageLicenseWithOptions(request: RecognizeCtwoMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeCtwoMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3724,7 +5542,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeCtwoMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeCtwoMedicalDeviceManageLicenseResponse({}));
@@ -3735,13 +5553,45 @@ export default class Client extends OpenApi {
     return await this.recognizeCtwoMedicalDeviceManageLicenseWithOptions(request, runtime);
   }
 
+  async recognizeDeleteExcelRecordWithOptions(request: RecognizeDeleteExcelRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDeleteExcelRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeDeleteExcelRecord",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeDeleteExcelRecordResponse>(await this.callApi(params, req, runtime), new RecognizeDeleteExcelRecordResponse({}));
+  }
+
+  async recognizeDeleteExcelRecord(request: RecognizeDeleteExcelRecordRequest): Promise<RecognizeDeleteExcelRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeDeleteExcelRecordWithOptions(request, runtime);
+  }
+
   async recognizeDrivingLicenseWithOptions(request: RecognizeDrivingLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeDrivingLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3752,7 +5602,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeDrivingLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeDrivingLicenseResponse({}));
@@ -3766,10 +5616,13 @@ export default class Client extends OpenApi {
   async recognizeEduFormulaWithOptions(request: RecognizeEduFormulaRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduFormulaResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3780,7 +5633,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduFormulaResponse>(await this.callApi(params, req, runtime), new RecognizeEduFormulaResponse({}));
@@ -3794,10 +5647,13 @@ export default class Client extends OpenApi {
   async recognizeEduOralCalculationWithOptions(request: RecognizeEduOralCalculationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduOralCalculationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3808,7 +5664,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduOralCalculationResponse>(await this.callApi(params, req, runtime), new RecognizeEduOralCalculationResponse({}));
@@ -3822,13 +5678,25 @@ export default class Client extends OpenApi {
   async recognizeEduPaperCutWithOptions(request: RecognizeEduPaperCutRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperCutResponse> {
     Util.validateModel(request);
     let query = { };
-    query["CutType"] = request.cutType;
-    query["ImageType"] = request.imageType;
-    query["Subject"] = request.subject;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.cutType)) {
+      query["CutType"] = request.cutType;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3839,7 +5707,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduPaperCutResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperCutResponse({}));
@@ -3853,13 +5721,25 @@ export default class Client extends OpenApi {
   async recognizeEduPaperOcrWithOptions(request: RecognizeEduPaperOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperOcrResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ImageType"] = request.imageType;
-    query["OutputOricoord"] = request.outputOricoord;
-    query["Subject"] = request.subject;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.outputOricoord)) {
+      query["OutputOricoord"] = request.outputOricoord;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3870,7 +5750,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduPaperOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperOcrResponse({}));
@@ -3884,11 +5764,21 @@ export default class Client extends OpenApi {
   async recognizeEduPaperStructedWithOptions(request: RecognizeEduPaperStructedRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduPaperStructedResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.subject)) {
+      query["Subject"] = request.subject;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3899,7 +5789,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduPaperStructedResponse>(await this.callApi(params, req, runtime), new RecognizeEduPaperStructedResponse({}));
@@ -3913,11 +5803,17 @@ export default class Client extends OpenApi {
   async recognizeEduQuestionOcrWithOptions(request: RecognizeEduQuestionOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEduQuestionOcrResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3928,7 +5824,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEduQuestionOcrResponse>(await this.callApi(params, req, runtime), new RecognizeEduQuestionOcrResponse({}));
@@ -3942,12 +5838,21 @@ export default class Client extends OpenApi {
   async recognizeEnglishWithOptions(request: RecognizeEnglishRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEnglishResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3958,7 +5863,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEnglishResponse>(await this.callApi(params, req, runtime), new RecognizeEnglishResponse({}));
@@ -3972,10 +5877,13 @@ export default class Client extends OpenApi {
   async recognizeEstateCertificationWithOptions(request: RecognizeEstateCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeEstateCertificationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -3986,7 +5894,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeEstateCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeEstateCertificationResponse({}));
@@ -3997,13 +5905,164 @@ export default class Client extends OpenApi {
     return await this.recognizeEstateCertificationWithOptions(request, runtime);
   }
 
+  async recognizeExcelExportWithOptions(request: RecognizeExcelExportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExcelExportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.imageOp)) {
+      query["ImageOp"] = request.imageOp;
+    }
+
+    if (!Util.isUnset(request.ocrImageCount)) {
+      query["OcrImageCount"] = request.ocrImageCount;
+    }
+
+    if (!Util.isUnset(request.ocrResult)) {
+      query["OcrResult"] = request.ocrResult;
+    }
+
+    if (!Util.isUnset(request.ocrType)) {
+      query["OcrType"] = request.ocrType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeExcelExport",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeExcelExportResponse>(await this.callApi(params, req, runtime), new RecognizeExcelExportResponse({}));
+  }
+
+  async recognizeExcelExport(request: RecognizeExcelExportRequest): Promise<RecognizeExcelExportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeExcelExportWithOptions(request, runtime);
+  }
+
+  async recognizeExcelRecordWithOptions(request: RecognizeExcelRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExcelRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currPage)) {
+      query["CurrPage"] = request.currPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeExcelRecord",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeExcelRecordResponse>(await this.callApi(params, req, runtime), new RecognizeExcelRecordResponse({}));
+  }
+
+  async recognizeExcelRecord(request: RecognizeExcelRecordRequest): Promise<RecognizeExcelRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeExcelRecordWithOptions(request, runtime);
+  }
+
+  async recognizeExitEntryPermitToHKWithOptions(request: RecognizeExitEntryPermitToHKRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExitEntryPermitToHKResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeExitEntryPermitToHK",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeExitEntryPermitToHKResponse>(await this.callApi(params, req, runtime), new RecognizeExitEntryPermitToHKResponse({}));
+  }
+
+  async recognizeExitEntryPermitToHK(request: RecognizeExitEntryPermitToHKRequest): Promise<RecognizeExitEntryPermitToHKResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeExitEntryPermitToHKWithOptions(request, runtime);
+  }
+
+  async recognizeExitEntryPermitToMainlandWithOptions(request: RecognizeExitEntryPermitToMainlandRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeExitEntryPermitToMainlandResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeExitEntryPermitToMainland",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeExitEntryPermitToMainlandResponse>(await this.callApi(params, req, runtime), new RecognizeExitEntryPermitToMainlandResponse({}));
+  }
+
+  async recognizeExitEntryPermitToMainland(request: RecognizeExitEntryPermitToMainlandRequest): Promise<RecognizeExitEntryPermitToMainlandResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeExitEntryPermitToMainlandWithOptions(request, runtime);
+  }
+
   async recognizeFoodManageLicenseWithOptions(request: RecognizeFoodManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4014,7 +6073,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeFoodManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodManageLicenseResponse({}));
@@ -4028,10 +6087,13 @@ export default class Client extends OpenApi {
   async recognizeFoodProduceLicenseWithOptions(request: RecognizeFoodProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeFoodProduceLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4042,7 +6104,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeFoodProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeFoodProduceLicenseResponse({}));
@@ -4056,10 +6118,13 @@ export default class Client extends OpenApi {
   async recognizeGeneralWithOptions(request: RecognizeGeneralRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeGeneralResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4070,7 +6135,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeGeneralResponse>(await this.callApi(params, req, runtime), new RecognizeGeneralResponse({}));
@@ -4084,14 +6149,29 @@ export default class Client extends OpenApi {
   async recognizeHandwritingWithOptions(request: RecognizeHandwritingRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHandwritingResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["NeedSortPage"] = request.needSortPage;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.needSortPage)) {
+      query["NeedSortPage"] = request.needSortPage;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4102,7 +6182,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeHandwritingResponse>(await this.callApi(params, req, runtime), new RecognizeHandwritingResponse({}));
@@ -4113,13 +6193,47 @@ export default class Client extends OpenApi {
     return await this.recognizeHandwritingWithOptions(request, runtime);
   }
 
+  async recognizeHotelConsumeWithOptions(request: RecognizeHotelConsumeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHotelConsumeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeHotelConsume",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeHotelConsumeResponse>(await this.callApi(params, req, runtime), new RecognizeHotelConsumeResponse({}));
+  }
+
+  async recognizeHotelConsume(request: RecognizeHotelConsumeRequest): Promise<RecognizeHotelConsumeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeHotelConsumeWithOptions(request, runtime);
+  }
+
   async recognizeHouseholdWithOptions(request: RecognizeHouseholdRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeHouseholdResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4130,7 +6244,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeHouseholdResponse>(await this.callApi(params, req, runtime), new RecognizeHouseholdResponse({}));
@@ -4144,10 +6258,17 @@ export default class Client extends OpenApi {
   async recognizeIdcardWithOptions(request: RecognizeIdcardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeIdcardResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.outputFigure)) {
+      query["OutputFigure"] = request.outputFigure;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4158,7 +6279,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeIdcardResponse>(await this.callApi(params, req, runtime), new RecognizeIdcardResponse({}));
@@ -4172,10 +6293,13 @@ export default class Client extends OpenApi {
   async recognizeInvoiceWithOptions(request: RecognizeInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4186,7 +6310,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeInvoiceResponse({}));
@@ -4200,13 +6324,25 @@ export default class Client extends OpenApi {
   async recognizeJanpaneseWithOptions(request: RecognizeJanpaneseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeJanpaneseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4217,7 +6353,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeJanpaneseResponse>(await this.callApi(params, req, runtime), new RecognizeJanpaneseResponse({}));
@@ -4231,13 +6367,25 @@ export default class Client extends OpenApi {
   async recognizeKoreanWithOptions(request: RecognizeKoreanRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeKoreanResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4248,7 +6396,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeKoreanResponse>(await this.callApi(params, req, runtime), new RecognizeKoreanResponse({}));
@@ -4262,13 +6410,25 @@ export default class Client extends OpenApi {
   async recognizeLatinWithOptions(request: RecognizeLatinRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeLatinResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4279,7 +6439,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeLatinResponse>(await this.callApi(params, req, runtime), new RecognizeLatinResponse({}));
@@ -4293,10 +6453,13 @@ export default class Client extends OpenApi {
   async recognizeMedicalDeviceManageLicenseWithOptions(request: RecognizeMedicalDeviceManageLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceManageLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4307,7 +6470,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeMedicalDeviceManageLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceManageLicenseResponse({}));
@@ -4321,10 +6484,13 @@ export default class Client extends OpenApi {
   async recognizeMedicalDeviceProduceLicenseWithOptions(request: RecognizeMedicalDeviceProduceLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMedicalDeviceProduceLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4335,7 +6501,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeMedicalDeviceProduceLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeMedicalDeviceProduceLicenseResponse({}));
@@ -4349,10 +6515,13 @@ export default class Client extends OpenApi {
   async recognizeMixedInvoicesWithOptions(request: RecognizeMixedInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeMixedInvoicesResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4363,7 +6532,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeMixedInvoicesResponse>(await this.callApi(params, req, runtime), new RecognizeMixedInvoicesResponse({}));
@@ -4383,15 +6552,33 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
-    query["Languages"] = request.languagesShrink;
-    query["NeedRotate"] = request.needRotate;
-    query["NeedSortPage"] = request.needSortPage;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.languagesShrink)) {
+      query["Languages"] = request.languagesShrink;
+    }
+
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.needSortPage)) {
+      query["NeedSortPage"] = request.needSortPage;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4402,7 +6589,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeMultiLanguageResponse>(await this.callApi(params, req, runtime), new RecognizeMultiLanguageResponse({}));
@@ -4413,13 +6600,47 @@ export default class Client extends OpenApi {
     return await this.recognizeMultiLanguageWithOptions(request, runtime);
   }
 
+  async recognizeNonTaxInvoiceWithOptions(request: RecognizeNonTaxInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeNonTaxInvoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeNonTaxInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeNonTaxInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeNonTaxInvoiceResponse({}));
+  }
+
+  async recognizeNonTaxInvoice(request: RecognizeNonTaxInvoiceRequest): Promise<RecognizeNonTaxInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeNonTaxInvoiceWithOptions(request, runtime);
+  }
+
   async recognizePassportWithOptions(request: RecognizePassportRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePassportResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4430,7 +6651,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizePassportResponse>(await this.callApi(params, req, runtime), new RecognizePassportResponse({}));
@@ -4441,13 +6662,78 @@ export default class Client extends OpenApi {
     return await this.recognizePassportWithOptions(request, runtime);
   }
 
+  async recognizePaymentRecordWithOptions(request: RecognizePaymentRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePaymentRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizePaymentRecord",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePaymentRecordResponse>(await this.callApi(params, req, runtime), new RecognizePaymentRecordResponse({}));
+  }
+
+  async recognizePaymentRecord(request: RecognizePaymentRecordRequest): Promise<RecognizePaymentRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizePaymentRecordWithOptions(request, runtime);
+  }
+
+  async recognizePurchaseRecordWithOptions(request: RecognizePurchaseRecordRequest, runtime: $Util.RuntimeOptions): Promise<RecognizePurchaseRecordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizePurchaseRecord",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizePurchaseRecordResponse>(await this.callApi(params, req, runtime), new RecognizePurchaseRecordResponse({}));
+  }
+
+  async recognizePurchaseRecord(request: RecognizePurchaseRecordRequest): Promise<RecognizePurchaseRecordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizePurchaseRecordWithOptions(request, runtime);
+  }
+
   async recognizeQuotaInvoiceWithOptions(request: RecognizeQuotaInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeQuotaInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4458,7 +6744,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeQuotaInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeQuotaInvoiceResponse({}));
@@ -4469,13 +6755,47 @@ export default class Client extends OpenApi {
     return await this.recognizeQuotaInvoiceWithOptions(request, runtime);
   }
 
+  async recognizeRideHailingItineraryWithOptions(request: RecognizeRideHailingItineraryRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRideHailingItineraryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeRideHailingItinerary",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeRideHailingItineraryResponse>(await this.callApi(params, req, runtime), new RecognizeRideHailingItineraryResponse({}));
+  }
+
+  async recognizeRideHailingItinerary(request: RecognizeRideHailingItineraryRequest): Promise<RecognizeRideHailingItineraryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeRideHailingItineraryWithOptions(request, runtime);
+  }
+
   async recognizeRollTicketWithOptions(request: RecognizeRollTicketRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRollTicketResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4486,7 +6806,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeRollTicketResponse>(await this.callApi(params, req, runtime), new RecognizeRollTicketResponse({}));
@@ -4500,13 +6820,25 @@ export default class Client extends OpenApi {
   async recognizeRussianWithOptions(request: RecognizeRussianRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeRussianResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4517,7 +6849,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeRussianResponse>(await this.callApi(params, req, runtime), new RecognizeRussianResponse({}));
@@ -4528,13 +6860,59 @@ export default class Client extends OpenApi {
     return await this.recognizeRussianWithOptions(request, runtime);
   }
 
+  async recognizeSocialSecurityCardWithOptions(request: RecognizeSocialSecurityCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeSocialSecurityCardResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeSocialSecurityCard",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeSocialSecurityCardResponse>(await this.callApi(params, req, runtime), new RecognizeSocialSecurityCardResponse({}));
+  }
+
+  async recognizeSocialSecurityCard(request: RecognizeSocialSecurityCardRequest): Promise<RecognizeSocialSecurityCardResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeSocialSecurityCardWithOptions(request, runtime);
+  }
+
   async recognizeTableOcrWithOptions(request: RecognizeTableOcrRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableOcrResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.lineLess)) {
+      query["LineLess"] = request.lineLess;
+    }
+
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.skipDetection)) {
+      query["SkipDetection"] = request.skipDetection;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4545,7 +6923,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeTableOcrResponse>(await this.callApi(params, req, runtime), new RecognizeTableOcrResponse({}));
@@ -4556,13 +6934,47 @@ export default class Client extends OpenApi {
     return await this.recognizeTableOcrWithOptions(request, runtime);
   }
 
+  async recognizeTaxClearanceCertificateWithOptions(request: RecognizeTaxClearanceCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxClearanceCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeTaxClearanceCertificate",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTaxClearanceCertificateResponse>(await this.callApi(params, req, runtime), new RecognizeTaxClearanceCertificateResponse({}));
+  }
+
+  async recognizeTaxClearanceCertificate(request: RecognizeTaxClearanceCertificateRequest): Promise<RecognizeTaxClearanceCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTaxClearanceCertificateWithOptions(request, runtime);
+  }
+
   async recognizeTaxiInvoiceWithOptions(request: RecognizeTaxiInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTaxiInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4573,7 +6985,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeTaxiInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTaxiInvoiceResponse({}));
@@ -4587,13 +6999,25 @@ export default class Client extends OpenApi {
   async recognizeThaiWithOptions(request: RecognizeThaiRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeThaiResponse> {
     Util.validateModel(request);
     let query = { };
-    query["NeedRotate"] = request.needRotate;
-    query["OutputCharInfo"] = request.outputCharInfo;
-    query["OutputTable"] = request.outputTable;
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.needRotate)) {
+      query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputCharInfo)) {
+      query["OutputCharInfo"] = request.outputCharInfo;
+    }
+
+    if (!Util.isUnset(request.outputTable)) {
+      query["OutputTable"] = request.outputTable;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4604,7 +7028,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeThaiResponse>(await this.callApi(params, req, runtime), new RecognizeThaiResponse({}));
@@ -4615,13 +7039,47 @@ export default class Client extends OpenApi {
     return await this.recognizeThaiWithOptions(request, runtime);
   }
 
+  async recognizeTollInvoiceWithOptions(request: RecognizeTollInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTollInvoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeTollInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeTollInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTollInvoiceResponse({}));
+  }
+
+  async recognizeTollInvoice(request: RecognizeTollInvoiceRequest): Promise<RecognizeTollInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeTollInvoiceWithOptions(request, runtime);
+  }
+
   async recognizeTradeMarkCertificationWithOptions(request: RecognizeTradeMarkCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTradeMarkCertificationResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4632,7 +7090,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeTradeMarkCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeTradeMarkCertificationResponse({}));
@@ -4646,10 +7104,13 @@ export default class Client extends OpenApi {
   async recognizeTrainInvoiceWithOptions(request: RecognizeTrainInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTrainInvoiceResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4660,7 +7121,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeTrainInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeTrainInvoiceResponse({}));
@@ -4671,13 +7132,78 @@ export default class Client extends OpenApi {
     return await this.recognizeTrainInvoiceWithOptions(request, runtime);
   }
 
+  async recognizeUsedCarInvoiceWithOptions(request: RecognizeUsedCarInvoiceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeUsedCarInvoiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeUsedCarInvoice",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeUsedCarInvoiceResponse>(await this.callApi(params, req, runtime), new RecognizeUsedCarInvoiceResponse({}));
+  }
+
+  async recognizeUsedCarInvoice(request: RecognizeUsedCarInvoiceRequest): Promise<RecognizeUsedCarInvoiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeUsedCarInvoiceWithOptions(request, runtime);
+  }
+
+  async recognizeVehicleCertificationWithOptions(request: RecognizeVehicleCertificationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleCertificationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleCertification",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehicleCertificationResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleCertificationResponse({}));
+  }
+
+  async recognizeVehicleCertification(request: RecognizeVehicleCertificationRequest): Promise<RecognizeVehicleCertificationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVehicleCertificationWithOptions(request, runtime);
+  }
+
   async recognizeVehicleLicenseWithOptions(request: RecognizeVehicleLicenseRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleLicenseResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4688,7 +7214,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeVehicleLicenseResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleLicenseResponse({}));
@@ -4699,13 +7225,47 @@ export default class Client extends OpenApi {
     return await this.recognizeVehicleLicenseWithOptions(request, runtime);
   }
 
+  async recognizeVehicleRegistrationWithOptions(request: RecognizeVehicleRegistrationRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVehicleRegistrationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: request.body,
+      stream: request.body,
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeVehicleRegistration",
+      version: "2021-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVehicleRegistrationResponse>(await this.callApi(params, req, runtime), new RecognizeVehicleRegistrationResponse({}));
+  }
+
+  async recognizeVehicleRegistration(request: RecognizeVehicleRegistrationRequest): Promise<RecognizeVehicleRegistrationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVehicleRegistrationWithOptions(request, runtime);
+  }
+
   async recognizeWaybillWithOptions(request: RecognizeWaybillRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeWaybillResponse> {
     Util.validateModel(request);
     let query = { };
-    query["Url"] = request.url;
+    if (!Util.isUnset(request.url)) {
+      query["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: Util.toMap(request),
+      body: request.body,
       stream: request.body,
     });
     let params = new $OpenApi.Params({
@@ -4716,7 +7276,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "RPC",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $tea.cast<RecognizeWaybillResponse>(await this.callApi(params, req, runtime), new RecognizeWaybillResponse({}));
