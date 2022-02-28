@@ -1991,12 +1991,16 @@ export class ListDbfsResponseBodyDBFSInfo extends $tea.Model {
 export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea.Model {
   instanceTypeFamily?: string;
   OSName?: string;
+  status?: string;
+  zoneId?: string;
   label?: string;
   value?: string;
   static names(): { [key: string]: string } {
     return {
       instanceTypeFamily: 'InstanceTypeFamily',
       OSName: 'OSName',
+      status: 'Status',
+      zoneId: 'ZoneId',
       label: 'label',
       value: 'value',
     };
@@ -2006,6 +2010,8 @@ export class ListDbfsAttachableEcsInstancesResponseBodyEcsLabelInfo extends $tea
     return {
       instanceTypeFamily: 'string',
       OSName: 'string',
+      status: 'string',
+      zoneId: 'string',
       label: 'string',
       value: 'string',
     };
