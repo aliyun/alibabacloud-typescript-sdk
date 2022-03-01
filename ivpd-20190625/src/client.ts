@@ -14,212 +14,23 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import { Readable } from 'stream';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class AssessCompositionRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessCompositionResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: AssessCompositionResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: AssessCompositionResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessCompositionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AssessCompositionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AssessCompositionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessExposureRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessExposureResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: AssessExposureResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: AssessExposureResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessExposureResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AssessExposureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AssessExposureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessSharpnessRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessSharpnessResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: AssessSharpnessResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: AssessSharpnessResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessSharpnessResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: AssessSharpnessResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: AssessSharpnessResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ChangeImageSizeRequest extends $tea.Model {
-  width?: number;
   height?: number;
   url?: string;
+  width?: number;
   static names(): { [key: string]: string } {
     return {
-      width: 'Width',
       height: 'Height',
       url: 'Url',
+      width: 'Width',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      width: 'number',
       height: 'number',
       url: 'string',
+      width: 'number',
     };
   }
 
@@ -229,25 +40,25 @@ export class ChangeImageSizeRequest extends $tea.Model {
 }
 
 export class ChangeImageSizeResponseBody extends $tea.Model {
+  code?: string;
+  data?: ChangeImageSizeResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: ChangeImageSizeResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: ChangeImageSizeResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: ChangeImageSizeResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -279,25 +90,22 @@ export class ChangeImageSizeResponse extends $tea.Model {
 }
 
 export class CreateSegmentBodyJobRequest extends $tea.Model {
-  async?: boolean;
+  dataList?: CreateSegmentBodyJobRequestDataList[];
   jobId?: string;
   timeToLive?: number;
-  dataList?: CreateSegmentBodyJobRequestDataList[];
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
+      dataList: 'DataList',
       jobId: 'JobId',
       timeToLive: 'TimeToLive',
-      dataList: 'DataList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
+      dataList: { 'type': 'array', 'itemType': CreateSegmentBodyJobRequestDataList },
       jobId: 'string',
       timeToLive: 'number',
-      dataList: { 'type': 'array', 'itemType': CreateSegmentBodyJobRequestDataList },
     };
   }
 
@@ -307,25 +115,25 @@ export class CreateSegmentBodyJobRequest extends $tea.Model {
 }
 
 export class CreateSegmentBodyJobResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateSegmentBodyJobResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: CreateSegmentBodyJobResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: CreateSegmentBodyJobResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: CreateSegmentBodyJobResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -376,25 +184,25 @@ export class DetectImageElementsRequest extends $tea.Model {
 }
 
 export class DetectImageElementsResponseBody extends $tea.Model {
+  code?: string;
+  data?: DetectImageElementsResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: DetectImageElementsResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: DetectImageElementsResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: DetectImageElementsResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -425,152 +233,23 @@ export class DetectImageElementsResponse extends $tea.Model {
   }
 }
 
-export class DetectMainBodyRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMainBodyResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: DetectMainBodyResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: DetectMainBodyResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMainBodyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DetectMainBodyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DetectMainBodyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: EnhanceFaceResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: EnhanceFaceResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: EnhanceFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: EnhanceFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EraseLogoInVideoRequest extends $tea.Model {
-  videoUrl?: string;
-  async?: boolean;
-  jobId?: string;
   boxes?: EraseLogoInVideoRequestBoxes[];
+  jobId?: string;
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      videoUrl: 'VideoUrl',
-      async: 'Async',
-      jobId: 'JobId',
       boxes: 'Boxes',
+      jobId: 'JobId',
+      videoUrl: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrl: 'string',
-      async: 'boolean',
-      jobId: 'string',
       boxes: { 'type': 'array', 'itemType': EraseLogoInVideoRequestBoxes },
+      jobId: 'string',
+      videoUrl: 'string',
     };
   }
 
@@ -580,25 +259,25 @@ export class EraseLogoInVideoRequest extends $tea.Model {
 }
 
 export class EraseLogoInVideoResponseBody extends $tea.Model {
+  code?: string;
+  data?: EraseLogoInVideoResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: EraseLogoInVideoResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: EraseLogoInVideoResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: EraseLogoInVideoResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -630,19 +309,19 @@ export class EraseLogoInVideoResponse extends $tea.Model {
 }
 
 export class ExtendImageStyleRequest extends $tea.Model {
-  styleUrl?: string;
   majorUrl?: string;
+  styleUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      styleUrl: 'StyleUrl',
       majorUrl: 'MajorUrl',
+      styleUrl: 'StyleUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      styleUrl: 'string',
       majorUrl: 'string',
+      styleUrl: 'string',
     };
   }
 
@@ -652,25 +331,25 @@ export class ExtendImageStyleRequest extends $tea.Model {
 }
 
 export class ExtendImageStyleResponseBody extends $tea.Model {
+  code?: string;
+  data?: ExtendImageStyleResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: ExtendImageStyleResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: ExtendImageStyleResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: ExtendImageStyleResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -702,18 +381,15 @@ export class ExtendImageStyleResponse extends $tea.Model {
 }
 
 export class GetAsyncJobResultRequest extends $tea.Model {
-  async?: boolean;
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
-      async: 'Async',
       jobId: 'JobId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      async: 'boolean',
       jobId: 'string',
     };
   }
@@ -724,19 +400,19 @@ export class GetAsyncJobResultRequest extends $tea.Model {
 }
 
 export class GetAsyncJobResultResponseBody extends $tea.Model {
-  requestId?: string;
   data?: GetAsyncJobResultResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: GetAsyncJobResultResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -787,25 +463,25 @@ export class GetAsyncResultRequest extends $tea.Model {
 }
 
 export class GetAsyncResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetAsyncResultResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetAsyncResultResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetAsyncResultResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetAsyncResultResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -856,25 +532,25 @@ export class GetJobResultRequest extends $tea.Model {
 }
 
 export class GetJobResultResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetJobResultResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetJobResultResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetJobResultResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetJobResultResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -925,25 +601,25 @@ export class GetJobStatusRequest extends $tea.Model {
 }
 
 export class GetJobStatusResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetJobStatusResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: GetJobStatusResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: GetJobStatusResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: GetJobStatusResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -974,95 +650,26 @@ export class GetJobStatusResponse extends $tea.Model {
   }
 }
 
-export class GetRenderResultRequest extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRenderResultResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: GetRenderResultResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: GetRenderResultResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRenderResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetRenderResultResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetRenderResultResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetUserBucketConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetUserBucketConfigResponseBodyData[];
   message?: string;
   requestId?: string;
-  data?: GetUserBucketConfigResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetUserBucketConfigResponseBodyData },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': GetUserBucketConfigResponseBodyData },
-      code: 'string',
     };
   }
 
@@ -1094,19 +701,19 @@ export class GetUserBucketConfigResponse extends $tea.Model {
 }
 
 export class HighlightGameVideoRequest extends $tea.Model {
-  videoUrl?: string;
   async?: boolean;
+  videoUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      videoUrl: 'VideoUrl',
       async: 'Async',
+      videoUrl: 'VideoUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      videoUrl: 'string',
       async: 'boolean',
+      videoUrl: 'string',
     };
   }
 
@@ -1138,19 +745,19 @@ export class HighlightGameVideoAdvanceRequest extends $tea.Model {
 }
 
 export class HighlightGameVideoResponseBody extends $tea.Model {
-  requestId?: string;
   data?: HighlightGameVideoResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: HighlightGameVideoResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -1181,92 +788,26 @@ export class HighlightGameVideoResponse extends $tea.Model {
   }
 }
 
-export class IntelligentCompositionRequest extends $tea.Model {
-  numBoxes?: number;
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      numBoxes: 'NumBoxes',
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      numBoxes: 'number',
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IntelligentCompositionResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: IntelligentCompositionResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: IntelligentCompositionResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IntelligentCompositionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: IntelligentCompositionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: IntelligentCompositionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListPackageDesignModelTypesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListPackageDesignModelTypesResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: ListPackageDesignModelTypesResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: ListPackageDesignModelTypesResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: ListPackageDesignModelTypesResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1317,25 +858,25 @@ export class ListUserBucketsRequest extends $tea.Model {
 }
 
 export class ListUserBucketsResponseBody extends $tea.Model {
+  code?: string;
+  data?: string[];
   message?: string;
   requestId?: string;
-  data?: string[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': 'string' },
-      code: 'string',
     };
   }
 
@@ -1386,25 +927,25 @@ export class MakeSuperResolutionImageRequest extends $tea.Model {
 }
 
 export class MakeSuperResolutionImageResponseBody extends $tea.Model {
+  code?: string;
+  data?: MakeSuperResolutionImageResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: MakeSuperResolutionImageResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: MakeSuperResolutionImageResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: MakeSuperResolutionImageResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1435,167 +976,20 @@ export class MakeSuperResolutionImageResponse extends $tea.Model {
   }
 }
 
-export class ParseFaceRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseFaceResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: ParseFaceResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: ParseFaceResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseFaceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ParseFaceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ParseFaceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelForPackageDesignRequest extends $tea.Model {
-  dataId?: string;
-  modelType?: string;
-  materialType?: string;
-  materialName?: string;
-  category?: string;
-  elementList?: PreviewModelForPackageDesignRequestElementList[];
-  static names(): { [key: string]: string } {
-    return {
-      dataId: 'DataId',
-      modelType: 'ModelType',
-      materialType: 'MaterialType',
-      materialName: 'MaterialName',
-      category: 'Category',
-      elementList: 'ElementList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dataId: 'string',
-      modelType: 'string',
-      materialType: 'string',
-      materialName: 'string',
-      category: 'string',
-      elementList: { 'type': 'array', 'itemType': PreviewModelForPackageDesignRequestElementList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelForPackageDesignResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: PreviewModelForPackageDesignResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: PreviewModelForPackageDesignResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelForPackageDesignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: PreviewModelForPackageDesignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: PreviewModelForPackageDesignResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeImageColorRequest extends $tea.Model {
-  url?: string;
   colorCount?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
       colorCount: 'ColorCount',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
       colorCount: 'string',
+      url: 'string',
     };
   }
 
@@ -1605,25 +999,25 @@ export class RecognizeImageColorRequest extends $tea.Model {
 }
 
 export class RecognizeImageColorResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeImageColorResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: RecognizeImageColorResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: RecognizeImageColorResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: RecognizeImageColorResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1674,25 +1068,25 @@ export class RecognizeImageStyleRequest extends $tea.Model {
 }
 
 export class RecognizeImageStyleResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecognizeImageStyleResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: RecognizeImageStyleResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: RecognizeImageStyleResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: RecognizeImageStyleResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1724,28 +1118,28 @@ export class RecognizeImageStyleResponse extends $tea.Model {
 }
 
 export class RecolorImageRequest extends $tea.Model {
-  url?: string;
-  mode?: string;
-  refUrl?: string;
   colorCount?: number;
   colorTemplate?: RecolorImageRequestColorTemplate[];
+  mode?: string;
+  refUrl?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
-      mode: 'Mode',
-      refUrl: 'RefUrl',
       colorCount: 'ColorCount',
       colorTemplate: 'ColorTemplate',
+      mode: 'Mode',
+      refUrl: 'RefUrl',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
-      mode: 'string',
-      refUrl: 'string',
       colorCount: 'number',
       colorTemplate: { 'type': 'array', 'itemType': RecolorImageRequestColorTemplate },
+      mode: 'string',
+      refUrl: 'string',
+      url: 'string',
     };
   }
 
@@ -1755,25 +1149,25 @@ export class RecolorImageRequest extends $tea.Model {
 }
 
 export class RecolorImageResponseBody extends $tea.Model {
+  code?: string;
+  data?: RecolorImageResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: RecolorImageResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: RecolorImageResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: RecolorImageResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -1804,162 +1198,6 @@ export class RecolorImageResponse extends $tea.Model {
   }
 }
 
-export class RenderImageForPackageDesignRequest extends $tea.Model {
-  jobId?: string;
-  modelType?: string;
-  materialType?: string;
-  materialName?: string;
-  category?: string;
-  targetWidth?: number;
-  targetHeight?: number;
-  displayType?: string;
-  elementList?: RenderImageForPackageDesignRequestElementList[];
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-      modelType: 'ModelType',
-      materialType: 'MaterialType',
-      materialName: 'MaterialName',
-      category: 'Category',
-      targetWidth: 'TargetWidth',
-      targetHeight: 'TargetHeight',
-      displayType: 'DisplayType',
-      elementList: 'ElementList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-      modelType: 'string',
-      materialType: 'string',
-      materialName: 'string',
-      category: 'string',
-      targetWidth: 'number',
-      targetHeight: 'number',
-      displayType: 'string',
-      elementList: { 'type': 'array', 'itemType': RenderImageForPackageDesignRequestElementList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenderImageForPackageDesignResponseBody extends $tea.Model {
-  message?: string;
-  requestId?: string;
-  data?: RenderImageForPackageDesignResponseBodyData;
-  code?: string;
-  static names(): { [key: string]: string } {
-    return {
-      message: 'Message',
-      requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      message: 'string',
-      requestId: 'string',
-      data: RenderImageForPackageDesignResponseBodyData,
-      code: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenderImageForPackageDesignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: RenderImageForPackageDesignResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: RenderImageForPackageDesignResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentAnimalRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentAnimalResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentAnimalResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentAnimalResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentAnimalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentAnimalResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentAnimalResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SegmentBodyRequest extends $tea.Model {
   imageUrl?: string;
   static names(): { [key: string]: string } {
@@ -1980,25 +1218,25 @@ export class SegmentBodyRequest extends $tea.Model {
 }
 
 export class SegmentBodyResponseBody extends $tea.Model {
+  code?: string;
+  data?: SegmentBodyResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: SegmentBodyResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: SegmentBodyResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: SegmentBodyResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -2029,69 +1267,6 @@ export class SegmentBodyResponse extends $tea.Model {
   }
 }
 
-export class SegmentClothRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentClothResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentClothResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentClothResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentClothResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentClothResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentClothResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SegmentCommodityRequest extends $tea.Model {
   imageURL?: string;
   static names(): { [key: string]: string } {
@@ -2112,19 +1287,19 @@ export class SegmentCommodityRequest extends $tea.Model {
 }
 
 export class SegmentCommodityResponseBody extends $tea.Model {
-  requestId?: string;
   data?: SegmentCommodityResponseBodyData;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
       data: 'Data',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
       data: SegmentCommodityResponseBodyData,
+      requestId: 'string',
     };
   }
 
@@ -2155,132 +1330,6 @@ export class SegmentCommodityResponse extends $tea.Model {
   }
 }
 
-export class SegmentHairRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHairResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentHairResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentHairResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHairResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentHairResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentHairResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHeadRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHeadResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentHeadResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentHeadResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHeadResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentHeadResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentHeadResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SegmentImageRequest extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -2301,25 +1350,25 @@ export class SegmentImageRequest extends $tea.Model {
 }
 
 export class SegmentImageResponseBody extends $tea.Model {
+  code?: string;
+  data?: SegmentImageResponseBodyData;
   message?: string;
   requestId?: string;
-  data?: SegmentImageResponseBodyData;
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: SegmentImageResponseBodyData,
       message: 'string',
       requestId: 'string',
-      data: SegmentImageResponseBodyData,
-      code: 'string',
     };
   }
 
@@ -2350,132 +1399,6 @@ export class SegmentImageResponse extends $tea.Model {
   }
 }
 
-export class SegmentSkyRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentSkyResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentSkyResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentSkyResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentSkyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentSkyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentSkyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentVehicleRequest extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentVehicleResponseBody extends $tea.Model {
-  requestId?: string;
-  data?: SegmentVehicleResponseBodyData;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      data: SegmentVehicleResponseBodyData,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentVehicleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: SegmentVehicleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: SegmentVehicleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateUserBucketConfigRequest extends $tea.Model {
   data?: UpdateUserBucketConfigRequestData[];
   static names(): { [key: string]: string } {
@@ -2496,25 +1419,25 @@ export class UpdateUserBucketConfigRequest extends $tea.Model {
 }
 
 export class UpdateUserBucketConfigResponseBody extends $tea.Model {
+  code?: string;
+  data?: UpdateUserBucketConfigResponseBodyData[];
   message?: string;
   requestId?: string;
-  data?: UpdateUserBucketConfigResponseBodyData[];
-  code?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      data: 'Data',
       message: 'Message',
       requestId: 'RequestId',
-      data: 'Data',
-      code: 'Code',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': UpdateUserBucketConfigResponseBodyData },
       message: 'string',
       requestId: 'string',
-      data: { 'type': 'array', 'itemType': UpdateUserBucketConfigResponseBodyData },
-      code: 'string',
     };
   }
 
@@ -2545,63 +1468,6 @@ export class UpdateUserBucketConfigResponse extends $tea.Model {
   }
 }
 
-export class AssessCompositionResponseBodyData extends $tea.Model {
-  score?: number;
-  static names(): { [key: string]: string } {
-    return {
-      score: 'Score',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      score: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessExposureResponseBodyData extends $tea.Model {
-  exposure?: number;
-  static names(): { [key: string]: string } {
-    return {
-      exposure: 'Exposure',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      exposure: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class AssessSharpnessResponseBodyData extends $tea.Model {
-  sharpness?: number;
-  static names(): { [key: string]: string } {
-    return {
-      sharpness: 'Sharpness',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sharpness: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ChangeImageSizeResponseBodyData extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -2622,19 +1488,19 @@ export class ChangeImageSizeResponseBodyData extends $tea.Model {
 }
 
 export class CreateSegmentBodyJobRequestDataList extends $tea.Model {
-  imageUrl?: string;
   dataId?: string;
+  imageUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      imageUrl: 'ImageUrl',
       dataId: 'DataId',
+      imageUrl: 'ImageUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      imageUrl: 'string',
       dataId: 'string',
+      imageUrl: 'string',
     };
   }
 
@@ -2663,28 +1529,28 @@ export class CreateSegmentBodyJobResponseBodyDataResultListResultData extends $t
 }
 
 export class CreateSegmentBodyJobResponseBodyDataResultList extends $tea.Model {
+  code?: string;
+  dataId?: string;
+  message?: string;
   resultData?: CreateSegmentBodyJobResponseBodyDataResultListResultData;
   success?: boolean;
-  code?: string;
-  message?: string;
-  dataId?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'Code',
+      dataId: 'DataId',
+      message: 'Message',
       resultData: 'ResultData',
       success: 'Success',
-      code: 'Code',
-      message: 'Message',
-      dataId: 'DataId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
+      dataId: 'string',
+      message: 'string',
       resultData: CreateSegmentBodyJobResponseBodyDataResultListResultData,
       success: 'boolean',
-      code: 'string',
-      message: 'string',
-      dataId: 'string',
     };
   }
 
@@ -2694,34 +1560,34 @@ export class CreateSegmentBodyJobResponseBodyDataResultList extends $tea.Model {
 }
 
 export class CreateSegmentBodyJobResponseBodyData extends $tea.Model {
-  status?: string;
-  resultList?: CreateSegmentBodyJobResponseBodyDataResultList[];
   batchSize?: number;
-  totalUsedTime?: number;
-  progress?: number;
   completed?: boolean;
   jobId?: string;
+  progress?: number;
+  resultList?: CreateSegmentBodyJobResponseBodyDataResultList[];
+  status?: string;
+  totalUsedTime?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      resultList: 'ResultList',
       batchSize: 'BatchSize',
-      totalUsedTime: 'TotalUsedTime',
-      progress: 'Progress',
       completed: 'Completed',
       jobId: 'JobId',
+      progress: 'Progress',
+      resultList: 'ResultList',
+      status: 'Status',
+      totalUsedTime: 'TotalUsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      resultList: { 'type': 'array', 'itemType': CreateSegmentBodyJobResponseBodyDataResultList },
       batchSize: 'number',
-      totalUsedTime: 'number',
-      progress: 'number',
       completed: 'boolean',
       jobId: 'string',
+      progress: 'number',
+      resultList: { 'type': 'array', 'itemType': CreateSegmentBodyJobResponseBodyDataResultList },
+      status: 'string',
+      totalUsedTime: 'number',
     };
   }
 
@@ -2731,31 +1597,31 @@ export class CreateSegmentBodyJobResponseBodyData extends $tea.Model {
 }
 
 export class DetectImageElementsResponseBodyDataElements extends $tea.Model {
+  height?: number;
+  score?: number;
   type?: string;
   width?: number;
-  height?: number;
-  y?: number;
-  score?: number;
   x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
+      height: 'Height',
+      score: 'Score',
       type: 'Type',
       width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      score: 'Score',
       x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      height: 'number',
+      score: 'number',
       type: 'string',
       width: 'number',
-      height: 'number',
-      y: 'number',
-      score: 'number',
       x: 'number',
+      y: 'number',
     };
   }
 
@@ -2783,92 +1649,26 @@ export class DetectImageElementsResponseBodyData extends $tea.Model {
   }
 }
 
-export class DetectMainBodyResponseBodyDataLocation extends $tea.Model {
-  width?: number;
-  height?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      width: 'number',
-      height: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DetectMainBodyResponseBodyData extends $tea.Model {
-  location?: DetectMainBodyResponseBodyDataLocation;
-  static names(): { [key: string]: string } {
-    return {
-      location: 'Location',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      location: DetectMainBodyResponseBodyDataLocation,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class EnhanceFaceResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class EraseLogoInVideoRequestBoxes extends $tea.Model {
-  w?: number;
   h?: number;
-  y?: number;
+  w?: number;
   x?: number;
+  y?: number;
   static names(): { [key: string]: string } {
     return {
-      w: 'W',
       h: 'H',
-      y: 'Y',
+      w: 'W',
       x: 'X',
+      y: 'Y',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      w: 'number',
       h: 'number',
-      y: 'number',
+      w: 'number',
       x: 'number',
+      y: 'number',
     };
   }
 
@@ -2900,19 +1700,19 @@ export class EraseLogoInVideoResponseBodyData extends $tea.Model {
 }
 
 export class ExtendImageStyleResponseBodyData extends $tea.Model {
-  url?: string;
   majorUrl?: string;
+  url?: string;
   static names(): { [key: string]: string } {
     return {
-      url: 'Url',
       majorUrl: 'MajorUrl',
+      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      url: 'string',
       majorUrl: 'string',
+      url: 'string',
     };
   }
 
@@ -2922,28 +1722,28 @@ export class ExtendImageStyleResponseBodyData extends $tea.Model {
 }
 
 export class GetAsyncJobResultResponseBodyData extends $tea.Model {
-  status?: string;
-  errorMessage?: string;
-  result?: string;
   errorCode?: string;
+  errorMessage?: string;
   jobId?: string;
+  result?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      errorMessage: 'ErrorMessage',
-      result: 'Result',
       errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
       jobId: 'JobId',
+      result: 'Result',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      errorMessage: 'string',
-      result: 'string',
       errorCode: 'string',
+      errorMessage: 'string',
       jobId: 'string',
+      result: 'string',
+      status: 'string',
     };
   }
 
@@ -2953,40 +1753,40 @@ export class GetAsyncJobResultResponseBodyData extends $tea.Model {
 }
 
 export class GetAsyncResultResponseBodyData extends $tea.Model {
-  status?: string;
-  totalUsedTime?: number;
-  progress?: number;
   batchSize?: string;
-  result?: { [key: string]: any };
-  completed?: boolean;
   code?: string;
+  completed?: boolean;
   finish?: boolean;
   message?: string;
+  progress?: number;
+  result?: { [key: string]: any };
+  status?: string;
+  totalUsedTime?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      totalUsedTime: 'TotalUsedTime',
-      progress: 'Progress',
       batchSize: 'BatchSize',
-      result: 'Result',
-      completed: 'Completed',
       code: 'Code',
+      completed: 'Completed',
       finish: 'Finish',
       message: 'Message',
+      progress: 'Progress',
+      result: 'Result',
+      status: 'Status',
+      totalUsedTime: 'TotalUsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      totalUsedTime: 'number',
-      progress: 'number',
       batchSize: 'string',
-      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      completed: 'boolean',
       code: 'string',
+      completed: 'boolean',
       finish: 'boolean',
       message: 'string',
+      progress: 'number',
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      status: 'string',
+      totalUsedTime: 'number',
     };
   }
 
@@ -2996,37 +1796,37 @@ export class GetAsyncResultResponseBodyData extends $tea.Model {
 }
 
 export class GetJobResultResponseBodyData extends $tea.Model {
-  status?: string;
-  resultList?: { [key: string]: any }[];
-  totalUsedTime?: number;
   batchSize?: string;
-  progress?: number;
   completed?: boolean;
   finish?: boolean;
   message?: string;
+  progress?: number;
+  resultList?: { [key: string]: any }[];
+  status?: string;
+  totalUsedTime?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      resultList: 'ResultList',
-      totalUsedTime: 'TotalUsedTime',
       batchSize: 'BatchSize',
-      progress: 'Progress',
       completed: 'Completed',
       finish: 'Finish',
       message: 'Message',
+      progress: 'Progress',
+      resultList: 'ResultList',
+      status: 'Status',
+      totalUsedTime: 'TotalUsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
-      totalUsedTime: 'number',
       batchSize: 'string',
-      progress: 'number',
       completed: 'boolean',
       finish: 'boolean',
       message: 'string',
+      progress: 'number',
+      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      status: 'string',
+      totalUsedTime: 'number',
     };
   }
 
@@ -3036,87 +1836,37 @@ export class GetJobResultResponseBodyData extends $tea.Model {
 }
 
 export class GetJobStatusResponseBodyData extends $tea.Model {
-  status?: string;
-  totalUsedTime?: number;
   batchSize?: string;
-  progress?: number;
-  timeToLive?: number;
   completed?: boolean;
   finish?: boolean;
   message?: string;
+  progress?: number;
+  status?: string;
+  timeToLive?: number;
+  totalUsedTime?: number;
   static names(): { [key: string]: string } {
     return {
-      status: 'Status',
-      totalUsedTime: 'TotalUsedTime',
       batchSize: 'BatchSize',
-      progress: 'Progress',
-      timeToLive: 'TimeToLive',
       completed: 'Completed',
       finish: 'Finish',
       message: 'Message',
+      progress: 'Progress',
+      status: 'Status',
+      timeToLive: 'TimeToLive',
+      totalUsedTime: 'TotalUsedTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      status: 'string',
-      totalUsedTime: 'number',
       batchSize: 'string',
-      progress: 'number',
-      timeToLive: 'number',
       completed: 'boolean',
       finish: 'boolean',
       message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRenderResultResponseBodyDataResultData extends $tea.Model {
-  imageUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetRenderResultResponseBodyData extends $tea.Model {
-  resultData?: GetRenderResultResponseBodyDataResultData;
-  progress?: number;
-  completed?: boolean;
-  code?: string;
-  message?: string;
-  static names(): { [key: string]: string } {
-    return {
-      resultData: 'ResultData',
-      progress: 'Progress',
-      completed: 'Completed',
-      code: 'Code',
-      message: 'Message',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      resultData: GetRenderResultResponseBodyDataResultData,
       progress: 'number',
-      completed: 'boolean',
-      code: 'string',
-      message: 'string',
+      status: 'string',
+      timeToLive: 'number',
+      totalUsedTime: 'number',
     };
   }
 
@@ -3126,44 +1876,22 @@ export class GetRenderResultResponseBodyData extends $tea.Model {
 }
 
 export class GetUserBucketConfigResponseBodyData extends $tea.Model {
-  regionName?: string;
-  region?: string;
   bucket?: string;
+  region?: string;
+  regionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionName: 'RegionName',
-      region: 'Region',
       bucket: 'Bucket',
+      region: 'Region',
+      regionName: 'RegionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionName: 'string',
-      region: 'string',
       bucket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HighlightGameVideoResponseBodyDataHighlightList extends $tea.Model {
-  start?: number;
-  end?: number;
-  static names(): { [key: string]: string } {
-    return {
-      start: 'Start',
-      end: 'End',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      start: 'number',
-      end: 'number',
+      region: 'string',
+      regionName: 'string',
     };
   }
 
@@ -3173,25 +1901,47 @@ export class HighlightGameVideoResponseBodyDataHighlightList extends $tea.Model 
 }
 
 export class HighlightGameVideoResponseBodyDataGameList extends $tea.Model {
-  gameInfo?: { [key: string]: any };
-  start?: number;
   end?: number;
+  gameInfo?: { [key: string]: any };
   id?: string;
+  start?: number;
   static names(): { [key: string]: string } {
     return {
-      gameInfo: 'GameInfo',
-      start: 'Start',
       end: 'End',
+      gameInfo: 'GameInfo',
       id: 'Id',
+      start: 'Start',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gameInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      start: 'number',
       end: 'number',
+      gameInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       id: 'string',
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HighlightGameVideoResponseBodyDataHighlightList extends $tea.Model {
+  end?: number;
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      start: 'number',
     };
   }
 
@@ -3201,69 +1951,19 @@ export class HighlightGameVideoResponseBodyDataGameList extends $tea.Model {
 }
 
 export class HighlightGameVideoResponseBodyData extends $tea.Model {
-  highlightList?: HighlightGameVideoResponseBodyDataHighlightList[];
   gameList?: HighlightGameVideoResponseBodyDataGameList[];
+  highlightList?: HighlightGameVideoResponseBodyDataHighlightList[];
   static names(): { [key: string]: string } {
     return {
-      highlightList: 'HighlightList',
       gameList: 'GameList',
+      highlightList: 'HighlightList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      highlightList: { 'type': 'array', 'itemType': HighlightGameVideoResponseBodyDataHighlightList },
       gameList: { 'type': 'array', 'itemType': HighlightGameVideoResponseBodyDataGameList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IntelligentCompositionResponseBodyDataElements extends $tea.Model {
-  minX?: number;
-  score?: number;
-  maxY?: number;
-  maxX?: number;
-  minY?: number;
-  static names(): { [key: string]: string } {
-    return {
-      minX: 'MinX',
-      score: 'Score',
-      maxY: 'MaxY',
-      maxX: 'MaxX',
-      minY: 'MinY',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      minX: 'number',
-      score: 'number',
-      maxY: 'number',
-      maxX: 'number',
-      minY: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class IntelligentCompositionResponseBodyData extends $tea.Model {
-  elements?: IntelligentCompositionResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': IntelligentCompositionResponseBodyDataElements },
+      highlightList: { 'type': 'array', 'itemType': HighlightGameVideoResponseBodyDataHighlightList },
     };
   }
 
@@ -3370,108 +2070,23 @@ export class MakeSuperResolutionImageResponseBodyData extends $tea.Model {
   }
 }
 
-export class ParseFaceResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ParseFaceResponseBodyData extends $tea.Model {
-  elements?: ParseFaceResponseBodyDataElements[];
-  originImageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-      originImageURL: 'OriginImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': ParseFaceResponseBodyDataElements },
-      originImageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelForPackageDesignRequestElementList extends $tea.Model {
-  imageUrl?: string;
-  sideName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      sideName: 'SideName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      sideName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PreviewModelForPackageDesignResponseBodyData extends $tea.Model {
-  previewUrl?: string;
-  static names(): { [key: string]: string } {
-    return {
-      previewUrl: 'PreviewUrl',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      previewUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeImageColorResponseBodyDataColorTemplateList extends $tea.Model {
   color?: string;
-  percentage?: number;
   label?: string;
+  percentage?: number;
   static names(): { [key: string]: string } {
     return {
       color: 'Color',
-      percentage: 'Percentage',
       label: 'Label',
+      percentage: 'Percentage',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       color: 'string',
-      percentage: 'number',
       label: 'string',
+      percentage: 'number',
     };
   }
 
@@ -3556,66 +2171,6 @@ export class RecolorImageResponseBodyData extends $tea.Model {
   }
 }
 
-export class RenderImageForPackageDesignRequestElementList extends $tea.Model {
-  imageUrl?: string;
-  sideName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageUrl: 'ImageUrl',
-      sideName: 'SideName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageUrl: 'string',
-      sideName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenderImageForPackageDesignResponseBodyData extends $tea.Model {
-  jobId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      jobId: 'JobId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      jobId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentAnimalResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SegmentBodyResponseBodyData extends $tea.Model {
   imageUrl?: string;
   static names(): { [key: string]: string } {
@@ -3627,44 +2182,6 @@ export class SegmentBodyResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       imageUrl: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentClothResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentClothResponseBodyData extends $tea.Model {
-  elements?: SegmentClothResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': SegmentClothResponseBodyDataElements },
     };
   }
 
@@ -3692,106 +2209,6 @@ export class SegmentCommodityResponseBodyData extends $tea.Model {
   }
 }
 
-export class SegmentHairResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  width?: number;
-  height?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      width: 'number',
-      height: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHairResponseBodyData extends $tea.Model {
-  elements?: SegmentHairResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': SegmentHairResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHeadResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  width?: number;
-  height?: number;
-  y?: number;
-  x?: number;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      width: 'Width',
-      height: 'Height',
-      y: 'Y',
-      x: 'X',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      width: 'number',
-      height: 'number',
-      y: 'number',
-      x: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentHeadResponseBodyData extends $tea.Model {
-  elements?: SegmentHeadResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': SegmentHeadResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SegmentImageResponseBodyData extends $tea.Model {
   url?: string;
   static names(): { [key: string]: string } {
@@ -3811,80 +2228,20 @@ export class SegmentImageResponseBodyData extends $tea.Model {
   }
 }
 
-export class SegmentSkyResponseBodyData extends $tea.Model {
-  imageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentVehicleResponseBodyDataElements extends $tea.Model {
-  imageURL?: string;
-  originImageURL?: string;
-  static names(): { [key: string]: string } {
-    return {
-      imageURL: 'ImageURL',
-      originImageURL: 'OriginImageURL',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURL: 'string',
-      originImageURL: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SegmentVehicleResponseBodyData extends $tea.Model {
-  elements?: SegmentVehicleResponseBodyDataElements[];
-  static names(): { [key: string]: string } {
-    return {
-      elements: 'Elements',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      elements: { 'type': 'array', 'itemType': SegmentVehicleResponseBodyDataElements },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateUserBucketConfigRequestData extends $tea.Model {
-  region?: string;
   bucket?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      region: 'Region',
       bucket: 'Bucket',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      region: 'string',
       bucket: 'string',
+      region: 'string',
     };
   }
 
@@ -3894,22 +2251,22 @@ export class UpdateUserBucketConfigRequestData extends $tea.Model {
 }
 
 export class UpdateUserBucketConfigResponseBodyData extends $tea.Model {
-  regionName?: string;
-  region?: string;
   bucket?: string;
+  region?: string;
+  regionName?: string;
   static names(): { [key: string]: string } {
     return {
-      regionName: 'RegionName',
-      region: 'Region',
       bucket: 'Bucket',
+      region: 'Region',
+      regionName: 'RegionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      regionName: 'string',
-      region: 'string',
       bucket: 'string',
+      region: 'string',
+      regionName: 'string',
     };
   }
 
@@ -3941,51 +2298,36 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
-  async assessCompositionWithOptions(request: AssessCompositionRequest, runtime: $Util.RuntimeOptions): Promise<AssessCompositionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AssessCompositionResponse>(await this.doRPCRequest("AssessComposition", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new AssessCompositionResponse({}));
-  }
-
-  async assessComposition(request: AssessCompositionRequest): Promise<AssessCompositionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.assessCompositionWithOptions(request, runtime);
-  }
-
-  async assessExposureWithOptions(request: AssessExposureRequest, runtime: $Util.RuntimeOptions): Promise<AssessExposureResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AssessExposureResponse>(await this.doRPCRequest("AssessExposure", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new AssessExposureResponse({}));
-  }
-
-  async assessExposure(request: AssessExposureRequest): Promise<AssessExposureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.assessExposureWithOptions(request, runtime);
-  }
-
-  async assessSharpnessWithOptions(request: AssessSharpnessRequest, runtime: $Util.RuntimeOptions): Promise<AssessSharpnessResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<AssessSharpnessResponse>(await this.doRPCRequest("AssessSharpness", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new AssessSharpnessResponse({}));
-  }
-
-  async assessSharpness(request: AssessSharpnessRequest): Promise<AssessSharpnessResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.assessSharpnessWithOptions(request, runtime);
-  }
-
   async changeImageSizeWithOptions(request: ChangeImageSizeRequest, runtime: $Util.RuntimeOptions): Promise<ChangeImageSizeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.height)) {
+      body["Height"] = request.height;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.width)) {
+      body["Width"] = request.width;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ChangeImageSizeResponse>(await this.doRPCRequest("ChangeImageSize", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new ChangeImageSizeResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ChangeImageSize",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChangeImageSizeResponse>(await this.callApi(params, req, runtime), new ChangeImageSizeResponse({}));
   }
 
   async changeImageSize(request: ChangeImageSizeRequest): Promise<ChangeImageSizeResponse> {
@@ -3995,10 +2337,34 @@ export default class Client extends OpenApi {
 
   async createSegmentBodyJobWithOptions(request: CreateSegmentBodyJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateSegmentBodyJobResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataList)) {
+      body["DataList"] = request.dataList;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.timeToLive)) {
+      body["TimeToLive"] = request.timeToLive;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<CreateSegmentBodyJobResponse>(await this.doRPCRequest("CreateSegmentBodyJob", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new CreateSegmentBodyJobResponse({}));
+    let params = new $OpenApi.Params({
+      action: "CreateSegmentBodyJob",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSegmentBodyJobResponse>(await this.callApi(params, req, runtime), new CreateSegmentBodyJobResponse({}));
   }
 
   async createSegmentBodyJob(request: CreateSegmentBodyJobRequest): Promise<CreateSegmentBodyJobResponse> {
@@ -4008,10 +2374,26 @@ export default class Client extends OpenApi {
 
   async detectImageElementsWithOptions(request: DetectImageElementsRequest, runtime: $Util.RuntimeOptions): Promise<DetectImageElementsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<DetectImageElementsResponse>(await this.doRPCRequest("DetectImageElements", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new DetectImageElementsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "DetectImageElements",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetectImageElementsResponse>(await this.callApi(params, req, runtime), new DetectImageElementsResponse({}));
   }
 
   async detectImageElements(request: DetectImageElementsRequest): Promise<DetectImageElementsResponse> {
@@ -4019,38 +2401,36 @@ export default class Client extends OpenApi {
     return await this.detectImageElementsWithOptions(request, runtime);
   }
 
-  async detectMainBodyWithOptions(request: DetectMainBodyRequest, runtime: $Util.RuntimeOptions): Promise<DetectMainBodyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<DetectMainBodyResponse>(await this.doRPCRequest("DetectMainBody", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new DetectMainBodyResponse({}));
-  }
-
-  async detectMainBody(request: DetectMainBodyRequest): Promise<DetectMainBodyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.detectMainBodyWithOptions(request, runtime);
-  }
-
-  async enhanceFaceWithOptions(request: EnhanceFaceRequest, runtime: $Util.RuntimeOptions): Promise<EnhanceFaceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<EnhanceFaceResponse>(await this.doRPCRequest("EnhanceFace", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new EnhanceFaceResponse({}));
-  }
-
-  async enhanceFace(request: EnhanceFaceRequest): Promise<EnhanceFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.enhanceFaceWithOptions(request, runtime);
-  }
-
   async eraseLogoInVideoWithOptions(request: EraseLogoInVideoRequest, runtime: $Util.RuntimeOptions): Promise<EraseLogoInVideoResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.boxes)) {
+      body["Boxes"] = request.boxes;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<EraseLogoInVideoResponse>(await this.doRPCRequest("EraseLogoInVideo", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new EraseLogoInVideoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "EraseLogoInVideo",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EraseLogoInVideoResponse>(await this.callApi(params, req, runtime), new EraseLogoInVideoResponse({}));
   }
 
   async eraseLogoInVideo(request: EraseLogoInVideoRequest): Promise<EraseLogoInVideoResponse> {
@@ -4060,10 +2440,30 @@ export default class Client extends OpenApi {
 
   async extendImageStyleWithOptions(request: ExtendImageStyleRequest, runtime: $Util.RuntimeOptions): Promise<ExtendImageStyleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.majorUrl)) {
+      body["MajorUrl"] = request.majorUrl;
+    }
+
+    if (!Util.isUnset(request.styleUrl)) {
+      body["StyleUrl"] = request.styleUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ExtendImageStyleResponse>(await this.doRPCRequest("ExtendImageStyle", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new ExtendImageStyleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ExtendImageStyle",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExtendImageStyleResponse>(await this.callApi(params, req, runtime), new ExtendImageStyleResponse({}));
   }
 
   async extendImageStyle(request: ExtendImageStyleRequest): Promise<ExtendImageStyleResponse> {
@@ -4073,10 +2473,26 @@ export default class Client extends OpenApi {
 
   async getAsyncJobResultWithOptions(request: GetAsyncJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncJobResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAsyncJobResultResponse>(await this.doRPCRequest("GetAsyncJobResult", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncJobResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncJobResult",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncJobResultResponse>(await this.callApi(params, req, runtime), new GetAsyncJobResultResponse({}));
   }
 
   async getAsyncJobResult(request: GetAsyncJobResultRequest): Promise<GetAsyncJobResultResponse> {
@@ -4086,10 +2502,26 @@ export default class Client extends OpenApi {
 
   async getAsyncResultWithOptions(request: GetAsyncResultRequest, runtime: $Util.RuntimeOptions): Promise<GetAsyncResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetAsyncResultResponse>(await this.doRPCRequest("GetAsyncResult", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetAsyncResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetAsyncResult",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAsyncResultResponse>(await this.callApi(params, req, runtime), new GetAsyncResultResponse({}));
   }
 
   async getAsyncResult(request: GetAsyncResultRequest): Promise<GetAsyncResultResponse> {
@@ -4099,10 +2531,26 @@ export default class Client extends OpenApi {
 
   async getJobResultWithOptions(request: GetJobResultRequest, runtime: $Util.RuntimeOptions): Promise<GetJobResultResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetJobResultResponse>(await this.doRPCRequest("GetJobResult", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobResultResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobResult",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobResultResponse>(await this.callApi(params, req, runtime), new GetJobResultResponse({}));
   }
 
   async getJobResult(request: GetJobResultRequest): Promise<GetJobResultResponse> {
@@ -4112,10 +2560,26 @@ export default class Client extends OpenApi {
 
   async getJobStatusWithOptions(request: GetJobStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetJobStatusResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<GetJobStatusResponse>(await this.doRPCRequest("GetJobStatus", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetJobStatusResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetJobStatus",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobStatusResponse>(await this.callApi(params, req, runtime), new GetJobStatusResponse({}));
   }
 
   async getJobStatus(request: GetJobStatusRequest): Promise<GetJobStatusResponse> {
@@ -4123,22 +2587,20 @@ export default class Client extends OpenApi {
     return await this.getJobStatusWithOptions(request, runtime);
   }
 
-  async getRenderResultWithOptions(request: GetRenderResultRequest, runtime: $Util.RuntimeOptions): Promise<GetRenderResultResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<GetRenderResultResponse>(await this.doRPCRequest("GetRenderResult", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetRenderResultResponse({}));
-  }
-
-  async getRenderResult(request: GetRenderResultRequest): Promise<GetRenderResultResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getRenderResultWithOptions(request, runtime);
-  }
-
   async getUserBucketConfigWithOptions(runtime: $Util.RuntimeOptions): Promise<GetUserBucketConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<GetUserBucketConfigResponse>(await this.doRPCRequest("GetUserBucketConfig", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new GetUserBucketConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "GetUserBucketConfig",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserBucketConfigResponse>(await this.callApi(params, req, runtime), new GetUserBucketConfigResponse({}));
   }
 
   async getUserBucketConfig(): Promise<GetUserBucketConfigResponse> {
@@ -4148,10 +2610,30 @@ export default class Client extends OpenApi {
 
   async highlightGameVideoWithOptions(request: HighlightGameVideoRequest, runtime: $Util.RuntimeOptions): Promise<HighlightGameVideoResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.async)) {
+      body["Async"] = request.async;
+    }
+
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<HighlightGameVideoResponse>(await this.doRPCRequest("HighlightGameVideo", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new HighlightGameVideoResponse({}));
+    let params = new $OpenApi.Params({
+      action: "HighlightGameVideo",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<HighlightGameVideoResponse>(await this.callApi(params, req, runtime), new HighlightGameVideoResponse({}));
   }
 
   async highlightGameVideo(request: HighlightGameVideoRequest): Promise<HighlightGameVideoResponse> {
@@ -4163,11 +2645,23 @@ export default class Client extends OpenApi {
     // Step 0: init client
     let accessKeyId = await this._credential.getAccessKeyId();
     let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
     let authConfig = new $RPC.Config({
       accessKeyId: accessKeyId,
       accessKeySecret: accessKeySecret,
-      type: "access_key",
-      endpoint: "openplatform.aliyuncs.com",
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
       protocol: this._protocol,
       regionId: this._regionId,
     });
@@ -4191,49 +2685,50 @@ export default class Client extends OpenApi {
     OpenApiUtil.convert(runtime, ossRuntime);
     let highlightGameVideoReq = new HighlightGameVideoRequest({ });
     OpenApiUtil.convert(request, highlightGameVideoReq);
-    authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-    ossConfig.accessKeyId = authResponse.accessKeyId;
-    ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-    ossClient = new OSS(ossConfig);
-    fileObj = new $FileForm.FileField({
-      filename: authResponse.objectKey,
-      content: request.videoUrlObject,
-      contentType: "",
-    });
-    ossHeader = new $OSS.PostObjectRequestHeader({
-      accessKeyId: authResponse.accessKeyId,
-      policy: authResponse.encodedPolicy,
-      signature: authResponse.signature,
-      key: authResponse.objectKey,
-      file: fileObj,
-      successActionStatus: "201",
-    });
-    uploadRequest = new $OSS.PostObjectRequest({
-      bucketName: authResponse.bucket,
-      header: ossHeader,
-    });
-    await ossClient.postObject(uploadRequest, ossRuntime);
-    highlightGameVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      highlightGameVideoReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
     let highlightGameVideoResp = await this.highlightGameVideoWithOptions(highlightGameVideoReq, runtime);
     return highlightGameVideoResp;
   }
 
-  async intelligentCompositionWithOptions(request: IntelligentCompositionRequest, runtime: $Util.RuntimeOptions): Promise<IntelligentCompositionResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<IntelligentCompositionResponse>(await this.doRPCRequest("IntelligentComposition", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new IntelligentCompositionResponse({}));
-  }
-
-  async intelligentComposition(request: IntelligentCompositionRequest): Promise<IntelligentCompositionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.intelligentCompositionWithOptions(request, runtime);
-  }
-
   async listPackageDesignModelTypesWithOptions(runtime: $Util.RuntimeOptions): Promise<ListPackageDesignModelTypesResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
-    return $tea.cast<ListPackageDesignModelTypesResponse>(await this.doRPCRequest("ListPackageDesignModelTypes", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListPackageDesignModelTypesResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListPackageDesignModelTypes",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPackageDesignModelTypesResponse>(await this.callApi(params, req, runtime), new ListPackageDesignModelTypesResponse({}));
   }
 
   async listPackageDesignModelTypes(): Promise<ListPackageDesignModelTypesResponse> {
@@ -4243,10 +2738,26 @@ export default class Client extends OpenApi {
 
   async listUserBucketsWithOptions(request: ListUserBucketsRequest, runtime: $Util.RuntimeOptions): Promise<ListUserBucketsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<ListUserBucketsResponse>(await this.doRPCRequest("ListUserBuckets", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new ListUserBucketsResponse({}));
+    let params = new $OpenApi.Params({
+      action: "ListUserBuckets",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListUserBucketsResponse>(await this.callApi(params, req, runtime), new ListUserBucketsResponse({}));
   }
 
   async listUserBuckets(request: ListUserBucketsRequest): Promise<ListUserBucketsResponse> {
@@ -4256,10 +2767,26 @@ export default class Client extends OpenApi {
 
   async makeSuperResolutionImageWithOptions(request: MakeSuperResolutionImageRequest, runtime: $Util.RuntimeOptions): Promise<MakeSuperResolutionImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<MakeSuperResolutionImageResponse>(await this.doRPCRequest("MakeSuperResolutionImage", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new MakeSuperResolutionImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "MakeSuperResolutionImage",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MakeSuperResolutionImageResponse>(await this.callApi(params, req, runtime), new MakeSuperResolutionImageResponse({}));
   }
 
   async makeSuperResolutionImage(request: MakeSuperResolutionImageRequest): Promise<MakeSuperResolutionImageResponse> {
@@ -4267,38 +2794,32 @@ export default class Client extends OpenApi {
     return await this.makeSuperResolutionImageWithOptions(request, runtime);
   }
 
-  async parseFaceWithOptions(request: ParseFaceRequest, runtime: $Util.RuntimeOptions): Promise<ParseFaceResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<ParseFaceResponse>(await this.doRPCRequest("ParseFace", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new ParseFaceResponse({}));
-  }
-
-  async parseFace(request: ParseFaceRequest): Promise<ParseFaceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.parseFaceWithOptions(request, runtime);
-  }
-
-  async previewModelForPackageDesignWithOptions(request: PreviewModelForPackageDesignRequest, runtime: $Util.RuntimeOptions): Promise<PreviewModelForPackageDesignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<PreviewModelForPackageDesignResponse>(await this.doRPCRequest("PreviewModelForPackageDesign", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new PreviewModelForPackageDesignResponse({}));
-  }
-
-  async previewModelForPackageDesign(request: PreviewModelForPackageDesignRequest): Promise<PreviewModelForPackageDesignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.previewModelForPackageDesignWithOptions(request, runtime);
-  }
-
   async recognizeImageColorWithOptions(request: RecognizeImageColorRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageColorResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.colorCount)) {
+      body["ColorCount"] = request.colorCount;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeImageColorResponse>(await this.doRPCRequest("RecognizeImageColor", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageColorResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeImageColor",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeImageColorResponse>(await this.callApi(params, req, runtime), new RecognizeImageColorResponse({}));
   }
 
   async recognizeImageColor(request: RecognizeImageColorRequest): Promise<RecognizeImageColorResponse> {
@@ -4308,10 +2829,26 @@ export default class Client extends OpenApi {
 
   async recognizeImageStyleWithOptions(request: RecognizeImageStyleRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeImageStyleResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecognizeImageStyleResponse>(await this.doRPCRequest("RecognizeImageStyle", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new RecognizeImageStyleResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecognizeImageStyle",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeImageStyleResponse>(await this.callApi(params, req, runtime), new RecognizeImageStyleResponse({}));
   }
 
   async recognizeImageStyle(request: RecognizeImageStyleRequest): Promise<RecognizeImageStyleResponse> {
@@ -4321,10 +2858,42 @@ export default class Client extends OpenApi {
 
   async recolorImageWithOptions(request: RecolorImageRequest, runtime: $Util.RuntimeOptions): Promise<RecolorImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.colorCount)) {
+      body["ColorCount"] = request.colorCount;
+    }
+
+    if (!Util.isUnset(request.colorTemplate)) {
+      body["ColorTemplate"] = request.colorTemplate;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      body["Mode"] = request.mode;
+    }
+
+    if (!Util.isUnset(request.refUrl)) {
+      body["RefUrl"] = request.refUrl;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<RecolorImageResponse>(await this.doRPCRequest("RecolorImage", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new RecolorImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "RecolorImage",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecolorImageResponse>(await this.callApi(params, req, runtime), new RecolorImageResponse({}));
   }
 
   async recolorImage(request: RecolorImageRequest): Promise<RecolorImageResponse> {
@@ -4332,38 +2901,28 @@ export default class Client extends OpenApi {
     return await this.recolorImageWithOptions(request, runtime);
   }
 
-  async renderImageForPackageDesignWithOptions(request: RenderImageForPackageDesignRequest, runtime: $Util.RuntimeOptions): Promise<RenderImageForPackageDesignResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<RenderImageForPackageDesignResponse>(await this.doRPCRequest("RenderImageForPackageDesign", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new RenderImageForPackageDesignResponse({}));
-  }
-
-  async renderImageForPackageDesign(request: RenderImageForPackageDesignRequest): Promise<RenderImageForPackageDesignResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.renderImageForPackageDesignWithOptions(request, runtime);
-  }
-
-  async segmentAnimalWithOptions(request: SegmentAnimalRequest, runtime: $Util.RuntimeOptions): Promise<SegmentAnimalResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentAnimalResponse>(await this.doRPCRequest("SegmentAnimal", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentAnimalResponse({}));
-  }
-
-  async segmentAnimal(request: SegmentAnimalRequest): Promise<SegmentAnimalResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentAnimalWithOptions(request, runtime);
-  }
-
   async segmentBodyWithOptions(request: SegmentBodyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentBodyResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageUrl)) {
+      body["ImageUrl"] = request.imageUrl;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SegmentBodyResponse>(await this.doRPCRequest("SegmentBody", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentBodyResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SegmentBody",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SegmentBodyResponse>(await this.callApi(params, req, runtime), new SegmentBodyResponse({}));
   }
 
   async segmentBody(request: SegmentBodyRequest): Promise<SegmentBodyResponse> {
@@ -4371,25 +2930,28 @@ export default class Client extends OpenApi {
     return await this.segmentBodyWithOptions(request, runtime);
   }
 
-  async segmentClothWithOptions(request: SegmentClothRequest, runtime: $Util.RuntimeOptions): Promise<SegmentClothResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentClothResponse>(await this.doRPCRequest("SegmentCloth", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentClothResponse({}));
-  }
-
-  async segmentCloth(request: SegmentClothRequest): Promise<SegmentClothResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentClothWithOptions(request, runtime);
-  }
-
   async segmentCommodityWithOptions(request: SegmentCommodityRequest, runtime: $Util.RuntimeOptions): Promise<SegmentCommodityResponse> {
     Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageURL)) {
+      query["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      query: OpenApiUtil.query(query),
     });
-    return $tea.cast<SegmentCommodityResponse>(await this.doRPCRequest("SegmentCommodity", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentCommodityResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SegmentCommodity",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SegmentCommodityResponse>(await this.callApi(params, req, runtime), new SegmentCommodityResponse({}));
   }
 
   async segmentCommodity(request: SegmentCommodityRequest): Promise<SegmentCommodityResponse> {
@@ -4397,38 +2959,28 @@ export default class Client extends OpenApi {
     return await this.segmentCommodityWithOptions(request, runtime);
   }
 
-  async segmentHairWithOptions(request: SegmentHairRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHairResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentHairResponse>(await this.doRPCRequest("SegmentHair", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentHairResponse({}));
-  }
-
-  async segmentHair(request: SegmentHairRequest): Promise<SegmentHairResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentHairWithOptions(request, runtime);
-  }
-
-  async segmentHeadWithOptions(request: SegmentHeadRequest, runtime: $Util.RuntimeOptions): Promise<SegmentHeadResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentHeadResponse>(await this.doRPCRequest("SegmentHead", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentHeadResponse({}));
-  }
-
-  async segmentHead(request: SegmentHeadRequest): Promise<SegmentHeadResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentHeadWithOptions(request, runtime);
-  }
-
   async segmentImageWithOptions(request: SegmentImageRequest, runtime: $Util.RuntimeOptions): Promise<SegmentImageResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<SegmentImageResponse>(await this.doRPCRequest("SegmentImage", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentImageResponse({}));
+    let params = new $OpenApi.Params({
+      action: "SegmentImage",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SegmentImageResponse>(await this.callApi(params, req, runtime), new SegmentImageResponse({}));
   }
 
   async segmentImage(request: SegmentImageRequest): Promise<SegmentImageResponse> {
@@ -4436,38 +2988,28 @@ export default class Client extends OpenApi {
     return await this.segmentImageWithOptions(request, runtime);
   }
 
-  async segmentSkyWithOptions(request: SegmentSkyRequest, runtime: $Util.RuntimeOptions): Promise<SegmentSkyResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentSkyResponse>(await this.doRPCRequest("SegmentSky", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentSkyResponse({}));
-  }
-
-  async segmentSky(request: SegmentSkyRequest): Promise<SegmentSkyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentSkyWithOptions(request, runtime);
-  }
-
-  async segmentVehicleWithOptions(request: SegmentVehicleRequest, runtime: $Util.RuntimeOptions): Promise<SegmentVehicleResponse> {
-    Util.validateModel(request);
-    let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
-    });
-    return $tea.cast<SegmentVehicleResponse>(await this.doRPCRequest("SegmentVehicle", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new SegmentVehicleResponse({}));
-  }
-
-  async segmentVehicle(request: SegmentVehicleRequest): Promise<SegmentVehicleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.segmentVehicleWithOptions(request, runtime);
-  }
-
   async updateUserBucketConfigWithOptions(request: UpdateUserBucketConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserBucketConfigResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["Data"] = request.data;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toMap(request),
+      body: OpenApiUtil.parseToMap(body),
     });
-    return $tea.cast<UpdateUserBucketConfigResponse>(await this.doRPCRequest("UpdateUserBucketConfig", "2019-06-25", "HTTPS", "POST", "AK", "json", req, runtime), new UpdateUserBucketConfigResponse({}));
+    let params = new $OpenApi.Params({
+      action: "UpdateUserBucketConfig",
+      version: "2019-06-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserBucketConfigResponse>(await this.callApi(params, req, runtime), new UpdateUserBucketConfigResponse({}));
   }
 
   async updateUserBucketConfig(request: UpdateUserBucketConfigRequest): Promise<UpdateUserBucketConfigResponse> {
