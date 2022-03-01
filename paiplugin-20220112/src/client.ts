@@ -12,7 +12,7 @@ export class CreateGroupRequest extends $tea.Model {
   algorithm?: string;
   column?: string;
   filter?: string;
-  inferenceJob?: string;
+  inferenceJobId?: string;
   name?: string;
   project?: string;
   remark?: string;
@@ -25,7 +25,7 @@ export class CreateGroupRequest extends $tea.Model {
       algorithm: 'Algorithm',
       column: 'Column',
       filter: 'Filter',
-      inferenceJob: 'InferenceJob',
+      inferenceJobId: 'InferenceJobId',
       name: 'Name',
       project: 'Project',
       remark: 'Remark',
@@ -41,7 +41,7 @@ export class CreateGroupRequest extends $tea.Model {
       algorithm: 'string',
       column: 'string',
       filter: 'string',
-      inferenceJob: 'string',
+      inferenceJobId: 'string',
       name: 'string',
       project: 'string',
       remark: 'string',
@@ -61,11 +61,13 @@ export class CreateGroupResponseBody extends $tea.Model {
   data?: CreateGroupResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -74,6 +76,7 @@ export class CreateGroupResponseBody extends $tea.Model {
       data: CreateGroupResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -139,11 +142,13 @@ export class CreateInferenceJobResponseBody extends $tea.Model {
   data?: CreateInferenceJobResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -152,6 +157,7 @@ export class CreateInferenceJobResponseBody extends $tea.Model {
       data: CreateInferenceJobResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -190,7 +196,9 @@ export class CreateScheduleRequest extends $tea.Model {
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
+  signName?: string;
   signatureId?: string;
+  templateCode?: string;
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,7 +209,9 @@ export class CreateScheduleRequest extends $tea.Model {
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
+      signName: 'SignName',
       signatureId: 'SignatureId',
+      templateCode: 'TemplateCode',
       templateId: 'TemplateId',
     };
   }
@@ -215,7 +225,9 @@ export class CreateScheduleRequest extends $tea.Model {
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
+      signName: 'string',
       signatureId: 'string',
+      templateCode: 'string',
       templateId: 'string',
     };
   }
@@ -229,11 +241,13 @@ export class CreateScheduleResponseBody extends $tea.Model {
   data?: CreateScheduleResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -242,6 +256,7 @@ export class CreateScheduleResponseBody extends $tea.Model {
       data: CreateScheduleResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -298,11 +313,13 @@ export class CreateSignatureResponseBody extends $tea.Model {
   data?: CreateSignatureResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -311,6 +328,7 @@ export class CreateSignatureResponseBody extends $tea.Model {
       data: CreateSignatureResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -376,11 +394,13 @@ export class CreateTemplateResponseBody extends $tea.Model {
   data?: CreateTemplateResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -389,6 +409,7 @@ export class CreateTemplateResponseBody extends $tea.Model {
       data: CreateTemplateResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -451,11 +472,13 @@ export class CreateTrainingJobResponseBody extends $tea.Model {
   data?: CreateTrainingJobResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -464,6 +487,7 @@ export class CreateTrainingJobResponseBody extends $tea.Model {
       data: CreateTrainingJobResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -498,11 +522,13 @@ export class DeleteGroupResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -511,6 +537,7 @@ export class DeleteGroupResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -545,11 +572,13 @@ export class DeleteInferenceJobResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -558,6 +587,7 @@ export class DeleteInferenceJobResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -592,11 +622,13 @@ export class DeleteScheduleResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -605,6 +637,7 @@ export class DeleteScheduleResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -639,11 +672,13 @@ export class DeleteSignatureResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -652,6 +687,7 @@ export class DeleteSignatureResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -686,11 +722,13 @@ export class DeleteTemplateResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -699,6 +737,7 @@ export class DeleteTemplateResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -733,11 +772,13 @@ export class DeleteTrainingJobResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -746,6 +787,7 @@ export class DeleteTrainingJobResponseBody extends $tea.Model {
       data: 'string',
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -776,15 +818,67 @@ export class DeleteTrainingJobResponse extends $tea.Model {
   }
 }
 
-export class GetGroupResponseBody extends $tea.Model {
-  data?: GetGroupResponseBodyData;
+export class GetAlgorithmResponseBody extends $tea.Model {
+  data?: GetAlgorithmResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetAlgorithmResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlgorithmResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetAlgorithmResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetAlgorithmResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetGroupResponseBody extends $tea.Model {
+  data?: GetGroupResponseBodyData;
+  errorCode?: number;
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -793,6 +887,7 @@ export class GetGroupResponseBody extends $tea.Model {
       data: GetGroupResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -827,11 +922,13 @@ export class GetInferenceJobResponseBody extends $tea.Model {
   data?: GetInferenceJobResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -840,6 +937,7 @@ export class GetInferenceJobResponseBody extends $tea.Model {
       data: GetInferenceJobResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -874,11 +972,13 @@ export class GetScheduleResponseBody extends $tea.Model {
   data?: GetScheduleResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -887,6 +987,7 @@ export class GetScheduleResponseBody extends $tea.Model {
       data: GetScheduleResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -921,11 +1022,13 @@ export class GetSignatureResponseBody extends $tea.Model {
   data?: GetSignatureResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -934,6 +1037,7 @@ export class GetSignatureResponseBody extends $tea.Model {
       data: GetSignatureResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -968,11 +1072,13 @@ export class GetTemplateResponseBody extends $tea.Model {
   data?: GetTemplateResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -981,6 +1087,7 @@ export class GetTemplateResponseBody extends $tea.Model {
       data: GetTemplateResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1015,11 +1122,13 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   data?: GetTrainingJobResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1028,6 +1137,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       data: GetTrainingJobResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1050,6 +1160,84 @@ export class GetTrainingJobResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetTrainingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlgorithmsRequest extends $tea.Model {
+  id?: string;
+  name?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlgorithmsResponseBody extends $tea.Model {
+  data?: ListAlgorithmsResponseBodyData;
+  errorCode?: number;
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListAlgorithmsResponseBodyData,
+      errorCode: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlgorithmsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAlgorithmsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAlgorithmsResponseBody,
     };
   }
 
@@ -1096,11 +1284,13 @@ export class ListGroupsResponseBody extends $tea.Model {
   data?: ListGroupsResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1109,6 +1299,7 @@ export class ListGroupsResponseBody extends $tea.Model {
       data: ListGroupsResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1174,11 +1365,13 @@ export class ListInferenceJobsResponseBody extends $tea.Model {
   data?: ListInferenceJobsResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1187,6 +1380,7 @@ export class ListInferenceJobsResponseBody extends $tea.Model {
       data: ListInferenceJobsResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1249,11 +1443,13 @@ export class ListMessageMetricsResponseBody extends $tea.Model {
   data?: ListMessageMetricsResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1262,6 +1458,7 @@ export class ListMessageMetricsResponseBody extends $tea.Model {
       data: ListMessageMetricsResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1342,11 +1539,13 @@ export class ListMessagesResponseBody extends $tea.Model {
   data?: ListMessagesResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1355,6 +1554,7 @@ export class ListMessagesResponseBody extends $tea.Model {
       data: ListMessagesResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1417,11 +1617,13 @@ export class ListSchedulesResponseBody extends $tea.Model {
   data?: ListSchedulesResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1430,6 +1632,7 @@ export class ListSchedulesResponseBody extends $tea.Model {
       data: ListSchedulesResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1492,11 +1695,13 @@ export class ListSignaturesResponseBody extends $tea.Model {
   data?: ListSignaturesResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1505,6 +1710,7 @@ export class ListSignaturesResponseBody extends $tea.Model {
       data: ListSignaturesResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1573,11 +1779,13 @@ export class ListTemplatesResponseBody extends $tea.Model {
   data?: ListTemplatesResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1586,6 +1794,7 @@ export class ListTemplatesResponseBody extends $tea.Model {
       data: ListTemplatesResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1651,11 +1860,13 @@ export class ListTrainingJobsResponseBody extends $tea.Model {
   data?: ListTrainingJobsResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1664,6 +1875,7 @@ export class ListTrainingJobsResponseBody extends $tea.Model {
       data: ListTrainingJobsResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1744,11 +1956,13 @@ export class SendMessageResponseBody extends $tea.Model {
   data?: SendMessageResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
     };
   }
 
@@ -1757,6 +1971,7 @@ export class SendMessageResponseBody extends $tea.Model {
       data: SendMessageResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
     };
   }
 
@@ -1794,7 +2009,7 @@ export class CreateGroupResponseBodyData extends $tea.Model {
   createdTime?: string;
   filter?: string;
   id?: string;
-  inferenceJob?: string;
+  inferenceJobId?: string;
   name?: string;
   project?: string;
   remark?: string;
@@ -1812,7 +2027,7 @@ export class CreateGroupResponseBodyData extends $tea.Model {
       createdTime: 'CreatedTime',
       filter: 'Filter',
       id: 'Id',
-      inferenceJob: 'InferenceJob',
+      inferenceJobId: 'InferenceJobId',
       name: 'Name',
       project: 'Project',
       remark: 'Remark',
@@ -1833,7 +2048,7 @@ export class CreateGroupResponseBodyData extends $tea.Model {
       createdTime: 'string',
       filter: 'string',
       id: 'string',
-      inferenceJob: 'string',
+      inferenceJobId: 'string',
       name: 'string',
       project: 'string',
       remark: 'string',
@@ -1910,8 +2125,10 @@ export class CreateScheduleResponseBodyData extends $tea.Model {
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
+  signName?: string;
   signatureId?: string;
   status?: number;
+  templateCode?: string;
   templateId?: string;
   updatedTime?: string;
   static names(): { [key: string]: string } {
@@ -1925,8 +2142,10 @@ export class CreateScheduleResponseBodyData extends $tea.Model {
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
+      signName: 'SignName',
       signatureId: 'SignatureId',
       status: 'Status',
+      templateCode: 'TemplateCode',
       templateId: 'TemplateId',
       updatedTime: 'UpdatedTime',
     };
@@ -1943,8 +2162,10 @@ export class CreateScheduleResponseBodyData extends $tea.Model {
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
+      signName: 'string',
       signatureId: 'string',
       status: 'number',
+      templateCode: 'string',
       templateId: 'string',
       updatedTime: 'string',
     };
@@ -2078,6 +2299,37 @@ export class CreateTrainingJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetAlgorithmResponseBodyData extends $tea.Model {
+  description?: string;
+  id?: string;
+  inferUserConfigMap?: string;
+  name?: string;
+  trainUserConfigMap?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      id: 'Id',
+      inferUserConfigMap: 'InferUserConfigMap',
+      name: 'Name',
+      trainUserConfigMap: 'TrainUserConfigMap',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      id: 'string',
+      inferUserConfigMap: 'string',
+      name: 'string',
+      trainUserConfigMap: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGroupResponseBodyData extends $tea.Model {
   algorithm?: string;
   amount?: number;
@@ -2085,7 +2337,7 @@ export class GetGroupResponseBodyData extends $tea.Model {
   createdTime?: string;
   filter?: string;
   id?: string;
-  inferenceJob?: string;
+  inferenceJobId?: string;
   name?: string;
   project?: string;
   remark?: string;
@@ -2103,7 +2355,7 @@ export class GetGroupResponseBodyData extends $tea.Model {
       createdTime: 'CreatedTime',
       filter: 'Filter',
       id: 'Id',
-      inferenceJob: 'InferenceJob',
+      inferenceJobId: 'InferenceJobId',
       name: 'Name',
       project: 'Project',
       remark: 'Remark',
@@ -2124,7 +2376,7 @@ export class GetGroupResponseBodyData extends $tea.Model {
       createdTime: 'string',
       filter: 'string',
       id: 'string',
-      inferenceJob: 'string',
+      inferenceJobId: 'string',
       name: 'string',
       project: 'string',
       remark: 'string',
@@ -2202,8 +2454,10 @@ export class GetScheduleResponseBodyData extends $tea.Model {
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
+  signName?: string;
   signatureId?: string;
   status?: number;
+  templateCode?: string;
   templateId?: string;
   updatedTime?: string;
   static names(): { [key: string]: string } {
@@ -2218,8 +2472,10 @@ export class GetScheduleResponseBodyData extends $tea.Model {
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
+      signName: 'SignName',
       signatureId: 'SignatureId',
       status: 'Status',
+      templateCode: 'TemplateCode',
       templateId: 'TemplateId',
       updatedTime: 'UpdatedTime',
     };
@@ -2237,8 +2493,10 @@ export class GetScheduleResponseBodyData extends $tea.Model {
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
+      signName: 'string',
       signatureId: 'string',
       status: 'number',
+      templateCode: 'string',
       templateId: 'string',
       updatedTime: 'string',
     };
@@ -2378,6 +2636,56 @@ export class GetTrainingJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListAlgorithmsResponseBodyDataAlgorithms extends $tea.Model {
+  id?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlgorithmsResponseBodyData extends $tea.Model {
+  algorithms?: ListAlgorithmsResponseBodyDataAlgorithms[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithms: 'Algorithms',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithms: { 'type': 'array', 'itemType': ListAlgorithmsResponseBodyDataAlgorithms },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGroupsResponseBodyDataGroups extends $tea.Model {
   algorithm?: string;
   amount?: number;
@@ -2385,7 +2693,7 @@ export class ListGroupsResponseBodyDataGroups extends $tea.Model {
   createdTime?: string;
   filter?: string;
   id?: string;
-  inferenceJob?: string;
+  inferenceJobId?: string;
   name?: string;
   project?: string;
   remark?: string;
@@ -2403,7 +2711,7 @@ export class ListGroupsResponseBodyDataGroups extends $tea.Model {
       createdTime: 'CreatedTime',
       filter: 'Filter',
       id: 'Id',
-      inferenceJob: 'InferenceJob',
+      inferenceJobId: 'InferenceJobId',
       name: 'Name',
       project: 'Project',
       remark: 'Remark',
@@ -2424,7 +2732,7 @@ export class ListGroupsResponseBodyDataGroups extends $tea.Model {
       createdTime: 'string',
       filter: 'string',
       id: 'string',
-      inferenceJob: 'string',
+      inferenceJobId: 'string',
       name: 'string',
       project: 'string',
       remark: 'string',
@@ -2693,8 +3001,10 @@ export class ListSchedulesResponseBodyDataSchedules extends $tea.Model {
   repeatCycle?: number;
   repeatCycleUnit?: number;
   repeatTimes?: number;
+  signName?: string;
   signatureId?: string;
   status?: number;
+  templateCode?: string;
   templateId?: string;
   updatedTime?: string;
   static names(): { [key: string]: string } {
@@ -2708,8 +3018,10 @@ export class ListSchedulesResponseBodyDataSchedules extends $tea.Model {
       repeatCycle: 'RepeatCycle',
       repeatCycleUnit: 'RepeatCycleUnit',
       repeatTimes: 'RepeatTimes',
+      signName: 'SignName',
       signatureId: 'SignatureId',
       status: 'Status',
+      templateCode: 'TemplateCode',
       templateId: 'TemplateId',
       updatedTime: 'UpdatedTime',
     };
@@ -2726,8 +3038,10 @@ export class ListSchedulesResponseBodyDataSchedules extends $tea.Model {
       repeatCycle: 'number',
       repeatCycleUnit: 'number',
       repeatTimes: 'number',
+      signName: 'string',
       signatureId: 'string',
       status: 'number',
+      templateCode: 'string',
       templateId: 'string',
       updatedTime: 'string',
     };
@@ -3040,6 +3354,10 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 注册人群
+  
+   */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3061,8 +3379,8 @@ export default class Client extends OpenApi {
       body["Filter"] = request.filter;
     }
 
-    if (!Util.isUnset(request.inferenceJob)) {
-      body["InferenceJob"] = request.inferenceJob;
+    if (!Util.isUnset(request.inferenceJobId)) {
+      body["InferenceJobId"] = request.inferenceJobId;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -3111,6 +3429,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
   }
 
+  /**
+   * 注册推理任务
+  
+   */
   async createInferenceJob(request: CreateInferenceJobRequest): Promise<CreateInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3158,6 +3480,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateInferenceJobResponse>(await this.callApi(params, req, runtime), new CreateInferenceJobResponse({}));
   }
 
+  /**
+   * 注册触达计划
+  
+   */
   async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3195,8 +3521,16 @@ export default class Client extends OpenApi {
       body["RepeatTimes"] = request.repeatTimes;
     }
 
+    if (!Util.isUnset(request.signName)) {
+      body["SignName"] = request.signName;
+    }
+
     if (!Util.isUnset(request.signatureId)) {
       body["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
     }
 
     if (!Util.isUnset(request.templateId)) {
@@ -3221,6 +3555,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
   }
 
+  /**
+   * 注册签名。
+  
+   */
   async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3256,6 +3594,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSignatureResponse>(await this.callApi(params, req, runtime), new CreateSignatureResponse({}));
   }
 
+  /**
+   * 注册模板
+  
+   */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3303,6 +3645,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTemplateResponse>(await this.callApi(params, req, runtime), new CreateTemplateResponse({}));
   }
 
+  /**
+   * 注册训练任务
+  
+   */
   async createTrainingJob(request: CreateTrainingJobRequest): Promise<CreateTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3346,6 +3692,10 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateTrainingJobResponse({}));
   }
 
+  /**
+   * 删除人群
+  
+   */
   async deleteGroup(Id: string): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3371,6 +3721,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
   }
 
+  /**
+   * 删除推理任务
+  
+   */
   async deleteInferenceJob(Id: string): Promise<DeleteInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3396,6 +3750,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteInferenceJobResponse>(await this.callApi(params, req, runtime), new DeleteInferenceJobResponse({}));
   }
 
+  /**
+   * 删除触达计划
+  
+   */
   async deleteSchedule(Id: string): Promise<DeleteScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3421,6 +3779,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
   }
 
+  /**
+   * 删除签名。
+  
+   */
   async deleteSignature(Id: string): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3446,6 +3808,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSignatureResponse>(await this.callApi(params, req, runtime), new DeleteSignatureResponse({}));
   }
 
+  /**
+   * 删除模板
+  
+   */
   async deleteTemplate(Id: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3471,6 +3837,10 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTemplateResponse>(await this.callApi(params, req, runtime), new DeleteTemplateResponse({}));
   }
 
+  /**
+   * 删除训练任务
+  
+   */
   async deleteTrainingJob(Id: string): Promise<DeleteTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3496,6 +3866,38 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteTrainingJobResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobResponse({}));
   }
 
+  /**
+   * 获取算法详情
+   */
+  async getAlgorithm(Id: string): Promise<GetAlgorithmResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlgorithmWithOptions(Id, headers, runtime);
+  }
+
+  async getAlgorithmWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAlgorithmResponse> {
+    Id = OpenApiUtil.getEncodeParam(Id);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAlgorithm",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/algorithms/${Id}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAlgorithmResponse>(await this.callApi(params, req, runtime), new GetAlgorithmResponse({}));
+  }
+
+  /**
+   * 获取人群
+  默认返回所有人群信息
+   */
   async getGroup(Id: string): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3521,6 +3923,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
   }
 
+  /**
+   * 获取推理任务
+  默认返回所有推理任务信息
+   */
   async getInferenceJob(Id: string): Promise<GetInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3546,6 +3952,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInferenceJobResponse>(await this.callApi(params, req, runtime), new GetInferenceJobResponse({}));
   }
 
+  /**
+   * 获取触达计划详情。
+  
+   */
   async getSchedule(Id: string): Promise<GetScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3571,6 +3981,9 @@ export default class Client extends OpenApi {
     return $tea.cast<GetScheduleResponse>(await this.callApi(params, req, runtime), new GetScheduleResponse({}));
   }
 
+  /**
+   * 获取签名详情
+   */
   async getSignature(Id: string): Promise<GetSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3596,6 +4009,11 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSignatureResponse>(await this.callApi(params, req, runtime), new GetSignatureResponse({}));
   }
 
+  /**
+   * 获取模板
+  默认返回所有模板信息
+  ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png)
+   */
   async getTemplate(Id: string): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3621,6 +4039,10 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
   }
 
+  /**
+   * 获取训练任务
+  默认返回所有训练任务信息
+   */
   async getTrainingJob(Id: string): Promise<GetTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3646,6 +4068,55 @@ export default class Client extends OpenApi {
     return $tea.cast<GetTrainingJobResponse>(await this.callApi(params, req, runtime), new GetTrainingJobResponse({}));
   }
 
+  /**
+   * 获取算法列表
+   */
+  async listAlgorithms(request: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlgorithmsWithOptions(request, headers, runtime);
+  }
+
+  async listAlgorithmsWithOptions(request: ListAlgorithmsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlgorithmsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAlgorithms",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/algorithms`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlgorithmsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmsResponse({}));
+  }
+
+  /**
+   * 获取人群列表
+   */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3697,6 +4168,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
   }
 
+  /**
+   * 获取推理任务列表
+   */
   async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3744,6 +4218,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListInferenceJobsResponse>(await this.callApi(params, req, runtime), new ListInferenceJobsResponse({}));
   }
 
+  /**
+   * 获取用户短信发送统计
+   */
   async listMessageMetrics(request: ListMessageMetricsRequest): Promise<ListMessageMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3787,6 +4264,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMessageMetricsResponse>(await this.callApi(params, req, runtime), new ListMessageMetricsResponse({}));
   }
 
+  /**
+   * 查询短信发送详情
+   */
   async listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3854,6 +4334,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListMessagesResponse>(await this.callApi(params, req, runtime), new ListMessagesResponse({}));
   }
 
+  /**
+   * 获取触达计划列表。
+   */
   async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3940,6 +4423,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSignaturesResponse>(await this.callApi(params, req, runtime), new ListSignaturesResponse({}));
   }
 
+  /**
+   * 获取模板列表
+  默认返回所有模板信息
+   */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -3991,6 +4478,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTemplatesResponse>(await this.callApi(params, req, runtime), new ListTemplatesResponse({}));
   }
 
+  /**
+   * 获取训练任务列表
+   */
   async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4038,6 +4528,9 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
   }
 
+  /**
+   * 发送短信
+   */
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
