@@ -1244,6 +1244,81 @@ export class CompleteAttendedTransferResponse extends $tea.Model {
   }
 }
 
+export class CreateCallTagsRequest extends $tea.Model {
+  callTagNameList?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callTagNameList: 'CallTagNameList',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTagNameList: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallTagsResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateCallTagsResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': CreateCallTagsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCallTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCallTagsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCampaignRequest extends $tea.Model {
   callableTime?: string;
   caseFileKey?: string;
@@ -1411,6 +1486,81 @@ export class CreateCampaignResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateCampaignResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCallTaggingRequest extends $tea.Model {
+  customNumberList?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      customNumberList: 'CustomNumberList',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customNumberList: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateCustomCallTaggingResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': CreateCustomCallTaggingResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateCustomCallTaggingResponseBody,
     };
   }
 
@@ -1588,6 +1738,7 @@ export class CreateSkillGroupResponse extends $tea.Model {
 }
 
 export class CreateUserRequest extends $tea.Model {
+  displayId?: string;
   displayName?: string;
   email?: string;
   instanceId?: string;
@@ -1599,6 +1750,7 @@ export class CreateUserRequest extends $tea.Model {
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      displayId: 'DisplayId',
       displayName: 'DisplayName',
       email: 'Email',
       instanceId: 'InstanceId',
@@ -1613,6 +1765,7 @@ export class CreateUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      displayId: 'string',
       displayName: 'string',
       email: 'string',
       instanceId: 'string',
@@ -1678,6 +1831,150 @@ export class CreateUserResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallTagRequest extends $tea.Model {
+  instanceId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallTagResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallTagResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteCallTagResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteCallTagResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomCallTaggingRequest extends $tea.Model {
+  instanceId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteCustomCallTaggingResponseBody,
     };
   }
 
@@ -1753,6 +2050,162 @@ export class DeleteSkillGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteSkillGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomCallTaggingRequest extends $tea.Model {
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportCustomCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDoNotCallNumbersRequest extends $tea.Model {
+  instanceId?: string;
+  scope?: string;
+  searchPattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      scope: 'Scope',
+      searchPattern: 'SearchPattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      scope: 'string',
+      searchPattern: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDoNotCallNumbersResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportDoNotCallNumbersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ExportDoNotCallNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ExportDoNotCallNumbersResponseBody,
     };
   }
 
@@ -1986,6 +2439,84 @@ export class GetCaseFileUploadUrlResponse extends $tea.Model {
   }
 }
 
+export class GetDoNotCallFileUploadParametersRequest extends $tea.Model {
+  fileName?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileName: 'FileName',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileName: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDoNotCallFileUploadParametersResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetDoNotCallFileUploadParametersResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDoNotCallFileUploadParametersResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDoNotCallFileUploadParametersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetDoNotCallFileUploadParametersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetDoNotCallFileUploadParametersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistoricalCallerReportRequest extends $tea.Model {
   callingNumber?: string;
   instanceId?: string;
@@ -2059,6 +2590,81 @@ export class GetHistoricalCallerReportResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetHistoricalCallerReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoricalCampaignReportRequest extends $tea.Model {
+  campaignId?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      campaignId: 'CampaignId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      campaignId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoricalCampaignReportResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetHistoricalCampaignReportResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetHistoricalCampaignReportResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoricalCampaignReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetHistoricalCampaignReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetHistoricalCampaignReportResponseBody,
     };
   }
 
@@ -2601,6 +3207,81 @@ export class GetNumberLocationResponse extends $tea.Model {
   }
 }
 
+export class GetRealtimeCampaignStatsRequest extends $tea.Model {
+  instanceId?: string;
+  queueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      queueId: 'QueueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      queueId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealtimeCampaignStatsResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetRealtimeCampaignStatsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetRealtimeCampaignStatsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRealtimeCampaignStatsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRealtimeCampaignStatsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRealtimeCampaignStatsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRealtimeInstanceStatesRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
@@ -2989,6 +3670,162 @@ export class HoldCallResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: HoldCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCustomCallTaggingRequest extends $tea.Model {
+  filePath?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  data?: ImportCustomCallTaggingResponseBodyData[];
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ImportCustomCallTaggingResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ImportCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ImportCustomCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDoNotCallNumbersRequest extends $tea.Model {
+  filePath?: string;
+  instanceId?: string;
+  numberList?: string;
+  remark?: string;
+  static names(): { [key: string]: string } {
+    return {
+      filePath: 'FilePath',
+      instanceId: 'InstanceId',
+      numberList: 'NumberList',
+      remark: 'Remark',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filePath: 'string',
+      instanceId: 'string',
+      numberList: 'string',
+      remark: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDoNotCallNumbersResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportDoNotCallNumbersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ImportDoNotCallNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ImportDoNotCallNumbersResponseBody,
     };
   }
 
@@ -3435,6 +4272,183 @@ export class ListAgentStateLogsResponse extends $tea.Model {
   }
 }
 
+export class ListAgentStatesRequest extends $tea.Model {
+  agentIds?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  skillGroupId?: string;
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentIds: 'AgentIds',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      skillGroupId: 'SkillGroupId',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentIds: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      skillGroupId: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentStatesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListAgentStatesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListAgentStatesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentStatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAgentStatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAgentStatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightRequest extends $tea.Model {
+  agentIds?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  skillGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentIds: 'AgentIds',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      skillGroupId: 'SkillGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentIds: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      skillGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pagedAgentSummaryReport?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReport;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pagedAgentSummaryReport: 'PagedAgentSummaryReport',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pagedAgentSummaryReport: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReport,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListAgentSummaryReportsSinceMidnightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListAgentSummaryReportsSinceMidnightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAttemptsRequest extends $tea.Model {
   agentId?: string;
   attemptId?: string;
@@ -3742,6 +4756,84 @@ export class ListCallDetailRecordsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListCallDetailRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTagsRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTagsResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCallTagsResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListCallTagsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTagsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCallTagsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCallTagsResponseBody,
     };
   }
 
@@ -4182,6 +5274,90 @@ export class ListContactFlowsResponse extends $tea.Model {
   }
 }
 
+export class ListCustomCallTaggingRequest extends $tea.Model {
+  callTagNameList?: string;
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  searchPattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callTagNameList: 'CallTagNameList',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchPattern: 'SearchPattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTagNameList: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchPattern: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListCustomCallTaggingResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListCustomCallTaggingResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListCustomCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDevicesRequest extends $tea.Model {
   instanceId?: string;
   userId?: string;
@@ -4252,6 +5428,93 @@ export class ListDevicesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListDevicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoNotCallNumbersRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  scope?: string;
+  searchPattern?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      scope: 'Scope',
+      searchPattern: 'SearchPattern',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scope: 'string',
+      searchPattern: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoNotCallNumbersResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListDoNotCallNumbersResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListDoNotCallNumbersResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoNotCallNumbersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListDoNotCallNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListDoNotCallNumbersResponseBody,
     };
   }
 
@@ -5910,6 +7173,174 @@ export class ListSipTracesResponse extends $tea.Model {
   }
 }
 
+export class ListSkillGroupStatesRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  skillGroupIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      skillGroupIds: 'SkillGroupIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      skillGroupIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupStatesResponseBody extends $tea.Model {
+  code?: string;
+  data?: ListSkillGroupStatesResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListSkillGroupStatesResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupStatesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSkillGroupStatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSkillGroupStatesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightRequest extends $tea.Model {
+  instanceId?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  skillGroups?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      skillGroups: 'SkillGroups',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      skillGroups: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  pagedSkillGroupSummaryReport?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pagedSkillGroupSummaryReport: 'PagedSkillGroupSummaryReport',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      pagedSkillGroupSummaryReport: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListSkillGroupSummaryReportsSinceMidnightResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListSkillGroupSummaryReportsSinceMidnightResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSkillGroupsRequest extends $tea.Model {
   instanceId?: string;
   pageNumber?: number;
@@ -6426,6 +7857,84 @@ export class MakeCallResponse extends $tea.Model {
   }
 }
 
+export class ModifyCustomCallTaggingRequest extends $tea.Model {
+  callTagNameList?: string;
+  description?: string;
+  instanceId?: string;
+  number?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callTagNameList: 'CallTagNameList',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      number: 'Number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTagNameList: 'string',
+      description: 'string',
+      instanceId: 'string',
+      number: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomCallTaggingResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomCallTaggingResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyCustomCallTaggingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyCustomCallTaggingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceRequest extends $tea.Model {
   description?: string;
   instanceId?: string;
@@ -6739,6 +8248,7 @@ export class ModifySkillLevelsOfUserResponse extends $tea.Model {
 }
 
 export class ModifyUserRequest extends $tea.Model {
+  displayId?: string;
   instanceId?: string;
   mobile?: string;
   roleId?: string;
@@ -6746,6 +8256,7 @@ export class ModifyUserRequest extends $tea.Model {
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      displayId: 'DisplayId',
       instanceId: 'InstanceId',
       mobile: 'Mobile',
       roleId: 'RoleId',
@@ -6756,6 +8267,7 @@ export class ModifyUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      displayId: 'string',
       instanceId: 'string',
       mobile: 'string',
       roleId: 'string',
@@ -7636,6 +9148,84 @@ export class ReleaseCallResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ReleaseCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDoNotCallNumbersRequest extends $tea.Model {
+  instanceId?: string;
+  numberList?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      numberList: 'NumberList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      numberList: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDoNotCallNumbersResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDoNotCallNumbersResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RemoveDoNotCallNumbersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RemoveDoNotCallNumbersResponseBody,
     };
   }
 
@@ -9558,6 +11148,78 @@ export class UnmuteCallResponse extends $tea.Model {
   }
 }
 
+export class UnregisterDeviceRequest extends $tea.Model {
+  instanceId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnregisterDeviceResponseBody extends $tea.Model {
+  code?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnregisterDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UnregisterDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UnregisterDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateConfigItemsRequest extends $tea.Model {
   configItems?: string;
   instanceId?: string;
@@ -10678,6 +12340,28 @@ export class CompleteAttendedTransferResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateCallTagsResponseBodyData extends $tea.Model {
+  item?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      reason: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCampaignRequestCaseList extends $tea.Model {
   customVariables?: string;
   phoneNumber?: string;
@@ -10695,6 +12379,28 @@ export class CreateCampaignRequestCaseList extends $tea.Model {
       customVariables: 'string',
       phoneNumber: 'string',
       referenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCustomCallTaggingResponseBodyData extends $tea.Model {
+  item?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      reason: 'string',
     };
   }
 
@@ -10887,10 +12593,12 @@ export class GetCallDetailRecordResponseBodyDataIvrEventsEventSequence extends $
 export class GetCallDetailRecordResponseBodyDataIvrEvents extends $tea.Model {
   eventSequence?: GetCallDetailRecordResponseBodyDataIvrEventsEventSequence[];
   flowId?: string;
+  flowType?: string;
   static names(): { [key: string]: string } {
     return {
       eventSequence: 'EventSequence',
       flowId: 'FlowId',
+      flowType: 'FlowType',
     };
   }
 
@@ -10898,6 +12606,7 @@ export class GetCallDetailRecordResponseBodyDataIvrEvents extends $tea.Model {
     return {
       eventSequence: { 'type': 'array', 'itemType': GetCallDetailRecordResponseBodyDataIvrEventsEventSequence },
       flowId: 'string',
+      flowType: 'string',
     };
   }
 
@@ -11148,6 +12857,40 @@ export class GetCaseFileUploadUrlResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetDoNotCallFileUploadParametersResponseBodyData extends $tea.Model {
+  accessKeyId?: string;
+  expireTime?: number;
+  filePath?: string;
+  host?: string;
+  policy?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      expireTime: 'ExpireTime',
+      filePath: 'FilePath',
+      host: 'Host',
+      policy: 'Policy',
+      signature: 'Signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expireTime: 'number',
+      filePath: 'string',
+      host: 'string',
+      policy: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
   lastCallingTime?: number;
   totalCalls?: number;
@@ -11162,6 +12905,40 @@ export class GetHistoricalCallerReportResponseBodyData extends $tea.Model {
     return {
       lastCallingTime: 'number',
       totalCalls: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHistoricalCampaignReportResponseBodyData extends $tea.Model {
+  abandonedRate?: number;
+  callsAbandoned?: number;
+  callsConnected?: number;
+  callsDialed?: number;
+  connectedRate?: number;
+  occupancyRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abandonedRate: 'AbandonedRate',
+      callsAbandoned: 'CallsAbandoned',
+      callsConnected: 'CallsConnected',
+      callsDialed: 'CallsDialed',
+      connectedRate: 'ConnectedRate',
+      occupancyRate: 'OccupancyRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abandonedRate: 'number',
+      callsAbandoned: 'number',
+      callsConnected: 'number',
+      callsDialed: 'number',
+      connectedRate: 'number',
+      occupancyRate: 'number',
     };
   }
 
@@ -11920,6 +13697,43 @@ export class GetNumberLocationResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetRealtimeCampaignStatsResponseBodyData extends $tea.Model {
+  breakingAgents?: number;
+  caps?: number;
+  loggedInAgents?: number;
+  readyAgents?: number;
+  talkingAgents?: number;
+  totalAgents?: number;
+  workingAgents?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakingAgents: 'BreakingAgents',
+      caps: 'Caps',
+      loggedInAgents: 'LoggedInAgents',
+      readyAgents: 'ReadyAgents',
+      talkingAgents: 'TalkingAgents',
+      totalAgents: 'TotalAgents',
+      workingAgents: 'WorkingAgents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakingAgents: 'number',
+      caps: 'number',
+      loggedInAgents: 'number',
+      readyAgents: 'number',
+      talkingAgents: 'number',
+      totalAgents: 'number',
+      workingAgents: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRealtimeInstanceStatesResponseBodyData extends $tea.Model {
   breakingAgents?: number;
   instanceId?: string;
@@ -11992,6 +13806,7 @@ export class GetUserResponseBodyData extends $tea.Model {
   deviceExt?: string;
   deviceId?: string;
   deviceState?: string;
+  displayId?: string;
   displayName?: string;
   email?: string;
   extension?: string;
@@ -12007,6 +13822,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       deviceExt: 'DeviceExt',
       deviceId: 'DeviceId',
       deviceState: 'DeviceState',
+      displayId: 'DisplayId',
       displayName: 'DisplayName',
       email: 'Email',
       extension: 'Extension',
@@ -12025,6 +13841,7 @@ export class GetUserResponseBodyData extends $tea.Model {
       deviceExt: 'string',
       deviceId: 'string',
       deviceState: 'string',
+      displayId: 'string',
       displayName: 'string',
       email: 'string',
       extension: 'string',
@@ -12195,6 +14012,28 @@ export class HoldCallResponseBodyData extends $tea.Model {
     return {
       callContext: HoldCallResponseBodyDataCallContext,
       userContext: HoldCallResponseBodyDataUserContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImportCustomCallTaggingResponseBodyData extends $tea.Model {
+  item?: string;
+  reason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      item: 'Item',
+      reason: 'Reason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      item: 'string',
+      reason: 'string',
     };
   }
 
@@ -12898,6 +14737,337 @@ export class ListAgentStateLogsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListAgentStatesResponseBodyDataList extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
+  dn?: string;
+  instanceId?: string;
+  loginName?: string;
+  state?: string;
+  stateDuration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      dn: 'Dn',
+      instanceId: 'InstanceId',
+      loginName: 'LoginName',
+      state: 'State',
+      stateDuration: 'StateDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      dn: 'string',
+      instanceId: 'string',
+      loginName: 'string',
+      state: 'string',
+      stateDuration: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentStatesResponseBodyData extends $tea.Model {
+  list?: ListAgentStatesResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListAgentStatesResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListInbound extends $tea.Model {
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  handleRate?: number;
+  maxRingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  serviceLevel20?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      handleRate: 'HandleRate',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel20: 'ServiceLevel20',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      handleRate: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      serviceLevel20: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOutbound extends $tea.Model {
+  answerRate?: number;
+  averageDialingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  maxDialingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: string;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalDialingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerRate: 'AnswerRate',
+      averageDialingTime: 'AverageDialingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      maxDialingTime: 'MaxDialingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalDialingTime: 'TotalDialingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerRate: 'number',
+      averageDialingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      maxDialingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'string',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalDialingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOverall extends $tea.Model {
+  averageReadyTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  maxReadyTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  occupancyRate?: number;
+  oneTransferCalls?: number;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalBreakTime?: number;
+  totalCalls?: number;
+  totalLoggedInTime?: number;
+  totalReadyTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageReadyTime: 'AverageReadyTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      maxReadyTime: 'MaxReadyTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      occupancyRate: 'OccupancyRate',
+      oneTransferCalls: 'OneTransferCalls',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalBreakTime: 'TotalBreakTime',
+      totalCalls: 'TotalCalls',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalReadyTime: 'TotalReadyTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageReadyTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      maxReadyTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      occupancyRate: 'number',
+      oneTransferCalls: 'number',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalBreakTime: 'number',
+      totalCalls: 'number',
+      totalLoggedInTime: 'number',
+      totalReadyTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportList extends $tea.Model {
+  agentId?: string;
+  agentName?: string;
+  inbound?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListInbound;
+  instanceId?: string;
+  loginName?: string;
+  outbound?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOutbound;
+  overall?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOverall;
+  skillGroupIds?: string;
+  skillGroupNames?: string;
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      agentName: 'AgentName',
+      inbound: 'Inbound',
+      instanceId: 'InstanceId',
+      loginName: 'LoginName',
+      outbound: 'Outbound',
+      overall: 'Overall',
+      skillGroupIds: 'SkillGroupIds',
+      skillGroupNames: 'SkillGroupNames',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      agentName: 'string',
+      inbound: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListInbound,
+      instanceId: 'string',
+      loginName: 'string',
+      outbound: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOutbound,
+      overall: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportListOverall,
+      skillGroupIds: 'string',
+      skillGroupNames: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReport extends $tea.Model {
+  list?: ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListAgentSummaryReportsSinceMidnightResponseBodyPagedAgentSummaryReportList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAttemptsResponseBodyDataList extends $tea.Model {
   agentEstablishedTime?: number;
   agentId?: string;
@@ -13190,6 +15360,56 @@ export class ListCallDetailRecordsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       list: { 'type': 'array', 'itemType': ListCallDetailRecordsResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTagsResponseBodyDataList extends $tea.Model {
+  instanceId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallTagsResponseBodyData extends $tea.Model {
+  list?: ListCallTagsResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListCallTagsResponseBodyDataList },
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -13515,6 +15735,90 @@ export class ListContactFlowsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCustomCallTaggingResponseBodyDataListCallTagList extends $tea.Model {
+  instanceId?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomCallTaggingResponseBodyDataList extends $tea.Model {
+  callTagList?: ListCustomCallTaggingResponseBodyDataListCallTagList[];
+  creator?: string;
+  description?: string;
+  instanceId?: string;
+  number?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callTagList: 'CallTagList',
+      creator: 'Creator',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      number: 'Number',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callTagList: { 'type': 'array', 'itemType': ListCustomCallTaggingResponseBodyDataListCallTagList },
+      creator: 'string',
+      description: 'string',
+      instanceId: 'string',
+      number: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCustomCallTaggingResponseBodyData extends $tea.Model {
+  list?: ListCustomCallTaggingResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListCustomCallTaggingResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDevicesResponseBodyData extends $tea.Model {
   callId?: string;
   contact?: string;
@@ -13544,6 +15848,65 @@ export class ListDevicesResponseBodyData extends $tea.Model {
       extension: 'string',
       instanceId: 'string',
       userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoNotCallNumbersResponseBodyDataList extends $tea.Model {
+  createTime?: number;
+  creator?: string;
+  number?: string;
+  remark?: string;
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      creator: 'Creator',
+      number: 'Number',
+      remark: 'Remark',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      creator: 'string',
+      number: 'string',
+      remark: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDoNotCallNumbersResponseBodyData extends $tea.Model {
+  list?: ListDoNotCallNumbersResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListDoNotCallNumbersResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -16469,6 +18832,361 @@ export class ListSipTracesResponseBodyData extends $tea.Model {
       payload: 'string',
       sourceNodeIp: 'string',
       timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupStatesResponseBodyDataList extends $tea.Model {
+  breakingAgents?: number;
+  instanceId?: string;
+  loggedInAgents?: number;
+  longestCall?: number;
+  readyAgents?: number;
+  skillGroupId?: string;
+  skillGroupName?: string;
+  talkingAgents?: number;
+  waitingCalls?: number;
+  workingAgents?: number;
+  static names(): { [key: string]: string } {
+    return {
+      breakingAgents: 'BreakingAgents',
+      instanceId: 'InstanceId',
+      loggedInAgents: 'LoggedInAgents',
+      longestCall: 'LongestCall',
+      readyAgents: 'ReadyAgents',
+      skillGroupId: 'SkillGroupId',
+      skillGroupName: 'SkillGroupName',
+      talkingAgents: 'TalkingAgents',
+      waitingCalls: 'WaitingCalls',
+      workingAgents: 'WorkingAgents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      breakingAgents: 'number',
+      instanceId: 'string',
+      loggedInAgents: 'number',
+      longestCall: 'number',
+      readyAgents: 'number',
+      skillGroupId: 'string',
+      skillGroupName: 'string',
+      talkingAgents: 'number',
+      waitingCalls: 'number',
+      workingAgents: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupStatesResponseBodyData extends $tea.Model {
+  list?: ListSkillGroupStatesResponseBodyDataList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListSkillGroupStatesResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound extends $tea.Model {
+  abandonedInQueueOfQueueCount?: number;
+  answeredByAgentOfQueueCount?: number;
+  answeredByAgentOfQueueMaxWaitTimeDuration?: number;
+  answeredByAgentOfQueueWaitTimeDuration?: number;
+  averageRingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsHandled?: number;
+  callsOffered?: number;
+  giveUpByAgentOfQueueCount?: number;
+  handleRate?: number;
+  inComingQueueOfQueueCount?: number;
+  maxRingTime?: number;
+  maxTalkTime?: string;
+  maxWorkTime?: number;
+  overFlowInQueueOfQueueCount?: number;
+  queueMaxWaitTimeDuration?: number;
+  queueWaitTimeDuration?: number;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  serviceLevel20?: number;
+  totalRingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abandonedInQueueOfQueueCount: 'AbandonedInQueueOfQueueCount',
+      answeredByAgentOfQueueCount: 'AnsweredByAgentOfQueueCount',
+      answeredByAgentOfQueueMaxWaitTimeDuration: 'AnsweredByAgentOfQueueMaxWaitTimeDuration',
+      answeredByAgentOfQueueWaitTimeDuration: 'AnsweredByAgentOfQueueWaitTimeDuration',
+      averageRingTime: 'AverageRingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsHandled: 'CallsHandled',
+      callsOffered: 'CallsOffered',
+      giveUpByAgentOfQueueCount: 'GiveUpByAgentOfQueueCount',
+      handleRate: 'HandleRate',
+      inComingQueueOfQueueCount: 'InComingQueueOfQueueCount',
+      maxRingTime: 'MaxRingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      overFlowInQueueOfQueueCount: 'OverFlowInQueueOfQueueCount',
+      queueMaxWaitTimeDuration: 'QueueMaxWaitTimeDuration',
+      queueWaitTimeDuration: 'QueueWaitTimeDuration',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      serviceLevel20: 'ServiceLevel20',
+      totalRingTime: 'TotalRingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abandonedInQueueOfQueueCount: 'number',
+      answeredByAgentOfQueueCount: 'number',
+      answeredByAgentOfQueueMaxWaitTimeDuration: 'number',
+      answeredByAgentOfQueueWaitTimeDuration: 'number',
+      averageRingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsHandled: 'number',
+      callsOffered: 'number',
+      giveUpByAgentOfQueueCount: 'number',
+      handleRate: 'number',
+      inComingQueueOfQueueCount: 'number',
+      maxRingTime: 'number',
+      maxTalkTime: 'string',
+      maxWorkTime: 'number',
+      overFlowInQueueOfQueueCount: 'number',
+      queueMaxWaitTimeDuration: 'number',
+      queueWaitTimeDuration: 'number',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      serviceLevel20: 'number',
+      totalRingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound extends $tea.Model {
+  answerRate?: number;
+  averageDialingTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  callsAnswered?: number;
+  callsDialed?: number;
+  maxDialingTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalDialingTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerRate: 'AnswerRate',
+      averageDialingTime: 'AverageDialingTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      callsAnswered: 'CallsAnswered',
+      callsDialed: 'CallsDialed',
+      maxDialingTime: 'MaxDialingTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalDialingTime: 'TotalDialingTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerRate: 'number',
+      averageDialingTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      callsAnswered: 'number',
+      callsDialed: 'number',
+      maxDialingTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalDialingTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall extends $tea.Model {
+  averageReadyTime?: number;
+  averageTalkTime?: number;
+  averageWorkTime?: number;
+  maxReadyTime?: number;
+  maxTalkTime?: number;
+  maxWorkTime?: number;
+  occupancyRate?: number;
+  satisfactionIndex?: number;
+  satisfactionSurveysOffered?: number;
+  satisfactionSurveysResponded?: number;
+  totalBreakTime?: number;
+  totalCalls?: number;
+  totalLoggedInTime?: number;
+  totalReadyTime?: number;
+  totalTalkTime?: number;
+  totalWorkTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      averageReadyTime: 'AverageReadyTime',
+      averageTalkTime: 'AverageTalkTime',
+      averageWorkTime: 'AverageWorkTime',
+      maxReadyTime: 'MaxReadyTime',
+      maxTalkTime: 'MaxTalkTime',
+      maxWorkTime: 'MaxWorkTime',
+      occupancyRate: 'OccupancyRate',
+      satisfactionIndex: 'SatisfactionIndex',
+      satisfactionSurveysOffered: 'SatisfactionSurveysOffered',
+      satisfactionSurveysResponded: 'SatisfactionSurveysResponded',
+      totalBreakTime: 'TotalBreakTime',
+      totalCalls: 'TotalCalls',
+      totalLoggedInTime: 'TotalLoggedInTime',
+      totalReadyTime: 'TotalReadyTime',
+      totalTalkTime: 'TotalTalkTime',
+      totalWorkTime: 'TotalWorkTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      averageReadyTime: 'number',
+      averageTalkTime: 'number',
+      averageWorkTime: 'number',
+      maxReadyTime: 'number',
+      maxTalkTime: 'number',
+      maxWorkTime: 'number',
+      occupancyRate: 'number',
+      satisfactionIndex: 'number',
+      satisfactionSurveysOffered: 'number',
+      satisfactionSurveysResponded: 'number',
+      totalBreakTime: 'number',
+      totalCalls: 'number',
+      totalLoggedInTime: 'number',
+      totalReadyTime: 'number',
+      totalTalkTime: 'number',
+      totalWorkTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList extends $tea.Model {
+  inbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound;
+  instanceId?: string;
+  outbound?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound;
+  overall?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall;
+  skillGroupId?: string;
+  skillGroupName?: string;
+  timestamp?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inbound: 'Inbound',
+      instanceId: 'InstanceId',
+      outbound: 'Outbound',
+      overall: 'Overall',
+      skillGroupId: 'SkillGroupId',
+      skillGroupName: 'SkillGroupName',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inbound: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListInbound,
+      instanceId: 'string',
+      outbound: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOutbound,
+      overall: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportListOverall,
+      skillGroupId: 'string',
+      skillGroupName: 'string',
+      timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReport extends $tea.Model {
+  list?: ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList[];
+  pageNumber?: number;
+  pageSize?: number;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListSkillGroupSummaryReportsSinceMidnightResponseBodyPagedSkillGroupSummaryReportList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -19484,6 +22202,39 @@ export default class Client extends OpenApi {
     return await this.completeAttendedTransferWithOptions(request, runtime);
   }
 
+  async createCallTagsWithOptions(request: CreateCallTagsRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callTagNameList)) {
+      query["CallTagNameList"] = request.callTagNameList;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCallTags",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCallTagsResponse>(await this.callApi(params, req, runtime), new CreateCallTagsResponse({}));
+  }
+
+  async createCallTags(request: CreateCallTagsRequest): Promise<CreateCallTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCallTagsWithOptions(request, runtime);
+  }
+
   async createCampaignWithOptions(tmpReq: CreateCampaignRequest, runtime: $Util.RuntimeOptions): Promise<CreateCampaignResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateCampaignShrinkRequest({ });
@@ -19575,6 +22326,39 @@ export default class Client extends OpenApi {
     return await this.createCampaignWithOptions(request, runtime);
   }
 
+  async createCustomCallTaggingWithOptions(request: CreateCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<CreateCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.customNumberList)) {
+      query["CustomNumberList"] = request.customNumberList;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new CreateCustomCallTaggingResponse({}));
+  }
+
+  async createCustomCallTagging(request: CreateCustomCallTaggingRequest): Promise<CreateCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCustomCallTaggingWithOptions(request, runtime);
+  }
+
   async createInstanceWithOptions(request: CreateInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19664,6 +22448,10 @@ export default class Client extends OpenApi {
   async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.displayId)) {
+      query["DisplayId"] = request.displayId;
+    }
+
     if (!Util.isUnset(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
@@ -19722,6 +22510,72 @@ export default class Client extends OpenApi {
     return await this.createUserWithOptions(request, runtime);
   }
 
+  async deleteCallTagWithOptions(request: DeleteCallTagRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCallTagResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.tagName)) {
+      query["TagName"] = request.tagName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCallTag",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCallTagResponse>(await this.callApi(params, req, runtime), new DeleteCallTagResponse({}));
+  }
+
+  async deleteCallTag(request: DeleteCallTagRequest): Promise<DeleteCallTagResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCallTagWithOptions(request, runtime);
+  }
+
+  async deleteCustomCallTaggingWithOptions(request: DeleteCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new DeleteCustomCallTaggingResponse({}));
+  }
+
+  async deleteCustomCallTagging(request: DeleteCustomCallTaggingRequest): Promise<DeleteCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCustomCallTaggingWithOptions(request, runtime);
+  }
+
   async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19757,6 +22611,72 @@ export default class Client extends OpenApi {
   async deleteSkillGroup(request: DeleteSkillGroupRequest): Promise<DeleteSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSkillGroupWithOptions(request, runtime);
+  }
+
+  async exportCustomCallTaggingWithOptions(request: ExportCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ExportCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new ExportCustomCallTaggingResponse({}));
+  }
+
+  async exportCustomCallTagging(request: ExportCustomCallTaggingRequest): Promise<ExportCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportCustomCallTaggingWithOptions(request, runtime);
+  }
+
+  async exportDoNotCallNumbersWithOptions(request: ExportDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ExportDoNotCallNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportDoNotCallNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportDoNotCallNumbersResponse>(await this.callApi(params, req, runtime), new ExportDoNotCallNumbersResponse({}));
+  }
+
+  async exportDoNotCallNumbers(request: ExportDoNotCallNumbersRequest): Promise<ExportDoNotCallNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportDoNotCallNumbersWithOptions(request, runtime);
   }
 
   async getCallDetailRecordWithOptions(request: GetCallDetailRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetCallDetailRecordResponse> {
@@ -19858,6 +22778,39 @@ export default class Client extends OpenApi {
     return await this.getCaseFileUploadUrlWithOptions(request, runtime);
   }
 
+  async getDoNotCallFileUploadParametersWithOptions(request: GetDoNotCallFileUploadParametersRequest, runtime: $Util.RuntimeOptions): Promise<GetDoNotCallFileUploadParametersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDoNotCallFileUploadParameters",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDoNotCallFileUploadParametersResponse>(await this.callApi(params, req, runtime), new GetDoNotCallFileUploadParametersResponse({}));
+  }
+
+  async getDoNotCallFileUploadParameters(request: GetDoNotCallFileUploadParametersRequest): Promise<GetDoNotCallFileUploadParametersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDoNotCallFileUploadParametersWithOptions(request, runtime);
+  }
+
   async getHistoricalCallerReportWithOptions(request: GetHistoricalCallerReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCallerReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19897,6 +22850,31 @@ export default class Client extends OpenApi {
   async getHistoricalCallerReport(request: GetHistoricalCallerReportRequest): Promise<GetHistoricalCallerReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHistoricalCallerReportWithOptions(request, runtime);
+  }
+
+  async getHistoricalCampaignReportWithOptions(request: GetHistoricalCampaignReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalCampaignReportResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHistoricalCampaignReport",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHistoricalCampaignReportResponse>(await this.callApi(params, req, runtime), new GetHistoricalCampaignReportResponse({}));
+  }
+
+  async getHistoricalCampaignReport(request: GetHistoricalCampaignReportRequest): Promise<GetHistoricalCampaignReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getHistoricalCampaignReportWithOptions(request, runtime);
   }
 
   async getHistoricalInstanceReportWithOptions(request: GetHistoricalInstanceReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHistoricalInstanceReportResponse> {
@@ -20134,6 +23112,31 @@ export default class Client extends OpenApi {
     return await this.getNumberLocationWithOptions(request, runtime);
   }
 
+  async getRealtimeCampaignStatsWithOptions(request: GetRealtimeCampaignStatsRequest, runtime: $Util.RuntimeOptions): Promise<GetRealtimeCampaignStatsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRealtimeCampaignStats",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRealtimeCampaignStatsResponse>(await this.callApi(params, req, runtime), new GetRealtimeCampaignStatsResponse({}));
+  }
+
+  async getRealtimeCampaignStats(request: GetRealtimeCampaignStatsRequest): Promise<GetRealtimeCampaignStatsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getRealtimeCampaignStatsWithOptions(request, runtime);
+  }
+
   async getRealtimeInstanceStatesWithOptions(request: GetRealtimeInstanceStatesRequest, runtime: $Util.RuntimeOptions): Promise<GetRealtimeInstanceStatesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20309,6 +23312,80 @@ export default class Client extends OpenApi {
   async holdCall(request: HoldCallRequest): Promise<HoldCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.holdCallWithOptions(request, runtime);
+  }
+
+  async importCustomCallTaggingWithOptions(request: ImportCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ImportCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new ImportCustomCallTaggingResponse({}));
+  }
+
+  async importCustomCallTagging(request: ImportCustomCallTaggingRequest): Promise<ImportCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importCustomCallTaggingWithOptions(request, runtime);
+  }
+
+  async importDoNotCallNumbersWithOptions(request: ImportDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ImportDoNotCallNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    if (!Util.isUnset(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImportDoNotCallNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImportDoNotCallNumbersResponse>(await this.callApi(params, req, runtime), new ImportDoNotCallNumbersResponse({}));
+  }
+
+  async importDoNotCallNumbers(request: ImportDoNotCallNumbersRequest): Promise<ImportDoNotCallNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.importDoNotCallNumbersWithOptions(request, runtime);
   }
 
   async initiateAttendedTransferWithOptions(request: InitiateAttendedTransferRequest, runtime: $Util.RuntimeOptions): Promise<InitiateAttendedTransferResponse> {
@@ -20544,6 +23621,80 @@ export default class Client extends OpenApi {
     return await this.listAgentStateLogsWithOptions(request, runtime);
   }
 
+  async listAgentStatesWithOptions(request: ListAgentStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentStatesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.agentIds)) {
+      query["AgentIds"] = request.agentIds;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!Util.isUnset(request.state)) {
+      query["State"] = request.state;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAgentStates",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAgentStatesResponse>(await this.callApi(params, req, runtime), new ListAgentStatesResponse({}));
+  }
+
+  async listAgentStates(request: ListAgentStatesRequest): Promise<ListAgentStatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAgentStatesWithOptions(request, runtime);
+  }
+
+  async listAgentSummaryReportsSinceMidnightWithOptions(request: ListAgentSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAgentSummaryReportsSinceMidnight",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAgentSummaryReportsSinceMidnightResponse>(await this.callApi(params, req, runtime), new ListAgentSummaryReportsSinceMidnightResponse({}));
+  }
+
+  async listAgentSummaryReportsSinceMidnight(request: ListAgentSummaryReportsSinceMidnightRequest): Promise<ListAgentSummaryReportsSinceMidnightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAgentSummaryReportsSinceMidnightWithOptions(request, runtime);
+  }
+
   async listAttemptsWithOptions(request: ListAttemptsRequest, runtime: $Util.RuntimeOptions): Promise<ListAttemptsResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20709,6 +23860,43 @@ export default class Client extends OpenApi {
   async listCallDetailRecords(request: ListCallDetailRecordsRequest): Promise<ListCallDetailRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCallDetailRecordsWithOptions(request, runtime);
+  }
+
+  async listCallTagsWithOptions(request: ListCallTagsRequest, runtime: $Util.RuntimeOptions): Promise<ListCallTagsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCallTags",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallTagsResponse>(await this.callApi(params, req, runtime), new ListCallTagsResponse({}));
+  }
+
+  async listCallTags(request: ListCallTagsRequest): Promise<ListCallTagsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallTagsWithOptions(request, runtime);
   }
 
   async listCampaignTrendingReportWithOptions(request: ListCampaignTrendingReportRequest, runtime: $Util.RuntimeOptions): Promise<ListCampaignTrendingReportResponse> {
@@ -20924,6 +24112,51 @@ export default class Client extends OpenApi {
     return await this.listContactFlowsWithOptions(request, runtime);
   }
 
+  async listCustomCallTaggingWithOptions(request: ListCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ListCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callTagNameList)) {
+      query["CallTagNameList"] = request.callTagNameList;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new ListCustomCallTaggingResponse({}));
+  }
+
+  async listCustomCallTagging(request: ListCustomCallTaggingRequest): Promise<ListCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCustomCallTaggingWithOptions(request, runtime);
+  }
+
   async listDevicesWithOptions(request: ListDevicesRequest, runtime: $Util.RuntimeOptions): Promise<ListDevicesResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20955,6 +24188,51 @@ export default class Client extends OpenApi {
   async listDevices(request: ListDevicesRequest): Promise<ListDevicesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDevicesWithOptions(request, runtime);
+  }
+
+  async listDoNotCallNumbersWithOptions(request: ListDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListDoNotCallNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.searchPattern)) {
+      query["SearchPattern"] = request.searchPattern;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDoNotCallNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDoNotCallNumbersResponse>(await this.callApi(params, req, runtime), new ListDoNotCallNumbersResponse({}));
+  }
+
+  async listDoNotCallNumbers(request: ListDoNotCallNumbersRequest): Promise<ListDoNotCallNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDoNotCallNumbersWithOptions(request, runtime);
   }
 
   async listHistoricalAgentReportWithOptions(request: ListHistoricalAgentReportRequest, runtime: $Util.RuntimeOptions): Promise<ListHistoricalAgentReportResponse> {
@@ -21807,6 +25085,56 @@ export default class Client extends OpenApi {
     return await this.listSipTracesWithOptions(request, runtime);
   }
 
+  async listSkillGroupStatesWithOptions(request: ListSkillGroupStatesRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupStatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSkillGroupStates",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSkillGroupStatesResponse>(await this.callApi(params, req, runtime), new ListSkillGroupStatesResponse({}));
+  }
+
+  async listSkillGroupStates(request: ListSkillGroupStatesRequest): Promise<ListSkillGroupStatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSkillGroupStatesWithOptions(request, runtime);
+  }
+
+  async listSkillGroupSummaryReportsSinceMidnightWithOptions(request: ListSkillGroupSummaryReportsSinceMidnightRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSkillGroupSummaryReportsSinceMidnight",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSkillGroupSummaryReportsSinceMidnightResponse>(await this.callApi(params, req, runtime), new ListSkillGroupSummaryReportsSinceMidnightResponse({}));
+  }
+
+  async listSkillGroupSummaryReportsSinceMidnight(request: ListSkillGroupSummaryReportsSinceMidnightRequest): Promise<ListSkillGroupSummaryReportsSinceMidnightResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSkillGroupSummaryReportsSinceMidnightWithOptions(request, runtime);
+  }
+
   async listSkillGroupsWithOptions(request: ListSkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22085,6 +25413,47 @@ export default class Client extends OpenApi {
     return await this.makeCallWithOptions(request, runtime);
   }
 
+  async modifyCustomCallTaggingWithOptions(request: ModifyCustomCallTaggingRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomCallTaggingResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.callTagNameList)) {
+      query["CallTagNameList"] = request.callTagNameList;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCustomCallTagging",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCustomCallTaggingResponse>(await this.callApi(params, req, runtime), new ModifyCustomCallTaggingResponse({}));
+  }
+
+  async modifyCustomCallTagging(request: ModifyCustomCallTaggingRequest): Promise<ModifyCustomCallTaggingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCustomCallTaggingWithOptions(request, runtime);
+  }
+
   async modifyInstanceWithOptions(request: ModifyInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22240,6 +25609,10 @@ export default class Client extends OpenApi {
   async modifyUserWithOptions(request: ModifyUserRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.displayId)) {
+      query["DisplayId"] = request.displayId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -22686,6 +26059,39 @@ export default class Client extends OpenApi {
   async releaseCall(request: ReleaseCallRequest): Promise<ReleaseCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseCallWithOptions(request, runtime);
+  }
+
+  async removeDoNotCallNumbersWithOptions(request: RemoveDoNotCallNumbersRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDoNotCallNumbersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.numberList)) {
+      query["NumberList"] = request.numberList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveDoNotCallNumbers",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveDoNotCallNumbersResponse>(await this.callApi(params, req, runtime), new RemoveDoNotCallNumbersResponse({}));
+  }
+
+  async removeDoNotCallNumbers(request: RemoveDoNotCallNumbersRequest): Promise<RemoveDoNotCallNumbersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeDoNotCallNumbersWithOptions(request, runtime);
   }
 
   async removePersonalNumbersFromUserWithOptions(request: RemovePersonalNumbersFromUserRequest, runtime: $Util.RuntimeOptions): Promise<RemovePersonalNumbersFromUserResponse> {
@@ -23653,6 +27059,39 @@ export default class Client extends OpenApi {
   async unmuteCall(request: UnmuteCallRequest): Promise<UnmuteCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unmuteCallWithOptions(request, runtime);
+  }
+
+  async unregisterDeviceWithOptions(request: UnregisterDeviceRequest, runtime: $Util.RuntimeOptions): Promise<UnregisterDeviceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnregisterDevice",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnregisterDeviceResponse>(await this.callApi(params, req, runtime), new UnregisterDeviceResponse({}));
+  }
+
+  async unregisterDevice(request: UnregisterDeviceRequest): Promise<UnregisterDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unregisterDeviceWithOptions(request, runtime);
   }
 
   async updateConfigItemsWithOptions(request: UpdateConfigItemsRequest, runtime: $Util.RuntimeOptions): Promise<UpdateConfigItemsResponse> {
