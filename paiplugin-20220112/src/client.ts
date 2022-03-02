@@ -1413,24 +1413,42 @@ export class ListInferenceJobsResponse extends $tea.Model {
 
 export class ListMessageMetricsRequest extends $tea.Model {
   endDate?: string;
+  groupId?: string;
   pageNumber?: number;
   pageSize?: number;
+  scheduleId?: string;
+  signature?: string;
+  signatureId?: string;
   startDate?: string;
+  templateCode?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
+      groupId: 'GroupId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      scheduleId: 'ScheduleId',
+      signature: 'Signature',
+      signatureId: 'SignatureId',
       startDate: 'StartDate',
+      templateCode: 'TemplateCode',
+      templateId: 'TemplateId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endDate: 'string',
+      groupId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      scheduleId: 'string',
+      signature: 'string',
+      signatureId: 'string',
       startDate: 'string',
+      templateCode: 'string',
+      templateId: 'string',
     };
   }
 
@@ -1499,7 +1517,10 @@ export class ListMessagesRequest extends $tea.Model {
   requestId?: string;
   scheduleId?: string;
   signature?: string;
+  signatureId?: string;
+  status?: number;
   templateCode?: string;
+  templateId?: string;
   static names(): { [key: string]: string } {
     return {
       datetime: 'Datetime',
@@ -1511,7 +1532,10 @@ export class ListMessagesRequest extends $tea.Model {
       requestId: 'RequestId',
       scheduleId: 'ScheduleId',
       signature: 'Signature',
+      signatureId: 'SignatureId',
+      status: 'Status',
       templateCode: 'TemplateCode',
+      templateId: 'TemplateId',
     };
   }
 
@@ -1526,7 +1550,10 @@ export class ListMessagesRequest extends $tea.Model {
       requestId: 'string',
       scheduleId: 'string',
       signature: 'string',
+      signatureId: 'string',
+      status: 'number',
       templateCode: 'string',
+      templateId: 'string',
     };
   }
 
@@ -3357,6 +3384,7 @@ export default class Client extends OpenApi {
   /**
    * 注册人群
   
+   * @tags 人群
    */
   async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3432,6 +3460,7 @@ export default class Client extends OpenApi {
   /**
    * 注册推理任务
   
+   * @tags 推理任务
    */
   async createInferenceJob(request: CreateInferenceJobRequest): Promise<CreateInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3483,6 +3512,7 @@ export default class Client extends OpenApi {
   /**
    * 注册触达计划
   
+   * @tags 触达计划
    */
   async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3558,6 +3588,7 @@ export default class Client extends OpenApi {
   /**
    * 注册签名。
   
+   * @tags 签名
    */
   async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3597,6 +3628,7 @@ export default class Client extends OpenApi {
   /**
    * 注册模板
   
+   * @tags 模板
    */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3648,6 +3680,7 @@ export default class Client extends OpenApi {
   /**
    * 注册训练任务
   
+   * @tags 训练任务
    */
   async createTrainingJob(request: CreateTrainingJobRequest): Promise<CreateTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3695,6 +3728,7 @@ export default class Client extends OpenApi {
   /**
    * 删除人群
   
+   * @tags 人群
    */
   async deleteGroup(Id: string): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3724,6 +3758,7 @@ export default class Client extends OpenApi {
   /**
    * 删除推理任务
   
+   * @tags 推理任务
    */
   async deleteInferenceJob(Id: string): Promise<DeleteInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3753,6 +3788,7 @@ export default class Client extends OpenApi {
   /**
    * 删除触达计划
   
+   * @tags 触达计划
    */
   async deleteSchedule(Id: string): Promise<DeleteScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3782,6 +3818,7 @@ export default class Client extends OpenApi {
   /**
    * 删除签名。
   
+   * @tags 签名
    */
   async deleteSignature(Id: string): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3811,6 +3848,7 @@ export default class Client extends OpenApi {
   /**
    * 删除模板
   
+   * @tags 模板
    */
   async deleteTemplate(Id: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3840,6 +3878,7 @@ export default class Client extends OpenApi {
   /**
    * 删除训练任务
   
+   * @tags 训练任务
    */
   async deleteTrainingJob(Id: string): Promise<DeleteTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3868,6 +3907,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取算法详情
+   * @tags 算法
    */
   async getAlgorithm(Id: string): Promise<GetAlgorithmResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3897,6 +3937,7 @@ export default class Client extends OpenApi {
   /**
    * 获取人群
   默认返回所有人群信息
+   * @tags 人群
    */
   async getGroup(Id: string): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3926,6 +3967,7 @@ export default class Client extends OpenApi {
   /**
    * 获取推理任务
   默认返回所有推理任务信息
+   * @tags 推理任务
    */
   async getInferenceJob(Id: string): Promise<GetInferenceJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3955,6 +3997,7 @@ export default class Client extends OpenApi {
   /**
    * 获取触达计划详情。
   
+   * @tags 触达计划
    */
   async getSchedule(Id: string): Promise<GetScheduleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3983,6 +4026,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取签名详情
+   * @tags 签名
    */
   async getSignature(Id: string): Promise<GetSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4013,6 +4057,7 @@ export default class Client extends OpenApi {
    * 获取模板
   默认返回所有模板信息
   ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png)
+   * @tags 模板
    */
   async getTemplate(Id: string): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4042,6 +4087,7 @@ export default class Client extends OpenApi {
   /**
    * 获取训练任务
   默认返回所有训练任务信息
+   * @tags 训练任务
    */
   async getTrainingJob(Id: string): Promise<GetTrainingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4070,6 +4116,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取算法列表
+   * @tags 算法
    */
   async listAlgorithms(request: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4116,6 +4163,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取人群列表
+   * @tags 人群
    */
   async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4170,6 +4218,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取推理任务列表
+   * @tags 推理任务
    */
   async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4220,6 +4269,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取用户短信发送统计
+   * @tags 短信
    */
   async listMessageMetrics(request: ListMessageMetricsRequest): Promise<ListMessageMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4234,6 +4284,10 @@ export default class Client extends OpenApi {
       query["EndDate"] = request.endDate;
     }
 
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
     if (!Util.isUnset(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -4242,8 +4296,28 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.scheduleId)) {
+      query["ScheduleId"] = request.scheduleId;
+    }
+
+    if (!Util.isUnset(request.signature)) {
+      query["Signature"] = request.signature;
+    }
+
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
     if (!Util.isUnset(request.startDate)) {
       query["StartDate"] = request.startDate;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4266,6 +4340,7 @@ export default class Client extends OpenApi {
 
   /**
    * 查询短信发送详情
+   * @tags 短信
    */
   async listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4312,8 +4387,20 @@ export default class Client extends OpenApi {
       query["Signature"] = request.signature;
     }
 
+    if (!Util.isUnset(request.signatureId)) {
+      query["SignatureId"] = request.signatureId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     if (!Util.isUnset(request.templateCode)) {
       query["TemplateCode"] = request.templateCode;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -4336,6 +4423,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取触达计划列表。
+   * @tags 触达计划
    */
   async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4380,6 +4468,10 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
   }
 
+  /**
+   * 获取签名列表
+   * @tags 签名
+   */
   async listSignatures(request: ListSignaturesRequest): Promise<ListSignaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -4426,6 +4518,7 @@ export default class Client extends OpenApi {
   /**
    * 获取模板列表
   默认返回所有模板信息
+   * @tags 模板
    */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4480,6 +4573,7 @@ export default class Client extends OpenApi {
 
   /**
    * 获取训练任务列表
+   * @tags 训练任务
    */
   async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4530,6 +4624,7 @@ export default class Client extends OpenApi {
 
   /**
    * 发送短信
+   * @tags 短信
    */
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
