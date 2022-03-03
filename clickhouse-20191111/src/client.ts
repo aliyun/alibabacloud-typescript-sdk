@@ -95,6 +95,7 @@ export class CheckClickhouseToRDSRequest extends $tea.Model {
   rdsPort?: number;
   rdsUserName?: string;
   rdsVpcId?: string;
+  rdsVpcUrl?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -110,6 +111,7 @@ export class CheckClickhouseToRDSRequest extends $tea.Model {
       rdsPort: 'RdsPort',
       rdsUserName: 'RdsUserName',
       rdsVpcId: 'RdsVpcId',
+      rdsVpcUrl: 'RdsVpcUrl',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -128,6 +130,7 @@ export class CheckClickhouseToRDSRequest extends $tea.Model {
       rdsPort: 'number',
       rdsUserName: 'string',
       rdsVpcId: 'string',
+      rdsVpcUrl: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -177,6 +180,84 @@ export class CheckClickhouseToRDSResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CheckClickhouseToRDSResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckHealthRequest extends $tea.Model {
+  dbClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckHealthResponseBody extends $tea.Model {
+  info?: string;
+  isHealthy?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      info: 'Info',
+      isHealthy: 'IsHealthy',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      info: 'string',
+      isHealthy: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckHealthResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CheckHealthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CheckHealthResponseBody,
     };
   }
 
@@ -836,6 +917,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   dbNodeStorageType?: string;
   encryptionKey?: string;
   encryptionType?: string;
+  openMonitor?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   payType?: string;
@@ -860,6 +942,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       dbNodeStorageType: 'DbNodeStorageType',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
+      openMonitor: 'OpenMonitor',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -887,6 +970,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       dbNodeStorageType: 'string',
       encryptionKey: 'string',
       encryptionType: 'string',
+      openMonitor: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -1194,6 +1278,7 @@ export class CreateRDSToClickhouseDbRequest extends $tea.Model {
   rdsPort?: number;
   rdsUserName?: string;
   rdsVpcId?: string;
+  rdsVpcUrl?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   skipUnsupported?: boolean;
@@ -1212,6 +1297,7 @@ export class CreateRDSToClickhouseDbRequest extends $tea.Model {
       rdsPort: 'RdsPort',
       rdsUserName: 'RdsUserName',
       rdsVpcId: 'RdsVpcId',
+      rdsVpcUrl: 'RdsVpcUrl',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       skipUnsupported: 'SkipUnsupported',
@@ -1233,6 +1319,7 @@ export class CreateRDSToClickhouseDbRequest extends $tea.Model {
       rdsPort: 'number',
       rdsUserName: 'string',
       rdsVpcId: 'string',
+      rdsVpcUrl: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       skipUnsupported: 'boolean',
@@ -3793,6 +3880,7 @@ export class DescribeRDSTablesRequest extends $tea.Model {
   rdsPassword?: string;
   rdsPort?: number;
   rdsUserName?: string;
+  rdsVpcUrl?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   schema?: string;
@@ -3805,6 +3893,7 @@ export class DescribeRDSTablesRequest extends $tea.Model {
       rdsPassword: 'RdsPassword',
       rdsPort: 'RdsPort',
       rdsUserName: 'RdsUserName',
+      rdsVpcUrl: 'RdsVpcUrl',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       schema: 'Schema',
@@ -3820,6 +3909,7 @@ export class DescribeRDSTablesRequest extends $tea.Model {
       rdsPassword: 'string',
       rdsPort: 'number',
       rdsUserName: 'string',
+      rdsVpcUrl: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       schema: 'string',
@@ -3964,6 +4054,7 @@ export class DescribeRDSschemasRequest extends $tea.Model {
   rdsPassword?: string;
   rdsPort?: number;
   rdsUserName?: string;
+  rdsVpcUrl?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
@@ -3975,6 +4066,7 @@ export class DescribeRDSschemasRequest extends $tea.Model {
       rdsPassword: 'RdsPassword',
       rdsPort: 'RdsPort',
       rdsUserName: 'RdsUserName',
+      rdsVpcUrl: 'RdsVpcUrl',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -3989,6 +4081,7 @@ export class DescribeRDSschemasRequest extends $tea.Model {
       rdsPassword: 'string',
       rdsPort: 'number',
       rdsUserName: 'string',
+      rdsVpcUrl: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -4035,6 +4128,171 @@ export class DescribeRDSschemasResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeRDSschemasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVSwitchsRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  vpcId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVSwitchsResponseBody extends $tea.Model {
+  requestId?: string;
+  vSwitches?: DescribeRdsVSwitchsResponseBodyVSwitches;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vSwitches: 'VSwitches',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vSwitches: DescribeRdsVSwitchsResponseBodyVSwitches,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVSwitchsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRdsVSwitchsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRdsVSwitchsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsResponseBody extends $tea.Model {
+  requestId?: string;
+  vpcs?: DescribeRdsVpcsResponseBodyVpcs;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vpcs: 'Vpcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vpcs: DescribeRdsVpcsResponseBodyVpcs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeRdsVpcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeRdsVpcsResponseBody,
     };
   }
 
@@ -5010,6 +5268,90 @@ export class ModifyBackupPolicyResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ModifyBackupPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClickHouseClusterServerGRPCRequest extends $tea.Model {
+  config?: string;
+  dbClusterId?: string;
+  namespace?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      dbClusterId: 'DbClusterId',
+      namespace: 'Namespace',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      dbClusterId: 'string',
+      namespace: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClickHouseClusterServerGRPCResponseBody extends $tea.Model {
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClickHouseClusterServerGRPCResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyClickHouseClusterServerGRPCResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyClickHouseClusterServerGRPCResponseBody,
     };
   }
 
@@ -6052,6 +6394,7 @@ export class SearchRDSTablesRequest extends $tea.Model {
   rdsPassword?: string;
   rdsPort?: number;
   rdsUserName?: string;
+  rdsVpcUrl?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tableName?: string;
@@ -6064,6 +6407,7 @@ export class SearchRDSTablesRequest extends $tea.Model {
       rdsPassword: 'RdsPassword',
       rdsPort: 'RdsPort',
       rdsUserName: 'RdsUserName',
+      rdsVpcUrl: 'RdsVpcUrl',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tableName: 'TableName',
@@ -6079,6 +6423,7 @@ export class SearchRDSTablesRequest extends $tea.Model {
       rdsPassword: 'string',
       rdsPort: 'number',
       rdsUserName: 'string',
+      rdsVpcUrl: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tableName: 'string',
@@ -7192,6 +7537,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
   payType?: string;
   port?: number;
   publicConnectionString?: string;
+  publicIpAddr?: string;
   publicPort?: string;
   regionId?: string;
   scaleOutStatus?: DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus;
@@ -7203,6 +7549,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
   vSwitchId?: string;
   vpcCloudInstanceId?: string;
   vpcId?: string;
+  vpcIpAddr?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7233,6 +7580,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
       payType: 'PayType',
       port: 'Port',
       publicConnectionString: 'PublicConnectionString',
+      publicIpAddr: 'PublicIpAddr',
       publicPort: 'PublicPort',
       regionId: 'RegionId',
       scaleOutStatus: 'ScaleOutStatus',
@@ -7244,6 +7592,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
       vSwitchId: 'VSwitchId',
       vpcCloudInstanceId: 'VpcCloudInstanceId',
       vpcId: 'VpcId',
+      vpcIpAddr: 'VpcIpAddr',
       zoneId: 'ZoneId',
     };
   }
@@ -7277,6 +7626,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
       payType: 'string',
       port: 'number',
       publicConnectionString: 'string',
+      publicIpAddr: 'string',
       publicPort: 'string',
       regionId: 'string',
       scaleOutStatus: DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus,
@@ -7288,6 +7638,7 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $tea.Model 
       vSwitchId: 'string',
       vpcCloudInstanceId: 'string',
       vpcId: 'string',
+      vpcIpAddr: 'string',
       zoneId: 'string',
     };
   }
@@ -8155,6 +8506,182 @@ export class DescribeProcessListResponseBodyProcessList extends $tea.Model {
   }
 }
 
+export class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $tea.Model {
+  aliUid?: string;
+  bid?: string;
+  cidrBlock?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  isDefault?: boolean;
+  izNo?: string;
+  regionNo?: string;
+  status?: string;
+  vSwitchId?: string;
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bid: 'Bid',
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      izNo: 'IzNo',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      bid: 'string',
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      izNo: 'string',
+      regionNo: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVSwitchsResponseBodyVSwitches extends $tea.Model {
+  vSwitch?: DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch[];
+  static names(): { [key: string]: string } {
+    return {
+      vSwitch: 'VSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitch: { 'type': 'array', 'itemType': DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs extends $tea.Model {
+  cidrBlock?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  isDefault?: boolean;
+  izNo?: string;
+  status?: string;
+  vSwitchId?: string;
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      izNo: 'IzNo',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      izNo: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsResponseBodyVpcsVpc extends $tea.Model {
+  aliUid?: string;
+  bid?: string;
+  cidrBlock?: string;
+  gmtCreate?: string;
+  gmtModified?: string;
+  isDefault?: boolean;
+  regionNo?: string;
+  status?: string;
+  vSwitchs?: DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs[];
+  vpcId?: string;
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bid: 'Bid',
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      vSwitchs: 'VSwitchs',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      bid: 'string',
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      regionNo: 'string',
+      status: 'string',
+      vSwitchs: { 'type': 'array', 'itemType': DescribeRdsVpcsResponseBodyVpcsVpcVSwitchs },
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsVpcsResponseBodyVpcs extends $tea.Model {
+  vpc?: DescribeRdsVpcsResponseBodyVpcsVpc[];
+  static names(): { [key: string]: string } {
+    return {
+      vpc: 'Vpc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpc: { 'type': 'array', 'itemType': DescribeRdsVpcsResponseBodyVpcsVpc },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegionsRegionZonesZone extends $tea.Model {
   vpcEnabled?: boolean;
   zoneId?: string;
@@ -8595,6 +9122,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $tea.Model {
   rdsId?: string;
   rdsPassword?: string;
   rdsUserName?: string;
+  rdsVpcUrl?: string;
   synDb?: string;
   synStatus?: boolean;
   static names(): { [key: string]: string } {
@@ -8603,6 +9131,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $tea.Model {
       rdsId: 'RdsId',
       rdsPassword: 'RdsPassword',
       rdsUserName: 'RdsUserName',
+      rdsVpcUrl: 'RdsVpcUrl',
       synDb: 'SynDb',
       synStatus: 'SynStatus',
     };
@@ -8614,6 +9143,7 @@ export class DescribeSynDbsResponseBodySynDbs extends $tea.Model {
       rdsId: 'string',
       rdsPassword: 'string',
       rdsUserName: 'string',
+      rdsVpcUrl: 'string',
       synDb: 'string',
       synStatus: 'boolean',
     };
@@ -8949,6 +9479,10 @@ export default class Client extends OpenApi {
       query["RdsVpcId"] = request.rdsVpcId;
     }
 
+    if (!Util.isUnset(request.rdsVpcUrl)) {
+      query["RdsVpcUrl"] = request.rdsVpcUrl;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -8977,6 +9511,51 @@ export default class Client extends OpenApi {
   async checkClickhouseToRDS(request: CheckClickhouseToRDSRequest): Promise<CheckClickhouseToRDSResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.checkClickhouseToRDSWithOptions(request, runtime);
+  }
+
+  async checkHealthWithOptions(request: CheckHealthRequest, runtime: $Util.RuntimeOptions): Promise<CheckHealthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbClusterId)) {
+      query["DbClusterId"] = request.dbClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckHealth",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckHealthResponse>(await this.callApi(params, req, runtime), new CheckHealthResponse({}));
+  }
+
+  async checkHealth(request: CheckHealthRequest): Promise<CheckHealthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkHealthWithOptions(request, runtime);
   }
 
   async checkMonitorAlertWithOptions(request: CheckMonitorAlertRequest, runtime: $Util.RuntimeOptions): Promise<CheckMonitorAlertResponse> {
@@ -9453,6 +10032,10 @@ export default class Client extends OpenApi {
       query["EncryptionType"] = request.encryptionType;
     }
 
+    if (!Util.isUnset(request.openMonitor)) {
+      query["OpenMonitor"] = request.openMonitor;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -9719,6 +10302,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.rdsVpcId)) {
       query["RdsVpcId"] = request.rdsVpcId;
+    }
+
+    if (!Util.isUnset(request.rdsVpcUrl)) {
+      query["RdsVpcUrl"] = request.rdsVpcUrl;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -11379,6 +11966,10 @@ export default class Client extends OpenApi {
       query["RdsUserName"] = request.rdsUserName;
     }
 
+    if (!Util.isUnset(request.rdsVpcUrl)) {
+      query["RdsVpcUrl"] = request.rdsVpcUrl;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -11497,6 +12088,10 @@ export default class Client extends OpenApi {
       query["RdsUserName"] = request.rdsUserName;
     }
 
+    if (!Util.isUnset(request.rdsVpcUrl)) {
+      query["RdsVpcUrl"] = request.rdsVpcUrl;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -11525,6 +12120,116 @@ export default class Client extends OpenApi {
   async describeRDSschemas(request: DescribeRDSschemasRequest): Promise<DescribeRDSschemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRDSschemasWithOptions(request, runtime);
+  }
+
+  async describeRdsVSwitchsWithOptions(request: DescribeRdsVSwitchsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVSwitchsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRdsVSwitchs",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdsVSwitchsResponse>(await this.callApi(params, req, runtime), new DescribeRdsVSwitchsResponse({}));
+  }
+
+  async describeRdsVSwitchs(request: DescribeRdsVSwitchsRequest): Promise<DescribeRdsVSwitchsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRdsVSwitchsWithOptions(request, runtime);
+  }
+
+  async describeRdsVpcsWithOptions(request: DescribeRdsVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsVpcsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRdsVpcs",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdsVpcsResponse>(await this.callApi(params, req, runtime), new DescribeRdsVpcsResponse({}));
+  }
+
+  async describeRdsVpcs(request: DescribeRdsVpcsRequest): Promise<DescribeRdsVpcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRdsVpcsWithOptions(request, runtime);
   }
 
   async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
@@ -12181,6 +12886,63 @@ export default class Client extends OpenApi {
   async modifyBackupPolicy(request: ModifyBackupPolicyRequest): Promise<ModifyBackupPolicyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyBackupPolicyWithOptions(request, runtime);
+  }
+
+  async modifyClickHouseClusterServerGRPCWithOptions(request: ModifyClickHouseClusterServerGRPCRequest, runtime: $Util.RuntimeOptions): Promise<ModifyClickHouseClusterServerGRPCResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.dbClusterId)) {
+      query["DbClusterId"] = request.dbClusterId;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyClickHouseClusterServerGRPC",
+      version: "2019-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyClickHouseClusterServerGRPCResponse>(await this.callApi(params, req, runtime), new ModifyClickHouseClusterServerGRPCResponse({}));
+  }
+
+  async modifyClickHouseClusterServerGRPC(request: ModifyClickHouseClusterServerGRPCRequest): Promise<ModifyClickHouseClusterServerGRPCResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyClickHouseClusterServerGRPCWithOptions(request, runtime);
   }
 
   async modifyDBClusterWithOptions(request: ModifyDBClusterRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResponse> {
@@ -12952,6 +13714,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.rdsUserName)) {
       query["RdsUserName"] = request.rdsUserName;
+    }
+
+    if (!Util.isUnset(request.rdsVpcUrl)) {
+      query["RdsVpcUrl"] = request.rdsVpcUrl;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
