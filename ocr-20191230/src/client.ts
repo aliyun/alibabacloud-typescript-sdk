@@ -260,25 +260,6 @@ export class RecognizeBankCardRequest extends $tea.Model {
   }
 }
 
-export class RecognizeBankCardAdvanceRequest extends $tea.Model {
-  imageURLObject: Readable;
-  static names(): { [key: string]: string } {
-    return {
-      imageURLObject: 'ImageURLObject',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      imageURLObject: 'Readable',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RecognizeBankCardResponseBody extends $tea.Model {
   data?: RecognizeBankCardResponseBodyData;
   requestId?: string;
@@ -1482,6 +1463,88 @@ export class RecognizeStampResponse extends $tea.Model {
   }
 }
 
+export class RecognizeStructuredTaxiInvoicesRequest extends $tea.Model {
+  imageURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageURL: 'ImageURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStructuredTaxiInvoicesAdvanceRequest extends $tea.Model {
+  imageURLObject: Readable;
+  static names(): { [key: string]: string } {
+    return {
+      imageURLObject: 'ImageURLObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageURLObject: 'Readable',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStructuredTaxiInvoicesResponseBody extends $tea.Model {
+  data?: RecognizeStructuredTaxiInvoicesResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeStructuredTaxiInvoicesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeStructuredTaxiInvoicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeStructuredTaxiInvoicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeStructuredTaxiInvoicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeTableRequest extends $tea.Model {
   assureDirection?: boolean;
   hasLine?: boolean;
@@ -2166,6 +2229,125 @@ export class RecognizeVerificationcodeResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RecognizeVerificationcodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListRequest extends $tea.Model {
+  params?: RecognizeVideoCastCrewListRequestParams[];
+  registerUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      params: 'Params',
+      registerUrl: 'RegisterUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      params: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListRequestParams },
+      registerUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListAdvanceRequest extends $tea.Model {
+  videoUrlObject: Readable;
+  params?: RecognizeVideoCastCrewListAdvanceRequestParams[];
+  registerUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      videoUrlObject: 'VideoUrlObject',
+      params: 'Params',
+      registerUrl: 'RegisterUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      videoUrlObject: 'Readable',
+      params: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListAdvanceRequestParams },
+      registerUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListShrinkRequest extends $tea.Model {
+  paramsShrink?: string;
+  registerUrl?: string;
+  videoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paramsShrink: 'Params',
+      registerUrl: 'RegisterUrl',
+      videoUrl: 'VideoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paramsShrink: 'string',
+      registerUrl: 'string',
+      videoUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBody extends $tea.Model {
+  data?: RecognizeVideoCastCrewListResponseBodyData;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: RecognizeVideoCastCrewListResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: RecognizeVideoCastCrewListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: RecognizeVideoCastCrewListResponseBody,
     };
   }
 
@@ -4099,6 +4281,46 @@ export class RecognizeStampResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeStructuredTaxiInvoicesResponseBodyData extends $tea.Model {
+  addresses?: string[];
+  cellPhoneNumbers?: string[];
+  companies?: string[];
+  departments?: string[];
+  emails?: string[];
+  name?: string;
+  officePhoneNumbers?: string[];
+  titles?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      addresses: 'Addresses',
+      cellPhoneNumbers: 'CellPhoneNumbers',
+      companies: 'Companies',
+      departments: 'Departments',
+      emails: 'Emails',
+      name: 'Name',
+      officePhoneNumbers: 'OfficePhoneNumbers',
+      titles: 'Titles',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      cellPhoneNumbers: { 'type': 'array', 'itemType': 'string' },
+      companies: { 'type': 'array', 'itemType': 'string' },
+      departments: { 'type': 'array', 'itemType': 'string' },
+      emails: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      officePhoneNumbers: { 'type': 'array', 'itemType': 'string' },
+      titles: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeTableResponseBodyDataTablesTableRowsTableColumns extends $tea.Model {
   endColumn?: number;
   endRow?: number;
@@ -4838,6 +5060,299 @@ export class RecognizeVerificationcodeResponseBodyData extends $tea.Model {
   }
 }
 
+export class RecognizeVideoCastCrewListRequestParams extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListAdvanceRequestParams extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataCastResults extends $tea.Model {
+  detailInfoes?: { [key: string]: string };
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfoes: 'DetailInfoes',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfoes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes extends $tea.Model {
+  boxes?: number[];
+  charProbs?: number[][];
+  frameIndex?: number;
+  position?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition[];
+  score?: number;
+  text?: string;
+  textProb?: number;
+  timeStamp?: number;
+  trackId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boxes: 'Boxes',
+      charProbs: 'CharProbs',
+      frameIndex: 'FrameIndex',
+      position: 'Position',
+      score: 'Score',
+      text: 'Text',
+      textProb: 'TextProb',
+      timeStamp: 'TimeStamp',
+      trackId: 'TrackId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      charProbs: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+      frameIndex: 'number',
+      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition },
+      score: 'number',
+      text: 'string',
+      textProb: 'number',
+      timeStamp: 'number',
+      trackId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataOcrResults extends $tea.Model {
+  detailInfoes?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes[];
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfoes: 'DetailInfoes',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfoes: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults extends $tea.Model {
+  subtitlesAllResults?: { [key: string]: string };
+  subtitlesAllResultsUrl?: string;
+  subtitlesChineseResults?: { [key: string]: string };
+  subtitlesChineseResultsUrl?: string;
+  subtitlesEnglishResults?: { [key: string]: any };
+  subtitlesEnglishResultsUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      subtitlesAllResults: 'SubtitlesAllResults',
+      subtitlesAllResultsUrl: 'SubtitlesAllResultsUrl',
+      subtitlesChineseResults: 'SubtitlesChineseResults',
+      subtitlesChineseResultsUrl: 'SubtitlesChineseResultsUrl',
+      subtitlesEnglishResults: 'SubtitlesEnglishResults',
+      subtitlesEnglishResultsUrl: 'SubtitlesEnglishResultsUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      subtitlesAllResults: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      subtitlesAllResultsUrl: 'string',
+      subtitlesChineseResults: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      subtitlesChineseResultsUrl: 'string',
+      subtitlesEnglishResults: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      subtitlesEnglishResultsUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition extends $tea.Model {
+  x?: number;
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes extends $tea.Model {
+  boxes?: number[];
+  position?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition[];
+  score?: number;
+  text?: string;
+  textType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      boxes: 'Boxes',
+      position: 'Position',
+      score: 'Score',
+      text: 'Text',
+      textType: 'TextType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      boxes: { 'type': 'array', 'itemType': 'number' },
+      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition },
+      score: 'number',
+      text: 'string',
+      textType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults extends $tea.Model {
+  detailInfoes?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes[];
+  endTime?: number;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      detailInfoes: 'DetailInfoes',
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detailInfoes: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes },
+      endTime: 'number',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RecognizeVideoCastCrewListResponseBodyData extends $tea.Model {
+  castResults?: RecognizeVideoCastCrewListResponseBodyDataCastResults[];
+  ocrResults?: RecognizeVideoCastCrewListResponseBodyDataOcrResults[];
+  subtitlesResults?: RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults[];
+  videoOcrResults?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults[];
+  static names(): { [key: string]: string } {
+    return {
+      castResults: 'CastResults',
+      ocrResults: 'OcrResults',
+      subtitlesResults: 'SubtitlesResults',
+      videoOcrResults: 'VideoOcrResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      castResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataCastResults },
+      ocrResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResults },
+      subtitlesResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults },
+      videoOcrResults: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecognizeVideoCharacterResponseBodyDataFramesElementsTextRectangles extends $tea.Model {
   angle?: number;
   height?: number;
@@ -5248,80 +5763,6 @@ export default class Client extends OpenApi {
   async recognizeBankCard(request: RecognizeBankCardRequest): Promise<RecognizeBankCardResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.recognizeBankCardWithOptions(request, runtime);
-  }
-
-  async recognizeBankCardAdvance(request: RecognizeBankCardAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBankCardResponse> {
-    // Step 0: init client
-    let accessKeyId = await this._credential.getAccessKeyId();
-    let accessKeySecret = await this._credential.getAccessKeySecret();
-    let securityToken = await this._credential.getSecurityToken();
-    let credentialType = this._credential.getType();
-    let openPlatformEndpoint = this._openPlatformEndpoint;
-    if (Util.isUnset(openPlatformEndpoint)) {
-      openPlatformEndpoint = "openplatform.aliyuncs.com";
-    }
-
-    if (Util.isUnset(credentialType)) {
-      credentialType = "access_key";
-    }
-
-    let authConfig = new $RPC.Config({
-      accessKeyId: accessKeyId,
-      accessKeySecret: accessKeySecret,
-      securityToken: securityToken,
-      type: credentialType,
-      endpoint: openPlatformEndpoint,
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let authClient = new OpenPlatform(authConfig);
-    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
-      product: "ocr",
-      regionId: this._regionId,
-    });
-    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
-    let ossConfig = new $OSS.Config({
-      accessKeySecret: accessKeySecret,
-      type: "access_key",
-      protocol: this._protocol,
-      regionId: this._regionId,
-    });
-    let ossClient : OSS = null;
-    let fileObj = new $FileForm.FileField({ });
-    let ossHeader = new $OSS.PostObjectRequestHeader({ });
-    let uploadRequest = new $OSS.PostObjectRequest({ });
-    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
-    OpenApiUtil.convert(runtime, ossRuntime);
-    let recognizeBankCardReq = new RecognizeBankCardRequest({ });
-    OpenApiUtil.convert(request, recognizeBankCardReq);
-    if (!Util.isUnset(request.imageURLObject)) {
-      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
-      ossConfig.accessKeyId = authResponse.accessKeyId;
-      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
-      ossClient = new OSS(ossConfig);
-      fileObj = new $FileForm.FileField({
-        filename: authResponse.objectKey,
-        content: request.imageURLObject,
-        contentType: "",
-      });
-      ossHeader = new $OSS.PostObjectRequestHeader({
-        accessKeyId: authResponse.accessKeyId,
-        policy: authResponse.encodedPolicy,
-        signature: authResponse.signature,
-        key: authResponse.objectKey,
-        file: fileObj,
-        successActionStatus: "201",
-      });
-      uploadRequest = new $OSS.PostObjectRequest({
-        bucketName: authResponse.bucket,
-        header: ossHeader,
-      });
-      await ossClient.postObject(uploadRequest, ossRuntime);
-      recognizeBankCardReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
-    }
-
-    let recognizeBankCardResp = await this.recognizeBankCardWithOptions(recognizeBankCardReq, runtime);
-    return recognizeBankCardResp;
   }
 
   async recognizeBusinessCardWithOptions(request: RecognizeBusinessCardRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeBusinessCardResponse> {
@@ -6712,6 +7153,109 @@ export default class Client extends OpenApi {
     return recognizeStampResp;
   }
 
+  async recognizeStructuredTaxiInvoicesWithOptions(request: RecognizeStructuredTaxiInvoicesRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStructuredTaxiInvoicesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.imageURL)) {
+      body["ImageURL"] = request.imageURL;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeStructuredTaxiInvoices",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeStructuredTaxiInvoicesResponse>(await this.callApi(params, req, runtime), new RecognizeStructuredTaxiInvoicesResponse({}));
+  }
+
+  async recognizeStructuredTaxiInvoices(request: RecognizeStructuredTaxiInvoicesRequest): Promise<RecognizeStructuredTaxiInvoicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeStructuredTaxiInvoicesWithOptions(request, runtime);
+  }
+
+  async recognizeStructuredTaxiInvoicesAdvance(request: RecognizeStructuredTaxiInvoicesAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeStructuredTaxiInvoicesResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeStructuredTaxiInvoicesReq = new RecognizeStructuredTaxiInvoicesRequest({ });
+    OpenApiUtil.convert(request, recognizeStructuredTaxiInvoicesReq);
+    if (!Util.isUnset(request.imageURLObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.imageURLObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeStructuredTaxiInvoicesReq.imageURL = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeStructuredTaxiInvoicesResp = await this.recognizeStructuredTaxiInvoicesWithOptions(recognizeStructuredTaxiInvoicesReq, runtime);
+    return recognizeStructuredTaxiInvoicesResp;
+  }
+
   async recognizeTableWithOptions(request: RecognizeTableRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeTableResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -7357,7 +7901,10 @@ export default class Client extends OpenApi {
   async recognizeVINCodeWithOptions(request: RecognizeVINCodeRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVINCodeResponse> {
     Util.validateModel(request);
     let query = { };
-    query["ImageURL"] = request.imageURL;
+    if (!Util.isUnset(request.imageURL)) {
+      query["ImageURL"] = request.imageURL;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7555,6 +8102,123 @@ export default class Client extends OpenApi {
 
     let recognizeVerificationcodeResp = await this.recognizeVerificationcodeWithOptions(recognizeVerificationcodeReq, runtime);
     return recognizeVerificationcodeResp;
+  }
+
+  async recognizeVideoCastCrewListWithOptions(tmpReq: RecognizeVideoCastCrewListRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVideoCastCrewListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RecognizeVideoCastCrewListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    if (!Util.isUnset(request.registerUrl)) {
+      body["RegisterUrl"] = request.registerUrl;
+    }
+
+    if (!Util.isUnset(request.videoUrl)) {
+      body["VideoUrl"] = request.videoUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RecognizeVideoCastCrewList",
+      version: "2019-12-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RecognizeVideoCastCrewListResponse>(await this.callApi(params, req, runtime), new RecognizeVideoCastCrewListResponse({}));
+  }
+
+  async recognizeVideoCastCrewList(request: RecognizeVideoCastCrewListRequest): Promise<RecognizeVideoCastCrewListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.recognizeVideoCastCrewListWithOptions(request, runtime);
+  }
+
+  async recognizeVideoCastCrewListAdvance(request: RecognizeVideoCastCrewListAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVideoCastCrewListResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "ocr",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let recognizeVideoCastCrewListReq = new RecognizeVideoCastCrewListRequest({ });
+    OpenApiUtil.convert(request, recognizeVideoCastCrewListReq);
+    if (!Util.isUnset(request.videoUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.videoUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      recognizeVideoCastCrewListReq.videoUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let recognizeVideoCastCrewListResp = await this.recognizeVideoCastCrewListWithOptions(recognizeVideoCastCrewListReq, runtime);
+    return recognizeVideoCastCrewListResp;
   }
 
   async recognizeVideoCharacterWithOptions(request: RecognizeVideoCharacterRequest, runtime: $Util.RuntimeOptions): Promise<RecognizeVideoCharacterResponse> {
