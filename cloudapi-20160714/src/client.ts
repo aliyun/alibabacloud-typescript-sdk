@@ -2534,6 +2534,72 @@ export class DeleteModelResponse extends $tea.Model {
   }
 }
 
+export class DeleteMonitorGroupRequest extends $tea.Model {
+  groupId?: string;
+  rawMonitorGroupId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      rawMonitorGroupId: 'RawMonitorGroupId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      rawMonitorGroupId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMonitorGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteMonitorGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteMonitorGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteMonitorGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeletePluginRequest extends $tea.Model {
   pluginId?: string;
   securityToken?: string;
@@ -19038,6 +19104,43 @@ export default class Client extends OpenApi {
   async deleteModel(request: DeleteModelRequest): Promise<DeleteModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteModelWithOptions(request, runtime);
+  }
+
+  async deleteMonitorGroupWithOptions(request: DeleteMonitorGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteMonitorGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.rawMonitorGroupId)) {
+      query["RawMonitorGroupId"] = request.rawMonitorGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteMonitorGroup",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteMonitorGroupResponse>(await this.callApi(params, req, runtime), new DeleteMonitorGroupResponse({}));
+  }
+
+  async deleteMonitorGroup(request: DeleteMonitorGroupRequest): Promise<DeleteMonitorGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteMonitorGroupWithOptions(request, runtime);
   }
 
   async deletePluginWithOptions(request: DeletePluginRequest, runtime: $Util.RuntimeOptions): Promise<DeletePluginResponse> {
