@@ -86,6 +86,109 @@ export class AddDataForApiSourceResponse extends $tea.Model {
   }
 }
 
+export class BatchAddDataForApiSourceRequest extends $tea.Model {
+  apiId?: string;
+  contentList?: { [key: string]: any };
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      contentList: 'ContentList',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      contentList: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDataForApiSourceShrinkRequest extends $tea.Model {
+  apiId?: string;
+  contentListShrink?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      contentListShrink: 'ContentList',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      contentListShrink: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDataForApiSourceResponseBody extends $tea.Model {
+  code?: string;
+  data?: { [key: string]: any };
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchAddDataForApiSourceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: BatchAddDataForApiSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: BatchAddDataForApiSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchAddDeviceGroupRelationsRequest extends $tea.Model {
   device?: BatchAddDeviceGroupRelationsRequestDevice[];
   groupId?: string;
@@ -3059,6 +3162,78 @@ export class ClearEdgeInstanceDriverConfigsResponse extends $tea.Model {
   }
 }
 
+export class CloseDeviceTunnelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  tunnelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      tunnelId: 'TunnelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      tunnelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseDeviceTunnelResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CloseDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CloseDeviceTunnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloseEdgeInstanceDeploymentRequest extends $tea.Model {
   instanceId?: string;
   iotInstanceId?: string;
@@ -3617,6 +3792,87 @@ export class CreateDeviceDistributeJobResponse extends $tea.Model {
   }
 }
 
+export class CreateDeviceDynamicGroupRequest extends $tea.Model {
+  dynamicGroupExpression?: string;
+  groupDesc?: string;
+  groupName?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicGroupExpression: 'DynamicGroupExpression',
+      groupDesc: 'GroupDesc',
+      groupName: 'GroupName',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicGroupExpression: 'string',
+      groupDesc: 'string',
+      groupName: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceDynamicGroupResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateDeviceDynamicGroupResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDeviceDynamicGroupResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceDynamicGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDeviceDynamicGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDeviceDynamicGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeviceGroupRequest extends $tea.Model {
   groupDesc?: string;
   groupName?: string;
@@ -3690,6 +3946,93 @@ export class CreateDeviceGroupResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateDeviceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceTunnelRequest extends $tea.Model {
+  description?: string;
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  udi?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      udi: 'Udi',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      udi: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceTunnelResponseBody extends $tea.Model {
+  code?: string;
+  data?: CreateDeviceTunnelResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDeviceTunnelResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateDeviceTunnelResponseBody,
     };
   }
 
@@ -4311,12 +4654,12 @@ export class CreateJobRequest extends $tea.Model {
   description?: string;
   iotInstanceId?: string;
   jobDocument?: string;
-  jobFile?: string;
+  jobFile?: { [key: string]: any };
   jobName?: string;
-  rolloutConfig?: string;
+  rolloutConfig?: { [key: string]: any };
   scheduledTime?: number;
-  targetConfig?: string;
-  timeoutConfig?: string;
+  targetConfig?: { [key: string]: any };
+  timeoutConfig?: { [key: string]: any };
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4338,12 +4681,58 @@ export class CreateJobRequest extends $tea.Model {
       description: 'string',
       iotInstanceId: 'string',
       jobDocument: 'string',
-      jobFile: 'string',
+      jobFile: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       jobName: 'string',
-      rolloutConfig: 'string',
+      rolloutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       scheduledTime: 'number',
-      targetConfig: 'string',
-      timeoutConfig: 'string',
+      targetConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      timeoutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateJobShrinkRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  jobDocument?: string;
+  jobFileShrink?: string;
+  jobName?: string;
+  rolloutConfigShrink?: string;
+  scheduledTime?: number;
+  targetConfigShrink?: string;
+  timeoutConfigShrink?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      jobDocument: 'JobDocument',
+      jobFileShrink: 'JobFile',
+      jobName: 'JobName',
+      rolloutConfigShrink: 'RolloutConfig',
+      scheduledTime: 'ScheduledTime',
+      targetConfigShrink: 'TargetConfig',
+      timeoutConfigShrink: 'TimeoutConfig',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      jobDocument: 'string',
+      jobFileShrink: 'string',
+      jobName: 'string',
+      rolloutConfigShrink: 'string',
+      scheduledTime: 'number',
+      targetConfigShrink: 'string',
+      timeoutConfigShrink: 'string',
       type: 'string',
     };
   }
@@ -4485,10 +4874,14 @@ export class CreateLoRaNodesTaskResponse extends $tea.Model {
 }
 
 export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
+  downloadProtocol?: string;
   dynamicMode?: number;
   firmwareId?: string;
+  groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   maximumPerMinute?: number;
+  multiModuleMode?: boolean;
   needConfirm?: boolean;
   needPush?: boolean;
   overwriteMode?: number;
@@ -4500,10 +4893,14 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
   timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
+      downloadProtocol: 'DownloadProtocol',
       dynamicMode: 'DynamicMode',
       firmwareId: 'FirmwareId',
+      groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
       maximumPerMinute: 'MaximumPerMinute',
+      multiModuleMode: 'MultiModuleMode',
       needConfirm: 'NeedConfirm',
       needPush: 'NeedPush',
       overwriteMode: 'OverwriteMode',
@@ -4518,10 +4915,14 @@ export class CreateOTADynamicUpgradeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      downloadProtocol: 'string',
       dynamicMode: 'number',
       firmwareId: 'string',
+      groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
       maximumPerMinute: 'number',
+      multiModuleMode: 'boolean',
       needConfirm: 'boolean',
       needPush: 'boolean',
       overwriteMode: 'number',
@@ -4601,6 +5002,7 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
   firmwareUrl?: string;
   iotInstanceId?: string;
   moduleName?: string;
+  multiFiles?: CreateOTAFirmwareRequestMultiFiles[];
   needToVerify?: boolean;
   productKey?: string;
   signMethod?: string;
@@ -4617,6 +5019,7 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
       firmwareUrl: 'FirmwareUrl',
       iotInstanceId: 'IotInstanceId',
       moduleName: 'ModuleName',
+      multiFiles: 'MultiFiles',
       needToVerify: 'NeedToVerify',
       productKey: 'ProductKey',
       signMethod: 'SignMethod',
@@ -4636,6 +5039,7 @@ export class CreateOTAFirmwareRequest extends $tea.Model {
       firmwareUrl: 'string',
       iotInstanceId: 'string',
       moduleName: 'string',
+      multiFiles: { 'type': 'array', 'itemType': CreateOTAFirmwareRequestMultiFiles },
       needToVerify: 'boolean',
       productKey: 'string',
       signMethod: 'string',
@@ -4786,10 +5190,14 @@ export class CreateOTAModuleResponse extends $tea.Model {
 
 export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
   dnListFileUrl?: string;
+  downloadProtocol?: string;
   firmwareId?: string;
   grayPercent?: string;
+  groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   maximumPerMinute?: number;
+  multiModuleMode?: boolean;
   needConfirm?: boolean;
   needPush?: boolean;
   overwriteMode?: number;
@@ -4806,10 +5214,14 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       dnListFileUrl: 'DnListFileUrl',
+      downloadProtocol: 'DownloadProtocol',
       firmwareId: 'FirmwareId',
       grayPercent: 'GrayPercent',
+      groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
       maximumPerMinute: 'MaximumPerMinute',
+      multiModuleMode: 'MultiModuleMode',
       needConfirm: 'NeedConfirm',
       needPush: 'NeedPush',
       overwriteMode: 'OverwriteMode',
@@ -4829,10 +5241,14 @@ export class CreateOTAStaticUpgradeJobRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       dnListFileUrl: 'string',
+      downloadProtocol: 'string',
       firmwareId: 'string',
       grayPercent: 'string',
+      groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
       maximumPerMinute: 'number',
+      multiModuleMode: 'boolean',
       needConfirm: 'boolean',
       needPush: 'boolean',
       overwriteMode: 'number',
@@ -4908,20 +5324,24 @@ export class CreateOTAStaticUpgradeJobResponse extends $tea.Model {
 }
 
 export class CreateOTAVerifyJobRequest extends $tea.Model {
+  downloadProtocol?: string;
   firmwareId?: string;
   iotInstanceId?: string;
   needConfirm?: boolean;
   needPush?: boolean;
   productKey?: string;
+  tag?: CreateOTAVerifyJobRequestTag[];
   targetDeviceName?: string[];
   timeoutInMinutes?: number;
   static names(): { [key: string]: string } {
     return {
+      downloadProtocol: 'DownloadProtocol',
       firmwareId: 'FirmwareId',
       iotInstanceId: 'IotInstanceId',
       needConfirm: 'NeedConfirm',
       needPush: 'NeedPush',
       productKey: 'ProductKey',
+      tag: 'Tag',
       targetDeviceName: 'TargetDeviceName',
       timeoutInMinutes: 'TimeoutInMinutes',
     };
@@ -4929,11 +5349,13 @@ export class CreateOTAVerifyJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      downloadProtocol: 'string',
       firmwareId: 'string',
       iotInstanceId: 'string',
       needConfirm: 'boolean',
       needPush: 'boolean',
       productKey: 'string',
+      tag: { 'type': 'array', 'itemType': CreateOTAVerifyJobRequestTag },
       targetDeviceName: { 'type': 'array', 'itemType': 'string' },
       timeoutInMinutes: 'number',
     };
@@ -5546,81 +5968,6 @@ export class CreateRuleActionResponse extends $tea.Model {
   }
 }
 
-export class CreateRulengDistributeJobRequest extends $tea.Model {
-  productKey?: string;
-  sourceInstanceId?: string;
-  targetInstanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      productKey: 'ProductKey',
-      sourceInstanceId: 'SourceInstanceId',
-      targetInstanceId: 'TargetInstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      productKey: 'string',
-      sourceInstanceId: 'string',
-      targetInstanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRulengDistributeJobResponseBody extends $tea.Model {
-  code?: string;
-  errorMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateRulengDistributeJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateRulengDistributeJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateRulengDistributeJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateSceneRuleRequest extends $tea.Model {
   iotInstanceId?: string;
   ruleContent?: string;
@@ -5702,10 +6049,91 @@ export class CreateSceneRuleResponse extends $tea.Model {
   }
 }
 
+export class CreateSoundCodeRequest extends $tea.Model {
+  duration?: number;
+  iotInstanceId?: string;
+  soundCodeContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      iotInstanceId: 'IotInstanceId',
+      soundCodeContent: 'SoundCodeContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      iotInstanceId: 'string',
+      soundCodeContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSoundCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateSoundCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateSoundCodeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSpeechRequest extends $tea.Model {
+  audioFormat?: string;
   bizCode?: string;
+  enableSoundCode?: boolean;
   iotInstanceId?: string;
   projectCode?: string;
+  soundCodeConfig?: { [key: string]: any };
   speechRate?: number;
   speechType?: string;
   text?: string;
@@ -5713,9 +6141,12 @@ export class CreateSpeechRequest extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      audioFormat: 'AudioFormat',
       bizCode: 'BizCode',
+      enableSoundCode: 'EnableSoundCode',
       iotInstanceId: 'IotInstanceId',
       projectCode: 'ProjectCode',
+      soundCodeConfig: 'SoundCodeConfig',
       speechRate: 'SpeechRate',
       speechType: 'SpeechType',
       text: 'Text',
@@ -5726,9 +6157,61 @@ export class CreateSpeechRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioFormat: 'string',
       bizCode: 'string',
+      enableSoundCode: 'boolean',
       iotInstanceId: 'string',
       projectCode: 'string',
+      soundCodeConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      speechRate: 'number',
+      speechType: 'string',
+      text: 'string',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSpeechShrinkRequest extends $tea.Model {
+  audioFormat?: string;
+  bizCode?: string;
+  enableSoundCode?: boolean;
+  iotInstanceId?: string;
+  projectCode?: string;
+  soundCodeConfigShrink?: string;
+  speechRate?: number;
+  speechType?: string;
+  text?: string;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      bizCode: 'BizCode',
+      enableSoundCode: 'EnableSoundCode',
+      iotInstanceId: 'IotInstanceId',
+      projectCode: 'ProjectCode',
+      soundCodeConfigShrink: 'SoundCodeConfig',
+      speechRate: 'SpeechRate',
+      speechType: 'SpeechType',
+      text: 'Text',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      bizCode: 'string',
+      enableSoundCode: 'boolean',
+      iotInstanceId: 'string',
+      projectCode: 'string',
+      soundCodeConfigShrink: 'string',
       speechRate: 'number',
       speechType: 'string',
       text: 'string',
@@ -6230,6 +6713,78 @@ export class CreateTopicRouteTableResponse extends $tea.Model {
   }
 }
 
+export class DeleteClientIdsRequest extends $tea.Model {
+  iotId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientIdsResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientIdsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteClientIdsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteClientIdsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteConsumerGroupRequest extends $tea.Model {
   groupId?: string;
   iotInstanceId?: string;
@@ -6524,6 +7079,78 @@ export class DeleteDeviceDistributeJobResponse extends $tea.Model {
   }
 }
 
+export class DeleteDeviceDynamicGroupRequest extends $tea.Model {
+  groupId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupId: 'GroupId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceDynamicGroupResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceDynamicGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDeviceDynamicGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDeviceDynamicGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDeviceFileRequest extends $tea.Model {
   deviceName?: string;
   fileId?: string;
@@ -6750,6 +7377,153 @@ export class DeleteDevicePropResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteDevicePropResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceSpeechRequest extends $tea.Model {
+  deviceSpeechList?: DeleteDeviceSpeechRequestDeviceSpeechList[];
+  iotId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceSpeechList: 'DeviceSpeechList',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceSpeechList: { 'type': 'array', 'itemType': DeleteDeviceSpeechRequestDeviceSpeechList },
+      iotId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceSpeechResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceSpeechResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDeviceSpeechResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDeviceSpeechResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceTunnelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  tunnelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      tunnelId: 'TunnelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      tunnelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceTunnelResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteDeviceTunnelResponseBody,
     };
   }
 
@@ -7698,6 +8472,78 @@ export class DeleteSceneRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DeleteSceneRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeRequest extends $tea.Model {
+  iotInstanceId?: string;
+  soundCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      soundCode: 'SoundCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      soundCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSoundCodeResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DeleteSoundCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DeleteSoundCodeResponseBody,
     };
   }
 
@@ -9797,93 +10643,6 @@ export class GetLoraNodesTaskResponse extends $tea.Model {
   }
 }
 
-export class GetNodesAddingTaskRequest extends $tea.Model {
-  iotInstanceId?: string;
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      iotInstanceId: 'IotInstanceId',
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      iotInstanceId: 'string',
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodesAddingTaskResponseBody extends $tea.Model {
-  code?: string;
-  errorMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  successCount?: number;
-  successDevEuis?: GetNodesAddingTaskResponseBodySuccessDevEuis;
-  taskId?: string;
-  taskState?: string;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-      successCount: 'SuccessCount',
-      successDevEuis: 'SuccessDevEuis',
-      taskId: 'TaskId',
-      taskState: 'TaskState',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      successCount: 'number',
-      successDevEuis: GetNodesAddingTaskResponseBodySuccessDevEuis,
-      taskId: 'string',
-      taskState: 'string',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetNodesAddingTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetNodesAddingTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetNodesAddingTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRuleRequest extends $tea.Model {
   iotInstanceId?: string;
   ruleId?: number;
@@ -10101,6 +10860,156 @@ export class GetSceneRuleResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetSceneRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeAudioRequest extends $tea.Model {
+  iotInstanceId?: string;
+  soundCodeList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      soundCodeList: 'SoundCodeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      soundCodeList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeAudioResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSoundCodeAudioResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSoundCodeAudioResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeAudioResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSoundCodeAudioResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSoundCodeAudioResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechDeviceDetailRequest extends $tea.Model {
+  iotId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechDeviceDetailResponseBody extends $tea.Model {
+  code?: string;
+  data?: GetSpeechDeviceDetailResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSpeechDeviceDetailResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechDeviceDetailResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetSpeechDeviceDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetSpeechDeviceDetailResponseBody,
     };
   }
 
@@ -10651,6 +11560,168 @@ export class GetThingTopoResponse extends $tea.Model {
   }
 }
 
+export class GisQueryDeviceLocationRequest extends $tea.Model {
+  iotInstanceId?: string;
+  thingList?: GisQueryDeviceLocationRequestThingList[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      thingList: 'ThingList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      thingList: { 'type': 'array', 'itemType': GisQueryDeviceLocationRequestThingList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisQueryDeviceLocationResponseBody extends $tea.Model {
+  code?: string;
+  data?: GisQueryDeviceLocationResponseBodyData[];
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GisQueryDeviceLocationResponseBodyData },
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisQueryDeviceLocationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GisQueryDeviceLocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GisQueryDeviceLocationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisSearchDeviceTraceRequest extends $tea.Model {
+  deviceName?: string;
+  endTime?: number;
+  iotInstanceId?: string;
+  mapMatch?: number;
+  productKey?: string;
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      endTime: 'EndTime',
+      iotInstanceId: 'IotInstanceId',
+      mapMatch: 'MapMatch',
+      productKey: 'ProductKey',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      endTime: 'number',
+      iotInstanceId: 'string',
+      mapMatch: 'number',
+      productKey: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisSearchDeviceTraceResponseBody extends $tea.Model {
+  code?: string;
+  data?: GisSearchDeviceTraceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GisSearchDeviceTraceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisSearchDeviceTraceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GisSearchDeviceTraceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GisSearchDeviceTraceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportThingModelTslRequest extends $tea.Model {
   functionBlockId?: string;
   functionBlockName?: string;
@@ -11076,6 +12147,7 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
   jobId?: string;
   nextToken?: string;
   pageSize?: number;
+  productKey?: string;
   status?: number;
   targetUid?: string;
   static names(): { [key: string]: string } {
@@ -11084,6 +12156,7 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
       jobId: 'JobId',
       nextToken: 'NextToken',
       pageSize: 'PageSize',
+      productKey: 'ProductKey',
       status: 'Status',
       targetUid: 'TargetUid',
     };
@@ -11095,6 +12168,7 @@ export class ListDeviceDistributeJobRequest extends $tea.Model {
       jobId: 'string',
       nextToken: 'string',
       pageSize: 'number',
+      productKey: 'string',
       status: 'number',
       targetUid: 'string',
     };
@@ -12392,7 +13466,7 @@ export class ListRuleActionsResponse extends $tea.Model {
 }
 
 export class ListTaskRequest extends $tea.Model {
-  device?: string;
+  device?: { [key: string]: any };
   iotInstanceId?: string;
   jobId?: string;
   limit?: number;
@@ -12411,7 +13485,41 @@ export class ListTaskRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      device: 'string',
+      device: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      iotInstanceId: 'string',
+      jobId: 'string',
+      limit: 'number',
+      nextToken: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTaskShrinkRequest extends $tea.Model {
+  deviceShrink?: string;
+  iotInstanceId?: string;
+  jobId?: string;
+  limit?: number;
+  nextToken?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceShrink: 'Device',
+      iotInstanceId: 'IotInstanceId',
+      jobId: 'JobId',
+      limit: 'Limit',
+      nextToken: 'NextToken',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceShrink: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
       limit: 'number',
@@ -12473,111 +13581,6 @@ export class ListTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskByPageRequest extends $tea.Model {
-  device?: string;
-  deviceName?: string;
-  iotInstanceId?: string;
-  jobId?: string;
-  jobName?: string;
-  pageNo?: string;
-  pageSize?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      device: 'Device',
-      deviceName: 'DeviceName',
-      iotInstanceId: 'IotInstanceId',
-      jobId: 'JobId',
-      jobName: 'JobName',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      device: 'string',
-      deviceName: 'string',
-      iotInstanceId: 'string',
-      jobId: 'string',
-      jobName: 'string',
-      pageNo: 'string',
-      pageSize: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskByPageResponseBody extends $tea.Model {
-  code?: string;
-  data?: ListTaskByPageResponseBodyData;
-  errorMessage?: string;
-  page?: number;
-  pageCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      page: 'Page',
-      pageCount: 'PageCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListTaskByPageResponseBodyData,
-      errorMessage: 'string',
-      page: 'number',
-      pageCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskByPageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTaskByPageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTaskByPageResponseBody,
     };
   }
 
@@ -12882,20 +13885,20 @@ export class OpenIotServiceResponse extends $tea.Model {
 
 export class PrintByTemplateRequest extends $tea.Model {
   deviceName?: string;
+  historyPrintTopic?: boolean;
   iotId?: string;
   iotInstanceId?: string;
   paramsJsonString?: string;
   productKey?: string;
-  projectCode?: string;
   templateBizCode?: string;
   static names(): { [key: string]: string } {
     return {
       deviceName: 'DeviceName',
+      historyPrintTopic: 'HistoryPrintTopic',
       iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
       paramsJsonString: 'ParamsJsonString',
       productKey: 'ProductKey',
-      projectCode: 'ProjectCode',
       templateBizCode: 'TemplateBizCode',
     };
   }
@@ -12903,11 +13906,11 @@ export class PrintByTemplateRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       deviceName: 'string',
+      historyPrintTopic: 'boolean',
       iotId: 'string',
       iotInstanceId: 'string',
       paramsJsonString: 'string',
       productKey: 'string',
-      projectCode: 'string',
       templateBizCode: 'string',
     };
   }
@@ -13399,108 +14402,6 @@ export class PushSpeechResponse extends $tea.Model {
   }
 }
 
-export class QueryAppDeviceListRequest extends $tea.Model {
-  appKey?: string;
-  categoryKeyList?: string[];
-  currentPage?: number;
-  iotInstanceId?: string;
-  pageSize?: number;
-  productKeyList?: string[];
-  tagList?: QueryAppDeviceListRequestTagList[];
-  static names(): { [key: string]: string } {
-    return {
-      appKey: 'AppKey',
-      categoryKeyList: 'CategoryKeyList',
-      currentPage: 'CurrentPage',
-      iotInstanceId: 'IotInstanceId',
-      pageSize: 'PageSize',
-      productKeyList: 'ProductKeyList',
-      tagList: 'TagList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      appKey: 'string',
-      categoryKeyList: { 'type': 'array', 'itemType': 'string' },
-      currentPage: 'number',
-      iotInstanceId: 'string',
-      pageSize: 'number',
-      productKeyList: { 'type': 'array', 'itemType': 'string' },
-      tagList: { 'type': 'array', 'itemType': QueryAppDeviceListRequestTagList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppDeviceListResponseBody extends $tea.Model {
-  code?: string;
-  data?: QueryAppDeviceListResponseBodyData;
-  errorMessage?: string;
-  page?: number;
-  pageCount?: number;
-  pageSize?: number;
-  requestId?: string;
-  success?: boolean;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      errorMessage: 'ErrorMessage',
-      page: 'Page',
-      pageCount: 'PageCount',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      success: 'Success',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: QueryAppDeviceListResponseBodyData,
-      errorMessage: 'string',
-      page: 'number',
-      pageCount: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      success: 'boolean',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppDeviceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryAppDeviceListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryAppDeviceListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryBatchRegisterDeviceStatusRequest extends $tea.Model {
   applyId?: number;
   iotInstanceId?: string;
@@ -13646,6 +14547,81 @@ export class QueryCertUrlByApplyIdResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryCertUrlByApplyIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClientIdsRequest extends $tea.Model {
+  iotId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClientIdsResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryClientIdsResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryClientIdsResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClientIdsResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryClientIdsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryClientIdsResponseBody,
     };
   }
 
@@ -15219,10 +16195,12 @@ export class QueryDeviceGroupByTagsResponse extends $tea.Model {
 
 export class QueryDeviceGroupInfoRequest extends $tea.Model {
   groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
     };
   }
@@ -15230,6 +16208,7 @@ export class QueryDeviceGroupInfoRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -15295,6 +16274,7 @@ export class QueryDeviceGroupInfoResponse extends $tea.Model {
 export class QueryDeviceGroupListRequest extends $tea.Model {
   currentPage?: number;
   groupName?: string;
+  groupTypes?: string[];
   iotInstanceId?: string;
   pageSize?: number;
   superGroupId?: string;
@@ -15302,6 +16282,7 @@ export class QueryDeviceGroupListRequest extends $tea.Model {
     return {
       currentPage: 'CurrentPage',
       groupName: 'GroupName',
+      groupTypes: 'GroupTypes',
       iotInstanceId: 'IotInstanceId',
       pageSize: 'PageSize',
       superGroupId: 'SuperGroupId',
@@ -15312,6 +16293,7 @@ export class QueryDeviceGroupListRequest extends $tea.Model {
     return {
       currentPage: 'number',
       groupName: 'string',
+      groupTypes: { 'type': 'array', 'itemType': 'string' },
       iotInstanceId: 'string',
       pageSize: 'number',
       superGroupId: 'string',
@@ -15390,10 +16372,12 @@ export class QueryDeviceGroupListResponse extends $tea.Model {
 
 export class QueryDeviceGroupTagListRequest extends $tea.Model {
   groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
     };
   }
@@ -15401,6 +16385,7 @@ export class QueryDeviceGroupTagListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -16483,6 +17468,87 @@ export class QueryDeviceServiceDataResponse extends $tea.Model {
   }
 }
 
+export class QueryDeviceSpeechRequest extends $tea.Model {
+  iotId?: string;
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotId: 'string',
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSpeechResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDeviceSpeechResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDeviceSpeechResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSpeechResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDeviceSpeechResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDeviceSpeechResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceStatisticsRequest extends $tea.Model {
   groupId?: string;
   iotInstanceId?: string;
@@ -16553,6 +17619,192 @@ export class QueryDeviceStatisticsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: QueryDeviceStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceTunnelRequest extends $tea.Model {
+  iotInstanceId?: string;
+  tunnelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      tunnelId: 'TunnelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      tunnelId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceTunnelResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDeviceTunnelResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDeviceTunnelResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceTunnelResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDeviceTunnelResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDeviceTunnelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDynamicGroupDevicesRequest extends $tea.Model {
+  currentPage?: number;
+  deviceName?: string;
+  fuzzyName?: boolean;
+  groupId?: string;
+  iotInstanceId?: string;
+  nextToken?: string;
+  pageSize?: number;
+  productKey?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      deviceName: 'DeviceName',
+      fuzzyName: 'FuzzyName',
+      groupId: 'GroupId',
+      iotInstanceId: 'IotInstanceId',
+      nextToken: 'NextToken',
+      pageSize: 'PageSize',
+      productKey: 'ProductKey',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      deviceName: 'string',
+      fuzzyName: 'boolean',
+      groupId: 'string',
+      iotInstanceId: 'string',
+      nextToken: 'string',
+      pageSize: 'number',
+      productKey: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDynamicGroupDevicesResponseBody extends $tea.Model {
+  code?: string;
+  data?: QueryDynamicGroupDevicesResponseBodyData;
+  errorMessage?: string;
+  nextToken?: string;
+  page?: number;
+  pageCount?: number;
+  pageSize?: number;
+  requestId?: string;
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      nextToken: 'NextToken',
+      page: 'Page',
+      pageCount: 'PageCount',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QueryDynamicGroupDevicesResponseBodyData,
+      errorMessage: 'string',
+      nextToken: 'string',
+      page: 'number',
+      pageCount: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDynamicGroupDevicesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QueryDynamicGroupDevicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QueryDynamicGroupDevicesResponseBody,
     };
   }
 
@@ -18490,6 +19742,84 @@ export class QuerySolutionDeviceGroupPageResponse extends $tea.Model {
   }
 }
 
+export class QuerySoundCodeListRequest extends $tea.Model {
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeListResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySoundCodeListResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySoundCodeListResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeListResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySoundCodeListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySoundCodeListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySpeechRequest extends $tea.Model {
   iotInstanceId?: string;
   speechCode?: string;
@@ -18565,13 +19895,19 @@ export class QuerySpeechResponse extends $tea.Model {
   }
 }
 
-export class QuerySpeechListRequest extends $tea.Model {
+export class QuerySpeechDeviceRequest extends $tea.Model {
+  availableSpace?: string;
+  availableSpaceScope?: string;
+  deviceName?: string;
   iotInstanceId?: string;
   pageId?: number;
   pageSize?: number;
   projectCode?: string;
   static names(): { [key: string]: string } {
     return {
+      availableSpace: 'AvailableSpace',
+      availableSpaceScope: 'AvailableSpaceScope',
+      deviceName: 'DeviceName',
       iotInstanceId: 'IotInstanceId',
       pageId: 'PageId',
       pageSize: 'PageSize',
@@ -18581,6 +19917,93 @@ export class QuerySpeechListRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availableSpace: 'string',
+      availableSpaceScope: 'string',
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      pageId: 'number',
+      pageSize: 'number',
+      projectCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechDeviceResponseBody extends $tea.Model {
+  code?: string;
+  data?: QuerySpeechDeviceResponseBodyData;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: QuerySpeechDeviceResponseBodyData,
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechDeviceResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: QuerySpeechDeviceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: QuerySpeechDeviceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechListRequest extends $tea.Model {
+  audioFormat?: string;
+  iotInstanceId?: string;
+  pageId?: number;
+  pageSize?: number;
+  projectCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      iotInstanceId: 'IotInstanceId',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      projectCode: 'ProjectCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
       iotInstanceId: 'string',
       pageId: 'number',
       pageSize: 'number',
@@ -20959,6 +22382,81 @@ export class ResetThingResponse extends $tea.Model {
   }
 }
 
+export class ReupgradeOTATaskRequest extends $tea.Model {
+  iotInstanceId?: string;
+  jobId?: string;
+  taskId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      iotInstanceId: 'IotInstanceId',
+      jobId: 'JobId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      iotInstanceId: 'string',
+      jobId: 'string',
+      taskId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReupgradeOTATaskResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReupgradeOTATaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ReupgradeOTATaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ReupgradeOTATaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveDevicePropRequest extends $tea.Model {
   deviceName?: string;
   iotId?: string;
@@ -21129,11 +22627,13 @@ export class SetDeviceDesiredPropertyResponse extends $tea.Model {
 
 export class SetDeviceGroupTagsRequest extends $tea.Model {
   groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   tagString?: string;
   static names(): { [key: string]: string } {
     return {
       groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
       tagString: 'TagString',
     };
@@ -21142,6 +22642,7 @@ export class SetDeviceGroupTagsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
       tagString: 'string',
     };
@@ -21674,28 +23175,34 @@ export class SetupStudioAppAuthModeOpenResponse extends $tea.Model {
 }
 
 export class SpeechByCombinationRequest extends $tea.Model {
+  audioFormat?: string;
   combinationList?: string[];
   deviceName?: string;
   iotId?: string;
   iotInstanceId?: string;
   productKey?: string;
+  speechId?: string;
   static names(): { [key: string]: string } {
     return {
+      audioFormat: 'AudioFormat',
       combinationList: 'CombinationList',
       deviceName: 'DeviceName',
       iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
+      speechId: 'SpeechId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audioFormat: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       deviceName: 'string',
       iotId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
+      speechId: 'string',
     };
   }
 
@@ -21746,6 +23253,102 @@ export class SpeechByCombinationResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: SpeechByCombinationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SpeechBySynthesisRequest extends $tea.Model {
+  audioFormat?: string;
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  speechId?: string;
+  speechRate?: number;
+  text?: string;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      speechId: 'SpeechId',
+      speechRate: 'SpeechRate',
+      text: 'Text',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      speechId: 'string',
+      speechRate: 'number',
+      text: 'string',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SpeechBySynthesisResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SpeechBySynthesisResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SpeechBySynthesisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SpeechBySynthesisResponseBody,
     };
   }
 
@@ -21976,29 +23579,113 @@ export class StopRuleResponse extends $tea.Model {
   }
 }
 
-export class SyncSpeechByCombinationRequest extends $tea.Model {
-  combinationList?: string[];
+export class SubscribeTopicRequest extends $tea.Model {
   deviceName?: string;
-  iotId?: string;
   iotInstanceId?: string;
   productKey?: string;
+  topic?: string[];
   static names(): { [key: string]: string } {
     return {
-      combinationList: 'CombinationList',
       deviceName: 'DeviceName',
-      iotId: 'IotId',
       iotInstanceId: 'IotInstanceId',
       productKey: 'ProductKey',
+      topic: 'Topic',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deviceName: 'string',
+      iotInstanceId: 'string',
+      productKey: 'string',
+      topic: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeTopicResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubscribeTopicResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SubscribeTopicResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SubscribeTopicResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncSpeechByCombinationRequest extends $tea.Model {
+  audioFormat?: string;
+  combinationList?: string[];
+  deviceName?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  productKey?: string;
+  speechId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      combinationList: 'CombinationList',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+      productKey: 'ProductKey',
+      speechId: 'SpeechId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
       combinationList: { 'type': 'array', 'itemType': 'string' },
       deviceName: 'string',
       iotId: 'string',
       iotInstanceId: 'string',
       productKey: 'string',
+      speechId: 'string',
     };
   }
 
@@ -22061,8 +23748,11 @@ export class SyncSpeechByCombinationResponse extends $tea.Model {
 }
 
 export class TestSpeechRequest extends $tea.Model {
+  audioFormat?: string;
+  enableSoundCode?: boolean;
   iotInstanceId?: string;
   projectCode?: string;
+  soundCodeConfig?: { [key: string]: any };
   speechRate?: number;
   speechType?: string;
   text?: string;
@@ -22070,8 +23760,11 @@ export class TestSpeechRequest extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      audioFormat: 'AudioFormat',
+      enableSoundCode: 'EnableSoundCode',
       iotInstanceId: 'IotInstanceId',
       projectCode: 'ProjectCode',
+      soundCodeConfig: 'SoundCodeConfig',
       speechRate: 'SpeechRate',
       speechType: 'SpeechType',
       text: 'Text',
@@ -22082,8 +23775,57 @@ export class TestSpeechRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioFormat: 'string',
+      enableSoundCode: 'boolean',
       iotInstanceId: 'string',
       projectCode: 'string',
+      soundCodeConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      speechRate: 'number',
+      speechType: 'string',
+      text: 'string',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TestSpeechShrinkRequest extends $tea.Model {
+  audioFormat?: string;
+  enableSoundCode?: boolean;
+  iotInstanceId?: string;
+  projectCode?: string;
+  soundCodeConfigShrink?: string;
+  speechRate?: number;
+  speechType?: string;
+  text?: string;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      enableSoundCode: 'EnableSoundCode',
+      iotInstanceId: 'IotInstanceId',
+      projectCode: 'ProjectCode',
+      soundCodeConfigShrink: 'SoundCodeConfig',
+      speechRate: 'SpeechRate',
+      speechType: 'SpeechType',
+      text: 'Text',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      enableSoundCode: 'boolean',
+      iotInstanceId: 'string',
+      projectCode: 'string',
+      soundCodeConfigShrink: 'string',
       speechRate: 'number',
       speechType: 'string',
       text: 'string',
@@ -22142,6 +23884,81 @@ export class TestSpeechResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: TestSpeechResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformClientIdRequest extends $tea.Model {
+  clientId?: string;
+  iotId?: string;
+  iotInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      iotId: 'IotId',
+      iotInstanceId: 'IotInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      iotId: 'string',
+      iotInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformClientIdResponseBody extends $tea.Model {
+  code?: string;
+  errorMessage?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformClientIdResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TransformClientIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TransformClientIdResponseBody,
     };
   }
 
@@ -22600,11 +24417,13 @@ export class UpdateConsumerGroupResponse extends $tea.Model {
 export class UpdateDeviceGroupRequest extends $tea.Model {
   groupDesc?: string;
   groupId?: string;
+  groupType?: string;
   iotInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
       groupDesc: 'GroupDesc',
       groupId: 'GroupId',
+      groupType: 'GroupType',
       iotInstanceId: 'IotInstanceId',
     };
   }
@@ -22613,6 +24432,7 @@ export class UpdateDeviceGroupRequest extends $tea.Model {
     return {
       groupDesc: 'string',
       groupId: 'string',
+      groupType: 'string',
       iotInstanceId: 'string',
     };
   }
@@ -23117,8 +24937,8 @@ export class UpdateJobRequest extends $tea.Model {
   description?: string;
   iotInstanceId?: string;
   jobId?: string;
-  rolloutConfig?: string;
-  timeoutConfig?: string;
+  rolloutConfig?: { [key: string]: any };
+  timeoutConfig?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -23134,8 +24954,39 @@ export class UpdateJobRequest extends $tea.Model {
       description: 'string',
       iotInstanceId: 'string',
       jobId: 'string',
-      rolloutConfig: 'string',
-      timeoutConfig: 'string',
+      rolloutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      timeoutConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateJobShrinkRequest extends $tea.Model {
+  description?: string;
+  iotInstanceId?: string;
+  jobId?: string;
+  rolloutConfigShrink?: string;
+  timeoutConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      iotInstanceId: 'IotInstanceId',
+      jobId: 'JobId',
+      rolloutConfigShrink: 'RolloutConfig',
+      timeoutConfigShrink: 'TimeoutConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      iotInstanceId: 'string',
+      jobId: 'string',
+      rolloutConfigShrink: 'string',
+      timeoutConfigShrink: 'string',
     };
   }
 
@@ -23846,16 +25697,20 @@ export class UpdateSceneRuleResponse extends $tea.Model {
 }
 
 export class UpdateSpeechRequest extends $tea.Model {
+  enableSoundCode?: boolean;
   iotInstanceId?: string;
   projectCode?: string;
+  soundCodeConfig?: { [key: string]: any };
   speechCode?: string;
   speechRate?: number;
   voice?: string;
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      enableSoundCode: 'EnableSoundCode',
       iotInstanceId: 'IotInstanceId',
       projectCode: 'ProjectCode',
+      soundCodeConfig: 'SoundCodeConfig',
       speechCode: 'SpeechCode',
       speechRate: 'SpeechRate',
       voice: 'Voice',
@@ -23865,8 +25720,50 @@ export class UpdateSpeechRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableSoundCode: 'boolean',
       iotInstanceId: 'string',
       projectCode: 'string',
+      soundCodeConfig: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      speechCode: 'string',
+      speechRate: 'number',
+      voice: 'string',
+      volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSpeechShrinkRequest extends $tea.Model {
+  enableSoundCode?: boolean;
+  iotInstanceId?: string;
+  projectCode?: string;
+  soundCodeConfigShrink?: string;
+  speechCode?: string;
+  speechRate?: number;
+  voice?: string;
+  volume?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableSoundCode: 'EnableSoundCode',
+      iotInstanceId: 'IotInstanceId',
+      projectCode: 'ProjectCode',
+      soundCodeConfigShrink: 'SoundCodeConfig',
+      speechCode: 'SpeechCode',
+      speechRate: 'SpeechRate',
+      voice: 'Voice',
+      volume: 'Volume',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSoundCode: 'boolean',
+      iotInstanceId: 'string',
+      projectCode: 'string',
+      soundCodeConfigShrink: 'string',
       speechCode: 'string',
       speechRate: 'number',
       voice: 'string',
@@ -24116,81 +26013,6 @@ export class UpdateThingModelResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UpdateThingModelResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateThingModelValidationConfigRequest extends $tea.Model {
-  iotInstanceId?: string;
-  productKey?: string;
-  validateType?: number;
-  static names(): { [key: string]: string } {
-    return {
-      iotInstanceId: 'IotInstanceId',
-      productKey: 'ProductKey',
-      validateType: 'ValidateType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      iotInstanceId: 'string',
-      productKey: 'string',
-      validateType: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateThingModelValidationConfigResponseBody extends $tea.Model {
-  code?: string;
-  errorMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      errorMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateThingModelValidationConfigResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: UpdateThingModelValidationConfigResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: UpdateThingModelValidationConfigResponseBody,
     };
   }
 
@@ -25105,6 +26927,37 @@ export class CreateDeviceDistributeJobRequestTargetInstanceConfig extends $tea.M
   }
 }
 
+export class CreateDeviceDynamicGroupResponseBodyData extends $tea.Model {
+  dynamicGroupExpression?: string;
+  groupDesc?: string;
+  groupId?: string;
+  groupName?: string;
+  utcCreate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicGroupExpression: 'DynamicGroupExpression',
+      groupDesc: 'GroupDesc',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      utcCreate: 'UtcCreate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicGroupExpression: 'string',
+      groupDesc: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      utcCreate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeviceGroupResponseBodyData extends $tea.Model {
   groupDesc?: string;
   groupId?: string;
@@ -25125,6 +26978,31 @@ export class CreateDeviceGroupResponseBodyData extends $tea.Model {
       groupId: 'string',
       groupName: 'string',
       utcCreate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDeviceTunnelResponseBodyData extends $tea.Model {
+  sourceAccessToken?: string;
+  sourceURI?: string;
+  tunnelId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceAccessToken: 'SourceAccessToken',
+      sourceURI: 'SourceURI',
+      tunnelId: 'TunnelId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceAccessToken: 'string',
+      sourceURI: 'string',
+      tunnelId: 'string',
     };
   }
 
@@ -25246,6 +27124,37 @@ export class CreateOTADynamicUpgradeJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateOTAFirmwareRequestMultiFiles extends $tea.Model {
+  fileMd5?: string;
+  name?: string;
+  signValue?: string;
+  size?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileMd5: 'FileMd5',
+      name: 'Name',
+      signValue: 'SignValue',
+      size: 'Size',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileMd5: 'string',
+      name: 'string',
+      signValue: 'string',
+      size: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOTAFirmwareResponseBodyData extends $tea.Model {
   firmwareId?: string;
   utcCreate?: string;
@@ -25304,6 +27213,28 @@ export class CreateOTAStaticUpgradeJobResponseBodyData extends $tea.Model {
     return {
       jobId: 'string',
       utcCreate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOTAVerifyJobRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -25481,7 +27412,7 @@ export class CreateStudioAppDomainOpenResponseBodyData extends $tea.Model {
 }
 
 export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
-  topic?: { [key: string]: string }[];
+  topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -25490,7 +27421,29 @@ export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDeviceSpeechRequestDeviceSpeechList extends $tea.Model {
+  audioFormat?: string;
+  bizCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      bizCode: 'BizCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      bizCode: 'string',
     };
   }
 
@@ -25500,7 +27453,7 @@ export class CreateTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 }
 
 export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
-  topic?: { [key: string]: string }[];
+  topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -25509,7 +27462,7 @@ export class DeleteTopicRouteTableResponseBodyFailureTopics extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -26300,25 +28253,6 @@ export class GetLoraNodesTaskResponseBodySuccessDevEuis extends $tea.Model {
   }
 }
 
-export class GetNodesAddingTaskResponseBodySuccessDevEuis extends $tea.Model {
-  successDevEui?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      successDevEui: 'SuccessDevEui',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      successDevEui: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRuleResponseBodyRuleInfo extends $tea.Model {
   createUserId?: number;
   created?: string;
@@ -26440,6 +28374,62 @@ export class GetSceneRuleResponseBodyData extends $tea.Model {
       ruleDescription: 'string',
       ruleName: 'string',
       ruleStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSoundCodeAudioResponseBodyData extends $tea.Model {
+  items?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSpeechDeviceDetailResponseBodyData extends $tea.Model {
+  availableSpace?: number;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  speechListUpdateTime?: number;
+  status?: string;
+  totalSpace?: number;
+  static names(): { [key: string]: string } {
+    return {
+      availableSpace: 'AvailableSpace',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      speechListUpdateTime: 'SpeechListUpdateTime',
+      status: 'Status',
+      totalSpace: 'TotalSpace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableSpace: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      speechListUpdateTime: 'number',
+      status: 'string',
+      totalSpace: 'number',
     };
   }
 
@@ -26705,6 +28695,121 @@ export class GetThingTopoResponseBodyData extends $tea.Model {
   }
 }
 
+export class GisQueryDeviceLocationRequestThingList extends $tea.Model {
+  deviceName?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisQueryDeviceLocationResponseBodyData extends $tea.Model {
+  adcode?: number;
+  city?: string;
+  coordinateSystem?: number;
+  country?: string;
+  deviceName?: string;
+  ip?: string;
+  latitude?: number;
+  longitude?: number;
+  productKey?: string;
+  province?: string;
+  static names(): { [key: string]: string } {
+    return {
+      adcode: 'Adcode',
+      city: 'City',
+      coordinateSystem: 'CoordinateSystem',
+      country: 'Country',
+      deviceName: 'DeviceName',
+      ip: 'Ip',
+      latitude: 'Latitude',
+      longitude: 'Longitude',
+      productKey: 'ProductKey',
+      province: 'Province',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      adcode: 'number',
+      city: 'string',
+      coordinateSystem: 'number',
+      country: 'string',
+      deviceName: 'string',
+      ip: 'string',
+      latitude: 'number',
+      longitude: 'number',
+      productKey: 'string',
+      province: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisSearchDeviceTraceResponseBodyDataPoints extends $tea.Model {
+  locateTime?: number;
+  location?: string;
+  static names(): { [key: string]: string } {
+    return {
+      locateTime: 'LocateTime',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      locateTime: 'number',
+      location: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GisSearchDeviceTraceResponseBodyData extends $tea.Model {
+  deviceName?: string;
+  points?: GisSearchDeviceTraceResponseBodyDataPoints[];
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deviceName: 'DeviceName',
+      points: 'Points',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deviceName: 'string',
+      points: { 'type': 'array', 'itemType': GisSearchDeviceTraceResponseBodyDataPoints },
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeDataAPIServiceRequestParam extends $tea.Model {
   listParamType?: string;
   listParamValue?: string[];
@@ -26756,7 +28861,7 @@ export class InvokeDataAPIServiceResponseBodyDataFieldNameList extends $tea.Mode
 }
 
 export class InvokeDataAPIServiceResponseBodyDataResultList extends $tea.Model {
-  resultList?: { [key: string]: string }[];
+  resultList?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       resultList: 'ResultList',
@@ -26765,7 +28870,7 @@ export class InvokeDataAPIServiceResponseBodyDataResultList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      resultList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -26780,6 +28885,7 @@ export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
   pageNo?: number;
   pageSize?: number;
   resultList?: InvokeDataAPIServiceResponseBodyDataResultList;
+  totalSize?: number;
   static names(): { [key: string]: string } {
     return {
       apiSrn: 'ApiSrn',
@@ -26787,6 +28893,7 @@ export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
       pageNo: 'PageNo',
       pageSize: 'PageSize',
       resultList: 'ResultList',
+      totalSize: 'TotalSize',
     };
   }
 
@@ -26797,6 +28904,7 @@ export class InvokeDataAPIServiceResponseBodyData extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       resultList: InvokeDataAPIServiceResponseBodyDataResultList,
+      totalSize: 'number',
     };
   }
 
@@ -28124,77 +30232,6 @@ export class ListTaskResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListTaskByPageResponseBodyDataData extends $tea.Model {
-  deviceName?: string;
-  iotId?: string;
-  jobId?: string;
-  jobName?: string;
-  productKey?: string;
-  productName?: string;
-  progress?: number;
-  status?: string;
-  statusDetail?: string;
-  taskId?: string;
-  utcModified?: string;
-  utcQueueTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      deviceName: 'DeviceName',
-      iotId: 'IotId',
-      jobId: 'JobId',
-      jobName: 'JobName',
-      productKey: 'ProductKey',
-      productName: 'ProductName',
-      progress: 'Progress',
-      status: 'Status',
-      statusDetail: 'StatusDetail',
-      taskId: 'TaskId',
-      utcModified: 'UtcModified',
-      utcQueueTime: 'UtcQueueTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      deviceName: 'string',
-      iotId: 'string',
-      jobId: 'string',
-      jobName: 'string',
-      productKey: 'string',
-      productName: 'string',
-      progress: 'number',
-      status: 'string',
-      statusDetail: 'string',
-      taskId: 'string',
-      utcModified: 'string',
-      utcQueueTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTaskByPageResponseBodyData extends $tea.Model {
-  data?: ListTaskByPageResponseBodyDataData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListTaskByPageResponseBodyDataData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListThingModelVersionResponseBodyDataModelVersions extends $tea.Model {
   description?: string;
   gmtCreate?: number;
@@ -28336,99 +30373,6 @@ export class PubRequestUserProp extends $tea.Model {
   }
 }
 
-export class QueryAppDeviceListRequestTagList extends $tea.Model {
-  tagName?: string;
-  tagValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      tagName: 'TagName',
-      tagValue: 'TagValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      tagName: 'string',
-      tagValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppDeviceListResponseBodyDataData extends $tea.Model {
-  activeTime?: string;
-  childDeviceCount?: number;
-  createTime?: string;
-  deviceName?: string;
-  lastOnlineTime?: string;
-  nodeType?: number;
-  productKey?: string;
-  productName?: string;
-  status?: string;
-  utcActiveTime?: string;
-  utcCreateTime?: string;
-  utcLastOnlineTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      activeTime: 'ActiveTime',
-      childDeviceCount: 'ChildDeviceCount',
-      createTime: 'CreateTime',
-      deviceName: 'DeviceName',
-      lastOnlineTime: 'LastOnlineTime',
-      nodeType: 'NodeType',
-      productKey: 'ProductKey',
-      productName: 'ProductName',
-      status: 'Status',
-      utcActiveTime: 'UtcActiveTime',
-      utcCreateTime: 'UtcCreateTime',
-      utcLastOnlineTime: 'UtcLastOnlineTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      activeTime: 'string',
-      childDeviceCount: 'number',
-      createTime: 'string',
-      deviceName: 'string',
-      lastOnlineTime: 'string',
-      nodeType: 'number',
-      productKey: 'string',
-      productName: 'string',
-      status: 'string',
-      utcActiveTime: 'string',
-      utcCreateTime: 'string',
-      utcLastOnlineTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryAppDeviceListResponseBodyData extends $tea.Model {
-  data?: QueryAppDeviceListResponseBodyDataData[];
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryAppDeviceListResponseBodyDataData },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryBatchRegisterDeviceStatusResponseBodyDataInvalidList extends $tea.Model {
   name?: string[];
   static names(): { [key: string]: string } {
@@ -28484,6 +30428,50 @@ export class QueryBatchRegisterDeviceStatusResponseBodyData extends $tea.Model {
       invalidList: QueryBatchRegisterDeviceStatusResponseBodyDataInvalidList,
       status: 'string',
       validList: QueryBatchRegisterDeviceStatusResponseBodyDataValidList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClientIdsResponseBodyDataDynamicRegClientIds extends $tea.Model {
+  clientId?: string;
+  createTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clientId: 'ClientId',
+      createTime: 'CreateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientId: 'string',
+      createTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryClientIdsResponseBodyData extends $tea.Model {
+  dynamicRegClientIds?: QueryClientIdsResponseBodyDataDynamicRegClientIds[];
+  iotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dynamicRegClientIds: 'DynamicRegClientIds',
+      iotId: 'IotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dynamicRegClientIds: { 'type': 'array', 'itemType': QueryClientIdsResponseBodyDataDynamicRegClientIds },
+      iotId: 'string',
     };
   }
 
@@ -29395,12 +31383,14 @@ export class QueryDeviceGroupByDeviceResponseBodyGroupInfosGroupInfo extends $te
   groupDesc?: string;
   groupId?: string;
   groupName?: string;
+  groupType?: string;
   utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
       groupDesc: 'GroupDesc',
       groupId: 'GroupId',
       groupName: 'GroupName',
+      groupType: 'GroupType',
       utcCreate: 'UtcCreate',
     };
   }
@@ -29410,6 +31400,7 @@ export class QueryDeviceGroupByDeviceResponseBodyGroupInfosGroupInfo extends $te
       groupDesc: 'string',
       groupId: 'string',
       groupName: 'string',
+      groupType: 'string',
       utcCreate: 'string',
     };
   }
@@ -29505,6 +31496,7 @@ export class QueryDeviceGroupInfoResponseBodyData extends $tea.Model {
   deviceActive?: number;
   deviceCount?: number;
   deviceOnline?: number;
+  dynamicGroupExpression?: string;
   groupDesc?: string;
   groupId?: string;
   groupName?: string;
@@ -29514,6 +31506,7 @@ export class QueryDeviceGroupInfoResponseBodyData extends $tea.Model {
       deviceActive: 'DeviceActive',
       deviceCount: 'DeviceCount',
       deviceOnline: 'DeviceOnline',
+      dynamicGroupExpression: 'DynamicGroupExpression',
       groupDesc: 'GroupDesc',
       groupId: 'GroupId',
       groupName: 'GroupName',
@@ -29526,6 +31519,7 @@ export class QueryDeviceGroupInfoResponseBodyData extends $tea.Model {
       deviceActive: 'number',
       deviceCount: 'number',
       deviceOnline: 'number',
+      dynamicGroupExpression: 'string',
       groupDesc: 'string',
       groupId: 'string',
       groupName: 'string',
@@ -29542,12 +31536,14 @@ export class QueryDeviceGroupListResponseBodyDataGroupInfo extends $tea.Model {
   groupDesc?: string;
   groupId?: string;
   groupName?: string;
+  groupType?: string;
   utcCreate?: string;
   static names(): { [key: string]: string } {
     return {
       groupDesc: 'GroupDesc',
       groupId: 'GroupId',
       groupName: 'GroupName',
+      groupType: 'GroupType',
       utcCreate: 'UtcCreate',
     };
   }
@@ -29557,6 +31553,7 @@ export class QueryDeviceGroupListResponseBodyDataGroupInfo extends $tea.Model {
       groupDesc: 'string',
       groupId: 'string',
       groupName: 'string',
+      groupType: 'string',
       utcCreate: 'string',
     };
   }
@@ -30284,6 +32281,78 @@ export class QueryDeviceServiceDataResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDeviceSpeechResponseBodyDataListItems extends $tea.Model {
+  audioFormat?: string;
+  bizCode?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      audioFormat: 'AudioFormat',
+      bizCode: 'BizCode',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioFormat: 'string',
+      bizCode: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSpeechResponseBodyDataList extends $tea.Model {
+  items?: QueryDeviceSpeechResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QueryDeviceSpeechResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDeviceSpeechResponseBodyData extends $tea.Model {
+  list?: QueryDeviceSpeechResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QueryDeviceSpeechResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDeviceStatisticsResponseBodyData extends $tea.Model {
   activeCount?: number;
   deviceCount?: number;
@@ -30309,6 +32378,129 @@ export class QueryDeviceStatisticsResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryDeviceTunnelResponseBodyData extends $tea.Model {
+  description?: string;
+  deviceConnState?: string;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  productName?: string;
+  sourceConnState?: string;
+  tunnelId?: string;
+  tunnelState?: string;
+  udi?: string;
+  utcClosed?: string;
+  utcCreated?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      deviceConnState: 'DeviceConnState',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+      productName: 'ProductName',
+      sourceConnState: 'SourceConnState',
+      tunnelId: 'TunnelId',
+      tunnelState: 'TunnelState',
+      udi: 'Udi',
+      utcClosed: 'UtcClosed',
+      utcCreated: 'UtcCreated',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      deviceConnState: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+      productName: 'string',
+      sourceConnState: 'string',
+      tunnelId: 'string',
+      tunnelState: 'string',
+      udi: 'string',
+      utcClosed: 'string',
+      utcCreated: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDynamicGroupDevicesResponseBodyDataSimpleDeviceInfo extends $tea.Model {
+  activeTime?: string;
+  categoryKey?: string;
+  deviceName?: string;
+  iotId?: string;
+  lastOnlineTime?: string;
+  nickname?: string;
+  nodeType?: number;
+  productKey?: string;
+  productName?: string;
+  status?: string;
+  utcActiveTime?: string;
+  utcLastOnlineTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activeTime: 'ActiveTime',
+      categoryKey: 'CategoryKey',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      lastOnlineTime: 'LastOnlineTime',
+      nickname: 'Nickname',
+      nodeType: 'NodeType',
+      productKey: 'ProductKey',
+      productName: 'ProductName',
+      status: 'Status',
+      utcActiveTime: 'UtcActiveTime',
+      utcLastOnlineTime: 'UtcLastOnlineTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeTime: 'string',
+      categoryKey: 'string',
+      deviceName: 'string',
+      iotId: 'string',
+      lastOnlineTime: 'string',
+      nickname: 'string',
+      nodeType: 'number',
+      productKey: 'string',
+      productName: 'string',
+      status: 'string',
+      utcActiveTime: 'string',
+      utcLastOnlineTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDynamicGroupDevicesResponseBodyData extends $tea.Model {
+  simpleDeviceInfo?: QueryDynamicGroupDevicesResponseBodyDataSimpleDeviceInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      simpleDeviceInfo: 'SimpleDeviceInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      simpleDeviceInfo: { 'type': 'array', 'itemType': QueryDynamicGroupDevicesResponseBodyDataSimpleDeviceInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryEdgeDriverResponseBodyDataDriverList extends $tea.Model {
   cpuArch?: string;
   driverId?: string;
@@ -30316,6 +32508,7 @@ export class QueryEdgeDriverResponseBodyDataDriverList extends $tea.Model {
   driverProtocol?: string;
   gmtCreateTimestamp?: number;
   gmtModifiedTimestamp?: number;
+  isApply?: boolean;
   isBuiltIn?: boolean;
   runtime?: string;
   type?: number;
@@ -30327,6 +32520,7 @@ export class QueryEdgeDriverResponseBodyDataDriverList extends $tea.Model {
       driverProtocol: 'DriverProtocol',
       gmtCreateTimestamp: 'GmtCreateTimestamp',
       gmtModifiedTimestamp: 'GmtModifiedTimestamp',
+      isApply: 'IsApply',
       isBuiltIn: 'IsBuiltIn',
       runtime: 'Runtime',
       type: 'Type',
@@ -30341,6 +32535,7 @@ export class QueryEdgeDriverResponseBodyDataDriverList extends $tea.Model {
       driverProtocol: 'string',
       gmtCreateTimestamp: 'number',
       gmtModifiedTimestamp: 'number',
+      isApply: 'boolean',
       isBuiltIn: 'boolean',
       runtime: 'string',
       type: 'number',
@@ -31169,15 +33364,18 @@ export class QueryJobResponseBodyDataJobFile extends $tea.Model {
 
 export class QueryJobResponseBodyDataRolloutConfig extends $tea.Model {
   maximumPerMinute?: number;
+  messageQoS?: string;
   static names(): { [key: string]: string } {
     return {
       maximumPerMinute: 'MaximumPerMinute',
+      messageQoS: 'MessageQoS',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       maximumPerMinute: 'number',
+      messageQoS: 'string',
     };
   }
 
@@ -31478,6 +33676,37 @@ export class QueryMessageInfoResponseBodyMessage extends $tea.Model {
   }
 }
 
+export class QueryOTAFirmwareResponseBodyFirmwareInfoMultiFiles extends $tea.Model {
+  fileMd5?: string;
+  name?: string;
+  signValue?: string;
+  size?: number;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileMd5: 'FileMd5',
+      name: 'Name',
+      signValue: 'SignValue',
+      size: 'Size',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileMd5: 'string',
+      name: 'string',
+      signValue: 'string',
+      size: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryOTAFirmwareResponseBodyFirmwareInfo extends $tea.Model {
   destVersion?: string;
   firmwareDesc?: string;
@@ -31487,6 +33716,7 @@ export class QueryOTAFirmwareResponseBodyFirmwareInfo extends $tea.Model {
   firmwareSize?: number;
   firmwareUrl?: string;
   moduleName?: string;
+  multiFiles?: QueryOTAFirmwareResponseBodyFirmwareInfoMultiFiles[];
   productKey?: string;
   productName?: string;
   signMethod?: string;
@@ -31507,6 +33737,7 @@ export class QueryOTAFirmwareResponseBodyFirmwareInfo extends $tea.Model {
       firmwareSize: 'FirmwareSize',
       firmwareUrl: 'FirmwareUrl',
       moduleName: 'ModuleName',
+      multiFiles: 'MultiFiles',
       productKey: 'ProductKey',
       productName: 'ProductName',
       signMethod: 'SignMethod',
@@ -31530,6 +33761,7 @@ export class QueryOTAFirmwareResponseBodyFirmwareInfo extends $tea.Model {
       firmwareSize: 'number',
       firmwareUrl: 'string',
       moduleName: 'string',
+      multiFiles: { 'type': 'array', 'itemType': QueryOTAFirmwareResponseBodyFirmwareInfoMultiFiles },
       productKey: 'string',
       productName: 'string',
       signMethod: 'string',
@@ -31610,14 +33842,18 @@ export class QueryOTAJobResponseBodyDataTags extends $tea.Model {
 
 export class QueryOTAJobResponseBodyData extends $tea.Model {
   destVersion?: string;
+  downloadProtocol?: string;
   dynamicMode?: number;
   firmwareId?: string;
   grayPercent?: string;
+  groupId?: string;
+  groupName?: string;
   jobDesc?: string;
   jobId?: string;
   jobStatus?: string;
   jobType?: string;
   maximumPerMinute?: number;
+  multiModuleMode?: boolean;
   name?: string;
   needConfirm?: boolean;
   needPush?: boolean;
@@ -31639,14 +33875,18 @@ export class QueryOTAJobResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       destVersion: 'DestVersion',
+      downloadProtocol: 'DownloadProtocol',
       dynamicMode: 'DynamicMode',
       firmwareId: 'FirmwareId',
       grayPercent: 'GrayPercent',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
       jobDesc: 'JobDesc',
       jobId: 'JobId',
       jobStatus: 'JobStatus',
       jobType: 'JobType',
       maximumPerMinute: 'MaximumPerMinute',
+      multiModuleMode: 'MultiModuleMode',
       name: 'Name',
       needConfirm: 'NeedConfirm',
       needPush: 'NeedPush',
@@ -31671,14 +33911,18 @@ export class QueryOTAJobResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       destVersion: 'string',
+      downloadProtocol: 'string',
       dynamicMode: 'number',
       firmwareId: 'string',
       grayPercent: 'string',
+      groupId: 'string',
+      groupName: 'string',
       jobDesc: 'string',
       jobId: 'string',
       jobStatus: 'string',
       jobType: 'string',
       maximumPerMinute: 'number',
+      multiModuleMode: 'boolean',
       name: 'string',
       needConfirm: 'boolean',
       needPush: 'boolean',
@@ -32124,9 +34368,108 @@ export class QuerySolutionDeviceGroupPageResponseBodyData extends $tea.Model {
   }
 }
 
+export class QuerySoundCodeListResponseBodyDataListItems extends $tea.Model {
+  duration?: number;
+  gmtCreate?: number;
+  soundCode?: string;
+  soundCodeContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      gmtCreate: 'GmtCreate',
+      soundCode: 'SoundCode',
+      soundCodeContent: 'SoundCodeContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      gmtCreate: 'number',
+      soundCode: 'string',
+      soundCodeContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeListResponseBodyDataList extends $tea.Model {
+  items?: QuerySoundCodeListResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySoundCodeListResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySoundCodeListResponseBodyData extends $tea.Model {
+  list?: QuerySoundCodeListResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySoundCodeListResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechResponseBodyDataSoundCodeConfig extends $tea.Model {
+  additionalDuration?: number;
+  soundCodeContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalDuration: 'AdditionalDuration',
+      soundCodeContent: 'SoundCodeContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalDuration: 'number',
+      soundCodeContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySpeechResponseBodyData extends $tea.Model {
   audioFormat?: string;
   bizCode?: string;
+  enableSoundCode?: boolean;
+  soundCodeConfig?: QuerySpeechResponseBodyDataSoundCodeConfig;
   speechCode?: string;
   speechRate?: number;
   speechType?: string;
@@ -32137,6 +34480,8 @@ export class QuerySpeechResponseBodyData extends $tea.Model {
     return {
       audioFormat: 'AudioFormat',
       bizCode: 'BizCode',
+      enableSoundCode: 'EnableSoundCode',
+      soundCodeConfig: 'SoundCodeConfig',
       speechCode: 'SpeechCode',
       speechRate: 'SpeechRate',
       speechType: 'SpeechType',
@@ -32150,12 +34495,89 @@ export class QuerySpeechResponseBodyData extends $tea.Model {
     return {
       audioFormat: 'string',
       bizCode: 'string',
+      enableSoundCode: 'boolean',
+      soundCodeConfig: QuerySpeechResponseBodyDataSoundCodeConfig,
       speechCode: 'string',
       speechRate: 'number',
       speechType: 'string',
       text: 'string',
       voice: 'string',
       volume: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechDeviceResponseBodyDataListItems extends $tea.Model {
+  availableSpace?: number;
+  deviceName?: string;
+  iotId?: string;
+  productKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableSpace: 'AvailableSpace',
+      deviceName: 'DeviceName',
+      iotId: 'IotId',
+      productKey: 'ProductKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableSpace: 'number',
+      deviceName: 'string',
+      iotId: 'string',
+      productKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechDeviceResponseBodyDataList extends $tea.Model {
+  items?: QuerySpeechDeviceResponseBodyDataListItems[];
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': QuerySpeechDeviceResponseBodyDataListItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QuerySpeechDeviceResponseBodyData extends $tea.Model {
+  list?: QuerySpeechDeviceResponseBodyDataList;
+  pageId?: number;
+  pageSize?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageId: 'PageId',
+      pageSize: 'PageSize',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: QuerySpeechDeviceResponseBodyDataList,
+      pageId: 'number',
+      pageSize: 'number',
+      total: 'number',
     };
   }
 
@@ -32212,6 +34634,7 @@ export class QuerySpeechListResponseBodyDataListItemsSpeechList extends $tea.Mod
 }
 
 export class QuerySpeechListResponseBodyDataListItems extends $tea.Model {
+  audioFormat?: string;
   bizCode?: string;
   speechCode?: string;
   speechList?: QuerySpeechListResponseBodyDataListItemsSpeechList;
@@ -32220,6 +34643,7 @@ export class QuerySpeechListResponseBodyDataListItems extends $tea.Model {
   voice?: string;
   static names(): { [key: string]: string } {
     return {
+      audioFormat: 'AudioFormat',
       bizCode: 'BizCode',
       speechCode: 'SpeechCode',
       speechList: 'SpeechList',
@@ -32231,6 +34655,7 @@ export class QuerySpeechListResponseBodyDataListItems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioFormat: 'string',
       bizCode: 'string',
       speechCode: 'string',
       speechList: QuerySpeechListResponseBodyDataListItemsSpeechList,
@@ -33211,7 +35636,7 @@ export class QueryThingModelPublishedResponseBodyData extends $tea.Model {
 }
 
 export class QueryTopicReverseRouteTableResponseBodySrcTopics extends $tea.Model {
-  topic?: { [key: string]: string }[];
+  topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -33220,7 +35645,7 @@ export class QueryTopicReverseRouteTableResponseBodySrcTopics extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -33230,7 +35655,7 @@ export class QueryTopicReverseRouteTableResponseBodySrcTopics extends $tea.Model
 }
 
 export class QueryTopicRouteTableResponseBodyDstTopics extends $tea.Model {
-  topic?: { [key: string]: string }[];
+  topic?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
       topic: 'Topic',
@@ -33239,7 +35664,7 @@ export class QueryTopicRouteTableResponseBodyDstTopics extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
+      topic: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
 
@@ -33464,6 +35889,7 @@ export class StartCpuResponseBodyData extends $tea.Model {
 }
 
 export class SyncSpeechByCombinationResponseBodyData extends $tea.Model {
+  detail?: string;
   deviceErrorCode?: string;
   deviceErrorMessage?: string;
   id?: string;
@@ -33472,6 +35898,7 @@ export class SyncSpeechByCombinationResponseBodyData extends $tea.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      detail: 'Detail',
       deviceErrorCode: 'DeviceErrorCode',
       deviceErrorMessage: 'DeviceErrorMessage',
       id: 'Id',
@@ -33483,6 +35910,7 @@ export class SyncSpeechByCombinationResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      detail: 'string',
       deviceErrorCode: 'string',
       deviceErrorMessage: 'string',
       id: 'string',
@@ -33713,6 +36141,49 @@ export default class Client extends OpenApi {
     return await this.addDataForApiSourceWithOptions(request, runtime);
   }
 
+  async batchAddDataForApiSourceWithOptions(tmpReq: BatchAddDataForApiSourceRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDataForApiSourceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchAddDataForApiSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contentList)) {
+      request.contentListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contentList, "ContentList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.contentListShrink)) {
+      query["ContentList"] = request.contentListShrink;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchAddDataForApiSource",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchAddDataForApiSourceResponse>(await this.callApi(params, req, runtime), new BatchAddDataForApiSourceResponse({}));
+  }
+
+  async batchAddDataForApiSource(request: BatchAddDataForApiSourceRequest): Promise<BatchAddDataForApiSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchAddDataForApiSourceWithOptions(request, runtime);
+  }
+
   async batchAddDeviceGroupRelationsWithOptions(request: BatchAddDeviceGroupRelationsRequest, runtime: $Util.RuntimeOptions): Promise<BatchAddDeviceGroupRelationsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -33834,8 +36305,21 @@ export default class Client extends OpenApi {
 
   async batchBindDevicesIntoProjectWithOptions(request: BatchBindDevicesIntoProjectRequest, runtime: $Util.RuntimeOptions): Promise<BatchBindDevicesIntoProjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.devices)) {
+      body["Devices"] = request.devices;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.devices,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchBindDevicesIntoProject",
@@ -33858,8 +36342,21 @@ export default class Client extends OpenApi {
 
   async batchBindProductsIntoProjectWithOptions(request: BatchBindProductsIntoProjectRequest, runtime: $Util.RuntimeOptions): Promise<BatchBindProductsIntoProjectResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKeys)) {
+      body["ProductKeys"] = request.productKeys;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchBindProductsIntoProject",
@@ -34617,8 +37114,21 @@ export default class Client extends OpenApi {
 
   async batchUnbindProjectDevicesWithOptions(request: BatchUnbindProjectDevicesRequest, runtime: $Util.RuntimeOptions): Promise<BatchUnbindProjectDevicesResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.devices)) {
+      body["Devices"] = request.devices;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.devices,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchUnbindProjectDevices",
@@ -34641,8 +37151,21 @@ export default class Client extends OpenApi {
 
   async batchUnbindProjectProductsWithOptions(request: BatchUnbindProjectProductsRequest, runtime: $Util.RuntimeOptions): Promise<BatchUnbindProjectProductsResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKeys)) {
+      body["ProductKeys"] = request.productKeys;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "BatchUnbindProjectProducts",
@@ -35139,6 +37662,39 @@ export default class Client extends OpenApi {
     return await this.clearEdgeInstanceDriverConfigsWithOptions(request, runtime);
   }
 
+  async closeDeviceTunnelWithOptions(request: CloseDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<CloseDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.tunnelId)) {
+      query["TunnelId"] = request.tunnelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloseDeviceTunnel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CloseDeviceTunnelResponse>(await this.callApi(params, req, runtime), new CloseDeviceTunnelResponse({}));
+  }
+
+  async closeDeviceTunnel(request: CloseDeviceTunnelRequest): Promise<CloseDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.closeDeviceTunnelWithOptions(request, runtime);
+  }
+
   async closeEdgeInstanceDeploymentWithOptions(request: CloseEdgeInstanceDeploymentRequest, runtime: $Util.RuntimeOptions): Promise<CloseEdgeInstanceDeploymentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -35322,8 +37878,41 @@ export default class Client extends OpenApi {
 
   async createDataAPIServiceWithOptions(request: CreateDataAPIServiceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataAPIServiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiPath)) {
+      body["ApiPath"] = request.apiPath;
+    }
+
+    if (!Util.isUnset(request.desc)) {
+      body["Desc"] = request.desc;
+    }
+
+    if (!Util.isUnset(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.originSql)) {
+      body["OriginSql"] = request.originSql;
+    }
+
+    if (!Util.isUnset(request.requestParam)) {
+      body["RequestParam"] = request.requestParam;
+    }
+
+    if (!Util.isUnset(request.responseParam)) {
+      body["ResponseParam"] = request.responseParam;
+    }
+
+    if (!Util.isUnset(request.templateSql)) {
+      body["TemplateSql"] = request.templateSql;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.apiPath,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDataAPIService",
@@ -35346,8 +37935,37 @@ export default class Client extends OpenApi {
 
   async createDeviceDistributeJobWithOptions(request: CreateDeviceDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDistributeJobResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.sourceInstanceId)) {
+      body["SourceInstanceId"] = request.sourceInstanceId;
+    }
+
+    if (!Util.isUnset(request.strategy)) {
+      body["Strategy"] = request.strategy;
+    }
+
+    if (!Util.isUnset(request.targetAliyunId)) {
+      body["TargetAliyunId"] = request.targetAliyunId;
+    }
+
+    if (!Util.isUnset(request.targetInstanceConfig)) {
+      body["TargetInstanceConfig"] = request.targetInstanceConfig;
+    }
+
+    if (!Util.isUnset(request.targetUid)) {
+      body["TargetUid"] = request.targetUid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.deviceName,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDeviceDistributeJob",
@@ -35366,6 +37984,47 @@ export default class Client extends OpenApi {
   async createDeviceDistributeJob(request: CreateDeviceDistributeJobRequest): Promise<CreateDeviceDistributeJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceDistributeJobWithOptions(request, runtime);
+  }
+
+  async createDeviceDynamicGroupWithOptions(request: CreateDeviceDynamicGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceDynamicGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dynamicGroupExpression)) {
+      query["DynamicGroupExpression"] = request.dynamicGroupExpression;
+    }
+
+    if (!Util.isUnset(request.groupDesc)) {
+      query["GroupDesc"] = request.groupDesc;
+    }
+
+    if (!Util.isUnset(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeviceDynamicGroup",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeviceDynamicGroupResponse>(await this.callApi(params, req, runtime), new CreateDeviceDynamicGroupResponse({}));
+  }
+
+  async createDeviceDynamicGroup(request: CreateDeviceDynamicGroupRequest): Promise<CreateDeviceDynamicGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDeviceDynamicGroupWithOptions(request, runtime);
   }
 
   async createDeviceGroupWithOptions(request: CreateDeviceGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceGroupResponse> {
@@ -35407,6 +38066,55 @@ export default class Client extends OpenApi {
   async createDeviceGroup(request: CreateDeviceGroupRequest): Promise<CreateDeviceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDeviceGroupWithOptions(request, runtime);
+  }
+
+  async createDeviceTunnelWithOptions(request: CreateDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<CreateDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.udi)) {
+      query["Udi"] = request.udi;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDeviceTunnel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDeviceTunnelResponse>(await this.callApi(params, req, runtime), new CreateDeviceTunnelResponse({}));
+  }
+
+  async createDeviceTunnel(request: CreateDeviceTunnelRequest): Promise<CreateDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDeviceTunnelWithOptions(request, runtime);
   }
 
   async createEdgeDriverWithOptions(request: CreateEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<CreateEdgeDriverResponse> {
@@ -35756,8 +38464,26 @@ export default class Client extends OpenApi {
     return await this.createEdgeOssPreSignedAddressWithOptions(request, runtime);
   }
 
-  async createJobWithOptions(request: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
-    Util.validateModel(request);
+  async createJobWithOptions(tmpReq: CreateJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.jobFile)) {
+      request.jobFileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.jobFile, "JobFile", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rolloutConfig)) {
+      request.rolloutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rolloutConfig, "RolloutConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.targetConfig)) {
+      request.targetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.targetConfig, "TargetConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.timeoutConfig)) {
+      request.timeoutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutConfig, "TimeoutConfig", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
@@ -35771,28 +38497,28 @@ export default class Client extends OpenApi {
       query["JobDocument"] = request.jobDocument;
     }
 
-    if (!Util.isUnset(request.jobFile)) {
-      query["JobFile"] = request.jobFile;
+    if (!Util.isUnset(request.jobFileShrink)) {
+      query["JobFile"] = request.jobFileShrink;
     }
 
     if (!Util.isUnset(request.jobName)) {
       query["JobName"] = request.jobName;
     }
 
-    if (!Util.isUnset(request.rolloutConfig)) {
-      query["RolloutConfig"] = request.rolloutConfig;
+    if (!Util.isUnset(request.rolloutConfigShrink)) {
+      query["RolloutConfig"] = request.rolloutConfigShrink;
     }
 
     if (!Util.isUnset(request.scheduledTime)) {
       query["ScheduledTime"] = request.scheduledTime;
     }
 
-    if (!Util.isUnset(request.targetConfig)) {
-      query["TargetConfig"] = request.targetConfig;
+    if (!Util.isUnset(request.targetConfigShrink)) {
+      query["TargetConfig"] = request.targetConfigShrink;
     }
 
-    if (!Util.isUnset(request.timeoutConfig)) {
-      query["TimeoutConfig"] = request.timeoutConfig;
+    if (!Util.isUnset(request.timeoutConfigShrink)) {
+      query["TimeoutConfig"] = request.timeoutConfigShrink;
     }
 
     if (!Util.isUnset(request.type)) {
@@ -35861,6 +38587,10 @@ export default class Client extends OpenApi {
   async createOTADynamicUpgradeJobWithOptions(request: CreateOTADynamicUpgradeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTADynamicUpgradeJobResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.downloadProtocol)) {
+      query["DownloadProtocol"] = request.downloadProtocol;
+    }
+
     if (!Util.isUnset(request.dynamicMode)) {
       query["DynamicMode"] = request.dynamicMode;
     }
@@ -35869,12 +38599,24 @@ export default class Client extends OpenApi {
       query["FirmwareId"] = request.firmwareId;
     }
 
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
 
     if (!Util.isUnset(request.maximumPerMinute)) {
       query["MaximumPerMinute"] = request.maximumPerMinute;
+    }
+
+    if (!Util.isUnset(request.multiModuleMode)) {
+      query["MultiModuleMode"] = request.multiModuleMode;
     }
 
     if (!Util.isUnset(request.needConfirm)) {
@@ -35968,6 +38710,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.moduleName)) {
       query["ModuleName"] = request.moduleName;
+    }
+
+    if (!Util.isUnset(request.multiFiles)) {
+      query["MultiFiles"] = request.multiFiles;
     }
 
     if (!Util.isUnset(request.needToVerify)) {
@@ -36068,6 +38814,10 @@ export default class Client extends OpenApi {
       query["DnListFileUrl"] = request.dnListFileUrl;
     }
 
+    if (!Util.isUnset(request.downloadProtocol)) {
+      query["DownloadProtocol"] = request.downloadProtocol;
+    }
+
     if (!Util.isUnset(request.firmwareId)) {
       query["FirmwareId"] = request.firmwareId;
     }
@@ -36076,12 +38826,24 @@ export default class Client extends OpenApi {
       query["GrayPercent"] = request.grayPercent;
     }
 
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
 
     if (!Util.isUnset(request.maximumPerMinute)) {
       query["MaximumPerMinute"] = request.maximumPerMinute;
+    }
+
+    if (!Util.isUnset(request.multiModuleMode)) {
+      query["MultiModuleMode"] = request.multiModuleMode;
     }
 
     if (!Util.isUnset(request.needConfirm)) {
@@ -36161,6 +38923,10 @@ export default class Client extends OpenApi {
   async createOTAVerifyJobWithOptions(request: CreateOTAVerifyJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateOTAVerifyJobResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.downloadProtocol)) {
+      query["DownloadProtocol"] = request.downloadProtocol;
+    }
+
     if (!Util.isUnset(request.firmwareId)) {
       query["FirmwareId"] = request.firmwareId;
     }
@@ -36179,6 +38945,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productKey)) {
       query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.targetDeviceName)) {
@@ -36537,43 +39307,6 @@ export default class Client extends OpenApi {
     return await this.createRuleActionWithOptions(request, runtime);
   }
 
-  async createRulengDistributeJobWithOptions(request: CreateRulengDistributeJobRequest, runtime: $Util.RuntimeOptions): Promise<CreateRulengDistributeJobResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.productKey)) {
-      query["ProductKey"] = request.productKey;
-    }
-
-    if (!Util.isUnset(request.sourceInstanceId)) {
-      query["SourceInstanceId"] = request.sourceInstanceId;
-    }
-
-    if (!Util.isUnset(request.targetInstanceId)) {
-      query["TargetInstanceId"] = request.targetInstanceId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateRulengDistributeJob",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateRulengDistributeJobResponse>(await this.callApi(params, req, runtime), new CreateRulengDistributeJobResponse({}));
-  }
-
-  async createRulengDistributeJob(request: CreateRulengDistributeJobRequest): Promise<CreateRulengDistributeJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createRulengDistributeJobWithOptions(request, runtime);
-  }
-
   async createSceneRuleWithOptions(request: CreateSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -36615,10 +39348,98 @@ export default class Client extends OpenApi {
     return await this.createSceneRuleWithOptions(request, runtime);
   }
 
-  async createSpeechWithOptions(request: CreateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpeechResponse> {
+  async createSoundCodeWithOptions(request: CreateSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<CreateSoundCodeResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.duration)) {
+      body["Duration"] = request.duration;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.soundCodeContent)) {
+      body["SoundCodeContent"] = request.soundCodeContent;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.bizCode,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSoundCode",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSoundCodeResponse>(await this.callApi(params, req, runtime), new CreateSoundCodeResponse({}));
+  }
+
+  async createSoundCode(request: CreateSoundCodeRequest): Promise<CreateSoundCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSoundCodeWithOptions(request, runtime);
+  }
+
+  async createSpeechWithOptions(tmpReq: CreateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<CreateSpeechResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSpeechShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.soundCodeConfig)) {
+      request.soundCodeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.soundCodeConfig, "SoundCodeConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.bizCode)) {
+      body["BizCode"] = request.bizCode;
+    }
+
+    if (!Util.isUnset(request.enableSoundCode)) {
+      body["EnableSoundCode"] = request.enableSoundCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeConfigShrink)) {
+      body["SoundCodeConfig"] = request.soundCodeConfigShrink;
+    }
+
+    if (!Util.isUnset(request.speechRate)) {
+      body["SpeechRate"] = request.speechRate;
+    }
+
+    if (!Util.isUnset(request.speechType)) {
+      body["SpeechType"] = request.speechType;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    if (!Util.isUnset(request.voice)) {
+      body["Voice"] = request.voice;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      body["Volume"] = request.volume;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateSpeech",
@@ -36641,8 +39462,29 @@ export default class Client extends OpenApi {
 
   async createStudioAppDomainOpenWithOptions(request: CreateStudioAppDomainOpenRequest, runtime: $Util.RuntimeOptions): Promise<CreateStudioAppDomainOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateStudioAppDomainOpen",
@@ -36871,6 +39713,39 @@ export default class Client extends OpenApi {
     return await this.createTopicRouteTableWithOptions(request, runtime);
   }
 
+  async deleteClientIdsWithOptions(request: DeleteClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientIdsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteClientIds",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientIdsResponse>(await this.callApi(params, req, runtime), new DeleteClientIdsResponse({}));
+  }
+
+  async deleteClientIds(request: DeleteClientIdsRequest): Promise<DeleteClientIdsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteClientIdsWithOptions(request, runtime);
+  }
+
   async deleteConsumerGroupWithOptions(request: DeleteConsumerGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteConsumerGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37011,6 +39886,39 @@ export default class Client extends OpenApi {
     return await this.deleteDeviceDistributeJobWithOptions(request, runtime);
   }
 
+  async deleteDeviceDynamicGroupWithOptions(request: DeleteDeviceDynamicGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceDynamicGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeviceDynamicGroup",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeviceDynamicGroupResponse>(await this.callApi(params, req, runtime), new DeleteDeviceDynamicGroupResponse({}));
+  }
+
+  async deleteDeviceDynamicGroup(request: DeleteDeviceDynamicGroupRequest): Promise<DeleteDeviceDynamicGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDeviceDynamicGroupWithOptions(request, runtime);
+  }
+
   async deleteDeviceFileWithOptions(request: DeleteDeviceFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceFileResponse> {
     Util.validateModel(request);
     let query = { };
@@ -37132,6 +40040,76 @@ export default class Client extends OpenApi {
   async deleteDeviceProp(request: DeleteDevicePropRequest): Promise<DeleteDevicePropResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDevicePropWithOptions(request, runtime);
+  }
+
+  async deleteDeviceSpeechWithOptions(request: DeleteDeviceSpeechRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceSpeechResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceSpeechList)) {
+      body["DeviceSpeechList"] = request.deviceSpeechList;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeviceSpeech",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeviceSpeechResponse>(await this.callApi(params, req, runtime), new DeleteDeviceSpeechResponse({}));
+  }
+
+  async deleteDeviceSpeech(request: DeleteDeviceSpeechRequest): Promise<DeleteDeviceSpeechResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDeviceSpeechWithOptions(request, runtime);
+  }
+
+  async deleteDeviceTunnelWithOptions(request: DeleteDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.tunnelId)) {
+      query["TunnelId"] = request.tunnelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDeviceTunnel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDeviceTunnelResponse>(await this.callApi(params, req, runtime), new DeleteDeviceTunnelResponse({}));
+  }
+
+  async deleteDeviceTunnel(request: DeleteDeviceTunnelRequest): Promise<DeleteDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDeviceTunnelWithOptions(request, runtime);
   }
 
   async deleteEdgeDriverWithOptions(request: DeleteEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEdgeDriverResponse> {
@@ -37579,10 +40557,52 @@ export default class Client extends OpenApi {
     return await this.deleteSceneRuleWithOptions(request, runtime);
   }
 
+  async deleteSoundCodeWithOptions(request: DeleteSoundCodeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSoundCodeResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.soundCode)) {
+      body["SoundCode"] = request.soundCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSoundCode",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSoundCodeResponse>(await this.callApi(params, req, runtime), new DeleteSoundCodeResponse({}));
+  }
+
+  async deleteSoundCode(request: DeleteSoundCodeRequest): Promise<DeleteSoundCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSoundCodeWithOptions(request, runtime);
+  }
+
   async deleteSpeechWithOptions(request: DeleteSpeechRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSpeechResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.speechCodeList)) {
+      body["SpeechCodeList"] = request.speechCodeList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteSpeech",
@@ -37605,8 +40625,25 @@ export default class Client extends OpenApi {
 
   async deleteStudioAppDomainOpenWithOptions(request: DeleteStudioAppDomainOpenRequest, runtime: $Util.RuntimeOptions): Promise<DeleteStudioAppDomainOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.domainId)) {
+      body["DomainId"] = request.domainId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DeleteStudioAppDomainOpen",
@@ -38155,8 +41192,17 @@ export default class Client extends OpenApi {
 
   async getDataAPIServiceDetailWithOptions(request: GetDataAPIServiceDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDataAPIServiceDetailResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiSrn)) {
+      body["ApiSrn"] = request.apiSrn;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.apiSrn,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetDataAPIServiceDetail",
@@ -38547,39 +41593,6 @@ export default class Client extends OpenApi {
     return await this.getLoraNodesTaskWithOptions(request, runtime);
   }
 
-  async getNodesAddingTaskWithOptions(request: GetNodesAddingTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetNodesAddingTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.iotInstanceId)) {
-      query["IotInstanceId"] = request.iotInstanceId;
-    }
-
-    if (!Util.isUnset(request.taskId)) {
-      query["TaskId"] = request.taskId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetNodesAddingTask",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetNodesAddingTaskResponse>(await this.callApi(params, req, runtime), new GetNodesAddingTaskResponse({}));
-  }
-
-  async getNodesAddingTask(request: GetNodesAddingTaskRequest): Promise<GetNodesAddingTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getNodesAddingTaskWithOptions(request, runtime);
-  }
-
   async getRuleWithOptions(request: GetRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38679,6 +41692,72 @@ export default class Client extends OpenApi {
     return await this.getSceneRuleWithOptions(request, runtime);
   }
 
+  async getSoundCodeAudioWithOptions(request: GetSoundCodeAudioRequest, runtime: $Util.RuntimeOptions): Promise<GetSoundCodeAudioResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.soundCodeList)) {
+      body["SoundCodeList"] = request.soundCodeList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSoundCodeAudio",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSoundCodeAudioResponse>(await this.callApi(params, req, runtime), new GetSoundCodeAudioResponse({}));
+  }
+
+  async getSoundCodeAudio(request: GetSoundCodeAudioRequest): Promise<GetSoundCodeAudioResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSoundCodeAudioWithOptions(request, runtime);
+  }
+
+  async getSpeechDeviceDetailWithOptions(request: GetSpeechDeviceDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetSpeechDeviceDetailResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSpeechDeviceDetail",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSpeechDeviceDetailResponse>(await this.callApi(params, req, runtime), new GetSpeechDeviceDetailResponse({}));
+  }
+
+  async getSpeechDeviceDetail(request: GetSpeechDeviceDetailRequest): Promise<GetSpeechDeviceDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSpeechDeviceDetailWithOptions(request, runtime);
+  }
+
   async getSpeechVoiceWithOptions(runtime: $Util.RuntimeOptions): Promise<GetSpeechVoiceResponse> {
     let req = new $OpenApi.OpenApiRequest({ });
     let params = new $OpenApi.Params({
@@ -38702,8 +41781,21 @@ export default class Client extends OpenApi {
 
   async getStudioAppTokenOpenWithOptions(request: GetStudioAppTokenOpenRequest, runtime: $Util.RuntimeOptions): Promise<GetStudioAppTokenOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "GetStudioAppTokenOpen",
@@ -38937,6 +42029,88 @@ export default class Client extends OpenApi {
     return await this.getThingTopoWithOptions(request, runtime);
   }
 
+  async gisQueryDeviceLocationWithOptions(request: GisQueryDeviceLocationRequest, runtime: $Util.RuntimeOptions): Promise<GisQueryDeviceLocationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.thingList)) {
+      query["ThingList"] = request.thingList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GisQueryDeviceLocation",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GisQueryDeviceLocationResponse>(await this.callApi(params, req, runtime), new GisQueryDeviceLocationResponse({}));
+  }
+
+  async gisQueryDeviceLocation(request: GisQueryDeviceLocationRequest): Promise<GisQueryDeviceLocationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.gisQueryDeviceLocationWithOptions(request, runtime);
+  }
+
+  async gisSearchDeviceTraceWithOptions(request: GisSearchDeviceTraceRequest, runtime: $Util.RuntimeOptions): Promise<GisSearchDeviceTraceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.mapMatch)) {
+      query["MapMatch"] = request.mapMatch;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GisSearchDeviceTrace",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GisSearchDeviceTraceResponse>(await this.callApi(params, req, runtime), new GisSearchDeviceTraceResponse({}));
+  }
+
+  async gisSearchDeviceTrace(request: GisSearchDeviceTraceRequest): Promise<GisSearchDeviceTraceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.gisSearchDeviceTraceWithOptions(request, runtime);
+  }
+
   async importThingModelTslWithOptions(request: ImportThingModelTslRequest, runtime: $Util.RuntimeOptions): Promise<ImportThingModelTslResponse> {
     Util.validateModel(request);
     let query = { };
@@ -38992,8 +42166,21 @@ export default class Client extends OpenApi {
 
   async invokeDataAPIServiceWithOptions(request: InvokeDataAPIServiceRequest, runtime: $Util.RuntimeOptions): Promise<InvokeDataAPIServiceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.apiSrn)) {
+      body["ApiSrn"] = request.apiSrn;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      body["Param"] = request.param;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: Util.toArray(request.apiSrn),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "InvokeDataAPIService",
@@ -39172,6 +42359,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
     }
@@ -39180,9 +42371,14 @@ export default class Client extends OpenApi {
       query["TargetUid"] = request.targetUid;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.jobId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ListDeviceDistributeJob",
@@ -39797,11 +42993,17 @@ export default class Client extends OpenApi {
     return await this.listRuleActionsWithOptions(request, runtime);
   }
 
-  async listTaskWithOptions(request: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
-    Util.validateModel(request);
+  async listTaskWithOptions(tmpReq: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.device)) {
+      request.deviceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.device, "Device", "json");
+    }
+
     let query = { };
-    if (!Util.isUnset(request.device)) {
-      query["Device"] = request.device;
+    if (!Util.isUnset(request.deviceShrink)) {
+      query["Device"] = request.deviceShrink;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -39844,63 +43046,6 @@ export default class Client extends OpenApi {
   async listTask(request: ListTaskRequest): Promise<ListTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskWithOptions(request, runtime);
-  }
-
-  async listTaskByPageWithOptions(request: ListTaskByPageRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskByPageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.device)) {
-      query["Device"] = request.device;
-    }
-
-    if (!Util.isUnset(request.deviceName)) {
-      query["DeviceName"] = request.deviceName;
-    }
-
-    if (!Util.isUnset(request.iotInstanceId)) {
-      query["IotInstanceId"] = request.iotInstanceId;
-    }
-
-    if (!Util.isUnset(request.jobId)) {
-      query["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.jobName)) {
-      query["JobName"] = request.jobName;
-    }
-
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListTaskByPage",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTaskByPageResponse>(await this.callApi(params, req, runtime), new ListTaskByPageResponse({}));
-  }
-
-  async listTaskByPage(request: ListTaskByPageRequest): Promise<ListTaskByPageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listTaskByPageWithOptions(request, runtime);
   }
 
   async listThingModelVersionWithOptions(request: ListThingModelVersionRequest, runtime: $Util.RuntimeOptions): Promise<ListThingModelVersionResponse> {
@@ -40041,8 +43186,37 @@ export default class Client extends OpenApi {
 
   async printByTemplateWithOptions(request: PrintByTemplateRequest, runtime: $Util.RuntimeOptions): Promise<PrintByTemplateResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.historyPrintTopic)) {
+      body["HistoryPrintTopic"] = request.historyPrintTopic;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.paramsJsonString)) {
+      body["ParamsJsonString"] = request.paramsJsonString;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.templateBizCode)) {
+      body["TemplateBizCode"] = request.templateBizCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.deviceName,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PrintByTemplate",
@@ -40163,8 +43337,25 @@ export default class Client extends OpenApi {
 
   async publishStudioAppWithOptions(request: PublishStudioAppRequest, runtime: $Util.RuntimeOptions): Promise<PublishStudioAppResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PublishStudioApp",
@@ -40237,9 +43428,38 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    if (!Util.isUnset(request.pushMode)) {
+      body["PushMode"] = request.pushMode;
+    }
+
+    if (!Util.isUnset(request.speechCodeList)) {
+      body["SpeechCodeList"] = request.speechCodeList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.deviceName,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "PushSpeech",
@@ -40258,59 +43478,6 @@ export default class Client extends OpenApi {
   async pushSpeech(request: PushSpeechRequest): Promise<PushSpeechResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.pushSpeechWithOptions(request, runtime);
-  }
-
-  async queryAppDeviceListWithOptions(request: QueryAppDeviceListRequest, runtime: $Util.RuntimeOptions): Promise<QueryAppDeviceListResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.appKey)) {
-      query["AppKey"] = request.appKey;
-    }
-
-    if (!Util.isUnset(request.categoryKeyList)) {
-      query["CategoryKeyList"] = request.categoryKeyList;
-    }
-
-    if (!Util.isUnset(request.currentPage)) {
-      query["CurrentPage"] = request.currentPage;
-    }
-
-    if (!Util.isUnset(request.iotInstanceId)) {
-      query["IotInstanceId"] = request.iotInstanceId;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.productKeyList)) {
-      query["ProductKeyList"] = request.productKeyList;
-    }
-
-    if (!Util.isUnset(request.tagList)) {
-      query["TagList"] = request.tagList;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryAppDeviceList",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryAppDeviceListResponse>(await this.callApi(params, req, runtime), new QueryAppDeviceListResponse({}));
-  }
-
-  async queryAppDeviceList(request: QueryAppDeviceListRequest): Promise<QueryAppDeviceListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.queryAppDeviceListWithOptions(request, runtime);
   }
 
   async queryBatchRegisterDeviceStatusWithOptions(request: QueryBatchRegisterDeviceStatusRequest, runtime: $Util.RuntimeOptions): Promise<QueryBatchRegisterDeviceStatusResponse> {
@@ -40381,6 +43548,39 @@ export default class Client extends OpenApi {
   async queryCertUrlByApplyId(request: QueryCertUrlByApplyIdRequest): Promise<QueryCertUrlByApplyIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryCertUrlByApplyIdWithOptions(request, runtime);
+  }
+
+  async queryClientIdsWithOptions(request: QueryClientIdsRequest, runtime: $Util.RuntimeOptions): Promise<QueryClientIdsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryClientIds",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryClientIdsResponse>(await this.callApi(params, req, runtime), new QueryClientIdsResponse({}));
+  }
+
+  async queryClientIds(request: QueryClientIdsRequest): Promise<QueryClientIdsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryClientIdsWithOptions(request, runtime);
   }
 
   async queryConsumerGroupByGroupIdWithOptions(request: QueryConsumerGroupByGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<QueryConsumerGroupByGroupIdResponse> {
@@ -41144,6 +44344,10 @@ export default class Client extends OpenApi {
       query["GroupId"] = request.groupId;
     }
 
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
+    }
+
     if (!Util.isUnset(request.iotInstanceId)) {
       query["IotInstanceId"] = request.iotInstanceId;
     }
@@ -41179,6 +44383,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupName)) {
       query["GroupName"] = request.groupName;
+    }
+
+    if (!Util.isUnset(request.groupTypes)) {
+      query["GroupTypes"] = request.groupTypes;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -41220,6 +44428,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -41847,6 +45059,47 @@ export default class Client extends OpenApi {
     return await this.queryDeviceServiceDataWithOptions(request, runtime);
   }
 
+  async queryDeviceSpeechWithOptions(request: QueryDeviceSpeechRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceSpeechResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceSpeech",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceSpeechResponse>(await this.callApi(params, req, runtime), new QueryDeviceSpeechResponse({}));
+  }
+
+  async queryDeviceSpeech(request: QueryDeviceSpeechRequest): Promise<QueryDeviceSpeechResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceSpeechWithOptions(request, runtime);
+  }
+
   async queryDeviceStatisticsWithOptions(request: QueryDeviceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -41882,6 +45135,100 @@ export default class Client extends OpenApi {
   async queryDeviceStatistics(request: QueryDeviceStatisticsRequest): Promise<QueryDeviceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryDeviceStatisticsWithOptions(request, runtime);
+  }
+
+  async queryDeviceTunnelWithOptions(request: QueryDeviceTunnelRequest, runtime: $Util.RuntimeOptions): Promise<QueryDeviceTunnelResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.tunnelId)) {
+      query["TunnelId"] = request.tunnelId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDeviceTunnel",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDeviceTunnelResponse>(await this.callApi(params, req, runtime), new QueryDeviceTunnelResponse({}));
+  }
+
+  async queryDeviceTunnel(request: QueryDeviceTunnelRequest): Promise<QueryDeviceTunnelResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDeviceTunnelWithOptions(request, runtime);
+  }
+
+  async queryDynamicGroupDevicesWithOptions(request: QueryDynamicGroupDevicesRequest, runtime: $Util.RuntimeOptions): Promise<QueryDynamicGroupDevicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.fuzzyName)) {
+      query["FuzzyName"] = request.fuzzyName;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryDynamicGroupDevices",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryDynamicGroupDevicesResponse>(await this.callApi(params, req, runtime), new QueryDynamicGroupDevicesResponse({}));
+  }
+
+  async queryDynamicGroupDevices(request: QueryDynamicGroupDevicesRequest): Promise<QueryDynamicGroupDevicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryDynamicGroupDevicesWithOptions(request, runtime);
   }
 
   async queryEdgeDriverWithOptions(request: QueryEdgeDriverRequest, runtime: $Util.RuntimeOptions): Promise<QueryEdgeDriverResponse> {
@@ -42820,10 +46167,56 @@ export default class Client extends OpenApi {
     return await this.querySolutionDeviceGroupPageWithOptions(request, runtime);
   }
 
+  async querySoundCodeListWithOptions(request: QuerySoundCodeListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySoundCodeListResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySoundCodeList",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySoundCodeListResponse>(await this.callApi(params, req, runtime), new QuerySoundCodeListResponse({}));
+  }
+
+  async querySoundCodeList(request: QuerySoundCodeListRequest): Promise<QuerySoundCodeListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySoundCodeListWithOptions(request, runtime);
+  }
+
   async querySpeechWithOptions(request: QuerySpeechRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.speechCode)) {
+      body["SpeechCode"] = request.speechCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QuerySpeech",
@@ -42844,10 +46237,84 @@ export default class Client extends OpenApi {
     return await this.querySpeechWithOptions(request, runtime);
   }
 
+  async querySpeechDeviceWithOptions(request: QuerySpeechDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechDeviceResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.availableSpace)) {
+      body["AvailableSpace"] = request.availableSpace;
+    }
+
+    if (!Util.isUnset(request.availableSpaceScope)) {
+      body["AvailableSpaceScope"] = request.availableSpaceScope;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QuerySpeechDevice",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QuerySpeechDeviceResponse>(await this.callApi(params, req, runtime), new QuerySpeechDeviceResponse({}));
+  }
+
+  async querySpeechDevice(request: QuerySpeechDeviceRequest): Promise<QuerySpeechDeviceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.querySpeechDeviceWithOptions(request, runtime);
+  }
+
   async querySpeechListWithOptions(request: QuerySpeechListRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechListResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QuerySpeechList",
@@ -42875,9 +46342,34 @@ export default class Client extends OpenApi {
       query["JobCode"] = request.jobCode;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    if (!Util.isUnset(request.pushMode)) {
+      body["PushMode"] = request.pushMode;
+    }
+
+    if (!Util.isUnset(request.statusList)) {
+      body["StatusList"] = request.statusList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QuerySpeechPushJob",
@@ -42900,8 +46392,33 @@ export default class Client extends OpenApi {
 
   async querySpeechPushJobDeviceWithOptions(request: QuerySpeechPushJobDeviceRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechPushJobDeviceResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobCode)) {
+      body["JobCode"] = request.jobCode;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.deviceName,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QuerySpeechPushJobDevice",
@@ -42924,8 +46441,25 @@ export default class Client extends OpenApi {
 
   async querySpeechPushJobSpeechWithOptions(request: QuerySpeechPushJobSpeechRequest, runtime: $Util.RuntimeOptions): Promise<QuerySpeechPushJobSpeechResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobCode)) {
+      body["JobCode"] = request.jobCode;
+    }
+
+    if (!Util.isUnset(request.pageId)) {
+      body["PageId"] = request.pageId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QuerySpeechPushJobSpeech",
@@ -42948,8 +46482,21 @@ export default class Client extends OpenApi {
 
   async queryStudioAppDomainListOpenWithOptions(request: QueryStudioAppDomainListOpenRequest, runtime: $Util.RuntimeOptions): Promise<QueryStudioAppDomainListOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QueryStudioAppDomainListOpen",
@@ -42972,8 +46519,33 @@ export default class Client extends OpenApi {
 
   async queryStudioAppListWithOptions(request: QueryStudioAppListRequest, runtime: $Util.RuntimeOptions): Promise<QueryStudioAppListResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fuzzyName)) {
+      body["FuzzyName"] = request.fuzzyName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      body["Types"] = request.types;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.fuzzyName,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QueryStudioAppList",
@@ -42996,8 +46568,33 @@ export default class Client extends OpenApi {
 
   async queryStudioAppPageListOpenWithOptions(request: QueryStudioAppPageListOpenRequest, runtime: $Util.RuntimeOptions): Promise<QueryStudioAppPageListOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.isRelease)) {
+      body["IsRelease"] = request.isRelease;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QueryStudioAppPageListOpen",
@@ -43020,8 +46617,25 @@ export default class Client extends OpenApi {
 
   async queryStudioProjectListWithOptions(request: QueryStudioProjectListRequest, runtime: $Util.RuntimeOptions): Promise<QueryStudioProjectListResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "QueryStudioProjectList",
@@ -43532,8 +47146,21 @@ export default class Client extends OpenApi {
 
   async refreshStudioAppTokenOpenWithOptions(request: RefreshStudioAppTokenOpenRequest, runtime: $Util.RuntimeOptions): Promise<RefreshStudioAppTokenOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RefreshStudioAppTokenOpen",
@@ -43874,6 +47501,43 @@ export default class Client extends OpenApi {
     return await this.resetThingWithOptions(request, runtime);
   }
 
+  async reupgradeOTATaskWithOptions(request: ReupgradeOTATaskRequest, runtime: $Util.RuntimeOptions): Promise<ReupgradeOTATaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReupgradeOTATask",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReupgradeOTATaskResponse>(await this.callApi(params, req, runtime), new ReupgradeOTATaskResponse({}));
+  }
+
+  async reupgradeOTATask(request: ReupgradeOTATaskRequest): Promise<ReupgradeOTATaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.reupgradeOTATaskWithOptions(request, runtime);
+  }
+
   async saveDevicePropWithOptions(request: SaveDevicePropRequest, runtime: $Util.RuntimeOptions): Promise<SaveDevicePropResponse> {
     Util.validateModel(request);
     let query = { };
@@ -43973,6 +47637,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -44171,8 +47839,17 @@ export default class Client extends OpenApi {
 
   async setStudioProjectCooperationWithOptions(request: SetStudioProjectCooperationRequest, runtime: $Util.RuntimeOptions): Promise<SetStudioProjectCooperationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SetStudioProjectCooperation",
@@ -44195,8 +47872,25 @@ export default class Client extends OpenApi {
 
   async setupStudioAppAuthModeOpenWithOptions(request: SetupStudioAppAuthModeOpenRequest, runtime: $Util.RuntimeOptions): Promise<SetupStudioAppAuthModeOpenResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.authMode)) {
+      body["AuthMode"] = request.authMode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.appId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SetupStudioAppAuthModeOpen",
@@ -44219,8 +47913,37 @@ export default class Client extends OpenApi {
 
   async speechByCombinationWithOptions(request: SpeechByCombinationRequest, runtime: $Util.RuntimeOptions): Promise<SpeechByCombinationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.combinationList)) {
+      body["CombinationList"] = request.combinationList;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.speechId)) {
+      body["SpeechId"] = request.speechId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.combinationList,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SpeechByCombination",
@@ -44239,6 +47962,71 @@ export default class Client extends OpenApi {
   async speechByCombination(request: SpeechByCombinationRequest): Promise<SpeechByCombinationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.speechByCombinationWithOptions(request, runtime);
+  }
+
+  async speechBySynthesisWithOptions(request: SpeechBySynthesisRequest, runtime: $Util.RuntimeOptions): Promise<SpeechBySynthesisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.speechId)) {
+      body["SpeechId"] = request.speechId;
+    }
+
+    if (!Util.isUnset(request.speechRate)) {
+      body["SpeechRate"] = request.speechRate;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    if (!Util.isUnset(request.voice)) {
+      body["Voice"] = request.voice;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      body["Volume"] = request.volume;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SpeechBySynthesis",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SpeechBySynthesisResponse>(await this.callApi(params, req, runtime), new SpeechBySynthesisResponse({}));
+  }
+
+  async speechBySynthesis(request: SpeechBySynthesisRequest): Promise<SpeechBySynthesisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.speechBySynthesisWithOptions(request, runtime);
   }
 
   async startCpuWithOptions(request: StartCpuRequest, runtime: $Util.RuntimeOptions): Promise<StartCpuResponse> {
@@ -44344,10 +48132,80 @@ export default class Client extends OpenApi {
     return await this.stopRuleWithOptions(request, runtime);
   }
 
+  async subscribeTopicWithOptions(request: SubscribeTopicRequest, runtime: $Util.RuntimeOptions): Promise<SubscribeTopicResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      query["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubscribeTopic",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubscribeTopicResponse>(await this.callApi(params, req, runtime), new SubscribeTopicResponse({}));
+  }
+
+  async subscribeTopic(request: SubscribeTopicRequest): Promise<SubscribeTopicResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.subscribeTopicWithOptions(request, runtime);
+  }
+
   async syncSpeechByCombinationWithOptions(request: SyncSpeechByCombinationRequest, runtime: $Util.RuntimeOptions): Promise<SyncSpeechByCombinationResponse> {
     Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.combinationList)) {
+      body["CombinationList"] = request.combinationList;
+    }
+
+    if (!Util.isUnset(request.deviceName)) {
+      body["DeviceName"] = request.deviceName;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      body["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.productKey)) {
+      body["ProductKey"] = request.productKey;
+    }
+
+    if (!Util.isUnset(request.speechId)) {
+      body["SpeechId"] = request.speechId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.combinationList,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "SyncSpeechByCombination",
@@ -44368,10 +48226,57 @@ export default class Client extends OpenApi {
     return await this.syncSpeechByCombinationWithOptions(request, runtime);
   }
 
-  async testSpeechWithOptions(request: TestSpeechRequest, runtime: $Util.RuntimeOptions): Promise<TestSpeechResponse> {
-    Util.validateModel(request);
+  async testSpeechWithOptions(tmpReq: TestSpeechRequest, runtime: $Util.RuntimeOptions): Promise<TestSpeechResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TestSpeechShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.soundCodeConfig)) {
+      request.soundCodeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.soundCodeConfig, "SoundCodeConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.audioFormat)) {
+      body["AudioFormat"] = request.audioFormat;
+    }
+
+    if (!Util.isUnset(request.enableSoundCode)) {
+      body["EnableSoundCode"] = request.enableSoundCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeConfigShrink)) {
+      body["SoundCodeConfig"] = request.soundCodeConfigShrink;
+    }
+
+    if (!Util.isUnset(request.speechRate)) {
+      body["SpeechRate"] = request.speechRate;
+    }
+
+    if (!Util.isUnset(request.speechType)) {
+      body["SpeechType"] = request.speechType;
+    }
+
+    if (!Util.isUnset(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    if (!Util.isUnset(request.voice)) {
+      body["Voice"] = request.voice;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      body["Volume"] = request.volume;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "TestSpeech",
@@ -44390,6 +48295,43 @@ export default class Client extends OpenApi {
   async testSpeech(request: TestSpeechRequest): Promise<TestSpeechResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.testSpeechWithOptions(request, runtime);
+  }
+
+  async transformClientIdWithOptions(request: TransformClientIdRequest, runtime: $Util.RuntimeOptions): Promise<TransformClientIdResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientId)) {
+      query["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.iotId)) {
+      query["IotId"] = request.iotId;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      query["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransformClientId",
+      version: "2018-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransformClientIdResponse>(await this.callApi(params, req, runtime), new TransformClientIdResponse({}));
+  }
+
+  async transformClientId(request: TransformClientIdRequest): Promise<TransformClientIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transformClientIdWithOptions(request, runtime);
   }
 
   async triggerSceneRuleWithOptions(request: TriggerSceneRuleRequest, runtime: $Util.RuntimeOptions): Promise<TriggerSceneRuleResponse> {
@@ -44619,6 +48561,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.groupType)) {
+      query["GroupType"] = request.groupType;
     }
 
     if (!Util.isUnset(request.iotInstanceId)) {
@@ -44920,8 +48866,18 @@ export default class Client extends OpenApi {
     return await this.updateEdgeInstanceMessageRoutingWithOptions(request, runtime);
   }
 
-  async updateJobWithOptions(request: UpdateJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
-    Util.validateModel(request);
+  async updateJobWithOptions(tmpReq: UpdateJobRequest, runtime: $Util.RuntimeOptions): Promise<UpdateJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.rolloutConfig)) {
+      request.rolloutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rolloutConfig, "RolloutConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.timeoutConfig)) {
+      request.timeoutConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timeoutConfig, "TimeoutConfig", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
@@ -44935,12 +48891,12 @@ export default class Client extends OpenApi {
       query["JobId"] = request.jobId;
     }
 
-    if (!Util.isUnset(request.rolloutConfig)) {
-      query["RolloutConfig"] = request.rolloutConfig;
+    if (!Util.isUnset(request.rolloutConfigShrink)) {
+      query["RolloutConfig"] = request.rolloutConfigShrink;
     }
 
-    if (!Util.isUnset(request.timeoutConfig)) {
-      query["TimeoutConfig"] = request.timeoutConfig;
+    if (!Util.isUnset(request.timeoutConfigShrink)) {
+      query["TimeoutConfig"] = request.timeoutConfigShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -45325,10 +49281,49 @@ export default class Client extends OpenApi {
     return await this.updateSceneRuleWithOptions(request, runtime);
   }
 
-  async updateSpeechWithOptions(request: UpdateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSpeechResponse> {
-    Util.validateModel(request);
+  async updateSpeechWithOptions(tmpReq: UpdateSpeechRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSpeechResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSpeechShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.soundCodeConfig)) {
+      request.soundCodeConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.soundCodeConfig, "SoundCodeConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.enableSoundCode)) {
+      body["EnableSoundCode"] = request.enableSoundCode;
+    }
+
+    if (!Util.isUnset(request.iotInstanceId)) {
+      body["IotInstanceId"] = request.iotInstanceId;
+    }
+
+    if (!Util.isUnset(request.projectCode)) {
+      body["ProjectCode"] = request.projectCode;
+    }
+
+    if (!Util.isUnset(request.soundCodeConfigShrink)) {
+      body["SoundCodeConfig"] = request.soundCodeConfigShrink;
+    }
+
+    if (!Util.isUnset(request.speechCode)) {
+      body["SpeechCode"] = request.speechCode;
+    }
+
+    if (!Util.isUnset(request.speechRate)) {
+      body["SpeechRate"] = request.speechRate;
+    }
+
+    if (!Util.isUnset(request.voice)) {
+      body["Voice"] = request.voice;
+    }
+
+    if (!Util.isUnset(request.volume)) {
+      body["Volume"] = request.volume;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
-      body: request.iotInstanceId,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateSpeech",
@@ -45481,43 +49476,6 @@ export default class Client extends OpenApi {
   async updateThingModel(request: UpdateThingModelRequest): Promise<UpdateThingModelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateThingModelWithOptions(request, runtime);
-  }
-
-  async updateThingModelValidationConfigWithOptions(request: UpdateThingModelValidationConfigRequest, runtime: $Util.RuntimeOptions): Promise<UpdateThingModelValidationConfigResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.iotInstanceId)) {
-      query["IotInstanceId"] = request.iotInstanceId;
-    }
-
-    if (!Util.isUnset(request.productKey)) {
-      query["ProductKey"] = request.productKey;
-    }
-
-    if (!Util.isUnset(request.validateType)) {
-      query["ValidateType"] = request.validateType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateThingModelValidationConfig",
-      version: "2018-01-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateThingModelValidationConfigResponse>(await this.callApi(params, req, runtime), new UpdateThingModelValidationConfigResponse({}));
-  }
-
-  async updateThingModelValidationConfig(request: UpdateThingModelValidationConfigRequest): Promise<UpdateThingModelValidationConfigResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateThingModelValidationConfigWithOptions(request, runtime);
   }
 
   async updateThingScriptWithOptions(request: UpdateThingScriptRequest, runtime: $Util.RuntimeOptions): Promise<UpdateThingScriptResponse> {
