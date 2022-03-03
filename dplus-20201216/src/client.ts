@@ -327,6 +327,103 @@ export class CreateImageAmazonTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateRemoveWorkTaskRequest extends $tea.Model {
+  itemIdentity?: string;
+  picUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      itemIdentity: 'ItemIdentity',
+      picUrl: 'PicUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemIdentity: 'string',
+      picUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoveWorkTaskAdvanceRequest extends $tea.Model {
+  picUrlObject: Readable;
+  itemIdentity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      picUrlObject: 'PicUrlObject',
+      itemIdentity: 'ItemIdentity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      picUrlObject: 'Readable',
+      itemIdentity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoveWorkTaskResponseBody extends $tea.Model {
+  code?: number;
+  data?: number;
+  message?: string;
+  requestId?: string;
+  successResponse?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      successResponse: 'SuccessResponse',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      message: 'string',
+      requestId: 'string',
+      successResponse: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoveWorkTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRemoveWorkTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRemoveWorkTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceshifterTRequest extends $tea.Model {
   age?: number;
   gender?: number;
@@ -1329,6 +1426,113 @@ export default class Client extends OpenApi {
   async createImageAmazonTask(request: CreateImageAmazonTaskRequest): Promise<CreateImageAmazonTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createImageAmazonTaskWithOptions(request, runtime);
+  }
+
+  async createRemoveWorkTaskWithOptions(request: CreateRemoveWorkTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemoveWorkTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.itemIdentity)) {
+      query["ItemIdentity"] = request.itemIdentity;
+    }
+
+    if (!Util.isUnset(request.picUrl)) {
+      query["PicUrl"] = request.picUrl;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRemoveWorkTask",
+      version: "2020-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRemoveWorkTaskResponse>(await this.callApi(params, req, runtime), new CreateRemoveWorkTaskResponse({}));
+  }
+
+  async createRemoveWorkTask(request: CreateRemoveWorkTaskRequest): Promise<CreateRemoveWorkTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRemoveWorkTaskWithOptions(request, runtime);
+  }
+
+  async createRemoveWorkTaskAdvance(request: CreateRemoveWorkTaskAdvanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemoveWorkTaskResponse> {
+    // Step 0: init client
+    let accessKeyId = await this._credential.getAccessKeyId();
+    let accessKeySecret = await this._credential.getAccessKeySecret();
+    let securityToken = await this._credential.getSecurityToken();
+    let credentialType = this._credential.getType();
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if (Util.isUnset(openPlatformEndpoint)) {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if (Util.isUnset(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $RPC.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenPlatform(authConfig);
+    let authRequest = new $OpenPlatform.AuthorizeFileUploadRequest({
+      product: "dplus",
+      regionId: this._regionId,
+    });
+    let authResponse = new $OpenPlatform.AuthorizeFileUploadResponse({ });
+    let ossConfig = new $OSS.Config({
+      accessKeySecret: accessKeySecret,
+      type: "access_key",
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let ossClient : OSS = null;
+    let fileObj = new $FileForm.FileField({ });
+    let ossHeader = new $OSS.PostObjectRequestHeader({ });
+    let uploadRequest = new $OSS.PostObjectRequest({ });
+    let ossRuntime = new $OSSUtil.RuntimeOptions({ });
+    OpenApiUtil.convert(runtime, ossRuntime);
+    let createRemoveWorkTaskReq = new CreateRemoveWorkTaskRequest({ });
+    OpenApiUtil.convert(request, createRemoveWorkTaskReq);
+    if (!Util.isUnset(request.picUrlObject)) {
+      authResponse = await authClient.authorizeFileUploadWithOptions(authRequest, runtime);
+      ossConfig.accessKeyId = authResponse.accessKeyId;
+      ossConfig.endpoint = OpenApiUtil.getEndpoint(authResponse.endpoint, authResponse.useAccelerate, this._endpointType);
+      ossClient = new OSS(ossConfig);
+      fileObj = new $FileForm.FileField({
+        filename: authResponse.objectKey,
+        content: request.picUrlObject,
+        contentType: "",
+      });
+      ossHeader = new $OSS.PostObjectRequestHeader({
+        accessKeyId: authResponse.accessKeyId,
+        policy: authResponse.encodedPolicy,
+        signature: authResponse.signature,
+        key: authResponse.objectKey,
+        file: fileObj,
+        successActionStatus: "201",
+      });
+      uploadRequest = new $OSS.PostObjectRequest({
+        bucketName: authResponse.bucket,
+        header: ossHeader,
+      });
+      await ossClient.postObject(uploadRequest, ossRuntime);
+      createRemoveWorkTaskReq.picUrl = `http://${authResponse.bucket}.${authResponse.endpoint}/${authResponse.objectKey}`;
+    }
+
+    let createRemoveWorkTaskResp = await this.createRemoveWorkTaskWithOptions(createRemoveWorkTaskReq, runtime);
+    return createRemoveWorkTaskResp;
   }
 
   async faceshifterTWithOptions(request: FaceshifterTRequest, runtime: $Util.RuntimeOptions): Promise<FaceshifterTResponse> {
