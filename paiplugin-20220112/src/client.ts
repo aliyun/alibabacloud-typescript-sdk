@@ -84,6 +84,7 @@ export class CreateTemplateRequest extends $tea.Model {
   content?: string;
   description?: string;
   name?: string;
+  signature?: string;
   signatureId?: string;
   type?: number;
   static names(): { [key: string]: string } {
@@ -91,6 +92,7 @@ export class CreateTemplateRequest extends $tea.Model {
       content: 'Content',
       description: 'Description',
       name: 'Name',
+      signature: 'Signature',
       signatureId: 'SignatureId',
       type: 'Type',
     };
@@ -101,6 +103,7 @@ export class CreateTemplateRequest extends $tea.Model {
       content: 'string',
       description: 'string',
       name: 'string',
+      signature: 'string',
       signatureId: 'string',
       type: 'number',
     };
@@ -1893,6 +1896,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.signature)) {
+      body["Signature"] = request.signature;
     }
 
     if (!Util.isUnset(request.signatureId)) {
