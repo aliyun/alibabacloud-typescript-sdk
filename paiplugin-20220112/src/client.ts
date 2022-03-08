@@ -8,285 +8,6 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
-export class CreateGroupRequest extends $tea.Model {
-  algorithm?: string;
-  column?: string;
-  filter?: string;
-  inferenceJobId?: string;
-  name?: string;
-  project?: string;
-  remark?: string;
-  source?: number;
-  table?: string;
-  text?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      column: 'Column',
-      filter: 'Filter',
-      inferenceJobId: 'InferenceJobId',
-      name: 'Name',
-      project: 'Project',
-      remark: 'Remark',
-      source: 'Source',
-      table: 'Table',
-      text: 'Text',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      column: 'string',
-      filter: 'string',
-      inferenceJobId: 'string',
-      name: 'string',
-      project: 'string',
-      remark: 'string',
-      source: 'number',
-      table: 'string',
-      text: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGroupResponseBody extends $tea.Model {
-  data?: CreateGroupResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateGroupResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInferenceJobRequest extends $tea.Model {
-  algorithm?: string;
-  name?: string;
-  remark?: string;
-  trainingJobId?: string;
-  userConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      name: 'Name',
-      remark: 'Remark',
-      trainingJobId: 'TrainingJobId',
-      userConfig: 'UserConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      name: 'string',
-      remark: 'string',
-      trainingJobId: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInferenceJobResponseBody extends $tea.Model {
-  data?: CreateInferenceJobResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateInferenceJobResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateInferenceJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateInferenceJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateInferenceJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleRequest extends $tea.Model {
-  endTime?: number;
-  executeTime?: string;
-  groupId?: string;
-  name?: string;
-  repeatCycle?: number;
-  repeatCycleUnit?: number;
-  repeatTimes?: number;
-  signName?: string;
-  signatureId?: string;
-  templateCode?: string;
-  templateId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      endTime: 'EndTime',
-      executeTime: 'ExecuteTime',
-      groupId: 'GroupId',
-      name: 'Name',
-      repeatCycle: 'RepeatCycle',
-      repeatCycleUnit: 'RepeatCycleUnit',
-      repeatTimes: 'RepeatTimes',
-      signName: 'SignName',
-      signatureId: 'SignatureId',
-      templateCode: 'TemplateCode',
-      templateId: 'TemplateId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endTime: 'number',
-      executeTime: 'string',
-      groupId: 'string',
-      name: 'string',
-      repeatCycle: 'number',
-      repeatCycleUnit: 'number',
-      repeatTimes: 'number',
-      signName: 'string',
-      signatureId: 'string',
-      templateCode: 'string',
-      templateId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleResponseBody extends $tea.Model {
-  data?: CreateScheduleResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateScheduleResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateScheduleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateSignatureRequest extends $tea.Model {
   description?: string;
   name?: string;
@@ -440,234 +161,6 @@ export class CreateTemplateResponse extends $tea.Model {
   }
 }
 
-export class CreateTrainingJobRequest extends $tea.Model {
-  algorithm?: string;
-  name?: string;
-  remark?: string;
-  userConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      name: 'Name',
-      remark: 'Remark',
-      userConfig: 'UserConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      name: 'string',
-      remark: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrainingJobResponseBody extends $tea.Model {
-  data?: CreateTrainingJobResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: CreateTrainingJobResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrainingJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateTrainingJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateTrainingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGroupResponseBody extends $tea.Model {
-  data?: string;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInferenceJobResponseBody extends $tea.Model {
-  data?: string;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteInferenceJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteInferenceJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteInferenceJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduleResponseBody extends $tea.Model {
-  data?: string;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteScheduleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteSignatureResponseBody extends $tea.Model {
   data?: string;
   errorCode?: number;
@@ -768,8 +261,8 @@ export class DeleteTemplateResponse extends $tea.Model {
   }
 }
 
-export class DeleteTrainingJobResponseBody extends $tea.Model {
-  data?: string;
+export class GetMessageConfigResponseBody extends $tea.Model {
+  data?: GetMessageConfigResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
   requestId?: string;
@@ -784,7 +277,7 @@ export class DeleteTrainingJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: 'string',
+      data: GetMessageConfigResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
       requestId: 'string',
@@ -796,9 +289,9 @@ export class DeleteTrainingJobResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteTrainingJobResponse extends $tea.Model {
+export class GetMessageConfigResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DeleteTrainingJobResponseBody;
+  body: GetMessageConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -809,207 +302,7 @@ export class DeleteTrainingJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteTrainingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlgorithmResponseBody extends $tea.Model {
-  data?: GetAlgorithmResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetAlgorithmResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlgorithmResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetAlgorithmResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetAlgorithmResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupResponseBody extends $tea.Model {
-  data?: GetGroupResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetGroupResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetGroupResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetGroupResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInferenceJobResponseBody extends $tea.Model {
-  data?: GetInferenceJobResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetInferenceJobResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInferenceJobResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetInferenceJobResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetInferenceJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetScheduleResponseBody extends $tea.Model {
-  data?: GetScheduleResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetScheduleResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetScheduleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetScheduleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetScheduleResponseBody,
+      body: GetMessageConfigResponseBody,
     };
   }
 
@@ -1118,8 +411,8 @@ export class GetTemplateResponse extends $tea.Model {
   }
 }
 
-export class GetTrainingJobResponseBody extends $tea.Model {
-  data?: GetTrainingJobResponseBodyData;
+export class GetUserResponseBody extends $tea.Model {
+  data?: GetUserResponseBodyData;
   errorCode?: number;
   errorMessage?: string;
   requestId?: string;
@@ -1134,7 +427,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: GetTrainingJobResponseBodyData,
+      data: GetUserResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
       requestId: 'string',
@@ -1146,9 +439,9 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   }
 }
 
-export class GetTrainingJobResponse extends $tea.Model {
+export class GetUserResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: GetTrainingJobResponseBody;
+  body: GetUserResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1159,250 +452,7 @@ export class GetTrainingJobResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetTrainingJobResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAlgorithmsRequest extends $tea.Model {
-  id?: string;
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAlgorithmsResponseBody extends $tea.Model {
-  data?: ListAlgorithmsResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListAlgorithmsResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAlgorithmsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListAlgorithmsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListAlgorithmsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsRequest extends $tea.Model {
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  remark?: string;
-  source?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      remark: 'Remark',
-      source: 'Source',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      remark: 'string',
-      source: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponseBody extends $tea.Model {
-  data?: ListGroupsResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListGroupsResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListGroupsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListGroupsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInferenceJobsRequest extends $tea.Model {
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  remark?: string;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      remark: 'Remark',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      remark: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInferenceJobsResponseBody extends $tea.Model {
-  data?: ListInferenceJobsResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListInferenceJobsResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInferenceJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListInferenceJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListInferenceJobsResponseBody,
+      body: GetUserResponseBody,
     };
   }
 
@@ -1422,6 +472,7 @@ export class ListMessageMetricsRequest extends $tea.Model {
   startDate?: string;
   templateCode?: string;
   templateId?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       endDate: 'EndDate',
@@ -1434,6 +485,7 @@ export class ListMessageMetricsRequest extends $tea.Model {
       startDate: 'StartDate',
       templateCode: 'TemplateCode',
       templateId: 'TemplateId',
+      templateType: 'TemplateType',
     };
   }
 
@@ -1449,6 +501,7 @@ export class ListMessageMetricsRequest extends $tea.Model {
       startDate: 'string',
       templateCode: 'string',
       templateId: 'string',
+      templateType: 'number',
     };
   }
 
@@ -1509,6 +562,7 @@ export class ListMessageMetricsResponse extends $tea.Model {
 
 export class ListMessagesRequest extends $tea.Model {
   datetime?: string;
+  errorCode?: string;
   groupId?: string;
   messageId?: string;
   pageNumber?: number;
@@ -1521,9 +575,11 @@ export class ListMessagesRequest extends $tea.Model {
   status?: number;
   templateCode?: string;
   templateId?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       datetime: 'Datetime',
+      errorCode: 'ErrorCode',
       groupId: 'GroupId',
       messageId: 'MessageId',
       pageNumber: 'PageNumber',
@@ -1536,12 +592,14 @@ export class ListMessagesRequest extends $tea.Model {
       status: 'Status',
       templateCode: 'TemplateCode',
       templateId: 'TemplateId',
+      templateType: 'TemplateType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       datetime: 'string',
+      errorCode: 'string',
       groupId: 'string',
       messageId: 'string',
       pageNumber: 'number',
@@ -1554,6 +612,7 @@ export class ListMessagesRequest extends $tea.Model {
       status: 'number',
       templateCode: 'string',
       templateId: 'string',
+      templateType: 'number',
     };
   }
 
@@ -1604,84 +663,6 @@ export class ListMessagesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListMessagesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesRequest extends $tea.Model {
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBody extends $tea.Model {
-  data?: ListSchedulesResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListSchedulesResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListSchedulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListSchedulesResponseBody,
     };
   }
 
@@ -1852,87 +833,6 @@ export class ListTemplatesResponse extends $tea.Model {
   }
 }
 
-export class ListTrainingJobsRequest extends $tea.Model {
-  name?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  remark?: string;
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      remark: 'Remark',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      remark: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrainingJobsResponseBody extends $tea.Model {
-  data?: ListTrainingJobsResponseBodyData;
-  errorCode?: number;
-  errorMessage?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errorCode: 'ErrorCode',
-      errorMessage: 'ErrorMessage',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: ListTrainingJobsResponseBodyData,
-      errorCode: 'number',
-      errorMessage: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrainingJobsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListTrainingJobsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListTrainingJobsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SendMessageRequest extends $tea.Model {
   groupId?: string;
   outIds?: string[];
@@ -2029,62 +929,17 @@ export class SendMessageResponse extends $tea.Model {
   }
 }
 
-export class CreateGroupResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  amount?: number;
-  column?: string;
-  createdTime?: string;
-  filter?: string;
-  id?: string;
-  inferenceJobId?: string;
-  name?: string;
-  project?: string;
-  remark?: string;
-  source?: number;
-  status?: number;
-  table?: string;
-  text?: string;
-  updatedTime?: string;
-  uri?: string;
+export class SmsReportRequest extends $tea.Model {
+  body?: SmsReportRequestBody[];
   static names(): { [key: string]: string } {
     return {
-      algorithm: 'Algorithm',
-      amount: 'Amount',
-      column: 'Column',
-      createdTime: 'CreatedTime',
-      filter: 'Filter',
-      id: 'Id',
-      inferenceJobId: 'InferenceJobId',
-      name: 'Name',
-      project: 'Project',
-      remark: 'Remark',
-      source: 'Source',
-      status: 'Status',
-      table: 'Table',
-      text: 'Text',
-      updatedTime: 'UpdatedTime',
-      uri: 'Uri',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      algorithm: 'string',
-      amount: 'number',
-      column: 'string',
-      createdTime: 'string',
-      filter: 'string',
-      id: 'string',
-      inferenceJobId: 'string',
-      name: 'string',
-      project: 'string',
-      remark: 'string',
-      source: 'number',
-      status: 'number',
-      table: 'string',
-      text: 'string',
-      updatedTime: 'string',
-      uri: 'string',
+      body: { 'type': 'array', 'itemType': SmsReportRequestBody },
     };
   }
 
@@ -2093,47 +948,20 @@ export class CreateGroupResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateInferenceJobResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  groupId?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  trainingJobId?: string;
-  updatedTime?: string;
-  userConfig?: string;
+export class SmsReportResponseBody extends $tea.Model {
+  code?: number;
+  msg?: string;
   static names(): { [key: string]: string } {
     return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      groupId: 'GroupId',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      trainingJobId: 'TrainingJobId',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
+      code: 'code',
+      msg: 'msg',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      algorithm: 'string',
-      createdTime: 'string',
-      groupId: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      trainingJobId: 'string',
-      updatedTime: 'string',
-      userConfig: 'string',
+      code: 'number',
+      msg: 'string',
     };
   }
 
@@ -2142,59 +970,221 @@ export class CreateInferenceJobResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateScheduleResponseBodyData extends $tea.Model {
-  createdTime?: string;
-  endTime?: number;
-  executeTime?: string;
-  groupId?: string;
-  id?: string;
-  name?: string;
-  repeatCycle?: number;
-  repeatCycleUnit?: number;
-  repeatTimes?: number;
-  signName?: string;
-  signatureId?: string;
-  status?: number;
-  templateCode?: string;
-  templateId?: string;
-  updatedTime?: string;
+export class SmsReportResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SmsReportResponseBody;
   static names(): { [key: string]: string } {
     return {
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      executeTime: 'ExecuteTime',
-      groupId: 'GroupId',
-      id: 'Id',
-      name: 'Name',
-      repeatCycle: 'RepeatCycle',
-      repeatCycleUnit: 'RepeatCycleUnit',
-      repeatTimes: 'RepeatTimes',
-      signName: 'SignName',
-      signatureId: 'SignatureId',
-      status: 'Status',
-      templateCode: 'TemplateCode',
-      templateId: 'TemplateId',
-      updatedTime: 'UpdatedTime',
+      headers: 'headers',
+      body: 'body',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      createdTime: 'string',
-      endTime: 'number',
-      executeTime: 'string',
-      groupId: 'string',
-      id: 'string',
-      name: 'string',
-      repeatCycle: 'number',
-      repeatCycleUnit: 'number',
-      repeatTimes: 'number',
-      signName: 'string',
-      signatureId: 'string',
-      status: 'number',
-      templateCode: 'string',
-      templateId: 'string',
-      updatedTime: 'string',
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SmsReportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsUpRequest extends $tea.Model {
+  body?: SmsUpRequestBody[];
+  static names(): { [key: string]: string } {
+    return {
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: { 'type': 'array', 'itemType': SmsUpRequestBody },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsUpResponseBody extends $tea.Model {
+  code?: number;
+  msg?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      msg: 'msg',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      msg: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsUpResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: SmsUpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: SmsUpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateReportUrlRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateReportUrlResponseBody extends $tea.Model {
+  data?: string;
+  errorCode?: number;
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateReportUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateReportUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateReportUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUploadUrlRequest extends $tea.Model {
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUploadUrlResponseBody extends $tea.Model {
+  data?: string;
+  errorCode?: number;
+  errorMessage?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUploadUrlResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: UpdateUploadUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: UpdateUploadUrlResponseBody,
     };
   }
 
@@ -2283,249 +1273,20 @@ export class CreateTemplateResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateTrainingJobResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  updatedTime?: string;
-  userConfig?: string;
+export class GetMessageConfigResponseBodyData extends $tea.Model {
+  smsReportUrl?: string;
+  smsUpUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
+      smsReportUrl: 'SmsReportUrl',
+      smsUpUrl: 'SmsUpUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      algorithm: 'string',
-      createdTime: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      updatedTime: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAlgorithmResponseBodyData extends $tea.Model {
-  description?: string;
-  id?: string;
-  inferUserConfigMap?: string;
-  name?: string;
-  trainUserConfigMap?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      id: 'Id',
-      inferUserConfigMap: 'InferUserConfigMap',
-      name: 'Name',
-      trainUserConfigMap: 'TrainUserConfigMap',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      id: 'string',
-      inferUserConfigMap: 'string',
-      name: 'string',
-      trainUserConfigMap: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGroupResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  amount?: number;
-  column?: string;
-  createdTime?: string;
-  filter?: string;
-  id?: string;
-  inferenceJobId?: string;
-  name?: string;
-  project?: string;
-  remark?: string;
-  source?: number;
-  status?: number;
-  table?: string;
-  text?: string;
-  updatedTime?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      amount: 'Amount',
-      column: 'Column',
-      createdTime: 'CreatedTime',
-      filter: 'Filter',
-      id: 'Id',
-      inferenceJobId: 'InferenceJobId',
-      name: 'Name',
-      project: 'Project',
-      remark: 'Remark',
-      source: 'Source',
-      status: 'Status',
-      table: 'Table',
-      text: 'Text',
-      updatedTime: 'UpdatedTime',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      amount: 'number',
-      column: 'string',
-      createdTime: 'string',
-      filter: 'string',
-      id: 'string',
-      inferenceJobId: 'string',
-      name: 'string',
-      project: 'string',
-      remark: 'string',
-      source: 'number',
-      status: 'number',
-      table: 'string',
-      text: 'string',
-      updatedTime: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetInferenceJobResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  groupId?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  trainingJobId?: string;
-  updatedTime?: string;
-  userConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      groupId: 'GroupId',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      trainingJobId: 'TrainingJobId',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      createdTime: 'string',
-      groupId: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      trainingJobId: 'string',
-      updatedTime: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetScheduleResponseBodyData extends $tea.Model {
-  createdTime?: string;
-  endTime?: number;
-  executeTime?: string;
-  groupId?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  repeatCycle?: number;
-  repeatCycleUnit?: number;
-  repeatTimes?: number;
-  signName?: string;
-  signatureId?: string;
-  status?: number;
-  templateCode?: string;
-  templateId?: string;
-  updatedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      executeTime: 'ExecuteTime',
-      groupId: 'GroupId',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      repeatCycle: 'RepeatCycle',
-      repeatCycleUnit: 'RepeatCycleUnit',
-      repeatTimes: 'RepeatTimes',
-      signName: 'SignName',
-      signatureId: 'SignatureId',
-      status: 'Status',
-      templateCode: 'TemplateCode',
-      templateId: 'TemplateId',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      endTime: 'number',
-      executeTime: 'string',
-      groupId: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      repeatCycle: 'number',
-      repeatCycleUnit: 'number',
-      repeatTimes: 'number',
-      signName: 'string',
-      signatureId: 'string',
-      status: 'number',
-      templateCode: 'string',
-      templateId: 'string',
-      updatedTime: 'string',
+      smsReportUrl: 'string',
+      smsUpUrl: 'string',
     };
   }
 
@@ -2620,260 +1381,17 @@ export class GetTemplateResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetTrainingJobResponseBodyData extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  updatedTime?: string;
-  userConfig?: string;
+export class GetUserResponseBodyData extends $tea.Model {
+  accountStatus?: number;
   static names(): { [key: string]: string } {
     return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
+      accountStatus: 'AccountStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      algorithm: 'string',
-      createdTime: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      updatedTime: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAlgorithmsResponseBodyDataAlgorithms extends $tea.Model {
-  id?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListAlgorithmsResponseBodyData extends $tea.Model {
-  algorithms?: ListAlgorithmsResponseBodyDataAlgorithms[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      algorithms: 'Algorithms',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithms: { 'type': 'array', 'itemType': ListAlgorithmsResponseBodyDataAlgorithms },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponseBodyDataGroups extends $tea.Model {
-  algorithm?: string;
-  amount?: number;
-  column?: string;
-  createdTime?: string;
-  filter?: string;
-  id?: string;
-  inferenceJobId?: string;
-  name?: string;
-  project?: string;
-  remark?: string;
-  source?: number;
-  status?: number;
-  table?: string;
-  text?: string;
-  updatedTime?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      amount: 'Amount',
-      column: 'Column',
-      createdTime: 'CreatedTime',
-      filter: 'Filter',
-      id: 'Id',
-      inferenceJobId: 'InferenceJobId',
-      name: 'Name',
-      project: 'Project',
-      remark: 'Remark',
-      source: 'Source',
-      status: 'Status',
-      table: 'Table',
-      text: 'Text',
-      updatedTime: 'UpdatedTime',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      amount: 'number',
-      column: 'string',
-      createdTime: 'string',
-      filter: 'string',
-      id: 'string',
-      inferenceJobId: 'string',
-      name: 'string',
-      project: 'string',
-      remark: 'string',
-      source: 'number',
-      status: 'number',
-      table: 'string',
-      text: 'string',
-      updatedTime: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGroupsResponseBodyData extends $tea.Model {
-  groups?: ListGroupsResponseBodyDataGroups[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      groups: 'Groups',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groups: { 'type': 'array', 'itemType': ListGroupsResponseBodyDataGroups },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInferenceJobsResponseBodyDataInferenceJobs extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  groupId?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  trainingJobId?: string;
-  updatedTime?: string;
-  userConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      groupId: 'GroupId',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      trainingJobId: 'TrainingJobId',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      createdTime: 'string',
-      groupId: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      trainingJobId: 'string',
-      updatedTime: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListInferenceJobsResponseBodyData extends $tea.Model {
-  inferenceJobs?: ListInferenceJobsResponseBodyDataInferenceJobs[];
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inferenceJobs: 'InferenceJobs',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inferenceJobs: { 'type': 'array', 'itemType': ListInferenceJobsResponseBodyDataInferenceJobs },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
+      accountStatus: 'number',
     };
   }
 
@@ -2955,6 +1473,7 @@ export class ListMessagesResponseBodyDataMessages extends $tea.Model {
   status?: number;
   templateCode?: string;
   templateParams?: string;
+  templateType?: number;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'ErrorCode',
@@ -2967,6 +1486,7 @@ export class ListMessagesResponseBodyDataMessages extends $tea.Model {
       status: 'Status',
       templateCode: 'TemplateCode',
       templateParams: 'TemplateParams',
+      templateType: 'TemplateType',
     };
   }
 
@@ -2982,6 +1502,7 @@ export class ListMessagesResponseBodyDataMessages extends $tea.Model {
       status: 'number',
       templateCode: 'string',
       templateParams: 'string',
+      templateType: 'number',
     };
   }
 
@@ -3009,95 +1530,6 @@ export class ListMessagesResponseBodyData extends $tea.Model {
       messages: { 'type': 'array', 'itemType': ListMessagesResponseBodyDataMessages },
       pageNumber: 'number',
       pageSize: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBodyDataSchedules extends $tea.Model {
-  createdTime?: string;
-  endTime?: number;
-  executeTime?: string;
-  groupId?: string;
-  id?: string;
-  name?: string;
-  repeatCycle?: number;
-  repeatCycleUnit?: number;
-  repeatTimes?: number;
-  signName?: string;
-  signatureId?: string;
-  status?: number;
-  templateCode?: string;
-  templateId?: string;
-  updatedTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      createdTime: 'CreatedTime',
-      endTime: 'EndTime',
-      executeTime: 'ExecuteTime',
-      groupId: 'GroupId',
-      id: 'Id',
-      name: 'Name',
-      repeatCycle: 'RepeatCycle',
-      repeatCycleUnit: 'RepeatCycleUnit',
-      repeatTimes: 'RepeatTimes',
-      signName: 'SignName',
-      signatureId: 'SignatureId',
-      status: 'Status',
-      templateCode: 'TemplateCode',
-      templateId: 'TemplateId',
-      updatedTime: 'UpdatedTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createdTime: 'string',
-      endTime: 'number',
-      executeTime: 'string',
-      groupId: 'string',
-      id: 'string',
-      name: 'string',
-      repeatCycle: 'number',
-      repeatCycleUnit: 'number',
-      repeatTimes: 'number',
-      signName: 'string',
-      signatureId: 'string',
-      status: 'number',
-      templateCode: 'string',
-      templateId: 'string',
-      updatedTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSchedulesResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  schedules?: ListSchedulesResponseBodyDataSchedules[];
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      schedules: 'Schedules',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      schedules: { 'type': 'array', 'itemType': ListSchedulesResponseBodyDataSchedules },
       totalCount: 'number',
     };
   }
@@ -3243,77 +1675,6 @@ export class ListTemplatesResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListTrainingJobsResponseBodyDataTrainingJobs extends $tea.Model {
-  algorithm?: string;
-  createdTime?: string;
-  history?: string;
-  id?: string;
-  name?: string;
-  remark?: string;
-  status?: number;
-  updatedTime?: string;
-  userConfig?: string;
-  static names(): { [key: string]: string } {
-    return {
-      algorithm: 'Algorithm',
-      createdTime: 'CreatedTime',
-      history: 'History',
-      id: 'Id',
-      name: 'Name',
-      remark: 'Remark',
-      status: 'Status',
-      updatedTime: 'UpdatedTime',
-      userConfig: 'UserConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      algorithm: 'string',
-      createdTime: 'string',
-      history: 'string',
-      id: 'string',
-      name: 'string',
-      remark: 'string',
-      status: 'number',
-      updatedTime: 'string',
-      userConfig: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListTrainingJobsResponseBodyData extends $tea.Model {
-  pageNumber?: number;
-  pageSize?: number;
-  totalCount?: number;
-  trainingJobs?: ListTrainingJobsResponseBodyDataTrainingJobs[];
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      totalCount: 'TotalCount',
-      trainingJobs: 'TrainingJobs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalCount: 'number',
-      trainingJobs: { 'type': 'array', 'itemType': ListTrainingJobsResponseBodyDataTrainingJobs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class SendMessageResponseBodyDataMessages extends $tea.Model {
   id?: string;
   phoneNumber?: string;
@@ -3358,6 +1719,95 @@ export class SendMessageResponseBodyData extends $tea.Model {
   }
 }
 
+export class SmsReportRequestBody extends $tea.Model {
+  bizId?: string;
+  errCode?: string;
+  errMsg?: string;
+  messageId?: string;
+  outId?: string;
+  phoneNumber?: string;
+  reportTime?: string;
+  requestId?: string;
+  sendTime?: string;
+  signName?: string;
+  smsSize?: string;
+  success?: boolean;
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'biz_id',
+      errCode: 'err_code',
+      errMsg: 'err_msg',
+      messageId: 'message_id',
+      outId: 'out_id',
+      phoneNumber: 'phone_number',
+      reportTime: 'report_time',
+      requestId: 'request_id',
+      sendTime: 'send_time',
+      signName: 'sign_name',
+      smsSize: 'sms_size',
+      success: 'success',
+      templateCode: 'template_code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      messageId: 'string',
+      outId: 'string',
+      phoneNumber: 'string',
+      reportTime: 'string',
+      requestId: 'string',
+      sendTime: 'string',
+      signName: 'string',
+      smsSize: 'string',
+      success: 'boolean',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmsUpRequestBody extends $tea.Model {
+  content?: string;
+  destCode?: string;
+  phoneNumber?: string;
+  sendTime?: string;
+  sequenceId?: number;
+  signName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      destCode: 'dest_code',
+      phoneNumber: 'phone_number',
+      sendTime: 'send_time',
+      sequenceId: 'sequence_id',
+      signName: 'sign_name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      destCode: 'string',
+      phoneNumber: 'string',
+      sendTime: 'string',
+      sequenceId: 'number',
+      signName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -3382,213 +1832,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册人群
-  
-   * @tags 人群
-   */
-  async createGroup(request: CreateGroupRequest): Promise<CreateGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createGroupWithOptions(request, headers, runtime);
-  }
-
-  async createGroupWithOptions(request: CreateGroupRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGroupResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.algorithm)) {
-      body["Algorithm"] = request.algorithm;
-    }
-
-    if (!Util.isUnset(request.column)) {
-      body["Column"] = request.column;
-    }
-
-    if (!Util.isUnset(request.filter)) {
-      body["Filter"] = request.filter;
-    }
-
-    if (!Util.isUnset(request.inferenceJobId)) {
-      body["InferenceJobId"] = request.inferenceJobId;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.project)) {
-      body["Project"] = request.project;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      body["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      body["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.table)) {
-      body["Table"] = request.table;
-    }
-
-    if (!Util.isUnset(request.text)) {
-      body["Text"] = request.text;
-    }
-
-    if (!Util.isUnset(request.uri)) {
-      body["Uri"] = request.uri;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateGroup",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/groups`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateGroupResponse>(await this.callApi(params, req, runtime), new CreateGroupResponse({}));
-  }
-
-  /**
-   * 注册推理任务
-  
-   * @tags 推理任务
-   */
-  async createInferenceJob(request: CreateInferenceJobRequest): Promise<CreateInferenceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createInferenceJobWithOptions(request, headers, runtime);
-  }
-
-  async createInferenceJobWithOptions(request: CreateInferenceJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateInferenceJobResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.algorithm)) {
-      body["Algorithm"] = request.algorithm;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      body["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.trainingJobId)) {
-      body["TrainingJobId"] = request.trainingJobId;
-    }
-
-    if (!Util.isUnset(request.userConfig)) {
-      body["UserConfig"] = request.userConfig;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateInferenceJob",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateInferenceJobResponse>(await this.callApi(params, req, runtime), new CreateInferenceJobResponse({}));
-  }
-
-  /**
-   * 注册触达计划
-  
-   * @tags 触达计划
-   */
-  async createSchedule(request: CreateScheduleRequest): Promise<CreateScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createScheduleWithOptions(request, headers, runtime);
-  }
-
-  async createScheduleWithOptions(request: CreateScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateScheduleResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.endTime)) {
-      body["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.executeTime)) {
-      body["ExecuteTime"] = request.executeTime;
-    }
-
-    if (!Util.isUnset(request.groupId)) {
-      body["GroupId"] = request.groupId;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.repeatCycle)) {
-      body["RepeatCycle"] = request.repeatCycle;
-    }
-
-    if (!Util.isUnset(request.repeatCycleUnit)) {
-      body["RepeatCycleUnit"] = request.repeatCycleUnit;
-    }
-
-    if (!Util.isUnset(request.repeatTimes)) {
-      body["RepeatTimes"] = request.repeatTimes;
-    }
-
-    if (!Util.isUnset(request.signName)) {
-      body["SignName"] = request.signName;
-    }
-
-    if (!Util.isUnset(request.signatureId)) {
-      body["SignatureId"] = request.signatureId;
-    }
-
-    if (!Util.isUnset(request.templateCode)) {
-      body["TemplateCode"] = request.templateCode;
-    }
-
-    if (!Util.isUnset(request.templateId)) {
-      body["TemplateId"] = request.templateId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateSchedule",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/schedules`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateScheduleResponse>(await this.callApi(params, req, runtime), new CreateScheduleResponse({}));
-  }
-
-  /**
    * 注册签名。
   
-   * @tags 签名
    */
   async createSignature(request: CreateSignatureRequest): Promise<CreateSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3626,9 +1871,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册模板
+   * 注册模板。
   
-   * @tags 模板
    */
   async createTemplate(request: CreateTemplateRequest): Promise<CreateTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3678,147 +1922,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册训练任务
-  
-   * @tags 训练任务
-   */
-  async createTrainingJob(request: CreateTrainingJobRequest): Promise<CreateTrainingJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createTrainingJobWithOptions(request, headers, runtime);
-  }
-
-  async createTrainingJobWithOptions(request: CreateTrainingJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTrainingJobResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.algorithm)) {
-      body["Algorithm"] = request.algorithm;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      body["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.userConfig)) {
-      body["UserConfig"] = request.userConfig;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateTrainingJob",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateTrainingJobResponse>(await this.callApi(params, req, runtime), new CreateTrainingJobResponse({}));
-  }
-
-  /**
-   * 删除人群
-  
-   * @tags 人群
-   */
-  async deleteGroup(Id: string): Promise<DeleteGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteGroupWithOptions(Id, headers, runtime);
-  }
-
-  async deleteGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGroupResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteGroup",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/groups/${Id}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteGroupResponse>(await this.callApi(params, req, runtime), new DeleteGroupResponse({}));
-  }
-
-  /**
-   * 删除推理任务
-  
-   * @tags 推理任务
-   */
-  async deleteInferenceJob(Id: string): Promise<DeleteInferenceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteInferenceJobWithOptions(Id, headers, runtime);
-  }
-
-  async deleteInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteInferenceJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteInferenceJob",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs/${Id}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteInferenceJobResponse>(await this.callApi(params, req, runtime), new DeleteInferenceJobResponse({}));
-  }
-
-  /**
-   * 删除触达计划
-  
-   * @tags 触达计划
-   */
-  async deleteSchedule(Id: string): Promise<DeleteScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteScheduleWithOptions(Id, headers, runtime);
-  }
-
-  async deleteScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteScheduleResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteSchedule",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/schedules/${Id}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteScheduleResponse>(await this.callApi(params, req, runtime), new DeleteScheduleResponse({}));
-  }
-
-  /**
    * 删除签名。
   
-   * @tags 签名
    */
   async deleteSignature(Id: string): Promise<DeleteSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3848,7 +1953,6 @@ export default class Client extends OpenApi {
   /**
    * 删除模板
   
-   * @tags 模板
    */
   async deleteTemplate(Id: string): Promise<DeleteTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -3876,157 +1980,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除训练任务
-  
-   * @tags 训练任务
+   * 获取短信配置。
    */
-  async deleteTrainingJob(Id: string): Promise<DeleteTrainingJobResponse> {
+  async getMessageConfig(): Promise<GetMessageConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTrainingJobWithOptions(Id, headers, runtime);
+    return await this.getMessageConfigWithOptions(headers, runtime);
   }
 
-  async deleteTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteTrainingJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
+  async getMessageConfigWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetMessageConfigResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     let params = new $OpenApi.Params({
-      action: "DeleteTrainingJob",
+      action: "GetMessageConfig",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs/${Id}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteTrainingJobResponse>(await this.callApi(params, req, runtime), new DeleteTrainingJobResponse({}));
-  }
-
-  /**
-   * 获取算法详情
-   * @tags 算法
-   */
-  async getAlgorithm(Id: string): Promise<GetAlgorithmResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getAlgorithmWithOptions(Id, headers, runtime);
-  }
-
-  async getAlgorithmWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAlgorithmResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetAlgorithm",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/algorithms/${Id}`,
+      pathname: `/api/v2/users/messageConfig`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAlgorithmResponse>(await this.callApi(params, req, runtime), new GetAlgorithmResponse({}));
+    return $tea.cast<GetMessageConfigResponse>(await this.callApi(params, req, runtime), new GetMessageConfigResponse({}));
   }
 
   /**
-   * 获取人群
-  默认返回所有人群信息
-   * @tags 人群
-   */
-  async getGroup(Id: string): Promise<GetGroupResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getGroupWithOptions(Id, headers, runtime);
-  }
-
-  async getGroupWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGroupResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetGroup",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/groups/${Id}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetGroupResponse>(await this.callApi(params, req, runtime), new GetGroupResponse({}));
-  }
-
-  /**
-   * 获取推理任务
-  默认返回所有推理任务信息
-   * @tags 推理任务
-   */
-  async getInferenceJob(Id: string): Promise<GetInferenceJobResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getInferenceJobWithOptions(Id, headers, runtime);
-  }
-
-  async getInferenceJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetInferenceJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetInferenceJob",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs/${Id}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetInferenceJobResponse>(await this.callApi(params, req, runtime), new GetInferenceJobResponse({}));
-  }
-
-  /**
-   * 获取触达计划详情。
-  
-   * @tags 触达计划
-   */
-  async getSchedule(Id: string): Promise<GetScheduleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getScheduleWithOptions(Id, headers, runtime);
-  }
-
-  async getScheduleWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetScheduleResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetSchedule",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/schedules/${Id}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetScheduleResponse>(await this.callApi(params, req, runtime), new GetScheduleResponse({}));
-  }
-
-  /**
-   * 获取签名详情
-   * @tags 签名
+   * 获取签名详情。
    */
   async getSignature(Id: string): Promise<GetSignatureResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4054,10 +2035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板
-  默认返回所有模板信息
-  ![模板列表](https://intranetproxy.alipay.com/skylark/lark/0/2021/png/302991/1615264998427-d2943cfb-106a-421d-b4a4-f06307b4d9be.png)
-   * @tags 模板
+   * 获取模板详情。
    */
   async getTemplate(Id: string): Promise<GetTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4085,191 +2063,34 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取训练任务
-  默认返回所有训练任务信息
-   * @tags 训练任务
+   * 获取账号状态。
    */
-  async getTrainingJob(Id: string): Promise<GetTrainingJobResponse> {
+  async getUser(): Promise<GetUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTrainingJobWithOptions(Id, headers, runtime);
+    return await this.getUserWithOptions(headers, runtime);
   }
 
-  async getTrainingJobWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTrainingJobResponse> {
-    Id = OpenApiUtil.getEncodeParam(Id);
+  async getUserWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
     });
     let params = new $OpenApi.Params({
-      action: "GetTrainingJob",
+      action: "GetUser",
       version: "2022-01-12",
       protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs/${Id}`,
+      pathname: `/api/v2/users`,
       method: "GET",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTrainingJobResponse>(await this.callApi(params, req, runtime), new GetTrainingJobResponse({}));
+    return $tea.cast<GetUserResponse>(await this.callApi(params, req, runtime), new GetUserResponse({}));
   }
 
   /**
-   * 获取算法列表
-   * @tags 算法
-   */
-  async listAlgorithms(request: ListAlgorithmsRequest): Promise<ListAlgorithmsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listAlgorithmsWithOptions(request, headers, runtime);
-  }
-
-  async listAlgorithmsWithOptions(request: ListAlgorithmsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAlgorithmsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListAlgorithms",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/algorithms`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListAlgorithmsResponse>(await this.callApi(params, req, runtime), new ListAlgorithmsResponse({}));
-  }
-
-  /**
-   * 获取人群列表
-   * @tags 人群
-   */
-  async listGroups(request: ListGroupsRequest): Promise<ListGroupsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listGroupsWithOptions(request, headers, runtime);
-  }
-
-  async listGroupsWithOptions(request: ListGroupsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGroupsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      query["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.source)) {
-      query["Source"] = request.source;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListGroups",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/groups`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListGroupsResponse>(await this.callApi(params, req, runtime), new ListGroupsResponse({}));
-  }
-
-  /**
-   * 获取推理任务列表
-   * @tags 推理任务
-   */
-  async listInferenceJobs(request: ListInferenceJobsRequest): Promise<ListInferenceJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listInferenceJobsWithOptions(request, headers, runtime);
-  }
-
-  async listInferenceJobsWithOptions(request: ListInferenceJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInferenceJobsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      query["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListInferenceJobs",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/inference/jobs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListInferenceJobsResponse>(await this.callApi(params, req, runtime), new ListInferenceJobsResponse({}));
-  }
-
-  /**
-   * 获取用户短信发送统计
-   * @tags 短信
+   * 获取短信发送统计列表。
    */
   async listMessageMetrics(request: ListMessageMetricsRequest): Promise<ListMessageMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4320,6 +2141,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4339,8 +2164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询短信发送详情
-   * @tags 短信
+   * 查询短信发送详情列表。
    */
   async listMessages(request: ListMessagesRequest): Promise<ListMessagesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4353,6 +2177,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.datetime)) {
       query["Datetime"] = request.datetime;
+    }
+
+    if (!Util.isUnset(request.errorCode)) {
+      query["ErrorCode"] = request.errorCode;
     }
 
     if (!Util.isUnset(request.groupId)) {
@@ -4403,6 +2231,10 @@ export default class Client extends OpenApi {
       query["TemplateId"] = request.templateId;
     }
 
+    if (!Util.isUnset(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4422,55 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取触达计划列表。
-   * @tags 触达计划
-   */
-  async listSchedules(request: ListSchedulesRequest): Promise<ListSchedulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listSchedulesWithOptions(request, headers, runtime);
-  }
-
-  async listSchedulesWithOptions(request: ListSchedulesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListSchedulesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListSchedules",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/schedules`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSchedulesResponse>(await this.callApi(params, req, runtime), new ListSchedulesResponse({}));
-  }
-
-  /**
-   * 获取签名列表
-   * @tags 签名
+   * 获取签名列表。
    */
   async listSignatures(request: ListSignaturesRequest): Promise<ListSignaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4516,9 +2300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板列表
-  默认返回所有模板信息
-   * @tags 模板
+   * 获取模板列表。
    */
   async listTemplates(request: ListTemplatesRequest): Promise<ListTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4572,59 +2354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取训练任务列表
-   * @tags 训练任务
-   */
-  async listTrainingJobs(request: ListTrainingJobsRequest): Promise<ListTrainingJobsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listTrainingJobsWithOptions(request, headers, runtime);
-  }
-
-  async listTrainingJobsWithOptions(request: ListTrainingJobsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListTrainingJobsResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.remark)) {
-      query["Remark"] = request.remark;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListTrainingJobs",
-      version: "2022-01-12",
-      protocol: "HTTPS",
-      pathname: `/api/v2/training/jobs`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListTrainingJobsResponse>(await this.callApi(params, req, runtime), new ListTrainingJobsResponse({}));
-  }
-
-  /**
-   * 发送短信
-   * @tags 短信
+   * 发送短信。
    */
   async sendMessage(request: SendMessageRequest): Promise<SendMessageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
@@ -4691,6 +2421,133 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<SendMessageResponse>(await this.callApi(params, req, runtime), new SendMessageResponse({}));
+  }
+
+  /**
+   * 短信回执。
+   */
+  async smsReport(request: SmsReportRequest): Promise<SmsReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.smsReportWithOptions(request, headers, runtime);
+  }
+
+  async smsReportWithOptions(request: SmsReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SmsReportResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: Util.toArray(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmsReport",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/recall/report`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SmsReportResponse>(await this.callApi(params, req, runtime), new SmsReportResponse({}));
+  }
+
+  /**
+   * 短信上行。
+   */
+  async smsUp(request: SmsUpRequest): Promise<SmsUpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.smsUpWithOptions(request, headers, runtime);
+  }
+
+  async smsUpWithOptions(request: SmsUpRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SmsUpResponse> {
+    Util.validateModel(request);
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: Util.toArray(request.body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmsUp",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/recall/up`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SmsUpResponse>(await this.callApi(params, req, runtime), new SmsUpResponse({}));
+  }
+
+  /**
+   * 更新回执Url。
+  
+   */
+  async updateReportUrl(request: UpdateReportUrlRequest): Promise<UpdateReportUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateReportUrlWithOptions(request, headers, runtime);
+  }
+
+  async updateReportUrlWithOptions(request: UpdateReportUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateReportUrlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateReportUrl",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/users/reportUrl`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateReportUrlResponse>(await this.callApi(params, req, runtime), new UpdateReportUrlResponse({}));
+  }
+
+  /**
+   * 更新上行Url。
+   */
+  async updateUploadUrl(request: UpdateUploadUrlRequest): Promise<UpdateUploadUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateUploadUrlWithOptions(request, headers, runtime);
+  }
+
+  async updateUploadUrlWithOptions(request: UpdateUploadUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateUploadUrlResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUploadUrl",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v2/users/uploadUrl`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUploadUrlResponse>(await this.callApi(params, req, runtime), new UpdateUploadUrlResponse({}));
   }
 
 }
