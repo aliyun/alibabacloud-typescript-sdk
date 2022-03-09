@@ -5099,12 +5099,12 @@ export class RecognizeVideoCastCrewListAdvanceRequestParams extends $tea.Model {
 }
 
 export class RecognizeVideoCastCrewListResponseBodyDataCastResults extends $tea.Model {
-  detailInfoes?: { [key: string]: string };
+  detailInfo?: { [key: string]: string };
   endTime?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      detailInfoes: 'DetailInfoes',
+      detailInfo: 'DetailInfo',
       endTime: 'EndTime',
       startTime: 'StartTime',
     };
@@ -5112,7 +5112,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataCastResults extends $tea.
 
   static types(): { [key: string]: any } {
     return {
-      detailInfoes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      detailInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       endTime: 'number',
       startTime: 'number',
     };
@@ -5123,7 +5123,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataCastResults extends $tea.
   }
 }
 
-export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition extends $tea.Model {
+export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition extends $tea.Model {
   x?: number;
   y?: number;
   static names(): { [key: string]: string } {
@@ -5145,11 +5145,11 @@ export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPos
   }
 }
 
-export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes extends $tea.Model {
+export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo extends $tea.Model {
   boxes?: number[];
   charProbs?: number[][];
   frameIndex?: number;
-  position?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition[];
+  position?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition[];
   score?: number;
   text?: string;
   textProb?: number;
@@ -5174,7 +5174,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes ex
       boxes: { 'type': 'array', 'itemType': 'number' },
       charProbs: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
       frameIndex: 'number',
-      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoesPosition },
+      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoPosition },
       score: 'number',
       text: 'string',
       textProb: 'number',
@@ -5189,12 +5189,12 @@ export class RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes ex
 }
 
 export class RecognizeVideoCastCrewListResponseBodyDataOcrResults extends $tea.Model {
-  detailInfoes?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes[];
+  detailInfo?: RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo[];
   endTime?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      detailInfoes: 'DetailInfoes',
+      detailInfo: 'DetailInfo',
       endTime: 'EndTime',
       startTime: 'StartTime',
     };
@@ -5202,7 +5202,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataOcrResults extends $tea.M
 
   static types(): { [key: string]: any } {
     return {
-      detailInfoes: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfoes },
+      detailInfo: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataOcrResultsDetailInfo },
       endTime: 'number',
       startTime: 'number',
     };
@@ -5247,7 +5247,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataSubtitlesResults extends 
   }
 }
 
-export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition extends $tea.Model {
+export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition extends $tea.Model {
   x?: number;
   y?: number;
   static names(): { [key: string]: string } {
@@ -5269,9 +5269,9 @@ export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo
   }
 }
 
-export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes extends $tea.Model {
+export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo extends $tea.Model {
   boxes?: number[];
-  position?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition[];
+  position?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition[];
   score?: number;
   text?: string;
   textType?: number;
@@ -5288,7 +5288,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo
   static types(): { [key: string]: any } {
     return {
       boxes: { 'type': 'array', 'itemType': 'number' },
-      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoesPosition },
+      position: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoPosition },
       score: 'number',
       text: 'string',
       textType: 'number',
@@ -5301,12 +5301,12 @@ export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo
 }
 
 export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults extends $tea.Model {
-  detailInfoes?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes[];
+  detailInfo?: RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo[];
   endTime?: number;
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
-      detailInfoes: 'DetailInfoes',
+      detailInfo: 'DetailInfo',
       endTime: 'EndTime',
       startTime: 'StartTime',
     };
@@ -5314,7 +5314,7 @@ export class RecognizeVideoCastCrewListResponseBodyDataVideoOcrResults extends $
 
   static types(): { [key: string]: any } {
     return {
-      detailInfoes: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfoes },
+      detailInfo: { 'type': 'array', 'itemType': RecognizeVideoCastCrewListResponseBodyDataVideoOcrResultsDetailInfo },
       endTime: 'number',
       startTime: 'number',
     };
