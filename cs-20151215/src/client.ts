@@ -1091,6 +1091,44 @@ export class CreateTriggerResponse extends $tea.Model {
   }
 }
 
+export class DeleteAlertContactResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertContactGroupResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteClusterRequest extends $tea.Model {
   keepSlb?: boolean;
   retainAllResources?: boolean;
@@ -5020,6 +5058,47 @@ export class UntagResourcesResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: UntagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateContactGroupForAlertResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateK8sClusterUserConfigExpireRequest extends $tea.Model {
+  expireHour?: number;
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireHour: 'expire_hour',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireHour: 'number',
+      user: 'string',
     };
   }
 
@@ -9263,6 +9342,54 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTriggerResponse>(await this.callApi(params, req, runtime), new CreateTriggerResponse({}));
   }
 
+  async deleteAlertContact(): Promise<DeleteAlertContactResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertContactWithOptions(headers, runtime);
+  }
+
+  async deleteAlertContactWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlertContact",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/contacts`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAlertContactResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactResponse({}));
+  }
+
+  async deleteAlertContactGroup(): Promise<DeleteAlertContactGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertContactGroupWithOptions(headers, runtime);
+  }
+
+  async deleteAlertContactGroupWithOptions(headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAlertContactGroupResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlertContactGroup",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/contact_groups`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAlertContactGroupResponse>(await this.callApi(params, req, runtime), new DeleteAlertContactGroupResponse({}));
+  }
+
   async deleteCluster(ClusterId: string, request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11937,16 +12064,52 @@ export default class Client extends OpenApi {
     return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
   }
 
-  async updateK8sClusterUserConfigExpire(ClusterId: string): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+  async updateContactGroupForAlert(ClusterId: string): Promise<UpdateContactGroupForAlertResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, headers, runtime);
+    return await this.updateContactGroupForAlertWithOptions(ClusterId, headers, runtime);
   }
 
-  async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+  async updateContactGroupForAlertWithOptions(ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateContactGroupForAlertResponse> {
     ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateContactGroupForAlert",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/alert/${ClusterId}/alert_rule/contact_groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateContactGroupForAlertResponse>(await this.callApi(params, req, runtime), new UpdateContactGroupForAlertResponse({}));
+  }
+
+  async updateK8sClusterUserConfigExpire(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateK8sClusterUserConfigExpireWithOptions(ClusterId, request, headers, runtime);
+  }
+
+  async updateK8sClusterUserConfigExpireWithOptions(ClusterId: string, request: UpdateK8sClusterUserConfigExpireRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateK8sClusterUserConfigExpireResponse> {
+    Util.validateModel(request);
+    ClusterId = OpenApiUtil.getEncodeParam(ClusterId);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.expireHour)) {
+      body["expire_hour"] = request.expireHour;
+    }
+
+    if (!Util.isUnset(request.user)) {
+      body["user"] = request.user;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateK8sClusterUserConfigExpire",
