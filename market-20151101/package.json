@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/market20151101",
-  "version": "3.0.0",
+  "version": "3.0.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
