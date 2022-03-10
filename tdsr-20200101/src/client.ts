@@ -458,199 +458,46 @@ export class AddSubSceneResponse extends $tea.Model {
   }
 }
 
-export class CheckResourceRequest extends $tea.Model {
-  bid?: string;
-  country?: string;
-  gmtWakeup?: string;
-  hid?: number;
-  interrupt?: boolean;
-  invoker?: string;
-  level?: number;
+export class CheckUserPropertyRequest extends $tea.Model {
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckUserPropertyResponseBody extends $tea.Model {
+  code?: number;
+  match?: boolean;
   message?: string;
-  pk?: string;
-  prompt?: string;
+  requestId?: string;
   success?: boolean;
-  taskExtraData?: string;
-  taskIdentifier?: string;
-  url?: string;
   static names(): { [key: string]: string } {
     return {
-      bid: 'Bid',
-      country: 'Country',
-      gmtWakeup: 'GmtWakeup',
-      hid: 'Hid',
-      interrupt: 'Interrupt',
-      invoker: 'Invoker',
-      level: 'Level',
+      code: 'Code',
+      match: 'Match',
       message: 'Message',
-      pk: 'Pk',
-      prompt: 'Prompt',
+      requestId: 'RequestId',
       success: 'Success',
-      taskExtraData: 'TaskExtraData',
-      taskIdentifier: 'TaskIdentifier',
-      url: 'Url',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bid: 'string',
-      country: 'string',
-      gmtWakeup: 'string',
-      hid: 'number',
-      interrupt: 'boolean',
-      invoker: 'string',
-      level: 'number',
+      code: 'number',
+      match: 'boolean',
       message: 'string',
-      pk: 'string',
-      prompt: 'string',
-      success: 'boolean',
-      taskExtraData: 'string',
-      taskIdentifier: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceResponseBody extends $tea.Model {
-  bid?: string;
-  country?: string;
-  gmtWakeup?: string;
-  hid?: number;
-  interrupt?: boolean;
-  invoker?: string;
-  level?: number;
-  message?: string;
-  pk?: string;
-  prompt?: string;
-  requestId?: string;
-  success?: boolean;
-  taskExtraData?: string;
-  taskIdentifier?: string;
-  url?: string;
-  static names(): { [key: string]: string } {
-    return {
-      bid: 'Bid',
-      country: 'Country',
-      gmtWakeup: 'GmtWakeup',
-      hid: 'Hid',
-      interrupt: 'Interrupt',
-      invoker: 'Invoker',
-      level: 'Level',
-      message: 'Message',
-      pk: 'Pk',
-      prompt: 'Prompt',
-      requestId: 'RequestId',
-      success: 'Success',
-      taskExtraData: 'TaskExtraData',
-      taskIdentifier: 'TaskIdentifier',
-      url: 'Url',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bid: 'string',
-      country: 'string',
-      gmtWakeup: 'string',
-      hid: 'number',
-      interrupt: 'boolean',
-      invoker: 'string',
-      level: 'number',
-      message: 'string',
-      pk: 'string',
-      prompt: 'string',
-      requestId: 'string',
-      success: 'boolean',
-      taskExtraData: 'string',
-      taskIdentifier: 'string',
-      url: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CheckResourceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CheckResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CheckResourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectRequest extends $tea.Model {
-  builderUserIdList?: string;
-  businessId?: string;
-  businessUserIdList?: string;
-  gatherUserIdList?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      builderUserIdList: 'BuilderUserIdList',
-      businessId: 'BusinessId',
-      businessUserIdList: 'BusinessUserIdList',
-      gatherUserIdList: 'GatherUserIdList',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      builderUserIdList: 'string',
-      businessId: 'string',
-      businessUserIdList: 'string',
-      gatherUserIdList: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateProjectResponseBody extends $tea.Model {
-  errMessage?: string;
-  id?: number;
-  name?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errMessage: 'ErrMessage',
-      id: 'Id',
-      name: 'Name',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errMessage: 'string',
-      id: 'number',
-      name: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -661,9 +508,9 @@ export class CreateProjectResponseBody extends $tea.Model {
   }
 }
 
-export class CreateProjectResponse extends $tea.Model {
+export class CheckUserPropertyResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: CreateProjectResponseBody;
+  body: CheckUserPropertyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -674,217 +521,7 @@ export class CreateProjectResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSceneRequest extends $tea.Model {
-  name?: string;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSceneResponseBody extends $tea.Model {
-  errMessage?: string;
-  previewToken?: string;
-  requestId?: string;
-  sceneId?: number;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errMessage: 'ErrMessage',
-      previewToken: 'PreviewToken',
-      requestId: 'RequestId',
-      sceneId: 'SceneId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errMessage: 'string',
-      previewToken: 'string',
-      requestId: 'string',
-      sceneId: 'number',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSceneResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: CreateSceneResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: CreateSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileRequest extends $tea.Model {
-  paramFile?: string;
-  subSceneUuid?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paramFile: 'ParamFile',
-      subSceneUuid: 'SubSceneUuid',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paramFile: 'string',
-      subSceneUuid: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileResponseBody extends $tea.Model {
-  errMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errMessage: 'ErrMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteFileResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectRequest extends $tea.Model {
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectResponseBody extends $tea.Model {
-  errMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      errMessage: 'ErrMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      errMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DeleteProjectResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DeleteProjectResponseBody,
+      body: CheckUserPropertyResponseBody,
     };
   }
 
@@ -1952,81 +1589,6 @@ export class GetOssPolicyResponse extends $tea.Model {
   }
 }
 
-export class GetPolicyRequest extends $tea.Model {
-  subSceneUuid?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      subSceneUuid: 'SubSceneUuid',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      subSceneUuid: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponseBody extends $tea.Model {
-  data?: { [key: string]: any };
-  errMessage?: string;
-  objectString?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errMessage: 'ErrMessage',
-      objectString: 'ObjectString',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
-      errMessage: 'string',
-      objectString: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetPolicyResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: GetPolicyResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: GetPolicyResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetRectifyImageRequest extends $tea.Model {
   subSceneId?: string;
   static names(): { [key: string]: string } {
@@ -2970,78 +2532,6 @@ export class ListSceneResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListSceneResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScenesRequest extends $tea.Model {
-  isPublishQuery?: boolean;
-  projectId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      isPublishQuery: 'IsPublishQuery',
-      projectId: 'ProjectId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      isPublishQuery: 'boolean',
-      projectId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScenesResponseBody extends $tea.Model {
-  data?: ListScenesResponseBodyData[];
-  errMessage?: string;
-  requestId?: string;
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      errMessage: 'ErrMessage',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': ListScenesResponseBodyData },
-      errMessage: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListScenesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: ListScenesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ListScenesResponseBody,
     };
   }
 
@@ -5117,25 +4607,6 @@ export class ListSceneResponseBodyList extends $tea.Model {
   }
 }
 
-export class ListScenesResponseBodyData extends $tea.Model {
-  sceneId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      sceneId: 'SceneId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      sceneId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSubSceneResponseBodyList extends $tea.Model {
   baseImageUrl?: string;
   coverUrl?: string;
@@ -5425,70 +4896,18 @@ export default class Client extends OpenApi {
     return await this.addSubSceneWithOptions(request, runtime);
   }
 
-  async checkResourceWithOptions(request: CheckResourceRequest, runtime: $Util.RuntimeOptions): Promise<CheckResourceResponse> {
+  async checkUserPropertyWithOptions(request: CheckUserPropertyRequest, runtime: $Util.RuntimeOptions): Promise<CheckUserPropertyResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.bid)) {
-      query["Bid"] = request.bid;
-    }
-
-    if (!Util.isUnset(request.country)) {
-      query["Country"] = request.country;
-    }
-
-    if (!Util.isUnset(request.gmtWakeup)) {
-      query["GmtWakeup"] = request.gmtWakeup;
-    }
-
-    if (!Util.isUnset(request.hid)) {
-      query["Hid"] = request.hid;
-    }
-
-    if (!Util.isUnset(request.interrupt)) {
-      query["Interrupt"] = request.interrupt;
-    }
-
-    if (!Util.isUnset(request.invoker)) {
-      query["Invoker"] = request.invoker;
-    }
-
-    if (!Util.isUnset(request.level)) {
-      query["Level"] = request.level;
-    }
-
-    if (!Util.isUnset(request.message)) {
-      query["Message"] = request.message;
-    }
-
-    if (!Util.isUnset(request.pk)) {
-      query["Pk"] = request.pk;
-    }
-
-    if (!Util.isUnset(request.prompt)) {
-      query["Prompt"] = request.prompt;
-    }
-
-    if (!Util.isUnset(request.success)) {
-      query["Success"] = request.success;
-    }
-
-    if (!Util.isUnset(request.taskExtraData)) {
-      query["TaskExtraData"] = request.taskExtraData;
-    }
-
-    if (!Util.isUnset(request.taskIdentifier)) {
-      query["TaskIdentifier"] = request.taskIdentifier;
-    }
-
-    if (!Util.isUnset(request.url)) {
-      query["Url"] = request.url;
+    if (!Util.isUnset(request.uid)) {
+      query["Uid"] = request.uid;
     }
 
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "CheckResource",
+      action: "CheckUserProperty",
       version: "2020-01-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -5498,152 +4917,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CheckResourceResponse>(await this.callApi(params, req, runtime), new CheckResourceResponse({}));
+    return $tea.cast<CheckUserPropertyResponse>(await this.callApi(params, req, runtime), new CheckUserPropertyResponse({}));
   }
 
-  async checkResource(request: CheckResourceRequest): Promise<CheckResourceResponse> {
+  async checkUserProperty(request: CheckUserPropertyRequest): Promise<CheckUserPropertyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.checkResourceWithOptions(request, runtime);
-  }
-
-  async createProjectWithOptions(request: CreateProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateProjectResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.builderUserIdList)) {
-      query["BuilderUserIdList"] = request.builderUserIdList;
-    }
-
-    if (!Util.isUnset(request.businessId)) {
-      query["BusinessId"] = request.businessId;
-    }
-
-    if (!Util.isUnset(request.businessUserIdList)) {
-      query["BusinessUserIdList"] = request.businessUserIdList;
-    }
-
-    if (!Util.isUnset(request.gatherUserIdList)) {
-      query["GatherUserIdList"] = request.gatherUserIdList;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateProject",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
-  }
-
-  async createProject(request: CreateProjectRequest): Promise<CreateProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createProjectWithOptions(request, runtime);
-  }
-
-  async createSceneWithOptions(request: CreateSceneRequest, runtime: $Util.RuntimeOptions): Promise<CreateSceneResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      query["ProjectId"] = request.projectId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateScene",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSceneResponse>(await this.callApi(params, req, runtime), new CreateSceneResponse({}));
-  }
-
-  async createScene(request: CreateSceneRequest): Promise<CreateSceneResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSceneWithOptions(request, runtime);
-  }
-
-  async deleteFileWithOptions(request: DeleteFileRequest, runtime: $Util.RuntimeOptions): Promise<DeleteFileResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.paramFile)) {
-      query["ParamFile"] = request.paramFile;
-    }
-
-    if (!Util.isUnset(request.subSceneUuid)) {
-      query["SubSceneUuid"] = request.subSceneUuid;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteFile",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteFileResponse>(await this.callApi(params, req, runtime), new DeleteFileResponse({}));
-  }
-
-  async deleteFile(request: DeleteFileRequest): Promise<DeleteFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteFileWithOptions(request, runtime);
-  }
-
-  async deleteProjectWithOptions(request: DeleteProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteProjectResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.projectId)) {
-      query["ProjectId"] = request.projectId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteProject",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteProjectResponse>(await this.callApi(params, req, runtime), new DeleteProjectResponse({}));
-  }
-
-  async deleteProject(request: DeleteProjectRequest): Promise<DeleteProjectResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteProjectWithOptions(request, runtime);
+    return await this.checkUserPropertyWithOptions(request, runtime);
   }
 
   async detailProjectWithOptions(request: DetailProjectRequest, runtime: $Util.RuntimeOptions): Promise<DetailProjectResponse> {
@@ -6063,39 +5342,6 @@ export default class Client extends OpenApi {
     return await this.getOssPolicyWithOptions(request, runtime);
   }
 
-  async getPolicyWithOptions(request: GetPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetPolicyResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.subSceneUuid)) {
-      query["SubSceneUuid"] = request.subSceneUuid;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetPolicy",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetPolicyResponse>(await this.callApi(params, req, runtime), new GetPolicyResponse({}));
-  }
-
-  async getPolicy(request: GetPolicyRequest): Promise<GetPolicyResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getPolicyWithOptions(request, runtime);
-  }
-
   async getRectifyImageWithOptions(request: GetRectifyImageRequest, runtime: $Util.RuntimeOptions): Promise<GetRectifyImageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -6498,39 +5744,6 @@ export default class Client extends OpenApi {
   async listScene(request: ListSceneRequest): Promise<ListSceneResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSceneWithOptions(request, runtime);
-  }
-
-  async listScenesWithOptions(request: ListScenesRequest, runtime: $Util.RuntimeOptions): Promise<ListScenesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.isPublishQuery)) {
-      query["IsPublishQuery"] = request.isPublishQuery;
-    }
-
-    if (!Util.isUnset(request.projectId)) {
-      query["ProjectId"] = request.projectId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListScenes",
-      version: "2020-01-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListScenesResponse>(await this.callApi(params, req, runtime), new ListScenesResponse({}));
-  }
-
-  async listScenes(request: ListScenesRequest): Promise<ListScenesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listScenesWithOptions(request, runtime);
   }
 
   async listSubSceneWithOptions(request: ListSubSceneRequest, runtime: $Util.RuntimeOptions): Promise<ListSubSceneResponse> {
