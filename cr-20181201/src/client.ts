@@ -313,12 +313,14 @@ export class CreateChartNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -328,6 +330,7 @@ export class CreateChartNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -625,12 +628,14 @@ export class CreateNamespaceRequest extends $tea.Model {
   defaultRepoType?: string;
   instanceId?: string;
   namespaceName?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
       defaultRepoType: 'DefaultRepoType',
       instanceId: 'InstanceId',
       namespaceName: 'NamespaceName',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -640,6 +645,7 @@ export class CreateNamespaceRequest extends $tea.Model {
       defaultRepoType: 'string',
       instanceId: 'string',
       namespaceName: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1397,6 +1403,7 @@ export class CreateRepositoryRequest extends $tea.Model {
   repoName?: string;
   repoNamespaceName?: string;
   repoType?: string;
+  resourceGroupId?: string;
   summary?: string;
   tagImmutability?: boolean;
   static names(): { [key: string]: string } {
@@ -1406,6 +1413,7 @@ export class CreateRepositoryRequest extends $tea.Model {
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoType: 'RepoType',
+      resourceGroupId: 'ResourceGroupId',
       summary: 'Summary',
       tagImmutability: 'TagImmutability',
     };
@@ -1418,6 +1426,7 @@ export class CreateRepositoryRequest extends $tea.Model {
       repoName: 'string',
       repoNamespaceName: 'string',
       repoType: 'string',
+      resourceGroupId: 'string',
       summary: 'string',
       tagImmutability: 'boolean',
     };
@@ -2701,6 +2710,7 @@ export class GetChartNamespaceResponseBody extends $tea.Model {
   namespaceName?: string;
   namespaceStatus?: string;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
@@ -2712,6 +2722,7 @@ export class GetChartNamespaceResponseBody extends $tea.Model {
       namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2726,6 +2737,7 @@ export class GetChartNamespaceResponseBody extends $tea.Model {
       namespaceName: 'string',
       namespaceStatus: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -2884,6 +2896,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   isSuccess?: boolean;
   modifiedTime?: number;
   requestId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -2895,6 +2908,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       isSuccess: 'IsSuccess',
       modifiedTime: 'ModifiedTime',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -2909,6 +2923,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       isSuccess: 'boolean',
       modifiedTime: 'number',
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3279,6 +3294,8 @@ export class GetNamespaceResponseBody extends $tea.Model {
   namespaceName?: string;
   namespaceStatus?: string;
   requestId?: string;
+  resourceGroupId?: string;
+  tags?: GetNamespaceResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
@@ -3290,6 +3307,8 @@ export class GetNamespaceResponseBody extends $tea.Model {
       namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -3304,6 +3323,8 @@ export class GetNamespaceResponseBody extends $tea.Model {
       namespaceName: 'string',
       namespaceStatus: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': GetNamespaceResponseBodyTags },
     };
   }
 
@@ -4159,6 +4180,7 @@ export class GetRepositoryResponseBody extends $tea.Model {
   repoStatus?: string;
   repoType?: string;
   requestId?: string;
+  resourceGroupId?: string;
   summary?: string;
   tagImmutability?: boolean;
   static names(): { [key: string]: string } {
@@ -4176,6 +4198,7 @@ export class GetRepositoryResponseBody extends $tea.Model {
       repoStatus: 'RepoStatus',
       repoType: 'RepoType',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       summary: 'Summary',
       tagImmutability: 'TagImmutability',
     };
@@ -4196,6 +4219,7 @@ export class GetRepositoryResponseBody extends $tea.Model {
       repoStatus: 'string',
       repoType: 'string',
       requestId: 'string',
+      resourceGroupId: 'string',
       summary: 'string',
       tagImmutability: 'boolean',
     };
@@ -4484,6 +4508,96 @@ export class ListChainInstanceResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListChainInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChartRequest extends $tea.Model {
+  instanceId?: string;
+  pageNo?: number;
+  pageSize?: number;
+  repoName?: string;
+  repoNamespaceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      repoName: 'RepoName',
+      repoNamespaceName: 'RepoNamespaceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      repoName: 'string',
+      repoNamespaceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChartResponseBody extends $tea.Model {
+  charts?: ListChartResponseBodyCharts[];
+  code?: string;
+  isSuccess?: boolean;
+  pageNo?: number;
+  pageSize?: number;
+  requestId?: string;
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      charts: 'Charts',
+      code: 'Code',
+      isSuccess: 'IsSuccess',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      charts: { 'type': 'array', 'itemType': ListChartResponseBodyCharts },
+      code: 'string',
+      isSuccess: 'boolean',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListChartResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListChartResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListChartResponseBody,
     };
   }
 
@@ -4932,12 +5046,14 @@ export class ListInstanceRequest extends $tea.Model {
   instanceStatus?: string;
   pageNo?: number;
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceName: 'InstanceName',
       instanceStatus: 'InstanceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -4947,6 +5063,7 @@ export class ListInstanceRequest extends $tea.Model {
       instanceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -5161,6 +5278,8 @@ export class ListNamespaceRequest extends $tea.Model {
   namespaceStatus?: string;
   pageNo?: number;
   pageSize?: number;
+  resourceGroupId?: string;
+  tag?: ListNamespaceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -5168,6 +5287,8 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'NamespaceStatus',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      resourceGroupId: 'ResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -5178,6 +5299,8 @@ export class ListNamespaceRequest extends $tea.Model {
       namespaceStatus: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': ListNamespaceRequestTag },
     };
   }
 
@@ -5972,6 +6095,7 @@ export class ListRepositoryRequest extends $tea.Model {
   repoName?: string;
   repoNamespaceName?: string;
   repoStatus?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -5980,6 +6104,7 @@ export class ListRepositoryRequest extends $tea.Model {
       repoName: 'RepoName',
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -5991,6 +6116,7 @@ export class ListRepositoryRequest extends $tea.Model {
       repoName: 'string',
       repoNamespaceName: 'string',
       repoStatus: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -6648,6 +6774,7 @@ export class UpdateNamespaceResponse extends $tea.Model {
 }
 
 export class UpdateRepoBuildRuleRequest extends $tea.Model {
+  buildArgs?: string[];
   buildRuleId?: string;
   dockerfileLocation?: string;
   dockerfileName?: string;
@@ -6659,6 +6786,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
   repoId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildArgs: 'BuildArgs',
       buildRuleId: 'BuildRuleId',
       dockerfileLocation: 'DockerfileLocation',
       dockerfileName: 'DockerfileName',
@@ -6673,6 +6801,7 @@ export class UpdateRepoBuildRuleRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      buildArgs: { 'type': 'array', 'itemType': 'string' },
       buildRuleId: 'string',
       dockerfileLocation: 'string',
       dockerfileName: 'string',
@@ -7292,6 +7421,28 @@ export class GetInstanceVpcEndpointResponseBodyLinkedVpcs extends $tea.Model {
   }
 }
 
+export class GetNamespaceResponseBodyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetRepoBuildRecordResponseBodyImage extends $tea.Model {
   imageTag?: string;
   repoName?: string;
@@ -7730,6 +7881,40 @@ export class ListChainInstanceResponseBodyChainInstances extends $tea.Model {
   }
 }
 
+export class ListChartResponseBodyCharts extends $tea.Model {
+  chart?: string;
+  createTime?: string;
+  instanceId?: string;
+  modifiedTime?: number;
+  repoId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chart: 'Chart',
+      createTime: 'CreateTime',
+      instanceId: 'InstanceId',
+      modifiedTime: 'ModifiedTime',
+      repoId: 'RepoId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chart: 'string',
+      createTime: 'string',
+      instanceId: 'string',
+      modifiedTime: 'number',
+      repoId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
   autoCreateRepo?: boolean;
   defaultRepoType?: string;
@@ -7737,6 +7922,7 @@ export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
   namespaceId?: string;
   namespaceName?: string;
   namespaceStatus?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
@@ -7745,6 +7931,7 @@ export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7756,6 +7943,7 @@ export class ListChartNamespaceResponseBodyNamespaces extends $tea.Model {
       namespaceId: 'string',
       namespaceName: 'string',
       namespaceStatus: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -7929,6 +8117,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
   instanceStatus?: string;
   modifiedTime?: string;
   regionId?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
@@ -7938,6 +8127,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
       instanceStatus: 'InstanceStatus',
       modifiedTime: 'ModifiedTime',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -7950,6 +8140,7 @@ export class ListInstanceResponseBodyInstances extends $tea.Model {
       instanceStatus: 'string',
       modifiedTime: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -8077,6 +8268,50 @@ export class ListInstanceRegionResponseBodyRegions extends $tea.Model {
   }
 }
 
+export class ListNamespaceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespaceResponseBodyNamespacesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
   autoCreateRepo?: boolean;
   defaultRepoType?: string;
@@ -8084,6 +8319,8 @@ export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
   namespaceId?: string;
   namespaceName?: string;
   namespaceStatus?: string;
+  resourceGroupId?: string;
+  tags?: ListNamespaceResponseBodyNamespacesTags[];
   static names(): { [key: string]: string } {
     return {
       autoCreateRepo: 'AutoCreateRepo',
@@ -8092,6 +8329,8 @@ export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
       namespaceId: 'NamespaceId',
       namespaceName: 'NamespaceName',
       namespaceStatus: 'NamespaceStatus',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -8103,6 +8342,8 @@ export class ListNamespaceResponseBodyNamespaces extends $tea.Model {
       namespaceId: 'string',
       namespaceName: 'string',
       namespaceStatus: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListNamespaceResponseBodyNamespacesTags },
     };
   }
 
@@ -8367,6 +8608,7 @@ export class ListRepoSyncTaskResponseBodySyncTasksImageTo extends $tea.Model {
 export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
   createTime?: number;
   crossUser?: boolean;
+  customLink?: boolean;
   imageFrom?: ListRepoSyncTaskResponseBodySyncTasksImageFrom;
   imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
   modifedTime?: number;
@@ -8380,6 +8622,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
     return {
       createTime: 'CreateTime',
       crossUser: 'CrossUser',
+      customLink: 'CustomLink',
       imageFrom: 'ImageFrom',
       imageTo: 'ImageTo',
       modifedTime: 'ModifedTime',
@@ -8396,6 +8639,7 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $tea.Model {
     return {
       createTime: 'number',
       crossUser: 'boolean',
+      customLink: 'boolean',
       imageFrom: ListRepoSyncTaskResponseBodySyncTasksImageFrom,
       imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
       modifedTime: 'number',
@@ -8549,6 +8793,7 @@ export class ListRepositoryResponseBodyRepositories extends $tea.Model {
   repoNamespaceName?: string;
   repoStatus?: string;
   repoType?: string;
+  resourceGroupId?: string;
   summary?: string;
   tagImmutability?: boolean;
   static names(): { [key: string]: string } {
@@ -8562,6 +8807,7 @@ export class ListRepositoryResponseBodyRepositories extends $tea.Model {
       repoNamespaceName: 'RepoNamespaceName',
       repoStatus: 'RepoStatus',
       repoType: 'RepoType',
+      resourceGroupId: 'ResourceGroupId',
       summary: 'Summary',
       tagImmutability: 'TagImmutability',
     };
@@ -8578,6 +8824,7 @@ export class ListRepositoryResponseBodyRepositories extends $tea.Model {
       repoNamespaceName: 'string',
       repoStatus: 'string',
       repoType: 'string',
+      resourceGroupId: 'string',
       summary: 'string',
       tagImmutability: 'boolean',
     };
@@ -8786,6 +9033,10 @@ export default class Client extends OpenApi {
       query["NamespaceName"] = request.namespaceName;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8960,6 +9211,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.namespaceName)) {
       query["NamespaceName"] = request.namespaceName;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9441,6 +9696,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.repoType)) {
       query["RepoType"] = request.repoType;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.summary)) {
@@ -10778,6 +11037,51 @@ export default class Client extends OpenApi {
     return await this.listChainInstanceWithOptions(request, runtime);
   }
 
+  async listChartWithOptions(request: ListChartRequest, runtime: $Util.RuntimeOptions): Promise<ListChartResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.repoName)) {
+      query["RepoName"] = request.repoName;
+    }
+
+    if (!Util.isUnset(request.repoNamespaceName)) {
+      query["RepoNamespaceName"] = request.repoNamespaceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListChart",
+      version: "2018-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListChartResponse>(await this.callApi(params, req, runtime), new ListChartResponse({}));
+  }
+
+  async listChart(request: ListChartRequest): Promise<ListChartResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listChartWithOptions(request, runtime);
+  }
+
   async listChartNamespaceWithOptions(request: ListChartNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<ListChartNamespaceResponse> {
     Util.validateModel(request);
     let query = { };
@@ -10990,6 +11294,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11095,6 +11403,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -11518,6 +11834,10 @@ export default class Client extends OpenApi {
       query["RepoStatus"] = request.repoStatus;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11864,6 +12184,10 @@ export default class Client extends OpenApi {
   async updateRepoBuildRuleWithOptions(request: UpdateRepoBuildRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateRepoBuildRuleResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.buildArgs)) {
+      query["BuildArgs"] = request.buildArgs;
+    }
+
     if (!Util.isUnset(request.buildRuleId)) {
       query["BuildRuleId"] = request.buildRuleId;
     }
