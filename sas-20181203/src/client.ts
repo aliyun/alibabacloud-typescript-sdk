@@ -1230,6 +1230,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
   pageSize?: string;
   remark?: string;
   sourceIp?: string;
+  tacticId?: string;
   static names(): { [key: string]: string } {
     return {
       alarmEventName: 'AlarmEventName',
@@ -1244,6 +1245,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       pageSize: 'PageSize',
       remark: 'Remark',
       sourceIp: 'SourceIp',
+      tacticId: 'TacticId',
     };
   }
 
@@ -1261,6 +1263,7 @@ export class DescribeAlarmEventListRequest extends $tea.Model {
       pageSize: 'string',
       remark: 'string',
       sourceIp: 'string',
+      tacticId: 'string',
     };
   }
 
@@ -8418,6 +8421,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
   source?: string;
   sourceIp?: string;
   status?: string;
+  tacticId?: string;
   targetType?: string;
   uniqueInfo?: string;
   uuids?: string;
@@ -8442,6 +8446,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       source: 'Source',
       sourceIp: 'SourceIp',
       status: 'Status',
+      tacticId: 'TacticId',
       targetType: 'TargetType',
       uniqueInfo: 'UniqueInfo',
       uuids: 'Uuids',
@@ -8469,6 +8474,7 @@ export class DescribeSuspEventsRequest extends $tea.Model {
       source: 'string',
       sourceIp: 'string',
       status: 'string',
+      tacticId: 'string',
       targetType: 'string',
       uniqueInfo: 'string',
       uuids: 'string',
@@ -11314,6 +11320,72 @@ export class ModifyOperateVulResponse extends $tea.Model {
   }
 }
 
+export class ModifyPropertyScheduleConfigRequest extends $tea.Model {
+  scheduleTime?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      scheduleTime: 'ScheduleTime',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scheduleTime: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPropertyScheduleConfigResponseBody extends $tea.Model {
+  modifyResult?: boolean;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modifyResult: 'ModifyResult',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modifyResult: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyPropertyScheduleConfigResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ModifyPropertyScheduleConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ModifyPropertyScheduleConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPushAllTaskRequest extends $tea.Model {
   sourceIp?: string;
   tasks?: string;
@@ -13717,6 +13789,28 @@ export class DescribeAlarmEventListResponseBodyPageInfo extends $tea.Model {
   }
 }
 
+export class DescribeAlarmEventListResponseBodySuspEventsTacticItems extends $tea.Model {
+  tacticDisplayName?: string;
+  tacticId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tacticDisplayName: 'TacticDisplayName',
+      tacticId: 'TacticId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tacticDisplayName: 'string',
+      tacticId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAlarmEventListResponseBodySuspEvents extends $tea.Model {
   alarmEventName?: string;
   alarmEventNameOriginal?: string;
@@ -13743,6 +13837,7 @@ export class DescribeAlarmEventListResponseBodySuspEvents extends $tea.Model {
   stages?: string;
   startTime?: number;
   suspiciousEventCount?: number;
+  tacticItems?: DescribeAlarmEventListResponseBodySuspEventsTacticItems[];
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13771,6 +13866,7 @@ export class DescribeAlarmEventListResponseBodySuspEvents extends $tea.Model {
       stages: 'Stages',
       startTime: 'StartTime',
       suspiciousEventCount: 'SuspiciousEventCount',
+      tacticItems: 'TacticItems',
       uuid: 'Uuid',
     };
   }
@@ -13802,6 +13898,7 @@ export class DescribeAlarmEventListResponseBodySuspEvents extends $tea.Model {
       stages: 'string',
       startTime: 'number',
       suspiciousEventCount: 'number',
+      tacticItems: { 'type': 'array', 'itemType': DescribeAlarmEventListResponseBodySuspEventsTacticItems },
       uuid: 'string',
     };
   }
@@ -18393,6 +18490,28 @@ export class DescribeSuspEventsResponseBodySuspEventsEventNotes extends $tea.Mod
   }
 }
 
+export class DescribeSuspEventsResponseBodySuspEventsTacticItems extends $tea.Model {
+  tacticDisplayName?: string;
+  tacticId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tacticDisplayName: 'TacticDisplayName',
+      tacticId: 'TacticId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tacticDisplayName: 'string',
+      tacticId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   advanced?: boolean;
   alarmEventName?: string;
@@ -18439,6 +18558,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
   saleVersion?: string;
   securityEventIds?: string;
   stages?: string;
+  tacticItems?: DescribeSuspEventsResponseBodySuspEventsTacticItems[];
   uniqueInfo?: string;
   uuid?: string;
   static names(): { [key: string]: string } {
@@ -18488,6 +18608,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       saleVersion: 'SaleVersion',
       securityEventIds: 'SecurityEventIds',
       stages: 'Stages',
+      tacticItems: 'TacticItems',
       uniqueInfo: 'UniqueInfo',
       uuid: 'Uuid',
     };
@@ -18540,6 +18661,7 @@ export class DescribeSuspEventsResponseBodySuspEvents extends $tea.Model {
       saleVersion: 'string',
       securityEventIds: 'string',
       stages: 'string',
+      tacticItems: { 'type': 'array', 'itemType': DescribeSuspEventsResponseBodySuspEventsTacticItems },
       uniqueInfo: 'string',
       uuid: 'string',
     };
@@ -20215,6 +20337,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sourceIp)) {
       query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!Util.isUnset(request.tacticId)) {
+      query["TacticId"] = request.tacticId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -24118,8 +24244,14 @@ export default class Client extends OpenApi {
       query["Uuids"] = request.uuids;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tacticId)) {
+      body["TacticId"] = request.tacticId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "DescribeSuspEvents",
@@ -25634,6 +25766,39 @@ export default class Client extends OpenApi {
   async modifyOperateVul(request: ModifyOperateVulRequest): Promise<ModifyOperateVulResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyOperateVulWithOptions(request, runtime);
+  }
+
+  async modifyPropertyScheduleConfigWithOptions(request: ModifyPropertyScheduleConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPropertyScheduleConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.scheduleTime)) {
+      query["ScheduleTime"] = request.scheduleTime;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyPropertyScheduleConfig",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyPropertyScheduleConfigResponse>(await this.callApi(params, req, runtime), new ModifyPropertyScheduleConfigResponse({}));
+  }
+
+  async modifyPropertyScheduleConfig(request: ModifyPropertyScheduleConfigRequest): Promise<ModifyPropertyScheduleConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyPropertyScheduleConfigWithOptions(request, runtime);
   }
 
   async modifyPushAllTaskWithOptions(request: ModifyPushAllTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyPushAllTaskResponse> {
