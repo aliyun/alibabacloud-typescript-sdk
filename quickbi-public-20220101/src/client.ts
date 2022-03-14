@@ -4395,6 +4395,78 @@ export class QueryWorkspaceUserListResponse extends $tea.Model {
   }
 }
 
+export class ResultCallbackRequest extends $tea.Model {
+  applicationId?: string;
+  handleReason?: string;
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      applicationId: 'ApplicationId',
+      handleReason: 'HandleReason',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationId: 'string',
+      handleReason: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResultCallbackResponseBody extends $tea.Model {
+  requestId?: string;
+  result?: boolean;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: 'boolean',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResultCallbackResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ResultCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ResultCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SaveFavoritesRequest extends $tea.Model {
   userId?: string;
   worksId?: string;
@@ -7654,7 +7726,7 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._endpointRule = "central";
+    this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("quickbi-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -9821,6 +9893,43 @@ export default class Client extends OpenApi {
   async queryWorkspaceUserList(request: QueryWorkspaceUserListRequest): Promise<QueryWorkspaceUserListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryWorkspaceUserListWithOptions(request, runtime);
+  }
+
+  async resultCallbackWithOptions(request: ResultCallbackRequest, runtime: $Util.RuntimeOptions): Promise<ResultCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!Util.isUnset(request.handleReason)) {
+      query["HandleReason"] = request.handleReason;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResultCallback",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResultCallbackResponse>(await this.callApi(params, req, runtime), new ResultCallbackResponse({}));
+  }
+
+  async resultCallback(request: ResultCallbackRequest): Promise<ResultCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resultCallbackWithOptions(request, runtime);
   }
 
   async saveFavoritesWithOptions(request: SaveFavoritesRequest, runtime: $Util.RuntimeOptions): Promise<SaveFavoritesResponse> {
