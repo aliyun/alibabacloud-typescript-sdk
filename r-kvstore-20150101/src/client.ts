@@ -1366,6 +1366,7 @@ export class DeleteShardingNodeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  shardCount?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -1375,6 +1376,7 @@ export class DeleteShardingNodeRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      shardCount: 'ShardCount',
     };
   }
 
@@ -1387,6 +1389,7 @@ export class DeleteShardingNodeRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      shardCount: 'string',
     };
   }
 
@@ -1517,43 +1520,58 @@ export class DescribeAccountsResponse extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTaskRequest extends $tea.Model {
-  isHistory?: number;
+export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  allowCancel?: number;
+  allowChange?: number;
+  changeLevel?: string;
+  dbType?: string;
+  insName?: string;
   ownerAccount?: string;
   ownerId?: number;
   pageNumber?: number;
   pageSize?: number;
-  region?: string;
+  productId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
+  status?: number;
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
-      isHistory: 'IsHistory',
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      dbType: 'DbType',
+      insName: 'InsName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      region: 'Region',
+      productId: 'ProductId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
+      status: 'Status',
       taskType: 'TaskType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isHistory: 'number',
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      dbType: 'string',
+      insName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
       pageSize: 'number',
-      region: 'string',
+      productId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
+      status: 'number',
       taskType: 'string',
     };
   }
@@ -1563,8 +1581,8 @@ export class DescribeActiveOperationTaskRequest extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTaskResponseBody extends $tea.Model {
-  items?: DescribeActiveOperationTaskResponseBodyItems[];
+export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
   pageNumber?: number;
   pageSize?: number;
   requestId?: string;
@@ -1581,7 +1599,7 @@ export class DescribeActiveOperationTaskResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      items: { 'type': 'array', 'itemType': DescribeActiveOperationTaskResponseBodyItems },
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
       pageNumber: 'number',
       pageSize: 'number',
       requestId: 'string',
@@ -1594,9 +1612,9 @@ export class DescribeActiveOperationTaskResponseBody extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTaskResponse extends $tea.Model {
+export class DescribeActiveOperationTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: DescribeActiveOperationTaskResponseBody;
+  body: DescribeActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1607,7 +1625,7 @@ export class DescribeActiveOperationTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeActiveOperationTaskResponseBody,
+      body: DescribeActiveOperationTasksResponseBody,
     };
   }
 
@@ -2415,6 +2433,8 @@ export class DescribeClusterMemberInfoRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  pageNumber?: number;
+  pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -2423,6 +2443,8 @@ export class DescribeClusterMemberInfoRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -2434,6 +2456,8 @@ export class DescribeClusterMemberInfoRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -5951,8 +5975,9 @@ export class ModifyAccountPasswordResponse extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTaskRequest extends $tea.Model {
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
   ids?: string;
+  immediateStart?: number;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -5962,6 +5987,7 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       ids: 'Ids',
+      immediateStart: 'ImmediateStart',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -5974,6 +6000,7 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ids: 'string',
+      immediateStart: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
@@ -5988,7 +6015,7 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTaskResponseBody extends $tea.Model {
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
   ids?: string;
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -6010,9 +6037,9 @@ export class ModifyActiveOperationTaskResponseBody extends $tea.Model {
   }
 }
 
-export class ModifyActiveOperationTaskResponse extends $tea.Model {
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
   headers: { [key: string]: string };
-  body: ModifyActiveOperationTaskResponseBody;
+  body: ModifyActiveOperationTasksResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6023,7 +6050,7 @@ export class ModifyActiveOperationTaskResponse extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: ModifyActiveOperationTaskResponseBody,
+      body: ModifyActiveOperationTasksResponseBody,
     };
   }
 
@@ -7965,6 +7992,7 @@ export class RenewInstanceRequest extends $tea.Model {
   autoPay?: boolean;
   businessInfo?: string;
   capacity?: string;
+  clientToken?: string;
   couponNo?: string;
   fromApp?: string;
   instanceClass?: string;
@@ -7980,6 +8008,7 @@ export class RenewInstanceRequest extends $tea.Model {
       autoPay: 'AutoPay',
       businessInfo: 'BusinessInfo',
       capacity: 'Capacity',
+      clientToken: 'ClientToken',
       couponNo: 'CouponNo',
       fromApp: 'FromApp',
       instanceClass: 'InstanceClass',
@@ -7998,6 +8027,7 @@ export class RenewInstanceRequest extends $tea.Model {
       autoPay: 'boolean',
       businessInfo: 'string',
       capacity: 'string',
+      clientToken: 'string',
       couponNo: 'string',
       fromApp: 'string',
       instanceClass: 'string',
@@ -8737,7 +8767,9 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class TransformInstanceChargeTypeRequest extends $tea.Model {
   autoPay?: boolean;
+  businessInfo?: string;
   chargeType?: string;
+  couponNo?: string;
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -8748,7 +8780,9 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      businessInfo: 'BusinessInfo',
       chargeType: 'ChargeType',
+      couponNo: 'CouponNo',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -8762,7 +8796,9 @@ export class TransformInstanceChargeTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      businessInfo: 'string',
       chargeType: 'string',
+      couponNo: 'string',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -9128,50 +9164,92 @@ export class DescribeAccountsResponseBodyAccounts extends $tea.Model {
   }
 }
 
-export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
+export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  allowCancel?: string;
+  allowChange?: string;
+  changeLevel?: string;
+  changeLevelEn?: string;
+  changeLevelZh?: string;
   createdTime?: string;
+  currentAVZ?: string;
   dbType?: string;
+  dbVersion?: string;
   deadline?: string;
   id?: number;
+  impactEn?: string;
+  impactZh?: string;
+  insComment?: string;
   insName?: string;
   modifiedTime?: string;
   prepareInterval?: string;
   region?: string;
+  resultInfo?: string;
   startTime?: string;
   status?: number;
+  subInsNames?: string[];
   switchTime?: string;
   taskType?: string;
+  taskTypeEn?: string;
+  taskTypeZh?: string;
   static names(): { [key: string]: string } {
     return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      changeLevelEn: 'ChangeLevelEn',
+      changeLevelZh: 'ChangeLevelZh',
       createdTime: 'CreatedTime',
+      currentAVZ: 'CurrentAVZ',
       dbType: 'DbType',
+      dbVersion: 'DbVersion',
       deadline: 'Deadline',
       id: 'Id',
+      impactEn: 'ImpactEn',
+      impactZh: 'ImpactZh',
+      insComment: 'InsComment',
       insName: 'InsName',
       modifiedTime: 'ModifiedTime',
       prepareInterval: 'PrepareInterval',
       region: 'Region',
+      resultInfo: 'ResultInfo',
       startTime: 'StartTime',
       status: 'Status',
+      subInsNames: 'SubInsNames',
       switchTime: 'SwitchTime',
       taskType: 'TaskType',
+      taskTypeEn: 'TaskTypeEn',
+      taskTypeZh: 'TaskTypeZh',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowCancel: 'string',
+      allowChange: 'string',
+      changeLevel: 'string',
+      changeLevelEn: 'string',
+      changeLevelZh: 'string',
       createdTime: 'string',
+      currentAVZ: 'string',
       dbType: 'string',
+      dbVersion: 'string',
       deadline: 'string',
       id: 'number',
+      impactEn: 'string',
+      impactZh: 'string',
+      insComment: 'string',
       insName: 'string',
       modifiedTime: 'string',
       prepareInterval: 'string',
       region: 'string',
+      resultInfo: 'string',
       startTime: 'string',
       status: 'number',
+      subInsNames: { 'type': 'array', 'itemType': 'string' },
       switchTime: 'string',
       taskType: 'string',
+      taskTypeEn: 'string',
+      taskTypeZh: 'string',
     };
   }
 
@@ -10200,6 +10278,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
   bandwidth?: number;
   capacity?: number;
   chargeType?: string;
+  cloudType?: string;
   config?: string;
   connectionDomain?: string;
   connections?: number;
@@ -10247,6 +10326,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       bandwidth: 'Bandwidth',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
+      cloudType: 'CloudType',
       config: 'Config',
       connectionDomain: 'ConnectionDomain',
       connections: 'Connections',
@@ -10297,6 +10377,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       bandwidth: 'number',
       capacity: 'number',
       chargeType: 'string',
+      cloudType: 'string',
       config: 'string',
       connectionDomain: 'string',
       connections: 'number',
@@ -10477,6 +10558,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
   bandwidth?: number;
   capacity?: number;
   chargeType?: string;
+  cloudType?: string;
   config?: string;
   connectionDomain?: string;
   connectionMode?: string;
@@ -10516,6 +10598,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       bandwidth: 'Bandwidth',
       capacity: 'Capacity',
       chargeType: 'ChargeType',
+      cloudType: 'CloudType',
       config: 'Config',
       connectionDomain: 'ConnectionDomain',
       connectionMode: 'ConnectionMode',
@@ -10558,6 +10641,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       bandwidth: 'number',
       capacity: 'number',
       chargeType: 'string',
+      cloudType: 'string',
       config: 'string',
       connectionDomain: 'string',
       connectionMode: 'string',
@@ -12863,6 +12947,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.shardCount)) {
+      query["ShardCount"] = request.shardCount;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -12938,11 +13026,27 @@ export default class Client extends OpenApi {
     return await this.describeAccountsWithOptions(request, runtime);
   }
 
-  async describeActiveOperationTaskWithOptions(request: DescribeActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTaskResponse> {
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.isHistory)) {
-      query["IsHistory"] = request.isHistory;
+    if (!Util.isUnset(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!Util.isUnset(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!Util.isUnset(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -12961,8 +13065,8 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -12977,6 +13081,10 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
     if (!Util.isUnset(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
@@ -12985,7 +13093,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DescribeActiveOperationTask",
+      action: "DescribeActiveOperationTasks",
       version: "2015-01-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -12995,12 +13103,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeActiveOperationTaskResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTaskResponse({}));
+    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
   }
 
-  async describeActiveOperationTask(request: DescribeActiveOperationTaskRequest): Promise<DescribeActiveOperationTaskResponse> {
+  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeActiveOperationTaskWithOptions(request, runtime);
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
   async describeAuditLogConfigWithOptions(request: DescribeAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeAuditLogConfigResponse> {
@@ -13552,6 +13660,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -15921,11 +16037,15 @@ export default class Client extends OpenApi {
     return await this.modifyAccountPasswordWithOptions(request, runtime);
   }
 
-  async modifyActiveOperationTaskWithOptions(request: ModifyActiveOperationTaskRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTaskResponse> {
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.ids)) {
       query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
@@ -15956,7 +16076,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "ModifyActiveOperationTask",
+      action: "ModifyActiveOperationTasks",
       version: "2015-01-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -15966,12 +16086,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyActiveOperationTaskResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTaskResponse({}));
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
   }
 
-  async modifyActiveOperationTask(request: ModifyActiveOperationTaskRequest): Promise<ModifyActiveOperationTaskResponse> {
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.modifyActiveOperationTaskWithOptions(request, runtime);
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
   async modifyAuditLogConfigWithOptions(request: ModifyAuditLogConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAuditLogConfigResponse> {
@@ -17360,6 +17480,10 @@ export default class Client extends OpenApi {
       query["Capacity"] = request.capacity;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
     }
@@ -17905,8 +18029,16 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
+    if (!Util.isUnset(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
     }
 
     if (!Util.isUnset(request.instanceId)) {
