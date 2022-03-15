@@ -4258,6 +4258,78 @@ export class CreateSpaceModelResponse extends $tea.Model {
   }
 }
 
+export class CreateTaskRequest extends $tea.Model {
+  clientToken?: string;
+  instanceId?: string;
+  params?: string;
+  templateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      instanceId: 'InstanceId',
+      params: 'Params',
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      instanceId: 'string',
+      params: 'string',
+      templateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTimePeriodRequest extends $tea.Model {
   clientToken?: string;
   expression?: string;
@@ -7557,6 +7629,72 @@ export class GetSpaceModelSortResponse extends $tea.Model {
   }
 }
 
+export class GetTaskRequest extends $tea.Model {
+  instanceId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponseBody extends $tea.Model {
+  requestId?: string;
+  task?: GetTaskResponseBodyTask;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      task: 'Task',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      task: GetTaskResponseBodyTask,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkOrderRequest extends $tea.Model {
   instanceId?: string;
   workOrderId?: string;
@@ -9436,6 +9574,7 @@ export class ListIpBlocksRequest extends $tea.Model {
   nextToken?: string;
   status?: string;
   subNetBusiness?: string;
+  topParent?: boolean;
   treeType?: boolean;
   zoneName?: string;
   static names(): { [key: string]: string } {
@@ -9450,6 +9589,7 @@ export class ListIpBlocksRequest extends $tea.Model {
       nextToken: 'NextToken',
       status: 'Status',
       subNetBusiness: 'SubNetBusiness',
+      topParent: 'TopParent',
       treeType: 'TreeType',
       zoneName: 'ZoneName',
     };
@@ -9467,6 +9607,7 @@ export class ListIpBlocksRequest extends $tea.Model {
       nextToken: 'string',
       status: 'string',
       subNetBusiness: 'string',
+      topParent: 'boolean',
       treeType: 'boolean',
       zoneName: 'string',
     };
@@ -15534,6 +15675,52 @@ export class GetSpaceModelSortResponseBodySpaceModel extends $tea.Model {
   }
 }
 
+export class GetTaskResponseBodyTask extends $tea.Model {
+  category?: string;
+  createTime?: string;
+  params?: string;
+  responseCode?: string;
+  result?: string;
+  status?: string;
+  taskId?: string;
+  templateId?: string;
+  templateName?: string;
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      createTime: 'CreateTime',
+      params: 'Params',
+      responseCode: 'ResponseCode',
+      result: 'Result',
+      status: 'Status',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      createTime: 'string',
+      params: 'string',
+      responseCode: 'string',
+      result: 'string',
+      status: 'string',
+      taskId: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkOrderResponseBodyContentWorkOrderOperationDtos extends $tea.Model {
   gmtCreate?: string;
   operation?: string;
@@ -19267,6 +19454,49 @@ export default class Client extends OpenApi {
     return await this.createSpaceModelWithOptions(request, runtime);
   }
 
+  async createTaskWithOptions(request: CreateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      body["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      body["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTask",
+      version: "2020-08-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
+  }
+
+  async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTaskWithOptions(request, runtime);
+  }
+
   async createTimePeriodWithOptions(request: CreateTimePeriodRequest, runtime: $Util.RuntimeOptions): Promise<CreateTimePeriodResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20840,6 +21070,31 @@ export default class Client extends OpenApi {
   async getSpaceModelSort(request: GetSpaceModelSortRequest): Promise<GetSpaceModelSortResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSpaceModelSortWithOptions(request, runtime);
+  }
+
+  async getTaskWithOptions(request: GetTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTask",
+      version: "2020-08-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTaskResponse>(await this.callApi(params, req, runtime), new GetTaskResponse({}));
+  }
+
+  async getTask(request: GetTaskRequest): Promise<GetTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTaskWithOptions(request, runtime);
   }
 
   async getWorkOrderWithOptions(request: GetWorkOrderRequest, runtime: $Util.RuntimeOptions): Promise<GetWorkOrderResponse> {
