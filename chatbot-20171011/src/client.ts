@@ -1077,7 +1077,6 @@ export class ChatRequest extends $tea.Model {
   intentName?: string;
   knowledgeId?: string;
   perspective?: string[];
-  recommend?: boolean;
   senderId?: string;
   senderNick?: string;
   sessionId?: string;
@@ -1090,7 +1089,6 @@ export class ChatRequest extends $tea.Model {
       intentName: 'IntentName',
       knowledgeId: 'KnowledgeId',
       perspective: 'Perspective',
-      recommend: 'Recommend',
       senderId: 'SenderId',
       senderNick: 'SenderNick',
       sessionId: 'SessionId',
@@ -1106,7 +1104,6 @@ export class ChatRequest extends $tea.Model {
       intentName: 'string',
       knowledgeId: 'string',
       perspective: { 'type': 'array', 'itemType': 'string' },
-      recommend: 'boolean',
       senderId: 'string',
       senderNick: 'string',
       sessionId: 'string',
@@ -6399,20 +6396,14 @@ export class ChatResponseBodyMessagesKnowledge extends $tea.Model {
 
 export class ChatResponseBodyMessagesRecommends extends $tea.Model {
   answerSource?: string;
-  category?: string;
-  content?: string;
   knowledgeId?: string;
   score?: number;
-  summary?: string;
   title?: string;
   static names(): { [key: string]: string } {
     return {
       answerSource: 'AnswerSource',
-      category: 'Category',
-      content: 'Content',
       knowledgeId: 'KnowledgeId',
       score: 'Score',
-      summary: 'Summary',
       title: 'Title',
     };
   }
@@ -6420,11 +6411,8 @@ export class ChatResponseBodyMessagesRecommends extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       answerSource: 'string',
-      category: 'string',
-      content: 'string',
       knowledgeId: 'string',
       score: 'number',
-      summary: 'string',
       title: 'string',
     };
   }
@@ -6465,6 +6453,7 @@ export class ChatResponseBodyMessagesTextSlots extends $tea.Model {
 export class ChatResponseBodyMessagesText extends $tea.Model {
   answerSource?: string;
   articleTitle?: string;
+  commands?: { [key: string]: any };
   content?: string;
   contentType?: string;
   dialogName?: string;
@@ -6482,6 +6471,7 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
     return {
       answerSource: 'AnswerSource',
       articleTitle: 'ArticleTitle',
+      commands: 'Commands',
       content: 'Content',
       contentType: 'ContentType',
       dialogName: 'DialogName',
@@ -6502,6 +6492,7 @@ export class ChatResponseBodyMessagesText extends $tea.Model {
     return {
       answerSource: 'string',
       articleTitle: 'string',
+      commands: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       content: 'string',
       contentType: 'string',
       dialogName: 'string',
@@ -6529,7 +6520,9 @@ export class ChatResponseBodyMessages extends $tea.Model {
   knowledge?: ChatResponseBodyMessagesKnowledge;
   recommends?: ChatResponseBodyMessagesRecommends[];
   text?: ChatResponseBodyMessagesText;
+  title?: string;
   type?: string;
+  voiceTitle?: string;
   static names(): { [key: string]: string } {
     return {
       answerSource: 'AnswerSource',
@@ -6537,7 +6530,9 @@ export class ChatResponseBodyMessages extends $tea.Model {
       knowledge: 'Knowledge',
       recommends: 'Recommends',
       text: 'Text',
+      title: 'Title',
       type: 'Type',
+      voiceTitle: 'VoiceTitle',
     };
   }
 
@@ -6548,7 +6543,9 @@ export class ChatResponseBodyMessages extends $tea.Model {
       knowledge: ChatResponseBodyMessagesKnowledge,
       recommends: { 'type': 'array', 'itemType': ChatResponseBodyMessagesRecommends },
       text: ChatResponseBodyMessagesText,
+      title: 'string',
       type: 'string',
+      voiceTitle: 'string',
     };
   }
 
@@ -7851,10 +7848,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.perspective)) {
       query["Perspective"] = request.perspective;
-    }
-
-    if (!Util.isUnset(request.recommend)) {
-      query["Recommend"] = request.recommend;
     }
 
     if (!Util.isUnset(request.senderId)) {
