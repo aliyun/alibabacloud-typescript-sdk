@@ -4136,13 +4136,13 @@ export class ModifyClusterTagsResponse extends $tea.Model {
 export class ModifyPolicyInstanceRequest extends $tea.Model {
   action?: string;
   instanceName?: string;
-  namespace?: string;
+  namespaces?: string[];
   parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       action: 'action',
       instanceName: 'instance_name',
-      namespace: 'namespace',
+      namespaces: 'namespaces',
       parameters: 'parameters',
     };
   }
@@ -4151,7 +4151,7 @@ export class ModifyPolicyInstanceRequest extends $tea.Model {
     return {
       action: 'string',
       instanceName: 'string',
-      namespace: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
@@ -11338,8 +11338,8 @@ export default class Client extends OpenApi {
       body["instance_name"] = request.instanceName;
     }
 
-    if (!Util.isUnset(request.namespace)) {
-      body["namespace"] = request.namespace;
+    if (!Util.isUnset(request.namespaces)) {
+      body["namespaces"] = request.namespaces;
     }
 
     if (!Util.isUnset(request.parameters)) {
