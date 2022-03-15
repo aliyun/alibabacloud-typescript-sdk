@@ -516,12 +516,16 @@ export class CreateApplicationRequest extends $tea.Model {
   jarStartArgs?: string;
   jarStartOptions?: string;
   jdk?: string;
+  kafkaEndpoint?: string;
+  kafkaInstanceId?: string;
+  kafkaLogfileConfig?: string;
   liveness?: string;
   memory?: number;
   mountDesc?: string;
   mountHost?: string;
   namespaceId?: string;
   nasId?: string;
+  openCollectToKafka?: boolean;
   ossAkId?: string;
   ossAkSecret?: string;
   ossMountDescs?: string;
@@ -564,12 +568,16 @@ export class CreateApplicationRequest extends $tea.Model {
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
+      kafkaEndpoint: 'KafkaEndpoint',
+      kafkaInstanceId: 'KafkaInstanceId',
+      kafkaLogfileConfig: 'KafkaLogfileConfig',
       liveness: 'Liveness',
       memory: 'Memory',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       namespaceId: 'NamespaceId',
       nasId: 'NasId',
+      openCollectToKafka: 'OpenCollectToKafka',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -615,12 +623,16 @@ export class CreateApplicationRequest extends $tea.Model {
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
+      kafkaEndpoint: 'string',
+      kafkaInstanceId: 'string',
+      kafkaLogfileConfig: 'string',
       liveness: 'string',
       memory: 'number',
       mountDesc: 'string',
       mountHost: 'string',
       namespaceId: 'string',
       nasId: 'string',
+      openCollectToKafka: 'boolean',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -1627,12 +1639,16 @@ export class DeployApplicationRequest extends $tea.Model {
   jarStartArgs?: string;
   jarStartOptions?: string;
   jdk?: string;
+  kafkaEndpoint?: string;
+  kafkaInstanceId?: string;
+  kafkaLogfileConfig?: string;
   liveness?: string;
   minReadyInstanceRatio?: number;
   minReadyInstances?: number;
   mountDesc?: string;
   mountHost?: string;
   nasId?: string;
+  openCollectToKafka?: boolean;
   ossAkId?: string;
   ossAkSecret?: string;
   ossMountDescs?: string;
@@ -1672,12 +1688,16 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
+      kafkaEndpoint: 'KafkaEndpoint',
+      kafkaInstanceId: 'KafkaInstanceId',
+      kafkaLogfileConfig: 'KafkaLogfileConfig',
       liveness: 'Liveness',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
       minReadyInstances: 'MinReadyInstances',
       mountDesc: 'MountDesc',
       mountHost: 'MountHost',
       nasId: 'NasId',
+      openCollectToKafka: 'OpenCollectToKafka',
       ossAkId: 'OssAkId',
       ossAkSecret: 'OssAkSecret',
       ossMountDescs: 'OssMountDescs',
@@ -1720,12 +1740,16 @@ export class DeployApplicationRequest extends $tea.Model {
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
+      kafkaEndpoint: 'string',
+      kafkaInstanceId: 'string',
+      kafkaLogfileConfig: 'string',
       liveness: 'string',
       minReadyInstanceRatio: 'number',
       minReadyInstances: 'number',
       mountDesc: 'string',
       mountHost: 'string',
       nasId: 'string',
+      openCollectToKafka: 'boolean',
       ossAkId: 'string',
       ossAkSecret: 'string',
       ossMountDescs: 'string',
@@ -7399,6 +7423,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
   jarStartArgs?: string;
   jarStartOptions?: string;
   jdk?: string;
+  kafkaConfigs?: string;
   liveness?: string;
   memory?: number;
   minReadyInstanceRatio?: number;
@@ -7454,6 +7479,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       jarStartArgs: 'JarStartArgs',
       jarStartOptions: 'JarStartOptions',
       jdk: 'Jdk',
+      kafkaConfigs: 'KafkaConfigs',
       liveness: 'Liveness',
       memory: 'Memory',
       minReadyInstanceRatio: 'MinReadyInstanceRatio',
@@ -7512,6 +7538,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       jarStartArgs: 'string',
       jarStartOptions: 'string',
       jdk: 'string',
+      kafkaConfigs: 'string',
       liveness: 'string',
       memory: 'number',
       minReadyInstanceRatio: 'number',
@@ -7649,6 +7676,7 @@ export class DescribeApplicationImageResponseBodyData extends $tea.Model {
 export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.Model {
   createTimeStamp?: number;
   eip?: string;
+  finishTimeStamp?: number;
   groupId?: string;
   imageUrl?: string;
   instanceContainerIp?: string;
@@ -7662,6 +7690,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
     return {
       createTimeStamp: 'CreateTimeStamp',
       eip: 'Eip',
+      finishTimeStamp: 'FinishTimeStamp',
       groupId: 'GroupId',
       imageUrl: 'ImageUrl',
       instanceContainerIp: 'InstanceContainerIp',
@@ -7678,6 +7707,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
     return {
       createTimeStamp: 'number',
       eip: 'string',
+      finishTimeStamp: 'number',
       groupId: 'string',
       imageUrl: 'string',
       instanceContainerIp: 'string',
@@ -8509,6 +8539,7 @@ export class DescribeChangeOrderResponseBodyDataPipelines extends $tea.Model {
 }
 
 export class DescribeChangeOrderResponseBodyData extends $tea.Model {
+  appId?: string;
   appName?: string;
   approvalId?: string;
   auto?: boolean;
@@ -8528,6 +8559,7 @@ export class DescribeChangeOrderResponseBodyData extends $tea.Model {
   supportRollback?: boolean;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       appName: 'AppName',
       approvalId: 'ApprovalId',
       auto: 'Auto',
@@ -8550,6 +8582,7 @@ export class DescribeChangeOrderResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       appName: 'string',
       approvalId: 'string',
       auto: 'boolean',
@@ -8918,6 +8951,7 @@ export class DescribeGreyTagRouteResponseBodyDataScRules extends $tea.Model {
 }
 
 export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
+  appId?: string;
   createTime?: number;
   description?: string;
   dubboRules?: DescribeGreyTagRouteResponseBodyDataDubboRules[];
@@ -8927,6 +8961,7 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       createTime: 'CreateTime',
       description: 'Description',
       dubboRules: 'DubboRules',
@@ -8939,6 +8974,7 @@ export class DescribeGreyTagRouteResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       createTime: 'number',
       description: 'string',
       dubboRules: { 'type': 'array', 'itemType': DescribeGreyTagRouteResponseBodyDataDubboRules },
@@ -9539,20 +9575,16 @@ export class ListAppEventsResponseBodyData extends $tea.Model {
 }
 
 export class ListAppServicesPageResponseBodyDataResult extends $tea.Model {
-  clusterName?: string;
   edasAppId?: string;
   edasAppName?: string;
-  gmtModifyTime?: string;
   group?: string;
   instanceNum?: number;
   serviceName?: string;
   version?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterName: 'ClusterName',
       edasAppId: 'EdasAppId',
       edasAppName: 'EdasAppName',
-      gmtModifyTime: 'GmtModifyTime',
       group: 'Group',
       instanceNum: 'InstanceNum',
       serviceName: 'ServiceName',
@@ -9562,10 +9594,8 @@ export class ListAppServicesPageResponseBodyDataResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      clusterName: 'string',
       edasAppId: 'string',
       edasAppName: 'string',
-      gmtModifyTime: 'string',
       group: 'string',
       instanceNum: 'number',
       serviceName: 'string',
@@ -11209,6 +11239,18 @@ export default class Client extends OpenApi {
       query["Jdk"] = request.jdk;
     }
 
+    if (!Util.isUnset(request.kafkaEndpoint)) {
+      query["KafkaEndpoint"] = request.kafkaEndpoint;
+    }
+
+    if (!Util.isUnset(request.kafkaInstanceId)) {
+      query["KafkaInstanceId"] = request.kafkaInstanceId;
+    }
+
+    if (!Util.isUnset(request.kafkaLogfileConfig)) {
+      query["KafkaLogfileConfig"] = request.kafkaLogfileConfig;
+    }
+
     if (!Util.isUnset(request.liveness)) {
       query["Liveness"] = request.liveness;
     }
@@ -11231,6 +11273,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
+    }
+
+    if (!Util.isUnset(request.openCollectToKafka)) {
+      query["OpenCollectToKafka"] = request.openCollectToKafka;
     }
 
     if (!Util.isUnset(request.packageType)) {
@@ -11863,6 +11909,18 @@ export default class Client extends OpenApi {
       query["Jdk"] = request.jdk;
     }
 
+    if (!Util.isUnset(request.kafkaEndpoint)) {
+      query["KafkaEndpoint"] = request.kafkaEndpoint;
+    }
+
+    if (!Util.isUnset(request.kafkaInstanceId)) {
+      query["KafkaInstanceId"] = request.kafkaInstanceId;
+    }
+
+    if (!Util.isUnset(request.kafkaLogfileConfig)) {
+      query["KafkaLogfileConfig"] = request.kafkaLogfileConfig;
+    }
+
     if (!Util.isUnset(request.liveness)) {
       query["Liveness"] = request.liveness;
     }
@@ -11885,6 +11943,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nasId)) {
       query["NasId"] = request.nasId;
+    }
+
+    if (!Util.isUnset(request.openCollectToKafka)) {
+      query["OpenCollectToKafka"] = request.openCollectToKafka;
     }
 
     if (!Util.isUnset(request.packageUrl)) {
