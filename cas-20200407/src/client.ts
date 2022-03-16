@@ -622,7 +622,7 @@ export class ListUserCertificateOrderRequest extends $tea.Model {
 }
 
 export class ListUserCertificateOrderResponseBody extends $tea.Model {
-  certificateOrderList?: string;
+  certificateOrderList?: ListUserCertificateOrderResponseBodyCertificateOrderList[];
   currentPage?: number;
   requestId?: string;
   showSize?: number;
@@ -639,7 +639,7 @@ export class ListUserCertificateOrderResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      certificateOrderList: 'string',
+      certificateOrderList: { 'type': 'array', 'itemType': ListUserCertificateOrderResponseBodyCertificateOrderList },
       currentPage: 'number',
       requestId: 'string',
       showSize: 'number',
@@ -732,6 +732,79 @@ export class RenewCertificateOrderForPackageRequestResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: RenewCertificateOrderForPackageRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListUserCertificateOrderResponseBodyCertificateOrderList extends $tea.Model {
+  algorithm?: string;
+  aliyunOrderId?: number;
+  buyDate?: number;
+  certEndTime?: number;
+  certStartTime?: number;
+  certType?: string;
+  domain?: string;
+  domainCount?: number;
+  domainType?: string;
+  instanceId?: string;
+  orderId?: number;
+  partnerOrderId?: string;
+  productCode?: string;
+  productName?: string;
+  rootBrand?: string;
+  sourceType?: string;
+  status?: string;
+  trusteeStatus?: string;
+  wildDomainCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      algorithm: 'Algorithm',
+      aliyunOrderId: 'AliyunOrderId',
+      buyDate: 'BuyDate',
+      certEndTime: 'CertEndTime',
+      certStartTime: 'CertStartTime',
+      certType: 'CertType',
+      domain: 'Domain',
+      domainCount: 'DomainCount',
+      domainType: 'DomainType',
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      partnerOrderId: 'PartnerOrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      rootBrand: 'RootBrand',
+      sourceType: 'SourceType',
+      status: 'Status',
+      trusteeStatus: 'TrusteeStatus',
+      wildDomainCount: 'WildDomainCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      algorithm: 'string',
+      aliyunOrderId: 'number',
+      buyDate: 'number',
+      certEndTime: 'number',
+      certStartTime: 'number',
+      certType: 'string',
+      domain: 'string',
+      domainCount: 'number',
+      domainType: 'string',
+      instanceId: 'string',
+      orderId: 'number',
+      partnerOrderId: 'string',
+      productCode: 'string',
+      productName: 'string',
+      rootBrand: 'string',
+      sourceType: 'string',
+      status: 'string',
+      trusteeStatus: 'string',
+      wildDomainCount: 'number',
     };
   }
 
