@@ -559,8 +559,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   payType?: string;
   period?: string;
   primaryDBInstanceName?: string;
+  primaryZone?: string;
   regionId?: string;
   resourceGroupId?: string;
+  secondaryZone?: string;
+  tertiaryZone?: string;
+  topologyType?: string;
   usedTime?: number;
   VPCId?: string;
   vSwitchId?: string;
@@ -577,8 +581,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
       payType: 'PayType',
       period: 'Period',
       primaryDBInstanceName: 'PrimaryDBInstanceName',
+      primaryZone: 'PrimaryZone',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
+      secondaryZone: 'SecondaryZone',
+      tertiaryZone: 'TertiaryZone',
+      topologyType: 'TopologyType',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -598,8 +606,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
       payType: 'string',
       period: 'string',
       primaryDBInstanceName: 'string',
+      primaryZone: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      secondaryZone: 'string',
+      tertiaryZone: 'string',
+      topologyType: 'string',
       usedTime: 'number',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -890,12 +902,10 @@ export class DeleteDBResponse extends $tea.Model {
 export class DeleteDBInstanceRequest extends $tea.Model {
   DBInstanceName?: string;
   regionId?: string;
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
       regionId: 'RegionId',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -903,7 +913,6 @@ export class DeleteDBInstanceRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       regionId: 'string',
-      resourceGroupId: 'string',
     };
   }
 
@@ -4480,10 +4489,12 @@ export class UpdatePolarDBXInstanceNodeResponse extends $tea.Model {
 export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
   DBInstanceName?: string;
   regionId?: string;
+  switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
       regionId: 'RegionId',
+      switchMode: 'SwitchMode',
     };
   }
 
@@ -4491,6 +4502,7 @@ export class UpgradeDBInstanceKernelVersionRequest extends $tea.Model {
     return {
       DBInstanceName: 'string',
       regionId: 'string',
+      switchMode: 'string',
     };
   }
 
@@ -5198,6 +5210,28 @@ export class DescribeDBInstanceTDEResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList extends $tea.Model {
+  azone?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      azone: 'Azone',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      azone: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp extends $tea.Model {
   connectionString?: string;
   DBInstanceNetType?: number;
@@ -5224,6 +5258,9 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
 }
 
 export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItems extends $tea.Model {
+  activated?: boolean;
+  azone?: string;
+  azoneRoleList?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList[];
   characterType?: string;
   connectionIp?: DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp[];
   DBInstanceConnType?: number;
@@ -5242,8 +5279,13 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
   maintainStartTime?: string;
   maxConnections?: number;
   maxIops?: number;
+  region?: string;
+  role?: string;
   static names(): { [key: string]: string } {
     return {
+      activated: 'Activated',
+      azone: 'Azone',
+      azoneRoleList: 'AzoneRoleList',
       characterType: 'CharacterType',
       connectionIp: 'ConnectionIp',
       DBInstanceConnType: 'DBInstanceConnType',
@@ -5262,11 +5304,16 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maintainStartTime: 'MaintainStartTime',
       maxConnections: 'MaxConnections',
       maxIops: 'MaxIops',
+      region: 'Region',
+      role: 'Role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activated: 'boolean',
+      azone: 'string',
+      azoneRoleList: { 'type': 'array', 'itemType': DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsAzoneRoleList },
       characterType: 'string',
       connectionIp: { 'type': 'array', 'itemType': DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItemsConnectionIp },
       DBInstanceConnType: 'number',
@@ -5285,6 +5332,8 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maintainStartTime: 'string',
       maxConnections: 'number',
       maxIops: 'number',
+      region: 'string',
+      role: 'string',
     };
   }
 
@@ -6875,12 +6924,28 @@ export default class Client extends OpenApi {
       query["PrimaryDBInstanceName"] = request.primaryDBInstanceName;
     }
 
+    if (!Util.isUnset(request.primaryZone)) {
+      query["PrimaryZone"] = request.primaryZone;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.secondaryZone)) {
+      query["SecondaryZone"] = request.secondaryZone;
+    }
+
+    if (!Util.isUnset(request.tertiaryZone)) {
+      query["TertiaryZone"] = request.tertiaryZone;
+    }
+
+    if (!Util.isUnset(request.topologyType)) {
+      query["TopologyType"] = request.topologyType;
     }
 
     if (!Util.isUnset(request.usedTime)) {
@@ -7057,10 +7122,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
-    }
-
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8941,6 +9002,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
     }
 
     let req = new $OpenApi.OpenApiRequest({
