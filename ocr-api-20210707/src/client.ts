@@ -629,10 +629,12 @@ export class RecognizeBusShipTicketResponse extends $tea.Model {
 
 export class RecognizeBusinessLicenseRequest extends $tea.Model {
   url?: string;
+  workflowOp?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      workflowOp: 'WorkflowOp',
       body: 'body',
     };
   }
@@ -640,6 +642,7 @@ export class RecognizeBusinessLicenseRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      workflowOp: 'string',
       body: 'Readable',
     };
   }
@@ -773,10 +776,12 @@ export class RecognizeCarInvoiceResponse extends $tea.Model {
 
 export class RecognizeCarNumberRequest extends $tea.Model {
   url?: string;
+  workflowOp?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      workflowOp: 'WorkflowOp',
       body: 'body',
     };
   }
@@ -784,6 +789,7 @@ export class RecognizeCarNumberRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      workflowOp: 'string',
       body: 'Readable',
     };
   }
@@ -2706,11 +2712,13 @@ export class RecognizeHouseholdResponse extends $tea.Model {
 export class RecognizeIdcardRequest extends $tea.Model {
   outputFigure?: boolean;
   url?: string;
+  workflowOp?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       outputFigure: 'OutputFigure',
       url: 'Url',
+      workflowOp: 'WorkflowOp',
       body: 'body',
     };
   }
@@ -2719,6 +2727,7 @@ export class RecognizeIdcardRequest extends $tea.Model {
     return {
       outputFigure: 'boolean',
       url: 'string',
+      workflowOp: 'string',
       body: 'Readable',
     };
   }
@@ -4758,10 +4767,12 @@ export class RecognizeVehicleCertificationResponse extends $tea.Model {
 
 export class RecognizeVehicleLicenseRequest extends $tea.Model {
   url?: string;
+  workflowOp?: string;
   body?: Readable;
   static names(): { [key: string]: string } {
     return {
       url: 'Url',
+      workflowOp: 'WorkflowOp',
       body: 'body',
     };
   }
@@ -4769,6 +4780,7 @@ export class RecognizeVehicleLicenseRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       url: 'string',
+      workflowOp: 'string',
       body: 'Readable',
     };
   }
@@ -5308,6 +5320,10 @@ export default class Client extends OpenApi {
       query["Url"] = request.url;
     }
 
+    if (!Util.isUnset(request.workflowOp)) {
+      query["WorkflowOp"] = request.workflowOp;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
       body: request.body,
@@ -5368,6 +5384,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.workflowOp)) {
+      query["WorkflowOp"] = request.workflowOp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -6264,6 +6284,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.workflowOp)) {
+      query["WorkflowOp"] = request.workflowOp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -7199,6 +7223,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.url)) {
       query["Url"] = request.url;
+    }
+
+    if (!Util.isUnset(request.workflowOp)) {
+      query["WorkflowOp"] = request.workflowOp;
     }
 
     let req = new $OpenApi.OpenApiRequest({
