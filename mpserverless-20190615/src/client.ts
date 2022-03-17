@@ -2870,12 +2870,14 @@ export class ListExtensionsResponse extends $tea.Model {
 }
 
 export class ListFileRequest extends $tea.Model {
+  fileId?: string;
   keyword?: string;
   pageNum?: number;
   pageSize?: number;
   spaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      fileId: 'FileId',
       keyword: 'Keyword',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -2885,6 +2887,7 @@ export class ListFileRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileId: 'string',
       keyword: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -6670,7 +6673,10 @@ export default class Client extends OpenApi {
   async checkMpServerlessRoleExistsWithOptions(request: CheckMpServerlessRoleExistsRequest, runtime: $Util.RuntimeOptions): Promise<CheckMpServerlessRoleExistsResponse> {
     Util.validateModel(request);
     let query = { };
-    query["RoleName"] = request.roleName;
+    if (!Util.isUnset(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7908,6 +7914,10 @@ export default class Client extends OpenApi {
   async listFileWithOptions(request: ListFileRequest, runtime: $Util.RuntimeOptions): Promise<ListFileResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
+    }
+
     if (!Util.isUnset(request.keyword)) {
       body["Keyword"] = request.keyword;
     }
