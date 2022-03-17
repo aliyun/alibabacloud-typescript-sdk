@@ -7838,6 +7838,78 @@ export class DescribeZonesResponse extends $tea.Model {
   }
 }
 
+export class DetachPluginRequest extends $tea.Model {
+  apiId?: string;
+  groupId?: string;
+  pluginId?: string;
+  securityToken?: string;
+  stageName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      groupId: 'GroupId',
+      pluginId: 'PluginId',
+      securityToken: 'SecurityToken',
+      stageName: 'StageName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      groupId: 'string',
+      pluginId: 'string',
+      securityToken: 'string',
+      stageName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachPluginResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachPluginResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DetachPluginResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DetachPluginResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DryRunSwaggerRequest extends $tea.Model {
   data?: string;
   dataFormat?: string;
@@ -21774,6 +21846,51 @@ export default class Client extends OpenApi {
   async describeZones(request: DescribeZonesRequest): Promise<DescribeZonesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeZonesWithOptions(request, runtime);
+  }
+
+  async detachPluginWithOptions(request: DetachPluginRequest, runtime: $Util.RuntimeOptions): Promise<DetachPluginResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.groupId)) {
+      query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.pluginId)) {
+      query["PluginId"] = request.pluginId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachPlugin",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachPluginResponse>(await this.callApi(params, req, runtime), new DetachPluginResponse({}));
+  }
+
+  async detachPlugin(request: DetachPluginRequest): Promise<DetachPluginResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachPluginWithOptions(request, runtime);
   }
 
   async dryRunSwaggerWithOptions(tmpReq: DryRunSwaggerRequest, runtime: $Util.RuntimeOptions): Promise<DryRunSwaggerResponse> {
