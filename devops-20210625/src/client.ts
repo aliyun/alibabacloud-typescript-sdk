@@ -8,6 +8,105 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddWebhookRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  description?: string;
+  enableSslVerification?: boolean;
+  mergeRequestsEvents?: boolean;
+  noteEvents?: boolean;
+  pushEvents?: boolean;
+  secretToken?: string;
+  tagPushEvents?: boolean;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      organizationId: 'OrganizationId',
+      description: 'description',
+      enableSslVerification: 'enableSslVerification',
+      mergeRequestsEvents: 'mergeRequestsEvents',
+      noteEvents: 'noteEvents',
+      pushEvents: 'pushEvents',
+      secretToken: 'secretToken',
+      tagPushEvents: 'tagPushEvents',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      description: 'string',
+      enableSslVerification: 'boolean',
+      mergeRequestsEvents: 'boolean',
+      noteEvents: 'boolean',
+      pushEvents: 'boolean',
+      secretToken: 'string',
+      tagPushEvents: 'boolean',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWebhookResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: AddWebhookResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: AddWebhookResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddWebhookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: AddWebhookResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: AddWebhookResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFlowTagRequest extends $tea.Model {
   color?: string;
   flowTagGroupId?: number;
@@ -330,6 +429,141 @@ export class CreateProjectResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: CreateProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryRequest extends $tea.Model {
+  accessToken?: string;
+  avatarUrl?: string;
+  description?: string;
+  gitignoreType?: string;
+  importAccount?: string;
+  importDemoProject?: boolean;
+  importRepoType?: string;
+  importSvnRepoConfig?: CreateRepositoryRequestImportSvnRepoConfig;
+  importToken?: string;
+  importTokenEncrypted?: string;
+  importUrl?: string;
+  initStandardService?: boolean;
+  isCryptoEnabled?: boolean;
+  localImportUrl?: string;
+  name?: string;
+  namespaceId?: number;
+  path?: string;
+  readmeType?: string;
+  visibilityLevel?: number;
+  createParentPath?: boolean;
+  organizationId?: string;
+  sync?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      avatarUrl: 'avatarUrl',
+      description: 'description',
+      gitignoreType: 'gitignoreType',
+      importAccount: 'importAccount',
+      importDemoProject: 'importDemoProject',
+      importRepoType: 'importRepoType',
+      importSvnRepoConfig: 'importSvnRepoConfig',
+      importToken: 'importToken',
+      importTokenEncrypted: 'importTokenEncrypted',
+      importUrl: 'importUrl',
+      initStandardService: 'initStandardService',
+      isCryptoEnabled: 'isCryptoEnabled',
+      localImportUrl: 'localImportUrl',
+      name: 'name',
+      namespaceId: 'namespaceId',
+      path: 'path',
+      readmeType: 'readmeType',
+      visibilityLevel: 'visibilityLevel',
+      createParentPath: 'createParentPath',
+      organizationId: 'organizationId',
+      sync: 'sync',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      avatarUrl: 'string',
+      description: 'string',
+      gitignoreType: 'string',
+      importAccount: 'string',
+      importDemoProject: 'boolean',
+      importRepoType: 'string',
+      importSvnRepoConfig: CreateRepositoryRequestImportSvnRepoConfig,
+      importToken: 'string',
+      importTokenEncrypted: 'string',
+      importUrl: 'string',
+      initStandardService: 'boolean',
+      isCryptoEnabled: 'boolean',
+      localImportUrl: 'string',
+      name: 'string',
+      namespaceId: 'number',
+      path: 'string',
+      readmeType: 'string',
+      visibilityLevel: 'number',
+      createParentPath: 'boolean',
+      organizationId: 'string',
+      sync: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: CreateRepositoryResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: CreateRepositoryResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: CreateRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: CreateRepositoryResponseBody,
     };
   }
 
@@ -1251,6 +1485,78 @@ export class FrozenWorkspaceResponse extends $tea.Model {
   }
 }
 
+export class GetCodeupOrganizationRequest extends $tea.Model {
+  accessToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCodeupOrganizationResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetCodeupOrganizationResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetCodeupOrganizationResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCodeupOrganizationResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetCodeupOrganizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetCodeupOrganizationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomFieldOptionRequest extends $tea.Model {
   spaceIdentifier?: string;
   spaceType?: string;
@@ -1321,6 +1627,87 @@ export class GetCustomFieldOptionResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetCustomFieldOptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileLastCommitRequest extends $tea.Model {
+  accessToken?: string;
+  filepath?: string;
+  organizationId?: string;
+  sha?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      filepath: 'filepath',
+      organizationId: 'organizationId',
+      sha: 'sha',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      filepath: 'string',
+      organizationId: 'string',
+      sha: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileLastCommitResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetFileLastCommitResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetFileLastCommitResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileLastCommitResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetFileLastCommitResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetFileLastCommitResponseBody,
     };
   }
 
@@ -1858,6 +2245,165 @@ export class GetProjectInfoResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: GetProjectInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  repositoryId?: number;
+  userAliyunPk?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      organizationId: 'OrganizationId',
+      repositoryId: 'repositoryId',
+      userAliyunPk: 'userAliyunPk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      repositoryId: 'number',
+      userAliyunPk: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: GetProjectMemberResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: GetProjectMemberResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetProjectMemberResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetProjectMemberResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryRequest extends $tea.Model {
+  accessToken?: string;
+  identity?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      identity: 'identity',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      identity: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  repository?: GetRepositoryResponseBodyRepository;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      repository: 'repository',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      repository: GetRepositoryResponseBodyRepository,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: GetRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: GetRepositoryResponseBody,
     };
   }
 
@@ -3174,6 +3720,261 @@ export class ListProjectsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: ListProjectsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoriesRequest extends $tea.Model {
+  accessToken?: string;
+  archived?: boolean;
+  orderBy?: string;
+  organizationId?: string;
+  page?: number;
+  perPage?: number;
+  search?: string;
+  sort?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      archived: 'archived',
+      orderBy: 'orderBy',
+      organizationId: 'organizationId',
+      page: 'page',
+      perPage: 'perPage',
+      search: 'search',
+      sort: 'sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      archived: 'boolean',
+      orderBy: 'string',
+      organizationId: 'string',
+      page: 'number',
+      perPage: 'number',
+      search: 'string',
+      sort: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoriesResponseBody extends $tea.Model {
+  errorCode?: number;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoriesResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'number',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoriesResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoriesResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRepositoriesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRepositoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryMemberWithInheritedRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryMemberWithInheritedResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoryMemberWithInheritedResponseBodyResult[];
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoryMemberWithInheritedResponseBodyResult },
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryMemberWithInheritedResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRepositoryMemberWithInheritedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRepositoryMemberWithInheritedResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryWebhookRequest extends $tea.Model {
+  accessToken?: string;
+  organizationId?: string;
+  page?: number;
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      organizationId: 'organizationId',
+      page: 'page',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      organizationId: 'string',
+      page: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryWebhookResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: ListRepositoryWebhookResponseBodyResult[];
+  success?: boolean;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListRepositoryWebhookResponseBodyResult },
+      success: 'boolean',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryWebhookResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: ListRepositoryWebhookResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: ListRepositoryWebhookResponseBody,
     };
   }
 
@@ -4635,6 +5436,87 @@ export class StopVMDeployOrderResponse extends $tea.Model {
   }
 }
 
+export class TriggerRepositoryMirrorSyncRequest extends $tea.Model {
+  accessToken?: string;
+  account?: string;
+  organizationId?: string;
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'accessToken',
+      account: 'account',
+      organizationId: 'organizationId',
+      token: 'token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      account: 'string',
+      organizationId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerRepositoryMirrorSyncResponseBody extends $tea.Model {
+  errorCode?: string;
+  errorMessage?: string;
+  requestId?: string;
+  result?: TriggerRepositoryMirrorSyncResponseBodyResult;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      result: 'result',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: TriggerRepositoryMirrorSyncResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerRepositoryMirrorSyncResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: TriggerRepositoryMirrorSyncResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: TriggerRepositoryMirrorSyncResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateFlowTagRequest extends $tea.Model {
   color?: string;
   flowTagGroupId?: number;
@@ -5259,6 +6141,64 @@ export class UpdateWorkItemResponse extends $tea.Model {
   }
 }
 
+export class AddWebhookResponseBodyResult extends $tea.Model {
+  enableSslVerification?: boolean;
+  buildEvents?: boolean;
+  createdAt?: string;
+  description?: string;
+  id?: number;
+  issuesEvents?: boolean;
+  lastTestResult?: string;
+  mergeRequestsEvents?: boolean;
+  noteEvents?: boolean;
+  pushEvents?: boolean;
+  repositoryId?: number;
+  secretToken?: string;
+  tagPushEvents?: boolean;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableSslVerification: 'EnableSslVerification',
+      buildEvents: 'buildEvents',
+      createdAt: 'createdAt',
+      description: 'description',
+      id: 'id',
+      issuesEvents: 'issuesEvents',
+      lastTestResult: 'lastTestResult',
+      mergeRequestsEvents: 'mergeRequestsEvents',
+      noteEvents: 'noteEvents',
+      pushEvents: 'pushEvents',
+      repositoryId: 'repositoryId',
+      secretToken: 'secretToken',
+      tagPushEvents: 'tagPushEvents',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSslVerification: 'boolean',
+      buildEvents: 'boolean',
+      createdAt: 'string',
+      description: 'string',
+      id: 'number',
+      issuesEvents: 'boolean',
+      lastTestResult: 'string',
+      mergeRequestsEvents: 'boolean',
+      noteEvents: 'boolean',
+      pushEvents: 'boolean',
+      repositoryId: 'number',
+      secretToken: 'string',
+      tagPushEvents: 'boolean',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectResponseBodyProject extends $tea.Model {
   categoryIdentifier?: string;
   creator?: string;
@@ -5315,6 +6255,177 @@ export class CreateProjectResponseBodyProject extends $tea.Model {
       statusIdentifier: 'string',
       statusStageIdentifier: 'string',
       typeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryRequestImportSvnRepoConfig extends $tea.Model {
+  authorMapping?: string;
+  branchMapping?: string;
+  noBranches?: boolean;
+  noTags?: boolean;
+  password?: string;
+  path?: string;
+  rootIsTrunk?: boolean;
+  standardLayout?: boolean;
+  svnImportUrl?: string;
+  tagMapping?: string;
+  trunkMapping?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorMapping: 'authorMapping',
+      branchMapping: 'branchMapping',
+      noBranches: 'noBranches',
+      noTags: 'noTags',
+      password: 'password',
+      path: 'path',
+      rootIsTrunk: 'rootIsTrunk',
+      standardLayout: 'standardLayout',
+      svnImportUrl: 'svnImportUrl',
+      tagMapping: 'tagMapping',
+      trunkMapping: 'trunkMapping',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorMapping: 'string',
+      branchMapping: 'string',
+      noBranches: 'boolean',
+      noTags: 'boolean',
+      password: 'string',
+      path: 'string',
+      rootIsTrunk: 'boolean',
+      standardLayout: 'boolean',
+      svnImportUrl: 'string',
+      tagMapping: 'string',
+      trunkMapping: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponseBodyResultNamespace extends $tea.Model {
+  avatar?: string;
+  createdAt?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  ownerId?: number;
+  path?: string;
+  public?: boolean;
+  updatedAt?: string;
+  visibilityLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      createdAt: 'createdAt',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      ownerId: 'ownerId',
+      path: 'path',
+      public: 'public',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      createdAt: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      ownerId: 'number',
+      path: 'string',
+      public: 'boolean',
+      updatedAt: 'string',
+      visibilityLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRepositoryResponseBodyResult extends $tea.Model {
+  importFromSvn?: boolean;
+  archived?: boolean;
+  avatarUrl?: string;
+  createdAt?: string;
+  creatorId?: number;
+  defaultBranch?: string;
+  demoProject?: boolean;
+  description?: string;
+  httpUrlToRepo?: string;
+  id?: number;
+  lastActivityAt?: string;
+  name?: string;
+  nameWithNamespace?: string;
+  namespace?: CreateRepositoryResponseBodyResultNamespace;
+  path?: string;
+  pathWithNamespace?: string;
+  sshUrlToRepo?: string;
+  visibilityLevel?: string;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      importFromSvn: 'Import_from_svn',
+      archived: 'archived',
+      avatarUrl: 'avatar_url',
+      createdAt: 'createdAt',
+      creatorId: 'creatorId',
+      defaultBranch: 'defaultBranch',
+      demoProject: 'demoProject',
+      description: 'description',
+      httpUrlToRepo: 'httpUrlToRepo',
+      id: 'id',
+      lastActivityAt: 'lastActivityAt',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespace: 'namespace',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      sshUrlToRepo: 'sshUrlToRepo',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      importFromSvn: 'boolean',
+      archived: 'boolean',
+      avatarUrl: 'string',
+      createdAt: 'string',
+      creatorId: 'number',
+      defaultBranch: 'string',
+      demoProject: 'boolean',
+      description: 'string',
+      httpUrlToRepo: 'string',
+      id: 'number',
+      lastActivityAt: 'string',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespace: CreateRepositoryResponseBodyResultNamespace,
+      path: 'string',
+      pathWithNamespace: 'string',
+      sshUrlToRepo: 'string',
+      visibilityLevel: 'string',
+      webUrl: 'string',
     };
   }
 
@@ -5532,6 +6643,43 @@ export class CreateWorkspaceResponseBodyWorkspace extends $tea.Model {
   }
 }
 
+export class GetCodeupOrganizationResponseBodyResult extends $tea.Model {
+  createdAt?: string;
+  id?: number;
+  namespaceId?: number;
+  organizationId?: string;
+  path?: string;
+  updatedAt?: string;
+  userRole?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'CreatedAt',
+      id: 'Id',
+      namespaceId: 'NamespaceId',
+      organizationId: 'OrganizationId',
+      path: 'Path',
+      updatedAt: 'UpdatedAt',
+      userRole: 'UserRole',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      id: 'number',
+      namespaceId: 'number',
+      organizationId: 'string',
+      path: 'string',
+      updatedAt: 'string',
+      userRole: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomFieldOptionResponseBodyFileds extends $tea.Model {
   displayValue?: string;
   fieldIdentifier?: string;
@@ -5561,6 +6709,83 @@ export class GetCustomFieldOptionResponseBodyFileds extends $tea.Model {
       position: 'number',
       value: 'string',
       valueEn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileLastCommitResponseBodyResultSignature extends $tea.Model {
+  gpgKeyId?: string;
+  verificationStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gpgKeyId: 'GpgKeyId',
+      verificationStatus: 'VerificationStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gpgKeyId: 'string',
+      verificationStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetFileLastCommitResponseBodyResult extends $tea.Model {
+  authorDate?: string;
+  authorEmail?: string;
+  authorName?: string;
+  committedDate?: string;
+  committerEmail?: string;
+  committerName?: string;
+  createdAt?: string;
+  id?: string;
+  message?: string;
+  parentIds?: string[];
+  shortId?: string;
+  signature?: GetFileLastCommitResponseBodyResultSignature;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorDate: 'AuthorDate',
+      authorEmail: 'AuthorEmail',
+      authorName: 'AuthorName',
+      committedDate: 'CommittedDate',
+      committerEmail: 'CommitterEmail',
+      committerName: 'CommitterName',
+      createdAt: 'CreatedAt',
+      id: 'Id',
+      message: 'Message',
+      parentIds: 'ParentIds',
+      shortId: 'ShortId',
+      signature: 'Signature',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorDate: 'string',
+      authorEmail: 'string',
+      authorName: 'string',
+      committedDate: 'string',
+      committerEmail: 'string',
+      committerName: 'string',
+      createdAt: 'string',
+      id: 'string',
+      message: 'string',
+      parentIds: { 'type': 'array', 'itemType': 'string' },
+      shortId: 'string',
+      signature: GetFileLastCommitResponseBodyResultSignature,
+      title: 'string',
     };
   }
 
@@ -6288,6 +7513,150 @@ export class GetProjectInfoResponseBodyProject extends $tea.Model {
       statusStageIdentifier: 'string',
       subType: 'string',
       typeIdentifier: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetProjectMemberResponseBodyResult extends $tea.Model {
+  accessLevel?: number;
+  avatarUrl?: string;
+  externUserId?: string;
+  id?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      avatarUrl: 'avatarUrl',
+      externUserId: 'externUserId',
+      id: 'id',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      avatarUrl: 'string',
+      externUserId: 'string',
+      id: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponseBodyRepositoryNamespace extends $tea.Model {
+  avatar?: string;
+  createdAt?: string;
+  description?: string;
+  id?: number;
+  name?: string;
+  ownerId?: number;
+  path?: string;
+  updatedAt?: string;
+  visibilityLevel?: number;
+  static names(): { [key: string]: string } {
+    return {
+      avatar: 'avatar',
+      createdAt: 'createdAt',
+      description: 'description',
+      id: 'id',
+      name: 'name',
+      ownerId: 'ownerId',
+      path: 'path',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avatar: 'string',
+      createdAt: 'string',
+      description: 'string',
+      id: 'number',
+      name: 'string',
+      ownerId: 'number',
+      path: 'string',
+      updatedAt: 'string',
+      visibilityLevel: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetRepositoryResponseBodyRepository extends $tea.Model {
+  archive?: boolean;
+  avatarUrl?: string;
+  createdAt?: string;
+  creatorId?: number;
+  defaultBranch?: string;
+  demoProjectStatus?: boolean;
+  description?: string;
+  httpUrlToRepository?: string;
+  id?: number;
+  lastActivityAt?: string;
+  name?: string;
+  nameWithNamespace?: string;
+  namespace?: GetRepositoryResponseBodyRepositoryNamespace;
+  path?: string;
+  pathWithNamespace?: string;
+  sshUrlToRepository?: string;
+  visibilityLevel?: number;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      archive: 'archive',
+      avatarUrl: 'avatarUrl',
+      createdAt: 'createdAt',
+      creatorId: 'creatorId',
+      defaultBranch: 'defaultBranch',
+      demoProjectStatus: 'demoProjectStatus',
+      description: 'description',
+      httpUrlToRepository: 'httpUrlToRepository',
+      id: 'id',
+      lastActivityAt: 'lastActivityAt',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespace: 'namespace',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      sshUrlToRepository: 'sshUrlToRepository',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archive: 'boolean',
+      avatarUrl: 'string',
+      createdAt: 'string',
+      creatorId: 'number',
+      defaultBranch: 'string',
+      demoProjectStatus: 'boolean',
+      description: 'string',
+      httpUrlToRepository: 'string',
+      id: 'number',
+      lastActivityAt: 'string',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespace: GetRepositoryResponseBodyRepositoryNamespace,
+      path: 'string',
+      pathWithNamespace: 'string',
+      sshUrlToRepository: 'string',
+      visibilityLevel: 'number',
+      webUrl: 'string',
     };
   }
 
@@ -7597,6 +8966,208 @@ export class ListProjectsResponseBodyProjects extends $tea.Model {
   }
 }
 
+export class ListRepositoriesResponseBodyResult extends $tea.Model {
+  id?: number;
+  accessLevel?: number;
+  archive?: boolean;
+  avatarUrl?: string;
+  createdAt?: string;
+  description?: string;
+  importStatus?: string;
+  lastActivityAt?: string;
+  name?: string;
+  nameWithNamespace?: string;
+  namespaceId?: number;
+  path?: string;
+  pathWithNamespace?: string;
+  star?: boolean;
+  starCount?: number;
+  updatedAt?: string;
+  visibilityLevel?: string;
+  webUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      accessLevel: 'accessLevel',
+      archive: 'archive',
+      avatarUrl: 'avatarUrl',
+      createdAt: 'createdAt',
+      description: 'description',
+      importStatus: 'importStatus',
+      lastActivityAt: 'lastActivityAt',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      namespaceId: 'namespaceId',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      star: 'star',
+      starCount: 'starCount',
+      updatedAt: 'updatedAt',
+      visibilityLevel: 'visibilityLevel',
+      webUrl: 'webUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      accessLevel: 'number',
+      archive: 'boolean',
+      avatarUrl: 'string',
+      createdAt: 'string',
+      description: 'string',
+      importStatus: 'string',
+      lastActivityAt: 'string',
+      name: 'string',
+      nameWithNamespace: 'string',
+      namespaceId: 'number',
+      path: 'string',
+      pathWithNamespace: 'string',
+      star: 'boolean',
+      starCount: 'number',
+      updatedAt: 'string',
+      visibilityLevel: 'string',
+      webUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryMemberWithInheritedResponseBodyResultInherited extends $tea.Model {
+  id?: number;
+  name?: string;
+  nameWithNamespace?: string;
+  path?: string;
+  pathWithNamespace?: string;
+  type?: string;
+  visibilityLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'id',
+      name: 'name',
+      nameWithNamespace: 'nameWithNamespace',
+      path: 'path',
+      pathWithNamespace: 'pathWithNamespace',
+      type: 'type',
+      visibilityLevel: 'visibilityLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      name: 'string',
+      nameWithNamespace: 'string',
+      path: 'string',
+      pathWithNamespace: 'string',
+      type: 'string',
+      visibilityLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryMemberWithInheritedResponseBodyResult extends $tea.Model {
+  accessLevel?: number;
+  avatarUrl?: string;
+  email?: string;
+  externUserId?: string;
+  id?: number;
+  inherited?: ListRepositoryMemberWithInheritedResponseBodyResultInherited;
+  name?: string;
+  state?: string;
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessLevel: 'accessLevel',
+      avatarUrl: 'avatarUrl',
+      email: 'email',
+      externUserId: 'externUserId',
+      id: 'id',
+      inherited: 'inherited',
+      name: 'name',
+      state: 'state',
+      username: 'username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessLevel: 'number',
+      avatarUrl: 'string',
+      email: 'string',
+      externUserId: 'string',
+      id: 'number',
+      inherited: ListRepositoryMemberWithInheritedResponseBodyResultInherited,
+      name: 'string',
+      state: 'string',
+      username: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRepositoryWebhookResponseBodyResult extends $tea.Model {
+  createdAt?: string;
+  description?: string;
+  enableSslVerification?: boolean;
+  id?: number;
+  lastTestResult?: string;
+  mergeRequestsEvents?: boolean;
+  noteEvents?: boolean;
+  projectId?: number;
+  pushEvents?: boolean;
+  secretToken?: string;
+  tagPushEvents?: boolean;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdAt: 'createdAt',
+      description: 'description',
+      enableSslVerification: 'enableSslVerification',
+      id: 'id',
+      lastTestResult: 'lastTestResult',
+      mergeRequestsEvents: 'mergeRequestsEvents',
+      noteEvents: 'noteEvents',
+      projectId: 'projectId',
+      pushEvents: 'pushEvents',
+      secretToken: 'secretToken',
+      tagPushEvents: 'tagPushEvents',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdAt: 'string',
+      description: 'string',
+      enableSslVerification: 'boolean',
+      id: 'number',
+      lastTestResult: 'string',
+      mergeRequestsEvents: 'boolean',
+      noteEvents: 'boolean',
+      projectId: 'number',
+      pushEvents: 'boolean',
+      secretToken: 'string',
+      tagPushEvents: 'boolean',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListResourceMembersResponseBodyResourceMembers extends $tea.Model {
   accountId?: string;
   roleName?: string;
@@ -8142,6 +9713,25 @@ export class ResetSshKeyResponseBodySshKey extends $tea.Model {
   }
 }
 
+export class TriggerRepositoryMirrorSyncResponseBodyResult extends $tea.Model {
+  result?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      result: 'result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateProjectMemberResponseBodyMember extends $tea.Model {
   gmtCreate?: number;
   gmtModified?: number;
@@ -8279,6 +9869,76 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  async addWebhook(repositoryId: string, request: AddWebhookRequest): Promise<AddWebhookResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addWebhookWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async addWebhookWithOptions(repositoryId: string, request: AddWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddWebhookResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enableSslVerification)) {
+      body["enableSslVerification"] = request.enableSslVerification;
+    }
+
+    if (!Util.isUnset(request.mergeRequestsEvents)) {
+      body["mergeRequestsEvents"] = request.mergeRequestsEvents;
+    }
+
+    if (!Util.isUnset(request.noteEvents)) {
+      body["noteEvents"] = request.noteEvents;
+    }
+
+    if (!Util.isUnset(request.pushEvents)) {
+      body["pushEvents"] = request.pushEvents;
+    }
+
+    if (!Util.isUnset(request.secretToken)) {
+      body["secretToken"] = request.secretToken;
+    }
+
+    if (!Util.isUnset(request.tagPushEvents)) {
+      body["tagPushEvents"] = request.tagPushEvents;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddWebhook",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/webhooks/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddWebhookResponse>(await this.callApi(params, req, runtime), new AddWebhookResponse({}));
   }
 
   async createFlowTag(organizationId: string, request: CreateFlowTagRequest): Promise<CreateFlowTagResponse> {
@@ -8463,6 +10123,123 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<CreateProjectResponse>(await this.callApi(params, req, runtime), new CreateProjectResponse({}));
+  }
+
+  async createRepository(request: CreateRepositoryRequest): Promise<CreateRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRepositoryWithOptions(request, headers, runtime);
+  }
+
+  async createRepositoryWithOptions(request: CreateRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateRepositoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.createParentPath)) {
+      query["createParentPath"] = request.createParentPath;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.sync)) {
+      query["sync"] = request.sync;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.avatarUrl)) {
+      body["avatarUrl"] = request.avatarUrl;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.gitignoreType)) {
+      body["gitignoreType"] = request.gitignoreType;
+    }
+
+    if (!Util.isUnset(request.importAccount)) {
+      body["importAccount"] = request.importAccount;
+    }
+
+    if (!Util.isUnset(request.importDemoProject)) {
+      body["importDemoProject"] = request.importDemoProject;
+    }
+
+    if (!Util.isUnset(request.importRepoType)) {
+      body["importRepoType"] = request.importRepoType;
+    }
+
+    if (!Util.isUnset($tea.toMap(request.importSvnRepoConfig))) {
+      body["importSvnRepoConfig"] = request.importSvnRepoConfig;
+    }
+
+    if (!Util.isUnset(request.importToken)) {
+      body["importToken"] = request.importToken;
+    }
+
+    if (!Util.isUnset(request.importTokenEncrypted)) {
+      body["importTokenEncrypted"] = request.importTokenEncrypted;
+    }
+
+    if (!Util.isUnset(request.importUrl)) {
+      body["importUrl"] = request.importUrl;
+    }
+
+    if (!Util.isUnset(request.initStandardService)) {
+      body["initStandardService"] = request.initStandardService;
+    }
+
+    if (!Util.isUnset(request.isCryptoEnabled)) {
+      body["isCryptoEnabled"] = request.isCryptoEnabled;
+    }
+
+    if (!Util.isUnset(request.localImportUrl)) {
+      body["localImportUrl"] = request.localImportUrl;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.namespaceId)) {
+      body["namespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      body["path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.readmeType)) {
+      body["readmeType"] = request.readmeType;
+    }
+
+    if (!Util.isUnset(request.visibilityLevel)) {
+      body["visibilityLevel"] = request.visibilityLevel;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRepository",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRepositoryResponse>(await this.callApi(params, req, runtime), new CreateRepositoryResponse({}));
   }
 
   async createResourceMember(organizationId: string, resourceType: string, resourceId: string, request: CreateResourceMemberRequest): Promise<CreateResourceMemberResponse> {
@@ -8974,6 +10751,38 @@ export default class Client extends OpenApi {
     return $tea.cast<FrozenWorkspaceResponse>(await this.callApi(params, req, runtime), new FrozenWorkspaceResponse({}));
   }
 
+  async getCodeupOrganization(identity: string, request: GetCodeupOrganizationRequest): Promise<GetCodeupOrganizationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getCodeupOrganizationWithOptions(identity, request, headers, runtime);
+  }
+
+  async getCodeupOrganizationWithOptions(identity: string, request: GetCodeupOrganizationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetCodeupOrganizationResponse> {
+    Util.validateModel(request);
+    identity = OpenApiUtil.getEncodeParam(identity);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCodeupOrganization",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/api/organization/${identity}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCodeupOrganizationResponse>(await this.callApi(params, req, runtime), new GetCodeupOrganizationResponse({}));
+  }
+
   async getCustomFieldOption(organizationId: string, fieldId: string, request: GetCustomFieldOptionRequest): Promise<GetCustomFieldOptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -9013,6 +10822,50 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetCustomFieldOptionResponse>(await this.callApi(params, req, runtime), new GetCustomFieldOptionResponse({}));
+  }
+
+  async getFileLastCommit(repositoryId: string, request: GetFileLastCommitRequest): Promise<GetFileLastCommitResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFileLastCommitWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async getFileLastCommitWithOptions(repositoryId: string, request: GetFileLastCommitRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetFileLastCommitResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.filepath)) {
+      query["filepath"] = request.filepath;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.sha)) {
+      query["sha"] = request.sha;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetFileLastCommit",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/files/lastCommit`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetFileLastCommitResponse>(await this.callApi(params, req, runtime), new GetFileLastCommitResponse({}));
   }
 
   async getFlowTagGroup(organizationId: string, id: string): Promise<GetFlowTagGroupResponse> {
@@ -9274,6 +11127,88 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<GetProjectInfoResponse>(await this.callApi(params, req, runtime), new GetProjectInfoResponse({}));
+  }
+
+  async getProjectMember(request: GetProjectMemberRequest): Promise<GetProjectMemberResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getProjectMemberWithOptions(request, headers, runtime);
+  }
+
+  async getProjectMemberWithOptions(request: GetProjectMemberRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetProjectMemberResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["AccessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["OrganizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.repositoryId)) {
+      query["repositoryId"] = request.repositoryId;
+    }
+
+    if (!Util.isUnset(request.userAliyunPk)) {
+      query["userAliyunPk"] = request.userAliyunPk;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetProjectMember",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/member/get`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetProjectMemberResponse>(await this.callApi(params, req, runtime), new GetProjectMemberResponse({}));
+  }
+
+  async getRepository(request: GetRepositoryRequest): Promise<GetRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRepositoryWithOptions(request, headers, runtime);
+  }
+
+  async getRepositoryWithOptions(request: GetRepositoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetRepositoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.identity)) {
+      query["identity"] = request.identity;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetRepository",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/get`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetRepositoryResponse>(await this.callApi(params, req, runtime), new GetRepositoryResponse({}));
   }
 
   async getSprintInfo(organizationId: string, sprintId: string): Promise<GetSprintInfoResponse> {
@@ -9965,6 +11900,145 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<ListProjectsResponse>(await this.callApi(params, req, runtime), new ListProjectsResponse({}));
+  }
+
+  async listRepositories(request: ListRepositoriesRequest): Promise<ListRepositoriesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoriesWithOptions(request, headers, runtime);
+  }
+
+  async listRepositoriesWithOptions(request: ListRepositoriesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoriesResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.archived)) {
+      query["archived"] = request.archived;
+    }
+
+    if (!Util.isUnset(request.orderBy)) {
+      query["orderBy"] = request.orderBy;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.perPage)) {
+      query["perPage"] = request.perPage;
+    }
+
+    if (!Util.isUnset(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.sort)) {
+      query["sort"] = request.sort;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositories",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoriesResponse>(await this.callApi(params, req, runtime), new ListRepositoriesResponse({}));
+  }
+
+  async listRepositoryMemberWithInherited(repositoryId: string, request: ListRepositoryMemberWithInheritedRequest): Promise<ListRepositoryMemberWithInheritedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoryMemberWithInheritedWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listRepositoryMemberWithInheritedWithOptions(repositoryId: string, request: ListRepositoryMemberWithInheritedRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryMemberWithInheritedResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositoryMemberWithInherited",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/members/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryMemberWithInheritedResponse>(await this.callApi(params, req, runtime), new ListRepositoryMemberWithInheritedResponse({}));
+  }
+
+  async listRepositoryWebhook(repositoryId: string, request: ListRepositoryWebhookRequest): Promise<ListRepositoryWebhookResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRepositoryWebhookWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async listRepositoryWebhookWithOptions(repositoryId: string, request: ListRepositoryWebhookRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListRepositoryWebhookResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRepositoryWebhook",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/webhooks/list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRepositoryWebhookResponse>(await this.callApi(params, req, runtime), new ListRepositoryWebhookResponse({}));
   }
 
   async listResourceMembers(organizationId: string, resourceType: string, resourceId: string): Promise<ListResourceMembersResponse> {
@@ -10713,6 +12787,50 @@ export default class Client extends OpenApi {
       bodyType: "json",
     });
     return $tea.cast<StopVMDeployOrderResponse>(await this.callApi(params, req, runtime), new StopVMDeployOrderResponse({}));
+  }
+
+  async triggerRepositoryMirrorSync(repositoryId: string, request: TriggerRepositoryMirrorSyncRequest): Promise<TriggerRepositoryMirrorSyncResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.triggerRepositoryMirrorSyncWithOptions(repositoryId, request, headers, runtime);
+  }
+
+  async triggerRepositoryMirrorSyncWithOptions(repositoryId: string, request: TriggerRepositoryMirrorSyncRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<TriggerRepositoryMirrorSyncResponse> {
+    Util.validateModel(request);
+    repositoryId = OpenApiUtil.getEncodeParam(repositoryId);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.accessToken)) {
+      query["accessToken"] = request.accessToken;
+    }
+
+    if (!Util.isUnset(request.account)) {
+      query["account"] = request.account;
+    }
+
+    if (!Util.isUnset(request.organizationId)) {
+      query["organizationId"] = request.organizationId;
+    }
+
+    if (!Util.isUnset(request.token)) {
+      query["token"] = request.token;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TriggerRepositoryMirrorSync",
+      version: "2021-06-25",
+      protocol: "HTTPS",
+      pathname: `/repository/${repositoryId}/mirror`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<TriggerRepositoryMirrorSyncResponse>(await this.callApi(params, req, runtime), new TriggerRepositoryMirrorSyncResponse({}));
   }
 
   async updateFlowTag(organizationId: string, id: string, request: UpdateFlowTagRequest): Promise<UpdateFlowTagResponse> {
