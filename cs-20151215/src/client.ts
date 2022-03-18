@@ -2428,6 +2428,7 @@ export class DescribeClustersV1Request extends $tea.Model {
   pageNumber?: number;
   pageSize?: number;
   profile?: string;
+  regionId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterSpec: 'cluster_spec',
@@ -2436,6 +2437,7 @@ export class DescribeClustersV1Request extends $tea.Model {
       pageNumber: 'page_number',
       pageSize: 'page_size',
       profile: 'profile',
+      regionId: 'region_id',
     };
   }
 
@@ -2447,6 +2449,7 @@ export class DescribeClustersV1Request extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       profile: 'string',
+      regionId: 'string',
     };
   }
 
@@ -5751,7 +5754,6 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
   ID?: number;
   clusterId?: string;
   clusterLog?: string;
-  logLevel?: string;
   created?: string;
   updated?: string;
   static names(): { [key: string]: string } {
@@ -5759,7 +5761,6 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
       ID: 'ID',
       clusterId: 'cluster_id',
       clusterLog: 'cluster_log',
-      logLevel: 'log_level',
       created: 'created',
       updated: 'updated',
     };
@@ -5770,7 +5771,6 @@ export class DescribeClusterLogsResponseBody extends $tea.Model {
       ID: 'number',
       clusterId: 'string',
       clusterLog: 'string',
-      logLevel: 'string',
       created: 'string',
       updated: 'string',
     };
@@ -10245,6 +10245,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.profile)) {
       query["profile"] = request.profile;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["region_id"] = request.regionId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
