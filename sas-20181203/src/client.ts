@@ -5197,252 +5197,6 @@ export class DescribeInstanceStatisticsResponse extends $tea.Model {
   }
 }
 
-export class DescribeIpInfoRequest extends $tea.Model {
-  field?: string;
-  ip?: string;
-  static names(): { [key: string]: string } {
-    return {
-      field: 'Field',
-      ip: 'Ip',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      field: 'string',
-      ip: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIpInfoResponseBody extends $tea.Model {
-  requestId?: string;
-  c2DayTrace?: string;
-  city?: string;
-  country?: string;
-  dayCnt30dTor?: string;
-  dayCnt30dWebAttack?: string;
-  dayCnt7dTor?: string;
-  dayCnt7dWebAttack?: string;
-  geo?: string;
-  gmtFirstC2?: string;
-  gmtFirstMiningPool?: string;
-  gmtLastC2?: string;
-  gmtLastMaliciousLogin?: string;
-  gmtLastMaliciousSource?: string;
-  gmtLastMiningPool?: string;
-  gmtLastNat?: string;
-  gmtLastProxy?: string;
-  gmtLastTor?: string;
-  gmtLastWebAttack?: string;
-  idcName?: string;
-  ip?: string;
-  isC2?: string;
-  isC21d?: string;
-  isC27d?: string;
-  isIdc?: string;
-  isMaliciousLogin?: string;
-  isMaliciousLogin1d?: string;
-  isMaliciousLogin7d?: string;
-  isMaliciousSource?: string;
-  isMaliciousSource1d?: string;
-  isMaliciousSource30d?: string;
-  isMaliciousSource7d?: string;
-  isMiningPool?: string;
-  isMiningPool1d?: string;
-  isMiningPool7d?: string;
-  isNat?: string;
-  isNat1d?: string;
-  isNat7d?: string;
-  isProxy?: string;
-  isProxy1d?: string;
-  isProxy7d?: string;
-  isTor?: string;
-  isTor1d?: string;
-  isTor7d?: string;
-  isWebAttack?: string;
-  isWebAttack1d?: string;
-  isWebAttack30d?: string;
-  isWebAttack7d?: string;
-  isp?: string;
-  maliciousLoginDayTrace?: string;
-  maliciousScore?: string;
-  maliciousSourceDayTrace?: string;
-  miningPoolDayTrace?: string;
-  natDayTrace?: string;
-  province?: string;
-  proxyDayTrace?: string;
-  rdns?: string;
-  tags?: string;
-  torDayTrace?: string;
-  totalDayCntTor?: string;
-  totalDayCntWebAttack?: string;
-  webAttackDayTrace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      c2DayTrace: 'c2_day_trace',
-      city: 'city',
-      country: 'country',
-      dayCnt30dTor: 'day_cnt_30d_tor',
-      dayCnt30dWebAttack: 'day_cnt_30d_web_attack',
-      dayCnt7dTor: 'day_cnt_7d_tor',
-      dayCnt7dWebAttack: 'day_cnt_7d_web_attack',
-      geo: 'geo',
-      gmtFirstC2: 'gmt_first_c2',
-      gmtFirstMiningPool: 'gmt_first_mining_pool',
-      gmtLastC2: 'gmt_last_c2',
-      gmtLastMaliciousLogin: 'gmt_last_malicious_login',
-      gmtLastMaliciousSource: 'gmt_last_malicious_source',
-      gmtLastMiningPool: 'gmt_last_mining_pool',
-      gmtLastNat: 'gmt_last_nat',
-      gmtLastProxy: 'gmt_last_proxy',
-      gmtLastTor: 'gmt_last_tor',
-      gmtLastWebAttack: 'gmt_last_web_attack',
-      idcName: 'idc_name',
-      ip: 'ip',
-      isC2: 'is_c2',
-      isC21d: 'is_c2_1d',
-      isC27d: 'is_c2_7d',
-      isIdc: 'is_idc',
-      isMaliciousLogin: 'is_malicious_login',
-      isMaliciousLogin1d: 'is_malicious_login_1d',
-      isMaliciousLogin7d: 'is_malicious_login_7d',
-      isMaliciousSource: 'is_malicious_source',
-      isMaliciousSource1d: 'is_malicious_source_1d',
-      isMaliciousSource30d: 'is_malicious_source_30d',
-      isMaliciousSource7d: 'is_malicious_source_7d',
-      isMiningPool: 'is_mining_pool',
-      isMiningPool1d: 'is_mining_pool_1d',
-      isMiningPool7d: 'is_mining_pool_7d',
-      isNat: 'is_nat',
-      isNat1d: 'is_nat_1d',
-      isNat7d: 'is_nat_7d',
-      isProxy: 'is_proxy',
-      isProxy1d: 'is_proxy_1d',
-      isProxy7d: 'is_proxy_7d',
-      isTor: 'is_tor',
-      isTor1d: 'is_tor_1d',
-      isTor7d: 'is_tor_7d',
-      isWebAttack: 'is_web_attack',
-      isWebAttack1d: 'is_web_attack_1d',
-      isWebAttack30d: 'is_web_attack_30d',
-      isWebAttack7d: 'is_web_attack_7d',
-      isp: 'isp',
-      maliciousLoginDayTrace: 'malicious_login_day_trace',
-      maliciousScore: 'malicious_score',
-      maliciousSourceDayTrace: 'malicious_source_day_trace',
-      miningPoolDayTrace: 'mining_pool_day_trace',
-      natDayTrace: 'nat_day_trace',
-      province: 'province',
-      proxyDayTrace: 'proxy_day_trace',
-      rdns: 'rdns',
-      tags: 'tags',
-      torDayTrace: 'tor_day_trace',
-      totalDayCntTor: 'total_day_cnt_tor',
-      totalDayCntWebAttack: 'total_day_cnt_web_attack',
-      webAttackDayTrace: 'web_attack_day_trace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      c2DayTrace: 'string',
-      city: 'string',
-      country: 'string',
-      dayCnt30dTor: 'string',
-      dayCnt30dWebAttack: 'string',
-      dayCnt7dTor: 'string',
-      dayCnt7dWebAttack: 'string',
-      geo: 'string',
-      gmtFirstC2: 'string',
-      gmtFirstMiningPool: 'string',
-      gmtLastC2: 'string',
-      gmtLastMaliciousLogin: 'string',
-      gmtLastMaliciousSource: 'string',
-      gmtLastMiningPool: 'string',
-      gmtLastNat: 'string',
-      gmtLastProxy: 'string',
-      gmtLastTor: 'string',
-      gmtLastWebAttack: 'string',
-      idcName: 'string',
-      ip: 'string',
-      isC2: 'string',
-      isC21d: 'string',
-      isC27d: 'string',
-      isIdc: 'string',
-      isMaliciousLogin: 'string',
-      isMaliciousLogin1d: 'string',
-      isMaliciousLogin7d: 'string',
-      isMaliciousSource: 'string',
-      isMaliciousSource1d: 'string',
-      isMaliciousSource30d: 'string',
-      isMaliciousSource7d: 'string',
-      isMiningPool: 'string',
-      isMiningPool1d: 'string',
-      isMiningPool7d: 'string',
-      isNat: 'string',
-      isNat1d: 'string',
-      isNat7d: 'string',
-      isProxy: 'string',
-      isProxy1d: 'string',
-      isProxy7d: 'string',
-      isTor: 'string',
-      isTor1d: 'string',
-      isTor7d: 'string',
-      isWebAttack: 'string',
-      isWebAttack1d: 'string',
-      isWebAttack30d: 'string',
-      isWebAttack7d: 'string',
-      isp: 'string',
-      maliciousLoginDayTrace: 'string',
-      maliciousScore: 'string',
-      maliciousSourceDayTrace: 'string',
-      miningPoolDayTrace: 'string',
-      natDayTrace: 'string',
-      province: 'string',
-      proxyDayTrace: 'string',
-      rdns: 'string',
-      tags: 'string',
-      torDayTrace: 'string',
-      totalDayCntTor: 'string',
-      totalDayCntWebAttack: 'string',
-      webAttackDayTrace: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIpInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeIpInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeIpInfoResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeLogstoreStorageRequest extends $tea.Model {
   from?: string;
   lang?: string;
@@ -8911,72 +8665,6 @@ export class DescribeVersionConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeVersionConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVolDingdingMessageRequest extends $tea.Model {
-  lang?: string;
-  sourceIp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      lang: 'Lang',
-      sourceIp: 'SourceIp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      lang: 'string',
-      sourceIp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVolDingdingMessageResponseBody extends $tea.Model {
-  dingdingUrl?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dingdingUrl: 'DingdingUrl',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dingdingUrl: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeVolDingdingMessageResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: DescribeVolDingdingMessageResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: DescribeVolDingdingMessageResponseBody,
     };
   }
 
@@ -15347,6 +15035,7 @@ export class DescribeExposedStatisticsDetailResponseBodyStatisticsDetails extend
 
 export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model {
   aliYunInstanceCount?: number;
+  awsInstanceCount?: number;
   exposedInstanceCount?: number;
   generalAssetCount?: number;
   groupCount?: number;
@@ -15368,6 +15057,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   static names(): { [key: string]: string } {
     return {
       aliYunInstanceCount: 'AliYunInstanceCount',
+      awsInstanceCount: 'AwsInstanceCount',
       exposedInstanceCount: 'ExposedInstanceCount',
       generalAssetCount: 'GeneralAssetCount',
       groupCount: 'GroupCount',
@@ -15392,6 +15082,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       aliYunInstanceCount: 'number',
+      awsInstanceCount: 'number',
       exposedInstanceCount: 'number',
       generalAssetCount: 'number',
       groupCount: 'number',
@@ -16081,7 +15772,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntit
   fullVersion?: string;
   layer?: string;
   matchDetail?: string;
-  matchList?: string;
+  matchList?: string[];
   name?: string;
   path?: string;
   updateCmd?: string;
@@ -16104,7 +15795,7 @@ export class DescribeImageVulListResponseBodyVulRecordsExtendContentJsonRpmEntit
       fullVersion: 'string',
       layer: 'string',
       matchDetail: 'string',
-      matchList: 'string',
+      matchList: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       path: 'string',
       updateCmd: 'string',
@@ -22498,39 +22189,6 @@ export default class Client extends OpenApi {
     return await this.describeInstanceStatisticsWithOptions(request, runtime);
   }
 
-  async describeIpInfoWithOptions(request: DescribeIpInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeIpInfoResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.field)) {
-      query["Field"] = request.field;
-    }
-
-    if (!Util.isUnset(request.ip)) {
-      query["Ip"] = request.ip;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeIpInfo",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIpInfoResponse>(await this.callApi(params, req, runtime), new DescribeIpInfoResponse({}));
-  }
-
-  async describeIpInfo(request: DescribeIpInfoRequest): Promise<DescribeIpInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeIpInfoWithOptions(request, runtime);
-  }
-
   async describeLogstoreStorageWithOptions(request: DescribeLogstoreStorageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogstoreStorageResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24427,39 +24085,6 @@ export default class Client extends OpenApi {
   async describeVersionConfig(request: DescribeVersionConfigRequest): Promise<DescribeVersionConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVersionConfigWithOptions(request, runtime);
-  }
-
-  async describeVolDingdingMessageWithOptions(request: DescribeVolDingdingMessageRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVolDingdingMessageResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.lang)) {
-      query["Lang"] = request.lang;
-    }
-
-    if (!Util.isUnset(request.sourceIp)) {
-      query["SourceIp"] = request.sourceIp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeVolDingdingMessage",
-      version: "2018-12-03",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeVolDingdingMessageResponse>(await this.callApi(params, req, runtime), new DescribeVolDingdingMessageResponse({}));
-  }
-
-  async describeVolDingdingMessage(request: DescribeVolDingdingMessageRequest): Promise<DescribeVolDingdingMessageResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeVolDingdingMessageWithOptions(request, runtime);
   }
 
   async describeVpcHoneyPotCriteriaWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeVpcHoneyPotCriteriaResponse> {
