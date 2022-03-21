@@ -12187,12 +12187,14 @@ export class ListManualDagInstancesResponse extends $tea.Model {
 }
 
 export class ListMetaDBRequest extends $tea.Model {
+  clusterId?: string;
   dataSourceType?: string;
   pageNum?: number;
   pageSize?: number;
   projectId?: number;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       dataSourceType: 'DataSourceType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
@@ -12202,6 +12204,7 @@ export class ListMetaDBRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       dataSourceType: 'string',
       pageNum: 'number',
       pageSize: 'number',
@@ -17289,6 +17292,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   expectValue?: string;
   id?: number;
   methodName?: string;
+  openSwitch?: boolean;
   operator?: string;
   predictType?: number;
   projectName?: string;
@@ -17310,6 +17314,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       expectValue: 'ExpectValue',
       id: 'Id',
       methodName: 'MethodName',
+      openSwitch: 'OpenSwitch',
       operator: 'Operator',
       predictType: 'PredictType',
       projectName: 'ProjectName',
@@ -17334,6 +17339,7 @@ export class UpdateQualityRuleRequest extends $tea.Model {
       expectValue: 'string',
       id: 'number',
       methodName: 'string',
+      openSwitch: 'boolean',
       operator: 'string',
       predictType: 'number',
       projectName: 'string',
@@ -37633,6 +37639,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.methodName)) {
       body["MethodName"] = request.methodName;
+    }
+
+    if (!Util.isUnset(request.openSwitch)) {
+      body["OpenSwitch"] = request.openSwitch;
     }
 
     if (!Util.isUnset(request.operator)) {

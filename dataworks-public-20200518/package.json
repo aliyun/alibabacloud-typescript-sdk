@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dataworks-public20200518",
-  "version": "4.3.2",
+  "version": "4.3.3",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
