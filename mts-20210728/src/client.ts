@@ -158,87 +158,6 @@ export class QueryCopyrightExtractResponse extends $tea.Model {
   }
 }
 
-export class QueryImageCopyrightRequest extends $tea.Model {
-  createTimeEnd?: number;
-  createTimeStart?: number;
-  jobId?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      createTimeEnd: 'CreateTimeEnd',
-      createTimeStart: 'CreateTimeStart',
-      jobId: 'JobId',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      createTimeEnd: 'number',
-      createTimeStart: 'number',
-      jobId: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryImageCopyrightResponseBody extends $tea.Model {
-  data?: QueryImageCopyrightResponseBodyData[];
-  message?: string;
-  requestID?: string;
-  statusCode?: number;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      message: 'Message',
-      requestID: 'RequestID',
-      statusCode: 'StatusCode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: { 'type': 'array', 'itemType': QueryImageCopyrightResponseBodyData },
-      message: 'string',
-      requestID: 'string',
-      statusCode: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryImageCopyrightResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  body: QueryImageCopyrightResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      body: QueryImageCopyrightResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryTraceAbRequest extends $tea.Model {
   jobId?: string;
   mediaId?: string;
@@ -724,6 +643,7 @@ export class SubmitImageCopyrightResponse extends $tea.Model {
 
 export class SubmitTraceAbRequest extends $tea.Model {
   callBack?: string;
+  cipherBase64ed?: string;
   input?: string;
   level?: number;
   output?: string;
@@ -734,6 +654,7 @@ export class SubmitTraceAbRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       callBack: 'CallBack',
+      cipherBase64ed: 'CipherBase64ed',
       input: 'Input',
       level: 'Level',
       output: 'Output',
@@ -747,6 +668,7 @@ export class SubmitTraceAbRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       callBack: 'string',
+      cipherBase64ed: 'string',
       input: 'string',
       level: 'number',
       output: 'string',
@@ -1028,55 +950,6 @@ export class QueryCopyrightExtractResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       message: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class QueryImageCopyrightResponseBodyData extends $tea.Model {
-  gmtCreate?: number;
-  gmtModified?: number;
-  input?: string;
-  jobId?: string;
-  level?: number;
-  message?: string;
-  messageId?: number;
-  output?: string;
-  status?: string;
-  userData?: string;
-  userId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gmtCreate: 'GmtCreate',
-      gmtModified: 'GmtModified',
-      input: 'Input',
-      jobId: 'JobId',
-      level: 'Level',
-      message: 'Message',
-      messageId: 'MessageId',
-      output: 'Output',
-      status: 'Status',
-      userData: 'UserData',
-      userId: 'UserId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gmtCreate: 'number',
-      gmtModified: 'number',
-      input: 'string',
-      jobId: 'string',
-      level: 'number',
-      message: 'string',
-      messageId: 'number',
-      output: 'string',
-      status: 'string',
-      userData: 'string',
-      userId: 'number',
     };
   }
 
@@ -1468,53 +1341,6 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryCopyrightExtractResponse>(await this.callApi(params, req, runtime), new QueryCopyrightExtractResponse({}));
   }
 
-  async queryImageCopyright(request: QueryImageCopyrightRequest): Promise<QueryImageCopyrightResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.queryImageCopyrightWithOptions(request, headers, runtime);
-  }
-
-  async queryImageCopyrightWithOptions(request: QueryImageCopyrightRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryImageCopyrightResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.createTimeEnd)) {
-      body["CreateTimeEnd"] = request.createTimeEnd;
-    }
-
-    if (!Util.isUnset(request.createTimeStart)) {
-      body["CreateTimeStart"] = request.createTimeStart;
-    }
-
-    if (!Util.isUnset(request.jobId)) {
-      body["JobId"] = request.jobId;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "QueryImageCopyright",
-      version: "2021-07-28",
-      protocol: "HTTPS",
-      pathname: `/queryImageCopyright`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<QueryImageCopyrightResponse>(await this.callApi(params, req, runtime), new QueryImageCopyrightResponse({}));
-  }
-
   async queryTraceAb(request: QueryTraceAbRequest): Promise<QueryTraceAbResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -1804,6 +1630,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.callBack)) {
       body["CallBack"] = request.callBack;
+    }
+
+    if (!Util.isUnset(request.cipherBase64ed)) {
+      body["CipherBase64ed"] = request.cipherBase64ed;
     }
 
     if (!Util.isUnset(request.input)) {
