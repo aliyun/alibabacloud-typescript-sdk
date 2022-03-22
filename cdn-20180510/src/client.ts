@@ -10855,12 +10855,14 @@ export class PublishStagingConfigToProductionResponse extends $tea.Model {
 
 export class PushObjectCacheRequest extends $tea.Model {
   area?: string;
+  l2Preload?: boolean;
   objectPath?: string;
   ownerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
+      l2Preload: 'L2Preload',
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
       securityToken: 'SecurityToken',
@@ -10870,6 +10872,7 @@ export class PushObjectCacheRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       area: 'string',
+      l2Preload: 'boolean',
       objectPath: 'string',
       ownerId: 'number',
       securityToken: 'string',
@@ -23326,6 +23329,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.area)) {
       query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.l2Preload)) {
+      query["L2Preload"] = request.l2Preload;
     }
 
     if (!Util.isUnset(request.objectPath)) {
