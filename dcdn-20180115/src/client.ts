@@ -2920,6 +2920,93 @@ export class DescribeDcdnDomainBpsDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeDcdnDomainBpsDataByLayerRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ispNameEn?: string;
+  layer?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ispNameEn: 'IspNameEn',
+      layer: 'Layer',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ispNameEn: 'string',
+      layer: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainBpsDataByLayerResponseBody extends $tea.Model {
+  bpsDataInterval?: DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataInterval;
+  dataInterval?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bpsDataInterval: 'BpsDataInterval',
+      dataInterval: 'DataInterval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bpsDataInterval: DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataInterval,
+      dataInterval: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainBpsDataByLayerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnDomainBpsDataByLayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnDomainBpsDataByLayerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDomainByCertificateRequest extends $tea.Model {
   ownerId?: number;
   SSLPub?: string;
@@ -3530,6 +3617,93 @@ export class DescribeDcdnDomainHttpCodeDataResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDcdnDomainHttpCodeDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainHttpCodeDataByLayerRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ispNameEn?: string;
+  layer?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ispNameEn: 'IspNameEn',
+      layer: 'Layer',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ispNameEn: 'string',
+      layer: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainHttpCodeDataByLayerResponseBody extends $tea.Model {
+  dataInterval?: string;
+  httpCodeDataInterval?: DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      httpCodeDataInterval: 'HttpCodeDataInterval',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      httpCodeDataInterval: DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainHttpCodeDataByLayerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnDomainHttpCodeDataByLayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnDomainHttpCodeDataByLayerResponseBody,
     };
   }
 
@@ -4394,6 +4568,105 @@ export class DescribeDcdnDomainQpsDataResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       body: DescribeDcdnDomainQpsDataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainQpsDataByLayerRequest extends $tea.Model {
+  domainName?: string;
+  endTime?: string;
+  interval?: string;
+  ispNameEn?: string;
+  layer?: string;
+  locationNameEn?: string;
+  ownerId?: number;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      interval: 'Interval',
+      ispNameEn: 'IspNameEn',
+      layer: 'Layer',
+      locationNameEn: 'LocationNameEn',
+      ownerId: 'OwnerId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      endTime: 'string',
+      interval: 'string',
+      ispNameEn: 'string',
+      layer: 'string',
+      locationNameEn: 'string',
+      ownerId: 'number',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainQpsDataByLayerResponseBody extends $tea.Model {
+  dataInterval?: string;
+  domainName?: string;
+  endTime?: string;
+  layer?: string;
+  qpsDataInterval?: DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataInterval;
+  requestId?: string;
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataInterval: 'DataInterval',
+      domainName: 'DomainName',
+      endTime: 'EndTime',
+      layer: 'Layer',
+      qpsDataInterval: 'QpsDataInterval',
+      requestId: 'RequestId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataInterval: 'string',
+      domainName: 'string',
+      endTime: 'string',
+      layer: 'string',
+      qpsDataInterval: DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataInterval,
+      requestId: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainQpsDataByLayerResponse extends $tea.Model {
+  headers: { [key: string]: string };
+  body: DescribeDcdnDomainQpsDataByLayerResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      body: DescribeDcdnDomainQpsDataByLayerResponseBody,
     };
   }
 
@@ -10003,12 +10276,14 @@ export class OpenDcdnServiceResponse extends $tea.Model {
 
 export class PreloadDcdnObjectCachesRequest extends $tea.Model {
   area?: string;
+  l2Preload?: boolean;
   objectPath?: string;
   ownerId?: number;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       area: 'Area',
+      l2Preload: 'L2Preload',
       objectPath: 'ObjectPath',
       ownerId: 'OwnerId',
       securityToken: 'SecurityToken',
@@ -10018,6 +10293,7 @@ export class PreloadDcdnObjectCachesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       area: 'string',
+      l2Preload: 'boolean',
       objectPath: 'string',
       ownerId: 'number',
       securityToken: 'string',
@@ -12507,6 +12783,50 @@ export class DescribeDcdnDomainBpsDataResponseBodyBpsDataPerInterval extends $te
   }
 }
 
+export class DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $tea.Model {
+  timeStamp?: string;
+  trafficValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      trafficValue: 'TrafficValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      trafficValue: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataInterval extends $tea.Model {
+  dataModule?: DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDcdnDomainByCertificateResponseBodyCertInfosCertInfo extends $tea.Model {
   certCaIsLegacy?: string;
   certExpireTime?: string;
@@ -13029,6 +13349,50 @@ export class DescribeDcdnDomainHttpCodeDataResponseBodyDataPerInterval extends $
   static types(): { [key: string]: any } {
     return {
       dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainHttpCodeDataResponseBodyDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataIntervalDataModule extends $tea.Model {
+  timeStamp?: string;
+  totalValue?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      timeStamp: 'TimeStamp',
+      totalValue: 'TotalValue',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeStamp: 'string',
+      totalValue: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataInterval extends $tea.Model {
+  dataModule?: DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainHttpCodeDataByLayerResponseBodyHttpCodeDataIntervalDataModule },
     };
   }
 
@@ -13610,6 +13974,62 @@ export class DescribeDcdnDomainQpsDataResponseBodyQpsDataPerInterval extends $te
   static types(): { [key: string]: any } {
     return {
       dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainQpsDataResponseBodyQpsDataPerIntervalDataModule },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataIntervalDataModule extends $tea.Model {
+  accDomesticValue?: string;
+  accOverseasValue?: string;
+  accValue?: string;
+  domesticValue?: string;
+  overseasValue?: string;
+  timeStamp?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accDomesticValue: 'AccDomesticValue',
+      accOverseasValue: 'AccOverseasValue',
+      accValue: 'AccValue',
+      domesticValue: 'DomesticValue',
+      overseasValue: 'OverseasValue',
+      timeStamp: 'TimeStamp',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accDomesticValue: 'string',
+      accOverseasValue: 'string',
+      accValue: 'string',
+      domesticValue: 'string',
+      overseasValue: 'string',
+      timeStamp: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataInterval extends $tea.Model {
+  dataModule?: DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataIntervalDataModule[];
+  static names(): { [key: string]: string } {
+    return {
+      dataModule: 'DataModule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataModule: { 'type': 'array', 'itemType': DescribeDcdnDomainQpsDataByLayerResponseBodyQpsDataIntervalDataModule },
     };
   }
 
@@ -18357,6 +18777,63 @@ export default class Client extends OpenApi {
     return await this.describeDcdnDomainBpsDataWithOptions(request, runtime);
   }
 
+  async describeDcdnDomainBpsDataByLayerWithOptions(request: DescribeDcdnDomainBpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainBpsDataByLayerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainBpsDataByLayer",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainBpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainBpsDataByLayerResponse({}));
+  }
+
+  async describeDcdnDomainBpsDataByLayer(request: DescribeDcdnDomainBpsDataByLayerRequest): Promise<DescribeDcdnDomainBpsDataByLayerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainBpsDataByLayerWithOptions(request, runtime);
+  }
+
   async describeDcdnDomainByCertificateWithOptions(request: DescribeDcdnDomainByCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainByCertificateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18687,6 +19164,63 @@ export default class Client extends OpenApi {
   async describeDcdnDomainHttpCodeData(request: DescribeDcdnDomainHttpCodeDataRequest): Promise<DescribeDcdnDomainHttpCodeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainHttpCodeDataWithOptions(request, runtime);
+  }
+
+  async describeDcdnDomainHttpCodeDataByLayerWithOptions(request: DescribeDcdnDomainHttpCodeDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainHttpCodeDataByLayerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainHttpCodeDataByLayer",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainHttpCodeDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainHttpCodeDataByLayerResponse({}));
+  }
+
+  async describeDcdnDomainHttpCodeDataByLayer(request: DescribeDcdnDomainHttpCodeDataByLayerRequest): Promise<DescribeDcdnDomainHttpCodeDataByLayerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainHttpCodeDataByLayerWithOptions(request, runtime);
   }
 
   async describeDcdnDomainIpaBpsDataWithOptions(request: DescribeDcdnDomainIpaBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainIpaBpsDataResponse> {
@@ -19157,6 +19691,63 @@ export default class Client extends OpenApi {
   async describeDcdnDomainQpsData(request: DescribeDcdnDomainQpsDataRequest): Promise<DescribeDcdnDomainQpsDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDcdnDomainQpsDataWithOptions(request, runtime);
+  }
+
+  async describeDcdnDomainQpsDataByLayerWithOptions(request: DescribeDcdnDomainQpsDataByLayerRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainQpsDataByLayerResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!Util.isUnset(request.ispNameEn)) {
+      query["IspNameEn"] = request.ispNameEn;
+    }
+
+    if (!Util.isUnset(request.layer)) {
+      query["Layer"] = request.layer;
+    }
+
+    if (!Util.isUnset(request.locationNameEn)) {
+      query["LocationNameEn"] = request.locationNameEn;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeDcdnDomainQpsDataByLayer",
+      version: "2018-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeDcdnDomainQpsDataByLayerResponse>(await this.callApi(params, req, runtime), new DescribeDcdnDomainQpsDataByLayerResponse({}));
+  }
+
+  async describeDcdnDomainQpsDataByLayer(request: DescribeDcdnDomainQpsDataByLayerRequest): Promise<DescribeDcdnDomainQpsDataByLayerResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeDcdnDomainQpsDataByLayerWithOptions(request, runtime);
   }
 
   async describeDcdnDomainRealTimeBpsDataWithOptions(request: DescribeDcdnDomainRealTimeBpsDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeDcdnDomainRealTimeBpsDataResponse> {
@@ -21971,6 +22562,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.area)) {
       query["Area"] = request.area;
+    }
+
+    if (!Util.isUnset(request.l2Preload)) {
+      query["L2Preload"] = request.l2Preload;
     }
 
     if (!Util.isUnset(request.objectPath)) {
