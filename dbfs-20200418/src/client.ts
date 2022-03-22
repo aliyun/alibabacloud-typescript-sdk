@@ -2069,6 +2069,7 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
   snapshotType?: string;
   sourceFsId?: string;
   sourceFsSize?: number;
+  sourceFsStripeWidth?: number;
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2084,6 +2085,7 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
       snapshotType: 'SnapshotType',
       sourceFsId: 'SourceFsId',
       sourceFsSize: 'SourceFsSize',
+      sourceFsStripeWidth: 'SourceFsStripeWidth',
       status: 'Status',
     };
   }
@@ -2102,6 +2104,7 @@ export class ListSnapshotResponseBodySnapshots extends $tea.Model {
       snapshotType: 'string',
       sourceFsId: 'string',
       sourceFsSize: 'number',
+      sourceFsStripeWidth: 'number',
       status: 'string',
     };
   }
