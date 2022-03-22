@@ -833,12 +833,14 @@ export class CreateAppResponse extends $tea.Model {
 export class CreateBackendRequest extends $tea.Model {
   backendName?: string;
   backendType?: string;
+  createEventBridgeServiceLinkedRole?: boolean;
   description?: string;
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
       backendName: 'BackendName',
       backendType: 'BackendType',
+      createEventBridgeServiceLinkedRole: 'CreateEventBridgeServiceLinkedRole',
       description: 'Description',
       securityToken: 'SecurityToken',
     };
@@ -848,6 +850,7 @@ export class CreateBackendRequest extends $tea.Model {
     return {
       backendName: 'string',
       backendType: 'string',
+      createEventBridgeServiceLinkedRole: 'boolean',
       description: 'string',
       securityToken: 'string',
     };
@@ -11994,6 +11997,34 @@ export class DescribeApiResponseBodyResultDescriptions extends $tea.Model {
   }
 }
 
+export class DescribeApiResponseBodyServiceConfigEventBridgeConfig extends $tea.Model {
+  eventBridgeRegionId?: string;
+  eventBus?: string;
+  eventSource?: string;
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventBridgeRegionId: 'EventBridgeRegionId',
+      eventBus: 'EventBus',
+      eventSource: 'EventSource',
+      roleArn: 'RoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventBridgeRegionId: 'string',
+      eventBus: 'string',
+      eventSource: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiResponseBodyServiceConfigFunctionComputeConfig extends $tea.Model {
   contentTypeCatagory?: string;
   contentTypeValue?: string;
@@ -12150,6 +12181,7 @@ export class DescribeApiResponseBodyServiceConfig extends $tea.Model {
   aoneAppName?: string;
   contentTypeCatagory?: string;
   contentTypeValue?: string;
+  eventBridgeConfig?: DescribeApiResponseBodyServiceConfigEventBridgeConfig;
   functionComputeConfig?: DescribeApiResponseBodyServiceConfigFunctionComputeConfig;
   mock?: string;
   mockHeaders?: DescribeApiResponseBodyServiceConfigMockHeaders;
@@ -12168,6 +12200,7 @@ export class DescribeApiResponseBodyServiceConfig extends $tea.Model {
       aoneAppName: 'AoneAppName',
       contentTypeCatagory: 'ContentTypeCatagory',
       contentTypeValue: 'ContentTypeValue',
+      eventBridgeConfig: 'EventBridgeConfig',
       functionComputeConfig: 'FunctionComputeConfig',
       mock: 'Mock',
       mockHeaders: 'MockHeaders',
@@ -12189,6 +12222,7 @@ export class DescribeApiResponseBodyServiceConfig extends $tea.Model {
       aoneAppName: 'string',
       contentTypeCatagory: 'string',
       contentTypeValue: 'string',
+      eventBridgeConfig: DescribeApiResponseBodyServiceConfigEventBridgeConfig,
       functionComputeConfig: DescribeApiResponseBodyServiceConfigFunctionComputeConfig,
       mock: 'string',
       mockHeaders: DescribeApiResponseBodyServiceConfigMockHeaders,
@@ -13286,6 +13320,34 @@ export class DescribeApiHistoryResponseBodyResultDescriptions extends $tea.Model
   }
 }
 
+export class DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig extends $tea.Model {
+  eventBridgeRegionId?: string;
+  eventBus?: string;
+  eventSource?: string;
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventBridgeRegionId: 'EventBridgeRegionId',
+      eventBus: 'EventBus',
+      eventSource: 'EventSource',
+      roleArn: 'RoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventBridgeRegionId: 'string',
+      eventBus: 'string',
+      eventSource: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig extends $tea.Model {
   contentTypeCatagory?: string;
   contentTypeValue?: string;
@@ -13441,6 +13503,7 @@ export class DescribeApiHistoryResponseBodyServiceConfigVpcConfig extends $tea.M
 export class DescribeApiHistoryResponseBodyServiceConfig extends $tea.Model {
   contentTypeCatagory?: string;
   contentTypeValue?: string;
+  eventBridgeConfig?: DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig;
   functionComputeConfig?: DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig;
   mock?: string;
   mockHeaders?: DescribeApiHistoryResponseBodyServiceConfigMockHeaders;
@@ -13459,6 +13522,7 @@ export class DescribeApiHistoryResponseBodyServiceConfig extends $tea.Model {
     return {
       contentTypeCatagory: 'ContentTypeCatagory',
       contentTypeValue: 'ContentTypeValue',
+      eventBridgeConfig: 'EventBridgeConfig',
       functionComputeConfig: 'FunctionComputeConfig',
       mock: 'Mock',
       mockHeaders: 'MockHeaders',
@@ -13480,6 +13544,7 @@ export class DescribeApiHistoryResponseBodyServiceConfig extends $tea.Model {
     return {
       contentTypeCatagory: 'string',
       contentTypeValue: 'string',
+      eventBridgeConfig: DescribeApiHistoryResponseBodyServiceConfigEventBridgeConfig,
       functionComputeConfig: DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig,
       mock: 'string',
       mockHeaders: DescribeApiHistoryResponseBodyServiceConfigMockHeaders,
@@ -14701,6 +14766,34 @@ export class DescribeAuthorizedAppsResponseBodyAuthorizedApps extends $tea.Model
   }
 }
 
+export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig extends $tea.Model {
+  eventBridgeRegionId?: string;
+  eventBus?: string;
+  eventSource?: string;
+  roleArn?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventBridgeRegionId: 'EventBridgeRegionId',
+      eventBus: 'EventBus',
+      eventSource: 'EventSource',
+      roleArn: 'RoleArn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventBridgeRegionId: 'string',
+      eventBus: 'string',
+      eventSource: 'string',
+      roleArn: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig extends $tea.Model {
   fcBaseUrl?: string;
   fcRegionId?: string;
@@ -14798,6 +14891,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 }
 
 export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfig extends $tea.Model {
+  eventBridgeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig;
   functionComputeConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig;
   ossConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig;
   serviceAddress?: string;
@@ -14805,6 +14899,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
   vpcConfig?: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigVpcConfig;
   static names(): { [key: string]: string } {
     return {
+      eventBridgeConfig: 'EventBridgeConfig',
       functionComputeConfig: 'FunctionComputeConfig',
       ossConfig: 'OssConfig',
       serviceAddress: 'ServiceAddress',
@@ -14815,6 +14910,7 @@ export class DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfi
 
   static types(): { [key: string]: any } {
     return {
+      eventBridgeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigEventBridgeConfig,
       functionComputeConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigFunctionComputeConfig,
       ossConfig: DescribeBackendInfoResponseBodyBackendInfoBackendModelsBackendConfigOssConfig,
       serviceAddress: 'string',
@@ -18223,6 +18319,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.backendType)) {
       query["BackendType"] = request.backendType;
+    }
+
+    if (!Util.isUnset(request.createEventBridgeServiceLinkedRole)) {
+      query["CreateEventBridgeServiceLinkedRole"] = request.createEventBridgeServiceLinkedRole;
     }
 
     if (!Util.isUnset(request.description)) {
